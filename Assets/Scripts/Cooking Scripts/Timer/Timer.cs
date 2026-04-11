@@ -3,40 +3,34 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public Slider timerSlider;
-    public Text timerText;
-    public float timeRemaining;
-    private bool stopTimer;
+    public Slider TimerSlider;
+    public Text TimerText;
+    public float TimeRemaining;
+    private bool _stopTimer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        stopTimer = false;
-        timerSlider.maxValue = timeRemaining;
-        timerSlider.value = timeRemaining;
+        _stopTimer = false;
+        TimerSlider.maxValue = TimeRemaining;
+        TimerSlider.value = TimeRemaining;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        float time = timeRemaining - Time.time;
+        float time = TimeRemaining - Time.time;
         int minutes = Mathf.FloorToInt(time / 60);
         int seconds = Mathf.FloorToInt(time - minutes * 60f);
         string textTime = string.Format("{0:0}:{1:00}", minutes, seconds);
+
         if (time <= 0)
         {
-            stopTimer = true;
+            _stopTimer = true;
         }
-        if (stopTimer == false)
+        if (_stopTimer == false)
         {
-            timerText.text = textTime;
-            timerSlider.value = time;
+            TimerText.text = textTime;
+            TimerSlider.value = time;
         }
-
-        // if( onGrill )
-        // {
-        //     timeRemaining -= Time.deltaTime;
-        // }
-
-        // Debug.Log( (int) timeRemaining );
     }
 }
