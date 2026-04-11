@@ -148,9 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f5267f92f604d95acd7a85c7e90230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timer
-  timerSlider: {fileID: 482275776}
-  timerText: {fileID: 2096082916}
-  timeRemaining: 60
+  TimerSlider: {fileID: 482275776}
+  TimerText: {fileID: 2096082916}
+  TimeRemaining: 60
 --- !u!4 &72870050
 Transform:
   m_ObjectHideFlags: 0
