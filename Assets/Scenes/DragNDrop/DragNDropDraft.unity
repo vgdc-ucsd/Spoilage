@@ -245,7 +245,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -383,7 +383,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -521,7 +521,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 701100578}
   - component: {fileID: 701100577}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Stove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -777,11 +777,11 @@ Transform:
   m_GameObject: {fileID: 701100576}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2978, y: -2.4097, z: 0}
-  m_LocalScale: {x: 8.696599, y: 4.6615458, z: 1}
+  m_LocalPosition: {x: 8.530647, y: -6.2749557, z: 0}
+  m_LocalScale: {x: 8.949697, y: 4.7972107, z: 1.029103}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 866043881}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &866043879
 GameObject:
@@ -795,8 +795,8 @@ GameObject:
   - component: {fileID: 866043880}
   - component: {fileID: 866043882}
   m_Layer: 0
-  m_Name: Stove
-  m_TagString: Untagged
+  m_Name: StoveTops
+  m_TagString: StoveTop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -860,6 +860,7 @@ Transform:
   m_LocalScale: {x: 0.97172, y: 0.97172, z: 0.97172}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 701100579}
   - {fileID: 1221368067}
   - {fileID: 220780224}
   - {fileID: 312691281}
@@ -1004,7 +1005,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -1252,5 +1253,4 @@ SceneRoots:
   - {fileID: 866043881}
   - {fileID: 1793485607}
   - {fileID: 1654607332}
-  - {fileID: 701100579}
   - {fileID: 611114613}
