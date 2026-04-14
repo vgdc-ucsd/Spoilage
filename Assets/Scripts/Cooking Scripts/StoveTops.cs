@@ -13,4 +13,10 @@ public class StoveTops : MonoBehaviour
     {
         
     }
+
+    public void OnPlaceFood(FoodGrab food)
+    {
+        food.transform.position = transform.position;
+        Debug.Log("Food on Grill");
+    }
 }
