@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PatienceBar : MonoBehaviour
 {
+    // wowow
     private const float Urgent = 0.2f;
 
     [SerializeField] private Slider _slider;
