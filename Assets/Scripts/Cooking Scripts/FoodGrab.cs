@@ -28,8 +28,9 @@ public class FoodGrab : MonoBehaviour
     {
         //If not at stove top, revert back to original position
         //(Keep track of original position)
-        col.enabled = false;
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.5f);        col.enabled = true;
+        // col.enabled = false;
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.5f);
+        // col.enabled = true;
         foreach (Collider2D hit in hits)
         {
             StoveTops stoveTops = hit.GetComponentInParent<StoveTops>();
