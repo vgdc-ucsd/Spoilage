@@ -1,12 +1,5 @@
 ﻿public abstract class Ingredient
 {
-    public enum IngredientState
-    {
-        Raw,
-        Cooked,
-        Burnt,
-        Cut
-    }
 
     private readonly IngredientData _data;
 
@@ -30,7 +23,13 @@
         set => _currentState = value;
     }
 }
-
+public enum IngredientState
+{
+    Raw,
+    Cooked,
+    Burnt,
+    Cut
+}
 public sealed class Dough : Ingredient
 {
     public Dough(IngredientData data) : base(data)

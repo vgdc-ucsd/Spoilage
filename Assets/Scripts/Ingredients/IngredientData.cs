@@ -14,17 +14,6 @@ public sealed class IngredientData : ScriptableObject
 
     [SerializeField]
     private bool _isSpoiled;
-
-    public enum IngredientState
-    {
-        Raw,
-        Cooked,
-        Burnt,
-        Cut
-    }
-
-    [SerializeField]
-    private IngredientState _state = IngredientState.Raw;
     public string Name => _name;
     public bool NeedsCooking => _needsCooking;
     public int CookTime => _cookTime;
