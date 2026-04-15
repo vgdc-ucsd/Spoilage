@@ -1,30 +1,39 @@
-﻿using UnityEngine;
-
-public abstract class Ingredient
+﻿public abstract class Ingredient
 {
-    private string _name;
-    private bool _needsCooking;
-    private int _cookTime;
-    private bool _isSpoiled;
-
-    public Ingredient(string name, bool needsCooking, int cookTime, bool isSpoiled)
+    public enum IngredientState
     {
-        _name = name;
-        _needsCooking = needsCooking;
-        _cookTime = cookTime;
-        _isSpoiled = isSpoiled;
+        Raw,
+        Cooked,
+        Burnt,
+        Cut
     }
 
-    public string Name => _name;
-    public bool NeedsCooking => _needsCooking;
-    public int CookTime => _cookTime;
-    public bool isSpoiled => _isSpoiled;
+    private readonly IngredientData _data;
+
+    private IngredientState _currentState;
+    protected Ingredient(IngredientData data)
+    {
+        _data = data;
+        _currentState = IngredientState.Raw;
+    }
+
+    public Ingredient(IngredientData data, IngredientState initialState)
+    {
+        _data = data;
+        _currentState = initialState;
+    }
+
+    public IngredientData Data => _data;
+    public IngredientState CurrentState
+    {
+        get => _currentState;
+        set => _currentState = value;
+    }
 }
 
-public class Dough : Ingredient
+public sealed class Dough : Ingredient
 {
-    public Dough(string name, bool needsCooking, int cookTime, bool isSpoiled)
-        : base(name, needsCooking, cookTime, isSpoiled)
+    public Dough(IngredientData data) : base(data)
     {
     }
 }
