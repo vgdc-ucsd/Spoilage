@@ -10,12 +10,6 @@
         _currentState = IngredientState.Raw;
     }
 
-    public Ingredient(IngredientData data, IngredientState initialState)
-    {
-        _data = data;
-        _currentState = initialState;
-    }
-
     public IngredientData Data => _data;
     public IngredientState CurrentState
     {
