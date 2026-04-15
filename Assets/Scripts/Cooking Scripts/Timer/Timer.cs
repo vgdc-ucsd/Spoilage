@@ -18,15 +18,24 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        float time = TimeRemaining - Time.time;
+        TimeRemaining -= Time.deltaTime;
+        float time = TimeRemaining;
+
+        if (time < 0)
+        {
+            time = 0;
+        }
+
         int minutes = Mathf.FloorToInt(time / 60);
-        int seconds = Mathf.FloorToInt(time - minutes * 60f);
+        int seconds = Mathf.FloorToInt(time - (minutes * 60f));
         string textTime = string.Format("{0:0}:{1:00}", minutes, seconds);
 
-        if (time <= 0)
+        if (TimeRemaining <= 0)
         {
             _stopTimer = true;
+            TimeRemaining = 0;
         }
+        
         if (_stopTimer == false)
         {
             TimerText.text = textTime;
