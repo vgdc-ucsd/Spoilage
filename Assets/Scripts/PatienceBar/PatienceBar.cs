@@ -69,15 +69,30 @@ public class PatienceBar : MonoBehaviour
     }
 
     /// <summary>
-    /// Initializes the PatienceBar with the max and minimum values
+    /// Initializes the PatienceBar with the max and minimum values.
+    /// If patience is not given, will be set to max by default
     /// </summary>
-    /// <param name="minPatience">Max value for bar</param>
-    /// <param name="maxPatience">Min value for bar</param>
+    /// <param name="minPatience">Min value for bar</param>
+    /// <param name="maxPatience">Max value for bar</param>
     public void Init(float minPatience, float maxPatience)
     {
         _slider.maxValue = maxPatience;
         _slider.minValue = minPatience;
         _patience = maxPatience;
+    }
+
+    /// <summary>
+    /// Initializes the PatienceBar with the max and minimum values, then sets
+    /// patience to given value
+    /// </summary>
+    /// <param name="minPatience">Min value for bar</param>
+    /// <param name="maxPatience">Max value for bar</param>
+    /// <param name="patience">Starting patience value</param>
+    public void Init(float minPatience, float maxPatience, float patience)
+    {
+        _slider.maxValue = maxPatience;
+        _slider.minValue = minPatience;
+        _patience = patience;
     }
 
     /// <summary>
@@ -119,5 +134,60 @@ public class PatienceBar : MonoBehaviour
         float oldValue = _patience;
         _patience = patience;
         return oldValue;
+    }
+
+    /// <summary>
+    /// Getter for current patience value
+    /// </summary>
+    /// <returns>Patience as float</returns>
+    public float getPatience()
+    {
+        return _patience;
+    }
+
+    /// <summary>
+    /// Getter for max patience value
+    /// </summary>
+    /// <returns>Max as float</returns>
+    public float getPatienceMax()
+    {
+        return _slider.maxValue;
+    }
+
+    /// <summary>
+    /// Getter for min patience value
+    /// </summary>
+    /// <returns>Min as float</returns>
+    public float getPatienceMin()
+    {
+        return _slider.maxValue;
+    }
+
+    /// <summary>
+    /// Setter for max patience value
+    /// </summary>
+    /// <param name="max">float</param>
+    /// <exception cref="ArgumentOutOfRangeException">max should be > min</exception>
+    public void setPatienceMax(float max)
+    {
+        if (max <= _slider.minValue)
+        {
+            throw new ArgumentOutOfRangeException("Max should be greater than min");
+        }
+        _slider.maxValue = max;
+    }
+
+    /// <summary>
+    /// Setter for min patience value
+    /// </summary>
+    /// <param name="min">float</param>
+    /// <exception cref="ArgumentOutOfRangeException">max should be < min</exception>
+    public void setPatienceMin(float min)
+    {
+        if (min >= _slider.minValue)
+        {
+            throw new ArgumentOutOfRangeException("Min should be less than max");
+        }
+        _slider.maxValue = min;
     }
 }
