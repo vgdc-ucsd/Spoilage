@@ -89,7 +89,7 @@ crashlytics-build.properties
 !/[Aa]ssets/Editor Default Resources/FMOD/*
 
 # Ignore the Cache folder since it is updated locally.
-/[Aa]ssets/Audio/FMOD/Cache/*
+/[Aa]ssets/Audio/FMOD/Cache/**
 
 # Ignore bank files in the StreamingAssets folder.
 /[Aa]ssets/StreamingAssets/**/*.bank
