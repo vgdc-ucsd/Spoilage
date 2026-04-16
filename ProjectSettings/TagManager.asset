@@ -4,6 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - StoveTop
+  - FoodItem
   - LogicManager
   layers:
   - Default
