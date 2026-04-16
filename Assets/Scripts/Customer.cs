@@ -2,29 +2,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;   
 
-[System.Serializable]
 public class Customer
 {
     public CustomerData customerData;
     public int spoilage;
-
-}
-
-public class CustomerData
-{
-    public List<GameObject> sprites;
-    public List<string> dialogues;
     
-
-    // Task for Sprint 1
-    private void GenerateSprite()
+    public void InstantiateCustomer()
     {
-        // Choose a random sprite from the asset folder
-        // Determine sprite position and scale
-    }
-
-    private void GetDialogue()
-    {
-        throw new NotImplementedException();
+        GameObject customerObject = new GameObject("Customer");
+        for (int i = 0; i < CustomerData.NUM_SPRITES; i++)
+        {
+            GameObject newSprite = new GameObject("Customer Sprite " + i);
+            SpriteRenderer renderer = newSprite.AddComponent<SpriteRenderer>();
+            renderer.sprite = customerData.sprites[i];
+            newSprite.transform.position = customerData.spriteOffsets[i];
+            newSprite.transform.SetParent(customerObject.transform);
+        }
     }
 }
