@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
   m_Name: IngredientData
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  _name: 
-  _needsCooking: 0
-  _cookTime: 0
+  _name: Dough
+  _needsCooking: 1
+  _cookTime: 5
   _isSpoiled: 0
+  _rawSprite: {fileID: 1519311369887206866, guid: 09e1813cefcff4528b673afc31a0d646, type: 3}
+  _cookedSprite: {fileID: -7895663316674751650, guid: ba0b650f75a614dc09b9ac09489bccef, type: 3}
+  _burntSprite: {fileID: -7961885064517468442, guid: c2526085c08d447c4b61dcf000c96127, type: 3}

@@ -45,7 +45,7 @@ public class StoveTops : MonoBehaviour
         if (_timer.IsFinished())
         {
             FinishCooking();
-            UpdateCookedFoodSprite();
+            //UpdateCookedFoodSprite();
         }
 
     }
@@ -57,7 +57,7 @@ public class StoveTops : MonoBehaviour
         Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Cooked!");
     }
 
-    private void UpdateCookedFoodSprite()
+    /*private void UpdateCookedFoodSprite()
     {
         SpriteRenderer foodRenderer = _currentFood.GetComponent<SpriteRenderer>();
 
@@ -68,6 +68,6 @@ public class StoveTops : MonoBehaviour
             foodRenderer.sprite = cookedArt;
             Debug.Log("Sprite updated to Cooked!");
         }
-    }
+    }*/
 
 }

@@ -14,11 +14,21 @@ public sealed class IngredientData : ScriptableObject
 
     [SerializeField]
     private bool _isSpoiled;
+
+    [SerializeField]
+    private Sprite _rawSprite;
+    [SerializeField]
+    private Sprite _cookedSprite;
+    [SerializeField]
+    private Sprite _burntSprite;
+
     public string Name => _name;
     public bool NeedsCooking => _needsCooking;
     public int CookTime => _cookTime;
     public bool IsSpoiled => _isSpoiled;
-    public Sprite RawSprite, CookedSprite, BurntSprite;
+    public Sprite RawSprite => _rawSprite;
+    public Sprite CookedSprite => _cookedSprite;
+    public Sprite BurntSprite => _burntSprite;
 
 
 }
