@@ -18,6 +18,7 @@ public sealed class IngredientData : ScriptableObject
     public bool NeedsCooking => _needsCooking;
     public int CookTime => _cookTime;
     public bool IsSpoiled => _isSpoiled;
+    public Sprite RawSprite, CookedSprite, BurntSprite;
 
 
 }

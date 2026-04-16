@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class FoodGrab : MonoBehaviour
 {
-    private Collider2D col;
-    [SerializeField] private Transform homeSpot;
+    private Collider2D _col;
+    [SerializeField] private Transform _homeSpot;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        col = GetComponent<Collider2D>();
+        _col = GetComponent<Collider2D>();
         
     }
 
@@ -28,23 +28,24 @@ public class FoodGrab : MonoBehaviour
     {
         //If not at stove top, revert back to original position
         //(Keep track of original position)
-        // col.enabled = false;
+        // _col.enabled = false;
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.5f);
-        // col.enabled = true;
+        // _col.enabled = true;
         foreach (Collider2D hit in hits)
         {
-            StoveTops stoveTops = hit.GetComponentInParent<StoveTops>();
+            StoveTops stove = hit.GetComponentInParent<StoveTops>();
 
             if (hit.gameObject.name.Contains("StoveTop"))
             {
                 transform.position = hit.transform.position;
                 Debug.Log("Snapped to: " + hit.name);
+                stove.OnPlaceFood(this);
                 return;
             }
         }
-        if (homeSpot != null)
+        if (_homeSpot != null)
         {
-            transform.position = homeSpot.position;
+            transform.position = _homeSpot.position;
         }
         
     }
