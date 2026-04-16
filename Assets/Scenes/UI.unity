@@ -816,9 +816,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 886887559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72b922c2bcdef45f5be055304263c9da, type: 3}
+  m_Script: {fileID: 11500000, guid: a71ad1a3dcfce5a439d231d5ed69febf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
+  PauseUI: {fileID: 0}
+  SettingsScreen: {fileID: 0}
   _returnToMainMenu: {fileID: 624980986}
 --- !u!4 &886887561
 Transform:
