@@ -579,6 +579,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _slider: {fileID: 230135920}
+  PatienceExpired:
+    m_PersistentCalls:
+      m_Calls: []
+  PatienceIsUrgent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &679362067
 Transform:
   m_ObjectHideFlags: 0
