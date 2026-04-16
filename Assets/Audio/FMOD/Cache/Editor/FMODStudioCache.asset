@@ -188,7 +188,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 143293701694791366}
   cacheVersion: 131858
-  cacheTime: 639109145103758386
+  cacheTime: 639110986832282983
   SerializableEventsDict:
   - key: event:/Mouse Click
     index: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
   Path: Assets/Audio/Banks/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639109145103758386
+  lastModified: 639110986832282983
   FileSizes:
   - Name: 
     Value: 834
@@ -303,6 +303,6 @@ MonoBehaviour:
   Path: Assets/Audio/Banks/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639109145103748403
+  lastModified: 639110986832281899
   FileSizes: []
   Exists: 1
