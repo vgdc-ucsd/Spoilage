@@ -385,7 +385,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   anim: {fileID: 2030108283}
-  logicManager: {fileID: 2138626804}
+  buttonPress:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &2030108287
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -441,27 +443,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2138626805}
-  - component: {fileID: 2138626804}
+  - component: {fileID: 2138626806}
   m_Layer: 0
-  m_Name: LogicManager
-  m_TagString: Untagged
+  m_Name: Logic Manager
+  m_TagString: LogicManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2138626804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138626803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e4a6e54ebd449418a85dc0bc2a4cd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LogicManager
-  button: {fileID: 2030108282}
 --- !u!4 &2138626805
 Transform:
   m_ObjectHideFlags: 0
@@ -477,6 +466,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2138626806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138626803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e4a6e54ebd449418a85dc0bc2a4cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TestScript
+  button: {fileID: 2030108282}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
