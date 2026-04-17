@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "CustomerData", menuName = "ScriptableObjects/CustomerData", order = 1)]
 public class CustomerData : ScriptableObject
 {
     public const int NUM_SPRITES = 11;
@@ -24,10 +25,10 @@ public class CustomerData : ScriptableObject
         SPOILAGE_BACK
         // etc.
     }
-    
+
     public Sprite[] sprites;
     //public Vector3[] spriteOffsets;
-    public Spoilage spoilage; 
+    public Spoilage spoilage;
     public float patience;
 
 

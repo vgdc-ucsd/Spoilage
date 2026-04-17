@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: d65729e241943944e9bfebc18c2857d9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5747584448731327647
+    second: base277_hairTop_A_0
+  - first:
+      213: -2873352370765790564
+    second: base277_hairTop_A_1
+  - first:
+      213: -1870575922139093556
+    second: base277_hairTop_A_2
+  - first:
+      213: -6965243569084845132
+    second: base277_hairTop_A_3
+  - first:
+      213: -1141817111017372672
+    second: base277_hairTop_A_4
+  - first:
+      213: -2465565078771399693
+    second: base277_hairTop_A_5
+  - first:
+      213: -4587326684626671745
+    second: base277_hairTop_A_6
+  - first:
+      213: 4332436722202108052
+    second: base277_hairTop_A_7
+  - first:
+      213: -7907185734606591760
+    second: base277_hairTop_A_8
+  - first:
+      213: 7295825479400513925
+    second: base277_hairTop_A_9
+  - first:
+      213: 6310704721443082600
+    second: base277_hairTop_A_10
+  - first:
+      213: -2744269685313790900
+    second: base277_hairTop_A_11
+  - first:
+      213: 6651679491496956236
+    second: base277_hairTop_A_12
+  - first:
+      213: 2638834330208380180
+    second: base277_hairTop_A_13
+  - first:
+      213: -2692085530185802084
+    second: base277_hairTop_A_14
+  - first:
+      213: -4578959175505848498
+    second: base277_hairTop_A_15
+  - first:
+      213: -3121008733154043803
+    second: base277_hairTop_A_16
+  - first:
+      213: -3597834929352676677
+    second: base277_hairTop_A_17
+  - first:
+      213: -5712282988454800118
+    second: base277_hairTop_A_18
+  - first:
+      213: 6705011670234695950
+    second: base277_hairTop_A_19
+  - first:
+      213: 2128515495014451472
+    second: base277_hairTop_A_20
+  - first:
+      213: -7098636000396070324
+    second: base277_hairTop_A_21
+  - first:
+      213: -7243504484903204189
+    second: base277_hairTop_A_22
+  - first:
+      213: -4287772310627386647
+    second: base277_hairTop_A_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: base277_hairTop_A_0
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 889
+        width: 398
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1635fc8556a7c30b0800000000000000
+      internalID: -5747584448731327647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_1
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 868
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c928af11e3dcf18d0800000000000000
+      internalID: -2873352370765790564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_2
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 860
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc5208b0c116a06e0800000000000000
+      internalID: -1870575922139093556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_3
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 863
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b3bf9a90eb765f90800000000000000
+      internalID: -6965243569084845132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_4
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 801
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 004c85b13637720f0800000000000000
+      internalID: -1141817111017372672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_5
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 806
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f3093dbf9d88cdd0800000000000000
+      internalID: -2465565078771399693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_6
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 832
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f77282e5faa8650c0800000000000000
+      internalID: -4587326684626671745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_7
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 795
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 490e6be9e38ef1c30800000000000000
+      internalID: 4332436722202108052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_8
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 787
+        width: 28
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f8ecbbe778044290800000000000000
+      internalID: -7907185734606591760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_9
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 791
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58169ea5e9aff3560800000000000000
+      internalID: 7295825479400513925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_10
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 792
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 861def33280249750800000000000000
+      internalID: 6310704721443082600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_11
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 778
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4c9ffec2456ae9d0800000000000000
+      internalID: -2744269685313790900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_12
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 761
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c415d6261438f4c50800000000000000
+      internalID: 6651679491496956236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_13
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 777
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4152d2997d50f9420800000000000000
+      internalID: 2638834330208380180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_14
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 764
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9e5e4c397ac3aad0800000000000000
+      internalID: -2692085530185802084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_15
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 768
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4755f6e3e44470c0800000000000000
+      internalID: -4578959175505848498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_16
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 755
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 568167fc713ffa4d0800000000000000
+      internalID: -3121008733154043803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_17
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 743
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbae073a13ce11ec0800000000000000
+      internalID: -3597834929352676677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_18
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 751
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0515a013e4e9b0b0800000000000000
+      internalID: -5712282988454800118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_19
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 754
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e090033e69cfc0d50800000000000000
+      internalID: 6705011670234695950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_20
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 718
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 019404bb0910a8d10800000000000000
+      internalID: 2128515495014451472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_21
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 717
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c42b796fa249c7d90800000000000000
+      internalID: -7098636000396070324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_22
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 711
+        width: 14
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa45687c07e97b90800000000000000
+      internalID: -7243504484903204189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base277_hairTop_A_23
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 712
+        width: 37
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ea7c431dc5ce74c0800000000000000
+      internalID: -4287772310627386647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      base277_hairTop_A_0: -5747584448731327647
+      base277_hairTop_A_1: -2873352370765790564
+      base277_hairTop_A_10: 6310704721443082600
+      base277_hairTop_A_11: -2744269685313790900
+      base277_hairTop_A_12: 6651679491496956236
+      base277_hairTop_A_13: 2638834330208380180
+      base277_hairTop_A_14: -2692085530185802084
+      base277_hairTop_A_15: -4578959175505848498
+      base277_hairTop_A_16: -3121008733154043803
+      base277_hairTop_A_17: -3597834929352676677
+      base277_hairTop_A_18: -5712282988454800118
+      base277_hairTop_A_19: 6705011670234695950
+      base277_hairTop_A_2: -1870575922139093556
+      base277_hairTop_A_20: 2128515495014451472
+      base277_hairTop_A_21: -7098636000396070324
+      base277_hairTop_A_22: -7243504484903204189
+      base277_hairTop_A_23: -4287772310627386647
+      base277_hairTop_A_3: -6965243569084845132
+      base277_hairTop_A_4: -1141817111017372672
+      base277_hairTop_A_5: -2465565078771399693
+      base277_hairTop_A_6: -4587326684626671745
+      base277_hairTop_A_7: 4332436722202108052
+      base277_hairTop_A_8: -7907185734606591760
+      base277_hairTop_A_9: 7295825479400513925
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

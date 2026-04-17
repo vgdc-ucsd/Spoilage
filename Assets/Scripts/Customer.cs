@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System;   
+using System;
 
 public class Customer
 {
@@ -19,7 +19,7 @@ public class Customer
             GameObject newSprite = new GameObject("Customer Sprite " + i);
             SpriteRenderer renderer = newSprite.AddComponent<SpriteRenderer>();
             renderer.sprite = customerData.sprites[i];
-            newSprite.transform.position = customerData.spriteOffsets[i];
+            //newSprite.transform.position = customerData.spriteOffsets[i];
             newSprite.transform.SetParent(customerObject.transform);
         }
     }
