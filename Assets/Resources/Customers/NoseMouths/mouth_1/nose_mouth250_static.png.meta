@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
 guid: 2d3133aaaf83cd54cbf6d0aacd0998d9
 TextureImporter:
   internalIDToNameTable:
@@ -26,6 +27,35 @@ TextureImporter:
   - first:
       213: -191141772052780395
     second: nose_mouth250_static (1)_7
+=======
+guid: cabe6f7405329af46a8738c1fd651b28
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4348866698213951959
+    second: nose_mouth250_static_0
+  - first:
+      213: -3862765948862560618
+    second: nose_mouth250_static_1
+  - first:
+      213: 1698191482994824122
+    second: nose_mouth250_static_2
+  - first:
+      213: -4755728523758290927
+    second: nose_mouth250_static_3
+  - first:
+      213: 6140220421301880517
+    second: nose_mouth250_static_4
+  - first:
+      213: -1415720425600630270
+    second: nose_mouth250_static_5
+  - first:
+      213: 7852531561165544091
+    second: nose_mouth250_static_6
+  - first:
+      213: 5734668691123890540
+    second: nose_mouth250_static_7
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -67,7 +97,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
   spriteMode: 1
+=======
+  spriteMode: 2
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -117,6 +151,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
   - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
@@ -143,11 +178,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+=======
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       name: nose_mouth250_static (1)_0
+=======
+      name: nose_mouth250_static_0
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       rect:
         serializedVersion: 2
         x: 67
@@ -162,14 +203,23 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       spriteID: f5fe80e3914312d50800000000000000
       internalID: 6710702202778349407
+=======
+      spriteID: 9267e6d77c8b5a3c0800000000000000
+      internalID: -4348866698213951959
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       name: nose_mouth250_static (1)_1
+=======
+      name: nose_mouth250_static_1
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       rect:
         serializedVersion: 2
         x: 78
@@ -184,14 +234,23 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       spriteID: cf43e1d4a5bb4c1a0800000000000000
       internalID: -6790096341652589316
+=======
+      spriteID: 6968297d5d2b46ac0800000000000000
+      internalID: -3862765948862560618
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       name: nose_mouth250_static (1)_2
+=======
+      name: nose_mouth250_static_2
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       rect:
         serializedVersion: 2
         x: 84
@@ -206,14 +265,23 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       spriteID: d7559ba3ab60a2e70800000000000000
       internalID: 9091086194719675773
+=======
+      spriteID: ab310880820319710800000000000000
+      internalID: 1698191482994824122
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       name: nose_mouth250_static (1)_3
+=======
+      name: nose_mouth250_static_3
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       rect:
         serializedVersion: 2
         x: 52
@@ -228,14 +296,23 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       spriteID: 43253d755f3bcdc40800000000000000
       internalID: 5538499508080693812
+=======
+      spriteID: 118b135ca12400eb0800000000000000
+      internalID: -4755728523758290927
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       name: nose_mouth250_static (1)_4
+=======
+      name: nose_mouth250_static_4
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       rect:
         serializedVersion: 2
         x: 13
@@ -250,14 +327,23 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       spriteID: 8f5ba3a4859d02680800000000000000
       internalID: -8781780300146756104
+=======
+      spriteID: 5c64c4ed0f1763550800000000000000
+      internalID: 6140220421301880517
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       name: nose_mouth250_static (1)_5
+=======
+      name: nose_mouth250_static_5
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       rect:
         serializedVersion: 2
         x: 34
@@ -272,14 +358,23 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       spriteID: cdbd3f50d4cb96480800000000000000
       internalID: -8905379749150073892
+=======
+      spriteID: 2024fc216c95a5ce0800000000000000
+      internalID: -1415720425600630270
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       name: nose_mouth250_static (1)_6
+=======
+      name: nose_mouth250_static_6
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       rect:
         serializedVersion: 2
         x: 133
@@ -294,14 +389,23 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       spriteID: 15541fe3d03d227b0800000000000000
       internalID: -5250402161716542127
+=======
+      spriteID: b9ad0d2b9dbc9fc60800000000000000
+      internalID: 7852531561165544091
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       name: nose_mouth250_static (1)_7
+=======
+      name: nose_mouth250_static_7
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       rect:
         serializedVersion: 2
         x: 62
@@ -316,8 +420,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       spriteID: 59a2e0f229de85df0800000000000000
       internalID: -191141772052780395
+=======
+      spriteID: c696efe7ac2a59f40800000000000000
+      internalID: 5734668691123890540
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       vertices: []
       indices: 
       edges: []
@@ -326,7 +435,11 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
     spriteID: 5e97eb03825dee720800000000000000
+=======
+    spriteID: 
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
     internalID: 0
     vertices: []
     indices: 
@@ -336,6 +449,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+<<<<<<< HEAD:Assets/Resources/Characters/NoseMouths/mouth_1/nose_mouth250_static.png.meta
       nose_mouth250_static (1)_0: 6710702202778349407
       nose_mouth250_static (1)_1: -6790096341652589316
       nose_mouth250_static (1)_2: 9091086194719675773
@@ -344,6 +458,16 @@ TextureImporter:
       nose_mouth250_static (1)_5: -8905379749150073892
       nose_mouth250_static (1)_6: -5250402161716542127
       nose_mouth250_static (1)_7: -191141772052780395
+=======
+      nose_mouth250_static_0: -4348866698213951959
+      nose_mouth250_static_1: -3862765948862560618
+      nose_mouth250_static_2: 1698191482994824122
+      nose_mouth250_static_3: -4755728523758290927
+      nose_mouth250_static_4: 6140220421301880517
+      nose_mouth250_static_5: -1415720425600630270
+      nose_mouth250_static_6: 7852531561165544091
+      nose_mouth250_static_7: 5734668691123890540
+>>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/NoseMouths/mouth_1/nose_mouth250_static.png.meta
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
