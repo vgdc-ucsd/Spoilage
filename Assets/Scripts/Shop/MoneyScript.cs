@@ -1,5 +1,5 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MoneyScript : MonoBehaviour
 {
@@ -8,7 +8,8 @@ public class MoneyScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gameState.moneyText = gameObject.GetComponent<Text>();
+        gameState.moneyText = gameObject.GetComponent<TextMeshProUGUI>();
+        Debug.Log(gameState.moneyText);
     }
 
     // Update is called once per frame

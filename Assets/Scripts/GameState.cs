@@ -1,11 +1,12 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "GameState", menuName = "Scriptable Objects/GameState")]
 public class GameState : ScriptableObject
 {
-  public Text moneyText;
+  public TextMeshProUGUI moneyText;
 
+  [SerializeField]
   private int _money;
 
   public int Money
@@ -21,5 +22,10 @@ public class GameState : ScriptableObject
   private void UpdateUI()
   {
     moneyText.text = "$" + Money.ToString();
+  }
+
+  private void OnValidate()
+  {
+    UpdateUI();
   }
 }
