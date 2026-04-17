@@ -6,6 +6,7 @@ TagManager:
   tags:
   - StoveTop
   - FoodItem
+  - LogicManager
   layers:
   - Default
   - TransparentFX
