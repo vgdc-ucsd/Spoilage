@@ -4,11 +4,21 @@ using UnityEngine.Events;
 using UnityEngine.Rendering.Universal.Internal;
 using UnityEngine.UI;
 
+/// <summary>
+/// Visual element displaying the current patience level of the customer. Bar 
+/// can have its minimum and maximum value adjusted depending on the customer 
+/// using the Init method as well as dedicated setter methods for the max and 
+/// min. The current patience value may also be adjusted. Patience decays at a
+/// constant rate and is activated with the beginDecay method and can be stopped
+/// with stopDecay. PatienceBar contains two UnityEvents for when the patience
+/// reaches below a certain threshold (PatienceIsUrgent) to be considered 
+/// "urgent" as well as an event (PatienceExpired) for when patience reaches 0.
+/// </summary>
 public class PatienceBar : MonoBehaviour
 {
     // wowow
     // Threshold for warning, currently arbitrary
-    private const float Urgent = 0.2f;
+    private const float UrgentDefault = 0.2f;
     [SerializeField] private Slider _slider;
     private bool _isUrgent;
     private bool _isDecaying;
@@ -25,8 +35,6 @@ public class PatienceBar : MonoBehaviour
     {
         PatienceExpired ??= new UnityEvent();
         PatienceIsUrgent ??= new UnityEvent();
-        _patience = _slider.maxValue;
-        beginDecay(5, 0.5f);
     }
 
     // Update is called once per frame
@@ -51,7 +59,7 @@ public class PatienceBar : MonoBehaviour
         _slider.value = _patience;
 
         // if bar is below threshold make urgent
-        if (_slider.normalizedValue <= Urgent && !_isUrgent)
+        if (_slider.normalizedValue <= UrgentDefault && !_isUrgent)
         {
             _isUrgent = true;
             // this line will probably change once they decide what its gonna be
@@ -60,7 +68,7 @@ public class PatienceBar : MonoBehaviour
         }
 
         // removes urgent status if above threshold
-        if (_slider.normalizedValue > Urgent && _isUrgent)
+        if (_slider.normalizedValue > UrgentDefault && _isUrgent)
         {
             _isUrgent = false;
             // this line will probably change once they decide what its gonna be
