@@ -6,10 +6,14 @@ public class MoneyScript : MonoBehaviour
     public GameState gameState;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         gameState.moneyText = gameObject.GetComponent<TextMeshProUGUI>();
-        Debug.Log(gameState.moneyText);
+    }
+
+    void Start()
+    {
+        gameState.Money = gameState.Money;
     }
 
     // Update is called once per frame
