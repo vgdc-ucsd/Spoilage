@@ -23,9 +23,9 @@ public class CustomerManager : MonoBehaviour
     {
         CustomerData newData = new CustomerData
         {
-            spoilage = UnityEngine.Random.Range(0, 2),
+            spoilage = (CustomerData.Spoilage) UnityEngine.Random.Range(0, 2),
             sprites = new Sprite[CustomerData.NUM_SPRITES],
-            spriteOffsets = new Vector3[CustomerData.NUM_SPRITES]
+            patience = UnityEngine.Random.Range(0f, 1f) // TODO, talk to design
         };
 
         string eyesPath = getRandomElement(Directory.GetFiles(EYES_PATH));

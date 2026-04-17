@@ -15,9 +15,15 @@ public class CustomerData : ScriptableObject
     public const int SPOILAGE_FRONT_IDX = 7;
     public const int SPOILAGE_BACK_IDX = 8;
     */
+    public enum Spoilage
+    {
+        NOT,
+        SLIGHTLY,
+        VERY
+    }
     public enum Indexes
     {
-        BODY = 0,
+        BODY,
         HAIR_FRONT,
         HAIR_BACK,
         HAIR_SHADOW,
@@ -30,6 +36,9 @@ public class CustomerData : ScriptableObject
     }
     
     public Sprite[] sprites;
-    public Vector3[] spriteOffsets;
-    public int spoilage; 
+    //public Vector3[] spriteOffsets;
+    public Spoilage spoilage; 
+    public float patience;
+
+
 }
