@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Pot : MonoBehaviour
+public class Pot : CookingAppliance
 {
     [SerializeField] private Timer _timer;
 
@@ -13,7 +13,7 @@ public class Pot : MonoBehaviour
         
     }
 
-    public void OnPlaceFood(FoodGrab food)
+    public override void OnPlaceFood(FoodGrab food)
     {
         _currentFood = food.GetComponent<IngredientObject>();
 
@@ -55,7 +55,7 @@ public class Pot : MonoBehaviour
         
     }
 
-    public void OnRemoveFood()
+    public override void OnRemoveFood()
     {
         if (_isCooking)
         {
