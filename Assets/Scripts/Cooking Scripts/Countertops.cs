@@ -8,7 +8,6 @@ public class Countertops : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -19,7 +18,6 @@ public class Countertops : MonoBehaviour
         if (_timer.IsFinished())
         {
             FinishSpoiling();
-            //UpdateCookedFoodSprite();
         }
     }
 
@@ -58,7 +56,7 @@ public class Countertops : MonoBehaviour
     public void SpoilFood()
     {
         _isSpoiling = true;
-        // _currentFood.IngredientInstance.CurrentState = IngredientState.Raw;
+        _currentFood.IngredientInstance.Data.IsSpoiled = false;
         _timer.StartTimer(_currentFood.IngredientInstance.Data.SpoilTime);
         Debug.Log("Started spoiling");
     }
@@ -77,7 +75,7 @@ public class Countertops : MonoBehaviour
     private void FinishSpoiling()
     {
         _isSpoiling = false;
-        _currentFood.IngredientInstance.Data.setIsSpoiled(true);
+        _currentFood.IngredientInstance.Data.IsSpoiled = true;
         Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Spoiled :(");
     }
 }

@@ -82,6 +82,7 @@ public class FoodGrab : MonoBehaviour
         {
             transform.position = _homeSpot.position;
             _activeStove = null;
+            _activeCountertop = null;
         }
         
     }
