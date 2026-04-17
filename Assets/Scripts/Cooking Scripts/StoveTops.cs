@@ -25,7 +25,7 @@ public class StoveTops : MonoBehaviour
 
         Debug.Log("Food on Grill");
 
-        if (_currentFood.IngredientInstance.CurrentState == IngredientState.Cooked)
+        if (_currentFood.IngredientInstance.CurrentState == CookState.Cooked)
         {
             Debug.Log("Food is already cooked");
             return; 
@@ -49,7 +49,7 @@ public class StoveTops : MonoBehaviour
     {
 
         _isCooking = true;
-        _currentFood.IngredientInstance.CurrentState = IngredientState.Raw;
+        _currentFood.IngredientInstance.CurrentState = CookState.Raw;
         _timer.StartTimer(_currentFood.IngredientInstance.Data.CookTime);
         Debug.Log("Started cooking");
         
@@ -81,7 +81,7 @@ public class StoveTops : MonoBehaviour
     private void FinishCooking()
     {
         _isCooking = false;
-        _currentFood.IngredientInstance.CurrentState = IngredientState.Cooked;
+        _currentFood.IngredientInstance.CurrentState = CookState.Cooked;
         Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Cooked!");
     }
 
