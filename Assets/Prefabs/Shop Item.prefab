@@ -151,6 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209010c899b7d3760bcae497334117e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  hoverCursor: {fileID: 0}
+  hoverCursor: {fileID: 2800000, guid: fed0f8bb5b9f0da57afe6081d39a0e0a, type: 3}
   gameState: {fileID: 11400000, guid: 608902830e3c4d557b981db05b25feeb, type: 2}
   price: 10
