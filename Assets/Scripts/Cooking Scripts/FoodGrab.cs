@@ -5,6 +5,8 @@ public class FoodGrab : MonoBehaviour
 {
     private Collider2D _col;
     [SerializeField] private Transform _homeSpot;
+    [SerializeField] private Transform _plateSpot;
+    private StoveTops _activeStove;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,6 +18,11 @@ public class FoodGrab : MonoBehaviour
     //On Click: Get mouse position to set up for dragging
     private void OnMouseDown()
     {
+        if (_activeStove != null)
+        {
+            _activeStove.OnRemoveFood();
+            _activeStove = null;
+        }
         Debug.Log("Click on Food");
     }
 
@@ -37,15 +44,31 @@ public class FoodGrab : MonoBehaviour
 
             if (hit.gameObject.name.Contains("StoveTop"))
             {
-                transform.position = hit.transform.position;
-                Debug.Log("Snapped to: " + hit.name);
-                stove.OnPlaceFood(this);
-                return;
+                StoveTops _stove = hit.GetComponentInParent<StoveTops>();
+                if (_stove != null)
+                {
+                    _activeStove = _stove;
+                    transform.position = hit.transform.position;
+                    Debug.Log("Snapped to: " + hit.name);
+                    _activeStove.OnPlaceFood(this);
+                    return;
+                }
+            }
+            else if (hit.gameObject.name.Contains("Plate"))
+            {
+                IngredientObject _currentFood = GetComponent<IngredientObject>();
+                if (_currentFood.IngredientInstance.CurrentState == IngredientState.Cooked)
+                {
+                    transform.position = hit.transform.position;
+                    Debug.Log("Snapped to: " + hit.name);
+                    return;
+                }
             }
         }
         if (_homeSpot != null)
         {
             transform.position = _homeSpot.position;
+            _activeStove = null;
         }
         
     }

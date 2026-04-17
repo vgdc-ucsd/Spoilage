@@ -23,7 +23,6 @@ public class StoveTops : MonoBehaviour
             return;
         }
 
-        //food.transform.position = transform.position;
         Debug.Log("Food on Grill");
 
         if (_currentFood.IngredientInstance.CurrentState == IngredientState.Cooked)
@@ -32,10 +31,39 @@ public class StoveTops : MonoBehaviour
             return; 
         }
 
+        // If the timer has time left and it's less than the total cook time, resume it.
+        if (_timer.TimeRemaining > 0 && _timer.TimeRemaining < _currentFood.IngredientInstance.Data.CookTime)
+        {
+            _isCooking = true;
+            _timer.ResumeTimer();
+            Debug.Log("Resuming timer at: " + _timer.TimeRemaining);
+        }
+        else
+        {
+            CookFood();
+        }
+
+    }
+
+    public void CookFood()
+    {
+
         _isCooking = true;
         _currentFood.IngredientInstance.CurrentState = IngredientState.Raw;
         _timer.StartTimer(_currentFood.IngredientInstance.Data.CookTime);
         Debug.Log("Started cooking");
+        
+    }
+
+    public void OnRemoveFood()
+    {
+        if (_isCooking)
+        {
+            _isCooking = false;
+            _timer.PauseTimer();
+            Debug.Log("Timer paused.");
+        }
+        _currentFood = null;
     }
 
     private void Update()
@@ -56,18 +84,5 @@ public class StoveTops : MonoBehaviour
         _currentFood.IngredientInstance.CurrentState = IngredientState.Cooked;
         Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Cooked!");
     }
-
-    /*private void UpdateCookedFoodSprite()
-    {
-        SpriteRenderer foodRenderer = _currentFood.GetComponent<SpriteRenderer>();
-
-        Sprite cookedArt = _currentFood.IngredientInstance.Data.CookedSprite;
-
-        if (foodRenderer != null && cookedArt != null)
-        {
-            foodRenderer.sprite = cookedArt;
-            Debug.Log("Sprite updated to Cooked!");
-        }
-    }*/
 
 }

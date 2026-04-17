@@ -51,4 +51,17 @@ public class Timer : MonoBehaviour
     {
         return _stopTimer && _maxTime > 0 && TimeRemaining <= 0;
     }
+
+    public void PauseTimer()
+    {
+        _stopTimer = true;
+    }
+    public void ResumeTimer()
+    {
+        // Only resume if there is actually time left
+        if (TimeRemaining > 0)
+        {
+            _stopTimer = false;
+        }
+    }
 }
