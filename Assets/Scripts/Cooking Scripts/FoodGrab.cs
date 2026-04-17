@@ -7,6 +7,7 @@ public class FoodGrab : MonoBehaviour
     [SerializeField] private Transform _homeSpot;
     [SerializeField] private Transform _plateSpot;
     private StoveTops _activeStove;
+    private Countertops _activeCountertop;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +22,7 @@ public class FoodGrab : MonoBehaviour
         if (_activeStove != null)
         {
             _activeStove.OnRemoveFood();
+            _activeCountertop.OnRemoveFood();
             _activeStove = null;
         }
         Debug.Log("Click on Food");
@@ -61,6 +63,17 @@ public class FoodGrab : MonoBehaviour
                 {
                     transform.position = hit.transform.position;
                     Debug.Log("Snapped to: " + hit.name);
+                    return;
+                }
+            } else if (hit.gameObject.name.Contains("Countertop"))
+            {
+                Countertops _countertop = hit.GetComponentInParent<Countertops>();
+                if (_countertop != null)
+                {
+                    _activeCountertop = _countertop;
+                    transform.position = hit.transform.position;
+                    Debug.Log("Snapped to: " + hit.name);
+                    _activeCountertop.OnPlaceFood(this);
                     return;
                 }
             }

@@ -22,7 +22,7 @@ public enum IngredientState
     Raw,
     Cooked,
     Burnt,
-    Cut
+    Cut,
 }
 public sealed class Dough : Ingredient
 {
