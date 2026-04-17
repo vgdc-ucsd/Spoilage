@@ -1472,8 +1472,9 @@ GameObject:
   - component: {fileID: 1221368067}
   - component: {fileID: 1221368069}
   - component: {fileID: 1221368068}
+  - component: {fileID: 1221368070}
   m_Layer: 6
-  m_Name: StoveTopTL
+  m_Name: Countertop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1590,7 +1591,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Color: {r: 0.754717, g: 0.54993516, b: 0.37261182, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1599,6 +1600,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1221368070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221368066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d34bf4819a83454680ef8b63b73af04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Countertops
+  _timer: {fileID: 1071045312}
 --- !u!1 &1267196786
 GameObject:
   m_ObjectHideFlags: 0
