@@ -1,26 +1,35 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System;   
+using System;
 
 public class Customer
 {
     public CustomerData customerData;
-    public int spoilage;
+    public GameObject customerObject;
+
     public Customer(CustomerData data)
     {
-        customerData = data;
+        if (data != null)
+        {
+            customerData = data;
+        }
+        else
+        {
+            customerData = CustomerManager.generateCustomerData();
+        }
     }
 
-    public void InstantiateCustomer()
+    public GameObject GenerateCustomerGameObject()
     {
-        GameObject customerObject = new GameObject("Customer");
-        for (int i = 0; i < CustomerData.NUM_SPRITES; i++)
+        GameObject customer = new GameObject("Customer");
+        for (int i = 0; i < customerData.sprites.Length; i++)
         {
             GameObject newSprite = new GameObject("Customer Sprite " + i);
             SpriteRenderer renderer = newSprite.AddComponent<SpriteRenderer>();
             renderer.sprite = customerData.sprites[i];
-            newSprite.transform.position = customerData.spriteOffsets[i];
-            newSprite.transform.SetParent(customerObject.transform);
+            newSprite.transform.SetParent(customer.transform);
+            newSprite.transform.position += customerData.spriteOffsets[i];
         }
+        return customer;
     }
 }

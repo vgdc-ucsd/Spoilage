@@ -1,10 +1,13 @@
 using System;
 using System.IO;
 using JetBrains.Annotations;
+using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CustomerManager : MonoBehaviour
 {
+    private const string TESTING_PATH_PREFIX = "Assets/Art/TEMP_CharacterGeneration 1/";
     private const string EYES_PATH = "Customers/Eyes/";
     private const string NOSE_MOUTH_PATH = "Customers/NoseMouths/";
     private const string SPOILAGE_PATH = "Customers/Spoilage/";
@@ -18,12 +21,13 @@ public class CustomerManager : MonoBehaviour
     private const int HAIR_BACK = 1;
     private const int HAIR_SHADOW = 2;
 
-    
+    public CustomerData presetData1;
+
     public static CustomerData generateCustomerData()
     {
         CustomerData newData = new CustomerData
         {
-            spoilage = UnityEngine.Random.Range(0, 2),
+            spoilage = (CustomerData.Spoilage)UnityEngine.Random.Range(0, Enum.GetValues(typeof(CustomerData.Spoilage)).Length),
             sprites = new Sprite[CustomerData.NUM_SPRITES],
             spriteOffsets = new Vector3[CustomerData.NUM_SPRITES]
         };
@@ -64,5 +68,14 @@ public class CustomerManager : MonoBehaviour
     private static string getRandomElement(string[] arr)
     {
         return arr[UnityEngine.Random.Range(0, arr.Length - 1)];
+    }
+
+    private void Update()
+    {
+        if (Keyboard.current.iKey.wasPressedThisFrame)
+        {
+            Customer customer = new Customer(presetData1);
+            customer.GenerateCustomerGameObject();
+        }
     }
 }
