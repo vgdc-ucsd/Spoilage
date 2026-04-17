@@ -17,6 +17,7 @@ public class Customer : MonoBehaviour
             renderer.sprite = customerData.sprites[i];
             newSprite.transform.position = customerData.spriteOffsets[i];
             newSprite.transform.SetParent(customerObject.transform);
+            Instantiate(newSprite);
         }
     }
 }
