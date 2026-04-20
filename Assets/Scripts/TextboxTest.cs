@@ -5,28 +5,19 @@ using UnityEngine;
 public class TextboxTest : MonoBehaviour
 {
     [TextArea(2, 5)]
-    public string Source = "\x1b[12;80\x1cHello, world! This is the textbox engine.";
+    public string Source = "\x1b[12;60\x1c\x1b[1;1\x1cHello\x1b[1;0\x1c, \x1b[5;F55\x1cworld\x1b[5;reset\x1c!";
 
-    Reducer reducer;
-    int lastRevealed;
+    TextboxController _controller;
 
     void Start() {
-        reducer = new Reducer();
-        reducer.OnComplete += () => Debug.Log("[TextboxTest] Reveal complete.");
-        reducer.OnError += msg => Debug.LogWarning("[TextboxTest] " + msg);
-        reducer.Play(Source);
-        lastRevealed = 0;
-    }
+        _controller = GetComponent<TextboxController>();
+        if (_controller == null)
+        {
+            Debug.LogError("[TextboxTest] what (it broke again)");
+            return;
+        }
 
-    void Update()
-    {
-        reducer.Tick(Time.deltaTime);
-
-        int revealed = reducer.RevealedCount;
-        if (revealed == lastRevealed) return;
-
-        lastRevealed = revealed;
-        List<char> chars = new List<char>(reducer.DisplayBuffer);
-        Debug.Log("[TextboxTest] " + new string(chars.ToArray()));
+        _controller.OnComplete += () => Debug.Log("[TextboxTest] Reveal complete.");
+        _controller.Play(Source);
     }
 }
