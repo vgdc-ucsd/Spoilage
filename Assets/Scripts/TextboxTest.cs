@@ -5,7 +5,13 @@ using UnityEngine;
 public class TextboxTest : MonoBehaviour
 {
     [TextArea(2, 5)]
-    public string Source = "\x1b[12;60\x1c\x1b[1;1\x1cHello\x1b[1;0\x1c, \x1b[5;F55\x1cworld\x1b[5;reset\x1c!";
+    public string Source =
+            "\x1b[12;60\x1c"
+            + "\x1b[30;5;wavy;amp=3,freq=2\x1c"
+            + "Hello "
+            + "\x1b[30;5;rainbow\x1c"
+            + "\x1b[30;5;jitter;amp=1\x1c"
+            + "world!";
 
     TextboxController _controller;
 

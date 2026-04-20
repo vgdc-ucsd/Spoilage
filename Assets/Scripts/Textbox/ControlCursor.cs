@@ -1,4 +1,5 @@
-﻿namespace TextboxControl{
+namespace TextboxControl
+{
     public enum StepResult
     {
         Glyph,
@@ -19,10 +20,12 @@
         public ControlCursor(string source)
         {
             _src = source ?? "";
+            _index = 0;
         }
 
         public int Index => _index;
         public bool IsAtEnd => _index >= _src.Length;
+        public string Source => _src;
         public int CurrentMethod => _currentMethod;
 
         public StepResult Step(out char glyph)
@@ -71,7 +74,43 @@
             return true;
         }
 
-        public bool ReadNumericOrHexParam(out string token)
+        public bool ReadNumericOrHexParam(out string token) => ReadParam(out token);
+
+        public bool ReadStringParam(out string token) => ReadParam(out token);
+
+        public bool ReadParamSpan(out int offset, out int length)
+        {
+            offset = 0;
+            length = 0;
+
+            if (_index >= _src.Length || _src[_index] == TERM)
+            {
+                return false;
+            }
+
+            if (_src[_index] != ';')
+            {
+                return false;
+            }
+
+            _index++;
+            offset = _index;
+
+            while (_index < _src.Length && _src[_index] != ';' && _src[_index] != TERM)
+            {
+                _index++;
+            }
+
+            if (_index >= _src.Length)
+            {
+                return false;
+            }
+
+            length = _index - offset;
+            return true;
+        }
+
+        bool ReadParam(out string token)
         {
             token = null;
 

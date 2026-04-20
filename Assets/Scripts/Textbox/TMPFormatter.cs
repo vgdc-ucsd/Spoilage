@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
@@ -12,6 +12,10 @@ namespace TextboxControl
         {
             StringBuilder sb = _sb ?? (_sb = new StringBuilder(256));
             sb.Clear();
+            if (buffer.Count == 0)
+            {
+                return "";
+            }
 
             int charIndex = 0;
             bool anyOpen = false;
@@ -20,10 +24,10 @@ namespace TextboxControl
             for (int r = 0; r < runs.Count; r++)
             {
                 StyleRun run = runs[r];
-
                 if (anyOpen)
+                {
                     CloseAll(sb, previous);
-
+                }
                 OpenFor(sb, run.Style);
                 anyOpen = !run.Style.IsDefault;
                 previous = run.Style;
@@ -53,11 +57,11 @@ namespace TextboxControl
             {
                 sb.Append("<size=").Append(state.SizeOverride.ToString(System.Globalization.CultureInfo.InvariantCulture)).Append('>');
             }
-            if (state.CharSpacing != 0)
+            if (state.CharSpacing != 0f)
             {
                 sb.Append("<cspace=").Append(state.CharSpacing.ToString(System.Globalization.CultureInfo.InvariantCulture)).Append("em>");
             }
-            if (state.BaselineOffset != 0)
+            if (state.BaselineOffset != 0f)
             {
                 sb.Append("<voffset=").Append(state.BaselineOffset.ToString(System.Globalization.CultureInfo.InvariantCulture)).Append("em>");
             }
@@ -105,11 +109,11 @@ namespace TextboxControl
             {
                 sb.Append("</font>");
             }
-            if (state.BaselineOffset != 0)
+            if (state.BaselineOffset != 0f)
             {
                 sb.Append("</voffset>");
             }
-            if (state.CharSpacing != 0)
+            if (state.CharSpacing != 0f)
             {
                 sb.Append("</cspace>");
             }
@@ -137,10 +141,10 @@ namespace TextboxControl
 
         static string ColorToHex(Color c)
         {
-            byte r = (byte)Mathf.Clamp(Mathf.RoundToInt(c.r * 255), 0, 255);
-            byte g = (byte)Mathf.Clamp(Mathf.RoundToInt(c.g * 255), 0, 255);
-            byte b = (byte)Mathf.Clamp(Mathf.RoundToInt(c.b * 255), 0, 255);
-            byte a = (byte)Mathf.Clamp(Mathf.RoundToInt(c.a * 255), 0, 255);
+            byte r = (byte)Mathf.Clamp(Mathf.RoundToInt(c.r * 255f), 0, 255);
+            byte g = (byte)Mathf.Clamp(Mathf.RoundToInt(c.g * 255f), 0, 255);
+            byte b = (byte)Mathf.Clamp(Mathf.RoundToInt(c.b * 255f), 0, 255);
+            byte a = (byte)Mathf.Clamp(Mathf.RoundToInt(c.a * 255f), 0, 255);
 
             return a == 255
                 ? $"{r:X2}{g:X2}{b:X2}"

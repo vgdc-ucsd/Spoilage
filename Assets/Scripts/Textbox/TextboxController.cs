@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -10,15 +10,13 @@ namespace TextboxControl
 
         public bool IsRevealing => _reducer != null && _reducer.IsPlaying;
 
-        private TMP_Text _target;
         private Reducer _reducer;
-        private int _lastRevealed = -1;
-        private int _lastRunCount = -1;
+        private TextAnimator _animator;
 
         void Awake()
         {
-            _target = GetComponentInChildren<TMP_Text>();
-            if (_target == null)
+            TMP_Text target = GetComponentInChildren<TMP_Text>();
+            if (target == null)
             {
                 Debug.LogError("[TextboxControl] TextboxController containing object must have contain a TextMeshPro child!", this);
                 return;
@@ -27,19 +25,19 @@ namespace TextboxControl
             _reducer = new Reducer();
             _reducer.OnError += msg => Debug.LogWarning($"[TextboxControl] {msg}", this);
             _reducer.OnComplete += () => OnComplete?.Invoke();
+
+            _animator = new TextAnimator(target, _reducer);
         }
 
         public void Play(string source)
         {
-            if (_reducer == null || _target == null)
+            if (_reducer == null)
             {
                 return;
             }
 
             _reducer.Play(source);
-            _lastRevealed = -1;
-            _lastRunCount = -1;
-            Render();
+            _animator.Prepare(source);
         }
 
         public void Skip()
@@ -50,7 +48,7 @@ namespace TextboxControl
             }
 
             _reducer.Skip();
-            Render();
+            _animator.Render();
         }
 
         void Update()
@@ -61,24 +59,7 @@ namespace TextboxControl
             }
 
             _reducer.Tick(Time.deltaTime);
-            Render();
-        }
-
-        void Render()
-        {
-            if (_target == null || _reducer == null)
-            {
-                return;
-            }
-
-            if (_lastRevealed == _reducer.RevealedCount && _lastRunCount == _reducer.StyleRuns.Count)
-            {
-                return;
-            }
-
-            _lastRevealed = _reducer.RevealedCount;
-            _lastRunCount = _reducer.StyleRuns.Count;
-            _target.text = TMPFormatter.Build(_reducer.DisplayBuffer, _reducer.StyleRuns);
+            _animator.Render();
         }
     }
 }

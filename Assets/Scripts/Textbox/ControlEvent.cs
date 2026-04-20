@@ -1,4 +1,4 @@
-﻿namespace TextboxControl
+namespace TextboxControl
 {
     public enum MethodCode
     {
@@ -15,5 +15,16 @@
         Newline = 10,
         Typewriter = 12,
         Delay = 13,
+
+        Mouth = 20,
+        Eye = 21,
+        Brow = 22,
+        BodyPose = 23,
+
+        AnimStart = 30,
+        AnimClear = 31,
+        AnimClearAll = 32,
+
+        Sound = 40,
     }
 }
