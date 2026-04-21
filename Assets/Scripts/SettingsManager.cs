@@ -12,12 +12,12 @@ public class SettingsManager : MonoBehaviour
     public bool isFullscreen = true;
 
     private void Awake()
-{
-    if (Instance != null)
     {
-        Destroy(gameObject);
-        return;
-    }
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
@@ -39,8 +39,4 @@ public class SettingsManager : MonoBehaviour
     {
         
     }
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes
