@@ -1,8 +1,9 @@
 using System;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
-public class CustomerManager : MonoBehaviour
+public class CustomerManager : Singleton<CustomerManager>
 {
     private const string EYES_PATH = "Assets/Resources/Customers/Eyes/";
     private const string NOSE_MOUTH_PATH = "Assets/Resources/Customers/NoseMouths/";
@@ -15,13 +16,8 @@ public class CustomerManager : MonoBehaviour
 
     private const string PNG = "*.png";
 
-    private const int HAIR_FRONT = 0;
-    private const int HAIR_BACK = 1;
-    private const int HAIR_SHADOW = 2;
-
-
     [SerializeField]
-    public CustomerData debug;
+    private CustomerData debug;
 
     void Start()
     {
@@ -33,7 +29,7 @@ public class CustomerManager : MonoBehaviour
     {
         CustomerData newData = ScriptableObject.CreateInstance<CustomerData>();
 
-        newData.spoilage = (CustomerData.Spoilage) UnityEngine.Random.Range(0, 2);
+        newData.spoilage = (CustomerData.Spoilage)UnityEngine.Random.Range(0, 2);
         newData.sprites = new Sprite[CustomerData.NUM_SPRITES];
         newData.patience = UnityEngine.Random.Range(0f, 1f); // TODO, talk to design
 
@@ -43,7 +39,7 @@ public class CustomerManager : MonoBehaviour
         string[] eyesPaths = Directory.GetFiles(eyesDir, PNG);
         Array.Sort(eyesPaths);
 
-        
+
         string eyesOpenPath = eyesPaths[0];
         string eyesClosedPath = eyesPaths[1];
 
@@ -55,9 +51,9 @@ public class CustomerManager : MonoBehaviour
         string noseMouthOpenPath = noseMouthPaths[0];
         string noseMouthClosedPath = noseMouthPaths[1];
 
-        Debug.Log("Choosing spoilage front");        
+        Debug.Log("Choosing spoilage front");
         string spoilageFrontPath = getRandomElement(Directory.GetFiles(SPOILAGE_PATH + FRONT_FOLDER, PNG));
-        Debug.Log("Choosing spoilage back");        
+        Debug.Log("Choosing spoilage back");
         string spoilageBackPath = getRandomElement(Directory.GetFiles(SPOILAGE_PATH + BACK_FOLDER, PNG));
 
         Debug.Log("Choosing body dir");
@@ -69,16 +65,15 @@ public class CustomerManager : MonoBehaviour
         string clothesPath = getRandomElement(Directory.GetFiles(bodyDir + CLOTHES_FOLDER, PNG));
 
         Debug.Log("Choosing hair dir");
-        string hairDir = getRandomElement(Directory.GetDirectories(bodyDir + HAIR_FOLDER));        
+        string hairDir = getRandomElement(Directory.GetDirectories(bodyDir + HAIR_FOLDER));
         string[] hairPaths = Directory.GetFiles(hairDir, PNG);
         Array.Sort(hairPaths);
         Debug.Log(trimPath(bodyPath));
 
         newData.sprites[(int)CustomerData.Indexes.BODY] = Resources.Load<Sprite>(trimPath(bodyPath));
-        //newData.sprites[(int)CustomerData.Indexes.BODY] = Resources.Load<Sprite>("Customers/Bases/BodyA/base287_body_C");
-        newData.sprites[(int)CustomerData.Indexes.HAIR_FRONT] = Resources.Load<Sprite>(trimPath(hairPaths[HAIR_FRONT]));
-        newData.sprites[(int)CustomerData.Indexes.HAIR_BACK] = Resources.Load<Sprite>(trimPath(hairPaths[HAIR_BACK]));
-        newData.sprites[(int)CustomerData.Indexes.HAIR_SHADOW] = Resources.Load<Sprite>(trimPath(hairPaths[HAIR_SHADOW]));
+        newData.sprites[(int)CustomerData.Indexes.HAIR_FRONT] = Resources.Load<Sprite>(trimPath(hairPaths.FirstOrDefault(s => s.Contains("hairTop"))));
+        newData.sprites[(int)CustomerData.Indexes.HAIR_BACK] = Resources.Load<Sprite>(trimPath(hairPaths.FirstOrDefault(s => s.Contains("hairBottom"))));
+        newData.sprites[(int)CustomerData.Indexes.HAIR_SHADOW] = Resources.Load<Sprite>(trimPath(hairPaths.FirstOrDefault(s => s.Contains("hairShadow"))));
         newData.sprites[(int)CustomerData.Indexes.CLOTHES] = Resources.Load<Sprite>(trimPath(clothesPath));
         newData.sprites[(int)CustomerData.Indexes.NOSE_MOUTH_OPEN] = Resources.Load<Sprite>(trimPath(noseMouthOpenPath));
         newData.sprites[(int)CustomerData.Indexes.NOSE_MOUTH_CLOSED] = Resources.Load<Sprite>(trimPath(noseMouthClosedPath));
@@ -86,7 +81,7 @@ public class CustomerManager : MonoBehaviour
         newData.sprites[(int)CustomerData.Indexes.EYES_CLOSED] = Resources.Load<Sprite>(trimPath(eyesClosedPath));
         newData.sprites[(int)CustomerData.Indexes.SPOILAGE_FRONT] = Resources.Load<Sprite>(trimPath(spoilageFrontPath));
         newData.sprites[(int)CustomerData.Indexes.SPOILAGE_BACK] = Resources.Load<Sprite>(trimPath(spoilageBackPath));
-        
+
         return newData;
     }
 
@@ -97,9 +92,13 @@ public class CustomerManager : MonoBehaviour
 
     private static string trimPath(string str)
     {
+        if (str == null) { return null; }
         int startIndex = "Assets/Resources/".Length;
         int endOffset = ".png".Length;
 
         return str.Substring(startIndex, str.Length - endOffset - startIndex);
     }
+
+    // TODO: Store a list of local offsets for the eyes and nose/mouth here
+    // TODO: Store a list of global offsets for the eyes and nose/mouth here
 }

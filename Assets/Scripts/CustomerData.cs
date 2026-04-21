@@ -12,22 +12,22 @@ public class CustomerData : ScriptableObject
     }
     public enum Indexes
     {
-        BODY,
-        HAIR_FRONT,
+        SPOILAGE_BACK,
         HAIR_BACK,
-        HAIR_SHADOW,
-        CLOTHES,
+        BODY,
         NOSE_MOUTH_OPEN,
         NOSE_MOUTH_CLOSED,
         EYES_OPEN,
         EYES_CLOSED,
-        SPOILAGE_FRONT,
-        SPOILAGE_BACK
-        // etc.
+        CLOTHES,
+        HAIR_SHADOW,
+        HAIR_FRONT,
+        SPOILAGE_FRONT
     }
 
     public Sprite[] sprites;
     //public Vector3[] spriteOffsets;
+    public string CustomerName;
     public Spoilage spoilage;
     public float patience;
 

@@ -5,9 +5,10 @@ public class CustomerAnimation : MonoBehaviour
 {
     public bool isBlinking { get; private set; }
     public bool isTalking { get; private set; }
-    [SerializeField] private CustomerData _customerData;
-    [SerializeField] private SpriteRenderer eyesRenderer;
-    [SerializeField] private SpriteRenderer mouthRenderer;
+    [SerializeField] private SpriteRenderer eyesOpenRenderer;
+    [SerializeField] private SpriteRenderer eyesClosedRenderer;
+    [SerializeField] private SpriteRenderer mouthOpenRenderer;
+    [SerializeField] private SpriteRenderer mouthClosedRenderer;
 
     private const float MIN_BLINK_TIME = 0.1f;
     private const float MAX_BLINK_TIME = 0.4f;
@@ -41,14 +42,8 @@ public class CustomerAnimation : MonoBehaviour
 
     public void SetOpenEyes(bool open)
     {
-        if (open)
-        {
-            eyesRenderer.sprite = _customerData.sprites[(int)CustomerData.Indexes.EYES_OPEN];
-        }
-        else
-        {
-            eyesRenderer.sprite = _customerData.sprites[(int)CustomerData.Indexes.EYES_CLOSED];
-        }
+        eyesOpenRenderer.enabled = open;
+        eyesClosedRenderer.enabled = !open;
     }
 
     public void SetBlinking(bool blink)
@@ -58,14 +53,8 @@ public class CustomerAnimation : MonoBehaviour
 
     public void SetOpenMouth(bool open)
     {
-        if (open)
-        {
-            mouthRenderer.sprite = _customerData.sprites[(int)CustomerData.Indexes.NOSE_MOUTH_OPEN];
-        }
-        else
-        {
-            mouthRenderer.sprite = _customerData.sprites[(int)CustomerData.Indexes.NOSE_MOUTH_CLOSED];
-        }
+        mouthOpenRenderer.enabled = open;
+        mouthClosedRenderer.enabled = !open;
 
     }
 
