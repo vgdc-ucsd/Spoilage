@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TextboxControl.Animation
 {
@@ -26,8 +26,8 @@ namespace TextboxControl.Animation
             int cycle = (int)(ctx.TimeSinceRegionStart * hz);
             int sx = Hash(cycle * 131 + ctx.CharIndexInRegion * 17);
             int sy = Hash(cycle * 131 + ctx.CharIndexInRegion * 17 + 91);
-            s.PositionOffset.x += ((sx & 0xFFFF) / 32767.5f - 1f) * amp;
-            s.PositionOffset.y += ((sy & 0xFFFF) / 32767.5f - 1f) * amp;
+            s.PositionOffset.x += ((sx & 0xFFFF) / 32767.5f - 1f) * amp / 4;
+            s.PositionOffset.y += ((sy & 0xFFFF) / 32767.5f - 1f) * amp / 4;
         }
 
         static int Hash(int x)
@@ -101,7 +101,7 @@ namespace TextboxControl.Animation
 
         public void Apply(ref CharAnimState s, AnimationContext ctx)
         {
-            s.Rotation += ctx.TimeSinceRegionStart * degPerSec
+            s.Rotation -= ctx.TimeSinceRegionStart * degPerSec
                         + ctx.CharIndexInRegion * phasePerChar;
         }
     }
@@ -124,7 +124,7 @@ namespace TextboxControl.Animation
             {
                 return;
             }
-            float y = 4f * localT * (1f - localT);
+            float y = localT * (1f - localT);
             s.PositionOffset.y += y * amp;
         }
     }

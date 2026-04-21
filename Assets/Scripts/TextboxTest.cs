@@ -1,29 +1,47 @@
 ﻿using System.Collections.Generic;
 using TextboxControl;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TextboxTest : MonoBehaviour
 {
-    [TextArea(2, 5)]
-    public string Source =
-            "\x1b[12;60\x1c"
-            + "\x1b[30;5;wavy;amp=3,freq=2\x1c"
-            + "Hello "
-            + "\x1b[30;5;rainbow\x1c"
-            + "\x1b[30;5;jitter;amp=1\x1c"
-            + "world!";
+    public TextAsset SaveFileAsset;
+    public string SequenceName = "wavy_intro";
 
-    TextboxController _controller;
+    TextboxController controller;
+    DialogueSaveFile saveFile;
+    int boxIndex;
 
-    void Start() {
-        _controller = GetComponent<TextboxController>();
-        if (_controller == null)
+    private void Start()
+    {
+        controller = GetComponent<TextboxController>();
+        saveFile = DialogueSaveFile.Parse(SaveFileAsset.text);
+
+        PlayBox(0);
+    }
+
+    void Update()
+    {
+        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            Debug.LogError("[TextboxTest] what (it broke again)");
+            Advance();
+        }
+    }
+
+    void Advance()
+    {
+        if (controller.IsRevealing)
+        {
+            controller.Skip();
             return;
         }
 
-        _controller.OnComplete += () => Debug.Log("[TextboxTest] Reveal complete.");
-        _controller.Play(Source);
+        PlayBox(boxIndex + 1);
+    }
+
+    void PlayBox(int index)
+    {
+        boxIndex = index;
+        controller.Play(saveFile.GetBox(SequenceName, boxIndex));
     }
 }

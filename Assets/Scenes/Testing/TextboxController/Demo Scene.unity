@@ -418,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e146bf5607a8b4fad9665e0a5a9e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextboxTest
-  Source: "\e[12;60\x1C\e[1;1\x1CHello\e[1;0\x1C, \e[5;F55\x1Cworld\e[5;reset\x1C!"
+  Source: "\e[12;60\x1C\e[30;5;wavy;amp=3,freq=2\x1CHello \e[30;5;rainbow\x1C\e[30;5;jitter;amp=1\x1Cworld!"
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
