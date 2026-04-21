@@ -39,4 +39,8 @@ public class SettingsManager : MonoBehaviour
     {
         
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
