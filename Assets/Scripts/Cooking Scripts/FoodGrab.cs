@@ -76,15 +76,12 @@ public class FoodGrab : MonoBehaviour
                 Plate plate = hit.GetComponentInParent<Plate>();
                 IngredientObject food = GetComponent<IngredientObject>();
 
-                if (food.IngredientInstance.CurrentState == IngredientState.Cooked)
-                {
-                    plate.AddIngredient(food);
+                plate.AddIngredient(food);
 
-                    _activeAppliance = null;
+                _activeAppliance = null;
 
-                    plate.PrintIngredients();
-                    return;
-                }
+                plate.PrintIngredients();
+                return;
             }
         }
         if (_homeSpot != null)
@@ -110,6 +107,9 @@ public class FoodGrab : MonoBehaviour
     public void LockToPlate()
     {
         _isPlaced = true;
+        
+        if (_col != null)
+            _col.enabled = false;
     }
 
 }

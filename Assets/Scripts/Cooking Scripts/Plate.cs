@@ -11,12 +11,13 @@ public class Plate : MonoBehaviour
     public void AddIngredient(IngredientObject ingredient)
     {
         FoodGrab grab = ingredient.GetComponent<FoodGrab>();
+
+        if (ingredient == null) return;
+        
         if (grab != null)
         {
             grab.LockToPlate();
         }
-
-        if (ingredient == null) return;
 
         if (_ingredients.Contains(ingredient))
             return;
@@ -27,6 +28,9 @@ public class Plate : MonoBehaviour
 
         Vector3 position = _stackPoint.position;
         position.y += _stackOffset * (_ingredients.Count - 1);
+
+        SpriteRenderer sr = ingredient.GetComponent<SpriteRenderer>();
+        sr.sortingOrder = _ingredients.Count;
 
         ingredient.transform.position = position;
     }
