@@ -6,16 +6,16 @@ namespace TextboxControl
 {
     public class TextboxController : MonoBehaviour
     {
-        public event Action OnComplete;
-
-        public bool IsRevealing => _initialized && _reducer.IsPlaying;
-
         private TMP_Text _target;
         private Reducer _reducer;
         private TextAnimator _animator;
         private bool _initialized;
 
-        void Awake()
+        public event Action OnComplete;
+
+        public bool IsRevealing => _initialized && _reducer.IsPlaying;
+
+        private void Awake()
         {
             _target = GetComponentInChildren<TMP_Text>();
             if (_target == null)
@@ -35,7 +35,7 @@ namespace TextboxControl
 
         public void Play(string source)
         {
-            if (!_initialized)
+            if (!IsReady())
             {
                 return;
             }
@@ -46,7 +46,7 @@ namespace TextboxControl
 
         public void Skip()
         {
-            if (!_initialized)
+            if (!IsReady())
             {
                 return;
             }
@@ -57,7 +57,7 @@ namespace TextboxControl
 
         public void NotifyTextLayoutChanged(bool renderNow = true)
         {
-            if (!_initialized)
+            if (!IsReady())
             {
                 return;
             }
@@ -70,10 +70,20 @@ namespace TextboxControl
             }
         }
 
-        void LateUpdate()
+        private void LateUpdate()
         {
+            if (!IsReady())
+            {
+                return;
+            }
+
             _reducer.Tick(Time.deltaTime);
             _animator.Render();
+        }
+
+        private bool IsReady()
+        {
+            return _initialized;
         }
     }
 }

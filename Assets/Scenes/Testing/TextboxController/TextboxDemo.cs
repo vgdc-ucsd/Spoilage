@@ -1,8 +1,8 @@
-using System.Collections;
-using UnityEngine;
+﻿using System.Collections;
 using TextboxControl;
+using UnityEngine;
 
-public class IMessageDemo : MonoBehaviour
+public class TextboxDemo : MonoBehaviour
 {
     public TextAsset SaveFileAsset;
     public string SequenceName = "wavy_intro";
@@ -21,39 +21,62 @@ public class IMessageDemo : MonoBehaviour
 
     private void Start()
     {
-        if (BubbleStack == null)
-            BubbleStack = GetComponent<TextboxBubbleStack>();
-
-        if (BubbleStack == null)
+        if (!TryResolveBubbleStack(out TextboxBubbleStack stack))
         {
-            Debug.LogError("[IMessageDemo] BubbleStack not assigned.", this);
             return;
         }
 
+        if (!TryParseSaveFile(out DialogueSaveFile saveFile))
+        {
+            return;
+        }
+
+        int boxCount = saveFile.CountBoxes(SequenceName);
+        if (boxCount <= 0)
+        {
+            Debug.LogError($"[TextboxDemo] Sequence '{SequenceName}' not found or empty.", this);
+            return;
+        }
+
+        BubbleStack = stack;
+        _saveFile = saveFile;
+        _boxCount = boxCount;
+
+        PlayBox(0);
+    }
+
+    private bool TryResolveBubbleStack(out TextboxBubbleStack stack)
+    {
+        stack = BubbleStack != null ? BubbleStack : GetComponent<TextboxBubbleStack>();
+        if (stack == null)
+        {
+            Debug.LogError("[TextboxDemo] BubbleStack not assigned.", this);
+            return false;
+        }
+
+        return true;
+    }
+
+    private bool TryParseSaveFile(out DialogueSaveFile saveFile)
+    {
+        saveFile = null;
+
         if (SaveFileAsset == null)
         {
-            Debug.LogError("[IMessageDemo] SaveFileAsset not assigned.", this);
-            return;
+            Debug.LogError("[TextboxDemo] SaveFileAsset not assigned.", this);
+            return false;
         }
 
         try
         {
-            _saveFile = DialogueSaveFile.Parse(SaveFileAsset.text);
+            saveFile = DialogueSaveFile.Parse(SaveFileAsset.text);
+            return true;
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[IMessageDemo] Failed to parse save file: {e.Message}", this);
-            return;
+            Debug.LogError($"[TextboxDemo] Failed to parse save file: {e.Message}", this);
+            return false;
         }
-
-        _boxCount = _saveFile.CountBoxes(SequenceName);
-        if (_boxCount <= 0)
-        {
-            Debug.LogError($"[IMessageDemo] Sequence '{SequenceName}' not found or empty.", this);
-            return;
-        }
-
-        PlayBox(0);
     }
 
     private void PlayBox(int index)
@@ -62,40 +85,47 @@ public class IMessageDemo : MonoBehaviour
 
         string source = _saveFile.GetBox(SequenceName, _boxIndex);
         TextboxBubbleSide side = GetSide(_boxIndex);
-
-        _current = BubbleStack.Push(source, side);
-        if (_current == null)
+        TextboxController controller = BubbleStack.Push(source, side);
+        if (controller == null)
+        {
             return;
+        }
+
+        _current = controller;
 
         if (_autoAdvanceCoroutine != null)
+        {
             StopCoroutine(_autoAdvanceCoroutine);
+        }
 
-        _autoAdvanceCoroutine = StartCoroutine(AutoAdvance(_current));
+        _autoAdvanceCoroutine = StartCoroutine(AutoAdvance(controller));
     }
 
     private TextboxBubbleSide GetSide(int index)
     {
         if (!AlternateSides)
+        {
             return FirstSide;
+        }
 
         bool firstIsLeft = FirstSide == TextboxBubbleSide.L;
-        bool even = (index & 1) == 0;
-
-        if (even == firstIsLeft)
-            return TextboxBubbleSide.L;
-
-        return TextboxBubbleSide.R;
+        bool isEven = (index & 1) == 0;
+        return isEven == firstIsLeft ? TextboxBubbleSide.L : TextboxBubbleSide.R;
     }
 
     private IEnumerator AutoAdvance(TextboxController controller)
     {
         while (controller != null && controller.IsRevealing)
+        {
             yield return null;
+        }
 
         yield return new WaitForSeconds(AdvanceDelay);
 
         if (controller == _current)
+        {
             Advance();
+        }
 
         _autoAdvanceCoroutine = null;
     }
@@ -103,7 +133,6 @@ public class IMessageDemo : MonoBehaviour
     private void Advance()
     {
         int nextIndex = _boxIndex + 1;
-
         if (nextIndex < _boxCount)
         {
             PlayBox(nextIndex);
@@ -111,6 +140,8 @@ public class IMessageDemo : MonoBehaviour
         }
 
         if (Loop)
+        {
             PlayBox(0);
+        }
     }
 }

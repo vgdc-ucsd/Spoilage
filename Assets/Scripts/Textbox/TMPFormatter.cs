@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using UnityEngine;
 
@@ -6,145 +7,182 @@ namespace TextboxControl
 {
     public static class TMPFormatter
     {
-        [System.ThreadStatic] static StringBuilder _sb;
+        [System.ThreadStatic]
+        private static StringBuilder _builder;
 
         public static string Build(IReadOnlyList<char> buffer, IReadOnlyList<StyleRun> runs)
         {
-            StringBuilder sb = _sb ?? (_sb = new StringBuilder(256));
-            sb.Clear();
-            if (buffer.Count == 0)
+            if (buffer == null || buffer.Count == 0)
             {
-                return "";
+                return string.Empty;
             }
 
+            StringBuilder builder = GetBuilder();
             int charIndex = 0;
-            bool anyOpen = false;
-            CharBaseState previous = CharBaseState.Default;
+            bool hasOpenTags = false;
+            CharBaseState previousStyle = CharBaseState.Default;
 
-            for (int r = 0; r < runs.Count; r++)
+            for (int runIndex = 0; runIndex < runs.Count; runIndex++)
             {
-                StyleRun run = runs[r];
-                if (anyOpen)
-                {
-                    CloseAll(sb, previous);
-                }
-                OpenFor(sb, run.Style);
-                anyOpen = !run.Style.IsDefault;
-                previous = run.Style;
+                StyleRun run = runs[runIndex];
 
-                int end = charIndex + run.Count;
-                for (; charIndex < end; charIndex++)
+                if (hasOpenTags)
                 {
-                    AppendEscaped(sb, buffer[charIndex]);
+                    CloseAll(builder, previousStyle);
+                }
+
+                OpenFor(builder, run.Style);
+                hasOpenTags = !run.Style.IsDefault;
+                previousStyle = run.Style;
+
+                int runEnd = charIndex + run.Count;
+                while (charIndex < runEnd)
+                {
+                    AppendEscaped(builder, buffer[charIndex]);
+                    charIndex++;
                 }
             }
 
-            if (anyOpen)
+            if (hasOpenTags)
             {
-                CloseAll(sb, previous);
+                CloseAll(builder, previousStyle);
             }
 
-            return sb.ToString();
+            return builder.ToString();
         }
 
-        static void OpenFor(StringBuilder sb, CharBaseState state)
+        private static StringBuilder GetBuilder()
+        {
+            StringBuilder builder = _builder;
+            if (builder == null)
+            {
+                builder = new StringBuilder(256);
+                _builder = builder;
+            }
+
+            builder.Clear();
+            return builder;
+        }
+
+        private static void OpenFor(StringBuilder builder, CharBaseState state)
         {
             if (state.HasColor)
             {
-                sb.Append("<color=#").Append(ColorToHex(state.Color)).Append('>');
+                builder.Append("<color=#").Append(ColorToHex(state.Color)).Append('>');
             }
+
             if (!float.IsNaN(state.SizeOverride))
             {
-                sb.Append("<size=").Append(state.SizeOverride.ToString(System.Globalization.CultureInfo.InvariantCulture)).Append('>');
+                builder.Append("<size=")
+                    .Append(state.SizeOverride.ToString(CultureInfo.InvariantCulture))
+                    .Append('>');
             }
+
             if (state.CharSpacing != 0f)
             {
-                sb.Append("<cspace=").Append(state.CharSpacing.ToString(System.Globalization.CultureInfo.InvariantCulture)).Append("em>");
+                builder.Append("<cspace=")
+                    .Append(state.CharSpacing.ToString(CultureInfo.InvariantCulture))
+                    .Append("em>");
             }
+
             if (state.BaselineOffset != 0f)
             {
-                sb.Append("<voffset=").Append(state.BaselineOffset.ToString(System.Globalization.CultureInfo.InvariantCulture)).Append("em>");
+                builder.Append("<voffset=")
+                    .Append(state.BaselineOffset.ToString(CultureInfo.InvariantCulture))
+                    .Append("em>");
             }
+
             if (state.FontName != null)
             {
-                sb.Append("<font=\"").Append(state.FontName).Append("\">");
+                builder.Append("<font=\"").Append(state.FontName).Append("\">");
             }
+
             if (state.Bold)
             {
-                sb.Append("<b>");
+                builder.Append("<b>");
             }
+
             if (state.Italic)
             {
-                sb.Append("<i>");
+                builder.Append("<i>");
             }
+
             if (state.Underline)
             {
-                sb.Append("<u>");
+                builder.Append("<u>");
             }
+
             if (state.Strikethrough)
             {
-                sb.Append("<s>");
+                builder.Append("<s>");
             }
         }
 
-        static void CloseAll(StringBuilder sb, CharBaseState state)
+        private static void CloseAll(StringBuilder builder, CharBaseState state)
         {
             if (state.Strikethrough)
             {
-                sb.Append("</s>");
+                builder.Append("</s>");
             }
+
             if (state.Underline)
             {
-                sb.Append("</u>");
+                builder.Append("</u>");
             }
+
             if (state.Italic)
             {
-                sb.Append("</i>");
+                builder.Append("</i>");
             }
+
             if (state.Bold)
             {
-                sb.Append("</b>");
+                builder.Append("</b>");
             }
+
             if (state.FontName != null)
             {
-                sb.Append("</font>");
+                builder.Append("</font>");
             }
+
             if (state.BaselineOffset != 0f)
             {
-                sb.Append("</voffset>");
+                builder.Append("</voffset>");
             }
+
             if (state.CharSpacing != 0f)
             {
-                sb.Append("</cspace>");
+                builder.Append("</cspace>");
             }
+
             if (!float.IsNaN(state.SizeOverride))
             {
-                sb.Append("</size>");
+                builder.Append("</size>");
             }
+
             if (state.HasColor)
             {
-                sb.Append("</color>");
+                builder.Append("</color>");
             }
         }
 
-        static void AppendEscaped(StringBuilder sb, char c)
+        private static void AppendEscaped(StringBuilder builder, char c)
         {
             if (c == '<')
             {
-                sb.Append("<noparse><</noparse>");
+                builder.Append("<noparse><</noparse>");
+                return;
             }
-            else
-            {
-                sb.Append(c);
-            }
+
+            builder.Append(c);
         }
 
-        static string ColorToHex(Color c)
+        private static string ColorToHex(Color color)
         {
-            byte r = (byte)Mathf.Clamp(Mathf.RoundToInt(c.r * 255f), 0, 255);
-            byte g = (byte)Mathf.Clamp(Mathf.RoundToInt(c.g * 255f), 0, 255);
-            byte b = (byte)Mathf.Clamp(Mathf.RoundToInt(c.b * 255f), 0, 255);
-            byte a = (byte)Mathf.Clamp(Mathf.RoundToInt(c.a * 255f), 0, 255);
+            byte r = (byte)Mathf.Clamp(Mathf.RoundToInt(color.r * 255f), 0, 255);
+            byte g = (byte)Mathf.Clamp(Mathf.RoundToInt(color.g * 255f), 0, 255);
+            byte b = (byte)Mathf.Clamp(Mathf.RoundToInt(color.b * 255f), 0, 255);
+            byte a = (byte)Mathf.Clamp(Mathf.RoundToInt(color.a * 255f), 0, 255);
 
             return a == 255
                 ? $"{r:X2}{g:X2}{b:X2}"

@@ -46,7 +46,33 @@ namespace TextboxControl
             return TryReadHeader() ? StepResult.ControlStart : StepResult.Error;
         }
 
-        bool TryReadHeader()
+        public bool ReadNumericOrHexParam(out string token)
+        {
+            return ReadParam(out token);
+        }
+
+        public bool ReadStringParam(out string token)
+        {
+            return ReadParam(out token);
+        }
+
+        public bool ReadParamSpan(out int offset, out int length)
+        {
+            return TryReadParamBounds(out offset, out length);
+        }
+
+        public bool EndControl()
+        {
+            if (_index < _src.Length && _src[_index] == TERM)
+            {
+                _index++;
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool TryReadHeader()
         {
             int start = _index;
 
@@ -74,11 +100,20 @@ namespace TextboxControl
             return true;
         }
 
-        public bool ReadNumericOrHexParam(out string token) => ReadParam(out token);
+        private bool ReadParam(out string token)
+        {
+            token = null;
 
-        public bool ReadStringParam(out string token) => ReadParam(out token);
+            if (!TryReadParamBounds(out int offset, out int length))
+            {
+                return false;
+            }
 
-        public bool ReadParamSpan(out int offset, out int length)
+            token = _src.Substring(offset, length);
+            return true;
+        }
+
+        private bool TryReadParamBounds(out int offset, out int length)
         {
             offset = 0;
             length = 0;
@@ -96,63 +131,22 @@ namespace TextboxControl
             _index++;
             offset = _index;
 
-            while (_index < _src.Length && _src[_index] != ';' && _src[_index] != TERM)
+            while (_index < _src.Length)
             {
+                char c = _src[_index];
+                if (c == ';' || c == TERM)
+                {
+                    length = _index - offset;
+                    return true;
+                }
+
                 _index++;
-            }
-
-            if (_index >= _src.Length)
-            {
-                return false;
-            }
-
-            length = _index - offset;
-            return true;
-        }
-
-        bool ReadParam(out string token)
-        {
-            token = null;
-
-            if (_index >= _src.Length || _src[_index] == TERM)
-            {
-                return false;
-            }
-
-            if (_src[_index] != ';')
-            {
-                return false;
-            }
-
-            _index++;
-            int start = _index;
-
-            while (_index < _src.Length && _src[_index] != ';' && _src[_index] != TERM)
-            {
-                _index++;
-            }
-
-            if (_index >= _src.Length)
-            {
-                return false;
-            }
-
-            token = _src.Substring(start, _index - start);
-            return true;
-        }
-
-        public bool EndControl()
-        {
-            if (_index < _src.Length && _src[_index] == TERM)
-            {
-                _index++;
-                return true;
             }
 
             return false;
         }
 
-        static bool IsDigit(char c)
+        private static bool IsDigit(char c)
         {
             return c >= '0' && c <= '9';
         }

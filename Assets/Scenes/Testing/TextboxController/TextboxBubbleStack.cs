@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -83,24 +83,10 @@ public class TextboxBubbleStack : MonoBehaviour
             return null;
         }
 
-        Transform parent = BubbleParent != null ? BubbleParent : transform;
-        GameObject instance = Instantiate(BubblePrefab, parent);
-        TextboxController controller = instance.GetComponentInChildren<TextboxController>(true);
-        if (controller == null)
+        if (!TryCreateBubble(source, side, out Bubble bubble))
         {
-            Debug.LogError("[TextboxBubbleStack] BubblePrefab must contain a TextboxController.", instance);
-            Destroy(instance);
             return null;
         }
-
-        controller.Play(source);
-
-        Bubble bubble = new Bubble
-        {
-            Root = instance.transform,
-            Controller = controller,
-            Side = side
-        };
 
         PrepareBubble(bubble, true);
         SetAlpha(bubble.Visuals, 0f);
@@ -121,7 +107,32 @@ public class TextboxBubbleStack : MonoBehaviour
 
         LayoutBubbles(true, bubble);
 
-        return controller;
+        return bubble.Controller;
+    }
+
+    bool TryCreateBubble(string source, TextboxBubbleSide side, out Bubble bubble)
+    {
+        bubble = null;
+
+        Transform parent = BubbleParent != null ? BubbleParent : transform;
+        GameObject instance = Instantiate(BubblePrefab, parent);
+        TextboxController controller = instance.GetComponentInChildren<TextboxController>(true);
+        if (controller == null)
+        {
+            Debug.LogError("[TextboxBubbleStack] BubblePrefab must contain a TextboxController.", instance);
+            Destroy(instance);
+            return false;
+        }
+
+        controller.Play(source);
+
+        bubble = new Bubble
+        {
+            Root = instance.transform,
+            Controller = controller,
+            Side = side,
+        };
+        return true;
     }
 
     public void RefreshLayout(bool animate)
@@ -163,17 +174,20 @@ public class TextboxBubbleStack : MonoBehaviour
         int maxBubbles = Mathf.Max(1, MaxBubbles);
         while (_bubbles.Count > maxBubbles)
         {
-            Bubble oldest = _bubbles[0];
-            _bubbles.RemoveAt(0);
-            StartCoroutine(FadeOutAndDestroy(oldest));
+            RemoveOldestBubble();
         }
 
         while (VisibleHeight > 0f && _bubbles.Count > 1 && GetStackHeight() > VisibleHeight)
         {
-            Bubble oldest = _bubbles[0];
-            _bubbles.RemoveAt(0);
-            StartCoroutine(FadeOutAndDestroy(oldest));
+            RemoveOldestBubble();
         }
+    }
+
+    void RemoveOldestBubble()
+    {
+        Bubble oldest = _bubbles[0];
+        _bubbles.RemoveAt(0);
+        StartCoroutine(FadeOutAndDestroy(oldest));
     }
 
     float GetStackHeight()

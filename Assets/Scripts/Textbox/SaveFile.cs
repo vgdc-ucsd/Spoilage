@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 
 namespace TextboxControl
 {
@@ -7,20 +8,20 @@ namespace TextboxControl
         private readonly string _text;
         private readonly Entry[] _entries;
 
-        struct BoxSpan
+        private struct BoxSpan
         {
             public int Start;
-            public int Len;
+            public int Length;
         }
 
-        struct Entry
+        private struct Entry
         {
             public int NameStart;
-            public int NameLen;
+            public int NameLength;
             public BoxSpan[] Boxes;
         }
 
-        DialogueSaveFile(string text, Entry[] entries)
+        private DialogueSaveFile(string text, Entry[] entries)
         {
             _text = text;
             _entries = entries;
@@ -28,135 +29,162 @@ namespace TextboxControl
 
         public int CountBoxes(string name)
         {
-            for (int i = 0; i < _entries.Length; i++)
-            {
-                ref Entry e = ref _entries[i];
-                if (SpanEquals(name, e.NameStart, e.NameLen))
-                {
-                    return e.Boxes.Length;
-                }
-            }
-            return -1;
+            int index = FindEntryIndex(name);
+            return index >= 0 ? _entries[index].Boxes.Length : -1;
         }
 
         public string GetBox(string name, int boxIndex)
         {
-            for (int i = 0; i < _entries.Length; i++)
+            int entryIndex = FindEntryIndex(name);
+            if (entryIndex < 0)
             {
-                ref Entry e = ref _entries[i];
-                if (!SpanEquals(name, e.NameStart, e.NameLen))
-                {
-                    continue;
-                }
-                if ((uint)boxIndex >= (uint)e.Boxes.Length)
-                {
-                    return null;
-                }
-                ref BoxSpan b = ref e.Boxes[boxIndex];
-                return _text.Substring(b.Start, b.Len);
+                return null;
             }
-            return null;
-        }
 
-        private bool SpanEquals(string name, int start, int len)
-        {
-            return name.Length == len && string.CompareOrdinal(name, 0, _text, start, len) == 0;
+            ref Entry entry = ref _entries[entryIndex];
+            if ((uint)boxIndex >= (uint)entry.Boxes.Length)
+            {
+                return null;
+            }
+
+            ref BoxSpan box = ref entry.Boxes[boxIndex];
+            return _text.Substring(box.Start, box.Length);
         }
 
         public static DialogueSaveFile Parse(string text)
         {
+            if (text == null)
+            {
+                throw new ArgumentNullException(nameof(text));
+            }
+
             List<Entry> entries = new List<Entry>();
             List<BoxSpan> currentBoxes = new List<BoxSpan>();
-            int currentNameStart = -1;
-            int currentNameLen = 0;
-            int len = text.Length;
+
+            int nameStart = -1;
+            int nameLen = 0;
+
+            int textLength = text.Length;
             int lineStart = 0;
 
-            for (int i = 0; i <= len; i++)
+            for (int i = 0; i <= textLength; i++)
             {
-                bool atEnd = i == len;
-                bool isNewline = !atEnd && (text[i] == '\n' || text[i] == '\r');
-                if (!atEnd && !isNewline)
+                bool atEnd = i == textLength;
+                bool isLineBreak = !atEnd && (text[i] == '\n' || text[i] == '\r');
+                if (!atEnd && !isLineBreak)
                 {
                     continue;
                 }
 
-                int thisLineStart = lineStart;
-                int lineLen = i - thisLineStart;
-                if (!atEnd && text[i] == '\r' && i + 1 < len && text[i + 1] == '\n')
+                int lineOff = lineStart;
+                int lineLen = i - lineOff;
+
+                if (!atEnd && text[i] == '\r' && i + 1 < textLength && text[i + 1] == '\n')
                 {
                     i++;
                 }
+
                 lineStart = i + 1;
 
-                if (lineLen == 0 || text[thisLineStart] == '#')
+                if (lineLen == 0 || text[lineOff] == '#')
                 {
                     continue;
                 }
 
-                if (text[thisLineStart] == '\t')
+                if (text[lineOff] == '\t')
                 {
-                    if (currentNameStart < 0)
+                    if (nameStart < 0)
                     {
-                        throw new System.FormatException($"Indented line at position {thisLineStart} has no preceding sequence name.");
+                        throw new FormatException($"Indented line at position {lineOff} has no preceding sequence name.");
                     }
-                    currentBoxes.Add(new BoxSpan { Start = thisLineStart + 1, Len = lineLen - 1 });
+
+                    currentBoxes.Add(new BoxSpan
+                    {
+                        Start = lineOff + 1,
+                        Length = lineLen - 1,
+                    });
                     continue;
                 }
 
-                if (text[thisLineStart + lineLen - 1] != ':')
+                if (text[lineOff + lineLen - 1] != ':')
                 {
-                    throw new System.FormatException($"Expected sequence header ending in ':' at position {thisLineStart}.");
+                    throw new FormatException($"Expected sequence header ending in ':' at position {lineOff}.");
                 }
 
-                int nameLen = lineLen - 1;
-                if (!IsValidName(text, thisLineStart, nameLen))
+                int curNameLen = lineLen - 1;
+                if (!IsValidName(text, lineOff, curNameLen))
                 {
-                    throw new System.FormatException($"Invalid sequence name at position {thisLineStart}.");
+                    throw new FormatException($"Invalid sequence name at position {lineOff}.");
                 }
 
-                if (currentNameStart >= 0)
+                if (nameStart >= 0)
                 {
-                    entries.Add(new Entry
-                    {
-                        NameStart = currentNameStart,
-                        NameLen = currentNameLen,
-                        Boxes = currentBoxes.ToArray(),
-                    });
+                    entries.Add(CreateEntry(nameStart, nameLen, currentBoxes));
+                    currentBoxes.Clear();
                 }
 
-                currentNameStart = thisLineStart;
-                currentNameLen = nameLen;
-                currentBoxes.Clear();
+                nameStart = lineOff;
+                nameLen = curNameLen;
             }
 
-            if (currentNameStart >= 0)
+            if (nameStart >= 0)
             {
-                entries.Add(new Entry
-                {
-                    NameStart = currentNameStart,
-                    NameLen = currentNameLen,
-                    Boxes = currentBoxes.ToArray(),
-                });
+                entries.Add(CreateEntry(nameStart, nameLen, currentBoxes));
             }
 
             return new DialogueSaveFile(text, entries.ToArray());
         }
 
-        private static bool IsValidName(string s, int start, int len)
+        private int FindEntryIndex(string name)
         {
-            if (len == 0)
+            if (name == null)
+            {
+                return -1;
+            }
+
+            for (int i = 0; i < _entries.Length; i++)
+            {
+                ref Entry entry = ref _entries[i];
+                if (SpanEquals(name, entry.NameStart, entry.NameLength))
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        private static Entry CreateEntry(int nameStart, int nameLength, List<BoxSpan> boxes)
+        {
+            return new Entry
+            {
+                NameStart = nameStart,
+                NameLength = nameLength,
+                Boxes = boxes.ToArray(),
+            };
+        }
+
+        private bool SpanEquals(string name, int start, int length)
+        {
+            return name.Length == length &&
+                   string.CompareOrdinal(name, 0, _text, start, length) == 0;
+        }
+
+        private static bool IsValidName(string s, int start, int length)
+        {
+            if (length == 0)
             {
                 return false;
             }
 
-            char c0 = s[start];
-            if (!(char.IsLetter(c0) || c0 == '_'))
+            char first = s[start];
+            if (!(char.IsLetter(first) || first == '_'))
             {
                 return false;
             }
 
-            for (int i = start + 1; i < start + len; i++)
+            int end = start + length;
+            for (int i = start + 1; i < end; i++)
             {
                 char c = s[i];
                 if (!(char.IsLetterOrDigit(c) || c == '_' || c == '-' || c == '.'))
@@ -164,6 +192,7 @@ namespace TextboxControl
                     return false;
                 }
             }
+
             return true;
         }
     }

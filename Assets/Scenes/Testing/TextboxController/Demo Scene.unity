@@ -336,7 +336,7 @@ MonoBehaviour:
   MinBubbleSize: {x: 1, y: 0.5}
   CreateBackground: 1
   BackgroundObjectName: BubbleBackground
-  BackgroundColor: {r: 0.6603774, g: 0, b: 0, a: 1}
+  BackgroundColor: {r: 0.39607844, g: 0.76862746, b: 0.4, a: 1}
   AppearDuration: 0.2
   MoveDuration: 0.2
   DisappearDuration: 0.2
