@@ -8,17 +8,20 @@ namespace TextboxControl
     {
         public event Action OnComplete;
 
-        public bool IsRevealing => _reducer != null && _reducer.IsPlaying;
+        public bool IsRevealing => _initialized && _reducer.IsPlaying;
 
+        private TMP_Text _target;
         private Reducer _reducer;
         private TextAnimator _animator;
+        private bool _initialized;
 
         void Awake()
         {
-            TMP_Text target = GetComponentInChildren<TMP_Text>();
-            if (target == null)
+            _target = GetComponentInChildren<TMP_Text>();
+            if (_target == null)
             {
                 Debug.LogError("[TextboxControl] TextboxController containing object must have contain a TextMeshPro child!", this);
+                enabled = false;
                 return;
             }
 
@@ -26,12 +29,13 @@ namespace TextboxControl
             _reducer.OnError += msg => Debug.LogWarning($"[TextboxControl] {msg}", this);
             _reducer.OnComplete += () => OnComplete?.Invoke();
 
-            _animator = new TextAnimator(target, _reducer);
+            _animator = new TextAnimator(_target, _reducer);
+            _initialized = true;
         }
 
         public void Play(string source)
         {
-            if (_reducer == null)
+            if (!_initialized)
             {
                 return;
             }
@@ -42,7 +46,7 @@ namespace TextboxControl
 
         public void Skip()
         {
-            if (_reducer == null)
+            if (!_initialized)
             {
                 return;
             }
@@ -51,13 +55,23 @@ namespace TextboxControl
             _animator.Render();
         }
 
-        void Update()
+        public void NotifyTextLayoutChanged(bool renderNow = true)
         {
-            if (_reducer == null)
+            if (!_initialized)
             {
                 return;
             }
 
+            _target.ForceMeshUpdate();
+            _animator.MarkLayoutDirty();
+            if (renderNow)
+            {
+                _animator.Render();
+            }
+        }
+
+        void LateUpdate()
+        {
             _reducer.Tick(Time.deltaTime);
             _animator.Render();
         }

@@ -22,6 +22,7 @@ namespace TextboxControl
 
 
         private readonly List<Region> _regions = new List<Region>();
+        private readonly List<(int offset, int length)> _paramSpans = new List<(int offset, int length)>(8);
         private int _nextRegionId = 1;
         private int _regionVersion;
 
@@ -452,25 +453,25 @@ namespace TextboxControl
             }
 
 
-            List<(int offset, int length)> spans = new List<(int offset, int length)>();
+            _paramSpans.Clear();
             while (_cursor.ReadParamSpan(out int o, out int l))
             {
-                spans.Add((o, l));
+                _paramSpans.Add((o, l));
             }
             EndControl();
 
             string regionName = null;
-            if (spans.Count > 0)
+            if (_paramSpans.Count > 0)
             {
-                (int lo, int ll) = spans[spans.Count - 1];
+                (int lo, int ll) = _paramSpans[_paramSpans.Count - 1];
                 if (IsValidIdentSpan(_cursor.Source, lo, ll))
                 {
                     regionName = _cursor.Source.Substring(lo, ll);
-                    spans.RemoveAt(spans.Count - 1);
+                    _paramSpans.RemoveAt(_paramSpans.Count - 1);
                 }
             }
 
-            Animation.IAnimation anim = Animation.AnimationRegistry.Create(animName, _cursor.Source, spans);
+            Animation.IAnimation anim = Animation.AnimationRegistry.Create(animName, _cursor.Source, _paramSpans);
             _regions.Add(new Region
             {
                 Id = _nextRegionId++,
@@ -490,10 +491,10 @@ namespace TextboxControl
 
         private void HandleExternalControl(int method)
         {
-            List<string> parms = new List<string>();
-            while (_cursor.ReadStringParam(out string p))
+            _paramSpans.Clear();
+            while (_cursor.ReadParamSpan(out int offset, out int length))
             {
-                parms.Add(p);
+                _paramSpans.Add((offset, length));
             }
             EndControl();
 
@@ -502,25 +503,45 @@ namespace TextboxControl
                 return;
             }
 
-            if (parms.Count == 0)
+            if (_paramSpans.Count == 0)
             {
                 Debug.Log($"[TextboxControl] external control ignored: {method}");
             }
             else
             {
-                Debug.Log($"[TextboxControl] external control ignored: {method}: {string.Join(", ", parms)}");
+                string[] parameters = new string[_paramSpans.Count];
+                string source = _cursor.Source;
+                for (int i = 0; i < _paramSpans.Count; i++)
+                {
+                    (int offset, int length) = _paramSpans[i];
+                    parameters[i] = source.Substring(offset, length);
+                }
+
+                Debug.Log($"[TextboxControl] external control ignored: {method}: {string.Join(", ", parameters)}");
             }
         }
 
         private static bool IsValidIdentSpan(string src, int offset, int length)
         {
-            if (length == 0) return false;
+            if (length == 0)
+            {
+                return false;
+            }
             for (int i = offset; i < offset + length; i++)
             {
                 char c = src[i];
-                if (c == '=' || c == ',') return false;
-                if (i == offset && !(char.IsLetter(c) || c == '_')) return false;
-                if (i > offset && !(char.IsLetterOrDigit(c) || c == '_')) return false;
+                if (c == '=' || c == ',')
+                {
+                    return false;
+                }
+                if (i == offset && !(char.IsLetter(c) || c == '_'))
+                {
+                    return false;
+                }
+                if (i > offset && !(char.IsLetterOrDigit(c) || c == '_'))
+                {
+                    return false;
+                }
             }
             return true;
         }
@@ -528,10 +549,22 @@ namespace TextboxControl
         static bool TryParseHexColor(string s, out Color color)
         {
             color = default;
-            if (string.IsNullOrEmpty(s)) return false;
+            if (string.IsNullOrEmpty(s))
+            {
+                return false;
+            }
             int len = s.Length;
-            if (len != 3 && len != 4 && len != 6 && len != 8) return false;
-            for (int i = 0; i < len; i++) if (!IsHexDigit(s[i])) return false;
+            if (len != 3 && len != 4 && len != 6 && len != 8)
+            {
+                return false;
+            }
+            for (int i = 0; i < len; i++)
+            {
+                if (!IsHexDigit(s[i]))
+                {
+                    return false;
+                }
+            }
 
             byte r, g, b, a = 255;
             if (len <= 4)

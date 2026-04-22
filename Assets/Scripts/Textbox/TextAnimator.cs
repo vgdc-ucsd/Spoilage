@@ -9,6 +9,7 @@ namespace TextboxControl
     {
         private readonly TMP_Text _target;
         private readonly Reducer _reducer;
+        private readonly Reducer _previewReducer;
 
         private Vector3[][] _baselineVerts;
         private Color32[][] _baselineColors;
@@ -19,13 +20,22 @@ namespace TextboxControl
         private bool _anyAnim;
         private int _lastRegionVersion = -1;
 
-        private static readonly Vector3[] _quadVerts = new Vector3[4];
-        private static readonly Color32[] _quadColors = new Color32[4];
+        private readonly Vector3[] _quadVerts = new Vector3[4];
+        private readonly Color32[] _quadColors = new Color32[4];
 
         public TextAnimator(TMP_Text target, Reducer reducer)
         {
             _target = target;
             _reducer = reducer;
+            _previewReducer = new Reducer();
+            _previewReducer.OnError += _ => { };
+            _previewReducer.LogExternalControls = false;
+        }
+
+        public void MarkLayoutDirty()
+        {
+            _baselineValid = false;
+            _pushedStaticFrame = false;
         }
 
         public void Prepare(string source)
@@ -35,16 +45,14 @@ namespace TextboxControl
                 return;
             }
 
-            Reducer dry = new Reducer();
-            dry.OnError += _ => { };
-            dry.LogExternalControls = false;
-            dry.Play(source);
-            dry.Skip();
+            _previewReducer.Play(source);
+            _previewReducer.Skip();
 
-            _totalChars = dry.RevealedCount;
-            _target.text = TMPFormatter.Build(dry.DisplayBuffer, dry.StyleRuns);
+            _totalChars = _previewReducer.RevealedCount;
+            _target.text = TMPFormatter.Build(_previewReducer.DisplayBuffer, _previewReducer.StyleRuns);
             _target.ForceMeshUpdate();
 
+            MarkLayoutDirty();
             SnapshotBaseline();
             _pushedStaticFrame = false;
             _lastRegionVersion = -1;
@@ -53,9 +61,8 @@ namespace TextboxControl
 
         public void Clear()
         {
-            _baselineValid = false;
+            MarkLayoutDirty();
             _totalChars = 0;
-            _pushedStaticFrame = false;
             _lastRegionVersion = -1;
 
             if (_target != null)
@@ -66,10 +73,12 @@ namespace TextboxControl
 
         public void Render()
         {
-            if (!_baselineValid || _target == null)
+            if (_target == null)
             {
                 return;
             }
+
+            EnsureBaseline();
 
             int revealed = _reducer.RevealedCount;
             List<Region> regions = _reducer.RegionsDirect;
@@ -97,6 +106,7 @@ namespace TextboxControl
             TMP_TextInfo textInfo = _target.textInfo;
             int charCount = textInfo.characterCount;
             float now = (float)_reducer.TimeSincePlay;
+            int regionCount = regions.Count;
 
             for (int i = 0; i < charCount; i++)
             {
@@ -117,7 +127,16 @@ namespace TextboxControl
                 Color32[] srcColors = _baselineColors[matIdx];
                 Vector3[] dstVerts = textInfo.meshInfo[matIdx].vertices;
                 Color32[] dstColors = textInfo.meshInfo[matIdx].colors32;
-                if (srcVerts == null || dstVerts == null)
+                if (srcVerts == null || srcColors == null || dstVerts == null || dstColors == null)
+                {
+                    continue;
+                }
+
+                if (vertIdx < 0 ||
+                    vertIdx + 3 >= srcVerts.Length ||
+                    vertIdx + 3 >= srcColors.Length ||
+                    vertIdx + 3 >= dstVerts.Length ||
+                    vertIdx + 3 >= dstColors.Length)
                 {
                     continue;
                 }
@@ -135,17 +154,25 @@ namespace TextboxControl
 
                 CharAnimState state = CharAnimState.Identity;
                 bool charAnim = false;
-                for (int r = 0; r < regions.Count; r++)
+                for (int r = 0; r < regionCount; r++)
                 {
                     Region reg = regions[r];
-                    if (reg.Animation == null || !reg.Contains(i))
+                    IAnimation animation = reg.Animation;
+                    if (animation == null)
                     {
                         continue;
                     }
-                    reg.Animation.Apply(ref state, new AnimationContext
+
+                    int charIndexInRegion = i - reg.Start;
+                    if ((uint)charIndexInRegion >= (uint)reg.Length)
+                    {
+                        continue;
+                    }
+
+                    animation.Apply(ref state, new AnimationContext
                     {
                         CharIndexInBuffer = i,
-                        CharIndexInRegion = i - reg.Start,
+                        CharIndexInRegion = charIndexInRegion,
                         RegionLength = reg.Length,
                         TimeSinceRegionStart = now - (float)reg.StartTime,
                     });
@@ -165,13 +192,20 @@ namespace TextboxControl
                     }
                 }
 
-                for (int r = 0; r < regions.Count; r++)
+                for (int r = 0; r < regionCount; r++)
                 {
                     Region reg = regions[r];
-                    if (!(reg.Animation is IVertexAnimation va) || !reg.Contains(i))
+                    if (!(reg.Animation is IVertexAnimation va))
                     {
                         continue;
                     }
+
+                    int charIndexInRegion = i - reg.Start;
+                    if ((uint)charIndexInRegion >= (uint)reg.Length)
+                    {
+                        continue;
+                    }
+
                     for (int k = 0; k < 4; k++)
                     {
                         _quadVerts[k] = dstVerts[vertIdx + k];
@@ -180,7 +214,7 @@ namespace TextboxControl
                     va.ApplyVertices(_quadVerts, _quadColors, new AnimationContext
                     {
                         CharIndexInBuffer = i,
-                        CharIndexInRegion = i - reg.Start,
+                        CharIndexInRegion = charIndexInRegion,
                         RegionLength = reg.Length,
                         TimeSinceRegionStart = now - (float)reg.StartTime,
                     });
@@ -194,6 +228,18 @@ namespace TextboxControl
 
             _target.UpdateVertexData(TMP_VertexDataUpdateFlags.Vertices | TMP_VertexDataUpdateFlags.Colors32);
             _pushedStaticFrame = isStatic;
+        }
+
+        void EnsureBaseline()
+        {
+            if (_baselineValid && !_target.havePropertiesChanged)
+            {
+                return;
+            }
+
+            _target.ForceMeshUpdate();
+            SnapshotBaseline();
+            _pushedStaticFrame = false;
         }
 
         void SnapshotBaseline()
