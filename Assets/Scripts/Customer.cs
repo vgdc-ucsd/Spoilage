@@ -17,6 +17,7 @@ public class Customer : MonoBehaviour
             Debug.Log("Using existing customer");
         }
 
+        // TODO: Be sure to add the new indexes into the offset and sprite handling
         for (int i = 0; i < CustomerData.NUM_SPRITES; i++)
         {
             switch ((CustomerData.Indexes)i)
