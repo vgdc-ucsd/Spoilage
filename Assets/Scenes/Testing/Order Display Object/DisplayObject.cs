@@ -56,7 +56,7 @@ public class DisplayObject : MonoBehaviour
         foodPicture.sprite = foodPictureSprite;
         foodPicture.color = Color.white;
         
-        itemName.text = order.itemName + new string('*', _numAsterisks) + order.itemCost.ToString();
+        itemName.text = "<align=\"flush\">" + order.itemName + new string('*', _numAsterisks) + order.itemCost.ToString();
         
         RectTransform rt = ingredients.GetComponent<RectTransform>();
         rt.sizeDelta = new Vector2(rt.sizeDelta.x, _numIngredients * 100 + (_numIngredients - 1) * 5);
