@@ -3,6 +3,13 @@ using System.Collections.Generic;
 
 namespace TextboxControl
 {
+    /// <summary>
+    /// In-memory view over a parsed dialogue save text file.
+    /// </summary>
+    /// <remarks>
+    /// Format:
+    /// non-indented lines ending with ':' declare sequence names; following tab-indented lines are boxes.
+    /// </remarks>
     public class DialogueSaveFile
     {
         private readonly string _text;
@@ -27,12 +34,18 @@ namespace TextboxControl
             _entries = entries;
         }
 
+        /// <summary>
+        /// Returns the number of boxes for a sequence, or -1 when the sequence is missing.
+        /// </summary>
         public int CountBoxes(string name)
         {
             int index = FindEntryIndex(name);
             return index >= 0 ? _entries[index].Boxes.Length : -1;
         }
 
+        /// <summary>
+        /// Returns one dialogue box by sequence name and index, or null when missing/out of range.
+        /// </summary>
         public string GetBox(string name, int boxIndex)
         {
             int entryIndex = FindEntryIndex(name);
@@ -51,6 +64,11 @@ namespace TextboxControl
             return _text.Substring(box.Start, box.Length);
         }
 
+        /// <summary>
+        /// Parses raw save text into a lookup-friendly representation.
+        /// </summary>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="text"/> is null.</exception>
+        /// <exception cref="FormatException">Thrown when the file structure is invalid.</exception>
         public static DialogueSaveFile Parse(string text)
         {
             if (text == null)

@@ -1,15 +1,21 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using UnityEngine;
 
 namespace TextboxControl
 {
+    /// <summary>
+    /// Converts reducer output into TMP-aware output while preserving literal `<` glyphs.
+    /// </summary>
     public static class TMPFormatter
     {
         [System.ThreadStatic]
         private static StringBuilder _builder;
 
+        /// <summary>
+        /// Builds a TMP-ready string from plain characters and style runs.
+        /// </summary>
         public static string Build(IReadOnlyList<char> buffer, IReadOnlyList<StyleRun> runs)
         {
             if (buffer == null || buffer.Count == 0)

@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace TextboxControl
 {
+    /// <summary>
+    /// MonoBehaviour entry point that wires reducer + animator into Unity's frame loop.
+    /// </summary>
     public class TextboxController : MonoBehaviour
     {
         private TMP_Text _target;
@@ -11,8 +14,14 @@ namespace TextboxControl
         private TextAnimator _animator;
         private bool _initialized;
 
+        /// <summary>
+        /// Fired when the currently playing textbox stream reaches completion.
+        /// </summary>
         public event Action OnComplete;
 
+        /// <summary>
+        /// True while the reducer is actively revealing text.
+        /// </summary>
         public bool IsRevealing => _initialized && _reducer.IsPlaying;
 
         private void Awake()
@@ -33,6 +42,9 @@ namespace TextboxControl
             _initialized = true;
         }
 
+        /// <summary>
+        /// Starts a new textbox stream from the beginning.
+        /// </summary>
         public void Play(string source)
         {
             if (!IsReady())
@@ -44,6 +56,9 @@ namespace TextboxControl
             _animator.Prepare(source);
         }
 
+        /// <summary>
+        /// Instantly reveals the remaining text for the active stream.
+        /// </summary>
         public void Skip()
         {
             if (!IsReady())
@@ -55,6 +70,9 @@ namespace TextboxControl
             _animator.Render();
         }
 
+        /// <summary>
+        /// Rebuilds cached animation baselines after external TMP layout-affecting changes.
+        /// </summary>
         public void NotifyTextLayoutChanged(bool renderNow = true)
         {
             if (!IsReady())

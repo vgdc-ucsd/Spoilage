@@ -6,6 +6,9 @@ using TextboxControl.Animation;
 
 namespace TextboxControl
 {
+    /// <summary>
+    /// Handles animation and text reveal on a TMP_text object.
+    /// </summary>
     public class TextAnimator
     {
         private readonly TMP_Text _target;
@@ -27,6 +30,9 @@ namespace TextboxControl
         private int[] _activeRegionIndices = new int[16];
         private int _activeRegionCount;
 
+        /// <summary>
+        /// Creates a renderer bound to a TMP target and reducer output stream.
+        /// </summary>
         public TextAnimator(TMP_Text target, Reducer reducer)
         {
             _target = target;
@@ -37,12 +43,19 @@ namespace TextboxControl
             _previewReducer.LogExternalControls = false;
         }
 
+        /// <summary>
+        /// Marks cached baseline mesh data as stale so it will be rebuilt on next render.
+        /// </summary>
         public void MarkLayoutDirty()
         {
             _baselineValid = false;
             _pushedStaticFrame = false;
         }
 
+        /// <summary>
+        /// Initializes styled text with a dry run and snapshots baseline geometry.
+        /// </summary>
+        /// <param name="source">Textbox source text.</param>
         public void Prepare(string source)
         {
             if (_target == null)
@@ -63,6 +76,9 @@ namespace TextboxControl
             Render();
         }
 
+        /// <summary>
+        /// Clears rendered text and internal animation cache state.
+        /// </summary>
         public void Clear()
         {
             MarkLayoutDirty();
@@ -75,6 +91,9 @@ namespace TextboxControl
             }
         }
 
+        /// <summary>
+        /// Applies reveal and animation state to the bound TMP mesh for the current frame.
+        /// </summary>
         public void Render()
         {
             if (_target == null)

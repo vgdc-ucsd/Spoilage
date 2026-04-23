@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace TextboxControl
 {
+    /// <summary>
+    /// Baseline text styling representation managed by reducer methods.
+    /// </summary>
     public struct CharBaseState
     {
         public bool Bold;
@@ -24,6 +27,9 @@ namespace TextboxControl
             CharSpacing == 0 && BaselineOffset == 0;
     }
 
+    /// <summary>
+    /// Consecutive character run sharing the same <see cref="CharBaseState"/>.
+    /// </summary>
     public struct StyleRun
     {
         public int Count;

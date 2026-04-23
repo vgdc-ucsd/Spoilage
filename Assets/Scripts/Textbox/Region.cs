@@ -1,5 +1,8 @@
 namespace TextboxControl
 {
+    /// <summary>
+    /// A character range in the revealed buffer, possibly with animation payload.
+    /// </summary>
     public class Region
     {
         public int Id;

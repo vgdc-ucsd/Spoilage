@@ -1,5 +1,8 @@
 namespace TextboxControl
 {
+    /// <summary>
+    /// Codes used to represent actions, animations, or styling triggers in textboxes.
+    /// </summary>
     public enum MethodCode
     {
         ResetAll = 0,

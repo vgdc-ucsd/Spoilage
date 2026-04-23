@@ -5,12 +5,16 @@ using UnityEngine;
 
 namespace TextboxControl
 {
+    /// <summary>
+    /// Interpreter for textbox control sequences.
+    /// Converts a source string into a revealed glyph buffer, style runs, and active animation regions.
+    /// </summary>
     public class Reducer
     {
         private const int SkipSafetyBudget = 1000000;
         private const int TickSafetyBudget = 10000;
 
-        private ControlCursor _cursor;
+        private SequenceCursor _cursor;
         private bool _isPlaying;
         private bool _previewMode;
 
@@ -30,14 +34,44 @@ namespace TextboxControl
         private int _nextRegionId;
         private int _regionVersion;
 
+        /// <summary>
+        /// Fired once when playback reaches the end of input.
+        /// </summary>
         public event Action OnComplete;
+
+        /// <summary>
+        /// Fired when the input stream is malformed or a method argument is invalid.
+        /// </summary>
         public event Action<string> OnError;
 
+        /// <summary>
+        /// True while the reducer is actively stepping through the source stream.
+        /// </summary>
         public bool IsPlaying => _isPlaying;
+
+        /// <summary>
+        /// Number of plain glyphs emitted into <see cref="DisplayBuffer"/>.
+        /// </summary>
         public int RevealedCount => _buffer.Count;
+
+        /// <summary>
+        /// Wall-clock playback time since the last <see cref="Play"/> call.
+        /// </summary>
         public double TimeSincePlay => _timeSincePlay;
+
+        /// <summary>
+        /// Current plain character output (without TMP tags).
+        /// </summary>
         public IReadOnlyList<char> DisplayBuffer => _buffer;
+
+        /// <summary>
+        /// Style segments that map one-to-one onto <see cref="DisplayBuffer"/>.
+        /// </summary>
         public IReadOnlyList<StyleRun> StyleRuns => _runs;
+
+        /// <summary>
+        /// Active animation regions for already-emitted characters.
+        /// </summary>
         public IReadOnlyList<Region> Regions => _regions;
 
         internal List<Region> RegionsDirect => _regions;
@@ -45,13 +79,21 @@ namespace TextboxControl
         internal bool LogExternalControls { get; set; } = true;
         private bool IsPreview => _previewMode;
 
+        /// <summary>
+        /// Starts playback from the beginning of <paramref name="source"/>.
+        /// </summary>
+        /// <param name="source">Raw textbox stream with embedded control sequences.</param>
+        /// <param name="previewMode">If true, timing and external controls are ignored.</param>
         public void Play(string source, bool previewMode = false)
         {
-            _cursor = new ControlCursor(source ?? string.Empty);
+            _cursor = new SequenceCursor(source ?? string.Empty);
             _isPlaying = true;
             ResetState(previewMode, resetClock: true);
         }
 
+        /// <summary>
+        /// Stops playback and clears interpreted output.
+        /// </summary>
         public void Stop()
         {
             _cursor = null;
@@ -59,6 +101,9 @@ namespace TextboxControl
             ResetState(previewMode: false, resetClock: false);
         }
 
+        /// <summary>
+        /// Consumes the remaining input immediately, bypassing typewriter timing.
+        /// </summary>
         public void Skip()
         {
             if (!_isPlaying)
@@ -69,6 +114,7 @@ namespace TextboxControl
             _typewriterIntervalSeconds = 0f;
             _timeUntilNextAction = 0d;
 
+            // Safety guard prevents infinite loops on malformed control streams.
             int safety = SkipSafetyBudget;
             while (_isPlaying && safety-- > 0)
             {
@@ -76,6 +122,10 @@ namespace TextboxControl
             }
         }
 
+        /// <summary>
+        /// Advances playback using frame delta time.
+        /// </summary>
+        /// <param name="deltaTime">Elapsed seconds for this frame.</param>
         public void Tick(float deltaTime)
         {
             _timeSincePlay += deltaTime;
@@ -87,6 +137,7 @@ namespace TextboxControl
 
             _timeAccumulator += deltaTime;
 
+            // Run until the next scheduled delay/typewriter gate.
             int safety = TickSafetyBudget;
             while (_isPlaying && _timeAccumulator >= _timeUntilNextAction && safety-- > 0)
             {
@@ -138,7 +189,7 @@ namespace TextboxControl
                     }
                     break;
 
-                case StepResult.ControlStart:
+                case StepResult.SequenceStart:
                     Dispatch(_cursor.CurrentMethod);
                     break;
 
@@ -163,9 +214,9 @@ namespace TextboxControl
             OnComplete?.Invoke();
         }
 
-        private void EndControl()
+        private void EndSequence()
         {
-            if (!_cursor.EndControl())
+            if (!_cursor.EndSequence())
             {
                 ReportError($"Malformed control sequence (bad terminator) near index {_cursor.Index}.");
             }
@@ -268,7 +319,7 @@ namespace TextboxControl
 
         private void HandleResetAll()
         {
-            EndControl();
+            EndSequence();
             _style = CharBaseState.Default;
             _styleChanged = true;
             ClearRegions();
@@ -276,25 +327,32 @@ namespace TextboxControl
 
         private void HandleNewline()
         {
-            EndControl();
+            EndSequence();
             EmitGlyph('\n');
         }
 
         private void HandleClearAll()
         {
-            EndControl();
+            EndSequence();
             ClearRegions();
         }
 
         private void HandleStyleToggle(ref bool field)
         {
             bool value = true;
-            if (_cursor.ReadNumericOrHexParam(out string raw))
+            if (!_cursor.TryReadBoolParam(out bool parsed, out string raw))
             {
-                value = raw == "1" || raw == "on" || raw == "true";
+                if (raw != null)
+                {
+                    ReportError($"Expected bool (1/0, on/off, true/false), got \"{raw}\".");
+                }
+            }
+            else
+            {
+                value = parsed;
             }
 
-            EndControl();
+            EndSequence();
             field = value;
             _styleChanged = true;
         }
@@ -307,7 +365,7 @@ namespace TextboxControl
 
         private void HandleFloat(ref float field)
         {
-            if (_cursor.ReadNumericOrHexParam(out string raw))
+            if (_cursor.TryReadParam(out string raw))
             {
                 if (raw == "reset")
                 {
@@ -323,12 +381,12 @@ namespace TextboxControl
                 }
             }
 
-            EndControl();
+            EndSequence();
         }
 
         private void HandleSize()
         {
-            if (_cursor.ReadNumericOrHexParam(out string raw))
+            if (_cursor.TryReadParam(out string raw))
             {
                 if (raw == "reset")
                 {
@@ -344,33 +402,31 @@ namespace TextboxControl
                 }
             }
 
-            EndControl();
+            EndSequence();
             _styleChanged = true;
         }
 
         private void HandleTypewriter()
         {
             int ms = 0;
-            if (_cursor.ReadNumericOrHexParam(out string raw) &&
-                !int.TryParse(raw, NumberStyles.Integer, CultureInfo.InvariantCulture, out ms))
+            if (!_cursor.TryReadIntParam(out ms, out string raw) && raw != null)
             {
                 ReportError($"Typewriter expects int ms, got \"{raw}\".");
             }
 
-            EndControl();
+            EndSequence();
             _typewriterIntervalSeconds = IsPreview || ms <= 0 ? 0f : ms / 1000f;
         }
 
         private void HandleDelay()
         {
             int ms = 0;
-            if (_cursor.ReadNumericOrHexParam(out string raw) &&
-                !int.TryParse(raw, NumberStyles.Integer, CultureInfo.InvariantCulture, out ms))
+            if (!_cursor.TryReadIntParam(out ms, out string raw) && raw != null)
             {
                 ReportError($"Delay expects int ms, got \"{raw}\".");
             }
 
-            EndControl();
+            EndSequence();
 
             if (!IsPreview && ms > 0)
             {
@@ -380,7 +436,7 @@ namespace TextboxControl
 
         private void HandleColor()
         {
-            if (_cursor.ReadNumericOrHexParam(out string raw))
+            if (_cursor.TryReadParam(out string raw))
             {
                 if (raw == "reset")
                 {
@@ -402,13 +458,13 @@ namespace TextboxControl
                 ReportError("Color missing param.");
             }
 
-            EndControl();
+            EndSequence();
             _styleChanged = true;
         }
 
         private void HandleFont()
         {
-            if (_cursor.ReadStringParam(out string raw))
+            if (_cursor.TryReadParam(out string raw))
             {
                 _style.FontName = raw == "reset" ? null : raw;
             }
@@ -417,23 +473,23 @@ namespace TextboxControl
                 ReportError("Font missing param.");
             }
 
-            EndControl();
+            EndSequence();
             _styleChanged = true;
         }
 
         private void HandleAnimClear()
         {
-            if (!_cursor.ReadStringParam(out string raw))
+            if (!_cursor.TryReadParam(out string raw))
             {
                 ReportError("AnimClear needs id or name.");
-                EndControl();
+                EndSequence();
                 return;
             }
 
             if (IsPreview)
             {
                 DrainRemainingParams();
-                EndControl();
+                EndSequence();
                 return;
             }
 
@@ -446,46 +502,54 @@ namespace TextboxControl
                 RemoveRegionsByName(raw);
             }
 
-            EndControl();
+            EndSequence();
         }
 
         private void HandleAnimStart()
         {
             int start = _buffer.Count;
 
-            if (!_cursor.ReadNumericOrHexParam(out string rawLength) ||
-                !int.TryParse(rawLength, NumberStyles.Integer, CultureInfo.InvariantCulture, out int length))
+            if (!_cursor.TryReadIntParam(out int length, out string rawLength))
             {
-                ReportError("AnimStart: length must be int.");
-                EndControl();
+                if (rawLength == null)
+                {
+                    ReportError("AnimStart: length must be int.");
+                }
+                else
+                {
+                    ReportError($"AnimStart: length must be int, got \"{rawLength}\".");
+                }
+
+                EndSequence();
                 return;
             }
 
             if (length <= 0)
             {
                 ReportError("Anim region length must be > 0.");
-                EndControl();
+                EndSequence();
                 return;
             }
 
-            if (!_cursor.ReadStringParam(out string animName))
+            if (!_cursor.TryReadParam(out string animName))
             {
                 ReportError("Anim region missing animation name.");
-                EndControl();
+                EndSequence();
                 return;
             }
 
             if (IsPreview)
             {
                 DrainRemainingParams();
-                EndControl();
+                EndSequence();
                 return;
             }
 
             CaptureRemainingParams(_paramSpans);
-            EndControl();
+            EndSequence();
 
             string source = _cursor.Source;
+            // Optional trailing identifier token becomes the region name.
             string regionName = TryTakeRegionName(source, _paramSpans);
 
             Animation.IAnimation animation = Animation.AnimationRegistry.Create(animName, source, _paramSpans);
@@ -512,12 +576,12 @@ namespace TextboxControl
             if (IsPreview || !LogExternalControls)
             {
                 DrainRemainingParams();
-                EndControl();
+                EndSequence();
                 return;
             }
 
             CaptureRemainingParams(_paramSpans);
-            EndControl();
+            EndSequence();
 
             if (_paramSpans.Count == 0)
             {
@@ -584,7 +648,7 @@ namespace TextboxControl
 
         private void DrainRemainingParams()
         {
-            while (_cursor.ReadParamSpan(out _, out _))
+            while (_cursor.TryReadParamSpan(out _, out _))
             {
             }
         }
@@ -592,7 +656,7 @@ namespace TextboxControl
         private void CaptureRemainingParams(List<(int offset, int length)> destination)
         {
             destination.Clear();
-            while (_cursor.ReadParamSpan(out int offset, out int length))
+            while (_cursor.TryReadParamSpan(out int offset, out int length))
             {
                 destination.Add((offset, length));
             }

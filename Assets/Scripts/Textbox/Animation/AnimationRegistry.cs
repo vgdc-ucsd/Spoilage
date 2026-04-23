@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace TextboxControl.Animation
 {
+    /// <summary>
+    /// Creates animation instances and binds optional inline parameters.
+    /// </summary>
     public static class AnimationRegistry
     {
         private static readonly Dictionary<string, Func<IAnimation>> Factories =
@@ -24,6 +27,9 @@ namespace TextboxControl.Animation
         private static readonly Dictionary<Type, FieldInfo[]> ParamFieldCache =
             new Dictionary<Type, FieldInfo[]>();
 
+        /// <summary>
+        /// True when an animation factory exists for <paramref name="name"/>.
+        /// </summary>
         public static bool IsRegistered(string name)
         {
             return name != null && Factories.ContainsKey(name);
@@ -31,6 +37,9 @@ namespace TextboxControl.Animation
 
         public static IEnumerable<string> RegisteredNames => Factories.Keys;
 
+        /// <summary>
+    /// Creates and configures an animation instance from parsed control parameters.
+        /// </summary>
         public static IAnimation Create(string animName, string source, List<(int offset, int length)> paramSpans)
         {
             if (animName == null || !Factories.TryGetValue(animName, out Func<IAnimation> factory))
@@ -172,16 +181,16 @@ namespace TextboxControl.Animation
             if (target == typeof(bool))
             {
                 if (raw.Equals("1".AsSpan(), StringComparison.Ordinal) ||
-                    raw.Equals("true".AsSpan(), StringComparison.Ordinal) ||
-                    raw.Equals("on".AsSpan(), StringComparison.Ordinal))
+                    raw.Equals("true".AsSpan(), StringComparison.OrdinalIgnoreCase) ||
+                    raw.Equals("on".AsSpan(), StringComparison.OrdinalIgnoreCase))
                 {
                     result = true;
                     return true;
                 }
 
                 if (raw.Equals("0".AsSpan(), StringComparison.Ordinal) ||
-                    raw.Equals("false".AsSpan(), StringComparison.Ordinal) ||
-                    raw.Equals("off".AsSpan(), StringComparison.Ordinal))
+                    raw.Equals("false".AsSpan(), StringComparison.OrdinalIgnoreCase) ||
+                    raw.Equals("off".AsSpan(), StringComparison.OrdinalIgnoreCase))
                 {
                     result = false;
                     return true;
