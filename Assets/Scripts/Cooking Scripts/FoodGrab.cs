@@ -6,7 +6,7 @@ public class FoodGrab : MonoBehaviour
     private Collider2D _col;
     [SerializeField] private Transform _homeSpot;
     [SerializeField] private Transform _plateSpot;
-    private StoveTops _activeStove;
+    private CookingAppliance _activeAppliance;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,10 +18,10 @@ public class FoodGrab : MonoBehaviour
     //On Click: Get mouse position to set up for dragging
     private void OnMouseDown()
     {
-        if (_activeStove != null)
+        if (_activeAppliance != null)
         {
-            _activeStove.OnRemoveFood();
-            _activeStove = null;
+            _activeAppliance.OnRemoveFood();
+            _activeAppliance = null;
         }
         Debug.Log("Click on Food");
     }
@@ -40,17 +40,17 @@ public class FoodGrab : MonoBehaviour
         // _col.enabled = true;
         foreach (Collider2D hit in hits)
         {
-            StoveTops stove = hit.GetComponentInParent<StoveTops>();
+            CookingAppliance app = hit.GetComponentInParent<StoveTops>();
 
-            if (hit.gameObject.name.Contains("StoveTop"))
+            if (hit.gameObject.name.Contains("StoveTop") || hit.gameObject.name.Contains("Pot"))
             {
-                StoveTops _stove = hit.GetComponentInParent<StoveTops>();
-                if (_stove != null)
+                CookingAppliance _app = hit.GetComponentInParent<CookingAppliance>();
+                if (_app != null)
                 {
-                    _activeStove = _stove;
+                    _activeAppliance = _app;
                     transform.position = hit.transform.position;
                     Debug.Log("Snapped to: " + hit.name);
-                    _activeStove.OnPlaceFood(this);
+                    _activeAppliance.OnPlaceFood(this);
                     return;
                 }
             }
@@ -68,7 +68,7 @@ public class FoodGrab : MonoBehaviour
         if (_homeSpot != null)
         {
             transform.position = _homeSpot.position;
-            _activeStove = null;
+            _activeAppliance = null;
         }
         
     }
