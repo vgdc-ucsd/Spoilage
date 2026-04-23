@@ -4,10 +4,11 @@
     private readonly IngredientData _data;
 
     private IngredientState _currentState;
+    private bool _isSpoiled;
     protected Ingredient(IngredientData data)
     {
         _data = data;
-        _data.IsSpoiled = false;
+        _isSpoiled = false;
         _currentState = IngredientState.Raw;
     }
 
@@ -16,6 +17,12 @@
     {
         get => _currentState;
         set => _currentState = value;
+    }
+
+    public bool IsSpoiled
+    {
+        get => _isSpoiled;
+        set => _isSpoiled = value;
     }
 }
 public enum IngredientState

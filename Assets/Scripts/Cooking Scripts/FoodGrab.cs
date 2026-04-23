@@ -19,11 +19,12 @@ public class FoodGrab : MonoBehaviour
     //On Click: Get mouse position to set up for dragging
     private void OnMouseDown()
     {
-        if (_activeStove != null)
+        if (_activeStove != null && _activeCountertop != null)
         {
             _activeStove.OnRemoveFood();
             _activeCountertop.OnRemoveFood();
             _activeStove = null;
+            _activeCountertop = null;
         }
         Debug.Log("Click on Food");
     }

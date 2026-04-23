@@ -56,7 +56,7 @@ public class Countertops : MonoBehaviour
     public void SpoilFood()
     {
         _isSpoiling = true;
-        _currentFood.IngredientInstance.Data.IsSpoiled = false;
+        _currentFood.IngredientInstance.IsSpoiled = false;
         _timer.StartTimer(_currentFood.IngredientInstance.Data.SpoilTime);
         Debug.Log("Started spoiling");
     }
@@ -75,7 +75,7 @@ public class Countertops : MonoBehaviour
     private void FinishSpoiling()
     {
         _isSpoiling = false;
-        _currentFood.IngredientInstance.Data.IsSpoiled = true;
+        _currentFood.IngredientInstance.IsSpoiled = true;
         Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Spoiled :(");
     }
 }
