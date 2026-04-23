@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject PauseUI;
     public GameObject SettingsScreen;
-    
+
     [SerializeField]
     private Button _returnToMainMenu;
 
@@ -21,9 +21,9 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( Keyboard.current.escapeKey.wasPressedThisFrame )
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            if( GameIsPaused )
+            if (GameIsPaused)
             {
                 Resume();
             }
@@ -51,7 +51,7 @@ public class PauseMenu : MonoBehaviour
     public void Quit()
     {
         Debug.Log(" buhbye ");
-        //invoke exit script or replace this with the exit script
+        Application.Quit();
     }
 
     void Pause()
