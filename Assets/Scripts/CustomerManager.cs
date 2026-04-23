@@ -1,12 +1,14 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class CustomerManager : Singleton<CustomerManager>
 {
     private const string EYES_PATH = "Assets/Resources/Customers/Eyes/";
-    private const string NOSE_MOUTH_PATH = "Assets/Resources/Customers/NoseMouths/";
+    private const string MOUTH_PATH = "Assets/Resources/Customers/NoseMouths/";
     private const string SPOILAGE_PATH = "Assets/Resources/Customers/Spoilage/";
     private const string FRONT_FOLDER = "Front/";
     private const string BACK_FOLDER = "Back/";
@@ -14,16 +16,41 @@ public class CustomerManager : Singleton<CustomerManager>
     private const string CLOTHES_FOLDER = "/Clothes/";
     private const string HAIR_FOLDER = "/Hair/";
 
-    private const string PNG = "*.png";
+    private const string REGEX_NOT_META = "^(?!.*\\.meta)(?!.*reference).*";
+    private const string REGEX_STATIC = "static.*$";
+    private const string REGEX_ANGER = "anger.*$";
+    private const string REGEX_DISGUST = "disgust.*$";
+    private const string REGEX_TALKING = "talking.*$";
+    private const string REGEX_WIDENING = "widening.*$";
+    private const string REGEX_BLINKING = "blinking.*$";
+    private const string REGEX_HAIR_FRONT = "hairTop.*$";
+    private const string REGEX_HAIR_BACK = "hairBottom.*$";
+    private const string REGEX_HAIR_SHADOW = "hairShadow.*$";
+    
+    private static Dictionary<string, Vector3> s_faceOffsets;
+    //private static Regex;
 
     [SerializeField]
-    private CustomerData debug;
+    private CustomerData[] _debug;
+
 
     void Start()
     {
-        debug = GenerateCustomerData();
+        s_faceOffsets = new Dictionary<string, Vector3>
+        {
+            { "test", new Vector3(0, 0, 1.5f) }
+        };
+
+
+        _debug = new CustomerData[10];
+        for (int i = 0; i < 10; i++)
+        {
+            Debug.Log("Debug " + i);
+            _debug[i] = GenerateCustomerData();
+        } 
     }
 
+    
 
     public static CustomerData GenerateCustomerData()
     {
@@ -33,60 +60,107 @@ public class CustomerManager : Singleton<CustomerManager>
         newData.sprites = new Sprite[CustomerData.NUM_SPRITES];
         newData.patience = UnityEngine.Random.Range(0f, 1f); // TODO, talk to design
 
-        Debug.Log("Choosing eye directory");
+        string[] paths = new string[CustomerData.NUM_SPRITES];
+
         string eyesDir = getRandomElement(Directory.GetDirectories(EYES_PATH));
-        Debug.Log(eyesDir);
-        string[] eyesPaths = Directory.GetFiles(eyesDir, PNG);
-        Array.Sort(eyesPaths);
+        // Using getRandomElement() mostly to make sure the list isn't empty.
+        // If there are for some reason multiple files with the pattern 
+        // something is wrong with the file structure.
+        paths[(int)CustomerData.Indexes.EYES_OPEN] = getRandomElement(
+            Directory.GetFiles(eyesDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_STATIC)).ToArray());
+        paths[(int)CustomerData.Indexes.EYES_CLOSED] = getRandomElement(
+            Directory.GetFiles(eyesDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_BLINKING)).ToArray());
+        paths[(int)CustomerData.Indexes.EYES_ANGER] = getRandomElement(
+            Directory.GetFiles(eyesDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_ANGER)).ToArray());
+        paths[(int)CustomerData.Indexes.EYES_DISGUST] = getRandomElement(
+            Directory.GetFiles(eyesDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_DISGUST)).ToArray());
+        paths[(int)CustomerData.Indexes.EYES_WIDENING] = getRandomElement(
+            Directory.GetFiles(eyesDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_WIDENING)).ToArray());
 
+        string mouthDir = getRandomElement(Directory.GetDirectories(MOUTH_PATH));
 
-        string eyesOpenPath = eyesPaths[0];
-        string eyesClosedPath = eyesPaths[1];
+        paths[(int)CustomerData.Indexes.MOUTH_OPEN] = getRandomElement(
+            Directory.GetFiles(mouthDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_TALKING)).ToArray());
+        paths[(int)CustomerData.Indexes.MOUTH_CLOSED] = getRandomElement(
+            Directory.GetFiles(mouthDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_STATIC)).ToArray());
+        paths[(int)CustomerData.Indexes.MOUTH_ANGER] = getRandomElement(
+            Directory.GetFiles(mouthDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_ANGER)).ToArray());
+        paths[(int)CustomerData.Indexes.MOUTH_DISGUST] = getRandomElement(
+            Directory.GetFiles(mouthDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_DISGUST)).ToArray());
+        
 
-        Debug.Log("Choosing NoseMouth directory");
-        string noseMouthDir = getRandomElement(Directory.GetDirectories(NOSE_MOUTH_PATH));
-        string[] noseMouthPaths = Directory.GetFiles(noseMouthDir, PNG);
-        Array.Sort(noseMouthPaths);
+        paths[(int)CustomerData.Indexes.SPOILAGE_FRONT] = getRandomElement(
+            Directory.GetFiles(SPOILAGE_PATH + FRONT_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
+        paths[(int)CustomerData.Indexes.SPOILAGE_BACK] = getRandomElement(
+            Directory.GetFiles(SPOILAGE_PATH + BACK_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
 
-        string noseMouthOpenPath = noseMouthPaths[0];
-        string noseMouthClosedPath = noseMouthPaths[1];
-
-        Debug.Log("Choosing spoilage front");
-        string spoilageFrontPath = getRandomElement(Directory.GetFiles(SPOILAGE_PATH + FRONT_FOLDER, PNG));
-        Debug.Log("Choosing spoilage back");
-        string spoilageBackPath = getRandomElement(Directory.GetFiles(SPOILAGE_PATH + BACK_FOLDER, PNG));
-
-        Debug.Log("Choosing body dir");
         string bodyDir = getRandomElement(Directory.GetDirectories(BASES_PATH));
-        Debug.Log("Choosing body sprite");
-        string bodyPath = getRandomElement(Directory.GetFiles(bodyDir, PNG));
+        paths[(int)CustomerData.Indexes.BODY] = getRandomElement(
+            Directory.GetFiles(bodyDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
 
-        Debug.Log("Choosing clothes sprite");
-        string clothesPath = getRandomElement(Directory.GetFiles(bodyDir + CLOTHES_FOLDER, PNG));
+        paths[(int)CustomerData.Indexes.CLOTHES] = getRandomElement(
+            Directory.GetFiles(bodyDir + CLOTHES_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
 
-        Debug.Log("Choosing hair dir");
         string hairDir = getRandomElement(Directory.GetDirectories(bodyDir + HAIR_FOLDER));
-        string[] hairPaths = Directory.GetFiles(hairDir, PNG);
-        Array.Sort(hairPaths);
-        Debug.Log(trimPath(bodyPath));
+        paths[(int)CustomerData.Indexes.HAIR_FRONT] = getRandomElement(
+            Directory.GetFiles(hairDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_HAIR_FRONT)).ToArray());
+        paths[(int)CustomerData.Indexes.HAIR_BACK] = getRandomElement(
+            Directory.GetFiles(hairDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_HAIR_BACK)).ToArray());
+        paths[(int)CustomerData.Indexes.HAIR_SHADOW] = getRandomElement(
+            Directory.GetFiles(hairDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_HAIR_SHADOW)).ToArray());
 
-        newData.sprites[(int)CustomerData.Indexes.BODY] = Resources.Load<Sprite>(trimPath(bodyPath));
-        newData.sprites[(int)CustomerData.Indexes.HAIR_FRONT] = Resources.Load<Sprite>(trimPath(hairPaths.FirstOrDefault(s => s.Contains("hairTop"))));
-        newData.sprites[(int)CustomerData.Indexes.HAIR_BACK] = Resources.Load<Sprite>(trimPath(hairPaths.FirstOrDefault(s => s.Contains("hairBottom"))));
-        newData.sprites[(int)CustomerData.Indexes.HAIR_SHADOW] = Resources.Load<Sprite>(trimPath(hairPaths.FirstOrDefault(s => s.Contains("hairShadow"))));
-        newData.sprites[(int)CustomerData.Indexes.CLOTHES] = Resources.Load<Sprite>(trimPath(clothesPath));
-        newData.sprites[(int)CustomerData.Indexes.NOSE_MOUTH_OPEN] = Resources.Load<Sprite>(trimPath(noseMouthOpenPath));
-        newData.sprites[(int)CustomerData.Indexes.NOSE_MOUTH_CLOSED] = Resources.Load<Sprite>(trimPath(noseMouthClosedPath));
-        newData.sprites[(int)CustomerData.Indexes.EYES_OPEN] = Resources.Load<Sprite>(trimPath(eyesOpenPath));
-        newData.sprites[(int)CustomerData.Indexes.EYES_CLOSED] = Resources.Load<Sprite>(trimPath(eyesClosedPath));
-        newData.sprites[(int)CustomerData.Indexes.SPOILAGE_FRONT] = Resources.Load<Sprite>(trimPath(spoilageFrontPath));
-        newData.sprites[(int)CustomerData.Indexes.SPOILAGE_BACK] = Resources.Load<Sprite>(trimPath(spoilageBackPath));
+
+        for (int i = 0; i < CustomerData.NUM_SPRITES; i++)
+        {
+            if (paths[i] == null)
+            {
+                newData.sprites[i] = null;
+                continue;
+            } 
+
+            if (i == (int) CustomerData.Indexes.EYES_CLOSED ||
+                i == (int) CustomerData.Indexes.EYES_ANGER ||
+                i == (int) CustomerData.Indexes.EYES_DISGUST ||
+                i == (int) CustomerData.Indexes.EYES_WIDENING ||
+                i == (int) CustomerData.Indexes.MOUTH_OPEN ||
+                i == (int) CustomerData.Indexes.MOUTH_ANGER ||
+                i == (int) CustomerData.Indexes.MOUTH_DISGUST)
+            {
+                // Get the second sprite of the sprite sheet
+                Sprite[] sheet = Resources.LoadAll<Sprite>(trimPath(paths[i]));
+                // Debug.Log("SPRITESHEET:");
+                // for (int j = 0; j < sheet.Length; j++)
+                // {
+                //     Debug.Log(j + ": " + sheet[j]);
+                // }
+                if (sheet != null && sheet.Length >= 2)
+                {
+                    newData.sprites[i] = sheet[1];
+                    Debug.Log(newData.sprites[i]);
+                }
+                //newData.sprites[i] = sheet != null && sheet.Length >= 2 ? sheet[1] : null;
+            }
+            
+            newData.sprites[i] = Resources.Load<Sprite>(trimPath(paths[i]));
+        }
+        //s_faceOffsets.TryGetValue("test", out newData.faceOffset);
+        try
+        {
+            newData.faceOffset = s_faceOffsets["test"];
+        } catch
+        {
+            Debug.LogWarning("Face offset not found for body " + paths[(int)CustomerData.Indexes.BODY]);
+            newData.faceOffset = Vector3.zero;
+        }
 
         return newData;
     }
 
     private static string getRandomElement(string[] arr)
     {
+        if (arr == null || arr.Length <= 0) 
+            return null;
+        
         return arr[UnityEngine.Random.Range(0, arr.Length)];
     }
 

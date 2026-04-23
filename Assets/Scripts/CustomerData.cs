@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CustomerData", menuName = "ScriptableObjects/CustomerData", order = 1)]
 public class CustomerData : ScriptableObject
 {
-    public const int NUM_SPRITES = 11;
+    public const int NUM_SPRITES = 16;
     public enum Spoilage
     {
         NOT,
@@ -12,24 +12,29 @@ public class CustomerData : ScriptableObject
     }
     public enum Indexes
     {
-        SPOILAGE_BACK,
-        HAIR_BACK,
         BODY,
-        NOSE_MOUTH_OPEN,
-        NOSE_MOUTH_CLOSED,
+        CLOTHES,
+        MOUTH_OPEN,
+        MOUTH_CLOSED,
+        MOUTH_ANGER,
+        MOUTH_DISGUST,
         EYES_OPEN,
         EYES_CLOSED,
-        CLOTHES,
-        HAIR_SHADOW,
+        EYES_ANGER,
+        EYES_DISGUST,
+        EYES_WIDENING,
         HAIR_FRONT,
-        SPOILAGE_FRONT
+        HAIR_BACK,
+        HAIR_SHADOW,
+        SPOILAGE_FRONT,
+        SPOILAGE_BACK,
     }
 
     public Sprite[] sprites;
+    public Vector3 faceOffset;
     //public Vector3[] spriteOffsets;
     public string CustomerName;
     public Spoilage spoilage;
     public float patience;
-
 
 }

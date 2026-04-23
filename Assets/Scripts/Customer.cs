@@ -20,23 +20,29 @@ public class Customer : MonoBehaviour
         // TODO: Be sure to add the new indexes into the offset and sprite handling
         for (int i = 0; i < CustomerData.NUM_SPRITES; i++)
         {
+            Transform curTransform;
             switch ((CustomerData.Indexes)i)
             {
-                case CustomerData.Indexes.NOSE_MOUTH_OPEN:
-                case CustomerData.Indexes.NOSE_MOUTH_CLOSED:
+                case CustomerData.Indexes.MOUTH_OPEN:
+                case CustomerData.Indexes.MOUTH_CLOSED:
                 case CustomerData.Indexes.EYES_OPEN:
                 case CustomerData.Indexes.EYES_CLOSED:
-                    transform.Find("Sprites/FACIAL_FEATURES/" + ((CustomerData.Indexes)i).ToString()).GetComponent<SpriteRenderer>().sprite = customerData.sprites[i];
+                    curTransform = transform.Find("Sprites/FACIAL_FEATURES/" + ((CustomerData.Indexes)i).ToString());
+                    
                     break;
                 default:
-                    transform.Find("Sprites/" + ((CustomerData.Indexes)i).ToString()).GetComponent<SpriteRenderer>().sprite = customerData.sprites[i];
+                    curTransform = transform.Find("Sprites/" + ((CustomerData.Indexes)i).ToString());
                     break;
+            }
+            if (curTransform != null)
+            {
+                curTransform.GetComponent<SpriteRenderer>().sprite = customerData.sprites[i];
             }
 
             switch ((CustomerData.Indexes)i)
             {
-                case CustomerData.Indexes.NOSE_MOUTH_OPEN:
-                case CustomerData.Indexes.NOSE_MOUTH_CLOSED:
+                case CustomerData.Indexes.MOUTH_OPEN:
+                case CustomerData.Indexes.MOUTH_CLOSED:
                 case CustomerData.Indexes.EYES_OPEN:
                 case CustomerData.Indexes.EYES_CLOSED:
                     // TODO: Use this location to apply the correct LOCAL offsets (the facial features that look right on its normal base model) (grab from CustomerManager/CustomerData list of local offsets)

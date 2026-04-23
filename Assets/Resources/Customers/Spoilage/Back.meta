@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Resources/Characters/Spoilage/Back.meta
 guid: b2e6e7dcdc4136949abcb21c9d7302c1
-=======
-guid: deb1dea58c7fdf5d08270a546e5efb0a
->>>>>>> 3b7c870 (Sprite Selection is Working!):Assets/Resources/Customers/Spoilage/Back.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
