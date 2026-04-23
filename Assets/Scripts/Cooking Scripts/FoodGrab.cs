@@ -7,6 +7,7 @@ public class FoodGrab : MonoBehaviour
     [SerializeField] private Transform _homeSpot;
     [SerializeField] private Transform _plateSpot;
     private CookingAppliance _activeAppliance;
+    private bool _isPlaced = false;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,6 +20,7 @@ public class FoodGrab : MonoBehaviour
     //On Click: Get mouse position to set up for dragging
     private void OnMouseDown()
     {
+        if (_isPlaced) return;
         if (_activeAppliance != null)
         {
             _activeAppliance.OnRemoveFood();
@@ -29,11 +31,13 @@ public class FoodGrab : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        if (_isPlaced) return;
         transform.position = GetMousePositionInWorldSpace();
     }
 
     private void OnMouseUp()
     {
+        if (_isPlaced) return;
         //If not at stove top, revert back to original position
         //(Keep track of original position)
         // _col.enabled = false;
@@ -55,7 +59,8 @@ public class FoodGrab : MonoBehaviour
                     return;
                 }
             }
-            else if (hit.gameObject.name.Contains("Plate"))
+            
+            /*else if (hit.gameObject.name.Contains("Plate"))
             {
                 IngredientObject _currentFood = GetComponent<IngredientObject>();
                 if (_currentFood.IngredientInstance.CurrentState == IngredientState.Cooked)
@@ -64,6 +69,19 @@ public class FoodGrab : MonoBehaviour
                     Debug.Log("Snapped to: " + hit.name);
                     return;
                 }
+            }*/
+
+            else if (hit.GetComponentInParent<Plate>() != null)
+            {
+                Plate plate = hit.GetComponentInParent<Plate>();
+                IngredientObject food = GetComponent<IngredientObject>();
+
+                plate.AddIngredient(food);
+
+                _activeAppliance = null;
+
+                plate.PrintIngredients();
+                return;
             }
         }
         if (_homeSpot != null)
@@ -86,9 +104,12 @@ public class FoodGrab : MonoBehaviour
         return worldPosition;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LockToPlate()
     {
+        _isPlaced = true;
         
+        if (_col != null)
+            _col.enabled = false;
     }
+
 }

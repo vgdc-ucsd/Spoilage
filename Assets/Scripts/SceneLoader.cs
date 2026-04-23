@@ -1,25 +1,14 @@
 using System.Collections;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-
 using UnityEngine.InputSystem;
 
 // using monobehaviour cause only monobehavior can use coroutine 
-public class SceneLoader : MonoBehaviour 
+public class SceneLoader : Singleton<SceneLoader>
 {
-
-    public static SceneLoader Instance;
-    private void Awake()
-{
-    if (Instance != null)
+    public override void Awake()
     {
-        Destroy(gameObject);
-        return;
-    }
-
-        Instance = this;
+        base.Awake();
         DontDestroyOnLoad(gameObject);
     }
 
