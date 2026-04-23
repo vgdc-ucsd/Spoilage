@@ -144,11 +144,11 @@ public class CustomerManager : Singleton<CustomerManager>
             newData.sprites[i] = Resources.Load<Sprite>(trimPath(paths[i]));
         }
         //s_faceOffsets.TryGetValue("test", out newData.faceOffset);
-        try
+        if (s_faceOffsets.ContainsKey(bodyDir))
         {
             //newData.faceOffset = s_faceOffsets["test"];
             newData.faceOffset = s_faceOffsets[bodyDir];
-        } catch
+        } else
         {
             Debug.LogWarning("Face offset not found for body " + bodyDir);
             newData.faceOffset = Vector3.zero;
