@@ -147,10 +147,10 @@ public class CustomerManager : Singleton<CustomerManager>
         try
         {
             //newData.faceOffset = s_faceOffsets["test"];
-            newData.faceOffset = s_faceOffsets[paths[(int)CustomerData.Indexes.BODY]];
+            newData.faceOffset = s_faceOffsets[bodyDir];
         } catch
         {
-            Debug.LogWarning("Face offset not found for body " + paths[(int)CustomerData.Indexes.BODY]);
+            Debug.LogWarning("Face offset not found for body " + bodyDir);
             newData.faceOffset = Vector3.zero;
         }
 
