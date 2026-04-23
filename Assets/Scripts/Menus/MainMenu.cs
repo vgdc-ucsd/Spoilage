@@ -1,28 +1,26 @@
-using System;
 using System.IO;
-using NUnit.Framework.Internal;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    void Awake()
+    void Start()
     {
         string path = Application.persistentDataPath + "/save.json";
 
         // FileStream file = new FileStream(path, FileMode.Open);
-        SaveDataFormat testSave = new SaveDataFormat
+        PlayerData testSave = new PlayerData
         {
             resolutionWidth = 1920,
             resolutionHeight = 1080,
-            fullScreen = true,
             volume = 10,
         };
         Debug.Log(
             string.Format(
-                "{0}, {1}, {2}, {3}",
+                "{0}, {1}, {2}, {3}, {4}",
+                testSave.progress,
+                testSave.money,
                 testSave.resolutionWidth,
                 testSave.resolutionHeight,
-                testSave.fullScreen,
                 testSave.volume
             )
         );
@@ -30,17 +28,30 @@ public class MainMenu : MonoBehaviour
         Debug.Log(testSaveJSON);
         File.WriteAllText(path, testSaveJSON);
 
+        Debug.Log(Screen.resolutions[0].width);
+
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
             Debug.Log(json);
-            SaveDataFormat save = JsonUtility.FromJson<SaveDataFormat>(json);
+            PlayerData save = JsonUtility.FromJson<PlayerData>(json);
+
+            Debug.Log(
+                string.Format(
+                    "{0}, {1}, {2}, {3}, {4}",
+                    save.progress,
+                    save.money,
+                    save.resolutionWidth,
+                    save.resolutionHeight,
+                    save.volume
+                )
+            );
 
             GameSaveManger.Instance.loadGame();
+            Debug.Log(PlayerPrefManagfer.Instance);
             PlayerPrefManagfer.Instance.loadPrefs(
                 save.resolutionWidth,
                 save.resolutionHeight,
-                save.fullScreen,
                 save.volume
             );
 
