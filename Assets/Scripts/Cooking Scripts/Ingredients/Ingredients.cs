@@ -7,6 +7,7 @@
     protected Ingredient(IngredientData data)
     {
         _data = data;
+        _data.IsSpoiled = false;
         _currentState = IngredientState.Raw;
     }
 
