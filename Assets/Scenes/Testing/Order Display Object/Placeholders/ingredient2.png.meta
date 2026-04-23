@@ -109,10 +109,10 @@ TextureImporter:
       name: ingredient2_0
       rect:
         serializedVersion: 2
-        x: 95
-        y: 191
-        width: 3010
-        height: 2914
+        x: 2
+        y: 5
+        width: 96
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,10 +131,10 @@ TextureImporter:
       name: ingredient2_1
       rect:
         serializedVersion: 2
-        x: 4447
-        y: 1183
-        width: 4546
-        height: 802
+        x: 138
+        y: 36
+        width: 144
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +153,10 @@ TextureImporter:
       name: ingredient2_2
       rect:
         serializedVersion: 2
-        x: 10143
-        y: 479
-        width: 2146
-        height: 2530
+        x: 316
+        y: 14
+        width: 69
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

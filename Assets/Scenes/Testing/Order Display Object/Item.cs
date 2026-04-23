@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
     public Texture2D barCode;
     public String barCodeNumber;
     public List<Texture2D> ingredients;
+    public float itemCost;
     public String itemName;
     public Texture2D foodPicture;
     public Texture2D signature;

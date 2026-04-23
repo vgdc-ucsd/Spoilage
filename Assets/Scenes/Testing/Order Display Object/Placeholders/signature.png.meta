@@ -112,10 +112,10 @@ TextureImporter:
       name: signature_0
       rect:
         serializedVersion: 2
-        x: 1183
-        y: 415
-        width: 9218
-        height: 2785
+        x: 36
+        y: 12
+        width: 290
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: signature_1
       rect:
         serializedVersion: 2
-        x: 10975
-        y: 1535
-        width: 226
-        height: 930
+        x: 342
+        y: 47
+        width: 9
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,10 +156,10 @@ TextureImporter:
       name: signature_2
       rect:
         serializedVersion: 2
-        x: 11455
-        y: 1599
-        width: 130
-        height: 802
+        x: 357
+        y: 49
+        width: 6
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: signature_3
       rect:
         serializedVersion: 2
-        x: 10623
-        y: 799
-        width: 1314
-        height: 706
+        x: 331
+        y: 24
+        width: 43
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
