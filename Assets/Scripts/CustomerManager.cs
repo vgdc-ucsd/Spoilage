@@ -146,7 +146,8 @@ public class CustomerManager : Singleton<CustomerManager>
         //s_faceOffsets.TryGetValue("test", out newData.faceOffset);
         try
         {
-            newData.faceOffset = s_faceOffsets["test"];
+            //newData.faceOffset = s_faceOffsets["test"];
+            newData.faceOffset = s_faceOffsets[paths[(int)CustomerData.Indexes.BODY]];
         } catch
         {
             Debug.LogWarning("Face offset not found for body " + paths[(int)CustomerData.Indexes.BODY]);
