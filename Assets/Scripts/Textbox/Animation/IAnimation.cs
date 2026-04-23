@@ -11,7 +11,7 @@ namespace TextboxControl.Animation
     }
 
     /// <summary>
-    /// Optional extension point for animations that need direct quad vertex access.
+    /// Extension point for animations that need direct quad vertex access.
     /// </summary>
     public interface IVertexAnimation : IAnimation
     {

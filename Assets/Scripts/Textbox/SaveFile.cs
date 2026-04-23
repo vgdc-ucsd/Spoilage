@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace TextboxControl
@@ -6,10 +6,6 @@ namespace TextboxControl
     /// <summary>
     /// In-memory view over a parsed dialogue save text file.
     /// </summary>
-    /// <remarks>
-    /// Format:
-    /// non-indented lines ending with ':' declare sequence names; following tab-indented lines are boxes.
-    /// </remarks>
     public class DialogueSaveFile
     {
         private readonly string _text;
@@ -44,7 +40,7 @@ namespace TextboxControl
         }
 
         /// <summary>
-        /// Returns one dialogue box by sequence name and index, or null when missing/out of range.
+        /// Returns one dialogue box by sequence name and index, or null when missing or out of range.
         /// </summary>
         public string GetBox(string name, int boxIndex)
         {

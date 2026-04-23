@@ -7,7 +7,7 @@ using UnityEngine;
 namespace TextboxControl.Animation
 {
     /// <summary>
-    /// Creates animation instances and binds optional inline parameters.
+    /// Creates animation instances with optional parameters.
     /// </summary>
     public static class AnimationRegistry
     {
@@ -28,7 +28,7 @@ namespace TextboxControl.Animation
             new Dictionary<Type, FieldInfo[]>();
 
         /// <summary>
-        /// True when an animation factory exists for <paramref name="name"/>.
+        /// True when an animation exists for <paramref name="name"/>.
         /// </summary>
         public static bool IsRegistered(string name)
         {
@@ -38,7 +38,7 @@ namespace TextboxControl.Animation
         public static IEnumerable<string> RegisteredNames => Factories.Keys;
 
         /// <summary>
-    /// Creates and configures an animation instance from parsed control parameters.
+        /// Creates and configures an animation from parsed control parameters.
         /// </summary>
         public static IAnimation Create(string animName, string source, List<(int offset, int length)> paramSpans)
         {

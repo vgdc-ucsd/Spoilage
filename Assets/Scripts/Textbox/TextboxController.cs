@@ -1,11 +1,12 @@
-using System;
+﻿using System;
 using TMPro;
 using UnityEngine;
 
 namespace TextboxControl
 {
     /// <summary>
-    /// MonoBehaviour entry point that wires reducer + animator into Unity's frame loop.
+    /// Main script for controlling textbox animations. Place this on a textbox
+    /// with a TMP_text child and provide a source string to animate that child.
     /// </summary>
     public class TextboxController : MonoBehaviour
     {
@@ -43,7 +44,7 @@ namespace TextboxControl
         }
 
         /// <summary>
-        /// Starts a new textbox stream from the beginning.
+        /// Starts a new textbox string from the beginning.
         /// </summary>
         public void Play(string source)
         {
@@ -57,7 +58,7 @@ namespace TextboxControl
         }
 
         /// <summary>
-        /// Instantly reveals the remaining text for the active stream.
+        /// Immediately reveals the remaining text for the active text.
         /// </summary>
         public void Skip()
         {

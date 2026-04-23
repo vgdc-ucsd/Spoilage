@@ -34,44 +34,14 @@ namespace TextboxControl
         private int _nextRegionId;
         private int _regionVersion;
 
-        /// <summary>
-        /// Fired once when playback reaches the end of input.
-        /// </summary>
         public event Action OnComplete;
-
-        /// <summary>
-        /// Fired when the input stream is malformed or a method argument is invalid.
-        /// </summary>
         public event Action<string> OnError;
 
-        /// <summary>
-        /// True while the reducer is actively stepping through the source stream.
-        /// </summary>
         public bool IsPlaying => _isPlaying;
-
-        /// <summary>
-        /// Number of plain glyphs emitted into <see cref="DisplayBuffer"/>.
-        /// </summary>
         public int RevealedCount => _buffer.Count;
-
-        /// <summary>
-        /// Wall-clock playback time since the last <see cref="Play"/> call.
-        /// </summary>
         public double TimeSincePlay => _timeSincePlay;
-
-        /// <summary>
-        /// Current plain character output (without TMP tags).
-        /// </summary>
         public IReadOnlyList<char> DisplayBuffer => _buffer;
-
-        /// <summary>
-        /// Style segments that map one-to-one onto <see cref="DisplayBuffer"/>.
-        /// </summary>
         public IReadOnlyList<StyleRun> StyleRuns => _runs;
-
-        /// <summary>
-        /// Active animation regions for already-emitted characters.
-        /// </summary>
         public IReadOnlyList<Region> Regions => _regions;
 
         internal List<Region> RegionsDirect => _regions;
@@ -82,11 +52,11 @@ namespace TextboxControl
         /// <summary>
         /// Starts playback from the beginning of <paramref name="source"/>.
         /// </summary>
-        /// <param name="source">Raw textbox stream with embedded control sequences.</param>
+        /// <param name="source">Raw textbox stream, possibly with control sequences.</param>
         /// <param name="previewMode">If true, timing and external controls are ignored.</param>
         public void Play(string source, bool previewMode = false)
         {
-            _cursor = new SequenceCursor(source ?? string.Empty);
+            _cursor = new SequenceCursor(source ?? "");
             _isPlaying = true;
             ResetState(previewMode, resetClock: true);
         }
@@ -102,7 +72,7 @@ namespace TextboxControl
         }
 
         /// <summary>
-        /// Consumes the remaining input immediately, bypassing typewriter timing.
+        /// Consumes the remaining input immediately, bypassing delay and typewriter.
         /// </summary>
         public void Skip()
         {
@@ -114,7 +84,7 @@ namespace TextboxControl
             _typewriterIntervalSeconds = 0f;
             _timeUntilNextAction = 0d;
 
-            // Safety guard prevents infinite loops on malformed control streams.
+            // Prevent infinite loops on problematic control streams
             int safety = SkipSafetyBudget;
             while (_isPlaying && safety-- > 0)
             {
@@ -123,7 +93,7 @@ namespace TextboxControl
         }
 
         /// <summary>
-        /// Advances playback using frame delta time.
+        /// Advances playback.
         /// </summary>
         /// <param name="deltaTime">Elapsed seconds for this frame.</param>
         public void Tick(float deltaTime)
@@ -137,7 +107,7 @@ namespace TextboxControl
 
             _timeAccumulator += deltaTime;
 
-            // Run until the next scheduled delay/typewriter gate.
+            // Run until the next scheduled delay or typewriter method.
             int safety = TickSafetyBudget;
             while (_isPlaying && _timeAccumulator >= _timeUntilNextAction && safety-- > 0)
             {
