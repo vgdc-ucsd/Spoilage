@@ -341,7 +341,6 @@ MonoBehaviour:
   mouthClosedRenderer: {fileID: 9037799636675503891}
   mouthDisgustRenderer: {fileID: 7609471596338735128}
   mouthAngerRenderer: {fileID: 5417567258485284553}
-  mouthWideningRenderer: {fileID: 0}
 --- !u!1 &2784711479208657518
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +352,7 @@ GameObject:
   - component: {fileID: 7085777185738831740}
   - component: {fileID: 9037799636675503891}
   m_Layer: 0
-  m_Name: NOSE_MOUTH_CLOSED
+  m_Name: MOUTH_CLOSED
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -666,7 +665,7 @@ GameObject:
   - component: {fileID: 8640404095815256662}
   - component: {fileID: 1112034895950030382}
   m_Layer: 0
-  m_Name: NOSE_MOUTH_OPEN
+  m_Name: MOUTH_OPEN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

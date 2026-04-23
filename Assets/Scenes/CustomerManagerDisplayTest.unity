@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c578f7c190dac765a42eaad03d4e61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomerManager
-  debug: {fileID: 0}
+  _debug: []
 --- !u!4 &1459418994
 Transform:
   m_ObjectHideFlags: 0

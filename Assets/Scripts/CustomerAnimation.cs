@@ -15,6 +15,8 @@ public class CustomerAnimation : MonoBehaviour
     [SerializeField] private SpriteRenderer mouthDisgustRenderer;
     [SerializeField] private SpriteRenderer mouthAngerRenderer;
 
+    [SerializeField] private Mood currentMood;
+
     private SpriteRenderer currentEyesRenderer;
     private SpriteRenderer currentMouthRenderer;
 
@@ -23,7 +25,8 @@ public class CustomerAnimation : MonoBehaviour
     private const float MIN_BLINK_COOLDOWN = 2.0f;
     private const float MAX_BLINK_COOLDOWN = 10.0f;
 
-    public enum Mood {
+    public enum Mood
+    {
         NEUTRAL,
         DISGUST,
         ANGER,
@@ -35,7 +38,16 @@ public class CustomerAnimation : MonoBehaviour
     {
         isBlinking = true;
         isTalking = false;
+        currentEyesRenderer = eyesOpenRenderer;
+        currentMouthRenderer = mouthClosedRenderer;
+        SetMood(Mood.NEUTRAL);
         StartCoroutine(RandomBlinking());
+    }
+
+    [ContextMenu("Update Mood")]
+    private void updateMood()
+    {
+        SetMood(currentMood);
     }
 
     private IEnumerator RandomBlinking()
@@ -57,6 +69,7 @@ public class CustomerAnimation : MonoBehaviour
 
     public void SetMood(Mood mood)
     {
+        currentMood = mood;
         SetEyeMood(mood);
         SetMouthMood(mood);
     }
@@ -97,7 +110,7 @@ public class CustomerAnimation : MonoBehaviour
         }
         if (!isTalking)
         {
-            SetOpenMouth(true);  // force update to new mouth mood if mouth closed
+            SetOpenMouth(false);  // force update to new mouth mood if mouth closed
         }
     }
 
@@ -106,7 +119,15 @@ public class CustomerAnimation : MonoBehaviour
         ResetEyes();
         if (open)
         {
-            currentEyesRenderer.enabled = true;
+            if (currentEyesRenderer.sprite != null)
+            {
+                currentEyesRenderer.enabled = true;
+            }
+            else
+            {
+                Debug.LogWarning("Attempted to use eyes with missing sprite! Defaulting to neutral eyes.");
+                eyesOpenRenderer.enabled = true;
+            }
         }
         else
         {
@@ -137,7 +158,15 @@ public class CustomerAnimation : MonoBehaviour
         }
         else
         {
-            currentMouthRenderer.enabled = true;
+            if (currentMouthRenderer.sprite != null)
+            {
+                currentMouthRenderer.enabled = true;
+            }
+            else
+            {
+                Debug.LogWarning("Attempted to use mouth with missing sprite! Defaulting to neutral mouth.");
+                mouthClosedRenderer.enabled = true;
+            }
         }
     }
 

@@ -26,7 +26,7 @@ public class CustomerManager : Singleton<CustomerManager>
     private const string REGEX_HAIR_FRONT = "hairTop.*$";
     private const string REGEX_HAIR_BACK = "hairBottom.*$";
     private const string REGEX_HAIR_SHADOW = "hairShadow.*$";
-    
+
     private static Dictionary<string, Vector3> s_faceOffsets;
     //private static Regex;
 
@@ -47,10 +47,10 @@ public class CustomerManager : Singleton<CustomerManager>
         {
             Debug.Log("Debug " + i);
             _debug[i] = GenerateCustomerData();
-        } 
+        }
     }
 
-    
+
 
     public static CustomerData GenerateCustomerData()
     {
@@ -87,7 +87,7 @@ public class CustomerManager : Singleton<CustomerManager>
             Directory.GetFiles(mouthDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_ANGER)).ToArray());
         paths[(int)CustomerData.Indexes.MOUTH_DISGUST] = getRandomElement(
             Directory.GetFiles(mouthDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_DISGUST)).ToArray());
-        
+
 
         paths[(int)CustomerData.Indexes.SPOILAGE_FRONT] = getRandomElement(
             Directory.GetFiles(SPOILAGE_PATH + FRONT_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
@@ -116,15 +116,15 @@ public class CustomerManager : Singleton<CustomerManager>
             {
                 newData.sprites[i] = null;
                 continue;
-            } 
+            }
 
-            if (i == (int) CustomerData.Indexes.EYES_CLOSED ||
-                i == (int) CustomerData.Indexes.EYES_ANGER ||
-                i == (int) CustomerData.Indexes.EYES_DISGUST ||
-                i == (int) CustomerData.Indexes.EYES_WIDENING ||
-                i == (int) CustomerData.Indexes.MOUTH_OPEN ||
-                i == (int) CustomerData.Indexes.MOUTH_ANGER ||
-                i == (int) CustomerData.Indexes.MOUTH_DISGUST)
+            if (i == (int)CustomerData.Indexes.EYES_CLOSED ||
+                i == (int)CustomerData.Indexes.EYES_ANGER ||
+                i == (int)CustomerData.Indexes.EYES_DISGUST ||
+                i == (int)CustomerData.Indexes.EYES_WIDENING ||
+                i == (int)CustomerData.Indexes.MOUTH_OPEN ||
+                i == (int)CustomerData.Indexes.MOUTH_ANGER ||
+                i == (int)CustomerData.Indexes.MOUTH_DISGUST)
             {
                 // Get the second sprite of the sprite sheet
                 Sprite[] sheet = Resources.LoadAll<Sprite>(trimPath(paths[i]));
@@ -140,15 +140,18 @@ public class CustomerManager : Singleton<CustomerManager>
                 }
                 //newData.sprites[i] = sheet != null && sheet.Length >= 2 ? sheet[1] : null;
             }
-            
-            newData.sprites[i] = Resources.Load<Sprite>(trimPath(paths[i]));
+            else
+            {
+                newData.sprites[i] = Resources.Load<Sprite>(trimPath(paths[i]));
+            }
         }
         //s_faceOffsets.TryGetValue("test", out newData.faceOffset);
         if (s_faceOffsets.ContainsKey(bodyDir))
         {
             //newData.faceOffset = s_faceOffsets["test"];
             newData.faceOffset = s_faceOffsets[bodyDir];
-        } else
+        }
+        else
         {
             Debug.LogWarning("Face offset not found for body " + bodyDir);
             newData.faceOffset = Vector3.zero;
@@ -159,9 +162,9 @@ public class CustomerManager : Singleton<CustomerManager>
 
     private static string getRandomElement(string[] arr)
     {
-        if (arr == null || arr.Length <= 0) 
+        if (arr == null || arr.Length <= 0)
             return null;
-        
+
         return arr[UnityEngine.Random.Range(0, arr.Length)];
     }
 
