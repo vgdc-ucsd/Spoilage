@@ -40,19 +40,15 @@ public class FoodGrab : MonoBehaviour
         // _col.enabled = true;
         foreach (Collider2D hit in hits)
         {
-            CookingAppliance app = hit.GetComponentInParent<StoveTops>();
+            CookingAppliance _app = hit.GetComponentInParent<CookingAppliance>();
 
-            if (hit.gameObject.name.Contains("StoveTop") || hit.gameObject.name.Contains("Pot"))
+            if (_app != null)
             {
-                CookingAppliance _app = hit.GetComponentInParent<CookingAppliance>();
-                if (_app != null)
-                {
-                    _activeAppliance = _app;
-                    transform.position = hit.transform.position;
-                    Debug.Log("Snapped to: " + hit.name);
-                    _activeAppliance.OnPlaceFood(this);
-                    return;
-                }
+                _activeAppliance = _app;
+                transform.position = hit.transform.position;
+                Debug.Log("Snapped to: " + hit.name);
+                _activeAppliance.OnPlaceFood(this);
+                return;
             }
             else if (hit.gameObject.name.Contains("Plate"))
             {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ToasterOven : MonoBehaviour
+public class ToasterOven : CookingAppliance
 {
     [SerializeField] private Timer _timer;
 
@@ -13,7 +13,7 @@ public class ToasterOven : MonoBehaviour
         
     }
 
-    public void OnPlaceFood(FoodGrab food)
+    public override void OnPlaceFood(FoodGrab food)
     {
         _currentFood = food.GetComponent<IngredientObject>();
 
@@ -23,7 +23,7 @@ public class ToasterOven : MonoBehaviour
             return;
         }
 
-        Debug.Log("Food on Grill");
+        Debug.Log("Food in Toaster Oven");
 
         if (_currentFood.IngredientInstance.CurrentState == IngredientState.Cooked)
         {
@@ -42,12 +42,10 @@ public class ToasterOven : MonoBehaviour
         {
             CookFood();
         }
-
     }
 
     public void CookFood()
     {
-
         _isCooking = true;
         _currentFood.IngredientInstance.CurrentState = IngredientState.Raw;
         _timer.StartTimer(_currentFood.IngredientInstance.Data.CookTime);
@@ -55,7 +53,7 @@ public class ToasterOven : MonoBehaviour
         
     }
 
-    public void OnRemoveFood()
+    public override void OnRemoveFood()
     {
         if (_isCooking)
         {
@@ -75,7 +73,6 @@ public class ToasterOven : MonoBehaviour
             FinishCooking();
             //UpdateCookedFoodSprite();
         }
-
     }
 
     private void FinishCooking()
