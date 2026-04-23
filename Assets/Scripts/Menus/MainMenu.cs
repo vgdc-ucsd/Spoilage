@@ -52,6 +52,7 @@ public class MainMenu : MonoBehaviour
             PlayerPrefManagfer.Instance.loadPrefs(
                 save.resolution.width,
                 save.resolution.height,
+                true,
                 save.volume
             );
 
