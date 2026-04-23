@@ -47,7 +47,7 @@ public class FoodGrab : MonoBehaviour
         {
             CookingAppliance app = hit.GetComponentInParent<CookingAppliance>();
 
-            if (hit.gameObject.name.Contains("StoveTop") || hit.gameObject.name.Contains("Pot"))
+            if( hit.GetComponentInParent<CookingAppliance>() != null )
             {
                 CookingAppliance _app = hit.GetComponentInParent<CookingAppliance>();
                 if (_app != null)
