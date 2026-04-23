@@ -2,24 +2,13 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
 
-public class SettingsManager : MonoBehaviour
+public class SettingsManager : Singleton<SettingsManager>
 {
-
-    
-
-    public static SettingsManager Instance;
-
     public bool isFullscreen = true;
 
-    private void Awake()
+    public override void Awake()
     {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
+        base.Awake();
         DontDestroyOnLoad(gameObject);
     }
     
@@ -28,6 +17,7 @@ public class SettingsManager : MonoBehaviour
         isFullscreen = !isFullscreen;
         UnityEngine.Screen.fullScreen = isFullscreen;
     }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
