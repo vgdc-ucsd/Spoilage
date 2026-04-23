@@ -7,11 +7,10 @@ public class MainMenu : MonoBehaviour
     {
         string path = Application.persistentDataPath + "/save.json";
 
-        // FileStream file = new FileStream(path, FileMode.Open);
+        // for testing, delete
         PlayerData testSave = new PlayerData
         {
-            resolutionWidth = 1920,
-            resolutionHeight = 1080,
+            resolution = new Resolution { width = 1920, height = 1080 },
             volume = 10,
         };
         Debug.Log(
@@ -19,8 +18,8 @@ public class MainMenu : MonoBehaviour
                 "{0}, {1}, {2}, {3}, {4}",
                 testSave.progress,
                 testSave.money,
-                testSave.resolutionWidth,
-                testSave.resolutionHeight,
+                testSave.resolution.width,
+                testSave.resolution.height,
                 testSave.volume
             )
         );
@@ -36,13 +35,14 @@ public class MainMenu : MonoBehaviour
             Debug.Log(json);
             PlayerData save = JsonUtility.FromJson<PlayerData>(json);
 
+            // debugging
             Debug.Log(
                 string.Format(
                     "{0}, {1}, {2}, {3}, {4}",
                     save.progress,
                     save.money,
-                    save.resolutionWidth,
-                    save.resolutionHeight,
+                    save.resolution.width,
+                    save.resolution.height,
                     save.volume
                 )
             );
@@ -50,8 +50,8 @@ public class MainMenu : MonoBehaviour
             GameSaveManger.Instance.loadGame();
             Debug.Log(PlayerPrefManagfer.Instance);
             PlayerPrefManagfer.Instance.loadPrefs(
-                save.resolutionWidth,
-                save.resolutionHeight,
+                save.resolution.width,
+                save.resolution.height,
                 save.volume
             );
 
