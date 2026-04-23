@@ -9,8 +9,7 @@ public class PlayerData
     //public String[] kitchenUpgrades;
     //public String[] ingredients;
     public float volume;
-    public int resolutionWidth;
-    public int resolutionHeight;
+    public Resolution resolution;
 
     //right now I'm assuming we have a player script that will be passed
     //into the constructor, which will then parse and take in the specified vars
