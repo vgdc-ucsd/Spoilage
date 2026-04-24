@@ -19,7 +19,10 @@ public class GameState : ScriptableObject
             _money = value;
             UpdateUI();
             // If we have a master save manager, use instance.currentData.player.moneyGained
-            SaveManager.Instance.currentData.moneyGained = _money;
+            if (SaveManager.Instance)
+                SaveManager.Instance.currentData.moneyGained = _money;
+            else
+                Debug.LogError("No SaveManager!");
         }
     }
 
