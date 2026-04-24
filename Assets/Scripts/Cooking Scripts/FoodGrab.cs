@@ -6,6 +6,7 @@ public class FoodGrab : MonoBehaviour
     [SerializeField] private Transform _homeSpot;
     [SerializeField] private Transform _plateSpot;
     private CookingAppliance _activeAppliance;
+    private bool _isPlaced = false;
 
     public bool TryGrab()
     {
@@ -17,7 +18,10 @@ public class FoodGrab : MonoBehaviour
             tile.RemoveObject(gameObject);
         }
 
-        // Clean up stove reference
+    //On Click: Get mouse position to set up for dragging
+    private void OnMouseDown()
+    {
+        if (_isPlaced) return;
         if (_activeAppliance != null)
         {
             _activeAppliance.OnRemoveFood();
@@ -28,6 +32,8 @@ public class FoodGrab : MonoBehaviour
 
     public void UpdateDragPosition()
     {
+        if (_isPlaced) return;
+
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         // Z -3 keeps food visually above appliances
         transform.position = new Vector3(mousePos.x, mousePos.y, -3f);
@@ -35,27 +41,47 @@ public class FoodGrab : MonoBehaviour
 
     public void Drop()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.6f);
-
-        // --- 1. PRIORITY PLATE CHECK (Independent of Tiles) ---
-        foreach (var hit in hits)
+        if (_isPlaced) return;
+        //If not at stove top, revert back to original position
+        //(Keep track of original position)
+        // _col.enabled = false;
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.5f);
+        // _col.enabled = true;
+        foreach (Collider2D hit in hits)
         {
-            if (hit.gameObject.name.Contains("Plate"))
+            CookingAppliance _app = hit.GetComponentInParent<CookingAppliance>();
+
+            if (_app != null)
             {
-                IngredientObject info = GetComponent<IngredientObject>();
-                // Only allow plating if the food is Cooked
-                if (info != null && info.IngredientInstance.CurrentState == IngredientState.Cooked)
+                _activeAppliance = _app;
+                transform.position = hit.transform.position;
+                Debug.Log("Snapped to: " + hit.name);
+                _activeAppliance.OnPlaceFood(this);
+                return;
+            }
+
+            /*else if (hit.gameObject.name.Contains("Plate"))
+            {
+                IngredientObject _currentFood = GetComponent<IngredientObject>();
+                if (_currentFood.IngredientInstance.CurrentState == IngredientState.Cooked)
                 {
-                    // Snap to plate position (Plate can be anywhere)
-                    transform.position = _plateSpot != null ? _plateSpot.position : hit.transform.position;
-
-                    // Optional: If the plate IS on a tile, register it just in case
-                    KitchenTile plateTile = hit.GetComponentInParent<KitchenTile>();
-                    if (plateTile != null) plateTile.PlaceObject(gameObject, "Food");
-
-                    Debug.Log("Food placed on Plate!");
+                    transform.position = hit.transform.position;
+                    Debug.Log("Snapped to: " + hit.name);
                     return;
                 }
+            }*/
+
+            else if (hit.GetComponentInParent<Plate>() != null)
+            {
+                Plate plate = hit.GetComponentInParent<Plate>();
+                IngredientObject food = GetComponent<IngredientObject>();
+
+                plate.AddIngredient(food);
+
+                _activeAppliance = null;
+
+                plate.PrintIngredients();
+                return;
             }
         }
 
@@ -110,4 +136,13 @@ public class FoodGrab : MonoBehaviour
         }
         return null;
     }
+
+    public void LockToPlate()
+    {
+        _isPlaced = true;
+
+        if (_col != null)
+            _col.enabled = false;
+    }
+
 }
