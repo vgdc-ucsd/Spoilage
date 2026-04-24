@@ -16,6 +16,12 @@ public class SceneLoader : Singleton<SceneLoader>
     {
         StartCoroutine(LoadSceneRoutine(sceneName));
     }
+
+    public void UnloadScene(string sceneName) 
+    {
+        StartCoroutine(UnloadSceneRoutine(sceneName));
+    }
+
     private IEnumerator LoadSceneRoutine(string sceneName)
     {   
      
@@ -46,6 +52,39 @@ public class SceneLoader : Singleton<SceneLoader>
         }
 
         SceneManager.UnloadSceneAsync("LoadingScreen");
+    }
+
+    private IEnumerator UnloadSceneRoutine(string sceneName)
+    {
+        float minWaitTime = 1.0f;
+        float startTime = Time.time;
+
+        // https://docs.unity3d.com/ScriptReference/AsyncOperation.html
+        AsyncOperation op = SceneManager.UnloadSceneAsync(sceneName);
+        // load the loading screen
+        // additive load scene as specified in testing read me. 
+        yield return SceneManager.LoadSceneAsync("LoadingScreen", LoadSceneMode.Additive);
+
+        
+
+        op.allowSceneActivation = false;
+
+        while (op.progress < 0.9f || (Time.time - startTime) < minWaitTime){
+            float progress = op.progress;
+            //UnityEngine.Debug.Log($"loading scene {sceneName} {progress}" );
+
+            yield return null;
+        }
+
+        op.allowSceneActivation = true;
+
+        while (!op.isDone)
+        {
+            yield return null;
+        }
+
+        SceneManager.UnloadSceneAsync("LoadingScreen");
+    
     }
     
     void Update()
