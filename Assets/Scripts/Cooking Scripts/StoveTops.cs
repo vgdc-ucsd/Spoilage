@@ -1,25 +1,27 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class StoveTops : MonoBehaviour
+public class StoveTops : CookingAppliance
 {
     [SerializeField] private Timer _timer;
 
     private IngredientObject _currentFood;
     private bool _isCooking = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    public void OnPlaceFood(FoodGrab food)
+    public override void OnPlaceFood(FoodGrab food)
     {
         _currentFood = food.GetComponent<IngredientObject>();
 
-        if (_currentFood == null)
+        // SAFETY CHECK: Ensure food and timer exist
+        if (_currentFood == null || _timer == null)
         {
-            Debug.LogWarning("No IngredientObject found!");
+            Debug.LogWarning("Missing IngredientObject or Timer reference!");
+            return;
+        }
+
+        // SAFETY CHECK: Ensure the ingredient data was assigned in the Inspector
+        if (_currentFood.IngredientInstance == null || _currentFood.IngredientInstance.Data == null)
+        {
+            Debug.LogError("Food data is missing on " + _currentFood.name);
             return;
         }
 
@@ -28,10 +30,10 @@ public class StoveTops : MonoBehaviour
         if (_currentFood.IngredientInstance.CurrentCookState == CookState.Cooked)
         {
             Debug.Log("Food is already cooked");
-            return; 
+            return;
         }
 
-        // If the timer has time left and it's less than the total cook time, resume it.
+        // Your original Logic: Resume timer if partially cooked, else start fresh
         if (_timer.TimeRemaining > 0 && _timer.TimeRemaining < _currentFood.IngredientInstance.Data.CookTime)
         {
             _isCooking = true;
@@ -42,22 +44,21 @@ public class StoveTops : MonoBehaviour
         {
             CookFood();
         }
-
     }
 
     public void CookFood()
     {
+        if (_currentFood == null || _timer == null) return;
 
         _isCooking = true;
         _currentFood.IngredientInstance.CurrentCookState = CookState.Raw;
         _timer.StartTimer(_currentFood.IngredientInstance.Data.CookTime);
         Debug.Log("Started cooking");
-        
     }
 
-    public void OnRemoveFood()
+    public override void OnRemoveFood()
     {
-        if (_isCooking)
+        if (_isCooking && _timer != null)
         {
             _isCooking = false;
             _timer.PauseTimer();
@@ -68,21 +69,21 @@ public class StoveTops : MonoBehaviour
 
     private void Update()
     {
-        if (!_isCooking || _currentFood == null) return;
+        if (!_isCooking || _currentFood == null || _timer == null) return;
 
         if (_timer.IsFinished())
         {
             FinishCooking();
-            //UpdateCookedFoodSprite();
         }
-
     }
 
     private void FinishCooking()
     {
         _isCooking = false;
-        _currentFood.IngredientInstance.CurrentCookState = CookState.Cooked;
-        Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Cooked!");
+        if (_currentFood != null)
+        {
+            _currentFood.IngredientInstance.CurrentState = IngredientState.Cooked;
+            Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Cooked!");
+        }
     }
-
 }

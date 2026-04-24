@@ -42,6 +42,11 @@
     {
         get { return _currentChoppedState; }
         set { _currentChoppedState = value; }
+
+    public bool IsSpoiled
+    {
+        get => _isSpoiled;
+        set => _isSpoiled = value;
     }
 }
 public enum CookState
@@ -56,7 +61,7 @@ public enum ChoppedState
     Chopped,
     Unchopped,
 }
- 
+
 public sealed class Dough : Ingredient
 {
     public Dough(IngredientData data) : base(data)
