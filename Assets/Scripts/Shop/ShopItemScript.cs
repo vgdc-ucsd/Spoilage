@@ -1,5 +1,5 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class ShopItemScript : MonoBehaviour
 {
@@ -9,12 +9,22 @@ public class ShopItemScript : MonoBehaviour
 
     public int price = 10;
 
+    private TextMeshPro _priceField;
+
     private bool _bought = false;
+
+    void Awake()
+    {
+        if (_priceField == null)
+        {
+            _priceField = GetComponentInChildren<TextMeshPro>();
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        UpdatePrice();
     }
 
     // Update is called once per frame
@@ -48,5 +58,10 @@ public class ShopItemScript : MonoBehaviour
     void OnMouseExit()
     {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void UpdatePrice()
+    {
+        _priceField.text = "$" + price;
     }
 }
