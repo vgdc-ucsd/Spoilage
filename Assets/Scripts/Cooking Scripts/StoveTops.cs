@@ -27,7 +27,7 @@ public class StoveTops : CookingAppliance
 
         Debug.Log("Food on Grill");
 
-        if (_currentFood.IngredientInstance.CurrentState == IngredientState.Cooked)
+        if (_currentFood.IngredientInstance.CurrentCookState == CookState.Cooked)
         {
             Debug.Log("Food is already cooked");
             return;
@@ -51,7 +51,7 @@ public class StoveTops : CookingAppliance
         if (_currentFood == null || _timer == null) return;
 
         _isCooking = true;
-        _currentFood.IngredientInstance.CurrentState = IngredientState.Raw;
+        _currentFood.IngredientInstance.CurrentCookState = CookState.Raw;
         _timer.StartTimer(_currentFood.IngredientInstance.Data.CookTime);
         Debug.Log("Started cooking");
     }

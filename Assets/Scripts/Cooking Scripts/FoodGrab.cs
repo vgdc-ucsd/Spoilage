@@ -69,7 +69,7 @@ public class FoodGrab : MonoBehaviour
             /*else if (hit.gameObject.name.Contains("Plate"))
             {
                 IngredientObject _currentFood = GetComponent<IngredientObject>();
-                if (_currentFood.IngredientInstance.CurrentState == IngredientState.Cooked)
+                if (_currentFood.IngredientInstance.CurrentCookState == CookState.Cooked)
                 {
                     transform.position = hit.transform.position;
                     Debug.Log("Snapped to: " + hit.name);
