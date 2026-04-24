@@ -849,6 +849,8 @@ GameObject:
   - component: {fileID: 990949360}
   - component: {fileID: 990949359}
   - component: {fileID: 990949358}
+  - component: {fileID: 990949361}
+  - component: {fileID: 990949362}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -970,6 +972,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990949356}
   m_CullTransparentMesh: 1
+--- !u!114 &990949361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990949356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2bb45db6c0204020b8779388ded452a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeResolution
+--- !u!114 &990949362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990949356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906bd993bc08886bdb372a19759ad185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LoadSceneButton
+  _sceneName: Settings
 --- !u!1 &1139076448
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,6 +1009,7 @@ GameObject:
   - component: {fileID: 1139076452}
   - component: {fileID: 1139076451}
   - component: {fileID: 1139076450}
+  - component: {fileID: 1139076453}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -1103,6 +1131,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139076448}
   m_CullTransparentMesh: 1
+--- !u!114 &1139076453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139076448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f8f8f951463ed9da03fc8010105c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnloadSceneButton
+  _sceneName: UI
 --- !u!1 &1354178506
 GameObject:
   m_ObjectHideFlags: 0
