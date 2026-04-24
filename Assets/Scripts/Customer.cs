@@ -93,7 +93,7 @@ public class Customer : MonoBehaviour
             {
                 curTransform.GetComponent<SpriteRenderer>().sprite = customerData.sprites[i];
             }
-
+            /*
             switch ((CustomerData.Indexes)i)
             {
                 case CustomerData.Indexes.MOUTH_OPEN:
@@ -112,6 +112,10 @@ public class Customer : MonoBehaviour
                     //transform.Find("Sprites/FACIAL_FEATURES").localScale = new UnityEngine.Vector3(1.0f, 1.0f, 1.0f);
                     break;
             }
+            */
         }
+        // APPLY OFFSET
+        Debug.Log("Applying Offset");
+        transform.Find("Sprites/FACIAL_FEATURES").position = customerData.faceOffset;
     }
 }

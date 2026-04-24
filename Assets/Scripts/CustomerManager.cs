@@ -28,7 +28,10 @@ public class CustomerManager : Singleton<CustomerManager>
     private const string REGEX_HAIR_BACK = "hairBottom.*$";
     private const string REGEX_HAIR_SHADOW = "hairShadow.*$";
 
-    private static Dictionary<string, Vector3> s_faceOffsets;
+    private static Dictionary<string, Vector3> s_faceOffsets = new Dictionary<string, Vector3>
+    {
+        { "test", new Vector3(0, 0, 1.5f) }
+    };
     //private static Regex;
 
     [SerializeField]
@@ -37,17 +40,12 @@ public class CustomerManager : Singleton<CustomerManager>
 
     void Start()
     {
-        s_faceOffsets = new Dictionary<string, Vector3>
+        _debug = new CustomerData[10];
+        for (int i = 0; i < 10; i++)
         {
-            { "test", new Vector3(0, 0, 1.5f) }
-        };
-
-
-        _debug = new CustomerData[1];
-        _debug[0] = GenerateCustomerData();
-        GameObject newCustomer = new GameObject("Customer");
-        newCustomer.AddComponent<Customer>().customerData = _debug[0];
-        newCustomer.GetComponent<Customer>().Initialize();
+            Debug.Log("Debug " + i);
+            _debug[i] = GenerateCustomerData();
+        }
     }
 
 
@@ -88,11 +86,13 @@ public class CustomerManager : Singleton<CustomerManager>
         paths[(int)CustomerData.Indexes.MOUTH_DISGUST] = getRandomElement(
             Directory.GetFiles(mouthDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_DISGUST)).ToArray());
 
-
-        paths[(int)CustomerData.Indexes.SPOILAGE_FRONT] = getRandomElement(
-            Directory.GetFiles(SPOILAGE_PATH + FRONT_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
-        paths[(int)CustomerData.Indexes.SPOILAGE_BACK] = getRandomElement(
-            Directory.GetFiles(SPOILAGE_PATH + BACK_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
+        if((int) newData.spoilage >= (int) CustomerData.Spoilage.SLIGHTLY)
+        {
+            paths[(int)CustomerData.Indexes.SPOILAGE_FRONT] = getRandomElement(
+                Directory.GetFiles(SPOILAGE_PATH + FRONT_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
+            paths[(int)CustomerData.Indexes.SPOILAGE_BACK] = getRandomElement(
+                Directory.GetFiles(SPOILAGE_PATH + BACK_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
+        }
 
         string bodyDir = getRandomElement(Directory.GetDirectories(BASES_PATH));
         paths[(int)CustomerData.Indexes.BODY] = getRandomElement(
@@ -154,7 +154,7 @@ public class CustomerManager : Singleton<CustomerManager>
         else
         {
             Debug.LogWarning("Face offset not found for body " + bodyDir);
-            newData.faceOffset = Vector3.zero;
+            newData.faceOffset = new Vector3(0, 1.75f, 0);
         }
 
         return newData;
