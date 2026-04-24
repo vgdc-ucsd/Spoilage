@@ -28,6 +28,9 @@ public class CustomerManager : Singleton<CustomerManager>
     private const string REGEX_HAIR_BACK = "hairBottom.*$";
     private const string REGEX_HAIR_SHADOW = "hairShadow.*$";
 
+    public GameObject customerPrefab;
+    public CustomerData[] presetCustomerData;
+
     private static Dictionary<string, Vector3> s_faceOffsets;
     //private static Regex;
 
@@ -42,12 +45,15 @@ public class CustomerManager : Singleton<CustomerManager>
             { "test", new Vector3(0, 0, 1.5f) }
         };
 
+        // Standard Generation Process
+        GameObject customer = Instantiate(customerPrefab);
+        customer.GetComponent<Customer>().customerData = GenerateCustomerData();
+        customer.GetComponent<Customer>().GenerateCustomer();
 
-        _debug = new CustomerData[1];
-        _debug[0] = GenerateCustomerData();
-        GameObject newCustomer = new GameObject("Customer");
-        newCustomer.AddComponent<Customer>().customerData = _debug[0];
-        newCustomer.GetComponent<Customer>().Initialize();
+        // Standard Preset Process
+        GameObject customer2 = Instantiate(customerPrefab);
+        customer2.GetComponent<Customer>().customerData = presetCustomerData[0];
+        customer2.GetComponent<Customer>().GenerateCustomer();
     }
 
 
