@@ -22,12 +22,10 @@ public class FoodGrab : MonoBehaviour
         if (_activeStove != null)
         {
             _activeStove.OnRemoveFood();
-            Debug.Log("PPPPPPPP");
             _activeStove = null;            
         } else if(_activeCountertop != null)
         {
             _activeCountertop.OnRemoveFood();
-            Debug.Log("AAAAAAAAAAAAAAA");
             _activeCountertop = null;
         }
         Debug.Log("Click on Food");
