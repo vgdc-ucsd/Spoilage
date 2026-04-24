@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
 
 public class SummaryStats : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class SummaryStats : MonoBehaviour
 
     public List<string> costNames = new List<string>();
     public List<int> costAmounts = new List<int>();
+
+    // Money
+    public GameState gameState;
+    public TextMeshProUGUI moneyText;
+    public int money;
 
     public int customersServed;
     
@@ -21,7 +27,12 @@ public class SummaryStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateMoneyText();
+    }
+
+    void UpdateMoneyText()
+    {
+        moneyText.text = "Money: $" + gameState.Money;
     }
 
     public void AddIncome(string source, int amount)
