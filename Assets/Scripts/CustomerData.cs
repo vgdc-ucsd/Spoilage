@@ -13,8 +13,6 @@ public class CustomerData : ScriptableObject
     }
     public enum Indexes
     {
-        SPOILAGE_BACK,
-        HAIR_BACK,
         BODY,
         CLOTHES,
         MOUTH_OPEN,
@@ -26,9 +24,11 @@ public class CustomerData : ScriptableObject
         EYES_ANGER,
         EYES_DISGUST,
         EYES_WIDENING,
-        HAIR_SHADOW,
         HAIR_FRONT,
+        HAIR_BACK,
+        HAIR_SHADOW,
         SPOILAGE_FRONT,
+        SPOILAGE_BACK,
     }
 
     public Sprite[] sprites;

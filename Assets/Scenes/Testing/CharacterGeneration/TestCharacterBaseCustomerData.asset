@@ -30,6 +30,7 @@ MonoBehaviour:
   - {fileID: 7741223353113065086, guid: 738203aa16f93e9d587f00215537511d, type: 3}
   - {fileID: 7741223353113065086, guid: 62bc2dd72129037f383443960c050514, type: 3}
   faceOffset: {x: 0, y: 0, z: 0}
+  eyeOffset: {x: 0, y: 0, z: 0}
   CustomerName: Test Character
   spoilage: 0
   patience: 0
