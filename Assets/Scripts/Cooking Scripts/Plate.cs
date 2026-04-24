@@ -13,7 +13,7 @@ public class Plate : MonoBehaviour
         FoodGrab grab = ingredient.GetComponent<FoodGrab>();
 
         if (ingredient == null) return;
-        
+
         if (grab != null)
         {
             grab.LockToPlate();
@@ -56,3 +56,4 @@ public class Plate : MonoBehaviour
         }
     }
 }
+
