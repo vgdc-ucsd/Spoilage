@@ -19,11 +19,15 @@ public class FoodGrab : MonoBehaviour
     //On Click: Get mouse position to set up for dragging
     private void OnMouseDown()
     {
-        if (_activeStove != null && _activeCountertop != null)
+        if (_activeStove != null)
         {
             _activeStove.OnRemoveFood();
+            Debug.Log("PPPPPPPP");
+            _activeStove = null;            
+        } else if(_activeCountertop != null)
+        {
             _activeCountertop.OnRemoveFood();
-            _activeStove = null;
+            Debug.Log("AAAAAAAAAAAAAAA");
             _activeCountertop = null;
         }
         Debug.Log("Click on Food");
@@ -68,7 +72,7 @@ public class FoodGrab : MonoBehaviour
                 }
             } else if (hit.gameObject.name.Contains("Countertop"))
             {
-                Countertops _countertop = hit.GetComponentInParent<Countertops>();
+                Countertops _countertop = hit.GetComponent<Countertops>();
                 if (_countertop != null)
                 {
                     _activeCountertop = _countertop;
