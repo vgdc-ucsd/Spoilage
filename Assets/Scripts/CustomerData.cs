@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewCustomAsset", menuName = "Custom/Customer Data")]
+[CreateAssetMenu(fileName = "CustomerData", menuName = "ScriptableObjects/CustomerData", order = 1)]
 public class CustomerData : ScriptableObject
 {
-    public const int NUM_SPRITES = 11;
+    public const int NUM_SPRITES = 16;
     public enum Spoilage
     {
         NOT,
@@ -14,23 +14,28 @@ public class CustomerData : ScriptableObject
     public enum Indexes
     {
         BODY,
+        CLOTHES,
+        MOUTH_OPEN,
+        MOUTH_CLOSED,
+        MOUTH_ANGER,
+        MOUTH_DISGUST,
+        EYES_OPEN,
+        EYES_CLOSED,
+        EYES_ANGER,
+        EYES_DISGUST,
+        EYES_WIDENING,
         HAIR_FRONT,
         HAIR_BACK,
         HAIR_SHADOW,
-        CLOTHES,
-        NOSE_MOUTH_OPEN,
-        NOSE_MOUTH_CLOSED,
-        EYES_OPEN,
-        EYES_CLOSED,
         SPOILAGE_FRONT,
-        SPOILAGE_BACK
-        // etc.
+        SPOILAGE_BACK,
     }
-    
-    public Sprite[] sprites;
-    //public Vector3[] spriteOffsets;
-    public Spoilage spoilage; 
-    public float patience;
 
+    public Sprite[] sprites;
+    public Vector3 faceOffset;
+    //public Vector3[] spriteOffsets;
+    public string CustomerName;
+    public Spoilage spoilage;
+    public float patience;
 
 }
