@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 
 public class CuttableFood : MonoBehaviour
@@ -7,16 +8,16 @@ public class CuttableFood : MonoBehaviour
     private int _clicksPerState = 3;
     
     [SerializeField]
-    private GameObject[] _stateObjects;
+    private IngredientObject _currentFood;
 
     private int _currentClicks;
     private int _currentState;
 
     private void Start()
     {
-        Debug.Log($"[CuttableFood] Start — clicks per state: {_clicksPerState}");
-        Debug.Log($"[CuttableFood] Total states: {_stateObjects?.Length}");
-        UpdateVisualState();
+        // Debug.Log($"[CuttableFood] Start — clicks per state: {_clicksPerState}");
+        // Debug.Log($"[CuttableFood] Total states: {_stateObjects?.Length}");
+        // UpdateVisualState();
     }
 
     private void OnMouseDown() 
@@ -25,11 +26,27 @@ public class CuttableFood : MonoBehaviour
         Cut();
     }
 
+    private void OnPlaceFood(FoodGrab food)
+    {
+        _currentFood = food.GetComponent<IngredientObject>();
+        if (_currentFood == null)
+        {
+            Debug.LogWarning("No IngredientObject found!");
+            return;
+        }
+
+        Debug.Log("Food on Cuttingboard");
+        if (_currentFood.IngredientInstance.CurrentCookState == ChoppedState.Chopped)
+        {
+            Debug.Log("Food is already cooked");
+            return; 
+        }
+    }
+
     private void Cut() 
     {
         if(_stateObjects == null || _stateObjects.Length == 0)
         {
-            Debug.LogWarning("[CuttableFood] No state objects assigned!");
             return;
         }
 
@@ -59,7 +76,6 @@ public class CuttableFood : MonoBehaviour
     {
         if(_stateObjects == null || _stateObjects.Length == 0)
         {
-            Debug.LogWarning("[CuttableFood] UpdateVisualState failed — no states");
             return;
         }
 
@@ -71,7 +87,6 @@ public class CuttableFood : MonoBehaviour
 
             if(stateObject == null)
             {
-                Debug.LogWarning($"[CuttableFood] State {i} is NULL");
                 continue;
             }
 
@@ -82,3 +97,4 @@ public class CuttableFood : MonoBehaviour
         }
     }
 }
+*/
