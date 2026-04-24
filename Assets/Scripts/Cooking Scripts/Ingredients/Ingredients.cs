@@ -5,6 +5,7 @@
 
     private CookState _currentCookState;
     private ChoppedState _currentChoppedState;
+    private bool _isSpoiled;
     /*
     protected Ingredient(IngredientData data)
     {
@@ -42,6 +43,7 @@
     {
         get { return _currentChoppedState; }
         set { _currentChoppedState = value; }
+    }
 
     public bool IsSpoiled
     {

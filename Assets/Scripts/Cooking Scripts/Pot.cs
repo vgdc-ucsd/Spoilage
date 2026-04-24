@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Pot : CookingAppliance
 {
@@ -25,7 +25,7 @@ public class Pot : CookingAppliance
 
         Debug.Log("Food on Grill");
 
-        if (_currentFood.IngredientInstance.CurrentState == IngredientState.Cooked)
+        if (_currentFood.IngredientInstance.CurrentCookState == CookState.Cooked)
         {
             Debug.Log("Food is already cooked");
             return; 
@@ -49,7 +49,7 @@ public class Pot : CookingAppliance
     {
 
         _isCooking = true;
-        _currentFood.IngredientInstance.CurrentState = IngredientState.Raw;
+        _currentFood.IngredientInstance.CurrentCookState = CookState.Raw;
         _timer.StartTimer(_currentFood.IngredientInstance.Data.CookTime);
         Debug.Log("Started cooking");
         
@@ -81,7 +81,7 @@ public class Pot : CookingAppliance
     private void FinishCooking()
     {
         _isCooking = false;
-        _currentFood.IngredientInstance.CurrentState = IngredientState.Cooked;
+        _currentFood.IngredientInstance.CurrentCookState = CookState.Cooked;
         Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Cooked!");
     }
 }

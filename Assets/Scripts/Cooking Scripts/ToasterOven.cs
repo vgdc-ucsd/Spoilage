@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ToasterOven : CookingAppliance
 {
@@ -25,7 +25,7 @@ public class ToasterOven : CookingAppliance
 
         Debug.Log("Food in Toaster Oven");
 
-        if (_currentFood.IngredientInstance.CurrentState == IngredientState.Cooked)
+        if (_currentFood.IngredientInstance.CurrentCookState == CookState.Cooked)
         {
             Debug.Log("Food is already cooked");
             return; 
@@ -47,7 +47,7 @@ public class ToasterOven : CookingAppliance
     public void CookFood()
     {
         _isCooking = true;
-        _currentFood.IngredientInstance.CurrentState = IngredientState.Raw;
+        _currentFood.IngredientInstance.CurrentCookState = CookState.Raw;
         _timer.StartTimer(_currentFood.IngredientInstance.Data.CookTime);
         Debug.Log("Started cooking");
         
@@ -78,7 +78,7 @@ public class ToasterOven : CookingAppliance
     private void FinishCooking()
     {
         _isCooking = false;
-        _currentFood.IngredientInstance.CurrentState = IngredientState.Cooked;
+        _currentFood.IngredientInstance.CurrentCookState = CookState.Cooked;
         Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Cooked!");
     }
 }
