@@ -194,6 +194,8 @@ public class CustomerAnimation : MonoBehaviour
         Debug.Log("Mouth Open: " + isTalking.ToString());
     }
 }
+// We should integrate animation to Customer.cs so we can automatically assign facial expression sprite autmoatically.
+
 
 /*
 Types of eyes:

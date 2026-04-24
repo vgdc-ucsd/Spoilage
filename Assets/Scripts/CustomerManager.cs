@@ -43,12 +43,11 @@ public class CustomerManager : Singleton<CustomerManager>
         };
 
 
-        _debug = new CustomerData[10];
-        for (int i = 0; i < 10; i++)
-        {
-            Debug.Log("Debug " + i);
-            _debug[i] = GenerateCustomerData();
-        }
+        _debug = new CustomerData[1];
+        _debug[0] = GenerateCustomerData();
+        GameObject newCustomer = new GameObject("Customer");
+        newCustomer.AddComponent<Customer>().customerData = _debug[0];
+        newCustomer.GetComponent<Customer>().Initialize();
     }
 
 
