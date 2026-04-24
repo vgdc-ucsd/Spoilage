@@ -42,7 +42,7 @@ public class Customer : MonoBehaviour
             {
                 curTransform.GetComponent<SpriteRenderer>().sprite = customerData.sprites[i];
             }
-
+            /*
             switch ((CustomerData.Indexes)i)
             {
                 case CustomerData.Indexes.MOUTH_OPEN:
@@ -64,6 +64,7 @@ public class Customer : MonoBehaviour
                     //transform.Find("Sprites/FACIAL_FEATURES/" + ((CustomerData.Indexes)i).ToString()).localPosition = new UnityEngine.Vector3(0.0f, 0.0f, 0.0f);
                     // TODO: once local positions are correct, apply GLOBAL offsets based on the different in height of character and face size (grab from CustomerManager/CustomerData list of global offsets)
             }
+            */
         }
 
         if (customerData.spoilage == CustomerData.Spoilage.SLIGHTLY)
