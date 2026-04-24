@@ -7,7 +7,7 @@ public class Customer : MonoBehaviour
     [ContextMenu("Generate Customer")]
     public void GenerateCustomer()
     {
-        if (customerData == null) //(customerData == null) DEBUG PLEASE UNDO COMMENT LATER
+        if (true) //(customerData == null) DEBUG PLEASE UNDO COMMENT LATER
         {
             Debug.Log("Generating new customer");
             customerData = CustomerManager.GenerateCustomerData();
