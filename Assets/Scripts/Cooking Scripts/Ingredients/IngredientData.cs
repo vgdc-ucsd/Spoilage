@@ -13,6 +13,9 @@ public sealed class IngredientData : ScriptableObject
     private int _cookTime;
 
     [SerializeField]
+    private int _spoilTime;
+
+    [SerializeField]
     private bool _isSpoiled;
 
     [SerializeField]
@@ -25,10 +28,9 @@ public sealed class IngredientData : ScriptableObject
     public string Name => _name;
     public bool NeedsCooking => _needsCooking;
     public int CookTime => _cookTime;
+    public int SpoilTime => _spoilTime;
     public bool IsSpoiled => _isSpoiled;
     public Sprite RawSprite => _rawSprite;
     public Sprite CookedSprite => _cookedSprite;
     public Sprite BurntSprite => _burntSprite;
-
-
 }

@@ -5,6 +5,8 @@ public class FoodGrab : MonoBehaviour
 {
     [SerializeField] private Transform _homeSpot;
     [SerializeField] private Transform _plateSpot;
+    private StoveTops _activeStove;
+    private Countertops _activeCountertop;
     private CookingAppliance _activeAppliance;
     private bool _isPlaced = false;
 
@@ -24,8 +26,12 @@ public class FoodGrab : MonoBehaviour
         if (_isPlaced) return;
         if (_activeAppliance != null)
         {
-            _activeAppliance.OnRemoveFood();
-            _activeAppliance = null;
+            _activeStove.OnRemoveFood();
+            _activeStove = null;
+        } else if(_activeCountertop != null)
+        {
+            _activeCountertop.OnRemoveFood();
+            _activeCountertop = null;
         }
         return true;
     }
@@ -69,6 +75,17 @@ public class FoodGrab : MonoBehaviour
                     Debug.Log("Snapped to: " + hit.name);
                     return;
                 }
+            } else if (hit.gameObject.name.Contains("Countertop"))
+            {
+                Countertops _countertop = hit.GetComponent<Countertops>();
+                if (_countertop != null)
+                {
+                    _activeCountertop = _countertop;
+                    transform.position = hit.transform.position;
+                    Debug.Log("Snapped to: " + hit.name);
+                    _activeCountertop.OnPlaceFood(this);
+                    return;
+                }
             }*/
 
             else if (hit.GetComponentInParent<Plate>() != null)
@@ -89,6 +106,10 @@ public class FoodGrab : MonoBehaviour
         KitchenTile targetTile = null;
         foreach (var hit in hits)
         {
+            transform.position = _homeSpot.position;
+            _activeStove = null;
+            _activeCountertop = null;
+            _activeAppliance = null;
             if (hit.TryGetComponent(out targetTile)) break;
         }
 
