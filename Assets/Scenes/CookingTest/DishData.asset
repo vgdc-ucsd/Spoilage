@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ec14be8faa34e76a65730d67c682bc, type: 3}
   m_Name: DishData
   m_EditorClassIdentifier: Assembly-CSharp::DishData
-  _name: 
+  _name: Flatbread
   _isSpoiled: 0
   _isSeasoned: 0
-  _cookedSprite: {fileID: 0}
+  _normalSprite: {fileID: 0}
   _burntSprite: {fileID: 0}
+  _seasonedSprite: {fileID: 0}
+  _spoiledSprite: {fileID: 0}
