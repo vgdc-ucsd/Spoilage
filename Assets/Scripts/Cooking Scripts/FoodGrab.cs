@@ -19,6 +19,8 @@ public class FoodGrab : MonoBehaviour
             if (tile.GetTopObject() != gameObject) return false;
             tile.RemoveObject(gameObject);
         }
+        return true;
+    }
 
     //On Click: Get mouse position to set up for dragging
     private void OnMouseDown()
@@ -33,7 +35,6 @@ public class FoodGrab : MonoBehaviour
             _activeCountertop.OnRemoveFood();
             _activeCountertop = null;
         }
-        return true;
     }
 
     public void UpdateDragPosition()
@@ -161,9 +162,6 @@ public class FoodGrab : MonoBehaviour
     public void LockToPlate()
     {
         _isPlaced = true;
-
-        if (_col != null)
-            _col.enabled = false;
     }
 
 }

@@ -82,7 +82,7 @@ public class StoveTops : CookingAppliance
         _isCooking = false;
         if (_currentFood != null)
         {
-            _currentFood.IngredientInstance.CurrentState = IngredientState.Cooked;
+            _currentFood.IngredientInstance.CurrentCookState = CookState.Cooked;
             Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Cooked!");
         }
     }

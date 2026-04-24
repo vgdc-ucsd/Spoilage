@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 public class Plate : MonoBehaviour
@@ -52,7 +52,7 @@ public class Plate : MonoBehaviour
 
         foreach (IngredientObject ingredient in _ingredients)
         {
-            Debug.Log($"- {ingredient.IngredientInstance.Data.Name} ({ingredient.IngredientInstance.CurrentState})");
+            Debug.Log($"- {ingredient.IngredientInstance.Data.Name} ({ingredient.IngredientInstance.CurrentCookState})");
         }
     }
 }
