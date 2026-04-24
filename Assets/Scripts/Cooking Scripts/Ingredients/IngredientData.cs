@@ -28,7 +28,7 @@ public sealed class IngredientData : ScriptableObject
     [SerializeField]
     private Sprite _burntSprite;
     [SerializeField]
-    private Sprite unchoppedSprite;
+    private Sprite _unchoppedSprite;
     [SerializeField]
     private Sprite _choppedSprite;
     

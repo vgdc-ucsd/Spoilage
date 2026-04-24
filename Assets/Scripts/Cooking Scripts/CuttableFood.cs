@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 
 public class CuttableFood : MonoBehaviour
@@ -35,7 +36,7 @@ public class CuttableFood : MonoBehaviour
         }
 
         Debug.Log("Food on Cuttingboard");
-        if (_currentFood.IngredientInstance.CurrentState == ChoppedState.Chopped)
+        if (_currentFood.IngredientInstance.CurrentCookState == ChoppedState.Chopped)
         {
             Debug.Log("Food is already cooked");
             return; 
@@ -96,3 +97,4 @@ public class CuttableFood : MonoBehaviour
         }
     }
 }
+*/

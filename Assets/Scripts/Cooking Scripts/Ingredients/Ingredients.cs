@@ -5,6 +5,7 @@
 
     private CookState _currentCookState;
     private ChoppedState _currentChoppedState;
+    /*
     protected Ingredient(IngredientData data)
     {
         _data = data;
@@ -17,6 +18,30 @@
     {
         get => _currentState;
         set => _currentState = value;
+    }
+    */
+    protected Ingredient(IngredientData data)
+    {
+        _data = data;
+        _currentCookState = CookState.Raw;
+        _currentChoppedState = ChoppedState.Unchopped;
+    }
+
+    public IngredientData Data
+    {
+        get { return _data; }
+    }
+
+    public CookState CurrentCookState
+    {
+        get { return _currentCookState; }
+        set { _currentCookState = value; }
+    }
+
+    public ChoppedState CurrentChoppedState
+    {
+        get { return _currentChoppedState; }
+        set { _currentChoppedState = value; }
     }
 }
 public enum CookState
@@ -31,8 +56,7 @@ public enum ChoppedState
     Chopped,
     Unchopped,
 }
-
-public 
+ 
 public sealed class Dough : Ingredient
 {
     public Dough(IngredientData data) : base(data)
