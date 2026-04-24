@@ -1,28 +1,25 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputManager : MonoBehaviour
+public class InteractManager : MonoBehaviour
 {
-    private ObjectGrab _currentDragging;
+    private MonoBehaviour _currentDragging;
 
     void Update()
     {
-        // 1. Detect Mouse Press
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            HandleClick();
-        }
+        if (Mouse.current.leftButton.wasPressedThisFrame) HandleClick();
 
-        // 2. Handle Dragging
         if (_currentDragging != null)
         {
             if (Mouse.current.leftButton.isPressed)
             {
-                _currentDragging.UpdateDragPosition();
+                if (_currentDragging is ObjectGrab station) station.UpdateDragPosition();
+                else if (_currentDragging is FoodGrab food) food.UpdateDragPosition();
             }
             else
             {
-                _currentDragging.Drop();
+                if (_currentDragging is ObjectGrab station) station.Drop();
+                else if (_currentDragging is FoodGrab food) food.Drop();
                 _currentDragging = null;
             }
         }
@@ -33,33 +30,37 @@ public class InputManager : MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         Collider2D[] hits = Physics2D.OverlapPointAll(mousePos);
 
-        ObjectGrab target = null;
-
-        // PRIORITY: Check for Appliance first, then Counter
+        // 1. Check for the "Start Day" Button
         foreach (var hit in hits)
         {
-            if (hit.TryGetComponent(out ObjectGrab obj) && obj.type == ObjectGrab.StationType.Appliance)
+            if (hit.TryGetComponent(out WorldButton button))
             {
-                target = obj;
-                break;
+                button.Trigger();
+                return; // Stop here if we hit the button
             }
         }
 
-        if (target == null)
+        // 2. Check for Food (Always moveable)
+        foreach (var hit in hits)
         {
-            foreach (var hit in hits)
+            if (hit.TryGetComponent(out FoodGrab food) && food.TryGrab())
             {
-                if (hit.TryGetComponent(out ObjectGrab obj) && obj.type == ObjectGrab.StationType.Counter)
-                {
-                    target = obj;
-                    break;
-                }
+                _currentDragging = food;
+                return;
             }
         }
 
-        if (target != null && target.TryGrab())
+        // 3. THE LOCK GATE
+        if (LockLayout.IsLocked) return;
+
+        // 4. Check for Stations/Counters (Only reached if IsLocked is false)
+        foreach (var hit in hits)
         {
-            _currentDragging = target;
+            if (hit.TryGetComponent(out ObjectGrab obj) && obj.TryGrab())
+            {
+                _currentDragging = obj;
+                return;
+            }
         }
     }
 }

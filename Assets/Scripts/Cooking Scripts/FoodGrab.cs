@@ -1,94 +1,113 @@
-using UnityEngine.InputSystem;
+﻿using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class FoodGrab : MonoBehaviour
 {
-    private Collider2D _col;
     [SerializeField] private Transform _homeSpot;
     [SerializeField] private Transform _plateSpot;
     private CookingAppliance _activeAppliance;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public bool TryGrab()
     {
-        _col = GetComponent<Collider2D>();
-        
-    }
+        // Check if we are on a tile and remove from list if so
+        KitchenTile tile = GetTileAtPosition(transform.position);
+        if (tile != null)
+        {
+            if (tile.GetTopObject() != gameObject) return false;
+            tile.RemoveObject(gameObject);
+        }
 
-    //On Click: Get mouse position to set up for dragging
-    private void OnMouseDown()
-    {
+        // Clean up stove reference
         if (_activeAppliance != null)
         {
             _activeAppliance.OnRemoveFood();
             _activeAppliance = null;
         }
-        Debug.Log("Click on Food");
+        return true;
     }
 
-    private void OnMouseDrag()
+    public void UpdateDragPosition()
     {
-        transform.position = GetMousePositionInWorldSpace();
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        // Z -3 keeps food visually above appliances
+        transform.position = new Vector3(mousePos.x, mousePos.y, -3f);
     }
 
-    private void OnMouseUp()
+    public void Drop()
     {
-        //If not at stove top, revert back to original position
-        //(Keep track of original position)
-        // _col.enabled = false;
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.5f);
-        // _col.enabled = true;
-        foreach (Collider2D hit in hits)
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.6f);
+
+        // --- 1. PRIORITY PLATE CHECK (Independent of Tiles) ---
+        foreach (var hit in hits)
         {
-            CookingAppliance app = hit.GetComponentInParent<CookingAppliance>();
+            if (hit.gameObject.name.Contains("Plate"))
+            {
+                IngredientObject info = GetComponent<IngredientObject>();
+                // Only allow plating if the food is Cooked
+                if (info != null && info.IngredientInstance.CurrentState == IngredientState.Cooked)
+                {
+                    // Snap to plate position (Plate can be anywhere)
+                    transform.position = _plateSpot != null ? _plateSpot.position : hit.transform.position;
 
-            if (hit.gameObject.name.Contains("StoveTop") || hit.gameObject.name.Contains("Pot"))
-            {
-                CookingAppliance _app = hit.GetComponentInParent<CookingAppliance>();
-                if (_app != null)
-                {
-                    _activeAppliance = _app;
-                    transform.position = hit.transform.position;
-                    Debug.Log("Snapped to: " + hit.name);
-                    _activeAppliance.OnPlaceFood(this);
-                    return;
-                }
-            }
-            else if (hit.gameObject.name.Contains("Plate"))
-            {
-                IngredientObject _currentFood = GetComponent<IngredientObject>();
-                if (_currentFood.IngredientInstance.CurrentState == IngredientState.Cooked)
-                {
-                    transform.position = hit.transform.position;
-                    Debug.Log("Snapped to: " + hit.name);
+                    // Optional: If the plate IS on a tile, register it just in case
+                    KitchenTile plateTile = hit.GetComponentInParent<KitchenTile>();
+                    if (plateTile != null) plateTile.PlaceObject(gameObject, "Food");
+
+                    Debug.Log("Food placed on Plate!");
                     return;
                 }
             }
         }
-        if (_homeSpot != null)
+
+        // --- 2. TILE-BASED LOGIC (For Stoves and Grid Counters) ---
+        KitchenTile targetTile = null;
+        foreach (var hit in hits)
         {
-            transform.position = _homeSpot.position;
-            _activeAppliance = null;
+            if (hit.TryGetComponent(out targetTile)) break;
         }
-        
+
+        if (targetTile != null && targetTile.CanPlaceObject("Food", gameObject))
+        {
+            foreach (var hit in hits)
+            {
+                // STOVE/POT CHECK
+                if (hit.gameObject.name.Contains("StoveTop") || hit.gameObject.name.Contains("Pot"))
+                {
+                    CookingAppliance app = hit.GetComponentInParent<CookingAppliance>();
+                    if (app != null)
+                    {
+                        targetTile.PlaceObject(gameObject, "Food");
+                        _activeAppliance = app;
+                        transform.position = hit.transform.position;
+                        _activeAppliance.OnPlaceFood(this);
+                        return;
+                    }
+                }
+            }
+
+            // Fallback: Drop on the counter tile itself
+            targetTile.PlaceObject(gameObject, "Food");
+            transform.position = targetTile.transform.position;
+            return;
+        }
+
+        // --- 3. RETURN TO HOME (If no valid landing spot found) ---
+        ReturnToHome();
     }
 
-    private Vector3 GetMousePositionInWorldSpace()
+    private void ReturnToHome()
     {
-        if (Camera.main == null || Mouse.current == null)
-        {
-            return transform.position;
-        }
-        Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
-        worldPosition.z = 0f;
-        return worldPosition;
+        if (_homeSpot != null) transform.position = _homeSpot.position;
+        _activeAppliance = null;
     }
 
-    // Update is called once per frame
-    void Update()
+    private KitchenTile GetTileAtPosition(Vector2 pos)
     {
-        
+        Collider2D[] hits = Physics2D.OverlapPointAll(pos);
+        foreach (var hit in hits)
+        {
+            if (hit.TryGetComponent(out KitchenTile tile)) return tile;
+        }
+        return null;
     }
 }
