@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StoveTops : CookingAppliance
+public class ToasterOven : CookingAppliance
 {
     [SerializeField] private Timer _timer;
 
@@ -23,7 +23,7 @@ public class StoveTops : CookingAppliance
             return;
         }
 
-        Debug.Log("Food on Grill");
+        Debug.Log("Food in Toaster Oven");
 
         if (_currentFood.IngredientInstance.CurrentState == IngredientState.Cooked)
         {
@@ -42,12 +42,10 @@ public class StoveTops : CookingAppliance
         {
             CookFood();
         }
-
     }
 
     public void CookFood()
     {
-
         _isCooking = true;
         _currentFood.IngredientInstance.CurrentState = IngredientState.Raw;
         _timer.StartTimer(_currentFood.IngredientInstance.Data.CookTime);
@@ -75,7 +73,6 @@ public class StoveTops : CookingAppliance
             FinishCooking();
             //UpdateCookedFoodSprite();
         }
-
     }
 
     private void FinishCooking()
@@ -84,5 +81,4 @@ public class StoveTops : CookingAppliance
         _currentFood.IngredientInstance.CurrentState = IngredientState.Cooked;
         Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Cooked!");
     }
-
 }

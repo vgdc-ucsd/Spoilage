@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StoveTops : CookingAppliance
+public class Pot : CookingAppliance
 {
     [SerializeField] private Timer _timer;
 
@@ -84,5 +84,4 @@ public class StoveTops : CookingAppliance
         _currentFood.IngredientInstance.CurrentState = IngredientState.Cooked;
         Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Cooked!");
     }
-
 }

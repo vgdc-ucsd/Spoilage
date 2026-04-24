@@ -8,6 +8,9 @@ public class FoodGrab : MonoBehaviour
     [SerializeField] private Transform _plateSpot;
     private StoveTops _activeStove;
     private Countertops _activeCountertop;
+    private CookingAppliance _activeAppliance;
+    private bool _isPlaced = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,7 +22,8 @@ public class FoodGrab : MonoBehaviour
     //On Click: Get mouse position to set up for dragging
     private void OnMouseDown()
     {
-        if (_activeStove != null)
+        if (_isPlaced) return;
+        if (_activeAppliance != null)
         {
             _activeStove.OnRemoveFood();
             _activeStove = null;            
@@ -33,11 +37,13 @@ public class FoodGrab : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        if (_isPlaced) return;
         transform.position = GetMousePositionInWorldSpace();
     }
 
     private void OnMouseUp()
     {
+        if (_isPlaced) return;
         //If not at stove top, revert back to original position
         //(Keep track of original position)
         // _col.enabled = false;
@@ -45,21 +51,18 @@ public class FoodGrab : MonoBehaviour
         // _col.enabled = true;
         foreach (Collider2D hit in hits)
         {
-            StoveTops stove = hit.GetComponentInParent<StoveTops>();
+            CookingAppliance _app = hit.GetComponentInParent<CookingAppliance>();
 
-            if (hit.gameObject.name.Contains("StoveTop"))
+            if (_app != null)
             {
-                StoveTops _stove = hit.GetComponentInParent<StoveTops>();
-                if (_stove != null)
-                {
-                    _activeStove = _stove;
-                    transform.position = hit.transform.position;
-                    Debug.Log("Snapped to: " + hit.name);
-                    _activeStove.OnPlaceFood(this);
-                    return;
-                }
+                _activeAppliance = _app;
+                transform.position = hit.transform.position;
+                Debug.Log("Snapped to: " + hit.name);
+                _activeAppliance.OnPlaceFood(this);
+                return;
             }
-            else if (hit.gameObject.name.Contains("Plate"))
+            
+            /*else if (hit.gameObject.name.Contains("Plate"))
             {
                 IngredientObject _currentFood = GetComponent<IngredientObject>();
                 if (_currentFood.IngredientInstance.CurrentState == IngredientState.Cooked)
@@ -79,6 +82,19 @@ public class FoodGrab : MonoBehaviour
                     _activeCountertop.OnPlaceFood(this);
                     return;
                 }
+            }*/
+
+            else if (hit.GetComponentInParent<Plate>() != null)
+            {
+                Plate plate = hit.GetComponentInParent<Plate>();
+                IngredientObject food = GetComponent<IngredientObject>();
+
+                plate.AddIngredient(food);
+
+                _activeAppliance = null;
+
+                plate.PrintIngredients();
+                return;
             }
         }
         if (_homeSpot != null)
@@ -86,6 +102,7 @@ public class FoodGrab : MonoBehaviour
             transform.position = _homeSpot.position;
             _activeStove = null;
             _activeCountertop = null;
+            _activeAppliance = null;
         }
         
     }
@@ -102,9 +119,12 @@ public class FoodGrab : MonoBehaviour
         return worldPosition;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LockToPlate()
     {
+        _isPlaced = true;
         
+        if (_col != null)
+            _col.enabled = false;
     }
+
 }
