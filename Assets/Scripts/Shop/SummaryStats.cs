@@ -4,8 +4,6 @@ using System.Collections.Generic;
 public class SummaryStats : MonoBehaviour
 {
 
-    public static LevelStats instance;
-
     public List<string> incomeNames = new List<string>();
     public List<int> incomeAmounts = new List<int>();
 
