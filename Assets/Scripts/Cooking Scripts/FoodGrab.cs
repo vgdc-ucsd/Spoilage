@@ -8,7 +8,24 @@ public class FoodGrab : MonoBehaviour
     private CookingAppliance _activeAppliance;
     private bool _isPlaced = false;
 
-    public static bool CanMoveFood = false;
+    public static bool CanMoveFood = true; // Default to true
+
+    private void Awake()
+    {
+        // Check if there is a Start Day button in this specific scene
+        WorldButton startButton = Object.FindFirstObjectByType<WorldButton>();
+
+        if (startButton != null)
+        {
+            // If a button exists, lock the food until it's pressed
+            CanMoveFood = false;
+        }
+        else
+        {
+            // If no button exists (like in a test scene), allow movement
+            CanMoveFood = true;
+        }
+    }
 
     public bool TryGrab()
     {
@@ -69,6 +86,7 @@ public class FoodGrab : MonoBehaviour
                         if (plate != null) plate.AddIngredient(info);
 
                         transform.position = _plateSpot != null ? _plateSpot.position : hit.transform.position;
+                        LockToPlate();
                         return;
                     }
                 }
