@@ -26,7 +26,7 @@ public class FoodGrab : MonoBehaviour
     private void OnMouseDown()
     {
         if (_isPlaced) return;
-        if (_activeAppliance != null)
+        if (_activeStove != null)
         {
             _activeStove.OnRemoveFood();
             _activeStove = null;
