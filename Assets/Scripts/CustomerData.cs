@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CustomerData", menuName = "ScriptableObjects/CustomerData", order = 1)]
@@ -40,4 +41,5 @@ public class CustomerData : ScriptableObject
     public Spoilage spoilage;
     public float patience;
 
+    public List<CustomerOrder> orders = new List<CustomerOrder>();
 }

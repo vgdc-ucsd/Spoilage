@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b6654ea46735f41b96bf522b29ad96, type: 3}
+  m_Name: Test Order 3
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerOrder
+  DishName: Test Order 3
+  Ingredients:
+  - {fileID: 11400000, guid: 32df76b34642be948a95c4c6986bf8de, type: 2}
+  - {fileID: 11400000, guid: 5127039114b14b744a35b74becd96a20, type: 2}
+  - {fileID: 11400000, guid: f8e80fe7aa48b2b41a58a8248e54f227, type: 2}
+  difficulty: 0

@@ -162,7 +162,22 @@ public class CustomerManager : Singleton<CustomerManager>
             newData.faceOffset = new Vector3(0, 1.75f, 0);
         }
 
-        return newData;
+        CustomerOrderDatabase customerOrderDatabase = CustomerOrderDatabase.Instance;
+
+        // Customer order
+        int orderCount = customerOrderDatabase.PickDishCount(0.5f); // TODO: Get actual game progress.
+
+        for (int i = 0; i < orderCount; i++)
+        {
+            CustomerOrder order = customerOrderDatabase.GenerateCustomerOrder(0); // TODO: Get actual difficulty.
+
+            if (order != null)
+            {
+                newData.orders.Add(order);
+            }
+        }
+
+    return newData;
     }
 
     private static string getRandomElement(string[] arr)
