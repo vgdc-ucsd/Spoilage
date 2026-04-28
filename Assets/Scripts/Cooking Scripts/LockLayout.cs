@@ -2,10 +2,9 @@
 
 public class LockLayout : MonoBehaviour
 {
-    // Static so InteractManager can see it without a reference
     public static bool IsLocked = false;
 
-    [SerializeField] private GameObject _lockButtonObject; // Drag "Start Day" HERE
+    [SerializeField] private GameObject _lockButtonObject;
 
     private void Awake()
     {
@@ -15,8 +14,9 @@ public class LockLayout : MonoBehaviour
 
     public void StartDay()
     {
-        // 1. Flip the switch to TRUE
+        // 1. Flip the switches to TRUE
         IsLocked = true;
+        FoodGrab.CanMoveFood = true;
 
         // 2. Hide the button so it can't be clicked again
         _lockButtonObject.SetActive(false);

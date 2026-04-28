@@ -21,4 +21,12 @@ public class WorldButton : MonoBehaviour
     // Visual feedback when hovering
     void OnMouseEnter() { if (_renderer) _renderer.color = Color.gray; }
     void OnMouseExit() { if (_renderer) _renderer.color = _originalColor; }
+
+    public void OnStartDayButtonPressed()
+    {
+        // This unlocks all FoodGrab scripts at once
+        FoodGrab.CanMoveFood = true;
+
+        Debug.Log("You can cook now!");
+    }
 }
