@@ -69,9 +69,16 @@ public class FoodGrab : MonoBehaviour
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.6f);
 
-        // --- 1. SCAN FOR PLATE OR APPLIANCE ---
+        // --- 1. SCAN FOR PLATE OR TRASH OR APPLIANCE ---
         foreach (Collider2D hit in hits)
         {
+            TrashCan trash = hit.GetComponentInParent<TrashCan>();
+            if (trash != null)
+            {
+                trash.Trash(this);
+                return;
+            }
+
             Plate plate = hit.GetComponentInParent<Plate>() ?? hit.GetComponentInChildren<Plate>();
 
             if (plate != null || hit.gameObject.name.Contains("Plate"))
