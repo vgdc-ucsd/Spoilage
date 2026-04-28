@@ -5,6 +5,7 @@ public class FoodGrab : MonoBehaviour
 {
     [SerializeField] private Transform _homeSpot;
     [SerializeField] private Transform _plateSpot;
+    private FoodSpawner _spawner;
     private CookingAppliance _activeAppliance;
     private bool _isPlaced = false;
 
@@ -46,7 +47,18 @@ public class FoodGrab : MonoBehaviour
             _activeAppliance = null;
         }
 
+        if (_spawner != null)
+        {
+            _spawner.SpawnFood();
+            _spawner = null;
+        }
+
         return true;
+    }
+
+    public void SetSpawner(FoodSpawner spawner)
+    {
+        _spawner = spawner;
     }
 
     private void OnMouseDown()
@@ -69,11 +81,10 @@ public class FoodGrab : MonoBehaviour
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.6f);
 
-        // --- 1. SCAN FOR PLATE OR APPLIANCE ---
+        // --- 1. SCAN FOR PLATE OR TRASH OR APPLIANCE ---
         foreach (Collider2D hit in hits)
         {
             TrashCan trash = hit.GetComponentInParent<TrashCan>();
-
             if (trash != null)
             {
                 trash.Trash(this);
