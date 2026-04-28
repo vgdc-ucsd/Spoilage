@@ -72,6 +72,14 @@ public class FoodGrab : MonoBehaviour
         // --- 1. SCAN FOR PLATE OR APPLIANCE ---
         foreach (Collider2D hit in hits)
         {
+            TrashCan trash = hit.GetComponentInParent<TrashCan>();
+
+            if (trash != null)
+            {
+                trash.Trash(this);
+                return;
+            }
+
             Plate plate = hit.GetComponentInParent<Plate>() ?? hit.GetComponentInChildren<Plate>();
 
             if (plate != null || hit.gameObject.name.Contains("Plate"))
