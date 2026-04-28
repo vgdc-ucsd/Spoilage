@@ -3,7 +3,7 @@ using UnityEngine;
 public class SeasoningStation : UtilityStation
 {
 
-    private IngredientObject _currentFood;
+    private DishObject _currentFood;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,9 +18,9 @@ public class SeasoningStation : UtilityStation
     }
 
     // Maybe don't use foodgrab food, also make new dish object to operate on and replace all the IngredientIntance/State
-    public override void OnPlaceFood(FoodGrab food)
+    public override void OnPlaceFood(UtilityGrab dish)
     {
-        // _currentFood = food.GetComponent<Dish>();
+         _currentFood = dish.GetComponent<DishObject>();
 
         if (_currentFood == null)
         {
@@ -30,11 +30,11 @@ public class SeasoningStation : UtilityStation
 
         Debug.Log("Food on Station");
 
-        // if (_currentFood.IngredientInstance.CurrentState == IngredientState.Seasoned)
-        // {
-        //     Debug.Log("Food is already seasoned");
-        //     return; 
-        // }
+        if (_currentFood.DishInstance.CurrentState == DishState.Seasoned)
+        {
+            Debug.Log("Food is already seasoned");
+            return; 
+        }
 
         SeasonFood();
 
