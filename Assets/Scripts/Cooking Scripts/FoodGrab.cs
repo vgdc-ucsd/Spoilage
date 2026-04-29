@@ -46,6 +46,14 @@ public class FoodGrab : MonoBehaviour
             _activeAppliance = null;
         }
 
+        Fridge fridge = FindAnyObjectByType<Fridge>();
+
+        if (fridge != null)
+        {
+            fridge.SpawnFood();
+            Debug.Log("New food instance spawned");
+        }
+
         return true;
     }
 

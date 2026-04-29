@@ -2,17 +2,17 @@
 
 public class StoveTops : CookingAppliance
 {
-    [SerializeField] private Timer _timer;
 
     private IngredientObject _currentFood;
-    private bool _isCooking = false;
 
     public override void OnPlaceFood(FoodGrab food)
     {
         _currentFood = food.GetComponent<IngredientObject>();
 
+        IngredientBehaviour ingredientBehaviour = food.GetComponent<IngredientBehaviour>();
+
         // SAFETY CHECK: Ensure food and timer exist
-        if (_currentFood == null || _timer == null)
+        if (_currentFood == null || ingredientBehaviour == null)
         {
             Debug.LogWarning("Missing IngredientObject or Timer reference!");
             return;
@@ -27,63 +27,26 @@ public class StoveTops : CookingAppliance
 
         Debug.Log("Food on Grill");
 
-        if (_currentFood.IngredientInstance.CurrentCookState == CookState.Cooked)
-        {
-            Debug.Log("Food is already cooked");
-            return;
-        }
-
-        // Your original Logic: Resume timer if partially cooked, else start fresh
-        if (_timer.TimeRemaining > 0 && _timer.TimeRemaining < _currentFood.IngredientInstance.Data.CookTime)
-        {
-            _isCooking = true;
-            _timer.ResumeTimer();
-            Debug.Log("Resuming timer at: " + _timer.TimeRemaining);
-        }
-        else
-        {
-            CookFood();
-        }
+        ingredientBehaviour.PutOnHeat();
     }
 
-    public void CookFood()
-    {
-        if (_currentFood == null || _timer == null) return;
-
-        _isCooking = true;
-        _currentFood.IngredientInstance.CurrentCookState = CookState.Raw;
-        _timer.StartTimer(_currentFood.IngredientInstance.Data.CookTime);
-        Debug.Log("Started cooking");
-    }
 
     public override void OnRemoveFood()
     {
-        if (_isCooking && _timer != null)
+        if (_currentFood == null)
         {
-            _isCooking = false;
-            _timer.PauseTimer();
-            Debug.Log("Timer paused.");
+            return;
         }
+
+        IngredientBehaviour ingredientBehaviour = _currentFood.GetComponent<IngredientBehaviour>();
+
+        if (ingredientBehaviour != null)
+        {
+            ingredientBehaviour.RemoveFromHeat();
+            
+        }
+        Debug.Log("Food removed from stove");
         _currentFood = null;
     }
 
-    private void Update()
-    {
-        if (!_isCooking || _currentFood == null || _timer == null) return;
-
-        if (_timer.IsFinished())
-        {
-            FinishCooking();
-        }
-    }
-
-    private void FinishCooking()
-    {
-        _isCooking = false;
-        if (_currentFood != null)
-        {
-            _currentFood.IngredientInstance.CurrentCookState = CookState.Cooked;
-            Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Cooked!");
-        }
-    }
 }
