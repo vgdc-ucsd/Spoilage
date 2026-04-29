@@ -36,9 +36,32 @@ public sealed class IngredientBehaviour : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
-        _ingredientObject = GetComponent<IngredientObject>();
+         _ingredientObject = GetComponent<IngredientObject>();
+
+        if (_cookingTimer == null)
+        {
+            _cookingTimer = transform.Find("Canvas/CookingTimer").gameObject;
+        }
+
+        if (_cookingTimerFill == null)
+        {
+            _cookingTimerFill = transform.Find("Canvas/CookingTimer/CookingFill").GetComponent<Image>();
+        }
+
+        if (_spoilingTimer == null)
+        {
+            _spoilingTimer = transform.Find("Canvas/SpoilTimer").gameObject;
+        }
+
+        if (_spoilingTimerFill == null)
+        {
+            _spoilingTimerFill = transform.Find("Canvas/SpoilTimer/SpoilFill").GetComponent<Image>();
+        }
+
+        HideCookingTimer();
+        HideSpoilingTimer();
     }
 
     private void Update()
@@ -141,6 +164,19 @@ public sealed class IngredientBehaviour : MonoBehaviour
     {
         _cookingTimer.SetActive(true);
         _cookingTimerFill.fillAmount = Mathf.Clamp01(fillAmount);
+
+        if (fillAmount > 0.6f)
+        {
+            _cookingTimerFill.color = Color.green;
+        }
+        else if (fillAmount > 0.3f)
+        {
+            _cookingTimerFill.color = Color.yellow;
+        }
+        else
+        {
+            _cookingTimerFill.color = Color.red;
+        }
     }
 
     private void HideCookingTimer()
@@ -165,6 +201,7 @@ public sealed class IngredientBehaviour : MonoBehaviour
         _isOnHeat = true;
         _isOnSpoilSurface = false;
         Log("Started Cooking");
+        Debug.Log(gameObject.name + " started cooking");
     }
 
     public void RemoveFromHeat()

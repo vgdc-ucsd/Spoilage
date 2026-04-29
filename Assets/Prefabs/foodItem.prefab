@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 3987253506152107398}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.53225, y: 0.53225, z: 1.0645}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1.0645}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9179225184930979449}
@@ -307,7 +307,7 @@ RectTransform:
   m_GameObject: {fileID: 6247838735661210083}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.53225, y: 0.53225, z: 1.0645}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1.0645}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6200246379411365549}
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9490196, g: 0.59605914, b: 0.16078432, a: 1}
+  m_Color: {r: 0.32704163, g: 0.94716984, b: 0.45881224, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -457,9 +457,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8694899032743510461}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7460497043845687931}
@@ -468,9 +468,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.4, y: 0.4}
+  m_SizeDelta: {x: 837.19995, y: 424.2}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2354936452115831544
 Canvas:
   m_ObjectHideFlags: 0
@@ -480,7 +480,7 @@ Canvas:
   m_GameObject: {fileID: 8694899032743510461}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -493,7 +493,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!114 &1949167271009841120
 MonoBehaviour:
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2303516374626979500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.066835135, g: 0.5058824, b: 0.14126788, a: 1}
+  m_Color: {r: 0.21550016, g: 0.66529816, b: 0.6679245, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
