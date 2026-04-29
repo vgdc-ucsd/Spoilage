@@ -9,11 +9,11 @@ public class IngredientSaveData
     public string ingredientName;
 
     // Dynamic states specific to THIS exact piece of food
-    public IngredientState ingredientState;
+    public StateSaveData ingredientState;
     public int currentCookTime;
     public int currentSpoilTime;
 
-    public IngredientSaveData(string name, IngredientState state, int cookTime, int spoilTime)
+    public IngredientSaveData(string name, StateSaveData state, int cookTime, int spoilTime)
     {
         ingredientName = name;
         ingredientState = state;

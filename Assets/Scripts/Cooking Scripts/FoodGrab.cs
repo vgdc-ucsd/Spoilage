@@ -13,7 +13,7 @@ public class FoodGrab : MonoBehaviour
     private void Awake()
     {
         // Check if there is a Start Day button in this specific scene
-        WorldButton startButton = Object.FindFirstObjectByType<WorldButton>();
+        WorldButton startButton = FindAnyObjectByType<WorldButton>();
 
         if (startButton != null)
         {
