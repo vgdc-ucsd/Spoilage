@@ -1,13 +1,24 @@
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour
 {
-    private int _nextScene = 1;
     public void ClickStartGame()
-    { 
-        SceneManager.LoadSceneAsync(_nextScene);
+    {
+        //SceneManager.LoadSceneAsync("CustomerGeneration", LoadSceneMode.Additive);
+        //SceneManager.LoadSceneAsync("CustomerInteraction", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Cooking");
     }
 
+    public void ClickSettings()
+    {
+        
+    }
+
+    public void ClickExitGame()
+    {
+        // TODO - Save Game
+        Application.Quit();
+    }
 }
