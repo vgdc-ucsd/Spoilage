@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25bb1b4f5999594b805e03c3de01bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodGrab
-  _homeSpot: {fileID: 0}
+  _homeSpot: {fileID: 4118265908561301760, guid: c438e7a91ec404e4bb3734cdce2f572a, type: 3}
   _plateSpot: {fileID: 0}
 --- !u!58 &1166206710923738943
 CircleCollider2D:
