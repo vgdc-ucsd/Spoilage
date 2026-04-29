@@ -3,10 +3,15 @@ using UnityEngine;
 
 public class FoodGrab : MonoBehaviour
 {
-    [SerializeField] private Transform _homeSpot;
+    private bool _hasHomePosition;
+    private bool _isPlaced = false;
+    private bool _cameFromFridge = true;
+    private Vector3 _homePosition;
+    private Vector3 _returnPosition;
     [SerializeField] private Transform _plateSpot;
     private CookingAppliance _activeAppliance;
-    private bool _isPlaced = false;
+    private CookingAppliance _returnAppliance;
+
 
     public static bool CanMoveFood = true; // Default to true
 
@@ -27,6 +32,17 @@ public class FoodGrab : MonoBehaviour
         }
     }
 
+    public void SetHomePosition(Vector3 position)
+    {
+        _homePosition = position;
+        _hasHomePosition = true;
+    }
+
+    public void SetCameFromFridge(bool value)
+    {
+        _cameFromFridge = value;
+    }
+
     public bool TryGrab()
     {
         if (!CanMoveFood || _isPlaced) return false;
@@ -42,17 +58,17 @@ public class FoodGrab : MonoBehaviour
         // Clean up appliance reference if we pick it back up
         if (_activeAppliance != null)
         {
+            _returnAppliance = _activeAppliance;
+            _returnPosition = _activeAppliance.transform.position;
+
             _activeAppliance.OnRemoveFood();
             _activeAppliance = null;
         }
-
-        Fridge fridge = FindAnyObjectByType<Fridge>();
-
-        if (fridge != null)
+        else
         {
-            fridge.SpawnFood();
-            Debug.Log("New food instance spawned");
-        }
+            _returnAppliance = null;
+        }   
+
 
         return true;
     }
@@ -107,6 +123,19 @@ public class FoodGrab : MonoBehaviour
                 transform.position = hit.transform.position;
                 _activeAppliance.OnPlaceFood(this);
 
+                if (_cameFromFridge)
+                {
+                Fridge fridge = FindAnyObjectByType<Fridge>();
+
+                    if (fridge != null)
+                    {
+                        fridge.SpawnFood();
+                    }
+
+                _cameFromFridge = false;
+            }
+
+
                 KitchenTile tile = GetTileAtPosition(transform.position);
                 if (tile != null) tile.PlaceObject(gameObject);
                 return;
@@ -127,8 +156,32 @@ public class FoodGrab : MonoBehaviour
 
     private void ReturnToHome()
     {
-        if (_homeSpot != null) transform.position = _homeSpot.position;
+        IngredientObject info = GetComponent<IngredientObject>();
+
+        bool stillNeedsCooking =
+            info != null &&
+            info.IngredientInstance != null &&
+            info.IngredientInstance.Data.NeedsCooking &&
+            info.IngredientInstance.CurrentCookState == CookState.Raw;
+
+        if (_returnAppliance != null && stillNeedsCooking)
+        {
+            transform.position = _returnPosition;
+            _activeAppliance = _returnAppliance;
+            _activeAppliance.OnPlaceFood(this);
+
+            Debug.Log("Food still needs cooking, snapping back to stove.");
+            return;
+        }
+
+        if (_hasHomePosition)
+        {
+            transform.position = _homePosition;
+            Debug.Log("Missed drop, returning food to fridge.");
+        }
+
         _activeAppliance = null;
+        _returnAppliance = null;
     }
 
     private KitchenTile GetTileAtPosition(Vector2 pos)
