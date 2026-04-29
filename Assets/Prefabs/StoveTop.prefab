@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3100142220ed924881fbffe814537d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  targetState: 4
   _timer: {fileID: 0}
 --- !u!114 &8064698808744015730
 MonoBehaviour:

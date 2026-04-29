@@ -683,6 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d11225bdf0947cc91a614a32dc2267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToasterOven
+  targetState: 3
   _timer: {fileID: 11073843}
 --- !u!61 &525373043
 BoxCollider2D:
