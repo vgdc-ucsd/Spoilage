@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e727e67f8a3f6ff3af387e73d559133, type: 3}
   m_Name: Tomato
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
-  itemName: Pot
-  itemType: Appliance
-  icon: {fileID: -5649470061204452833, guid: 406dcf18564e92f21b0db1bb2fbac02f, type: 3}
-  price: 50
-  color: {r: 1, g: 1, b: 1, a: 0}
+  itemName: Tomato
+  itemType: Vegetable
+  icon: {fileID: -8113185096396602001, guid: 45824706ed86c47b8bc5a213d5ac9e70, type: 3}
+  price: 67
+  color: {r: 0.4669811, g: 0.6018413, b: 1, a: 1}

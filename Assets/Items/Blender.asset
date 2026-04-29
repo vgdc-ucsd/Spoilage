@@ -16,4 +16,4 @@ MonoBehaviour:
   itemType: Appliance
   icon: {fileID: -593064387807940374, guid: e1be46d92033be804b58ceb7c5789a49, type: 3}
   price: 80
-  color: {r: 1, g: 1, b: 1, a: 0}
+  color: {r: 1, g: 1, b: 1, a: 1}
