@@ -7,44 +7,35 @@ public class ShopItemScript : MonoBehaviour
 
     public GameState gameState;
 
-    public int price = 10;
+    public ShopItem item;
 
-    private TextMeshPro _priceField;
+    public TextMeshPro priceField;
+    public TextMeshPro nameField;
+    public TextMeshPro typeField;
+
+    public SpriteRenderer imageField;
+
 
     private bool _bought = false;
-
-    void Awake()
-    {
-        if (_priceField == null)
-        {
-            _priceField = GetComponentInChildren<TextMeshPro>();
-        }
-    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        UpdatePrice();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        UpdateGUI();
     }
 
     bool canBuy()
     {
-        return !_bought && gameState.Money >= price;
+        return !_bought && gameState.Money >= item.price;
     }
 
     void OnMouseDown()
     {
         if (canBuy())
         {
-            gameState.Money -= price;
+            gameState.Money -= item.price;
             _bought = true;
-            GetComponent<SpriteRenderer>().color = Color.gray;
+            GetComponent<SpriteRenderer>().color *= Color.gray;
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
@@ -60,8 +51,14 @@ public class ShopItemScript : MonoBehaviour
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
-    public void UpdatePrice()
+    public void UpdateGUI()
     {
-        _priceField.text = "$" + price;
+        priceField.text = "$" + item.price;
+        nameField.text = item.name;
+        typeField.text = "- " + item.itemType + " -";
+        imageField.sprite = item.icon;
+        GetComponent<SpriteRenderer>().color = item.color;
+        if (_bought)
+            GetComponent<SpriteRenderer>().color *= Color.gray;
     }
 }

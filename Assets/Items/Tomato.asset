@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e727e67f8a3f6ff3af387e73d559133, type: 3}
-  m_Name: Pot
+  m_Name: Tomato
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
   itemName: Pot
   itemType: Appliance

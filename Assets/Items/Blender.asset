@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e727e67f8a3f6ff3af387e73d559133, type: 3}
   m_Name: Blender
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
-  itemName: 
-  icon: {fileID: 0}
-  price: 0
+  itemName: Blender
+  itemType: Appliance
+  icon: {fileID: -593064387807940374, guid: e1be46d92033be804b58ceb7c5789a49, type: 3}
+  price: 80
+  color: {r: 1, g: 1, b: 1, a: 0}

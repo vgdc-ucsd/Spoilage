@@ -15,9 +15,8 @@ public class ItemGeneratorScript : MonoBehaviour
 
         // create shop item
         GameObject shopItem = Instantiate(shopItemPrefab);
-        shopItem.GetComponent<SpriteRenderer>().sprite = item.icon;
-        shopItem.GetComponent<ShopItemScript>().price = item.price;
-        shopItem.GetComponent<ShopItemScript>().UpdatePrice();
+        shopItem.GetComponent<ShopItemScript>().item = item;
+        shopItem.GetComponent<ShopItemScript>().UpdateGUI();
         shopItem.transform.position = transform.position;
     }
 
