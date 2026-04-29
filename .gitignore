@@ -101,3 +101,7 @@ fmod_editor.log
 
 #Ignore all .DS_Stores
 **/.DS_Store
+
+### SYSTEM-SPECIFIC FILES
+# Ignore MacOS directory indexing.
+.DS_Store

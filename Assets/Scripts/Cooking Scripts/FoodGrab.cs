@@ -1,69 +1,140 @@
-using UnityEngine.InputSystem;
+﻿using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class FoodGrab : MonoBehaviour
 {
-    private Collider2D col;
-    [SerializeField] private Transform homeSpot;
+    [SerializeField] private Transform _homeSpot;
+    [SerializeField] private Transform _plateSpot;
+    private CookingAppliance _activeAppliance;
+    private bool _isPlaced = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static bool CanMoveFood = true; // Default to true
+
+    private void Awake()
     {
-        col = GetComponent<Collider2D>();
-        
+        // Check if there is a Start Day button in this specific scene
+        WorldButton startButton = Object.FindFirstObjectByType<WorldButton>();
+
+        if (startButton != null)
+        {
+            // If a button exists, lock the food until it's pressed
+            CanMoveFood = false;
+        }
+        else
+        {
+            // If no button exists (like in a test scene), allow movement
+            CanMoveFood = true;
+        }
     }
 
-    //On Click: Get mouse position to set up for dragging
+    public bool TryGrab()
+    {
+        if (!CanMoveFood || _isPlaced) return false;
+
+        // Check if we are on a tile and remove from list if so
+        KitchenTile tile = GetTileAtPosition(transform.position);
+        if (tile != null)
+        {
+            if (tile.GetTopObject() != gameObject) return false;
+            tile.RemoveObject(gameObject);
+        }
+
+        // Clean up appliance reference if we pick it back up
+        if (_activeAppliance != null)
+        {
+            _activeAppliance.OnRemoveFood();
+            _activeAppliance = null;
+        }
+
+        return true;
+    }
+
     private void OnMouseDown()
     {
-        Debug.Log("Click on Food");
+        // Handled in TryGrab for the new logic
     }
 
-    private void OnMouseDrag()
+    public void UpdateDragPosition()
     {
-        transform.position = GetMousePositionInWorldSpace();
+        if (!CanMoveFood || _isPlaced) return;
+
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        // Z -3 keeps food visually above appliances
+        transform.position = new Vector3(mousePos.x, mousePos.y, -3f);
     }
 
-    private void OnMouseUp()
+    public void Drop()
     {
-        //If not at stove top, revert back to original position
-        //(Keep track of original position)
-        // col.enabled = false;
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.5f);
-        // col.enabled = true;
+        if (_isPlaced) return;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.6f);
+
+        // --- 1. SCAN FOR PLATE OR APPLIANCE ---
         foreach (Collider2D hit in hits)
         {
-            StoveTops stoveTops = hit.GetComponentInParent<StoveTops>();
+            Plate plate = hit.GetComponentInParent<Plate>() ?? hit.GetComponentInChildren<Plate>();
 
-            if (hit.gameObject.name.Contains("StoveTop"))
+            if (plate != null || hit.gameObject.name.Contains("Plate"))
             {
+                IngredientObject info = GetComponent<IngredientObject>();
+
+                if (info != null && info.IngredientInstance != null)
+                {
+                    if (info.IngredientInstance.CurrentCookState == CookState.Cooked)
+                    {
+                        _activeAppliance = null;
+                        if (plate != null) plate.AddIngredient(info);
+
+                        transform.position = _plateSpot != null ? _plateSpot.position : hit.transform.position;
+                        LockToPlate();
+                        return;
+                    }
+                }
+            }
+
+            CookingAppliance app = hit.GetComponentInParent<CookingAppliance>();
+            if (app != null)
+            {
+                _activeAppliance = app;
                 transform.position = hit.transform.position;
-                Debug.Log("Snapped to: " + hit.name);
+                _activeAppliance.OnPlaceFood(this);
+
+                KitchenTile tile = GetTileAtPosition(transform.position);
+                if (tile != null) tile.PlaceObject(gameObject);
                 return;
             }
         }
-        if (homeSpot != null)
+
+        // --- 2. TILE-BASED FALLBACK ---
+        KitchenTile targetTile = GetTileAtPosition(transform.position);
+        if (targetTile != null && targetTile.CanPlaceObject("Food", gameObject))
         {
-            transform.position = homeSpot.position;
+            targetTile.PlaceObject(gameObject);
+            transform.position = targetTile.transform.position;
+            return;
         }
-        
+
+        ReturnToHome();
     }
 
-    private Vector3 GetMousePositionInWorldSpace()
+    private void ReturnToHome()
     {
-        if (Camera.main == null || Mouse.current == null)
-        {
-            return transform.position;
-        }
-        Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
-        worldPosition.z = 0f;
-        return worldPosition;
+        if (_homeSpot != null) transform.position = _homeSpot.position;
+        _activeAppliance = null;
     }
 
-    // Update is called once per frame
-    void Update()
+    private KitchenTile GetTileAtPosition(Vector2 pos)
     {
-        
+        Collider2D[] hits = Physics2D.OverlapPointAll(pos);
+        foreach (var hit in hits)
+        {
+            if (hit.TryGetComponent(out KitchenTile tile)) return tile;
+        }
+        return null;
+    }
+
+    public void LockToPlate()
+    {
+        _isPlaced = true;
     }
 }
