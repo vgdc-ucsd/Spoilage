@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: b1fca631b631271408699c68e131f1f1
+guid: 88bc4a1525d007f41a8e693430ccbabd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4896131284853543722
-    second: signature_0
+      213: -4301845666325973774
+    second: prep3_0
   - first:
-      213: -7865490556033668259
-    second: signature_1
+      213: -7083268541659168862
+    second: prep3_1
   - first:
-      213: -642626812912118181
-    second: signature_2
+      213: -3489168553711818661
+    second: prep3_2
   - first:
-      213: -1628999419639480415
-    second: signature_3
+      213: 8082542023424136845
+    second: prep3_3
+  - first:
+      213: 5484936835125153297
+    second: prep3_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: signature_0
+      name: prep3_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 12
-        width: 290
-        height: 88
+        x: 15
+        y: 48
+        width: 24
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,64 +127,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a235f57767d82f340800000000000000
-      internalID: 4896131284853543722
+      spriteID: 2f4361c9826cc44c0800000000000000
+      internalID: -4301845666325973774
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: signature_1
+      name: prep3_1
       rect:
         serializedVersion: 2
-        x: 342
-        y: 47
-        width: 9
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d5b6c6f230a28d290800000000000000
-      internalID: -7865490556033668259
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: signature_2
-      rect:
-        serializedVersion: 2
-        x: 357
-        y: 49
-        width: 6
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b565b35815ee417f0800000000000000
-      internalID: -642626812912118181
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: signature_3
-      rect:
-        serializedVersion: 2
-        x: 331
-        y: 24
+        x: 30
+        y: 30
         width: 43
-        height: 24
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +149,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1af321d98a1a469e0800000000000000
-      internalID: -1628999419639480415
+      spriteID: 2afb4b54acc23bd90800000000000000
+      internalID: -7083268541659168862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prep3_2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 47
+        width: 13
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b582b82dfabf39fc0800000000000000
+      internalID: -3489168553711818661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prep3_3
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 29
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d86dc5ca525fa2070800000000000000
+      internalID: 8082542023424136845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prep3_4
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 28
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11e0719bdf86e1c40800000000000000
+      internalID: 5484936835125153297
       vertices: []
       indices: 
       edges: []
@@ -210,10 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      signature_0: 4896131284853543722
-      signature_1: -7865490556033668259
-      signature_2: -642626812912118181
-      signature_3: -1628999419639480415
+      prep3_0: -4301845666325973774
+      prep3_1: -7083268541659168862
+      prep3_2: -3489168553711818661
+      prep3_3: 8082542023424136845
+      prep3_4: 5484936835125153297
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 228068881}
-  - component: {fileID: 228068880}
+  - component: {fileID: 228068882}
   m_Layer: 0
   m_Name: Item
   m_TagString: Order
@@ -136,28 +136,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &228068880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228068879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c34ece2e4451e4ebae599df171882d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Item
-  barCode: {fileID: 2800000, guid: 5ffc7437872ccf445af364d132d8c3f1, type: 3}
-  barCodeNumber: 
-  ingredients:
-  - {fileID: 2800000, guid: 2ca9d08e0e44cf1498a336ea5e5746c1, type: 3}
-  - {fileID: 2800000, guid: c41a4db3f036edf44b8022f3bb2a2d4d, type: 3}
-  - {fileID: 2800000, guid: 441b2884159a4634cb0d845644c69ee0, type: 3}
-  itemCost: 5.99
-  itemName: Burger
-  foodPicture: {fileID: 2800000, guid: dc2bc84b9d2fc514faf221c6ac8e9349, type: 3}
-  signature: {fileID: 2800000, guid: b1fca631b631271408699c68e131f1f1, type: 3}
 --- !u!4 &228068881
 Transform:
   m_ObjectHideFlags: 0
@@ -173,6 +151,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &228068882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228068879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5c99314de01234783e9c531b58127b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  ingredients:
+  - {fileID: 2800000, guid: 2ca9d08e0e44cf1498a336ea5e5746c1, type: 3}
+  - {fileID: 2800000, guid: c41a4db3f036edf44b8022f3bb2a2d4d, type: 3}
+  - {fileID: 2800000, guid: 441b2884159a4634cb0d845644c69ee0, type: 3}
+  - {fileID: 2800000, guid: 441b2884159a4634cb0d845644c69ee0, type: 3}
+  - {fileID: 2800000, guid: c41a4db3f036edf44b8022f3bb2a2d4d, type: 3}
+  preparations:
+  - {fileID: 2800000, guid: e2a24d2008985bf4e978e6fad04953dd, type: 3}
+  - {fileID: 2800000, guid: 653cf0bd6fbb97d4881bafdc90fd02af, type: 3}
+  - {fileID: 2800000, guid: 88bc4a1525d007f41a8e693430ccbabd, type: 3}
+  - {fileID: 2800000, guid: 653cf0bd6fbb97d4881bafdc90fd02af, type: 3}
+  - {fileID: 2800000, guid: e2a24d2008985bf4e978e6fad04953dd, type: 3}
+  itemCost: 5.99
+  itemName: Fat Burger
+  foodPicture: {fileID: 2800000, guid: dc2bc84b9d2fc514faf221c6ac8e9349, type: 3}
 --- !u!1 &665613898
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +507,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1438217205}
-  - component: {fileID: 1438217204}
+  - component: {fileID: 1438217206}
   m_Layer: 0
   m_Name: DisplayObject
   m_TagString: Untagged
@@ -510,24 +515,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1438217204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1438217203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcaecc5f5ae8b0e4fa596e878136bb88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DisplayObject
-  canvas: {fileID: 665613902}
-  ingredientImagePrefab: {fileID: 5330401647499061024, guid: 20d12d3fd88edb1409c105d0bd381a5f, type: 3}
-  lineLength: 30
-  orderDisplayPrefab: {fileID: 1511781150802498532, guid: fe0954c5909de944499e736b32cfc033, type: 3}
-  orderObject: {fileID: 0}
-  order: {fileID: 0}
 --- !u!4 &1438217205
 Transform:
   m_ObjectHideFlags: 0
@@ -543,6 +530,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1438217206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438217203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f111bdfb38550428ac01e14130575c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DisplayObject
+  canvas: {fileID: 665613902}
+  ingredientImagePrefab: {fileID: 2819867568284659432, guid: 7b3f7abdcf3f1a94aa2b93a0f1da4068, type: 3}
+  lineLength: 40
+  orderDisplayPrefab: {fileID: 4206517968387297274, guid: 98e00247c35d48144b4ae858f791fa26, type: 3}
 --- !u!1 &1562169041
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,13 +766,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1438217204}
+      - m_Target: {fileID: 1438217206}
         m_TargetAssemblyTypeName: DisplayObject, Assembly-CSharp
         m_MethodName: GenerateReceipt
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 228068880}
-          m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1033,7 +1036,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1438217204}
+      - m_Target: {fileID: 1438217206}
         m_TargetAssemblyTypeName: DisplayObject, Assembly-CSharp
         m_MethodName: DeleteReceipt
         m_Mode: 1

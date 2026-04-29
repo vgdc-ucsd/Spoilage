@@ -5,12 +5,6 @@ TextureImporter:
   - first:
       213: 1526963244726948144
     second: ingredient2_0
-  - first:
-      213: 2028812145363099880
-    second: ingredient2_1
-  - first:
-      213: 588001120634089807
-    second: ingredient2_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -127,50 +121,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: ingredient2_1
-      rect:
-        serializedVersion: 2
-        x: 138
-        y: 36
-        width: 144
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8e0ad58a5e9c72c10800000000000000
-      internalID: 2028812145363099880
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ingredient2_2
-      rect:
-        serializedVersion: 2
-        x: 316
-        y: 14
-        width: 69
-        height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f413de267eff82800800000000000000
-      internalID: 588001120634089807
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -186,8 +136,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       ingredient2_0: 1526963244726948144
-      ingredient2_1: 2028812145363099880
-      ingredient2_2: 588001120634089807
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

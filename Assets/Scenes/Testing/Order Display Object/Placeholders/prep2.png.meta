@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5ffc7437872ccf445af364d132d8c3f1
+guid: 653cf0bd6fbb97d4881bafdc90fd02af
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2793949331754234811
-    second: barcode_0
+      213: 6954934436061925951
+    second: prep2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: barcode_0
+      name: prep2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 400
-        height: 100
+        x: 16
+        y: 14
+        width: 69
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54c4950c2e5e939d0800000000000000
-      internalID: -2793949331754234811
+      spriteID: f325a915504e48060800000000000000
+      internalID: 6954934436061925951
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      barcode_0: -2793949331754234811
+      prep2_0: 6954934436061925951
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
