@@ -319,7 +319,7 @@ public class TextboxBubbleStack : MonoBehaviour
                     continue;
                 }
 
-                text.enableWordWrapping = true;
+                text.textWrappingMode = TextWrappingModes.Normal;
                 text.overflowMode = TextOverflowModes.Overflow;
 
                 float scale = GetTextScale(text);

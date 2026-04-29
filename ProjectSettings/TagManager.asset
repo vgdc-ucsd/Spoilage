@@ -7,6 +7,8 @@ TagManager:
   - StoveTop
   - FoodItem
   - LogicManager
+  - Order
+  - Order Display Object
   layers:
   - Default
   - TransparentFX
