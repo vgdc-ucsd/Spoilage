@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4319916850848806142}
   - component: {fileID: 2030184810084682948}
   - component: {fileID: 3586513584362925848}
+  - component: {fileID: -7779951390341285521}
   m_Layer: 0
   m_Name: Counter
   m_TagString: Untagged
@@ -152,3 +153,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-7779951390341285521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8119316095545636097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d34bf4819a83454680ef8b63b73af04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Countertops
