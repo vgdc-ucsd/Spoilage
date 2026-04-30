@@ -67,6 +67,7 @@ public enum ChoppedState
     Unchopped,
 }
 
+
 public sealed class Dough : Ingredient
 {
     public Dough(IngredientData data) : base(data)

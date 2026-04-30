@@ -1,38 +1,134 @@
 {
   "recipes": [
     {
-      "dishName": "Toast",
+      "dishName": "Sliced Dough",
       "ingredients": [
-        {
-          "ingredientName": "Dough",
-          "requiredState": "Toasted"
-        }
+        { "ingredientName": "Dough", "requiredState": "Raw", "requiredChoppedState": "Chopped" }
       ]
     },
-
+    {
+      "dishName": "Noodles",
+      "ingredients": [
+        { "ingredientName": "Sliced Dough", "requiredState": "Boiled" }
+      ]
+    },
     {
       "dishName": "Flatbread",
       "ingredients": [
-        {
-          "ingredientName": "Dough",
-          "requiredState": "Grilled"
-        }
+        { "ingredientName": "Dough", "requiredState": "Grilled" }
       ]
     },
-
     {
-      "dishName": "TestMixed",
+      "dishName": "Sliced Cheese",
       "ingredients": [
-        {
-          "ingredientName": "Dough",
-          "requiredState": "Raw"
-        },
-        {
-          "ingredientName": "Dough",
-          "requiredState": "Grilled"
-        }
+        { "ingredientName": "Cheese", "requiredChoppedState": "Chopped" }
+      ]
+    },
+    {
+      "dishName": "Cheesy Bread",
+      "ingredients": [
+        { "ingredientName": "Flatbread", "requiredState": "Grilled" },
+        { "ingredientName": "Sliced Cheese" }
+      ]
+    },
+    {
+      "dishName": "Chopped Root Veggies + Dough",
+      "ingredients": [
+        { "ingredientName": "Dough", "requiredState": "Raw" },
+        { "ingredientName": "Chopped Root Vegetables" }
+      ]
+    },
+    {
+      "dishName": "Brewer On A Skewer",
+      "ingredients": [
+        { "ingredientName": "Chopped Root Veggies + Dough", "requiredState": "Grilled" }
+      ]
+    },
+    {
+      "dishName": "Chopped Root Vegetables",
+      "ingredients": [
+        { "ingredientName": "Root Vegetables", "requiredChoppedState": "Chopped" }
+      ]
+    },
+    {
+      "dishName": "Boiled Root Vegetables",
+      "ingredients": [
+        { "ingredientName": "Chopped Root Vegetables", "requiredState": "Boiled" }
+      ]
+    },
+    {
+      "dishName": "Cheesy Beet Bread",
+      "ingredients": [
+        { "ingredientName": "Cheesy Bread" },
+        { "ingredientName": "Boiled Root Vegetables" }
+      ]
+    },
+    {
+      "dishName": "Cubed Meat",
+      "ingredients": [
+        { "ingredientName": "Meat", "requiredChoppedState": "Chopped" }
+      ]
+    },
+    {
+      "dishName": "Raw Ratenudel",
+      "ingredients": [
+        { "ingredientName": "Cubed Meat" },
+        { "ingredientName": "Sliced Dough" },
+        { "ingredientName": "Sliced Cheese" }
+      ]
+    },
+    {
+      "dishName": "Ratenudel",
+      "ingredients": [
+        { "ingredientName": "Raw Ratenudel", "requiredState": "Grilled" }
+      ]
+    },
+    {
+      "dishName": "Pickled Pigeons",
+      "ingredients": [
+        { "ingredientName": "Cubed Meat", "requiredState": "Grilled" },
+        { "ingredientName": "Sauce", "requiredState": "Grilled" }
+      ]
+    },
+    {
+      "dishName": "Diced Potatoes",
+      "ingredients": [
+        { "ingredientName": "Potatoes", "requiredChoppedState": "Chopped" }
+      ]
+    },
+    {
+      "dishName": "Meat + Veggies + Potatoes",
+      "ingredients": [
+        { "ingredientName": "Cubed Meat" },
+        { "ingredientName": "Chopped Root Vegetables" },
+        { "ingredientName": "Diced Potatoes" }
+      ]
+    },
+    {
+      "dishName": "Unsauced Amehonpilztopf",
+      "ingredients": [
+        { "ingredientName": "Meat + Veggies + Potatoes", "requiredState": "Boiled" }
+      ]
+    },
+    {
+      "dishName": "Amehonpilztopf",
+      "ingredients": [
+        { "ingredientName": "Unsauced Amehonpilztopf" },
+        { "ingredientName": "Sauce" }
+      ]
+    },
+    {
+      "dishName": "Root Veggies + Potatoes",
+      "ingredients": [
+        { "ingredientName": "Chopped Root Vegetables" },
+        { "ingredientName": "Diced Potatoes" }
+      ]
+    },
+    {
+      "dishName": "Lotus Steak",
+      "ingredients": [
+        { "ingredientName": "Root Veggies + Potatoes", "requiredState": "Grilled" }
       ]
     }
-
   ]
 }

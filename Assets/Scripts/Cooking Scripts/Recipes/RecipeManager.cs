@@ -5,7 +5,8 @@ using UnityEngine;
 public class IngredientRequirement
 {
     public string ingredientName;
-    public string requiredState;
+    public string requiredState; //required state is the cooked state
+    public string requiredChoppedState;
 }
 
 [System.Serializable]
@@ -68,34 +69,35 @@ public class RecipeManager : MonoBehaviour
 
     private bool IsMatch(Recipe recipe, List<IngredientObject> plateIngredients)
     {
-        if (recipe == null || recipe.ingredients == null || plateIngredients == null) return false;
+        if (recipe == null || plateIngredients == null) return false;
         if (recipe.ingredients.Count != plateIngredients.Count) return false;
 
         foreach (var req in recipe.ingredients)
         {
-            // JSON CHECK: If your JSON is missing a name or state, this stops the crash
-            if (req == null || string.IsNullOrEmpty(req.ingredientName) || string.IsNullOrEmpty(req.requiredState))
-            {
-                Debug.LogError($"MANAGER: Recipe '{recipe.dishName}' has a broken ingredient entry in the JSON file!");
-                return false;
-            }
-
             bool found = false;
             foreach (var food in plateIngredients)
             {
-                // PLATE CHECK: If the food on the plate is broken, this stops the crash
-                if (food == null || food.IngredientInstance == null || food.IngredientInstance.Data == null)
+                if (food == null || food.IngredientInstance == null) continue;
+
+                // 1. Get names and states
+                string plateName = food.IngredientInstance.Data.Name.Trim();
+                string plateCookState = food.IngredientInstance.CurrentCookState.ToString().Trim();
+                string plateChoppedState = food.IngredientInstance.CurrentChoppedState.ToString().Trim();
+
+                // 2. Basic Name Match
+                bool nameMatches = plateName.Equals(req.ingredientName.Trim(), System.StringComparison.OrdinalIgnoreCase);
+
+                // 3. Cook State Match
+                bool cookMatches = plateCookState.Equals(req.requiredState.Trim(), System.StringComparison.OrdinalIgnoreCase);
+
+                // 4. Chopped State Match (Optional: if JSON is empty, we assume it's a match)
+                bool choppedMatches = true;
+                if (!string.IsNullOrEmpty(req.requiredChoppedState))
                 {
-                    continue;
+                    choppedMatches = plateChoppedState.Equals(req.requiredChoppedState.Trim(), System.StringComparison.OrdinalIgnoreCase);
                 }
 
-                string plateName = food.IngredientInstance.Data.Name.Trim();
-                string jsonName = req.ingredientName.Trim();
-                string plateState = food.IngredientInstance.CurrentCookState.ToString().Trim();
-                string jsonState = req.requiredState.Trim();
-
-                if (plateName.Equals(jsonName, System.StringComparison.OrdinalIgnoreCase) &&
-                    plateState.Equals(jsonState, System.StringComparison.OrdinalIgnoreCase))
+                if (nameMatches && cookMatches && choppedMatches)
                 {
                     found = true;
                     break;
