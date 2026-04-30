@@ -810,19 +810,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409551605}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.45, y: 1.9501, z: 1}
+  m_LocalScale: {x: 1.9130939, y: 2.5729132, z: 1.319375}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 334800415}
   - {fileID: 2094858349}
   - {fileID: 22108390}
-  m_Father: {fileID: 431939338}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17, y: 172}
+  m_AnchoredPosition: {x: 295.70004, y: 293.67435}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &409551607
@@ -970,8 +970,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 409551606}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1012,9 +1011,12 @@ MonoBehaviour:
   tilePrefab: {fileID: 14463954373767937, guid: 556d2fb1fd3a322408c7f708b8e7ee40, type: 3}
   columns: 6
   rows: 2
+  manualTileSize: 1.75
   tileSpacing: 0.95
-  gridAreaWidthPercentage: 0.7
-  gridAreaHeightPercentage: 0.8
+  rightPadding: 0
+  bottomPadding: 2.5
+  borderColor: {r: 0, g: 0, b: 0, a: 1}
+  borderThickness: 0.03
 --- !u!4 &501343968
 Transform:
   m_ObjectHideFlags: 0
@@ -2011,8 +2013,9 @@ SceneRoots:
   - {fileID: 661587041}
   - {fileID: 1102906642}
   - {fileID: 407012565}
-  - {fileID: 642746606}
   - {fileID: 431939338}
   - {fileID: 131116865}
   - {fileID: 732107196}
   - {fileID: 155400986}
+  - {fileID: 642746606}
+  - {fileID: 409551606}

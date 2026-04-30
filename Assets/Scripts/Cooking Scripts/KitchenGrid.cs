@@ -4,17 +4,23 @@ public class KitchenGrid : MonoBehaviour
 {
     [Header("Grid Settings")]
     public GameObject tilePrefab;
-    public int columns;
-    public int rows;
+    public int columns = 6;
+    public int rows = 2;
 
-    [Range(0.0f, 1.0f)]
-    public float tileSpacing = 0.95f;
+    [Header("Tile Size & Spacing")]
+    public float manualTileSize = 1.75f;
 
-    [Header("Screen Layout Settings")]
     [Range(0.1f, 1.0f)]
-    public float gridAreaWidthPercentage = 0.9f;
-    [Range(0.1f, 1.0f)]
-    public float gridAreaHeightPercentage = 0.8f;
+    public float tileSpacing = 1.0f;
+
+    [Header("Positioning")]
+    public float rightPadding = 0f;
+    public float bottomPadding = 2.5f;
+
+    [Header("Border Settings")]
+    public Color borderColor = Color.black;
+    [Range(0.01f, 0.1f)]
+    public float borderThickness = 0.03f;
 
     void Start()
     {
@@ -29,41 +35,52 @@ public class KitchenGrid : MonoBehaviour
         float screenHeight = 2f * cam.orthographicSize;
         float screenWidth = screenHeight * cam.aspect;
 
-        // 1. Calculate the total width we are allowed to use
-        float playableWidth = screenWidth * gridAreaWidthPercentage;
+        // 1. Calculate dimensions
+        float totalGridWidth = manualTileSize * columns;
 
-        // 2. Determine tile size based ONLY on the width to ensure 6 fit across
-        // This prevents the "only 4 tiles showing" issue
-        float finalTileSize = playableWidth / columns;
+        // 2. Position math for Bottom-Right alignment
+        // Removing rightPadding and aligning strictly to (Center + HalfWidth)
+        float startX = (cam.transform.position.x + screenWidth / 2) - totalGridWidth - rightPadding;
 
-        // 3. Calculate total grid dimensions for centering
-        float totalGridWidth = finalTileSize * columns;
-        float totalGridHeight = finalTileSize * rows;
-
-        // 4. Center the grid
-        // startX: Pushes it to the left but keeps it centered within the 90%
-        float startX = cam.transform.position.x - (screenWidth / 2) + (screenWidth * (1 - gridAreaWidthPercentage) / 2);
-
-        // startY: Centers the 2 rows vertically on the screen
-        float startY = cam.transform.position.y + (totalGridHeight / 2);
+        // Increased bottomPadding lifts the 'base' of the grid higher from the screen bottom
+        float startY = (cam.transform.position.y - screenHeight / 2) + (manualTileSize * rows) + bottomPadding;
 
         for (int y = 0; y < rows; y++)
         {
             for (int x = 0; x < columns; x++)
             {
                 Vector3 spawnPos = new Vector3(
-                    startX + (x * finalTileSize) + (finalTileSize / 2),
-                    startY - (y * finalTileSize) - (finalTileSize / 2),
+                    startX + (x * manualTileSize) + (manualTileSize / 2),
+                    startY - (y * manualTileSize) - (manualTileSize / 2),
                     0
                 );
 
                 GameObject newTile = Instantiate(tilePrefab, spawnPos, Quaternion.identity, transform);
 
-                // Use finalTileSize for BOTH X and Y to keep them square
-                newTile.transform.localScale = new Vector3(finalTileSize * tileSpacing, finalTileSize * tileSpacing, 1);
-
+                newTile.transform.localScale = new Vector3(manualTileSize * tileSpacing, manualTileSize * tileSpacing, 1);
                 newTile.name = $"Tile_{x}_{y}";
+
+                AddBorderToTile(newTile);
             }
         }
+    }
+
+    void AddBorderToTile(GameObject tile)
+    {
+        LineRenderer line = tile.AddComponent<LineRenderer>();
+        line.useWorldSpace = false;
+        line.widthMultiplier = borderThickness;
+        line.positionCount = 5;
+        line.loop = true;
+        line.material = new Material(Shader.Find("Sprites/Default"));
+        line.startColor = line.endColor = borderColor;
+        line.sortingOrder = 10;
+
+        float s = 0.5f;
+        line.SetPosition(0, new Vector3(-s, -s, 0));
+        line.SetPosition(1, new Vector3(s, -s, 0));
+        line.SetPosition(2, new Vector3(s, s, 0));
+        line.SetPosition(3, new Vector3(-s, s, 0));
+        line.SetPosition(4, new Vector3(-s, -s, 0));
     }
 }

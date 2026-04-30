@@ -9,6 +9,12 @@ public class FoodGrab : MonoBehaviour
     private bool _isPlaced = false;
 
     public static bool CanMoveFood = true; // Default to true
+    private FoodSpawner _spawner;  
+
+    public void SetSpawner(FoodSpawner spawner)
+    {
+        _spawner = spawner;
+    }
 
     private void Awake()
     {
@@ -72,6 +78,13 @@ public class FoodGrab : MonoBehaviour
         // --- 1. SCAN FOR PLATE OR APPLIANCE ---
         foreach (Collider2D hit in hits)
         {
+            TrashCan trash = hit.GetComponentInParent<TrashCan>();
+            if (trash != null)
+            {
+                trash.Trash(this);
+                return;
+            }
+
             Plate plate = hit.GetComponentInParent<Plate>() ?? hit.GetComponentInChildren<Plate>();
 
             if (plate != null || hit.gameObject.name.Contains("Plate"))
@@ -80,15 +93,12 @@ public class FoodGrab : MonoBehaviour
 
                 if (info != null && info.IngredientInstance != null)
                 {
-                    if (info.IngredientInstance.CurrentCookState == CookState.Cooked)
-                    {
                         _activeAppliance = null;
                         if (plate != null) plate.AddIngredient(info);
 
                         transform.position = _plateSpot != null ? _plateSpot.position : hit.transform.position;
                         LockToPlate();
                         return;
-                    }
                 }
             }
 

@@ -1,32 +1,55 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.UI;
+using System.Collections;
 
 public class WorldButton : MonoBehaviour
 {
-    public UnityEvent OnClick;
-    private SpriteRenderer _renderer;
-    private Color _originalColor;
+    [Header("Ascend Settings")]
+    public float ascendSpeed = 800f;
+    public float ascendDuration = 1.5f;
+
+    private RectTransform _rectTransform;
+    private Button _button;
 
     void Awake()
     {
-        _renderer = GetComponent<SpriteRenderer>();
-        if (_renderer != null) _originalColor = _renderer.color;
+        _rectTransform = GetComponent<RectTransform>();
+        _button = GetComponent<Button>();
+
+        // 1. Initial State: Appliances can move, Food is stuck
+        LockLayout.IsLocked = false;
+        FoodGrab.CanMoveFood = false;
+
+        // 2. Automatically link the button click
+        if (_button != null)
+        {
+            _button.onClick.AddListener(Trigger);
+        }
     }
 
     public void Trigger()
     {
-        OnClick.Invoke();
-    }
-
-    // Visual feedback when hovering
-    void OnMouseEnter() { if (_renderer) _renderer.color = Color.gray; }
-    void OnMouseExit() { if (_renderer) _renderer.color = _originalColor; }
-
-    public void OnStartDayButtonPressed()
-    {
-        // This unlocks all FoodGrab scripts at once
+        // 3. Flip logic: Lock appliances, unlock food
+        LockLayout.IsLocked = true;
         FoodGrab.CanMoveFood = true;
 
-        Debug.Log("You can cook now!");
+        // 4. Disable interaction and start moving
+        if (_button != null) _button.interactable = false;
+        StartCoroutine(AscendAndHide());
+
+        Debug.Log("Day Started: Layout Locked, Food Unlocked!");
+    }
+
+    private IEnumerator AscendAndHide()
+    {
+        float elapsed = 0f;
+        while (elapsed < ascendDuration)
+        {
+            // Move UI element up
+            _rectTransform.anchoredPosition += new Vector2(0, ascendSpeed * Time.deltaTime);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        gameObject.SetActive(false);
     }
 }
