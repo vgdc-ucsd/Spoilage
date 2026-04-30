@@ -76,5 +76,7 @@ public class Customer : MonoBehaviour
             transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
             transform.Find("Sprites/SPOILAGE_BACK").GetComponent<SpriteRenderer>().enabled = false;
         }
+
+        transform.Find("Sprites/FACIAL_FEATURES").position = customerData.faceOffset;
     }
 }
