@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
-  m_Name: Cheese
+  m_Name: Dough
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  _name: Cheese
+  _name: Dough
   _needsCooking: 0
   _cookTime: 5
   _spoilTime: 15
   _isSpoiled: 0
   _isChopped: 0
   _needsChopping: 0
-  _rawSprite: {fileID: 0}
-  _cookedSprite: {fileID: 0}
-  _burntSprite: {fileID: 0}
+  _rawSprite: {fileID: 1519311369887206866, guid: 09e1813cefcff4528b673afc31a0d646, type: 3}
+  _cookedSprite: {fileID: -7895663316674751650, guid: ba0b650f75a614dc09b9ac09489bccef, type: 3}
+  _burntSprite: {fileID: -7961885064517468442, guid: c2526085c08d447c4b61dcf000c96127, type: 3}
   _unchoppedSprite: {fileID: 0}
   _choppedSprite: {fileID: 0}

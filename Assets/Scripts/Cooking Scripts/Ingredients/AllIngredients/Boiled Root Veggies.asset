@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
-  m_Name: Cheese
+  m_Name: Boiled Root Veggies
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  _name: Cheese
+  _name: Boiled Root Veggies
   _needsCooking: 0
   _cookTime: 5
   _spoilTime: 15
   _isSpoiled: 0
-  _isChopped: 0
+  _isChopped: 1
   _needsChopping: 0
   _rawSprite: {fileID: 0}
   _cookedSprite: {fileID: 0}
