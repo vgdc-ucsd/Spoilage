@@ -8,7 +8,7 @@ public class FoodGrab : MonoBehaviour
     private CookingAppliance _activeAppliance;
     private bool _isPlaced = false;
 
-    public static bool CanMoveFood = true; // Default to true
+    public static bool CanMoveFood = false; 
     private FoodSpawner _spawner;  
 
     public void SetSpawner(FoodSpawner spawner)
@@ -16,25 +16,10 @@ public class FoodGrab : MonoBehaviour
         _spawner = spawner;
     }
 
-    private void Awake()
-    {
-        // Check if there is a Start Day button in this specific scene
-        WorldButton startButton = FindAnyObjectByType<WorldButton>();
-
-        if (startButton != null)
-        {
-            // If a button exists, lock the food until it's pressed
-            CanMoveFood = false;
-        }
-        else
-        {
-            // If no button exists (like in a test scene), allow movement
-            CanMoveFood = true;
-        }
-    }
 
     public bool TryGrab()
     {
+        Debug.Log($"TryGrab called | CanMove: {CanMoveFood} | isPlaced: {_isPlaced}");
         if (!CanMoveFood || _isPlaced) return false;
 
         // Check if we are on a tile and remove from list if so
@@ -50,6 +35,15 @@ public class FoodGrab : MonoBehaviour
         {
             _activeAppliance.OnRemoveFood();
             _activeAppliance = null;
+        }
+
+        if (_spawner != null)
+        {
+            FoodSpawner oldSpawner = _spawner;
+            _spawner = null;
+
+            oldSpawner.ClearCurrentFood(this);
+            oldSpawner.SpawnFood();
         }
 
         return true;
