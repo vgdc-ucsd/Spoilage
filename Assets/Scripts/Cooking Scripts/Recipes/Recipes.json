@@ -28,20 +28,21 @@
       "dishName": "Cheesy Bread",
       "ingredients": [
         { "ingredientName": "Flatbread", "requiredState": "Grilled" },
-        { "ingredientName": "Sliced Cheese" }
+        { "ingredientName": "Sliced Cheese", "requiredState": "Raw" }
       ]
     },
     {
-      "dishName": "Chopped Root Veggies + Dough",
+      "dishName": "Root Veggies + Potatoes",
       "ingredients": [
-        { "ingredientName": "Dough", "requiredState": "Raw" },
-        { "ingredientName": "Chopped Root Vegetables" }
+        { "ingredientName": "Diced Potatoes", "requiredState": "Raw" },
+        { "ingredientName": "Chopped Root Vegetables", "requiredState": "Raw" }
       ]
     },
     {
       "dishName": "Brewer On A Skewer",
       "ingredients": [
-        { "ingredientName": "Chopped Root Veggies + Dough", "requiredState": "Grilled" }
+        { "ingredientName": "Dough", "requiredState": "Grilled" },
+        { "ingredientName": "Chopped Root Vegetables", "requiredState": "Grilled" }
       ]
     },
     {
@@ -59,8 +60,8 @@
     {
       "dishName": "Cheesy Beet Bread",
       "ingredients": [
-        { "ingredientName": "Cheesy Bread" },
-        { "ingredientName": "Boiled Root Vegetables" }
+        { "ingredientName": "Cheesy Bread", "requiredState": "Grilled" },
+        { "ingredientName": "Boiled Root Vegetables", "requiredState": "Cooked" }
       ]
     },
     {
@@ -70,24 +71,18 @@
       ]
     },
     {
-      "dishName": "Raw Ratenudel",
-      "ingredients": [
-        { "ingredientName": "Cubed Meat" },
-        { "ingredientName": "Sliced Dough" },
-        { "ingredientName": "Sliced Cheese" }
-      ]
-    },
-    {
       "dishName": "Ratenudel",
       "ingredients": [
-        { "ingredientName": "Raw Ratenudel", "requiredState": "Grilled" }
+        { "ingredientName": "Cubed Meat", "requiredState": "Grilled" },
+        { "ingredientName": "Sliced Dough", "requiredState": "Grilled" },
+        { "ingredientName": "Sliced Cheese", "requiredState": "Grilled" }
       ]
     },
     {
       "dishName": "Pickled Pigeons",
       "ingredients": [
         { "ingredientName": "Cubed Meat", "requiredState": "Grilled" },
-        { "ingredientName": "Sauce", "requiredState": "Grilled" }
+        { "ingredientName": "Sauce", "requiredState": "Raw" }
       ]
     },
     {
@@ -97,37 +92,19 @@
       ]
     },
     {
-      "dishName": "Meat + Veggies + Potatoes",
-      "ingredients": [
-        { "ingredientName": "Cubed Meat" },
-        { "ingredientName": "Chopped Root Vegetables" },
-        { "ingredientName": "Diced Potatoes" }
-      ]
-    },
-    {
-      "dishName": "Unsauced Amehonpilztopf",
-      "ingredients": [
-        { "ingredientName": "Meat + Veggies + Potatoes", "requiredState": "Boiled" }
-      ]
-    },
-    {
       "dishName": "Amehonpilztopf",
       "ingredients": [
-        { "ingredientName": "Unsauced Amehonpilztopf" },
-        { "ingredientName": "Sauce" }
-      ]
-    },
-    {
-      "dishName": "Root Veggies + Potatoes",
-      "ingredients": [
-        { "ingredientName": "Chopped Root Vegetables" },
-        { "ingredientName": "Diced Potatoes" }
+        { "ingredientName": "Cubed Meat", "requiredState": "Boiled" },
+        { "ingredientName": "Chopped Root Vegetables", "requiredState": "Boiled" },
+        { "ingredientName": "Diced Potatoes", "requiredState": "Boiled" },
+        { "ingredientName": "Sauce", "requiredState": "Raw" }
       ]
     },
     {
       "dishName": "Lotus Steak",
       "ingredients": [
-        { "ingredientName": "Root Veggies + Potatoes", "requiredState": "Grilled" }
+        { "ingredientName": "Chopped Root Vegetables", "requiredState": "Grilled" },
+        { "ingredientName": "Diced Potatoes", "requiredState": "Grilled" }
       ]
     }
   ]

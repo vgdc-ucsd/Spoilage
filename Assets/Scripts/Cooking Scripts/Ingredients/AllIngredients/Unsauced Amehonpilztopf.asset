@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
   m_Name: Unsauced Amehonpilztopf
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  _name: Amehonpilztopf
+  _name: Unsauced Amehonpilztopf
   _needsCooking: 0
   _cookTime: 5
   _spoilTime: 15
