@@ -10,8 +10,10 @@ public class ToasterOven : CookingAppliance
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // Find the GameConsole object in the scene and get its Timer component
+        _timer = GameObject.Find("GameConsole").GetComponent<Timer>();
     }
+
 
     public override void OnPlaceFood(FoodGrab food)
     {

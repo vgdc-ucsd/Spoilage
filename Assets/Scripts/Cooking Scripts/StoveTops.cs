@@ -7,6 +7,11 @@ public class StoveTops : CookingAppliance
     private IngredientObject _currentFood;
     private bool _isCooking = false;
 
+    void Start()
+    {
+        // Find the GameConsole object in the scene and get its Timer component
+        _timer = GameObject.Find("GameConsole").GetComponent<Timer>();
+    }
     public override void OnPlaceFood(FoodGrab food)
     {
         _currentFood = food.GetComponent<IngredientObject>();
