@@ -59,9 +59,8 @@ public class KitchenTile : MonoBehaviour
     {
         if (movingObj != null && objectsOnTile.Contains(movingObj)) return true;
 
-        // Rule: If empty, you can place a Counter OR an Appliance
         if (objectsOnTile.Count == 0)
-            return type == "Counter" || type == "Appliance";
+            return type == "Appliance";
 
         // Rule: If there is 1 object (Counter or Appliance), you can place Food
         if (objectsOnTile.Count == 1)
