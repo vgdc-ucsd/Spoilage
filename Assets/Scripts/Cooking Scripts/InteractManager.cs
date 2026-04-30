@@ -13,13 +13,18 @@ public class InteractManager : MonoBehaviour
         {
             if (Mouse.current.leftButton.isPressed)
             {
-                if (_currentDragging is ObjectGrab station) station.UpdateDragPosition();
+                // Dragging Logic: The 'is' keyword casts the object safely
+                if (_currentDragging is PlateGrab plate) plate.UpdateDragPosition();
                 else if (_currentDragging is FoodGrab food) food.UpdateDragPosition();
+                else if (_currentDragging is ObjectGrab station) station.UpdateDragPosition();
             }
             else
             {
-                if (_currentDragging is ObjectGrab station) station.Drop();
+                // Drop Logic
+                if (_currentDragging is PlateGrab plate) plate.Drop();
                 else if (_currentDragging is FoodGrab food) food.Drop();
+                else if (_currentDragging is ObjectGrab station) station.Drop();
+
                 _currentDragging = null;
             }
         }

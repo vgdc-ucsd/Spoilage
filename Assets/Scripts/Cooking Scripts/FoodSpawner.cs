@@ -15,7 +15,6 @@ public class FoodSpawner : MonoBehaviour
     public void SpawnFood()
     {
         if (_currentFood != null) return;
-
         GameObject newFood = Instantiate(_foodPrefab, _spawnPoint.position, Quaternion.identity);
 
         _currentFood = newFood.GetComponent<FoodGrab>();

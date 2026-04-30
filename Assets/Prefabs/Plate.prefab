@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 554120303998148963}
   - component: {fileID: 3972619454011802403}
   - component: {fileID: 8797727054621787964}
+  - component: {fileID: -8560791596549421196}
   m_Layer: 0
   m_Name: Plate
   m_TagString: Untagged
@@ -123,7 +124,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -153,3 +154,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Plate
   _stackPoint: {fileID: 7285439238077325646}
   _stackOffset: 0.1
+--- !u!114 &-8560791596549421196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343158234482352503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 014495c9d1795544588c0de3508bb8ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlateGrab

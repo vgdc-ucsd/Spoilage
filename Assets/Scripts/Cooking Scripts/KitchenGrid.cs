@@ -57,7 +57,7 @@ public class KitchenGrid : MonoBehaviour
 
                 GameObject newTile = Instantiate(tilePrefab, spawnPos, Quaternion.identity, transform);
 
-                newTile.transform.localScale = new Vector3(manualTileSize * tileSpacing, manualTileSize * tileSpacing, 1);
+                newTile.transform.localScale = new Vector3(manualTileSize * tileSpacing, manualTileSize * tileSpacing, 0);
                 newTile.name = $"Tile_{x}_{y}";
 
                 AddBorderToTile(newTile);
@@ -74,7 +74,7 @@ public class KitchenGrid : MonoBehaviour
         line.loop = true;
         line.material = new Material(Shader.Find("Sprites/Default"));
         line.startColor = line.endColor = borderColor;
-        line.sortingOrder = 10;
+        line.sortingOrder = 0;
 
         float s = 0.5f;
         line.SetPosition(0, new Vector3(-s, -s, 0));
