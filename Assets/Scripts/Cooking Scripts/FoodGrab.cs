@@ -67,28 +67,28 @@ public class FoodGrab : MonoBehaviour
     {
         if (_isPlaced) return;
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.6f);
+        // INCREASE the radius to 1.0f to make it easier to hit the plate
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.0f);
 
-        // --- 1. SCAN FOR PLATE OR APPLIANCE ---
         foreach (Collider2D hit in hits)
         {
+            Debug.Log("Food dropped over: " + hit.gameObject.name);
+
+            // This looks for the Plate script anywhere on the object we hit or its parents
             Plate plate = hit.GetComponentInParent<Plate>() ?? hit.GetComponentInChildren<Plate>();
 
-            if (plate != null || hit.gameObject.name.Contains("Plate"))
+            if (plate != null)
             {
+                Debug.Log("!!! PLATE DETECTED !!!"); // Look for this in the console!
                 IngredientObject info = GetComponent<IngredientObject>();
 
-                if (info != null && info.IngredientInstance != null)
+                if (info != null)
                 {
-                    if (info.IngredientInstance.CurrentCookState == CookState.Cooked)
-                    {
-                        _activeAppliance = null;
-                        if (plate != null) plate.AddIngredient(info);
+                    plate.AddIngredient(info);
 
-                        transform.position = _plateSpot != null ? _plateSpot.position : hit.transform.position;
-                        LockToPlate();
-                        return;
-                    }
+                    transform.position = _plateSpot != null ? _plateSpot.position : hit.transform.position;
+                    LockToPlate();
+                    return;
                 }
             }
 
