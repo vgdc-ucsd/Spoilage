@@ -133,6 +133,12 @@ public sealed class IngredientBehaviour : MonoBehaviour
         }
     }
 
+    public void ResetCookingTimer()
+    {
+        _cookStateTimer = 0f;
+        UpdateTimerVisuals();
+    }
+
     private void UpdateTimerVisuals()
     {
         Ingredient ingredient = _ingredientObject.IngredientInstance;
@@ -222,6 +228,7 @@ public sealed class IngredientBehaviour : MonoBehaviour
             return;
         }
 
+        ResetCookingTimer();
         HideCookingTimer();
     }
 

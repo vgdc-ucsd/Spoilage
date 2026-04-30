@@ -26,6 +26,7 @@ public class StoveTops : CookingAppliance
         }
 
         Debug.Log("Food on Grill");
+        SetSpriteActive(true);
 
         ingredientBehaviour.PutOnHeat();
     }
@@ -43,9 +44,10 @@ public class StoveTops : CookingAppliance
         if (ingredientBehaviour != null)
         {
             ingredientBehaviour.RemoveFromHeat();
-            
         }
+
         Debug.Log("Food removed from stove");
+        SetSpriteActive(false);
         _currentFood = null;
     }
 
