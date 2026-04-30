@@ -34,6 +34,7 @@ public sealed class IngredientData : ScriptableObject
     private Sprite _unchoppedSprite;
     [SerializeField]
     private Sprite _choppedSprite;
+    [SerializeField] private Sprite _spoiledSprite;
 
 
     public string Name => _name;
@@ -46,6 +47,8 @@ public sealed class IngredientData : ScriptableObject
     public Sprite BurntSprite => _burntSprite;
     public Sprite UnchoppedSprite => _unchoppedSprite;
     public Sprite ChoppedSprite => _choppedSprite;
+
+    public Sprite SpoiledSprite => _spoiledSprite;
 
 
 }

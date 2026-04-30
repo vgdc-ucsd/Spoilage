@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class Countertops : MonoBehaviour
+public class Countertops : CookingAppliance
 {
-    [SerializeField] private Timer _timer;
     private IngredientObject _currentFood;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,7 +15,7 @@ public class Countertops : MonoBehaviour
         
     }
 
-    public void OnPlaceFood(FoodGrab food)
+    public override void OnPlaceFood(FoodGrab food)
     {
         _currentFood = food.GetComponent<IngredientObject>();
         IngredientBehaviour ingredientBehaviour = food.GetComponent<IngredientBehaviour>();
@@ -29,7 +28,7 @@ public class Countertops : MonoBehaviour
 
         Debug.Log("Food on Countertop");
 
-        if (_currentFood.IngredientInstance.Data.IsSpoiled)
+        if (_currentFood.IngredientInstance.IsSpoiled)
         {
             Debug.Log("Food is already spoiled");
             return; 
@@ -46,7 +45,7 @@ public class Countertops : MonoBehaviour
     }
 
 
-    public void OnRemoveFood()
+    public override void OnRemoveFood()
     {
         if (_currentFood == null)
         {

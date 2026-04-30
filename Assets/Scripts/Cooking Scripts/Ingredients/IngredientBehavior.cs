@@ -86,6 +86,7 @@ public sealed class IngredientBehaviour : MonoBehaviour
         {
             ingredient.IsSpoiled = true;
             _spoilTimer = 0f;
+            _isOnSpoilSurface = false;
 
             Log("Food SPOILED");
             HideSpoilingTimer();
@@ -162,19 +163,23 @@ public sealed class IngredientBehaviour : MonoBehaviour
 
     private void ShowCookingTimer(float fillAmount)
     {
+        Ingredient ingredient = _ingredientObject.IngredientInstance;
+
         _cookingTimer.SetActive(true);
         _cookingTimerFill.fillAmount = Mathf.Clamp01(fillAmount);
 
-        if (fillAmount > 0.6f)
+        if (ingredient.CurrentCookState == CookState.Raw)
         {
-            _cookingTimerFill.color = Color.green;
+            if (fillAmount > 0.6f)
+            {
+                _cookingTimerFill.color = Color.green;
+            }
+            else if (fillAmount > 0.3f)
+            {
+                _cookingTimerFill.color = Color.yellow;
+            }
         }
-        else if (fillAmount > 0.3f)
-        {
-            _cookingTimerFill.color = Color.yellow;
-        }
-        else
-        {
+        else if (ingredient.CurrentCookState == CookState.Cooked){
             _cookingTimerFill.color = Color.red;
         }
     }

@@ -185,7 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25bb1b4f5999594b805e03c3de01bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodGrab
-  _homeSpot: {fileID: 0}
   _plateSpot: {fileID: 0}
 --- !u!58 &6355543249579283684
 CircleCollider2D:
@@ -593,7 +592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21550016, g: 0.66529816, b: 0.6679245, a: 1}
+  m_Color: {r: 0.048308976, g: 0.52156866, b: 0.40784314, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
