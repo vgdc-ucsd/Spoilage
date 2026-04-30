@@ -33,8 +33,23 @@ public class CustomerManager : Singleton<CustomerManager>
 
     private static Dictionary<string, Vector3> s_faceOffsets = new Dictionary<string, Vector3>
     {
-        { "test", new Vector3(0, 0, 1.5f) }
-    };    //private static Regex;
+        //{ "test", new Vector3(0, 0, 1.5f) },
+        { "Assets/Resources/Customers/Bases/Character Base #167", new Vector3(-0.12, 0.1, 0)},
+        { "Assets/Resources/Customers/Bases/Character Base #255", new Vector3(-0.02, 1.16, 0)},
+        { "Assets/Resources/Customers/Bases/Character Base #256", new Vector3(0.01, -0.07, 0)},
+        { "Assets/Resources/Customers/Bases/Character Base #257", new Vector3(-0.01, -0.74, 0)},
+        { "Assets/Resources/Customers/Bases/Character Base #258", new Vector3(0.09, -0.66, 0)},
+        { "Assets/Resources/Customers/Bases/Character Base #259", new Vector3(-0.08 1.04, 0)},
+        { "Assets/Resources/Customers/Bases/Character Base #260", new Vector3(0.04, 0.32, 0)},
+        { "Assets/Resources/Customers/Bases/Character Base #261", new Vector3(-0.11 0.81, 0)},
+        { "Assets/Resources/Customers/Bases/Character Base #277", new Vector3(0.03, 1.25, 0)},
+        { "Assets/Resources/Customers/Bases/Character Base #284", new Vector3(0.06, -0.9, 0)},
+        { "Assets/Resources/Customers/Bases/Character Base #286", new Vector3(0, 0, 0)},
+        { "Assets/Resources/Customers/Bases/Character Base #287", new Vector3(0.1, -0.24, 0)},
+        { "Assets/Resources/Customers/Bases/Character Base #292", new Vector3(0.05, 0.55, 0)},
+        { "Assets/Resources/Customers/Bases/Character Base #332", new Vector3(0.16, -0.11, 0)},
+        
+    };
 
     [SerializeField]
     private CustomerData[] _debug;
