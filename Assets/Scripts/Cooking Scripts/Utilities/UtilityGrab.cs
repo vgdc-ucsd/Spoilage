@@ -19,7 +19,18 @@ public class UtilityGrab : MonoBehaviour
     //On Click: Get mouse position to set up for dragging
     private void OnMouseDown()
     {
-        if (_isPlaced) return;
+        //if (_isPlaced) return;
+        
+        //new
+        if (_isPlaced)
+        {
+            _isPlaced = false;
+            
+            if (_col != null)
+                _col.enabled = false;
+        }
+        //new
+
         if (_activeUtility != null)
         {
             _activeUtility.OnRemoveFood();
@@ -36,7 +47,18 @@ public class UtilityGrab : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (_isPlaced) return;
+        //if (_isPlaced) return;
+        
+        //new
+        if (_isPlaced)
+        {
+            _isPlaced = false;
+            
+            if (_col != null)
+                _col.enabled = false;
+        }
+        //new
+        //new
         //If not at stove top, revert back to original position
         //(Keep track of original position)
         // _col.enabled = false;
@@ -75,7 +97,7 @@ public class UtilityGrab : MonoBehaviour
         worldPosition.z = 0f;
         return worldPosition;
     }
-
+    
     public void LockToPlate()
     {
         _isPlaced = true;
@@ -83,4 +105,5 @@ public class UtilityGrab : MonoBehaviour
         if (_col != null)
             _col.enabled = false;
     }
+
 }

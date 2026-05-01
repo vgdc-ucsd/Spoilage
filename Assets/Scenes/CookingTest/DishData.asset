@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Flatbread
   _isSpoiled: 0
   _isSeasoned: 0
-  _normalSprite: {fileID: 0}
-  _burntSprite: {fileID: 0}
-  _seasonedSprite: {fileID: 0}
+  _normalSprite: {fileID: -9170345246122116808, guid: b00082ed3acdb45249bd2ab3d6b83b6d, type: 3}
+  _burntSprite: {fileID: -7961885064517468442, guid: c2526085c08d447c4b61dcf000c96127, type: 3}
+  _seasonedSprite: {fileID: -9170345246122116808, guid: b00082ed3acdb45249bd2ab3d6b83b6d, type: 3}
   _spoiledSprite: {fileID: 0}

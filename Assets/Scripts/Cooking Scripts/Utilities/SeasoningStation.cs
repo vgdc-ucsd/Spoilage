@@ -50,7 +50,16 @@ public class SeasoningStation : UtilityStation
     }
 
      public override void OnRemoveFood()
+    /*{
+        _currentFood = null;
+    }*/
     {
+        if (_currentFood == null) return;
+
+        _currentFood.DishInstance.CurrentState = DishState.Seasoned;
+
+        Debug.Log("Food is now Seasoned");
+
         _currentFood = null;
     }
 }
