@@ -168,8 +168,8 @@ TextureImporter:
       name: eyes_eyebrows286_static_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 109
+        x: 332
+        y: 840
         width: 107
         height: 20
       alignment: 0
@@ -190,8 +190,8 @@ TextureImporter:
       name: eyes_eyebrows286_static_1
       rect:
         serializedVersion: 2
-        x: 124
-        y: 111
+        x: 443
+        y: 842
         width: 8
         height: 33
       alignment: 0
@@ -212,8 +212,8 @@ TextureImporter:
       name: eyes_eyebrows286_static_2
       rect:
         serializedVersion: 2
-        x: 141
-        y: 111
+        x: 460
+        y: 842
         width: 118
         height: 31
       alignment: 0
@@ -234,8 +234,8 @@ TextureImporter:
       name: eyes_eyebrows286_static_3
       rect:
         serializedVersion: 2
-        x: 143
-        y: 100
+        x: 462
+        y: 831
         width: 17
         height: 11
       alignment: 0
@@ -256,8 +256,8 @@ TextureImporter:
       name: eyes_eyebrows286_static_4
       rect:
         serializedVersion: 2
-        x: 15
-        y: 47
+        x: 334
+        y: 778
         width: 107
         height: 58
       alignment: 0
@@ -278,8 +278,8 @@ TextureImporter:
       name: eyes_eyebrows286_static_5
       rect:
         serializedVersion: 2
-        x: 113
-        y: 100
+        x: 432
+        y: 831
         width: 14
         height: 10
       alignment: 0
@@ -300,8 +300,8 @@ TextureImporter:
       name: eyes_eyebrows286_static_6
       rect:
         serializedVersion: 2
-        x: 121
-        y: 87
+        x: 440
+        y: 818
         width: 26
         height: 14
       alignment: 0
@@ -322,8 +322,8 @@ TextureImporter:
       name: eyes_eyebrows286_static_7
       rect:
         serializedVersion: 2
-        x: 150
-        y: 49
+        x: 469
+        y: 780
         width: 110
         height: 58
       alignment: 0
@@ -344,8 +344,8 @@ TextureImporter:
       name: eyes_eyebrows286_static_8
       rect:
         serializedVersion: 2
-        x: 37
-        y: 36
+        x: 356
+        y: 767
         width: 40
         height: 15
       alignment: 0
@@ -366,8 +366,8 @@ TextureImporter:
       name: eyes_eyebrows286_static_9
       rect:
         serializedVersion: 2
-        x: 83
-        y: 39
+        x: 402
+        y: 770
         width: 30
         height: 12
       alignment: 0
@@ -388,8 +388,8 @@ TextureImporter:
       name: eyes_eyebrows286_static_10
       rect:
         serializedVersion: 2
-        x: 160
-        y: 47
+        x: 479
+        y: 778
         width: 20
         height: 6
       alignment: 0
@@ -410,8 +410,8 @@ TextureImporter:
       name: eyes_eyebrows286_static_11
       rect:
         serializedVersion: 2
-        x: 186
-        y: 39
+        x: 505
+        y: 770
         width: 43
         height: 13
       alignment: 0
@@ -432,8 +432,8 @@ TextureImporter:
       name: eyes_eyebrows286_static_12
       rect:
         serializedVersion: 2
-        x: 90
-        y: 32
+        x: 409
+        y: 763
         width: 11
         height: 8
       alignment: 0
@@ -454,8 +454,8 @@ TextureImporter:
       name: eyes_eyebrows286_static_13
       rect:
         serializedVersion: 2
-        x: 171
-        y: 29
+        x: 490
+        y: 760
         width: 22
         height: 13
       alignment: 0

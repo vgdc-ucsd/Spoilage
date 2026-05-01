@@ -138,8 +138,8 @@ TextureImporter:
       name: eyes_eyebrows288_static_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 112
+        x: 330
+        y: 797
         width: 96
         height: 13
       alignment: 0
@@ -160,8 +160,8 @@ TextureImporter:
       name: eyes_eyebrows288_static_1
       rect:
         serializedVersion: 2
-        x: 174
-        y: 112
+        x: 503
+        y: 797
         width: 96
         height: 13
       alignment: 0
@@ -182,8 +182,8 @@ TextureImporter:
       name: eyes_eyebrows288_static_2
       rect:
         serializedVersion: 2
-        x: 14
-        y: 41
+        x: 343
+        y: 726
         width: 99
         height: 66
       alignment: 0
@@ -204,8 +204,8 @@ TextureImporter:
       name: eyes_eyebrows288_static_3
       rect:
         serializedVersion: 2
-        x: 157
-        y: 41
+        x: 486
+        y: 726
         width: 97
         height: 68
       alignment: 0

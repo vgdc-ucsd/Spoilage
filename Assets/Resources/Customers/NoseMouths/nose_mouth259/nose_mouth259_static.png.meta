@@ -150,8 +150,8 @@ TextureImporter:
       name: nose_mouth259_static_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 112
+        x: 412
+        y: 830
         width: 55
         height: 58
       alignment: 0
@@ -172,8 +172,8 @@ TextureImporter:
       name: nose_mouth259_static_1
       rect:
         serializedVersion: 2
-        x: 58
-        y: 104
+        x: 423
+        y: 822
         width: 44
         height: 16
       alignment: 0
@@ -194,8 +194,8 @@ TextureImporter:
       name: nose_mouth259_static_2
       rect:
         serializedVersion: 2
-        x: 95
-        y: 118
+        x: 460
+        y: 836
         width: 17
         height: 50
       alignment: 0
@@ -216,8 +216,8 @@ TextureImporter:
       name: nose_mouth259_static_3
       rect:
         serializedVersion: 2
-        x: 68
-        y: 100
+        x: 433
+        y: 818
         width: 15
         height: 9
       alignment: 0
@@ -238,8 +238,8 @@ TextureImporter:
       name: nose_mouth259_static_4
       rect:
         serializedVersion: 2
-        x: 17
-        y: 58
+        x: 382
+        y: 776
         width: 108
         height: 28
       alignment: 0
@@ -260,8 +260,8 @@ TextureImporter:
       name: nose_mouth259_static_5
       rect:
         serializedVersion: 2
-        x: 72
-        y: 80
+        x: 437
+        y: 798
         width: 17
         height: 7
       alignment: 0
@@ -282,8 +282,8 @@ TextureImporter:
       name: nose_mouth259_static_6
       rect:
         serializedVersion: 2
-        x: 126
-        y: 63
+        x: 491
+        y: 781
         width: 19
         height: 29
       alignment: 0
@@ -304,8 +304,8 @@ TextureImporter:
       name: nose_mouth259_static_7
       rect:
         serializedVersion: 2
-        x: 54
-        y: 41
+        x: 419
+        y: 759
         width: 49
         height: 18
       alignment: 0

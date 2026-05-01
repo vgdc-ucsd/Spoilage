@@ -1,43 +1,34 @@
 fileFormatVersion: 2
-guid: 5ccefa91616e650459125b8fe1317e0a
+guid: 5a035e9a0f5e4a04ab7d4003c795d177
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4122461926657451854
-    second: eyes_eyebrows167_static_0
+      213: -4348866698213951959
+    second: nose_mouth250_static_0
   - first:
-      213: -2340072560171553871
-    second: eyes_eyebrows167_static_1
+      213: -3862765948862560618
+    second: nose_mouth250_static_1
   - first:
-      213: -4669729474459208603
-    second: eyes_eyebrows167_static_2
+      213: 1698191482994824122
+    second: nose_mouth250_static_2
   - first:
-      213: -5441159129117090945
-    second: eyes_eyebrows167_static_3
+      213: -4755728523758290927
+    second: nose_mouth250_static_3
   - first:
-      213: 4810138879839721006
-    second: eyes_eyebrows167_static_4
+      213: 6140220421301880517
+    second: nose_mouth250_static_4
   - first:
-      213: 5591988980356496672
-    second: eyes_eyebrows167_static_5
+      213: -1415720425600630270
+    second: nose_mouth250_static_5
   - first:
-      213: 6885036501855858948
-    second: eyes_eyebrows167_static_6
+      213: 7852531561165544091
+    second: nose_mouth250_static_6
   - first:
-      213: 2533080195943746554
-    second: eyes_eyebrows167_static_7
+      213: 5734668691123890540
+    second: nose_mouth250_static_7
   - first:
-      213: -3637238373352058444
-    second: eyes_eyebrows167_static_8
-  - first:
-      213: -7338426850284064477
-    second: eyes_eyebrows167_static_9
-  - first:
-      213: 7670462837931937556
-    second: eyes_eyebrows167_static_10
-  - first:
-      213: -4136549230050481981
-    second: eyes_eyebrows167_static_11
+      213: 1501460120650333161
+    second: nose_mouth250_static_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -159,13 +150,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: eyes_eyebrows167_static_0
+      name: nose_mouth250_static_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 115
-        width: 61
-        height: 36
+        x: 451
+        y: 684
+        width: 14
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +165,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2b8928d28b21ac6c0800000000000000
-      internalID: -4122461926657451854
+      spriteID: 9267e6d77c8b5a3c0800000000000000
+      internalID: -4348866698213951959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: eyes_eyebrows167_static_1
+      name: nose_mouth250_static_1
       rect:
         serializedVersion: 2
-        x: 101
-        y: 132
-        width: 13
-        height: 15
+        x: 467
+        y: 690
+        width: 6
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,18 +187,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1bbe55e9764668fd0800000000000000
-      internalID: -2340072560171553871
+      spriteID: 6968297d5d2b46ac0800000000000000
+      internalID: -3862765948862560618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: eyes_eyebrows167_static_2
+      name: nose_mouth250_static_2
       rect:
         serializedVersion: 2
-        x: 150
-        y: 124
+        x: 435
+        y: 652
+        width: 52
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab310880820319710800000000000000
+      internalID: 1698191482994824122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nose_mouth250_static_3
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 623
         width: 13
         height: 12
       alignment: 0
@@ -218,20 +231,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 564ffa5c8c9c13fb0800000000000000
-      internalID: -4669729474459208603
+      spriteID: 118b135ca12400eb0800000000000000
+      internalID: -4755728523758290927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: eyes_eyebrows167_static_3
+      name: nose_mouth250_static_4
       rect:
         serializedVersion: 2
-        x: 167
-        y: 120
-        width: 59
-        height: 31
+        x: 400
+        y: 615
+        width: 13
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,20 +253,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f7b1a9eb99e1d74b0800000000000000
-      internalID: -5441159129117090945
+      spriteID: 5c64c4ed0f1763550800000000000000
+      internalID: 6140220421301880517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: eyes_eyebrows167_static_4
+      name: nose_mouth250_static_5
       rect:
         serializedVersion: 2
-        x: 21
-        y: 42
-        width: 84
-        height: 85
+        x: 416
+        y: 610
+        width: 96
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,20 +275,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e26542573db01c240800000000000000
-      internalID: 4810138879839721006
+      spriteID: 2024fc216c95a5ce0800000000000000
+      internalID: -1415720425600630270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: eyes_eyebrows167_static_5
+      name: nose_mouth250_static_6
       rect:
         serializedVersion: 2
-        x: 39
-        y: 11
-        width: 58
-        height: 45
+        x: 516
+        y: 615
+        width: 13
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,42 +297,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 02d3c0a995cba9d40800000000000000
-      internalID: 5591988980356496672
+      spriteID: b9ad0d2b9dbc9fc60800000000000000
+      internalID: 7852531561165544091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: eyes_eyebrows167_static_6
+      name: nose_mouth250_static_7
       rect:
         serializedVersion: 2
-        x: 103
-        y: 35
-        width: 21
-        height: 91
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 40177be48309c8f50800000000000000
-      internalID: 6885036501855858948
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: eyes_eyebrows167_static_7
-      rect:
-        serializedVersion: 2
-        x: 143
-        y: 40
+        x: 527
+        y: 607
         width: 6
-        height: 45
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,20 +319,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: afbcdc2740f472320800000000000000
-      internalID: 2533080195943746554
+      spriteID: c696efe7ac2a59f40800000000000000
+      internalID: 5734668691123890540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: eyes_eyebrows167_static_8
+      name: nose_mouth250_static_8
       rect:
         serializedVersion: 2
-        x: 149
-        y: 32
-        width: 17
-        height: 95
+        x: 446
+        y: 591
+        width: 41
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,74 +341,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4b15ee868fee58dc0800000000000000
-      internalID: -3637238373352058444
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: eyes_eyebrows167_static_9
-      rect:
-        serializedVersion: 2
-        x: 164
-        y: 47
-        width: 83
-        height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 32131aa09aba82a90800000000000000
-      internalID: -7338426850284064477
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: eyes_eyebrows167_static_10
-      rect:
-        serializedVersion: 2
-        x: 237
-        y: 52
-        width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 41f84cdaf45f27a60800000000000000
-      internalID: 7670462837931937556
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: eyes_eyebrows167_static_11
-      rect:
-        serializedVersion: 2
-        x: 182
-        y: 18
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3c8ece244660896c0800000000000000
-      internalID: -4136549230050481981
+      spriteID: 9eb37cf460246d410800000000000000
+      internalID: 1501460120650333161
       vertices: []
       indices: 
       edges: []
@@ -436,18 +361,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      eyes_eyebrows167_static_0: -4122461926657451854
-      eyes_eyebrows167_static_1: -2340072560171553871
-      eyes_eyebrows167_static_10: 7670462837931937556
-      eyes_eyebrows167_static_11: -4136549230050481981
-      eyes_eyebrows167_static_2: -4669729474459208603
-      eyes_eyebrows167_static_3: -5441159129117090945
-      eyes_eyebrows167_static_4: 4810138879839721006
-      eyes_eyebrows167_static_5: 5591988980356496672
-      eyes_eyebrows167_static_6: 6885036501855858948
-      eyes_eyebrows167_static_7: 2533080195943746554
-      eyes_eyebrows167_static_8: -3637238373352058444
-      eyes_eyebrows167_static_9: -7338426850284064477
+      nose_mouth250_static_0: -4348866698213951959
+      nose_mouth250_static_1: -3862765948862560618
+      nose_mouth250_static_2: 1698191482994824122
+      nose_mouth250_static_3: -4755728523758290927
+      nose_mouth250_static_4: 6140220421301880517
+      nose_mouth250_static_5: -1415720425600630270
+      nose_mouth250_static_6: 7852531561165544091
+      nose_mouth250_static_7: 5734668691123890540
+      nose_mouth250_static_8: 1501460120650333161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

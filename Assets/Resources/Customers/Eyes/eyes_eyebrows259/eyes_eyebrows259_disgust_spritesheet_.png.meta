@@ -173,8 +173,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 270
-        height: 160
+        width: 920
+        height: 1240
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +193,10 @@ TextureImporter:
       name: eyes_eyebrows259_disgust_spritesheet__1
       rect:
         serializedVersion: 2
-        x: 270
+        x: 920
         y: 0
-        width: 270
-        height: 160
+        width: 920
+        height: 1240
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,7 +215,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 055c3f1320b4cf447b2fb9da52103131
+    spriteID: fb00cec235c211d4fa9492468d44a091
     internalID: 0
     vertices: []
     indices: 
@@ -225,7 +225,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":270.0,"y":160.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       eyes_eyebrows259_disgust_spritesheet__0: 6802309474180109511
       eyes_eyebrows259_disgust_spritesheet__1: -8489252848320330566

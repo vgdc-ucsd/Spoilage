@@ -173,8 +173,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 270
-        height: 160
+        width: 920
+        height: 1240
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +193,10 @@ TextureImporter:
       name: eyes_eyebrows288_widening_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 270
+        x: 920
         y: 0
-        width: 270
-        height: 160
+        width: 920
+        height: 1240
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,7 +215,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2475d2abffd6e9d41bd6c09dd31ccfa7
+    spriteID: aaaaa033eac2b3a47928addd929d69b2
     internalID: 0
     vertices: []
     indices: 
@@ -225,7 +225,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":270.0,"y":160.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       eyes_eyebrows288_widening_spritesheet_0: 4524656506173546650
       eyes_eyebrows288_widening_spritesheet_1: -167996877746876092
