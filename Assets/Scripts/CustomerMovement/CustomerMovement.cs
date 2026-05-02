@@ -22,7 +22,7 @@ public class CustomerMovement : MonoBehaviour
     //the y offset of the walk bobbing up and down
     private float _yOffset = 0f;
     //the X position the people want the customer to end at
-    public float XMainPosition = 0f;
+    [SerializeField]private float XMainPosition = 0f;
 
     // Arbitrary position outside the camera (how should we account for whether or not the camera
     // isn't the same size? or do we not care?)
@@ -63,7 +63,7 @@ public class CustomerMovement : MonoBehaviour
         StartCoroutine(Walk());
     }
 
-    //How I make it wait in between every "frame"
+    //How I make it wait in between every frame
     //No I do not understand IEnumerator I'm just trying things out praying it works
     private IEnumerator Walk()
     {
