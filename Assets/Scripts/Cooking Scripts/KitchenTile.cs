@@ -52,8 +52,15 @@ using System.Collections.Generic;
 
 public class KitchenTile : MonoBehaviour
 {
+    [SerializeField] private GameObject _counterPrefab;
+
     [Header("Tile Inventory")]
     public List<GameObject> objectsOnTile = new List<GameObject>();
+
+    void Start()
+    {
+        LockLayout.Instance.RegisterTile(this);
+    }
 
     public bool CanPlaceObject(string type, GameObject movingObj = null)
     {
@@ -112,5 +119,20 @@ public class KitchenTile : MonoBehaviour
     public GameObject GetTopObject()
     {
         return objectsOnTile.Count > 0 ? objectsOnTile[objectsOnTile.Count - 1] : null;
+    }
+
+    public void SetCountertopIfEmpty()
+    {
+        if (_counterPrefab == null)
+        {
+            Debug.LogWarning("Counter prefab is not assigned.");
+            return;
+        }
+
+        if (objectsOnTile.Count == 0)
+        {
+            GameObject counter = Instantiate(_counterPrefab, transform.position, Quaternion.identity);
+            PlaceObject(counter);
+        }
     }
 }

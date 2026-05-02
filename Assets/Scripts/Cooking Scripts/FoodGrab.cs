@@ -104,6 +104,7 @@ public class FoodGrab : MonoBehaviour
 
         // INCREASE the radius to 1.0f to make it easier to hit the plate
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.0f);
+        bool foundValidDrop = false;
 
         foreach (Collider2D hit in hits)
         {
@@ -114,7 +115,7 @@ public class FoodGrab : MonoBehaviour
             if (trash != null)
             {
                 trash.Trash(this);
-                return;
+                foundValidDrop = true;
             }
 
             // This looks for the Plate script anywhere on the object we hit or its parents
@@ -132,7 +133,7 @@ public class FoodGrab : MonoBehaviour
                     transform.position = _plateSpot != null ? _plateSpot.position : hit.transform.position;
                     LockToPlate();
                     plate.PrintIngredients();
-                    return;
+                    foundValidDrop = true;
                 }
             }
 
@@ -143,23 +144,27 @@ public class FoodGrab : MonoBehaviour
                 transform.position = hit.transform.position;
                 _activeAppliance.OnPlaceFood(this);
 
-                if (_cameFromFridge)
-                {
+                KitchenTile tile = GetTileAtPosition(transform.position);
+                if (tile != null) tile.PlaceObject(gameObject);
+                foundValidDrop = true;
+            }
+        }
+
+        if (foundValidDrop)
+        {
+            // always spawn a new food item if this came from the fridge, regardless of where it was dropped
+            if (_cameFromFridge)
+            {
                 Fridge fridge = FindAnyObjectByType<Fridge>();
 
-                    if (fridge != null)
-                    {
-                        fridge.SpawnFood();
-                    }
+                if (fridge != null)
+                {
+                    fridge.SpawnFood();
+                }
 
                 _cameFromFridge = false;
             }
-
-
-                KitchenTile tile = GetTileAtPosition(transform.position);
-                if (tile != null) tile.PlaceObject(gameObject);
-                return;
-            }
+            return;
         }
 
         // --- 2. TILE-BASED FALLBACK ---
