@@ -62,7 +62,7 @@ public class Plate : MonoBehaviour
     public void CheckForRecipe()
     {
         // Finds the manager in the scene
-        RecipeManager manager = FindFirstObjectByType<RecipeManager>();
+        RecipeManager manager = FindAnyObjectByType<RecipeManager>();
 
         if (manager != null)
         {
