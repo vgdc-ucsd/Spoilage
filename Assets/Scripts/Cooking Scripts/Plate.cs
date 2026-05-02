@@ -54,7 +54,7 @@ public class Plate : MonoBehaviour
 
         foreach (IngredientObject ingredient in _ingredients)
         {
-            Debug.Log($"- {ingredient.IngredientInstance.Data.Name} ({ingredient.IngredientInstance.CurrentCookState})");
+            Debug.Log($"- {ingredient.IngredientInstance.Data.Name} ({ingredient.IngredientInstance.CurrentCookState} {ingredient.IngredientInstance.CurrentChoppedState})");
         }
     }
 

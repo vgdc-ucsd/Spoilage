@@ -88,6 +88,7 @@ public class FoodGrab : MonoBehaviour
 
                     transform.position = _plateSpot != null ? _plateSpot.position : hit.transform.position;
                     LockToPlate();
+                    plate.PrintIngredients();
                     return;
                 }
             }

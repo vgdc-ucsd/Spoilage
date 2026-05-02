@@ -55,10 +55,10 @@ public enum CookState
 {
     Raw,
     Cooked,
-    Burnt,
     Toasted,
     Grilled,
-    Boiled
+    Boiled,
+    Burnt
 }
 
 public enum ChoppedState
