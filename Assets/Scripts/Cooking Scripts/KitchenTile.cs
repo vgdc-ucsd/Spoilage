@@ -1,4 +1,4 @@
-﻿//using UnityEngine;
+//using UnityEngine;
 //using System.Collections.Generic;
 
 //public class KitchenTile : MonoBehaviour
@@ -70,7 +70,7 @@ public class KitchenTile : MonoBehaviour
             return type == "Food" || isIngredient;
         }
 
-        return false;
+        return true;
     }
 
     public void PlaceObject(GameObject obj)
