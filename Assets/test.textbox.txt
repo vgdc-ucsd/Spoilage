@@ -1,0 +1,4 @@
+untitled:
+	[5;41A2BEHello[5;reset! This is a [30;4;pulsetest of the [30;14;rainbowtextbox editor integration with [30;5;arcUnity!!
+	You will see that the [3;1textbox[3;0 [2;1is[2;0 [1;1a[1;0 [1;1[2;1[3;1[4;1textbox[1;0[2;0[3;0[4;0. [30;3;pulseWOW! That's crazy. The [30;7;jittertextbox is text[1;1[5;DC2323boxing[1;0[5;reset.
+	This is a test of the save file loading system. [30;21;spinWLHGSLKJDGHLJHSLDKJGH.

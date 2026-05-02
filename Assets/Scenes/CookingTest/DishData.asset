@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ec14be8faa34e76a65730d67c682bc, type: 3}
+  m_Name: DishData
+  m_EditorClassIdentifier: Assembly-CSharp::DishData
+  _name: Flatbread
+  _isSpoiled: 0
+  _isSeasoned: 0
+  _normalSprite: {fileID: -7895663316674751650, guid: ba0b650f75a614dc09b9ac09489bccef, type: 3}
+  _burntSprite: {fileID: -7961885064517468442, guid: c2526085c08d447c4b61dcf000c96127, type: 3}
+  _seasonedSprite: {fileID: -9170345246122116808, guid: b00082ed3acdb45249bd2ab3d6b83b6d, type: 3}
+  _spoiledSprite: {fileID: 0}
