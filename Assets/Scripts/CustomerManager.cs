@@ -212,6 +212,13 @@ public class CustomerManager : Singleton<CustomerManager>
         return str.Substring(startIndex, str.Length - endOffset - startIndex);
     }
 
+    /*TODO: CHOOSES DIALOGUE POOL BASED ON PLAYER MORALITY.
+    public static int chooseDialoguePool(double moralityStat)
+    {
+        
+    }
+    */
+
     // TODO: Store a list of local offsets for the eyes and nose/mouth here
     // TODO: Store a list of global offsets for the eyes and nose/mouth here
 }
