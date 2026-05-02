@@ -9,6 +9,8 @@ TagManager:
   - LogicManager
   - Order
   - Order Display Object
+  - Customer Refusal Test
+  - Guard Spawnpoint
   layers:
   - Default
   - TransparentFX
