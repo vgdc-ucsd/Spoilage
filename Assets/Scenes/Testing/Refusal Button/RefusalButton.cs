@@ -21,11 +21,6 @@ public class RefusalButton : MonoBehaviour
         customerToRemove = GameObject.FindGameObjectWithTag("Customer Refusal Test");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnMouseDown()
     {
@@ -69,13 +64,15 @@ public class RefusalButton : MonoBehaviour
 
         guards.transform.position = customerPosition;
         yield return new WaitForSeconds(guardPauseAtCustomer);
-        Destroy(customerToRemove);
+        //Destroy(customerToRemove);
         guards.GetComponent<Renderer>().material.color = Color.red;
 
         elapsed = 0f;
         while (elapsed < guardMoveDuration)
         {
             guards.transform.position = Vector3.Lerp(customerPosition, startPosition, elapsed / guardMoveDuration);
+            customerToRemove.transform.SetParent(guards.transform);
+            //customerToRemove.transform.position = Vector3.Lerp(customerPosition, startPosition, elapsed / guardMoveDuration);
             elapsed += Time.deltaTime;
             yield return null;
         }
