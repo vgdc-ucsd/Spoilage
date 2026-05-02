@@ -64,6 +64,11 @@ public class IngredientObject : MonoBehaviour
 
     private void UpdateSprite()
     {
+        if (IngredientInstance.IsSpoiled)
+        {
+            _spriteRenderer.sprite = _data.SpoiledSprite;
+            return;
+        }
         switch (IngredientInstance.CurrentCookState)
         {
             case CookState.Raw:

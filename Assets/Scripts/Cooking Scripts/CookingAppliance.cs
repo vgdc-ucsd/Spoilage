@@ -8,6 +8,7 @@ public class CookingAppliance : MonoBehaviour
 
 
     // These virtual methods allow child scripts to add their own unique logic
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

@@ -1,10 +1,9 @@
 using UnityEngine;
 
-public class Countertops : MonoBehaviour
+public class Countertops : CookingAppliance
 {
-    [SerializeField] private Timer _timer;
     private IngredientObject _currentFood;
-    private bool _isSpoiling = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,19 +12,15 @@ public class Countertops : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_isSpoiling || _currentFood == null) return;
-
-        if (_timer.IsFinished())
-        {
-            FinishSpoiling();
-        }
+        
     }
 
-    public void OnPlaceFood(FoodGrab food)
+    public override void OnPlaceFood(FoodGrab food)
     {
         _currentFood = food.GetComponent<IngredientObject>();
+        IngredientBehaviour ingredientBehaviour = food.GetComponent<IngredientBehaviour>();
 
-        if (_currentFood == null)
+        if (_currentFood == null || ingredientBehaviour == null)
         {
             Debug.LogWarning("No IngredientObject found!");
             return;
@@ -33,49 +28,38 @@ public class Countertops : MonoBehaviour
 
         Debug.Log("Food on Countertop");
 
-        if (_currentFood.IngredientInstance.Data.IsSpoiled)
+        if (_currentFood.IngredientInstance.IsSpoiled)
         {
             Debug.Log("Food is already spoiled");
             return; 
         }
 
-        if (_timer.TimeRemaining > 0 && _timer.TimeRemaining < _currentFood.IngredientInstance.Data.SpoilTime)
+        if (_currentFood.IngredientInstance == null || _currentFood.IngredientInstance.Data == null)
         {
-            _isSpoiling = true;
-            _timer.ResumeTimer();
-            Debug.Log("Resuming timer at: " + _timer.TimeRemaining);
+            Debug.LogError("Food data is missing on " + _currentFood.name);
+            return;
         }
 
-        else
-        {
-            SpoilFood();
-        }
+        ingredientBehaviour.PutOnSpoilSurface();
 
     }
 
-    public void SpoilFood()
-    {
-        _isSpoiling = true;
-        _currentFood.IngredientInstance.IsSpoiled = false;
-        _timer.StartTimer(_currentFood.IngredientInstance.Data.SpoilTime);
-        Debug.Log("Started spoiling");
-    }
 
-    public void OnRemoveFood()
+    public override void OnRemoveFood()
     {
-        if (_isSpoiling)
+        if (_currentFood == null)
         {
-            _isSpoiling = false;
-            _timer.PauseTimer();
-            Debug.Log("Timer paused.");
+            return;
         }
+
+        IngredientBehaviour ingredientBehaviour = _currentFood.GetComponent<IngredientBehaviour>();
+
+        if (ingredientBehaviour != null)
+        {
+            ingredientBehaviour.RemoveFromSpoilSurface();
+        }
+        Debug.Log("Food removed from counter");
         _currentFood = null;
     }
 
-    private void FinishSpoiling()
-    {
-        _isSpoiling = false;
-        _currentFood.IngredientInstance.IsSpoiled = true;
-        Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Spoiled :(");
-    }
 }
