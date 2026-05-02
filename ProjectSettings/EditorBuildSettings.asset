@@ -5,27 +5,30 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 0aeb8ed86a9126242850fc2994614457
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: 976a5be675b46024c9574974e1eb3438
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UI.unity
     guid: 26562771579619c4da095fca5c1427af
   - enabled: 0
     path: Assets/Scenes/Persistent.unity
     guid: 7c97722ada44f2946aa6481afd23281f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LoadingScreen.unity
     guid: ded040f00290e4542ab56b788d62bfa4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing/LoadingTest.unity
     guid: 78414c3e06666634bb72ea7b7cb3a373
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Settings.unity
     guid: 79e63df4c4f441df1abe6c0b9ef8f681
+  - enabled: 1
+    path: Assets/Scenes/CookingTest/KitchenTest.unity
+    guid: 4f90e25178b13ee449db990873b09bcc
   m_configObjects:
     com.unity.adaptivePerformance.basic.provider_settings: {fileID: 11400000, guid: 222cd7583ef752b46b7fffe0d493e1ee, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 5765dd2af5886dc48bc041d810db9f41, type: 2}

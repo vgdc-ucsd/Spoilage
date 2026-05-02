@@ -9,6 +9,7 @@ public class FoodGrab : MonoBehaviour
     private Vector3 _homePosition;
     private Vector3 _returnPosition;
     [SerializeField] private Transform _plateSpot;
+    private FoodSpawner _spawner;
     private CookingAppliance _activeAppliance;
     private CookingAppliance _returnAppliance;
 
@@ -70,7 +71,18 @@ public class FoodGrab : MonoBehaviour
         }   
 
 
+        if (_spawner != null)
+        {
+            _spawner.SpawnFood();
+            _spawner = null;
+        }
+
         return true;
+    }
+
+    public void SetSpawner(FoodSpawner spawner)
+    {
+        _spawner = spawner;
     }
 
     private void OnMouseDown()
@@ -97,6 +109,14 @@ public class FoodGrab : MonoBehaviour
         foreach (Collider2D hit in hits)
         {
             Debug.Log("Food dropped over: " + hit.gameObject.name);
+
+            // --- 1. SCAN FOR PLATE OR TRASH OR APPLIANCE ---
+            TrashCan trash = hit.GetComponentInParent<TrashCan>();
+            if (trash != null)
+            {
+                trash.Trash(this);
+                return;
+            }
 
             // This looks for the Plate script anywhere on the object we hit or its parents
             Plate plate = hit.GetComponentInParent<Plate>() ?? hit.GetComponentInChildren<Plate>();

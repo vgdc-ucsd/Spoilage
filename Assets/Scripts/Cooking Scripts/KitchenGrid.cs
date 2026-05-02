@@ -16,11 +16,13 @@ public class KitchenGrid : MonoBehaviour
     [Range(0.1f, 1.0f)]
     public float gridAreaHeightPercentage = 0.8f;
 
+    [Header("Positioning")]
+    public float paddingBottom = 1.5f; // Gap from the bottom edge (leave room for trash/ing)
+
     void Start()
     {
         GenerateGrid();
     }
-
     void GenerateGrid()
     {
         if (tilePrefab == null) return;
@@ -29,23 +31,21 @@ public class KitchenGrid : MonoBehaviour
         float screenHeight = 2f * cam.orthographicSize;
         float screenWidth = screenHeight * cam.aspect;
 
-        // 1. Calculate the total width we are allowed to use
+        // 1. Calculate usable width based on your percentage
         float playableWidth = screenWidth * gridAreaWidthPercentage;
-
-        // 2. Determine tile size based ONLY on the width to ensure 6 fit across
-        // This prevents the "only 4 tiles showing" issue
         float finalTileSize = playableWidth / columns;
 
-        // 3. Calculate total grid dimensions for centering
         float totalGridWidth = finalTileSize * columns;
         float totalGridHeight = finalTileSize * rows;
 
-        // 4. Center the grid
-        // startX: Pushes it to the left but keeps it centered within the 90%
-        float startX = cam.transform.position.x - (screenWidth / 2) + (screenWidth * (1 - gridAreaWidthPercentage) / 2);
+        // 2. NEW POSITIONING LOGIC:
+        // Start from the Right Edge and move left by the total width + padding
+        float rightEdge = cam.transform.position.x + (screenWidth / 2);
+        float startX = rightEdge - totalGridWidth;
 
-        // startY: Centers the 2 rows vertically on the screen
-        float startY = cam.transform.position.y + (totalGridHeight / 2);
+        // Start from the Bottom Edge and move up by the total height + padding
+        float bottomEdge = cam.transform.position.y - (screenHeight / 2);
+        float startY = bottomEdge + totalGridHeight + paddingBottom;
 
         for (int y = 0; y < rows; y++)
         {
@@ -58,10 +58,7 @@ public class KitchenGrid : MonoBehaviour
                 );
 
                 GameObject newTile = Instantiate(tilePrefab, spawnPos, Quaternion.identity, transform);
-
-                // Use finalTileSize for BOTH X and Y to keep them square
                 newTile.transform.localScale = new Vector3(finalTileSize * tileSpacing, finalTileSize * tileSpacing, 1);
-
                 newTile.name = $"Tile_{x}_{y}";
             }
         }
