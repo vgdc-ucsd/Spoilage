@@ -80,7 +80,23 @@ public class ToasterOven : CookingAppliance
     private void FinishCooking()
     {
         _isCooking = false;
-        _currentFood.IngredientInstance.CurrentCookState = CookState.Cooked;
+        _currentFood.IngredientInstance.CurrentCookState = targetState;
         Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Cooked!");
+        Debug.Log($"Cooking Finished! Result is {targetState}");
+
+        string foodName = _currentFood.IngredientInstance.Data.Name;
+
+        if (foodName == "Dough")
+        {
+            if (targetState == CookState.Toasted)
+            {
+                Debug.Log("The Dough has become TOAST!");
+                // Later we will add: _currentFood.IngredientInstance.Data.Name = "Toast";
+            }
+            else if (targetState == CookState.Grilled)
+            {
+                Debug.Log("The Dough has become FLATBREAD!");
+            }
+        }
     }
 }

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
+  m_Name: Potatoes
+  m_EditorClassIdentifier: Assembly-CSharp::IngredientData
+  _name: Potatoes
+  _needsCooking: 0
+  _cookTime: 5
+  _spoilTime: 15
+  _isSpoiled: 0
+  _isChopped: 0
+  _needsChopping: 0
+  _rawSprite: {fileID: 0}
+  _cookedSprite: {fileID: 0}
+  _burntSprite: {fileID: 0}
+  _unchoppedSprite: {fileID: 0}
+  _choppedSprite: {fileID: 0}

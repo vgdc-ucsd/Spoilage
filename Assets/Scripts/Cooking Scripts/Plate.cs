@@ -3,13 +3,15 @@ using System.Collections.Generic;
 
 public class Plate : MonoBehaviour
 {
-    private List<IngredientObject> _ingredients = new List<IngredientObject>();
+    [SerializeField] private List<IngredientObject> _ingredients = new List<IngredientObject>();
 
     [SerializeField] private Transform _stackPoint;
     [SerializeField] private float _stackOffset = 0.1f;
+    
 
     public void AddIngredient(IngredientObject ingredient)
     {
+        Debug.Log("AddIngredient was just called for: " + ingredient.name);
         FoodGrab grab = ingredient.GetComponent<FoodGrab>();
 
         if (ingredient == null) return;
@@ -52,7 +54,25 @@ public class Plate : MonoBehaviour
 
         foreach (IngredientObject ingredient in _ingredients)
         {
-            Debug.Log($"- {ingredient.IngredientInstance.Data.Name} ({ingredient.IngredientInstance.CurrentCookState})");
+            Debug.Log($"- {ingredient.IngredientInstance.Data.Name} ({ingredient.IngredientInstance.CurrentCookState} {ingredient.IngredientInstance.CurrentChoppedState})");
+        }
+    }
+
+    [ContextMenu("Test Recipe Check")]
+    public void CheckForRecipe()
+    {
+        // Finds the manager in the scene
+        RecipeManager manager = FindFirstObjectByType<RecipeManager>();
+
+        if (manager != null)
+        {
+            // Ask the manager if our current ingredients match anything
+            string result = manager.CheckRecipe(_ingredients);
+            Debug.Log("Result of Plate Check: " + result);
+        }
+        else
+        {
+            Debug.LogError("No RecipeManager found in the scene!");
         }
     }
 }

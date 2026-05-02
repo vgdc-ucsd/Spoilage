@@ -6,21 +6,7 @@
     private CookState _currentCookState;
     private ChoppedState _currentChoppedState;
     private bool _isSpoiled;
-    /*
-    protected Ingredient(IngredientData data)
-    {
-        _data = data;
-        _cookState = _cookState.Raw;
-        _choppedState = _choppedState.Unchopped;
-    }
-
-    public IngredientData Data => _data;
-    public IngredientState CurrentState
-    {
-        get => _currentState;
-        set => _currentState = value;
-    }
-    */
+    
     protected Ingredient(IngredientData data)
     {
         _data = data;
@@ -55,7 +41,10 @@ public enum CookState
 {
     Raw,
     Cooked,
-    Burnt,
+    Toasted,
+    Grilled,
+    Boiled,
+    Burnt
 }
 
 public enum ChoppedState
@@ -63,6 +52,7 @@ public enum ChoppedState
     Chopped,
     Unchopped,
 }
+
 
 public sealed class Dough : Ingredient
 {

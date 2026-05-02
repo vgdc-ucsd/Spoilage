@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3100142220ed924881fbffe814537d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  targetState: 4
   _timer: {fileID: 0}
 --- !u!114 &8064698808744015730
 MonoBehaviour:
@@ -320,7 +321,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5982006836949279300}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}

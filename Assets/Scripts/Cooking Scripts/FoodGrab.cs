@@ -3,10 +3,16 @@ using UnityEngine;
 
 public class FoodGrab : MonoBehaviour
 {
-    [SerializeField] private Transform _homeSpot;
-    [SerializeField] private Transform _plateSpot;
-    private CookingAppliance _activeAppliance;
+    private bool _hasHomePosition;
     private bool _isPlaced = false;
+    private bool _cameFromFridge = true;
+    private Vector3 _homePosition;
+    private Vector3 _returnPosition;
+    [SerializeField] private Transform _plateSpot;
+    private FoodSpawner _spawner;
+    private CookingAppliance _activeAppliance;
+    private CookingAppliance _returnAppliance;
+
 
     public static bool CanMoveFood = false; 
     private FoodSpawner _spawner;  
@@ -16,6 +22,16 @@ public class FoodGrab : MonoBehaviour
         _spawner = spawner;
     }
 
+    public void SetHomePosition(Vector3 position)
+    {
+        _homePosition = position;
+        _hasHomePosition = true;
+    }
+
+    public void SetCameFromFridge(bool value)
+    {
+        _cameFromFridge = value;
+    }
 
     public bool TryGrab()
     {
@@ -33,8 +49,22 @@ public class FoodGrab : MonoBehaviour
         // Clean up appliance reference if we pick it back up
         if (_activeAppliance != null)
         {
+            _returnAppliance = _activeAppliance;
+            _returnPosition = _activeAppliance.transform.position;
+
             _activeAppliance.OnRemoveFood();
             _activeAppliance = null;
+        }
+        else
+        {
+            _returnAppliance = null;
+        }   
+
+
+        if (_spawner != null)
+        {
+            _spawner.SpawnFood();
+            _spawner = null;
         }
 
         if (_spawner != null)
@@ -47,6 +77,11 @@ public class FoodGrab : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void SetSpawner(FoodSpawner spawner)
+    {
+        _spawner = spawner;
     }
 
     private void OnMouseDown()
@@ -67,11 +102,14 @@ public class FoodGrab : MonoBehaviour
     {
         if (_isPlaced) return;
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.6f);
+        // INCREASE the radius to 1.0f to make it easier to hit the plate
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.0f);
 
-        // --- 1. SCAN FOR PLATE OR APPLIANCE ---
         foreach (Collider2D hit in hits)
         {
+            Debug.Log("Food dropped over: " + hit.gameObject.name);
+
+            // --- 1. SCAN FOR PLATE OR TRASH OR APPLIANCE ---
             TrashCan trash = hit.GetComponentInParent<TrashCan>();
             if (trash != null)
             {
@@ -79,20 +117,22 @@ public class FoodGrab : MonoBehaviour
                 return;
             }
 
+            // This looks for the Plate script anywhere on the object we hit or its parents
             Plate plate = hit.GetComponentInParent<Plate>() ?? hit.GetComponentInChildren<Plate>();
 
-            if (plate != null || hit.gameObject.name.Contains("Plate"))
+            if (plate != null)
             {
+                Debug.Log("!!! PLATE DETECTED !!!"); // Look for this in the console!
                 IngredientObject info = GetComponent<IngredientObject>();
 
-                if (info != null && info.IngredientInstance != null)
+                if (info != null)
                 {
-                        _activeAppliance = null;
-                        if (plate != null) plate.AddIngredient(info);
+                    plate.AddIngredient(info);
 
-                        transform.position = _plateSpot != null ? _plateSpot.position : hit.transform.position;
-                        LockToPlate();
-                        return;
+                    transform.position = _plateSpot != null ? _plateSpot.position : hit.transform.position;
+                    LockToPlate();
+                    plate.PrintIngredients();
+                    return;
                 }
             }
 
@@ -102,6 +142,19 @@ public class FoodGrab : MonoBehaviour
                 _activeAppliance = app;
                 transform.position = hit.transform.position;
                 _activeAppliance.OnPlaceFood(this);
+
+                if (_cameFromFridge)
+                {
+                Fridge fridge = FindAnyObjectByType<Fridge>();
+
+                    if (fridge != null)
+                    {
+                        fridge.SpawnFood();
+                    }
+
+                _cameFromFridge = false;
+            }
+
 
                 KitchenTile tile = GetTileAtPosition(transform.position);
                 if (tile != null) tile.PlaceObject(gameObject);
@@ -123,8 +176,32 @@ public class FoodGrab : MonoBehaviour
 
     private void ReturnToHome()
     {
-        if (_homeSpot != null) transform.position = _homeSpot.position;
+        IngredientObject info = GetComponent<IngredientObject>();
+
+        bool stillNeedsCooking =
+            info != null &&
+            info.IngredientInstance != null &&
+            info.IngredientInstance.Data.NeedsCooking &&
+            info.IngredientInstance.CurrentCookState == CookState.Raw;
+
+        if (_returnAppliance != null && stillNeedsCooking)
+        {
+            transform.position = _returnPosition;
+            _activeAppliance = _returnAppliance;
+            _activeAppliance.OnPlaceFood(this);
+
+            Debug.Log("Food still needs cooking, snapping back to stove.");
+            return;
+        }
+
+        if (_hasHomePosition)
+        {
+            transform.position = _homePosition;
+            Debug.Log("Missed drop, returning food to fridge.");
+        }
+
         _activeAppliance = null;
+        _returnAppliance = null;
     }
 
     private KitchenTile GetTileAtPosition(Vector2 pos)

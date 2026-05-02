@@ -30,6 +30,9 @@ public class KitchenGrid : MonoBehaviour
     [Range(0.01f, 0.1f)]
     public float borderThickness = 0.03f;
 
+    [Header("Positioning")]
+    public float paddingBottom = 1.5f; // Gap from the bottom edge (leave room for trash/ing)
+
     void Start()
     {
         // Initialize the array size based on rows/cols
@@ -42,7 +45,6 @@ public class KitchenGrid : MonoBehaviour
         SpawnInitialAppliance(potPrefab, 1, 0);     // Pot at Tile_1_0
         SpawnInitialAppliance(toasterPrefab, 2, 0); // Toaster at Tile_2_0
     }
-
     void GenerateGrid()
     {
         if (tilePrefab == null) return;
@@ -51,9 +53,21 @@ public class KitchenGrid : MonoBehaviour
         float screenHeight = 2f * cam.orthographicSize;
         float screenWidth = screenHeight * cam.aspect;
 
-        float totalGridWidth = manualTileSize * columns;
-        float startX = (cam.transform.position.x + screenWidth / 2) - totalGridWidth - rightPadding;
-        float startY = (cam.transform.position.y - screenHeight / 2) + (manualTileSize * rows) + bottomPadding;
+        // 1. Calculate usable width based on your percentage
+        float playableWidth = screenWidth * gridAreaWidthPercentage;
+        float finalTileSize = playableWidth / columns;
+
+        float totalGridWidth = finalTileSize * columns;
+        float totalGridHeight = finalTileSize * rows;
+
+        // 2. NEW POSITIONING LOGIC:
+        // Start from the Right Edge and move left by the total width + padding
+        float rightEdge = cam.transform.position.x + (screenWidth / 2);
+        float startX = rightEdge - totalGridWidth;
+
+        // Start from the Bottom Edge and move up by the total height + padding
+        float bottomEdge = cam.transform.position.y - (screenHeight / 2);
+        float startY = bottomEdge + totalGridHeight + paddingBottom;
 
         for (int y = 0; y < rows; y++)
         {
@@ -66,7 +80,7 @@ public class KitchenGrid : MonoBehaviour
                 );
 
                 GameObject newTile = Instantiate(tilePrefab, spawnPos, Quaternion.identity, transform);
-                newTile.transform.localScale = new Vector3(manualTileSize * tileSpacing, manualTileSize * tileSpacing, 0);
+                newTile.transform.localScale = new Vector3(finalTileSize * tileSpacing, finalTileSize * tileSpacing, 1);
                 newTile.name = $"Tile_{x}_{y}";
 
                 // Save the KitchenTile component into our array for later use
