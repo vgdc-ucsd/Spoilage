@@ -1,0 +1,287 @@
+fileFormatVersion: 2
+guid: 8fe1c106f126cca4294d57a3039c9892
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5069112546680788981
+    second: eyes_eyebrows286_widened_spritesheet_0
+  - first:
+      213: -4270602559110141117
+    second: eyes_eyebrows286_widened_spritesheet_1
+  - first:
+      213: -3214389615775857591
+    second: eyes_eyebrows286_widened_spritesheet_2
+  - first:
+      213: -6940546585906498748
+    second: eyes_eyebrows286_widened_spritesheet_3
+  - first:
+      213: 4305460175535710571
+    second: eyes_eyebrows286_widened_spritesheet_4
+  - first:
+      213: -1860403519616989257
+    second: eyes_eyebrows286_widened_spritesheet_5
+  - first:
+      213: 5069723821868582752
+    second: eyes_eyebrows286_widened_spritesheet_6
+  - first:
+      213: -808399964884567095
+    second: eyes_eyebrows286_widened_spritesheet_7
+  - first:
+      213: 8286336935442948891
+    second: eyes_eyebrows286_widened_spritesheet_8
+  - first:
+      213: 3742842364382859337
+    second: eyes_eyebrows286_widened_spritesheet_9
+  - first:
+      213: -3325542628027241934
+    second: eyes_eyebrows286_widened_spritesheet_10
+  - first:
+      213: 3430432812291092533
+    second: eyes_eyebrows286_widened_spritesheet_11
+  - first:
+      213: -8140172363432397827
+    second: eyes_eyebrows286_widened_spritesheet_12
+  - first:
+      213: -2522831678227971091
+    second: eyes_eyebrows286_widened_spritesheet_13
+  - first:
+      213: -2560015527413875028
+    second: eyes_eyebrows286_widened_spritesheet_14
+  - first:
+      213: -7210352049001252713
+    second: eyes_eyebrows286_widened_spritesheet_15
+  - first:
+      213: -7755608859355342367
+    second: eyes_eyebrows286_widened_spritesheet_16
+  - first:
+      213: -914080528264025691
+    second: eyes_eyebrows286_widened_spritesheet_17
+  - first:
+      213: 7819366680701025982
+    second: eyes_eyebrows286_widened_spritesheet_18
+  - first:
+      213: 2023037284913224287
+    second: eyes_eyebrows286_widened_spritesheet_19
+  - first:
+      213: -8155103283076459769
+    second: eyes_eyebrows286_widened_spritesheet_20
+  - first:
+      213: 205389020452242893
+    second: eyes_eyebrows286_widened_spritesheet_21
+  - first:
+      213: 2984920302133652151
+    second: eyes_eyebrows286_widened_spritesheet_22
+  - first:
+      213: 9172741570811123977
+    second: eyes_eyebrows286_widened_spritesheet_23
+  - first:
+      213: -7243107941751111894
+    second: eyes_eyebrows286_widened_spritesheet_24
+  - first:
+      213: 8508890266997239508
+    second: eyes_eyebrows286_widened_spritesheet_25
+  - first:
+      213: -920518003917552953
+    second: eyes_eyebrows286_widened_spritesheet_26
+  - first:
+      213: 6690669329837696679
+    second: eyes_eyebrows286_widened_spritesheet_27
+  - first:
+      213: -6697006690540369833
+    second: eyes_eyebrows286_widened_spritesheet_28
+  - first:
+      213: -3769495337383425836
+    second: eyes_eyebrows286_widened_spritesheet_29
+  - first:
+      213: 6719419686008925063
+    second: eyes_eyebrows286_widened_spritesheet_30
+  - first:
+      213: -1762894223736026940
+    second: eyes_eyebrows286_widened_spritesheet_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: eyes_eyebrows286_widened_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f7526ff00b195640800000000000000
+      internalID: 5069112546680788981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows286_widened_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34bad5f5995cbb4c0800000000000000
+      internalID: -4270602559110141117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7df763b86bed6a44bba486cfa4f2cea0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      eyes_eyebrows286_widened_spritesheet_0: 5069112546680788981
+      eyes_eyebrows286_widened_spritesheet_1: -4270602559110141117
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 8920cc9fcb05c2242ac0415fc4b28703
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1545381108717592028
+    second: eyes_eyebrows286_static_0
+  - first:
+      213: 7725151068634329095
+    second: eyes_eyebrows286_static_1
+  - first:
+      213: -7741959928389412011
+    second: eyes_eyebrows286_static_2
+  - first:
+      213: 2938237043628299993
+    second: eyes_eyebrows286_static_3
+  - first:
+      213: 1488304402308426378
+    second: eyes_eyebrows286_static_4
+  - first:
+      213: -1917717884599068266
+    second: eyes_eyebrows286_static_5
+  - first:
+      213: -3194248823463973588
+    second: eyes_eyebrows286_static_6
+  - first:
+      213: -5192460508870106135
+    second: eyes_eyebrows286_static_7
+  - first:
+      213: 6041563945551192292
+    second: eyes_eyebrows286_static_8
+  - first:
+      213: -8954935735163812587
+    second: eyes_eyebrows286_static_9
+  - first:
+      213: 3060229765246743802
+    second: eyes_eyebrows286_static_10
+  - first:
+      213: 1054263234777432687
+    second: eyes_eyebrows286_static_11
+  - first:
+      213: 3594413793832737734
+    second: eyes_eyebrows286_static_12
+  - first:
+      213: -6508682124796329091
+    second: eyes_eyebrows286_static_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: eyes_eyebrows286_static_0
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 840
+        width: 107
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 422e944c114bd8ae0800000000000000
+      internalID: -1545381108717592028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows286_static_1
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 842
+        width: 8
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 700bd22a7ff353b60800000000000000
+      internalID: 7725151068634329095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows286_static_2
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 842
+        width: 118
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55b5a0bb6780f8490800000000000000
+      internalID: -7741959928389412011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows286_static_3
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 831
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d6db531607b6c820800000000000000
+      internalID: 2938237043628299993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows286_static_4
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 778
+        width: 107
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a6e31f7f487a410800000000000000
+      internalID: 1488304402308426378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows286_static_5
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 831
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6991f059eb5e265e0800000000000000
+      internalID: -1917717884599068266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows286_static_6
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 818
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2d68317e9fbba3d0800000000000000
+      internalID: -3194248823463973588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows286_static_7
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 780
+        width: 110
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e3ad829daca0f7b0800000000000000
+      internalID: -5192460508870106135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows286_static_8
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 767
+        width: 40
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e0e26e1662f7d350800000000000000
+      internalID: 6041563945551192292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows286_static_9
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 770
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5150c17e46da9b380800000000000000
+      internalID: -8954935735163812587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows286_static_10
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 778
+        width: 20
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af4fb98f1ce187a20800000000000000
+      internalID: 3060229765246743802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows286_static_11
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 770
+        width: 43
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f62c9a883de71ae00800000000000000
+      internalID: 1054263234777432687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows286_static_12
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 763
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cb1a2d2d4ce1e130800000000000000
+      internalID: 3594413793832737734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows286_static_13
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 760
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d73849b87148ca5a0800000000000000
+      internalID: -6508682124796329091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      eyes_eyebrows286_static_0: -1545381108717592028
+      eyes_eyebrows286_static_1: 7725151068634329095
+      eyes_eyebrows286_static_10: 3060229765246743802
+      eyes_eyebrows286_static_11: 1054263234777432687
+      eyes_eyebrows286_static_12: 3594413793832737734
+      eyes_eyebrows286_static_13: -6508682124796329091
+      eyes_eyebrows286_static_2: -7741959928389412011
+      eyes_eyebrows286_static_3: 2938237043628299993
+      eyes_eyebrows286_static_4: 1488304402308426378
+      eyes_eyebrows286_static_5: -1917717884599068266
+      eyes_eyebrows286_static_6: -3194248823463973588
+      eyes_eyebrows286_static_7: -5192460508870106135
+      eyes_eyebrows286_static_8: 6041563945551192292
+      eyes_eyebrows286_static_9: -8954935735163812587
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
