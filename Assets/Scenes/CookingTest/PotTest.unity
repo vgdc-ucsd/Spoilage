@@ -1391,6 +1391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2ad3f3965644823bd5af82b16e2f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pot
+  targetState: 5
   _timer: {fileID: 15717175}
 --- !u!4 &1667905817
 Transform:

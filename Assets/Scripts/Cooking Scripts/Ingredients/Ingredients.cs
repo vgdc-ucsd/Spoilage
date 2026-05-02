@@ -55,7 +55,10 @@ public enum CookState
 {
     Raw,
     Cooked,
-    Burnt,
+    Toasted,
+    Grilled,
+    Boiled,
+    Burnt
 }
 
 public enum ChoppedState
@@ -63,6 +66,7 @@ public enum ChoppedState
     Chopped,
     Unchopped,
 }
+
 
 public sealed class Dough : Ingredient
 {
