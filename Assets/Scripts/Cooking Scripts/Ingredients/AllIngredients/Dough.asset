@@ -18,9 +18,9 @@ MonoBehaviour:
   _spoilTime: 15
   _isSpoiled: 0
   _isChopped: 0
-  _needsChopping: 0
-  _rawSprite: {fileID: 1519311369887206866, guid: 09e1813cefcff4528b673afc31a0d646, type: 3}
+  _needsChopping: 1
+  _rawSprite: {fileID: -162092310015539117, guid: ec484cb234ae14c6f8fa9d39eae49342, type: 3}
   _cookedSprite: {fileID: -7895663316674751650, guid: ba0b650f75a614dc09b9ac09489bccef, type: 3}
   _burntSprite: {fileID: -7961885064517468442, guid: c2526085c08d447c4b61dcf000c96127, type: 3}
   _unchoppedSprite: {fileID: 0}
-  _choppedSprite: {fileID: 0}
+  _choppedSprite: {fileID: 1519311369887206866, guid: 09e1813cefcff4528b673afc31a0d646, type: 3}

@@ -69,8 +69,11 @@ public class IngredientObject : MonoBehaviour
             case CookState.Raw:
                 _spriteRenderer.sprite = _data.RawSprite;
                 break;
-
+            
             case CookState.Cooked:
+            case CookState.Boiled:
+            case CookState.Grilled:
+            case CookState.Toasted:
                 _spriteRenderer.sprite = _data.CookedSprite;
                 break;
 

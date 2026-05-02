@@ -19,7 +19,7 @@ MonoBehaviour:
   _isSpoiled: 0
   _isChopped: 0
   _needsChopping: 0
-  _rawSprite: {fileID: 0}
+  _rawSprite: {fileID: 8351299133448253733, guid: c3a98321667b649e8bca42c2891d01dc, type: 3}
   _cookedSprite: {fileID: 0}
   _burntSprite: {fileID: 0}
   _unchoppedSprite: {fileID: 0}
