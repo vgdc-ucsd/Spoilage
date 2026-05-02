@@ -2,8 +2,9 @@
 
 public class StoveTops : CookingAppliance
 {
-
+    [SerializeField] private Timer _timer;
     private IngredientObject _currentFood;
+    private bool _isCooking = false;
 
     void Start()
     {

@@ -13,14 +13,7 @@ public class FoodGrab : MonoBehaviour
     private CookingAppliance _activeAppliance;
     private CookingAppliance _returnAppliance;
 
-
     public static bool CanMoveFood = false; 
-    private FoodSpawner _spawner;  
-
-    public void SetSpawner(FoodSpawner spawner)
-    {
-        _spawner = spawner;
-    }
 
     public void SetHomePosition(Vector3 position)
     {

@@ -21,6 +21,12 @@ public class KitchenGrid : MonoBehaviour
     [Range(0.1f, 1.0f)]
     public float tileSpacing = 1.0f;
 
+    [Header("Screen Layout Settings")]
+    [Range(0.1f, 1.0f)]
+    public float gridAreaWidthPercentage = 0.9f;
+    [Range(0.1f, 1.0f)]
+    public float gridAreaHeightPercentage = 0.8f;
+
     [Header("Positioning")]
     public float rightPadding = 0f;
     public float bottomPadding = 2.5f;

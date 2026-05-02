@@ -7,6 +7,9 @@ public sealed class IngredientData : ScriptableObject
     private string _name;
 
     [SerializeField]
+    private bool _needsCooking;
+
+    [SerializeField]
     private int _cookTime;
 
     [SerializeField]
@@ -27,6 +30,7 @@ public sealed class IngredientData : ScriptableObject
 
 
     public string Name => _name;
+    public bool NeedsCooking => _needsCooking;
     public int CookTime => _cookTime;
     public int SpoilTime => _spoilTime;
     public bool IsSpoiled => _isSpoiled;

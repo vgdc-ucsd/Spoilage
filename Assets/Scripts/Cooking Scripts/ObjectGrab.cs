@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ObjectGrab : MonoBehaviour
 {
     public enum StationType { Appliance } // Removed Counter per your request
     public StationType type;
+    public KitchenTile currentTile;
+    private Vector3 _sidebarPosition;
 
     private void Awake()
     {
@@ -59,8 +62,8 @@ public class ObjectGrab : MonoBehaviour
         if (tile != null && tile.CanPlaceObject("Appliance", gameObject))
         {
             // SUCCESS: Move to new tile
-            newTile.PlaceObject(gameObject);
-            currentTile = newTile;
+            tile.PlaceObject(gameObject);
+            currentTile = tile;
         }
         else
         {

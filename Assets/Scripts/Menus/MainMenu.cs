@@ -47,7 +47,7 @@ public class MainMenu : MonoBehaviour
                 )
             );
 
-            GameSaveManger.Instance.loadGame();
+            SaveManager.Instance.LoadGame();
             Debug.Log(PlayerPrefManagfer.Instance);
             PlayerPrefManagfer.Instance.loadPrefs(
                 save.resolution.width,
