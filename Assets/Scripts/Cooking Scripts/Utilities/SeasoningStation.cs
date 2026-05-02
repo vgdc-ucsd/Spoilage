@@ -4,11 +4,12 @@ public class SeasoningStation : UtilityStation
 {
 
     private DishObject _currentFood;
+    private int _counter;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        _counter = 3;
     }
 
     // Update is called once per frame
@@ -38,15 +39,12 @@ public class SeasoningStation : UtilityStation
 
         SeasonFood();
 
-    
-        // _currentFood.IngredientInstance.CurrentState = IngredientState.Seasoned;
-        // Debug.Log(_currentFood.IngredientInstance.Data.Name + " is now Seasoned!");
     }
 
     public void SeasonFood()
     {
-        // _currentFood.IngredientInstance.CurrentState = IngredientState.Unseasoned;
-        Debug.Log("Seasoning");
+        _counter--;
+        Debug.Log("Seasoning, " + _counter + " uses left.");
     }
 
      public override void OnRemoveFood()
