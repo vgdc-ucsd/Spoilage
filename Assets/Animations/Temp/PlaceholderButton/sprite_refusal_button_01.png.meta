@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ec484cb234ae14c6f8fa9d39eae49342
+guid: 6c916d7eef65dd94bbba5736f52a01d1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -162092310015539117
-    second: Flatbread_doughball_wip_0
+      213: -6559265976559445316
+    second: sprite_refusal_button_01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flatbread_doughball_wip_0
+      name: sprite_refusal_button_01_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 400
-        height: 400
+        x: 127
+        y: 31
+        width: 770
+        height: 418
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 35883b027e120cdf0800000000000000
-      internalID: -162092310015539117
+      spriteID: cba5ed7c85ec8f4a0800000000000000
+      internalID: -6559265976559445316
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Flatbread_doughball_wip_0: -162092310015539117
+      sprite_refusal_button_01_0: -6559265976559445316
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
