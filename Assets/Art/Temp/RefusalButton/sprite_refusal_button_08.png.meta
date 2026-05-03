@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 653cf0bd6fbb97d4881bafdc90fd02af
+guid: d75c20ff1c1d00c4981f6967263df91d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6954934436061925951
-    second: prep2_0
+      213: 2693456893413425733
+    second: sprite_refusal_button_08_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: prep2_0
+      name: sprite_refusal_button_08_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 14
-        width: 69
-        height: 81
+        x: 127
+        y: 31
+        width: 770
+        height: 450
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f325a915504e48060800000000000000
-      internalID: 6954934436061925951
+      spriteID: 5420cb526c4116520800000000000000
+      internalID: 2693456893413425733
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      prep2_0: 6954934436061925951
+      sprite_refusal_button_08_0: 2693456893413425733
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
