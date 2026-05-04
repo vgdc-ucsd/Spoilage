@@ -10,10 +10,10 @@ public class FoodGrab : MonoBehaviour
     private Vector3 _returnPosition;
     [SerializeField] private Transform _plateSpot;
     private FoodSpawner _spawner;
-    private CookingAppliance _activeAppliance;
-    private CookingAppliance _returnAppliance;
+    private CookingStation _activeStation;
+    private CookingStation _returnStation;
 
-    public static bool CanMoveFood = false; 
+    public static bool CanMoveFood = false;
 
     public void SetHomePosition(Vector3 position)
     {
@@ -40,18 +40,18 @@ public class FoodGrab : MonoBehaviour
         }
 
         // Clean up appliance reference if we pick it back up
-        if (_activeAppliance != null)
+        if (_activeStation != null)
         {
-            _returnAppliance = _activeAppliance;
-            _returnPosition = _activeAppliance.transform.position;
+            _returnStation = _activeStation;
+            _returnPosition = _activeStation.transform.position;
 
-            _activeAppliance.OnRemoveFood();
-            _activeAppliance = null;
+            _activeStation.OnRemoveFood();
+            _activeStation = null;
         }
         else
         {
-            _returnAppliance = null;
-        }   
+            _returnStation = null;
+        }
 
 
         if (_spawner != null)
@@ -130,12 +130,12 @@ public class FoodGrab : MonoBehaviour
                 }
             }
 
-            CookingAppliance app = hit.GetComponentInParent<CookingAppliance>();
+            CookingStation app = hit.GetComponentInParent<CookingStation>();
             if (app != null)
             {
-                _activeAppliance = app;
+                _activeStation = app;
                 transform.position = hit.transform.position;
-                _activeAppliance.OnPlaceFood(this);
+                _activeStation.OnPlaceFood(this);
 
                 KitchenTile tile = GetTileAtPosition(transform.position);
                 if (tile != null) tile.PlaceObject(gameObject);
@@ -148,11 +148,11 @@ public class FoodGrab : MonoBehaviour
             // always spawn a new food item if this came from the fridge, regardless of where it was dropped
             if (_cameFromFridge)
             {
-                Fridge fridge = FindAnyObjectByType<Fridge>();
+                FoodSpawner foodSpawner = FindAnyObjectByType<FoodSpawner>();
 
-                if (fridge != null)
+                if (foodSpawner != null)
                 {
-                    fridge.SpawnFood();
+                    foodSpawner.SpawnFood();
                 }
 
                 _cameFromFridge = false;
@@ -182,11 +182,11 @@ public class FoodGrab : MonoBehaviour
             info.IngredientInstance.Data.NeedsCooking &&
             info.IngredientInstance.CurrentCookState == CookState.Raw;
 
-        if (_returnAppliance != null && stillNeedsCooking)
+        if (_returnStation != null && stillNeedsCooking)
         {
             transform.position = _returnPosition;
-            _activeAppliance = _returnAppliance;
-            _activeAppliance.OnPlaceFood(this);
+            _activeStation = _returnStation;
+            _activeStation.OnPlaceFood(this);
 
             Debug.Log("Food still needs cooking, snapping back to stove.");
             return;
@@ -198,8 +198,8 @@ public class FoodGrab : MonoBehaviour
             Debug.Log("Missed drop, returning food to fridge.");
         }
 
-        _activeAppliance = null;
-        _returnAppliance = null;
+        _activeStation = null;
+        _returnStation = null;
     }
 
     private KitchenTile GetTileAtPosition(Vector2 pos)

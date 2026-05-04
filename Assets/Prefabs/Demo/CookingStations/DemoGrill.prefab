@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 833690221741264480}
   - component: {fileID: 3941201653527758230}
-  - component: {fileID: 5171898716144433452}
   - component: {fileID: 5129240665721851059}
+  - component: {fileID: 175935775614137199}
   m_Layer: 6
-  m_Name: DemoStove
+  m_Name: DemoGrill
   m_TagString: StoveTop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4290909831244897425}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.81, y: -20.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -81,21 +81,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
---- !u!114 &5171898716144433452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4290909831244897425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3100142220ed924881fbffe814537d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  _spriteRenderer: {fileID: 6584262532399704421}
-  _defaultSprite: {fileID: 21300000, guid: b17969ae778e8034e978113c3c5865ad, type: 3}
-  _activeSprite: {fileID: 21300000, guid: 946a18424ded0c84f830a92aef3bd253, type: 3}
 --- !u!114 &5129240665721851059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +93,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a8864863c768a45af4d5522c546f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectGrab
-  type: 1
+  currentTile: {fileID: 0}
+--- !u!114 &175935775614137199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4290909831244897425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 754509b25be168642ae2e8a35c5fe748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimerStation
+  _spriteRenderer: {fileID: 6584262532399704421}
+  _defaultSprite: {fileID: 21300000, guid: b17969ae778e8034e978113c3c5865ad, type: 3}
+  _activeSprite: {fileID: 21300000, guid: 946a18424ded0c84f830a92aef3bd253, type: 3}
+  _timer: {fileID: 0}
+  _targetState: 3
+  _canOvercook: 1
+  _overcookedState: 5
 --- !u!1 &5969164673994749898
 GameObject:
   m_ObjectHideFlags: 0

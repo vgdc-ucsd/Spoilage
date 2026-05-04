@@ -3,8 +3,6 @@ using UnityEngine.InputSystem;
 
 public class ObjectGrab : MonoBehaviour
 {
-    public enum StationType { Appliance } // Removed Counter per your request
-    public StationType type;
     public KitchenTile currentTile;
     private Vector3 _sidebarPosition;
 
