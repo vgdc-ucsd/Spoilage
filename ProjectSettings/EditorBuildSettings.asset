@@ -6,17 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Persistent.unity
+    guid: b05aa2a148e29a54d83b939da6a8c7d6
+  - enabled: 1
     path: Assets/Scenes/Build/MainMenu.unity
     guid: 44b88333a77742f41885f23c8ea7c1a8
   - enabled: 1
-    path: Assets/Scenes/Build/Main/Cooking.unity
+    path: Assets/Scenes/Build/Cooking.unity
     guid: 455a62f2684827745adf12efb672ec41
   - enabled: 1
-    path: Assets/Scenes/Build/Shop.unity
-    guid: 8cdb38758157dfe4c88026dc7fac78c3
+    path: Assets/Scenes/Build/Customer.unity
+    guid: 85dcfb7c66b97ac4caea0d2e719156ea
   - enabled: 1
     path: Assets/Scenes/Build/Summary Screen.unity
     guid: 1aeaf0320ba27f041b734be6d5871958
+  - enabled: 1
+    path: Assets/Scenes/Build/Shop.unity
+    guid: 8cdb38758157dfe4c88026dc7fac78c3
   m_configObjects:
     com.unity.adaptivePerformance.basic.provider_settings: {fileID: 11400000, guid: 222cd7583ef752b46b7fffe0d493e1ee, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 5765dd2af5886dc48bc041d810db9f41, type: 2}
