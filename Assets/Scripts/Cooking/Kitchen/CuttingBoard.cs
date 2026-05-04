@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CuttingBoard : ActionStation
+public class CuttingBoard : ManualStation
 {
     // TODO: delete this once popup button is implemented
     void Update()

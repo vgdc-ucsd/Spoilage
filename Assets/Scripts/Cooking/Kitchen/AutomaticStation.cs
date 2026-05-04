@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TimerStation : CookingStation
+public class AutomaticStation : CookingStation
 {
     // IMPORTANT NOTE PLEASE READ
     // This class will not work as intended until the timer has been implemented in the scene. For now, 

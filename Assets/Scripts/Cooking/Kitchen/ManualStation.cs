@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ActionStation : CookingStation
+public class ManualStation : CookingStation
 {
     [Header("Cut Settings")]
     [SerializeField] protected int _clicksPerState = 3;
