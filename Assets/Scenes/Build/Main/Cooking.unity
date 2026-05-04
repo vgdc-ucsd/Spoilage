@@ -461,21 +461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5901b43bd2b4c3545914e231d63826ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldButton
-  OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1904804787}
-        m_TargetAssemblyTypeName: LockLayout, Assembly-CSharp
-        m_MethodName: StartDay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  ascendSpeed: 800
+  ascendDuration: 1.5
 --- !u!212 &463262006
 SpriteRenderer:
   serializedVersion: 2
@@ -2408,12 +2395,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95714c43e75b45942b673a9f95ac60b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenGrid
+  stovePrefab: {fileID: 0}
+  potPrefab: {fileID: 0}
+  toasterPrefab: {fileID: 0}
   tilePrefab: {fileID: 14463954373767937, guid: 556d2fb1fd3a322408c7f708b8e7ee40, type: 3}
   columns: 6
   rows: 2
+  manualTileSize: 1.75
   tileSpacing: 0.95
   gridAreaWidthPercentage: 0.7
   gridAreaHeightPercentage: 0.8
+  rightPadding: 0
+  bottomPadding: 2.5
+  borderColor: {r: 0, g: 0, b: 0, a: 1}
+  borderThickness: 0.03
+  paddingBottom: 1.5
 --- !u!4 &2061579172
 Transform:
   m_ObjectHideFlags: 0
