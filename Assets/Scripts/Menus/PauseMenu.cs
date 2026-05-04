@@ -1,24 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject PauseUI;
-    public GameObject SettingsScreen;
 
-    [SerializeField]
-    private Button _returnToMainMenu;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        _returnToMainMenu.onClick.AddListener(ReturnToMenu);
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -43,15 +31,12 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadSettings()
     {
-        Debug.Log(" da settings ");
-        //switch scene to settings
-        //SceneManager.LoadScene("SettingsScreen");
+        // TODO
     }
 
-    public void Quit()
+    public void QuitButton()
     {
-        Debug.Log(" buhbye ");
-        Application.Quit();
+        GameManager.Instance.Load(GameScene.MAIN_MENU);
     }
 
     void Pause()
@@ -63,7 +48,6 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMenu()
     {
-        Debug.Log("Return to main menu");
-        SceneManager.LoadScene("Menu");
+        GameManager.Instance.Load(GameScene.MAIN_MENU);
     }
 }

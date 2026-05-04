@@ -4,9 +4,6 @@ using UnityEngine;
 public class ShopItemScript : MonoBehaviour
 {
     public Texture2D hoverCursor;
-
-    public GameState gameState;
-
     public ShopItem item;
 
     public TextMeshPro priceField;
@@ -14,7 +11,6 @@ public class ShopItemScript : MonoBehaviour
     public TextMeshPro typeField;
 
     public SpriteRenderer imageField;
-
 
     private bool _bought = false;
 
@@ -26,14 +22,14 @@ public class ShopItemScript : MonoBehaviour
 
     bool canBuy()
     {
-        return !_bought && gameState.Money >= item.price;
+        return !_bought && SaveManager.Instance.Player.Wealth >= item.price;
     }
 
     void OnMouseDown()
     {
         if (canBuy())
         {
-            gameState.Money -= item.price;
+            SaveManager.Instance.Player.Wealth -= item.price;
             _bought = true;
             GetComponent<SpriteRenderer>().color *= Color.gray;
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);

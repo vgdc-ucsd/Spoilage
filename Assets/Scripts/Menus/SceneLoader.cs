@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
 
 // using monobehaviour cause only monobehavior can use coroutine 
 public class SceneLoader : Singleton<SceneLoader>
@@ -85,15 +84,5 @@ public class SceneLoader : Singleton<SceneLoader>
 
         SceneManager.UnloadSceneAsync("LoadingScreen");
     
-    }
-    
-    void Update()
-    {
-        // this one ; so its hard to press by accident
-        if (Keyboard.current.semicolonKey.wasPressedThisFrame)
-        {
-            UnityEngine.Debug.Log("Loading Screen Test");
-            ChangeScene("LoadingTest");
-        }
     }
 }

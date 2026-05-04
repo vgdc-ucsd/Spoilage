@@ -1,23 +1,26 @@
-using UnityEngine;
+using System;
 
+[Serializable]
 public class PlayerData
 {
-    //gonna save the variables after we get more info on what to be saved here
-    public int progress;
-    public int money;
+    public int Day;
+    public int Wealth;
+    public int Reputation;
 
-    //public String[] kitchenUpgrades;
-    //public String[] ingredients;
-    public float volume;
-    public Resolution resolution;
+    // TODO: Handle saving other key information
+    // public List<RecipeID> RecipesUnlocked;
+    // public List<StationID> StationsUnlocked;
+    // public List<IngredientID> IngredientsUnlocked;
+    // public List<UpgradeID> Upgrades; 
+    // public List<NPCID> NPCs; 
+    // public List<PlotEventID> PlotEvents; 
+    // public List<StationID> KitchenLayout;
 
-    //right now I'm assuming we have a player script that will be passed
-    //into the constructor, which will then parse and take in the specified vars
-    //for now I'm hardcoding in values
     public PlayerData()
     {
-        progress = 2;
-        money = 4;
+        // TODO: Initialize lists, setup other basic start of game configs
+        // Day = 1;
+        // Reputation = 50;
+        // RecipesUnlocked = new List<RecipeID>();
     }
 }
-

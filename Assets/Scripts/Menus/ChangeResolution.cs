@@ -2,17 +2,6 @@ using UnityEngine;
 
 public class ChangeResolution : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        Resolution[] resolutions = GetResolutions();
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            Debug.Log(resolutions[i]);
-        }
-    }
-
-
     public void SetRes(int height, int width, bool fullscreen)
     {
         Screen.SetResolution(height, width, fullscreen);

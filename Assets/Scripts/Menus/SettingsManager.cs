@@ -1,32 +1,30 @@
 using UnityEngine;
-using System.Collections;
-using UnityEngine.InputSystem;
 
 public class SettingsManager : Singleton<SettingsManager>
 {
-    public bool isFullscreen = true;
+    private SettingsData _settings; 
 
     public override void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(gameObject);
     }
-    
-    public void ToggleFullscreen()
+
+    public void Start()
     {
-        isFullscreen = !isFullscreen;
-        UnityEngine.Screen.fullScreen = isFullscreen;
+        SaveManager.OnLoad(() => InitializeSettings());
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void SetFullscreen(FullScreenMode mode)
     {
-        
+        _settings.Fullscreen = mode;
+        Screen.fullScreenMode = mode;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void InitializeSettings()
     {
-        
+        _settings = SaveManager.Instance.Settings;
+        Screen.SetResolution(_settings.Res.width, _settings.Res.height, _settings.Fullscreen);
+        // TODO: Load volume
     }
 }

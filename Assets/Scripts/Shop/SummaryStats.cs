@@ -12,7 +12,6 @@ public class SummaryStats : MonoBehaviour
     public List<int> costAmounts = new List<int>();
 
     // Money
-    public GameState gameState;
     public TextMeshProUGUI moneyText;
     public int money;
 
@@ -32,7 +31,7 @@ public class SummaryStats : MonoBehaviour
 
     void UpdateMoneyText()
     {
-        moneyText.text = "Money: $" + gameState.Money;
+        moneyText.text = "Money: $" + SaveManager.Instance.Player.Wealth;
     }
 
     public void AddIncome(string source, int amount)

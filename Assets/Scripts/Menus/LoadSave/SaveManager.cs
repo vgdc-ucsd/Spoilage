@@ -1,51 +1,86 @@
 ﻿using UnityEngine;
 using System.IO;
+using System;
+using System.Collections.Generic;
 
-public class SaveManager : MonoBehaviour
+public class SaveManager : Singleton<SaveManager>
 {
-    public static SaveManager Instance;
-    public PlayerSaveData currentData;
+    public PlayerData Player;
+    public SettingsData Settings;
+    private string _playerSavePath;
+    private string _settingsSavePath;
+    private static Queue<Action> s_loadQueue = new Queue<Action>();
 
-    private string _saveFilePath;
-
-    void Awake()
+    void Start()
     {
-        // Globally available and persistent across scenes; only one instance allowed
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+        _playerSavePath = Application.persistentDataPath + "/savefile.json";
+        _settingsSavePath = Application.persistentDataPath + "/settings.json";
 
-            _saveFilePath = Application.persistentDataPath + "/savefile.json";
-            Debug.Log(_saveFilePath);
-            LoadGame();
-        }
-        else
+        LoadAll();
+        
+        while (s_loadQueue.Count > 0)
         {
-            Destroy(gameObject);
+            s_loadQueue.Dequeue()?.Invoke();
         }
     }
 
     public void SaveGame()
     {
-        string json = JsonUtility.ToJson(currentData);
+        string json = JsonUtility.ToJson(Player);
 
         // Write the string to disk
-        File.WriteAllText(_saveFilePath, json);
-        Debug.Log("Game Saved to: " + _saveFilePath);
+        File.WriteAllText(_playerSavePath, json);
+        Debug.Log("Game Saved to: " + _playerSavePath);
     }
 
-    public void LoadGame()
+    public void SaveSettings()
     {
-        if (File.Exists(_saveFilePath))
+        string json = JsonUtility.ToJson(Settings);
+        File.WriteAllText(_settingsSavePath, json);
+    }
+
+    public void LoadPlayer()
+    {
+        if (File.Exists(_playerSavePath))
         {
-            string json = File.ReadAllText(_saveFilePath);
-            currentData = JsonUtility.FromJson<PlayerSaveData>(json);
+            string json = File.ReadAllText(_playerSavePath);
+            Player = JsonUtility.FromJson<PlayerData>(json);
         }
         else
         {
             // No save file exists, start fresh
-            currentData = new PlayerSaveData();
+            Player = new PlayerData();
         }
+    }
+
+    public void LoadSettings()
+    {
+        if (File.Exists(_settingsSavePath))
+        {
+            string json = File.ReadAllText(_settingsSavePath);
+            Settings = JsonUtility.FromJson<SettingsData>(json);
+        }
+        else
+        {
+            // No save file exists, start fresh
+            Settings = new SettingsData();
+        }
+    }
+
+    public void LoadAll()
+    {
+        LoadPlayer();
+        LoadSettings();
+    }
+
+    public static void OnLoad(Action action)
+    {
+        if (Instance == null)
+        {
+            s_loadQueue.Enqueue(action);
+            return;
+        }
+
+        action?.Invoke();
     }
 }
