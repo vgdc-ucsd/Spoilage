@@ -4,12 +4,15 @@ public class FoodSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _foodPrefab;
     [SerializeField] private Transform _spawnPoint;
-
+    [SerializeField] private bool _spawnFoodOnStart = true;
     private FoodGrab _currentFood;
 
-    private void Start()
+    void Start()
     {
-        SpawnFood();
+        if (_spawnFoodOnStart)
+        {
+            SpawnFood();
+        }
     }
 
     public void SpawnFood()
