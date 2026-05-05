@@ -1,4 +1,5 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameScene
 {
@@ -13,7 +14,10 @@ public class GameManager : Singleton<GameManager>
     public void StartGame()
     {
         // TODO: Setup Game, load save data, etc.
-        Load(GameScene.COOKING);
+        //Load(GameScene.COOKING);
+        SceneManager.LoadScene("Customer", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Cooking", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("MainMenu");
     }
 
     public void Load(GameScene scene)

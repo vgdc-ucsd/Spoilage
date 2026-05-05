@@ -2,9 +2,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// using monobehaviour cause only monobehavior can use coroutine 
 public class SceneLoader : Singleton<SceneLoader>
 {
+    private void Start()
+    {
+        if (SceneManager.loadedSceneCount <= 1)
+        {
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+        }
+    }
+
     public void ChangeScene(string sceneName)
     {
         StartCoroutine(LoadSceneRoutine(sceneName));
