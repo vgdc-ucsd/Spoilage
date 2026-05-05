@@ -8,38 +8,37 @@ public class Customer : MonoBehaviour
     public GameObject customerObject;
     public int spoilage;
 
-    [ContextMenu("Generate Customer")]
-    public void GenerateCustomer()
+    [ContextMenu("Initialize Customer")]
+    public void InitializeCustomer()
     {
         if (customerData == null)
         {
-            customerData = CustomerManager.GenerateCustomerData();
+            customerData = CustomerManager.Instance.GenerateCustomerData();
         }
 
         for (int i = 0; i < customerData.sprites.Length; i++)
         {
-            Transform curTransform;
+            Transform currTransform;
             switch ((CustomerData.Indexes)i)
             {
                 case CustomerData.Indexes.MOUTH_OPEN:
                 case CustomerData.Indexes.MOUTH_CLOSED:
-                case CustomerData.Indexes.MOUTH_ANGER:
                 case CustomerData.Indexes.MOUTH_DISGUST:
+                case CustomerData.Indexes.MOUTH_ANGER:
                 case CustomerData.Indexes.EYES_OPEN:
                 case CustomerData.Indexes.EYES_CLOSED:
-                case CustomerData.Indexes.EYES_ANGER:
                 case CustomerData.Indexes.EYES_DISGUST:
+                case CustomerData.Indexes.EYES_ANGER:
                 case CustomerData.Indexes.EYES_WIDENING:
-                    curTransform = transform.Find("Sprites/FACIAL_FEATURES/" + ((CustomerData.Indexes)i).ToString());
-
+                    currTransform = transform.Find("Sprites/FACIAL_FEATURES/" + ((CustomerData.Indexes)i).ToString());
                     break;
                 default:
-                    curTransform = transform.Find("Sprites/" + ((CustomerData.Indexes)i).ToString());
+                    currTransform = transform.Find("Sprites/" + ((CustomerData.Indexes)i).ToString());
                     break;
             }
-            if (curTransform != null)
+            if (currTransform != null)
             {
-                curTransform.GetComponent<SpriteRenderer>().sprite = customerData.sprites[i];
+                currTransform.GetComponent<SpriteRenderer>().sprite = customerData.sprites[i];
             }
             /*
             switch ((CustomerData.Indexes)i)
@@ -76,7 +75,7 @@ public class Customer : MonoBehaviour
             transform.Find("Sprites/SPOILAGE_BACK").GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        transform.Find("Sprites/FACIAL_FEATURES").position = customerData.faceOffset;
+        //transform.Find("Sprites/FACIAL_FEATURES").position = customerData.faceOffset;
     }
     
     // public void InstantiateCustomer()

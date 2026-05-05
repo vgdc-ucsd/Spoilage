@@ -38,9 +38,9 @@ public class InteractManager : MonoBehaviour
         // 1. Check for the "Start Day" Button
         foreach (var hit in hits)
         {
-            if (hit.TryGetComponent(out WorldButton button))
+            if (hit.TryGetComponent(out CallBell button))
             {
-                button.Trigger();
+                button.CallBellStart();
                 return; // Stop here if we hit the button
             }
         }

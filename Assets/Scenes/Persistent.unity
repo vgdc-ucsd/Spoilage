@@ -378,7 +378,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1127609430}
   - component: {fileID: 1127609429}
-  - component: {fileID: 1127609428}
   m_Layer: 0
   m_Name: SaveManager
   m_TagString: Untagged
@@ -386,19 +385,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1127609428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127609427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ce7e3f8770954cac9337f0080e1ac7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerPrefManagfer
-  _volume: {fileID: 24100000, guid: 7381f887256654a8c8f4c1e852ce3bdb, type: 2}
 --- !u!114 &1127609429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,9 +394,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1127609427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bf4f048b59c44c8e94d07176ea87d75, type: 3}
+  m_Script: {fileID: 11500000, guid: e6638276391ac2845b1e9019151b67d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameSaveManger
+  Player:
+    Day: 0
+    Wealth: 0
+    Reputation: 0
+  Settings:
+    Volume: 0.75
+    Fullscreen: 0
 --- !u!4 &1127609430
 Transform:
   m_ObjectHideFlags: 0

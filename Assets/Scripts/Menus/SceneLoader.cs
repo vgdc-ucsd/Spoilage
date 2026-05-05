@@ -1,16 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 // using monobehaviour cause only monobehavior can use coroutine 
 public class SceneLoader : Singleton<SceneLoader>
 {
-    public override void Awake()
-    {
-        base.Awake();
-        DontDestroyOnLoad(gameObject);
-    }
-
     public void ChangeScene(string sceneName)
     {
         StartCoroutine(LoadSceneRoutine(sceneName));

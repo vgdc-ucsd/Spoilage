@@ -1,19 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CustomerManager : Singleton<CustomerManager>
 {
-    private const string EYES_PATH = "Assets/Art/Customers/Eyes/";
-    private const string MOUTH_PATH = "Assets/Art/Customers/NoseMouths/";
-    private const string SPOILAGE_PATH = "Assets/Art/Customers/Spoilage/";
+    public GameObject CustomerPrefab;
+    public CustomerData[] PresetCustomerData;
+    [SerializeField]
+    private Transform _customerTransform;
+
+    private const string EYES_PATH = "Assets/Resources/Art/Customers/Eyes/";
+    private const string MOUTH_PATH = "Assets/Resources/Art/Customers/NoseMouths/";
+    private const string SPOILAGE_PATH = "Assets/Resources/Art/Customers/Spoilage/";
     private const string FRONT_FOLDER = "Front/";
     private const string BACK_FOLDER = "Back/";
-    private const string BASES_PATH = "Assets/Art/Customers/Bases/";
+    private const string BASES_PATH = "Assets/Resources/Art/Customers/Bases/";
     private const string CLOTHES_FOLDER = "/Clothes/";
     private const string HAIR_FOLDER = "/Hair/";
 
@@ -28,49 +31,35 @@ public class CustomerManager : Singleton<CustomerManager>
     private const string REGEX_HAIR_BACK = "hairBottom.*$";
     private const string REGEX_HAIR_SHADOW = "hairShadow.*$";
 
-    public GameObject customerPrefab;
-    public CustomerData[] presetCustomerData;
-
-    private static Dictionary<string, Vector3> s_faceOffsets = new Dictionary<string, Vector3>
+    private static readonly Dictionary<string, Vector3> s_faceOffsets = new()
     {
-        //{ "test", new Vector3(0, 0, 1.5f) },
-        { "Assets/Art/Customers/Bases/Character Base #167", new Vector3(-0.12f, 0.1f, 0)},
-        { "Assets/Art/Customers/Bases/Character Base #255", new Vector3(-0.02f, 1.16f, 0)},
-        { "Assets/Art/Customers/Bases/Character Base #256", new Vector3(0.01f, -0.07f, 0)},
-        { "Assets/Art/Customers/Bases/Character Base #257", new Vector3(-0.01f, -0.74f, 0)},
-        { "Assets/Art/Customers/Bases/Character Base #258", new Vector3(0.09f, -0.66f, 0)},
-        { "Assets/Art/Customers/Bases/Character Base #259", new Vector3(-0.08f, 1.04f, 0)},
-        { "Assets/Art/Customers/Bases/Character Base #260", new Vector3(0.04f, 0.32f, 0)},
-        { "Assets/Art/Customers/Bases/Character Base #261", new Vector3(-0.11f, 0.81f, 0)},
-        { "Assets/Art/Customers/Bases/Character Base #277", new Vector3(0.03f, 1.25f, 0)},
-        { "Assets/Art/Customers/Bases/Character Base #284", new Vector3(0.06f, -0.9f, 0)},
-        { "Assets/Art/Customers/Bases/Character Base #286", new Vector3(0, 0, 0)},
-        { "Assets/Art/Customers/Bases/Character Base #287", new Vector3(0.1f, -0.24f, 0)},
-        { "Assets/Art/Customers/Bases/Character Base #292", new Vector3(0.05f, 0.55f, 0)},
-        { "Assets/Art/Customers/Bases/Character Base #332", new Vector3(0.16f, -0.11f, 0)},
-        
+        { "Assets/Resources/Art/Customers/Bases/Character Base #167", new Vector3(-0.12f, 0.1f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #255", new Vector3(-0.02f, 1.16f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #256", new Vector3(0.01f, -0.07f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #257", new Vector3(-0.01f, -0.74f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #258", new Vector3(0.09f, -0.66f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #259", new Vector3(-0.08f, 1.04f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #260", new Vector3(0.04f, 0.32f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #261", new Vector3(-0.11f, 0.81f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #277", new Vector3(0.03f, 1.25f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #284", new Vector3(0.06f, -0.9f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #286", new Vector3(0, 0, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #287", new Vector3(0.1f, -0.24f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #292", new Vector3(0.05f, 0.55f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #332", new Vector3(0.16f, -0.11f, 0)},
     };
 
-    [SerializeField]
-    private CustomerData[] _debug;
-
-
-    void Start()
+    public Customer GenerateCustomer()
     {
-        // Standard Generation Process
-        GameObject customer = Instantiate(customerPrefab);
-        customer.GetComponent<Customer>().customerData = GenerateCustomerData();
-        customer.GetComponent<Customer>().GenerateCustomer();
+        Customer instantiatedCustomer = Instantiate(CustomerPrefab, _customerTransform).GetComponent<Customer>();
+        instantiatedCustomer.customerData = GenerateCustomerData();
+        instantiatedCustomer.customerObject = instantiatedCustomer.gameObject;
+        instantiatedCustomer.InitializeCustomer();
 
-        // Standard Preset Process
-        GameObject customer2 = Instantiate(customerPrefab);
-        customer2.GetComponent<Customer>().customerData = presetCustomerData[0];
-        customer2.GetComponent<Customer>().GenerateCustomer();
+        return instantiatedCustomer;
     }
 
-
-
-    public static CustomerData GenerateCustomerData()
+    public CustomerData GenerateCustomerData()
     {
         CustomerData newData = ScriptableObject.CreateInstance<CustomerData>();
 
@@ -106,7 +95,7 @@ public class CustomerManager : Singleton<CustomerManager>
         paths[(int)CustomerData.Indexes.MOUTH_DISGUST] = getRandomElement(
             Directory.GetFiles(mouthDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_DISGUST)).ToArray());
 
-        if((int) newData.spoilage >= (int) CustomerData.Spoilage.SLIGHTLY)
+        if ((int)newData.spoilage >= (int)CustomerData.Spoilage.SLIGHTLY)
         {
             paths[(int)CustomerData.Indexes.SPOILAGE_FRONT] = getRandomElement(
                 Directory.GetFiles(SPOILAGE_PATH + FRONT_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
@@ -192,7 +181,7 @@ public class CustomerManager : Singleton<CustomerManager>
             }
         }
 
-    return newData;
+        return newData;
     }
 
     private static string getRandomElement(string[] arr)
@@ -206,7 +195,8 @@ public class CustomerManager : Singleton<CustomerManager>
     private static string trimPath(string str)
     {
         if (str == null) { return null; }
-        int startIndex = "Assets/Art/".Length;
+        str = Regex.Replace(str, @"\\", @"/");
+        int startIndex = "Assets/Resources/".Length;
         int endOffset = ".png".Length;
 
         return str.Substring(startIndex, str.Length - endOffset - startIndex);
