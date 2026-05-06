@@ -61,9 +61,30 @@ public sealed class Dough : Ingredient
     }
 }
 
+public sealed class Cheese : Ingredient
+{
+    public Cheese(IngredientData data) : base(data)
+    {
+    }
+}
+
+public sealed class Meat : Ingredient
+{
+    public Meat(IngredientData data) : base(data)
+    {
+    }
+}
+
 public sealed class Vegetable : Ingredient
 {
     public Vegetable(IngredientData data) : base(data)
+    {
+    }
+}
+
+public sealed class GenericIngredient : Ingredient
+{
+    public GenericIngredient(IngredientData data) : base(data)
     {
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: cheese
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   _name: cheese
-  _needsCooking: 0
+  _needsCooking: 1
   _cookTime: 5
   _spoilTime: 9
   _isSpoiled: 0

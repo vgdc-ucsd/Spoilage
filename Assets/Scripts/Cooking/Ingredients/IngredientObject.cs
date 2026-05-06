@@ -13,7 +13,15 @@ public class IngredientObject : MonoBehaviour
     {
         _image = GetComponent<Image>();
         
+        if (_data.Name == "Dough") {
         IngredientInstance = new Dough(_data);
+        } 
+        else if (_data.Name == "Cheese") {
+            IngredientInstance = new Cheese(_data); 
+        }
+        else {
+            IngredientInstance = new GenericIngredient(_data);
+        }
         UpdateSprite();
     }
 
@@ -33,10 +41,6 @@ public class IngredientObject : MonoBehaviour
         }
         switch (IngredientInstance.CurrentCookState)
         {
-            case CookState.Raw:
-                _image.sprite = _data.RawSprite;
-                break;
-            
             case CookState.Cooked:
             case CookState.Boiled:
             case CookState.Grilled:
@@ -46,6 +50,10 @@ public class IngredientObject : MonoBehaviour
 
             case CookState.Burnt:
                 _image.sprite = _data.BurntSprite;
+                break;
+
+            default: // Raw
+                _image.sprite = _data.RawSprite;
                 break;
         }
     }

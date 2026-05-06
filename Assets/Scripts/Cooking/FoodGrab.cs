@@ -137,7 +137,6 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
                 {
                     if (plate.AddIngredient(info)) 
                     {
-                        //plate.AddIngredient(info);
                         plate.PrintIngredients();
                         foundValidDrop = true;
                         break;

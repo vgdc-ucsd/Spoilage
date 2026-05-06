@@ -18,6 +18,8 @@ public class CuttingBoard : ManualStation
     {
         base.OnPlaceFood(food);
 
+        if (_currentFood == null || _currentFood.IngredientInstance == null) return;
+
         Debug.Log("Food on cutting board");
 
         if (_currentFood.IngredientInstance.CurrentChoppedState == ChoppedState.Chopped)
@@ -29,6 +31,9 @@ public class CuttingBoard : ManualStation
 
     public override void OnAction()
     {
+        Debug.Log($"Action triggered on {gameObject.name}. Current Food: {(_currentFood != null ? _currentFood.name : "NULL")}");
+        if (_currentFood == null) return;
+
         //dont cut if alr chopped 
         if (_currentFood.IngredientInstance.CurrentChoppedState == ChoppedState.Chopped)
         {

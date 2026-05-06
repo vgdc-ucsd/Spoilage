@@ -907,7 +907,7 @@ MonoBehaviour:
   _activeSprite: {fileID: 21300000, guid: a51c3e87ec1b57144b916ab774c8ac30, type: 3}
   _targetState: 2
   _canOvercook: 0
-  _overcookedState: 5
+  _overcookedState: 2
 --- !u!114 &901675405
 MonoBehaviour:
   m_ObjectHideFlags: 0
