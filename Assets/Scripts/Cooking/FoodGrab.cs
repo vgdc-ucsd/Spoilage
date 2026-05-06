@@ -91,18 +91,19 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
         if (_spawner != null)
         {
+            _spawner.ClearCurrentFood(this);
             _spawner.SpawnFood();
             _spawner = null;
         }
 
-        if (_spawner != null)
+        /*if (_spawner != null)
         {
             FoodSpawner oldSpawner = _spawner;
             _spawner = null;
 
             oldSpawner.ClearCurrentFood(this);
             oldSpawner.SpawnFood();
-        }
+        }*/
 
         return true;
     }
