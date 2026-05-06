@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class CookingStation : MonoBehaviour
 {
     [Header("Base Station Settings")]
 
     // These properties are used to change the station's appearance when being used
-    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Image _stationImage;
     [SerializeField] private Sprite _defaultSprite;
     [SerializeField] private Sprite _activeSprite;
 
@@ -15,7 +16,7 @@ public class CookingStation : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public virtual void Start()
     {
-        _spriteRenderer.sprite = _defaultSprite;
+        _stationImage.sprite = _defaultSprite;
     }
 
     // These virtual methods allow child scripts to add their own unique logic
@@ -37,9 +38,9 @@ public class CookingStation : MonoBehaviour
 
     public void SetSpriteActive(bool isActive)
     {
-        if (_spriteRenderer == null)
+        if (_stationImage == null)
         {
-            Debug.LogWarning("SpriteRenderer reference is missing!");
+            Debug.LogWarning("Image reference is missing!");
             return;
         }
 
@@ -49,6 +50,6 @@ public class CookingStation : MonoBehaviour
             return;
         }
 
-        _spriteRenderer.sprite = isActive ? _activeSprite : _defaultSprite;
+        _stationImage.sprite = isActive ? _activeSprite : _defaultSprite;
     }
 }

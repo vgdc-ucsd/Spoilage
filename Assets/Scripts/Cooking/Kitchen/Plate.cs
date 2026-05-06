@@ -1,40 +1,46 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class Plate : MonoBehaviour
 {
     [SerializeField] private List<IngredientObject> _ingredients = new List<IngredientObject>();
 
     [SerializeField] private Transform _stackPoint;
-    [SerializeField] private float _stackOffset = 0.1f;
+    [SerializeField] private float _stackOffset = 20f;
     
 
     public void AddIngredient(IngredientObject ingredient)
     {
-        Debug.Log("AddIngredient was just called for: " + ingredient.name);
-        FoodGrab grab = ingredient.GetComponent<FoodGrab>();
-
         if (ingredient == null) return;
 
+        Debug.Log("AddIngredient was just called for: " + ingredient.name);
+
+        if (_ingredients.Contains(ingredient)) {
+            Debug.Log("Duplicate detected, skipping: " + ingredient.name);
+            return;
+        }
+
+        _ingredients.Add(ingredient);
+
+        FoodGrab grab = ingredient.GetComponent<FoodGrab>();
         if (grab != null)
         {
             grab.LockToPlate();
         }
 
-        if (_ingredients.Contains(ingredient))
-            return;
+        RectTransform rect = ingredient.GetComponent<RectTransform>();
+        rect.SetParent(_stackPoint);
 
-        _ingredients.Add(ingredient);
-
-        ingredient.transform.SetParent(_stackPoint);
-
-        Vector3 position = _stackPoint.position;
+        Vector2 position = Vector2.zero;
         position.y += _stackOffset * (_ingredients.Count - 1);
+        rect.anchoredPosition = position;
 
-        SpriteRenderer sr = ingredient.GetComponent<SpriteRenderer>();
-        sr.sortingOrder = _ingredients.Count;
-
-        ingredient.transform.position = position;
+        Image img = ingredient.GetComponent<Image>();
+        if (img != null)
+        {
+            rect.SetAsLastSibling();
+        }
     }
 
     public List<IngredientObject> GetIngredients()

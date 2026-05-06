@@ -1,7 +1,7 @@
-﻿using UnityEngine.InputSystem;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class FoodGrab : MonoBehaviour
+public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private bool _hasHomePosition;
     private bool _isPlaced = false;
@@ -13,7 +13,42 @@ public class FoodGrab : MonoBehaviour
     private CookingStation _activeStation;
     private CookingStation _returnStation;
 
-    public static bool CanMoveFood = false;
+    private RectTransform _rectTransform;
+    private Canvas _canvas;
+
+    public static bool CanMoveFood = true;
+
+    private void Awake()
+    {
+        _rectTransform = GetComponent<RectTransform>();
+        _canvas = GetComponentInParent<Canvas>();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        TryGrab();
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if (!CanMoveFood || _isPlaced) return;
+
+        TryGrab();
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        if (!CanMoveFood || _isPlaced) return;
+
+        _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        if (!CanMoveFood || _isPlaced) return;
+
+        Drop();
+    }
 
     public void SetHomePosition(Vector3 position)
     {
@@ -76,21 +111,6 @@ public class FoodGrab : MonoBehaviour
     {
         _spawner = spawner;
     }
-
-    private void OnMouseDown()
-    {
-        // Handled in TryGrab for the new logic
-    }
-
-    public void UpdateDragPosition()
-    {
-        if (!CanMoveFood || _isPlaced) return;
-
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        // Z -3 keeps food visually above appliances
-        transform.position = new Vector3(mousePos.x, mousePos.y, -3f);
-    }
-
     public void Drop()
     {
         if (_isPlaced) return;
@@ -103,6 +123,10 @@ public class FoodGrab : MonoBehaviour
         {
             Debug.Log("Food dropped over: " + hit.gameObject.name);
 
+            FoodGrab otherFood = hit.GetComponentInParent<FoodGrab>();
+            if (otherFood != null && otherFood != this && otherFood._isPlaced)
+                continue;
+
             // --- 1. SCAN FOR PLATE OR TRASH OR APPLIANCE ---
             TrashCan trash = hit.GetComponentInParent<TrashCan>();
             if (trash != null)
@@ -112,21 +136,18 @@ public class FoodGrab : MonoBehaviour
             }
 
             // This looks for the Plate script anywhere on the object we hit or its parents
-            Plate plate = hit.GetComponentInParent<Plate>() ?? hit.GetComponentInChildren<Plate>();
+            Plate plate = hit.GetComponentInParent<Plate>();
 
             if (plate != null)
             {
                 Debug.Log("!!! PLATE DETECTED !!!"); // Look for this in the console!
                 IngredientObject info = GetComponent<IngredientObject>();
-
                 if (info != null)
                 {
                     plate.AddIngredient(info);
-
-                    transform.position = _plateSpot != null ? _plateSpot.position : hit.transform.position;
-                    LockToPlate();
                     plate.PrintIngredients();
                     foundValidDrop = true;
+                    break;
                 }
             }
 

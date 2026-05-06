@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InteractManager : MonoBehaviour
@@ -69,3 +69,4 @@ public class InteractManager : MonoBehaviour
         }
     }
 }
+*/
