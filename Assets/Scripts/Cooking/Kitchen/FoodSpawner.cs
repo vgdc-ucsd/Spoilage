@@ -25,6 +25,7 @@ public class FoodSpawner : MonoBehaviour
         if (_currentFood != null)
         {
             _currentFood.SetSpawner(this);
+            _currentFood.SetCameFromFridge(true);
             _currentFood.SetHomePosition(_spawnPoint.position);
         }
     }

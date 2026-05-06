@@ -60,7 +60,6 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     {
         _cameFromFridge = value;
     }
-
     public bool TryGrab()
     {
         Debug.Log($"TryGrab called | CanMove: {CanMoveFood} | isPlaced: {_isPlaced}");
@@ -95,15 +94,6 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             _spawner.SpawnFood();
             _spawner = null;
         }
-
-        /*if (_spawner != null)
-        {
-            FoodSpawner oldSpawner = _spawner;
-            _spawner = null;
-
-            oldSpawner.ClearCurrentFood(this);
-            oldSpawner.SpawnFood();
-        }*/
 
         return true;
     }
@@ -145,10 +135,18 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
                 IngredientObject info = GetComponent<IngredientObject>();
                 if (info != null)
                 {
-                    plate.AddIngredient(info);
-                    plate.PrintIngredients();
-                    foundValidDrop = true;
-                    break;
+                    if (plate.AddIngredient(info)) 
+                    {
+                        //plate.AddIngredient(info);
+                        plate.PrintIngredients();
+                        foundValidDrop = true;
+                        break;
+                    }
+                    else
+                    {
+                        foundValidDrop = false;
+                        break;
+                    }
                 }
             }
 
@@ -203,6 +201,13 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             info.IngredientInstance != null &&
             info.IngredientInstance.Data.NeedsCooking &&
             info.IngredientInstance.CurrentCookState == CookState.Raw;
+        
+        if (_cameFromFridge || _spawner == null) 
+        {
+            Debug.Log("Duplicate or invalid fridge item, destroying.");
+            Destroy(gameObject); 
+            return;
+        }
 
         if (_returnStation != null && stillNeedsCooking)
         {

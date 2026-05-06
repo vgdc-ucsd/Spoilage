@@ -10,15 +10,19 @@ public class Plate : MonoBehaviour
     [SerializeField] private float _stackOffset = 20f;
     
 
-    public void AddIngredient(IngredientObject ingredient)
+    public bool AddIngredient(IngredientObject ingredient)
     {
-        if (ingredient == null) return;
+        if (ingredient == null) return false;
 
         Debug.Log("AddIngredient was just called for: " + ingredient.name);
 
-        if (_ingredients.Contains(ingredient)) {
-            Debug.Log("Duplicate detected, skipping: " + ingredient.name);
-            return;
+        foreach (IngredientObject existing in _ingredients)
+        {
+            if (existing.IngredientInstance.Data.Name == ingredient.IngredientInstance.Data.Name)
+            {
+                Debug.Log("Duplicate Ingredient Type detected: " + ingredient.IngredientInstance.Data.Name);
+                return false;
+            }
         }
 
         _ingredients.Add(ingredient);
@@ -27,6 +31,7 @@ public class Plate : MonoBehaviour
         if (grab != null)
         {
             grab.LockToPlate();
+            if (ingredient.TryGetComponent<Collider2D>(out var col)) col.enabled = false;
         }
 
         RectTransform rect = ingredient.GetComponent<RectTransform>();
@@ -41,6 +46,8 @@ public class Plate : MonoBehaviour
         {
             rect.SetAsLastSibling();
         }
+
+        return true;
     }
 
     public List<IngredientObject> GetIngredients()
