@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections.Generic;
 public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private bool _hasHomePosition;
@@ -77,13 +78,17 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     }
     public bool TryGrab()
     {
-        Debug.Log($"TryGrab called | CanMove: {CanMoveFood} | isPlaced: {_isPlaced}");
         if (!CanMoveFood || _isPlaced) return false;
 
-        // Check if we are on a tile and remove from list if so
-        //KitchenTile tile = GetTileAtPosition(transform.position);
-        Vector2 worldPos = Camera.main.ScreenToWorldPoint(_rectTransform.position);
-        KitchenTile tile = GetTileAtPosition(worldPos);
+        PointerEventData pointerData = new PointerEventData(EventSystem.current)
+        {
+            position = RectTransformUtility.WorldToScreenPoint(null, _rectTransform.position)
+        };
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, results);
+
+        KitchenTile tile = GetTileFromRaycast(results);
 
         if (tile != null)
         {
@@ -120,102 +125,80 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     {
         _spawner = spawner;
     }
+ 
     public void Drop(PointerEventData eventData)
     {
         if (_isPlaced) return;
+        if (_foodImage != null) _foodImage.raycastTarget = true;
 
-        // INCREASE the radius to 1.0f to make it easier to hit the plate
-        //Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.0f);
-        GameObject hit = eventData.pointerCurrentRaycast.gameObject;
         bool foundValidDrop = false;
 
-        Vector2 worldPos = Camera.main.ScreenToWorldPoint(eventData.position);
+        // Use UI raycast results — all objects the pointer passed over
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
 
-        //foreach (Collider2D hit in hits)
-        if (hit != null)
+        Debug.Log($"UI Raycast hits: {results.Count}");
+        foreach (var r in results)
+            Debug.Log($"  hit: {r.gameObject.name}");
+
+        foreach (var result in results)
         {
-            Debug.Log("Food dropped over: " + hit.gameObject.name);
+            GameObject hitObj = result.gameObject;
 
-            /*FoodGrab otherFood = hit.GetComponentInParent<FoodGrab>();
-            if (otherFood != null && otherFood != this && otherFood._isPlaced)
-                continue;*/
-
-            // --- 1. SCAN FOR PLATE OR TRASH OR APPLIANCE ---
-            TrashCan trash = hit.GetComponentInParent<TrashCan>();
+            TrashCan trash = hitObj.GetComponentInParent<TrashCan>();
             if (trash != null)
             {
                 trash.Trash(this);
                 foundValidDrop = true;
+                break;
             }
 
-            // This looks for the Plate script anywhere on the object we hit or its parents
-            Plate plate = hit.GetComponentInParent<Plate>();
-
+            Plate plate = hitObj.GetComponentInParent<Plate>();
             if (plate != null)
             {
-                Debug.Log("!!! PLATE DETECTED !!!"); // Look for this in the console!
+                Debug.Log("Plate found!");
                 IngredientObject info = GetComponent<IngredientObject>();
-                if (info != null)
+                if (info != null && plate.AddIngredient(info))
                 {
-                    if (plate.AddIngredient(info)) 
-                    {
-                        plate.PrintIngredients();
-                        _isPlaced = true;
-
-                        _rectTransform.SetParent(plate.transform);
-                        _rectTransform.anchoredPosition = Vector2.zero;
-
-                        foundValidDrop = true;
-                        //break;
-                    }
-                    else
-                    {
-                        foundValidDrop = false;
-                        //break;
-                    }
+                    plate.PrintIngredients();
+                    _isPlaced = true;
+                    _rectTransform.SetParent(plate.transform);
+                    _rectTransform.anchoredPosition = Vector2.zero;
+                    foundValidDrop = true;
+                    break;
                 }
             }
 
-            CookingStation app = hit.GetComponentInParent<CookingStation>();
+            CookingStation app = hitObj.GetComponentInParent<CookingStation>();
             if (app != null)
             {
                 _activeStation = app;
-                //transform.position = hit.transform.position;
                 _rectTransform.SetParent(app.transform, false);
-
-                _rectTransform.anchoredPosition =Vector2.zero;
-
+                _rectTransform.anchoredPosition = Vector2.zero;
                 _activeStation.OnPlaceFood(this);
-
-                KitchenTile tile = GetTileAtPosition(worldPos);
-                if (tile != null) tile.PlaceObject(gameObject);
                 foundValidDrop = true;
+                break;
             }
         }
 
         if (foundValidDrop)
         {
-            // always spawn a new food item if this came from the fridge, regardless of where it was dropped
             if (_cameFromFridge)
             {
                 FoodSpawner foodSpawner = FindAnyObjectByType<FoodSpawner>();
-
-                if (foodSpawner != null)
-                {
-                    foodSpawner.SpawnFood();
-                }
-
+                if (foodSpawner != null) foodSpawner.SpawnFood();
                 _cameFromFridge = false;
             }
             return;
         }
 
-        // --- 2. TILE-BASED FALLBACK ---
-        KitchenTile targetTile = GetTileAtPosition(worldPos);
+        KitchenTile targetTile = GetTileFromRaycast(results);
         if (targetTile != null && targetTile.CanPlaceObject("Food", gameObject))
         {
             targetTile.PlaceObject(gameObject);
-            _rectTransform.position = targetTile.transform.position;
+            _rectTransform.SetParent(targetTile.GetComponent<RectTransform>() != null 
+                ? targetTile.transform : _originalParent, false);
+            _rectTransform.anchoredPosition = Vector2.zero;
             return;
         }
 
@@ -232,7 +215,15 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             info.IngredientInstance.Data.NeedsCooking &&
             info.IngredientInstance.CurrentCookState == CookState.Raw;
         
-        if (_cameFromFridge || _spawner == null) 
+        if (_cameFromFridge)
+        {
+            _rectTransform.SetParent(_originalParent);
+            _rectTransform.anchoredPosition = _originalPosition;
+            Debug.Log("Invalid drop, returning fridge food home.");
+            return;
+        }
+
+        if (_spawner == null) 
         {
             Debug.Log("Duplicate or invalid fridge item, destroying.");
             Destroy(gameObject); 
@@ -260,12 +251,12 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         _returnStation = null;
     }
 
-    private KitchenTile GetTileAtPosition(Vector2 pos)
+    private KitchenTile GetTileFromRaycast(List<RaycastResult> results)
     {
-        Collider2D[] hits = Physics2D.OverlapPointAll(pos);
-        foreach (var hit in hits)
+        foreach (var result in results)
         {
-            if (hit.TryGetComponent(out KitchenTile tile)) return tile;
+            KitchenTile tile = result.gameObject.GetComponentInParent<KitchenTile>();
+            if (tile != null) return tile;
         }
         return null;
     }
