@@ -211,9 +211,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
         bool stillNeedsCooking =
             info != null &&
-            info.IngredientInstance != null &&
-            info.IngredientInstance.Data.NeedsCooking &&
-            info.IngredientInstance.CurrentCookState == CookState.Raw;
+            info.IngredientInstance != null;
         
         if (_cameFromFridge)
         {

@@ -8,11 +8,16 @@ public class AutomaticStation : CookingStation
 
     // [SerializeField] private Timer _timer;
 
-    // This basically tells us the station if it's a toaster (Toasted), grill (Grilled), etc.
-    [SerializeField] private CookState _targetState;
-    // If true, the station can continue cooking after reaching the target state
+    // This basically tells us the station if it's a toaster, grill, etc.
+    [SerializeField] private IngredientData _requiredInput;
+
+    [SerializeField] private IngredientData _outputIngredient;
+
+    // If true, the station can continue cooking after reaching the target ingredient
     [SerializeField] private bool _canOvercook = false;
-    [SerializeField] private CookState _overcookedState;
+
+    [SerializeField] private IngredientData _overcookedIngredient;
+
     private bool _isCooking = false;
 
     public override void Start()
@@ -43,6 +48,18 @@ public class AutomaticStation : CookingStation
             return;
         }
 
+        if (_outputIngredient == null)
+        {
+            Debug.LogError("Output ingredient is missing on " + gameObject.name);
+            return;
+        }
+
+        if (_requiredInput != null && _currentFood.IngredientInstance.Data != _requiredInput)
+        {
+            Debug.Log($"{gameObject.name} cannot process {_currentFood.IngredientInstance.Data.Name}");
+            return;
+        }
+
         // If the timer has time left and it's less than the total cook time, resume it.
         // if (_timer.TimeRemaining > 0 && _timer.TimeRemaining < _currentFood.IngredientInstance.Data.CookTime)
         // {
@@ -65,11 +82,6 @@ public class AutomaticStation : CookingStation
             return;
         }
 
-        if (_currentIngredientBehaviour != null)
-        {
-            _currentIngredientBehaviour.RemoveFromHeat();
-        }
-
         if (_isCooking)
         {
             _isCooking = false;
@@ -85,8 +97,7 @@ public class AutomaticStation : CookingStation
     public virtual void StartCooking()
     {
         _isCooking = true;
-        // _currentFood.IngredientInstance.CurrentCookState = CookState.Raw;
-        _currentIngredientBehaviour.PutOnHeat();
+
         // _timer.StartTimer(_currentFood.IngredientInstance.Data.CookTime);
         Debug.Log("Started cooking");
     }
@@ -98,7 +109,7 @@ public class AutomaticStation : CookingStation
 
         // if (_timer.IsFinished())
         // {
-        //     if (_canOvercook && _currentFood.IngredientInstance.CurrentCookState == _targetState)
+        //     if (_canOvercook && _currentFood.IngredientInstance.Data == _outputIngredient)
         //     {
         //         FinishOvercooking();
         //         Debug.Log("Food overcooked!");
@@ -114,20 +125,33 @@ public class AutomaticStation : CookingStation
     public virtual void FinishCooking()
     {
         _isCooking = false;
+
         if (_currentFood != null)
         {
-            _currentFood.IngredientInstance.CurrentCookState = _targetState;
-            Debug.Log($"Cooking Finished! {_currentFood.IngredientInstance.Data.Name} is now {_targetState}!");
+            _currentFood.ChangeIngredient(_outputIngredient);
+            Debug.Log($"Cooking Finished! {_currentFood.IngredientInstance.Data.Name} is now {_outputIngredient.Name}!");
         }
     }
 
     public virtual void FinishOvercooking()
     {
         _isCooking = false;
+
         if (_currentFood != null)
         {
-            _currentFood.IngredientInstance.CurrentCookState = _overcookedState;
-            Debug.Log($"Food overcooked! {_currentFood.IngredientInstance.Data.Name} is now {_overcookedState}!");
+            if (!_canOvercook)
+            {
+                return;
+            }
+
+            if (_overcookedIngredient == null)
+            {
+                Debug.LogWarning("Overcooked ingredient is missing on " + gameObject.name);
+                return;
+            }
+
+            _currentFood.ChangeIngredient(_overcookedIngredient);
+            Debug.Log($"Food overcooked! {_currentFood.IngredientInstance.Data.Name} is now {_overcookedIngredient.Name}!");
         }
     }
 }
