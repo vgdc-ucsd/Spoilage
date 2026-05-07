@@ -24,26 +24,26 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         _canvas = GetComponentInParent<Canvas>();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
         TryGrab();
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
         if (!CanMoveFood || _isPlaced) return;
 
         TryGrab();
     }
 
-    public void OnDrag(PointerEventData eventData)
+    void IDragHandler.OnDrag(PointerEventData eventData)
     {
         if (!CanMoveFood || _isPlaced) return;
 
         _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    void IEndDragHandler.OnEndDrag(PointerEventData eventData)
     {
         if (!CanMoveFood || _isPlaced) return;
 
