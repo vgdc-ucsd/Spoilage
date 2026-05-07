@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-
+using UnityEngine.UI;
 public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private bool _hasHomePosition;
@@ -15,6 +15,9 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
     private RectTransform _rectTransform;
     private Canvas _canvas;
+    private Image _foodImage;
+    private Vector2 _originalPosition;
+    private Transform _originalParent;
 
     public static bool CanMoveFood = true;
 
@@ -22,6 +25,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     {
         _rectTransform = GetComponent<RectTransform>();
         _canvas = GetComponentInParent<Canvas>();
+        _foodImage = GetComponent<Image>();
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
@@ -32,6 +36,15 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
         if (!CanMoveFood || _isPlaced) return;
+
+        _originalParent = _rectTransform.parent;
+        _originalPosition = _rectTransform.anchoredPosition;
+
+        // bring object to top while dragging
+        _rectTransform.SetParent(_canvas.transform);
+        _rectTransform.SetAsLastSibling();
+
+        if (_foodImage != null) _foodImage.raycastTarget = false;
 
         TryGrab();
     }
@@ -47,7 +60,9 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     {
         if (!CanMoveFood || _isPlaced) return;
 
-        Drop();
+        if (_foodImage != null) _foodImage.raycastTarget = true;
+
+        Drop(eventData);
     }
 
     public void SetHomePosition(Vector3 position)
@@ -66,7 +81,10 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         if (!CanMoveFood || _isPlaced) return false;
 
         // Check if we are on a tile and remove from list if so
-        KitchenTile tile = GetTileAtPosition(transform.position);
+        //KitchenTile tile = GetTileAtPosition(transform.position);
+        Vector2 worldPos = Camera.main.ScreenToWorldPoint(_rectTransform.position);
+        KitchenTile tile = GetTileAtPosition(worldPos);
+
         if (tile != null)
         {
             if (tile.GetTopObject() != gameObject) return false;
@@ -102,21 +120,25 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     {
         _spawner = spawner;
     }
-    public void Drop()
+    public void Drop(PointerEventData eventData)
     {
         if (_isPlaced) return;
 
         // INCREASE the radius to 1.0f to make it easier to hit the plate
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.0f);
+        //Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.0f);
+        GameObject hit = eventData.pointerCurrentRaycast.gameObject;
         bool foundValidDrop = false;
 
-        foreach (Collider2D hit in hits)
+        Vector2 worldPos = Camera.main.ScreenToWorldPoint(eventData.position);
+
+        //foreach (Collider2D hit in hits)
+        if (hit != null)
         {
             Debug.Log("Food dropped over: " + hit.gameObject.name);
 
-            FoodGrab otherFood = hit.GetComponentInParent<FoodGrab>();
+            /*FoodGrab otherFood = hit.GetComponentInParent<FoodGrab>();
             if (otherFood != null && otherFood != this && otherFood._isPlaced)
-                continue;
+                continue;*/
 
             // --- 1. SCAN FOR PLATE OR TRASH OR APPLIANCE ---
             TrashCan trash = hit.GetComponentInParent<TrashCan>();
@@ -138,13 +160,18 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
                     if (plate.AddIngredient(info)) 
                     {
                         plate.PrintIngredients();
+                        _isPlaced = true;
+
+                        _rectTransform.SetParent(plate.transform);
+                        _rectTransform.anchoredPosition = Vector2.zero;
+
                         foundValidDrop = true;
-                        break;
+                        //break;
                     }
                     else
                     {
                         foundValidDrop = false;
-                        break;
+                        //break;
                     }
                 }
             }
@@ -153,10 +180,14 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             if (app != null)
             {
                 _activeStation = app;
-                transform.position = hit.transform.position;
+                //transform.position = hit.transform.position;
+                _rectTransform.SetParent(app.transform, false);
+
+                _rectTransform.anchoredPosition =Vector2.zero;
+
                 _activeStation.OnPlaceFood(this);
 
-                KitchenTile tile = GetTileAtPosition(transform.position);
+                KitchenTile tile = GetTileAtPosition(worldPos);
                 if (tile != null) tile.PlaceObject(gameObject);
                 foundValidDrop = true;
             }
@@ -180,11 +211,11 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         }
 
         // --- 2. TILE-BASED FALLBACK ---
-        KitchenTile targetTile = GetTileAtPosition(transform.position);
+        KitchenTile targetTile = GetTileAtPosition(worldPos);
         if (targetTile != null && targetTile.CanPlaceObject("Food", gameObject))
         {
             targetTile.PlaceObject(gameObject);
-            transform.position = targetTile.transform.position;
+            _rectTransform.position = targetTile.transform.position;
             return;
         }
 
@@ -210,7 +241,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
         if (_returnStation != null && stillNeedsCooking)
         {
-            transform.position = _returnPosition;
+            _rectTransform.position = _returnPosition;
             _activeStation = _returnStation;
             _activeStation.OnPlaceFood(this);
 
@@ -220,7 +251,8 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
         if (_hasHomePosition)
         {
-            transform.position = _homePosition;
+            _rectTransform.SetParent(_originalParent);
+            _rectTransform.anchoredPosition = _originalPosition;
             Debug.Log("Missed drop, returning food to fridge.");
         }
 
