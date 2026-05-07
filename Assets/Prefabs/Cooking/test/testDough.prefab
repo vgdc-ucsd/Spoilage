@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef68097f25d584f40bdea1f342406a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IngredientObject
-  _data: {fileID: 11400000, guid: 3a59d2112d65e4cbd8ce7a02f697553c, type: 2}
+  _data: {fileID: 11400000, guid: 90af2ddfb3955a5458cd02072a056aaf, type: 2}
 --- !u!114 &4213304428832007392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,8 +142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IngredientBehaviour
   _enableDebugLogs: 1
-  _cookingTimer: {fileID: 0}
-  _cookingTimerFill: {fileID: 0}
   _spoilingTimer: {fileID: 0}
   _spoilingTimerFill: {fileID: 0}
 --- !u!58 &5196895208682993700

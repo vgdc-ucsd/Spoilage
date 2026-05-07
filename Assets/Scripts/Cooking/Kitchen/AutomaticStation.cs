@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AutomaticStation : CookingStation
 {
@@ -9,14 +10,7 @@ public class AutomaticStation : CookingStation
     // [SerializeField] private Timer _timer;
 
     // This basically tells us the station if it's a toaster, grill, etc.
-    [SerializeField] private IngredientData _requiredInput;
-
-    [SerializeField] private IngredientData _outputIngredient;
-
-    // If true, the station can continue cooking after reaching the target ingredient
-    [SerializeField] private bool _canOvercook = false;
-
-    [SerializeField] private IngredientData _overcookedIngredient;
+    [SerializeField] private IngredientTransform[] _transforms;
 
     private bool _isCooking = false;
 
@@ -48,15 +42,18 @@ public class AutomaticStation : CookingStation
             return;
         }
 
-        if (_outputIngredient == null)
+        IngredientData currentData = _currentFood.IngredientInstance.Data;
+
+        if (!TryGetTransform(currentData, out IngredientTransform transform) &&
+            !TryGetOvercookTransform(currentData, out transform))
         {
-            Debug.LogError("Output ingredient is missing on " + gameObject.name);
+            Debug.Log($"{gameObject.name} cannot process {currentData.Name}");
             return;
         }
 
-        if (_requiredInput != null && _currentFood.IngredientInstance.Data != _requiredInput)
+        if (transform.output == null)
         {
-            Debug.Log($"{gameObject.name} cannot process {_currentFood.IngredientInstance.Data.Name}");
+            Debug.LogError("Output ingredient is missing on " + gameObject.name);
             return;
         }
 
@@ -102,34 +99,75 @@ public class AutomaticStation : CookingStation
         Debug.Log("Started cooking");
     }
 
+    // public virtual void Update()
+    // {
+    //     if (!_isCooking || _currentFood == null || _timer == null) return;
+    //     if (!_isCooking || _currentFood == null) return;
+
+    //     if (_timer.IsFinished())
+    //     {
+    //         if (_canOvercook && _currentFood.IngredientInstance.Data == _outputIngredient)
+    //         {
+    //             FinishOvercooking();
+    //             Debug.Log("Food overcooked!");
+    //         }
+    //         else
+    //         {
+    //             FinishCooking();
+    //             Debug.Log("Food cooked!");
+    //         }
+    //     }
+    // }
+
+    // TEMP TEST: press T to  finish cooking
     public virtual void Update()
     {
-        // if (!_isCooking || _currentFood == null || _timer == null) return;
         if (!_isCooking || _currentFood == null) return;
 
-        // if (_timer.IsFinished())
-        // {
-        //     if (_canOvercook && _currentFood.IngredientInstance.Data == _outputIngredient)
-        //     {
-        //         FinishOvercooking();
-        //         Debug.Log("Food overcooked!");
-        //     }
-        //     else
-        //     {
-        //         FinishCooking();
-        //         Debug.Log("Food cooked!");
-        //     }
-        // }
+        // TEMP TEST: press T to instantly finish cooking
+        if (Keyboard.current != null && Keyboard.current.tKey.wasPressedThisFrame)
+        {
+            IngredientData currentData = _currentFood.IngredientInstance.Data;
+
+            if (TryGetOvercookTransform(currentData, out IngredientTransform transform) &&
+                transform.canOvercook &&
+                transform.overcookedOutput != null)
+            {
+                FinishOvercooking();
+                Debug.Log("Food overcooked!");
+            }
+            else
+            {
+                FinishCooking();
+                Debug.Log("Food cooked by temp T input!");
+            }
+        }
     }
 
     public virtual void FinishCooking()
     {
-        _isCooking = false;
-
         if (_currentFood != null)
         {
-            _currentFood.ChangeIngredient(_outputIngredient);
-            Debug.Log($"Cooking Finished! {_currentFood.IngredientInstance.Data.Name} is now {_outputIngredient.Name}!");
+            IngredientData currentData = _currentFood.IngredientInstance.Data;
+
+            if (!TryGetTransform(currentData, out IngredientTransform transform))
+            {
+                Debug.LogWarning($"{gameObject.name} has no transform for {currentData.Name}");
+                _isCooking = false;
+                return;
+            }
+
+            if (transform.output == null)
+            {
+                Debug.LogError("Output ingredient is missing on " + gameObject.name);
+                _isCooking = false;
+                return;
+            }
+
+            _currentFood.ChangeIngredient(transform.output);
+            Debug.Log($"Cooking Finished! {currentData.Name} is now {transform.output.Name}!");
+
+            _isCooking = transform.canOvercook && transform.overcookedOutput != null;
         }
     }
 
@@ -139,19 +177,57 @@ public class AutomaticStation : CookingStation
 
         if (_currentFood != null)
         {
-            if (!_canOvercook)
+            IngredientData currentData = _currentFood.IngredientInstance.Data;
+
+            if (!TryGetOvercookTransform(currentData, out IngredientTransform transform))
+            {
+                Debug.LogWarning($"{gameObject.name} has no overcook transform for {currentData.Name}");
+                return;
+            }
+
+            if (!transform.canOvercook)
             {
                 return;
             }
 
-            if (_overcookedIngredient == null)
+            if (transform.overcookedOutput == null)
             {
                 Debug.LogWarning("Overcooked ingredient is missing on " + gameObject.name);
                 return;
             }
 
-            _currentFood.ChangeIngredient(_overcookedIngredient);
-            Debug.Log($"Food overcooked! {_currentFood.IngredientInstance.Data.Name} is now {_overcookedIngredient.Name}!");
+            _currentFood.ChangeIngredient(transform.overcookedOutput);
+            Debug.Log($"Food overcooked! {currentData.Name} is now {transform.overcookedOutput.Name}!");
         }
+    }
+
+    private bool TryGetTransform(IngredientData input, out IngredientTransform matchingTransform)
+    {
+        foreach (IngredientTransform transform in _transforms)
+        {
+            if (transform.input == input)
+            {
+                matchingTransform = transform;
+                return true;
+            }
+        }
+
+        matchingTransform = null;
+        return false;
+    }
+
+    private bool TryGetOvercookTransform(IngredientData input, out IngredientTransform matchingTransform)
+    {
+        foreach (IngredientTransform transform in _transforms)
+        {
+            if (transform.output == input)
+            {
+                matchingTransform = transform;
+                return true;
+            }
+        }
+
+        matchingTransform = null;
+        return false;
     }
 }
