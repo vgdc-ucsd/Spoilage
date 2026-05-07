@@ -4,7 +4,6 @@ public class ManualStation : CookingStation
 {
     [Header("Cut Settings")]
     [SerializeField] protected int _clicksPerState = 3;
-    [SerializeField] private IngredientTransform[] _transforms;
     // TODO: create popup button that when clicked, calls OnAction()
 
     protected int _currentClicks;
@@ -30,59 +29,6 @@ public class ManualStation : CookingStation
 
     public virtual void OnAction()
     {
-        if (_currentFood == null)
-        {
-            Debug.LogWarning("No food on station.");
-            return;
-        }
-
-        if (_currentFood.IngredientInstance == null || _currentFood.IngredientInstance.Data == null)
-        {
-            Debug.LogError("Food data is missing on " + _currentFood.name);
-            return;
-        }
-
         _currentClicks++;
-
-        if (_currentClicks < _clicksPerState)
-        {
-            return;
-        }
-
-        IngredientData currentData = _currentFood.IngredientInstance.Data;
-
-        if (!TryGetTransform(currentData, out IngredientTransform transform))
-        {
-            Debug.Log($"{gameObject.name} cannot process {currentData.Name}");
-            _currentClicks = 0;
-            return;
-        }
-
-        if (transform.output == null)
-        {
-            Debug.LogError("Output ingredient is missing on " + gameObject.name);
-            _currentClicks = 0;
-            return;
-        }
-
-        _currentFood.ChangeIngredient(transform.output);
-        Debug.Log($"Manual action finished! {currentData.Name} is now {transform.output.Name}!");
-
-        _currentClicks = 0;
-    }
-
-    private bool TryGetTransform(IngredientData input, out IngredientTransform matchingTransform)
-    {
-        foreach (IngredientTransform transform in _transforms)
-        {
-            if (transform.input == input)
-            {
-                matchingTransform = transform;
-                return true;
-            }
-        }
-
-        matchingTransform = null;
-        return false;
     }
 }
