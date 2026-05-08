@@ -168,7 +168,7 @@ public class PatienceBar : MonoBehaviour
     /// <returns>Min as float</returns>
     public float getPatienceMin()
     {
-        return _slider.maxValue;
+        return _slider.minValue;
     }
 
     /// <summary>
@@ -192,10 +192,10 @@ public class PatienceBar : MonoBehaviour
     /// <exception cref="ArgumentOutOfRangeException">max should be < min</exception>
     public void setPatienceMin(float min)
     {
-        if (min >= _slider.minValue)
+        if (min >= _slider.maxValue)
         {
             throw new ArgumentOutOfRangeException("Min should be less than max");
         }
-        _slider.maxValue = min;
+        _slider.minValue = min;
     }
 }
