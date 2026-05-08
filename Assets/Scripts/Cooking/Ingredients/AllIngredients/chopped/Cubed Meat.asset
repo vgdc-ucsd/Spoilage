@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
-  m_Name: Lotus Steak
+  m_Name: Cubed Meat
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  _name: Lotus Steak
+  _name: Cubed Meat
   _spoilTime: 15
-  _normalSprite: {fileID: 21300000, guid: d2cfb3b73a22aa047bcb094c6f846153, type: 3}
+  _normalSprite: {fileID: 21300000, guid: bad413df7060aa24cabacd3c8eaa2c2c, type: 3}
   _spoiledSprite: {fileID: 0}

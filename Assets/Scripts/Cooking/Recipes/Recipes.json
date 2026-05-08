@@ -17,18 +17,10 @@
       ]
     },
     {
-      "dishName": "Brewer On A Skewer",
-      "requiresAllSpoiled": false,
-      "ingredients": [
-        { "ingredientName": "Flatbread" },
-        { "ingredientName": "Grilled Chopped Root Vegetables" }
-      ]
-    },
-    {
       "dishName": "Cheesy Beet Bread",
       "requiresAllSpoiled": false,
       "ingredients": [
-        { "ingredientName": "Grilled Cheesy Bread" },
+        { "ingredientName": "Cheesy Bread" },
         { "ingredientName": "Boiled Root Veggies" }
       ]
     },
@@ -51,30 +43,6 @@
       ]
     },
     {
-      "dishName": "Ratenudel",
-      "requiresAllSpoiled": false,
-      "ingredients": [
-        { "ingredientName": "Grilled Cubed Meat" },
-        { "ingredientName": "Grilled Sliced Dough" },
-        { "ingredientName": "Grilled Sliced Cheese" }
-      ]
-    },
-    {
-      "dishName": "Pickled Pigeons",
-      "requiresAllSpoiled": false,
-      "ingredients": [
-        { "ingredientName": "Grilled Cubed Meat" },
-        { "ingredientName": "Sauce" }
-      ]
-    },
-    {
-      "dishName": "Unsauced Amehonpilztopf",
-      "requiresAllSpoiled": false,
-      "ingredients": [
-        { "ingredientName": "Boiled Meat + Veggies + Potatoes" }
-      ]
-    },
-    {
       "dishName": "Amehonpilztopf",
       "requiresAllSpoiled": false,
       "ingredients": [
@@ -83,11 +51,11 @@
       ]
     },
     {
-      "dishName": "Lotus Steak",
+      "dishName": "Cubed meat + sauce",
       "requiresAllSpoiled": false,
       "ingredients": [
-        { "ingredientName": "Grilled Chopped Root Vegetables" },
-        { "ingredientName": "Grilled Diced Potatoes" }
+        { "ingredientName": "Cubed Meat" },
+        { "ingredientName": "Sauce" }
       ]
     }
   ]
