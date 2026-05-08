@@ -1,23 +1,29 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AutomaticStation : CookingStation
 {
-    // IMPORTANT NOTE PLEASE READ
-    // This class will not work as intended until the timer has been implemented in the scene. For now, 
-    // all references to _timer have been commented out to prevent null reference errors
 
-    // [SerializeField] private Timer _timer;
-
-    // This basically tells us the station if it's a toaster (Toasted), grill (Grilled), etc.
+    [Header("Cooking Settings")]
+    [SerializeField] private float _cookDuration = 5f;
     [SerializeField] private CookState _targetState;
-    // If true, the station can continue cooking after reaching the target state
-    [SerializeField] private bool _canOvercook = false;
-    [SerializeField] private CookState _overcookedState;
-    private bool _isCooking = false;
+    [SerializeField] private bool _canOvercook;
+    [SerializeField] private float _overcookDuration = 5f;
+    [SerializeField] private CookState _overcookedState = CookState.Burnt;
+
+    [Header("Timer UI")]
+    [SerializeField] private GameObject _timerObject;
+    [SerializeField] private Image _timerFill;
+
+
+    private float _timer;
+    private bool _isCooking;
+    private bool _isOvercooking;
 
     public override void Start()
     {
         base.Start();
+        HideTimer();
 
         // Find the GameConsole object in the scene and get its Timer component
         // _timer = GameObject.Find("GameConsole").GetComponent<Timer>();
@@ -43,91 +49,106 @@ public class AutomaticStation : CookingStation
             return;
         }
 
-        // If the timer has time left and it's less than the total cook time, resume it.
-        // if (_timer.TimeRemaining > 0 && _timer.TimeRemaining < _currentFood.IngredientInstance.Data.CookTime)
-        // {
-        //     _isCooking = true;
-        //     _timer.ResumeTimer();
-        //     Debug.Log("Resuming timer at: " + _timer.TimeRemaining);
-        // }
-        // else
-        // {
-            StartCooking();
-        // }
+        StartCooking();
     }
 
     public override void OnRemoveFood()
     {
-        // execute any special logic before calling base to ensure the food is still accessible if needed
-
-        if (_currentFood == null)
-        {
-            return;
-        }
-
-        if (_currentIngredientBehaviour != null)
-        {
-            _currentIngredientBehaviour.RemoveFromHeat();
-        }
-
-        if (_isCooking)
-        {
-            _isCooking = false;
-            // _timer.PauseTimer();
-            // Debug.Log("Timer paused.");
-        }
-
-        _isCooking = false;
-
+        StopCooking();
         base.OnRemoveFood();
     }
 
-    public virtual void StartCooking()
+    public void StartCooking()
     {
+        _timer = 0f;
         _isCooking = true;
-        // _currentFood.IngredientInstance.CurrentCookState = CookState.Raw;
-        _currentIngredientBehaviour.PutOnHeat();
-        // _timer.StartTimer(_currentFood.IngredientInstance.Data.CookTime);
-        Debug.Log("Started cooking");
+        _isOvercooking = false;
+
+        ShowTimer();
     }
 
-    public virtual void Update()
+    private void StopCooking()
+    {
+        _isCooking = false;
+        _isOvercooking = false;
+        _timer = 0f;
+
+        HideTimer();
+    }
+
+    public  void Update()
     {
         // if (!_isCooking || _currentFood == null || _timer == null) return;
         if (!_isCooking || _currentFood == null) return;
 
-        // if (_timer.IsFinished())
-        // {
-        //     if (_canOvercook && _currentFood.IngredientInstance.CurrentCookState == _targetState)
-        //     {
-        //         FinishOvercooking();
-        //         Debug.Log("Food overcooked!");
-        //     }
-        //     else
-        //     {
-        //         FinishCooking();
-        //         Debug.Log("Food cooked!");
-        //     }
-        // }
+        _timer += Time.deltaTime;
+
+        float duration = _isOvercooking ? _overcookDuration : _cookDuration;
+        UpdateTimer(duration);
+
+        if (_timer < duration)
+        {
+            return;
+        }
+        if (_isOvercooking)
+        {
+            FinishOvercooking();
+            return;
+        }
+        FinishCooking();
     }
+
+    private void UpdateTimer(float duration)
+    {
+        if (_timerFill == null)
+        {
+            return;
+        }
+
+        float progress = _timer / duration;
+        _timerFill.fillAmount = Mathf.Clamp01(1f - progress);
+
+        if (_isOvercooking)
+        {
+            _timerFill.color = Color.red;
+        }
+    }
+
+    private void ShowTimer()
+    {
+        if (_timerObject != null)
+        {
+            _timerObject.SetActive(true);
+        }
+    }
+
+    private void HideTimer()
+    {
+        if (_timerObject != null)
+        {
+            _timerObject.SetActive(false);
+        }
+    }
+
 
     public virtual void FinishCooking()
     {
-        _isCooking = false;
-        if (_currentFood != null)
+        _currentFood.IngredientInstance.CurrentCookState = _targetState;
+
+        if (_canOvercook)
         {
-            _currentFood.IngredientInstance.CurrentCookState = _targetState;
-            Debug.Log($"Cooking Finished! {_currentFood.IngredientInstance.Data.Name} is now {_targetState}!");
+            _timer = 0f;
+            _isOvercooking = true;
+            return;
         }
+
+        StopCooking();
     }
 
     public virtual void FinishOvercooking()
     {
-        _isCooking = false;
-        if (_currentFood != null)
-        {
-            _currentFood.IngredientInstance.CurrentCookState = _overcookedState;
-            Debug.Log($"Food overcooked! {_currentFood.IngredientInstance.Data.Name} is now {_overcookedState}!");
-        }
+        _currentFood.IngredientInstance.CurrentCookState = _overcookedState;
+        Debug.Log($"Food overcooked! {_currentFood.IngredientInstance.Data.Name} is now {_overcookedState}!");
+        
     }
 }

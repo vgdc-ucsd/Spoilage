@@ -6,6 +6,8 @@
     private CookState _currentCookState;
     private ChoppedState _currentChoppedState;
     private bool _isSpoiled;
+
+    private float _spoilagePercent;
     
     protected Ingredient(IngredientData data)
     {
@@ -35,6 +37,12 @@
     {
         get => _isSpoiled;
         set => _isSpoiled = value;
+    }
+
+    public float SpoilagePercent
+    {
+        get {return _spoilagePercent; }
+        set { _spoilagePercent = value; }
     }
 }
 public enum CookState
