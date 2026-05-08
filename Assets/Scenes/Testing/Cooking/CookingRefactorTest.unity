@@ -504,9 +504,11 @@ MonoBehaviour:
   _stationImage: {fileID: 168611831}
   _defaultSprite: {fileID: 21300000, guid: b17969ae778e8034e978113c3c5865ad, type: 3}
   _activeSprite: {fileID: 21300000, guid: 946a18424ded0c84f830a92aef3bd253, type: 3}
-  _targetState: 3
-  _canOvercook: 1
-  _overcookedState: 5
+  _transforms:
+  - input: {fileID: 11400000, guid: 90af2ddfb3955a5458cd02072a056aaf, type: 2}
+    output: {fileID: 11400000, guid: 65455fdcc849235458ca3dac3a3c9384, type: 2}
+    canOvercook: 0
+    overcookedOutput: {fileID: 0}
 --- !u!61 &308743888
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1378,9 +1380,7 @@ MonoBehaviour:
   _stationImage: {fileID: 1614422874}
   _defaultSprite: {fileID: 21300000, guid: b2283a22b4499344485837f10254e4e6, type: 3}
   _activeSprite: {fileID: 21300000, guid: a51c3e87ec1b57144b916ab774c8ac30, type: 3}
-  _targetState: 2
-  _canOvercook: 0
-  _overcookedState: 2
+  _transforms: []
 --- !u!114 &901675405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1724,9 +1724,7 @@ MonoBehaviour:
   _stationImage: {fileID: 26558744}
   _defaultSprite: {fileID: 21300000, guid: 1e2b91ce16c63a649a5759518e985f51, type: 3}
   _activeSprite: {fileID: 21300000, guid: 51749189baaa87943bb759274a2d2b57, type: 3}
-  _targetState: 4
-  _canOvercook: 0
-  _overcookedState: 4
+  _transforms: []
 --- !u!114 &1087063443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1941,6 +1939,11 @@ MonoBehaviour:
   _defaultSprite: {fileID: 21300000, guid: 643cebbca9ff0c5489727d467358ea77, type: 3}
   _activeSprite: {fileID: 21300000, guid: 643cebbca9ff0c5489727d467358ea77, type: 3}
   _clicksPerState: 3
+  _transforms:
+  - input: {fileID: 11400000, guid: 7fd71427803ab784bbd6ba8db57032fb, type: 2}
+    output: {fileID: 11400000, guid: e5eecd703421fd84eb3f2818689ed1c0, type: 2}
+    canOvercook: 0
+    overcookedOutput: {fileID: 0}
 --- !u!114 &1168791518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2829,6 +2832,10 @@ PrefabInstance:
       propertyPath: _spoilingTimerFill
       value: 
       objectReference: {fileID: 1635588337}
+    - target: {fileID: 3008210694099268358, guid: c21e30eb0e71244d0a4d7e4b93e0ca43, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 7fd71427803ab784bbd6ba8db57032fb, type: 2}
     - target: {fileID: 4255568932712506482, guid: c21e30eb0e71244d0a4d7e4b93e0ca43, type: 3}
       propertyPath: _plateSpot
       value: 
