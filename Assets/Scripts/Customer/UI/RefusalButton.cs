@@ -2,12 +2,16 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+// TODO: Once proper uses are created, remove customerOverride and the ternary
+//       using it. This field was created only to keep the test scene running.
+
 public class RefusalButton : MonoBehaviour
 {
     public Animator anim;
     public UnityEvent buttonPress;
     [SerializeField] private GameObject guardsPrefab;
     [SerializeField] private GameObject guardSpawnpoint;
+    [SerializeField] private GameObject customerOverride;
     public float guardMoveDuration = 1f;
     public float guardPauseAtCustomer = 0.5f;
 
@@ -32,7 +36,9 @@ public class RefusalButton : MonoBehaviour
         // TODO: Check ResourceManager for remaining refusals before proceeding.
         // If none left, play an error sound/animation and return.
 
-        GameObject customerToRemove = CustomerLineManager.Instance.CurrentCustomer?.gameObject;
+        GameObject customerToRemove = customerOverride != null
+            ? customerOverride
+            : CustomerLineManager.Instance.CurrentCustomer?.gameObject;
 
         if (guardsPrefab != null && guardSpawnpoint != null && customerToRemove != null)
         {
