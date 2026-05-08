@@ -4,14 +4,22 @@ using UnityEngine.UI;
 public class IngredientObject : MonoBehaviour
 {
     [SerializeField] private IngredientData _data;
+    [SerializeField] private Image _image;
 
     public Ingredient IngredientInstance { get; private set; }
 
-    private Image _image;
-
     private void Awake()
     {
-        _image = GetComponent<Image>();
+        if (_image == null)
+        {
+            _image = GetComponent<Image>();
+        }
+
+        if (_image == null)
+        {
+            _image = GetComponentInChildren<Image>();
+        }
+
         IngredientInstance = new Ingredient(_data);
         UpdateSprite();
     }
@@ -32,15 +40,33 @@ public class IngredientObject : MonoBehaviour
         _data = newData;
         IngredientInstance.ChangeData(newData);
         gameObject.name = newData.Name;
-
         UpdateSprite();
     }
 
     private void UpdateSprite()
     {
-        if (_image == null || IngredientInstance == null) return;
+        if (_image == null)
+        {
+            _image = GetComponent<Image>();
+        }
 
-        if (IngredientInstance.IsSpoiled)
+        if (_image == null)
+        {
+            _image = GetComponentInChildren<Image>();
+        }
+
+        if (_image == null)
+        {
+            Debug.LogWarning("No Image found on " + gameObject.name);
+            return;
+        }
+
+        if (IngredientInstance == null || IngredientInstance.Data == null)
+        {
+            return;
+        }
+
+        if (IngredientInstance.IsSpoiled && IngredientInstance.Data.SpoiledSprite != null)
         {
             _image.sprite = IngredientInstance.Data.SpoiledSprite;
         }

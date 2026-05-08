@@ -127,6 +127,7 @@ public class AutomaticStation : CookingStation
         // TEMP TEST: press T to instantly finish cooking
         if (Keyboard.current != null && Keyboard.current.tKey.wasPressedThisFrame)
         {
+            Debug.Log("T key pressed - finishing cooking immediately for testing purposes.");
             IngredientData currentData = _currentFood.IngredientInstance.Data;
 
             if (TryGetOvercookTransform(currentData, out IngredientTransform transform) &&
