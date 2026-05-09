@@ -97,7 +97,6 @@ public class AutomaticStation : CookingStation
         }
 
         StartCooking();
-        StartCooking();
     }
 
     public override void OnRemoveFood()
@@ -133,7 +132,7 @@ public class AutomaticStation : CookingStation
         _timer = 0f;
         _isCooking = true;
         Debug.Log($"{gameObject.name}: Started cooking {_currentFoods.Count} ingredient(s).");
-    }
+    
 
         _isOvercooking = false;
 
@@ -150,17 +149,10 @@ public class AutomaticStation : CookingStation
         HideTimer();
     }
 
-
-
     public virtual void Update()
     {
         if (!_isCooking || _currentFoods.Count == 0) return;
 
-        if (Keyboard.current != null && Keyboard.current.tKey.wasPressedThisFrame)
-        {
-            Debug.Log("T key pressed — finishing cooking.");
-            FinishCooking();
-        }
         _timer += Time.deltaTime;
 
         float duration = _isOvercooking ? _overcookDuration : _cookDuration;
@@ -225,13 +217,6 @@ public class AutomaticStation : CookingStation
             return;
         }
 
-        IngredientData currentData = _currentFood.IngredientInstance.Data;
-
-        if (!TryGetTransform(currentData, out IngredientTransform transform))
-        {
-            Debug.LogWarning($"{gameObject.name}: No transform for {currentData.Name}");
-            return;
-        }
         if (!TryGetTransform(currentData, out IngredientTransform transform))
         {
             Debug.LogWarning($"{gameObject.name} has no transform for {currentData.Name}");
@@ -248,8 +233,6 @@ public class AutomaticStation : CookingStation
             return;
         }
 
-        _currentFood.ChangeIngredient(transform.output);
-        Debug.Log($"Cooking finished! {currentData.Name} is now {transform.output.Name}!");
 
         _isCooking = transform.canOvercook && transform.overcookedOutput != null;
         if (transform.canOvercook && transform.overcookedOutput != null)
@@ -280,14 +263,6 @@ public class AutomaticStation : CookingStation
             return;
         }
 
-        IngredientData currentData = _currentFood.IngredientInstance.Data;
-
-        if (!TryGetOvercookTransform(currentData, out IngredientTransform transform))
-        {
-            Debug.LogWarning($"{gameObject.name} has no overcook transform for {currentData.Name}");
-            StopCooking();
-            return;
-        }
 
         if (!transform.canOvercook)
         {

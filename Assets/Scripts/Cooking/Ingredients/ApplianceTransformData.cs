@@ -31,4 +31,7 @@ public class ApplianceTransformData : ScriptableObject
         output = null;
         return false;
     }
+
+    
+
 }
