@@ -15,11 +15,11 @@ public class IngredientTransform
 [CreateAssetMenu(menuName = "Cooking/Appliance Transform Data")]
 public class ApplianceTransformData : ScriptableObject
 {
-    [SerializeField] private List<IngredientTransform> transforms = new();
+    [SerializeField] private List<IngredientTransform> _transforms = new();
 
     public bool TryGetOutput(IngredientData input, out IngredientData output)
     {
-        foreach (IngredientTransform transform in transforms)
+        foreach (IngredientTransform transform in _transforms)
         {
             if (transform.input == input)
             {
