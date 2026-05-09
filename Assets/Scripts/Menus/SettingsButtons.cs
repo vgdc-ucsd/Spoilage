@@ -18,5 +18,5 @@ public class SettingsButtons : MonoBehaviour
     {
         AudioManager.Instance.SetVolume(value);
     }
-   
+    
 }
