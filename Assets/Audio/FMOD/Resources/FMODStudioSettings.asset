@@ -612,11 +612,11 @@ MonoBehaviour:
   sourceProjectPath: 
   sourceBankPath: Assets/Audio/Banks
   sourceBankPathUnformatted: 
-  BankRefreshCooldown: -1
+  BankRefreshCooldown: 1
   ShowBankRefreshWindow: 1
-  AutomaticEventLoading: 1
-  BankLoadType: 0
-  AutomaticSampleLoading: 0
+  AutomaticEventLoading: 0
+  BankLoadType: 1
+  AutomaticSampleLoading: 1
   EncryptionKey: 
   ImportType: 0
   TargetAssetPath: FMODBanks
@@ -635,7 +635,9 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks: []
-  BanksToLoad: []
+  BanksToLoad:
+  - Master.strings
+  - Master
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
   AndroidUseOBB: 0
