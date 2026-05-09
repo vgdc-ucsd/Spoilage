@@ -50,10 +50,25 @@ public class KitchenTile : MonoBehaviour
             // Cooking: food only, one per tile
             if (type != "Food") return false;
 
+            IngredientObject existingFood = null;
             foreach (var obj in objectsOnTile)
-                if (obj != null && obj.GetComponent<IngredientObject>() != null) return false;
+                if (obj != null && obj.TryGetComponent(out existingFood)) break;
 
-            return true;
+            //if empty, place food
+            if (existingFood == null) return true;
+
+            //if a food item is alr placed we combine
+            IngredientObject movingFood = movingObj.GetComponent<IngredientObject>();
+            RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
+
+            if (movingFood != null && recipeManager != null)
+            {
+                // Create a temporary list to check the recipe
+                List<IngredientObject> checkList = new List<IngredientObject> { existingFood, movingFood };
+                string result = recipeManager.CheckRecipe(checkList);
+                return result != "JSON Error";
+            }
+            return false;
         }
 
         return false;
@@ -61,6 +76,49 @@ public class KitchenTile : MonoBehaviour
 
     public void PlaceObject(GameObject obj)
     {
+        if (obj == null) return;
+
+        IngredientObject newFood = obj.GetComponent<IngredientObject>();
+        IngredientObject existingFood = null;
+
+        // Find existing food on tile
+        foreach (var item in objectsOnTile)
+            if (item != null && item != obj && item.TryGetComponent(out existingFood)) break;
+
+        // If both exist, try to combine via RecipeManager
+        if (newFood != null && existingFood != null)
+        {
+            RecipeManager rm = FindAnyObjectByType<RecipeManager>();
+            List<IngredientObject> combo = new List<IngredientObject> { existingFood, newFood };
+            string resultName = rm.CheckRecipe(combo);
+
+            IngredientData resultData;
+
+            if (resultName != "Slop" && resultName != "JSON Error")
+            {
+                //Valid recipe
+                resultData = IngredientLookup.Get(resultName); 
+                if (resultData != null)
+                {
+                    // PRINT SUCCESS HERE
+                    Debug.Log($"<color=green>SUCCESS:</color> Combined {existingFood.IngredientInstance.Data.Name} + {newFood.IngredientInstance.Data.Name} into <b>{resultData.Name}</b>");
+                }
+            }
+            else
+            {
+                // Invalid combo! Turn into "Slop"
+                resultData = IngredientLookup.Get("Slop");
+                Debug.Log("Invalid combination! Turning into Slop.");
+            }
+
+            if (resultData != null)
+            {
+                existingFood.ChangeIngredient(resultData);
+                Destroy(obj); // Remove the held ingredient
+                return;
+            }
+        }
+
         if (!objectsOnTile.Contains(obj))
             objectsOnTile.Add(obj);
 
