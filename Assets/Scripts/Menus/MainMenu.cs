@@ -16,4 +16,9 @@ public class MainMenu : MonoBehaviour
     {
         GameManager.Instance.Quit();
     }
+
+    public void PlaySFX(string id)
+    {
+        AudioManager.Instance.PlaySFX(id);
+    }
 }
