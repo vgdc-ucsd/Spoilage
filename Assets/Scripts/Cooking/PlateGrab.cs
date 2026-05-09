@@ -1,4 +1,6 @@
-﻿using UnityEngine.EventSystems;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class PlateGrab : ObjectGrab, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -38,5 +40,42 @@ public class PlateGrab : ObjectGrab, IBeginDragHandler, IDragHandler, IEndDragHa
         }
 
         return true;
+    }
+
+    public new void Drop(PointerEventData eventData)
+    {
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        KitchenTile targetTile = GetTileFromRaycast(results);
+
+        if (targetTile != null)
+        {
+            targetTile.PlaceObject(gameObject);
+            currentTile = targetTile;
+            return;
+        }
+
+        // Snap back to last valid tile
+        if (currentTile != null)
+        {
+            currentTile.PlaceObject(gameObject);
+            return;
+        }
+
+        // No valid tile at all, return to original position
+        _rectTransform.SetParent(_originalParent, false);
+        _rectTransform.anchoredPosition = _originalPosition;
+        Debug.Log("Invalid placement: returning to original position.");
+    }
+
+    private KitchenTile GetTileFromRaycast(List<RaycastResult> results)
+    {
+        foreach (var result in results)
+        {
+            KitchenTile tile = result.gameObject.GetComponentInParent<KitchenTile>();
+            if (tile != null) return tile;
+        }
+        return null;
     }
 }
