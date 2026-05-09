@@ -380,6 +380,99 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4832082933572205568, guid: 9719ce4066217e848a79106289ba6174, type: 3}
   m_PrefabInstance: {fileID: 1288888399}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308743885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 168611830}
+  m_Father: {fileID: 1728573175}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2, y: -156}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &308743887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308743885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 754509b25be168642ae2e8a35c5fe748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutomaticStation
+  _stationImage: {fileID: 168611831}
+  _defaultSprite: {fileID: 21300000, guid: b17969ae778e8034e978113c3c5865ad, type: 3}
+  _activeSprite: {fileID: 21300000, guid: 946a18424ded0c84f830a92aef3bd253, type: 3}
+  _transforms:
+  - input: {fileID: 11400000, guid: 90af2ddfb3955a5458cd02072a056aaf, type: 2}
+    output: {fileID: 11400000, guid: 65455fdcc849235458ca3dac3a3c9384, type: 2}
+    canOvercook: 0
+    overcookedOutput: {fileID: 0}
+--- !u!61 &308743888
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308743885}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 90, y: 90}
+  m_EdgeRadius: 0
+--- !u!114 &308743889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308743885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a8864863c768a45af4d5522c546f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectGrab
+  currentTile: {fileID: 0}
 --- !u!1 &309587902
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,6 +1090,95 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4832082933572205568, guid: 9719ce4066217e848a79106289ba6174, type: 3}
   m_PrefabInstance: {fileID: 8892215107192791371}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901675402}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1614422873}
+  m_Father: {fileID: 1728573175}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &901675404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901675402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 754509b25be168642ae2e8a35c5fe748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutomaticStation
+  _stationImage: {fileID: 1614422874}
+  _defaultSprite: {fileID: 21300000, guid: b2283a22b4499344485837f10254e4e6, type: 3}
+  _activeSprite: {fileID: 21300000, guid: a51c3e87ec1b57144b916ab774c8ac30, type: 3}
+  _transforms: []
+--- !u!114 &901675405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901675402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a8864863c768a45af4d5522c546f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectGrab
+  currentTile: {fileID: 0}
+--- !u!61 &901675406
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901675402}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.35064697, y: 13.335215}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 90, y: 70}
+  m_EdgeRadius: 0
 --- !u!1 &927183948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,6 +1463,7 @@ MonoBehaviour:
   _stationImage: {fileID: 26558744}
   _defaultSprite: {fileID: 21300000, guid: 1e2b91ce16c63a649a5759518e985f51, type: 3}
   _activeSprite: {fileID: 21300000, guid: 51749189baaa87943bb759274a2d2b57, type: 3}
+  _transforms: []
   _cookDuration: 5
   _targetState: 4
   _canOvercook: 0
@@ -1502,6 +1685,11 @@ MonoBehaviour:
   _defaultSprite: {fileID: 21300000, guid: 643cebbca9ff0c5489727d467358ea77, type: 3}
   _activeSprite: {fileID: 21300000, guid: 643cebbca9ff0c5489727d467358ea77, type: 3}
   _clicksPerState: 3
+  _transforms:
+  - input: {fileID: 11400000, guid: 7fd71427803ab784bbd6ba8db57032fb, type: 2}
+    output: {fileID: 11400000, guid: e5eecd703421fd84eb3f2818689ed1c0, type: 2}
+    canOvercook: 0
+    overcookedOutput: {fileID: 0}
 --- !u!114 &1168791518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2549,6 +2737,10 @@ PrefabInstance:
       propertyPath: _spoilingTimerFill
       value: 
       objectReference: {fileID: 1635588337}
+    - target: {fileID: 3008210694099268358, guid: c21e30eb0e71244d0a4d7e4b93e0ca43, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 7fd71427803ab784bbd6ba8db57032fb, type: 2}
     - target: {fileID: 4255568932712506482, guid: c21e30eb0e71244d0a4d7e4b93e0ca43, type: 3}
       propertyPath: _plateSpot
       value: 

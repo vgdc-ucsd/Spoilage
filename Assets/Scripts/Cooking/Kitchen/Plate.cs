@@ -67,7 +67,12 @@ public class Plate : MonoBehaviour
 
         foreach (IngredientObject ingredient in _ingredients)
         {
-            Debug.Log($"- {ingredient.IngredientInstance.Data.Name} ({ingredient.IngredientInstance.CurrentCookState} {ingredient.IngredientInstance.CurrentChoppedState})");
+            if (ingredient == null || ingredient.IngredientInstance == null) continue;
+
+            Debug.Log(
+                $"- {ingredient.IngredientInstance.Data.Name} " +
+                $"(Spoilage: {ingredient.IngredientInstance.SpoilagePercent:F1}%)"
+            );
         }
     }
 
@@ -89,4 +94,3 @@ public class Plate : MonoBehaviour
         }
     }
 }
-

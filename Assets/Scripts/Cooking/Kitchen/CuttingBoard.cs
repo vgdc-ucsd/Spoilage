@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class CuttingBoard : ManualStation
 {
+    [SerializeField] private IngredientTransform[] _transforms;
+
     // TODO: delete this once popup button is implemented
     void Update()
     {
@@ -22,9 +24,17 @@ public class CuttingBoard : ManualStation
 
         Debug.Log("Food on cutting board");
 
-        if (_currentFood.IngredientInstance.CurrentChoppedState == ChoppedState.Chopped)
+        IngredientData currentData = _currentFood.IngredientInstance.Data;
+
+        if (!TryGetTransform(currentData, out IngredientTransform transform))
         {
-            Debug.Log("Food is already chopped");
+            Debug.Log("Wrong ingredient for cutting board");
+            return;
+        }
+
+        if (transform.output == null)
+        {
+            Debug.LogWarning("Output ingredient is missing on " + gameObject.name);
             return;
         }
     }
@@ -32,11 +42,19 @@ public class CuttingBoard : ManualStation
     public override void OnAction()
     {
         Debug.Log($"Action triggered on {gameObject.name}. Current Food: {(_currentFood != null ? _currentFood.name : "NULL")}");
-        if (_currentFood == null) return;
+        if (_currentFood == null || _currentFood.IngredientInstance == null) return;
 
-        //dont cut if alr chopped 
-        if (_currentFood.IngredientInstance.CurrentChoppedState == ChoppedState.Chopped)
+        IngredientData currentData = _currentFood.IngredientInstance.Data;
+
+        if (!TryGetTransform(currentData, out IngredientTransform transform))
         {
+            Debug.Log("Wrong ingredient for cutting board");
+            return;
+        }
+
+        if (transform.output == null)
+        {
+            Debug.LogWarning("Output ingredient is missing on " + gameObject.name);
             return;
         }
 
@@ -46,10 +64,25 @@ public class CuttingBoard : ManualStation
 
         if (_currentClicks >= _clicksPerState)
         {
-            _currentFood.IngredientInstance.CurrentChoppedState = ChoppedState.Chopped;
-            Debug.Log("Food is now chopped!");
+            _currentFood.ChangeIngredient(transform.output);
+            Debug.Log("Food is now " + transform.output.Name);
 
             _currentClicks = 0; // reset for next use
         }
+    }
+
+    private bool TryGetTransform(IngredientData input, out IngredientTransform matchingTransform)
+    {
+        foreach (IngredientTransform transform in _transforms)
+        {
+            if (transform.input == input)
+            {
+                matchingTransform = transform;
+                return true;
+            }
+        }
+
+        matchingTransform = null;
+        return false;
     }
 }

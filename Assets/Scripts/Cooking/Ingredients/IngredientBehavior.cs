@@ -1,114 +1,117 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
-/*
-    IngrediantBehavior:
-    Timer for each individual food ingrediant
-        Cooking: Set timer for each cookable ingrediant
-        Spoiling: Set timer for each ingrediant
-*/
 public sealed class IngredientBehaviour : MonoBehaviour
 {
-    [Header("Spoilage Timer UI")]
-    [SerializeField] private GameObject _spoilingTimerObject;
-    [SerializeField] private Image _spoilTimerFill;
-    private bool _isSpoiling;
+    [SerializeField] private bool _enableDebugLogs = true;
+
+    [Header("Spoiling Timer UI")]
+    [SerializeField] private GameObject _spoilingTimer;
+    [SerializeField] private Image _spoilingTimerFill;
 
     private IngredientObject _ingredientObject;
 
-    private float _spoilTimer;
+    private bool _isOnSpoilSurface;
 
     private void Awake()
     {
         _ingredientObject = GetComponent<IngredientObject>();
-        HideSpoilTimer();
+
+        if (_spoilingTimer == null)
+        {
+            Transform timer = transform.Find("Canvas/SpoilTimer");
+            if (timer != null)
+            {
+                _spoilingTimer = timer.gameObject;
+            }
+        }
+
+        if (_spoilingTimerFill == null)
+        {
+            Transform fill = transform.Find("Canvas/SpoilTimer/SpoilFill");
+            if (fill != null)
+            {
+                _spoilingTimerFill = fill.GetComponent<Image>();
+            }
+        }
+
+        HideSpoilingTimer();
     }
 
     private void Update()
     {
         HandleSpoilage();
-    }
-
-    public void PutOnSpoilSurface()
-    {
-        if (_ingredientObject == null || _ingredientObject.IngredientInstance == null)
-        {
-            return;
-        }
-        if (_ingredientObject.IngredientInstance.IsSpoiled)
-        {
-            return;
-        }
-        _isSpoiling = true;
-        ShowSpoilTimer();
-    }
-
-    public void RemoveFromSpoilSurface()
-    {
-        _isSpoiling = false;
+        UpdateSpoilageVisual();
     }
 
     private void HandleSpoilage()
     {
-        if (!_isSpoiling || _ingredientObject == null || _ingredientObject.IngredientInstance == null)
-        {
-            return;
-        }
-
         Ingredient ingredient = _ingredientObject.IngredientInstance;
+
+        if (ingredient == null) return;
+        if (ingredient.IsSpoiled) return;
+        if (!_isOnSpoilSurface) return;
+        if (ingredient.Data.SpoilTime <= 0f) return;
+
+        float percentPerSecond = 100f / ingredient.Data.SpoilTime;
+        ingredient.AddSpoilagePercent(percentPerSecond * Time.deltaTime);
 
         if (ingredient.IsSpoiled)
         {
-            HideSpoilTimer();
+            Log("Food reached 100% spoilage.");
+        }
+    }
+
+    private void UpdateSpoilageVisual()
+    {
+        Ingredient ingredient = _ingredientObject.IngredientInstance;
+
+        if (ingredient == null) return;
+
+        if (!_isOnSpoilSurface || ingredient.IsSpoiled)
+        {
+            HideSpoilingTimer();
             return;
         }
-        _spoilTimer += Time.deltaTime;
 
-        float spoilTime = ingredient.Data.SpoilTime;
-
-        if (spoilTime <= 0f)
-        {
-            ingredient.IsSpoiled = true;
-            ingredient.SpoilagePercent = 1f;
-            HideSpoilTimer();
-            return;
-        }
-
-        ingredient.SpoilagePercent = Mathf.Clamp01(_spoilTimer / spoilTime);
-        UpdateSpoilTimer(ingredient.SpoilagePercent);
-
-        if (ingredient.SpoilagePercent >= 1f)
-        {
-            ingredient.IsSpoiled = true;
-            HideSpoilTimer();
-        }
+        float remainingPercent = 1f - ingredient.SpoilagePercent / 100f;
+        ShowSpoilingTimer(remainingPercent);
     }
 
-    private void UpdateSpoilTimer(float spoilagePercent)
+    public void PutOnSpoilSurface()
     {
-        if (_spoilTimerFill == null)
-        {
-            return;
-        }
-        _spoilTimerFill.fillAmount = Mathf.Clamp01(1f - spoilagePercent);
+        _isOnSpoilSurface = true;
+        Log("Started spoiling.");
     }
 
-    private void ShowSpoilTimer()
+    public void RemoveFromSpoilSurface()
     {
-        if (_spoilingTimerObject != null)
-        {
-            _spoilingTimerObject.SetActive(true);
-        }
+        _isOnSpoilSurface = false;
+        HideSpoilingTimer();
+        Log("Stopped spoiling.");
     }
 
-    private void HideSpoilTimer()
+    private void ShowSpoilingTimer(float fillAmount)
     {
-        if (_spoilingTimerObject != null)
+        if (_spoilingTimer == null || _spoilingTimerFill == null) return;
+
+        _spoilingTimer.SetActive(true);
+        _spoilingTimerFill.fillAmount = Mathf.Clamp01(fillAmount);
+    }
+
+    private void HideSpoilingTimer()
+    {
+        if (_spoilingTimer != null)
         {
-            _spoilingTimerObject.SetActive(false);
+            _spoilingTimer.SetActive(false);
         }
     }
 
-    
+    private void Log(string message)
+    {
+        if (_enableDebugLogs)
+        {
+            Debug.Log($"[{gameObject.name}] {message}");
+        }
+    }
 }
