@@ -1,96 +1,112 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using System.Collections.Generic;
 
-public class ObjectGrab : MonoBehaviour
+public class ObjectGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    public static bool CanMoveAppliances = true;
+
     public KitchenTile currentTile;
-    private Vector3 _sidebarPosition;
+
+    private RectTransform _rectTransform;
+    private Canvas _canvas;
+    private Image _applianceImage;
+    private Vector2 _originalPosition;
+    private Transform _originalParent;
 
     private void Awake()
     {
-        // Store the starting position so we can snap back if a drop is invalid
-        _sidebarPosition = transform.position;
+        _rectTransform = GetComponent<RectTransform>();
+        _canvas = GetComponentInParent<Canvas>();
+        _applianceImage = GetComponent<Image>();
+    }
+
+    void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
+    {
+        if (!CanMoveAppliances || LockLayout.IsLocked) return;
+        if (!TryGrab()) return;
+
+        _originalParent = _rectTransform.parent;
+        _originalPosition = _rectTransform.anchoredPosition;
+
+        // Bring to top of canvas while dragging
+        _rectTransform.SetParent(_canvas.transform);
+        _rectTransform.SetAsLastSibling();
+
+        if (_applianceImage != null) _applianceImage.raycastTarget = false;
+    }
+
+    void IDragHandler.OnDrag(PointerEventData eventData)
+    {
+        if (!CanMoveAppliances || LockLayout.IsLocked) return;
+
+        _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
+    }
+
+    void IEndDragHandler.OnEndDrag(PointerEventData eventData)
+    {
+        if (!CanMoveAppliances || LockLayout.IsLocked) return;
+
+        if (_applianceImage != null) _applianceImage.raycastTarget = true;
+
+        Drop(eventData);
     }
 
     public bool TryGrab()
     {
-        if (LockLayout.IsLocked) return false;
+        if (!CanMoveAppliances || LockLayout.IsLocked) return false;
 
-        // 1. GLOBAL LOCK CHECK
-        // If the "Start Day" button was pressed, this will be true and block all movement
-        if (LockLayout.IsLocked) return false;
-
-        // 2. OCCUPIED CHECK
-        // Check if there is a FoodGrab component on this object or any of its children
+        // Block if food is currently on this appliance
         if (GetComponentInChildren<FoodGrab>() != null)
         {
-            Debug.Log("Cannot move station: Food is currently on it!");
+            Debug.Log("Cannot move appliance: food is on it.");
             return false;
         }
 
-        // 3. TILE REGISTRY CLEANUP
-        // If the stove was already on a tile, tell the tile it's leaving
-        KitchenTile tile = GetTileAtPosition(transform.position);
-        if (tile != null)
+        // Remove from current tile
+        if (currentTile != null)
         {
-            // Only allow grabbing if this is the top-most object (safety check)
-            if (tile.GetTopObject() != gameObject) return false;
-            tile.RemoveObject(gameObject);
+            if (currentTile.GetTopObject() != gameObject) return false;
+            currentTile.RemoveObject(gameObject);
         }
 
-        transform.SetParent(null);
         return true;
     }
 
-    public void UpdateDragPosition()
+    public void Drop(PointerEventData eventData)
     {
-        // Convert mouse screen position to world coordinates
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
 
-        // Z -2 keeps the stove visually "above" the floor (Z 0) but "below" food (Z -3)
-        transform.position = new Vector3(mousePos.x, mousePos.y, -2f);
+        KitchenTile targetTile = GetTileFromRaycast(results);
+
+        if (targetTile != null && targetTile.CanPlaceObject("Appliance", gameObject))
+        {
+            targetTile.PlaceObject(gameObject);
+            currentTile = targetTile;
+            return;
+        }
+
+        // Snap back to last valid tile
+        if (currentTile != null)
+        {
+            currentTile.PlaceObject(gameObject);
+            return;
+        }
+
+        // No valid tile at all, return to original position
+        _rectTransform.SetParent(_originalParent, false);
+        _rectTransform.anchoredPosition = _originalPosition;
+        Debug.Log("Invalid placement: returning to original position.");
     }
 
-    public void Drop()
+    private KitchenTile GetTileFromRaycast(List<RaycastResult> results)
     {
-        KitchenTile tile = GetTileAtPosition(transform.position);
-
-        // 4. SMART PLACEMENT CHECK
-        // Ask the tile if it can accept an "Appliance"
-        if (tile != null && tile.CanPlaceObject("Appliance", gameObject))
+        foreach (var result in results)
         {
-            // SUCCESS: Move to new tile
-            tile.PlaceObject(gameObject);
-            currentTile = tile;
-        }
-        else
-        {
-            // FAIL: Snap back to the last valid tile
-            if (currentTile != null)
-            {
-                currentTile.PlaceObject(gameObject);
-            }
-            else
-            {
-                // Fallback if it somehow has no home (like starting in sidebar)
-                // transform.position = _sidebarPosition; 
-                transform.position = _sidebarPosition;
-                Debug.Log("Invalid placement: Returning to sidebar.");
-            }
-        }
-        transform.SetParent(null);
-    }
-
-    private KitchenTile GetTileAtPosition(Vector2 pos)
-    {
-        // Cast a point check to find the KitchenTile collider under the mouse
-        Collider2D[] hits = Physics2D.OverlapPointAll(pos);
-        foreach (var hit in hits)
-        {
-            if (hit.TryGetComponent(out KitchenTile tile))
-            {
-                return tile;
-            }
+            KitchenTile tile = result.gameObject.GetComponentInParent<KitchenTile>();
+            if (tile != null) return tile;
         }
         return null;
     }

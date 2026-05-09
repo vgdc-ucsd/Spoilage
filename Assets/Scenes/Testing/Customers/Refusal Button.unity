@@ -511,8 +511,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   guardsPrefab: {fileID: 524805318394756261, guid: 066a4c3ce49fe493b9274d2b573fe7f6, type: 3}
-  guardSpawnpoint: {fileID: 0}
-  customerToRemove: {fileID: 0}
+  guardSpawnpoint: {fileID: 362374604}
+  customerOverride: {fileID: 1819180962}
   guardMoveDuration: 2
   guardPauseAtCustomer: 1
 --- !u!61 &2030108287

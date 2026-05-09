@@ -1,7 +1,8 @@
-﻿using UnityEngine.InputSystem;
-using UnityEngine;
-
-public class FoodGrab : MonoBehaviour
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using System.Collections.Generic;
+public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private bool _hasHomePosition;
     private bool _isPlaced = false;
@@ -13,7 +14,57 @@ public class FoodGrab : MonoBehaviour
     private CookingStation _activeStation;
     private CookingStation _returnStation;
 
-    public static bool CanMoveFood = false;
+    private RectTransform _rectTransform;
+    private Canvas _canvas;
+    private Image _foodImage;
+    private Vector2 _originalPosition;
+    private Transform _originalParent;
+
+    public static bool CanMoveFood = true;
+
+    private void Awake()
+    {
+        _rectTransform = GetComponent<RectTransform>();
+        _canvas = GetComponentInParent<Canvas>();
+        _foodImage = GetComponent<Image>();
+    }
+
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    {
+        TryGrab();
+    }
+
+    void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
+    {
+        if (!CanMoveFood || _isPlaced) return;
+
+        _originalParent = _rectTransform.parent;
+        _originalPosition = _rectTransform.anchoredPosition;
+
+        // bring object to top while dragging
+        _rectTransform.SetParent(_canvas.transform);
+        _rectTransform.SetAsLastSibling();
+
+        if (_foodImage != null) _foodImage.raycastTarget = false;
+
+        TryGrab();
+    }
+
+    void IDragHandler.OnDrag(PointerEventData eventData)
+    {
+        if (!CanMoveFood || _isPlaced) return;
+
+        _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
+    }
+
+    void IEndDragHandler.OnEndDrag(PointerEventData eventData)
+    {
+        if (!CanMoveFood || _isPlaced) return;
+
+        if (_foodImage != null) _foodImage.raycastTarget = true;
+
+        Drop(eventData);
+    }
 
     public void SetHomePosition(Vector3 position)
     {
@@ -25,14 +76,20 @@ public class FoodGrab : MonoBehaviour
     {
         _cameFromFridge = value;
     }
-
     public bool TryGrab()
     {
-        Debug.Log($"TryGrab called | CanMove: {CanMoveFood} | isPlaced: {_isPlaced}");
         if (!CanMoveFood || _isPlaced) return false;
 
-        // Check if we are on a tile and remove from list if so
-        KitchenTile tile = GetTileAtPosition(transform.position);
+        PointerEventData pointerData = new PointerEventData(EventSystem.current)
+        {
+            position = RectTransformUtility.WorldToScreenPoint(null, _rectTransform.position)
+        };
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, results);
+
+        KitchenTile tile = GetTileFromRaycast(results);
+
         if (tile != null)
         {
             if (tile.GetTopObject() != gameObject) return false;
@@ -56,17 +113,9 @@ public class FoodGrab : MonoBehaviour
 
         if (_spawner != null)
         {
+            _spawner.ClearCurrentFood(this);
             _spawner.SpawnFood();
             _spawner = null;
-        }
-
-        if (_spawner != null)
-        {
-            FoodSpawner oldSpawner = _spawner;
-            _spawner = null;
-
-            oldSpawner.ClearCurrentFood(this);
-            oldSpawner.SpawnFood();
         }
 
         return true;
@@ -76,96 +125,80 @@ public class FoodGrab : MonoBehaviour
     {
         _spawner = spawner;
     }
-
-    private void OnMouseDown()
-    {
-        // Handled in TryGrab for the new logic
-    }
-
-    public void UpdateDragPosition()
-    {
-        if (!CanMoveFood || _isPlaced) return;
-
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        // Z -3 keeps food visually above appliances
-        transform.position = new Vector3(mousePos.x, mousePos.y, -3f);
-    }
-
-    public void Drop()
+ 
+    public void Drop(PointerEventData eventData)
     {
         if (_isPlaced) return;
+        if (_foodImage != null) _foodImage.raycastTarget = true;
 
-        // INCREASE the radius to 1.0f to make it easier to hit the plate
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.0f);
         bool foundValidDrop = false;
 
-        foreach (Collider2D hit in hits)
-        {
-            Debug.Log("Food dropped over: " + hit.gameObject.name);
+        // Use UI raycast results — all objects the pointer passed over
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
 
-            // --- 1. SCAN FOR PLATE OR TRASH OR APPLIANCE ---
-            TrashCan trash = hit.GetComponentInParent<TrashCan>();
+        Debug.Log($"UI Raycast hits: {results.Count}");
+        foreach (var r in results)
+            Debug.Log($"  hit: {r.gameObject.name}");
+
+        foreach (var result in results)
+        {
+            GameObject hitObj = result.gameObject;
+
+            TrashCan trash = hitObj.GetComponentInParent<TrashCan>();
             if (trash != null)
             {
                 trash.Trash(this);
                 foundValidDrop = true;
+                break;
             }
 
-            // This looks for the Plate script anywhere on the object we hit or its parents
-            Plate plate = hit.GetComponentInParent<Plate>() ?? hit.GetComponentInChildren<Plate>();
-
+            Plate plate = hitObj.GetComponentInParent<Plate>();
             if (plate != null)
             {
-                Debug.Log("!!! PLATE DETECTED !!!"); // Look for this in the console!
+                Debug.Log("Plate found!");
                 IngredientObject info = GetComponent<IngredientObject>();
-
-                if (info != null)
+                if (info != null && plate.AddIngredient(info))
                 {
-                    plate.AddIngredient(info);
-
-                    transform.position = _plateSpot != null ? _plateSpot.position : hit.transform.position;
-                    LockToPlate();
                     plate.PrintIngredients();
+                    _isPlaced = true;
+                    _rectTransform.SetParent(plate.transform);
+                    _rectTransform.anchoredPosition = Vector2.zero;
                     foundValidDrop = true;
+                    break;
                 }
             }
 
-            CookingStation app = hit.GetComponentInParent<CookingStation>();
+            CookingStation app = hitObj.GetComponentInParent<CookingStation>();
             if (app != null)
             {
                 _activeStation = app;
-                transform.position = hit.transform.position;
+                _rectTransform.SetParent(app.transform, false);
+                _rectTransform.anchoredPosition = Vector2.zero;
                 _activeStation.OnPlaceFood(this);
-
-                KitchenTile tile = GetTileAtPosition(transform.position);
-                if (tile != null) tile.PlaceObject(gameObject);
                 foundValidDrop = true;
+                break;
             }
         }
 
         if (foundValidDrop)
         {
-            // always spawn a new food item if this came from the fridge, regardless of where it was dropped
             if (_cameFromFridge)
             {
                 FoodSpawner foodSpawner = FindAnyObjectByType<FoodSpawner>();
-
-                if (foodSpawner != null)
-                {
-                    foodSpawner.SpawnFood();
-                }
-
+                if (foodSpawner != null) foodSpawner.SpawnFood();
                 _cameFromFridge = false;
             }
             return;
         }
 
-        // --- 2. TILE-BASED FALLBACK ---
-        KitchenTile targetTile = GetTileAtPosition(transform.position);
+        KitchenTile targetTile = GetTileFromRaycast(results);
         if (targetTile != null && targetTile.CanPlaceObject("Food", gameObject))
         {
             targetTile.PlaceObject(gameObject);
-            transform.position = targetTile.transform.position;
+            _rectTransform.SetParent(targetTile.GetComponent<RectTransform>() != null 
+                ? targetTile.transform : _originalParent, false);
+            _rectTransform.anchoredPosition = Vector2.zero;
             return;
         }
 
@@ -178,13 +211,26 @@ public class FoodGrab : MonoBehaviour
 
         bool stillNeedsCooking =
             info != null &&
-            info.IngredientInstance != null &&
-            info.IngredientInstance.Data.NeedsCooking &&
-            info.IngredientInstance.CurrentCookState == CookState.Raw;
+            info.IngredientInstance != null;
+        
+        if (_cameFromFridge)
+        {
+            _rectTransform.SetParent(_originalParent);
+            _rectTransform.anchoredPosition = _originalPosition;
+            Debug.Log("Invalid drop, returning fridge food home.");
+            return;
+        }
+
+        if (_spawner == null) 
+        {
+            Debug.Log("Duplicate or invalid fridge item, destroying.");
+            Destroy(gameObject); 
+            return;
+        }
 
         if (_returnStation != null && stillNeedsCooking)
         {
-            transform.position = _returnPosition;
+            _rectTransform.position = _returnPosition;
             _activeStation = _returnStation;
             _activeStation.OnPlaceFood(this);
 
@@ -194,7 +240,8 @@ public class FoodGrab : MonoBehaviour
 
         if (_hasHomePosition)
         {
-            transform.position = _homePosition;
+            _rectTransform.SetParent(_originalParent);
+            _rectTransform.anchoredPosition = _originalPosition;
             Debug.Log("Missed drop, returning food to fridge.");
         }
 
@@ -202,12 +249,12 @@ public class FoodGrab : MonoBehaviour
         _returnStation = null;
     }
 
-    private KitchenTile GetTileAtPosition(Vector2 pos)
+    private KitchenTile GetTileFromRaycast(List<RaycastResult> results)
     {
-        Collider2D[] hits = Physics2D.OverlapPointAll(pos);
-        foreach (var hit in hits)
+        foreach (var result in results)
         {
-            if (hit.TryGetComponent(out KitchenTile tile)) return tile;
+            KitchenTile tile = result.gameObject.GetComponentInParent<KitchenTile>();
+            if (tile != null) return tile;
         }
         return null;
     }

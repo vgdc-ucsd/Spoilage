@@ -8,21 +8,23 @@ public class Countertops : CookingStation
 
         Debug.Log("Food on Countertop");
 
+        if (_currentFood == null || _currentFood.IngredientInstance == null)
+        {
+            Debug.LogWarning("Missing IngredientObject.");
+            return;
+        }
+
         if (_currentFood.IngredientInstance.IsSpoiled)
         {
             Debug.Log("Food is already spoiled");
             return;
         }
 
-        if (_currentFood.IngredientInstance == null || _currentFood.IngredientInstance.Data == null)
+        if (_currentIngredientBehaviour != null)
         {
-            Debug.LogError("Food data is missing on " + _currentFood.name);
-            return;
+            _currentIngredientBehaviour.PutOnSpoilSurface();
         }
-
-        _currentIngredientBehaviour.PutOnSpoilSurface();
     }
-
 
     public override void OnRemoveFood()
     {
@@ -35,7 +37,9 @@ public class Countertops : CookingStation
         {
             _currentIngredientBehaviour.RemoveFromSpoilSurface();
         }
+
         Debug.Log("Food removed from counter");
-        _currentFood = null;
+
+        base.OnRemoveFood();
     }
 }
