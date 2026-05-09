@@ -1,29 +1,28 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
+
+// TODO: Once proper uses are created, remove customerOverride and the ternary
+//       using it. This field was created only to keep the test scene running.
+
 public class RefusalButton : MonoBehaviour
 {
     public Animator anim;
     public UnityEvent buttonPress;
-    public GameObject guardsPrefab;
-    public GameObject guardSpawnpoint;
-    public GameObject customerToRemove;
+    [SerializeField] private GameObject guardsPrefab;
+    [SerializeField] private GameObject guardSpawnpoint;
+    [SerializeField] private GameObject customerOverride;
     public float guardMoveDuration = 1f;
     public float guardPauseAtCustomer = 0.5f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         buttonPress.AddListener(AnimateButton);
         buttonPress.AddListener(RemoveCustomer);
-        guardSpawnpoint = GameObject.FindGameObjectWithTag("Guard Spawnpoint");
-        customerToRemove = GameObject.FindGameObjectWithTag("Customer Refusal Test");
     }
-
 
     void OnMouseDown()
     {
-        Debug.Log("Button Pressed");
         buttonPress.Invoke();
     }
 
@@ -34,13 +33,21 @@ public class RefusalButton : MonoBehaviour
 
     public void RemoveCustomer()
     {
+        // TODO: Check ResourceManager for remaining refusals before proceeding.
+        // If none left, play an error sound/animation and return.
+
+        GameObject customerToRemove = customerOverride != null
+            ? customerOverride
+            : CustomerLineManager.Instance.CurrentCustomer?.gameObject;
+
         if (guardsPrefab != null && guardSpawnpoint != null && customerToRemove != null)
         {
             GameObject guards = Instantiate(guardsPrefab, guardSpawnpoint.transform.position, Quaternion.identity);
-            StartCoroutine(GlideGuardToCustomerAndReturn(guards));
+            StartCoroutine(GlideGuardToCustomerAndReturn(guards, customerToRemove));
         }
-        else if (customerToRemove == null){
-            Debug.Log("Customer to remove does not exist.");
+        else if (customerToRemove == null)
+        {
+            Debug.Log("No current customer to remove.");
         }
         else
         {
@@ -48,7 +55,7 @@ public class RefusalButton : MonoBehaviour
         }
     }
 
-    private System.Collections.IEnumerator GlideGuardToCustomerAndReturn(GameObject guards)
+    private IEnumerator GlideGuardToCustomerAndReturn(GameObject guards, GameObject customerToRemove)
     {
         Vector3 startPosition = guardSpawnpoint.transform.position;
         Vector3 customerPosition = customerToRemove.transform.position;
@@ -63,7 +70,6 @@ public class RefusalButton : MonoBehaviour
 
         guards.transform.position = customerPosition;
         yield return new WaitForSeconds(guardPauseAtCustomer);
-        //Destroy(customerToRemove);
         guards.GetComponent<Renderer>().material.color = Color.red;
 
         elapsed = 0f;
@@ -71,11 +77,12 @@ public class RefusalButton : MonoBehaviour
         {
             guards.transform.position = Vector3.Lerp(customerPosition, startPosition, elapsed / guardMoveDuration);
             customerToRemove.transform.SetParent(guards.transform);
-            //customerToRemove.transform.position = Vector3.Lerp(customerPosition, startPosition, elapsed / guardMoveDuration);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
         guards.transform.position = startPosition;
+
+        // TODO: Call CustomerLineManager to advance to next customer or trigger end-of-section.
     }
 }

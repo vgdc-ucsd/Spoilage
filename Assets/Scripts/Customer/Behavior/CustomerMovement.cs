@@ -1,6 +1,11 @@
 using UnityEngine;
 using System.Collections;
 
+// TODO: Fix snapping at end of move. Currently, if the customer is not at the
+//       very bottom of their arc when they reach the destination X position,
+//       they snap from their current offset to the final position with no
+//       adjustment or smoothing in-between.
+
 public class CustomerMovement : MonoBehaviour
 {
     //How many times the coroutine plays
