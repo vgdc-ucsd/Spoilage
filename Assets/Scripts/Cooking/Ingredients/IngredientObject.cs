@@ -1,17 +1,26 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IngredientObject : MonoBehaviour
 {
     [SerializeField] private IngredientData _data;
+    [SerializeField] private Image _image;
 
     public Ingredient IngredientInstance { get; private set; }
 
-    private SpriteRenderer _spriteRenderer;
-
     private void Awake()
     {
-        IngredientInstance = new Dough(_data);
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        if (_image == null)
+        {
+            _image = GetComponent<Image>();
+        }
+
+        if (_image == null)
+        {
+            _image = GetComponentInChildren<Image>();
+        }
+
+        IngredientInstance = new Ingredient(_data);
         UpdateSprite();
     }
 
@@ -20,29 +29,50 @@ public class IngredientObject : MonoBehaviour
         UpdateSprite();
     }
 
-    private void UpdateSprite()
+    public void ChangeIngredient(IngredientData newData)
     {
-        if (IngredientInstance.IsSpoiled)
+        if (newData == null)
         {
-            _spriteRenderer.sprite = _data.SpoiledSprite;
+            Debug.LogWarning("Tried to change ingredient into null data.");
             return;
         }
-        switch (IngredientInstance.CurrentCookState)
-        {
-            case CookState.Raw:
-                _spriteRenderer.sprite = _data.RawSprite;
-                break;
-            
-            case CookState.Cooked:
-            case CookState.Boiled:
-            case CookState.Grilled:
-            case CookState.Toasted:
-                _spriteRenderer.sprite = _data.CookedSprite;
-                break;
 
-            case CookState.Burnt:
-                _spriteRenderer.sprite = _data.BurntSprite;
-                break;
+        _data = newData;
+        IngredientInstance.ChangeData(newData);
+        gameObject.name = newData.Name;
+        UpdateSprite();
+    }
+
+    private void UpdateSprite()
+    {
+        if (_image == null)
+        {
+            _image = GetComponent<Image>();
+        }
+
+        if (_image == null)
+        {
+            _image = GetComponentInChildren<Image>();
+        }
+
+        if (_image == null)
+        {
+            Debug.LogWarning("No Image found on " + gameObject.name);
+            return;
+        }
+
+        if (IngredientInstance == null || IngredientInstance.Data == null)
+        {
+            return;
+        }
+
+        if (IngredientInstance.IsSpoiled && IngredientInstance.Data.SpoiledSprite != null)
+        {
+            _image.sprite = IngredientInstance.Data.SpoiledSprite;
+        }
+        else
+        {
+            _image.sprite = IngredientInstance.Data.NormalSprite;
         }
     }
 }

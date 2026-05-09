@@ -513,6 +513,37 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1005509492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1005509493}
+  m_Layer: 0
+  m_Name: GuardSpawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1005509493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005509492}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.3, y: -1.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1088081168
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,8 +625,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   guardsPrefab: {fileID: 524805318394756261, guid: 066a4c3ce49fe493b9274d2b573fe7f6, type: 3}
-  guardSpawnpoint: {fileID: 0}
-  customerToRemove: {fileID: 0}
+  guardSpawnpoint: {fileID: 1005509492}
+  customerOverride: {fileID: 0}
   guardMoveDuration: 2
   guardPauseAtCustomer: 1
 --- !u!4 &1088081173
@@ -929,3 +960,4 @@ SceneRoots:
   - {fileID: 1846531446}
   - {fileID: 1355134312}
   - {fileID: 1698005506}
+  - {fileID: 1005509493}

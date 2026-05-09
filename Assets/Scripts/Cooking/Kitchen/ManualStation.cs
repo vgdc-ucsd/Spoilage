@@ -15,6 +15,7 @@ public class ManualStation : CookingStation
         // execute any special logic after calling base to ensure the food is set before accessing it
 
         _currentClicks = 0;
+        Debug.Log($"Station updated. New item: {food.name}, Clicks reset to 0.");
     }
 
     public override void OnRemoveFood()

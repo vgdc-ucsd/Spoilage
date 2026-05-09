@@ -13,14 +13,6 @@ MonoBehaviour:
   m_Name: Ratenudel
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   _name: Ratenudel
-  _needsCooking: 1
-  _cookTime: 5
   _spoilTime: 15
-  _isSpoiled: 0
-  _isChopped: 0
-  _needsChopping: 0
-  _rawSprite: {fileID: 0}
-  _cookedSprite: {fileID: 0}
-  _burntSprite: {fileID: 0}
-  _unchoppedSprite: {fileID: 0}
-  _choppedSprite: {fileID: 0}
+  _normalSprite: {fileID: 21300000, guid: d2cfb3b73a22aa047bcb094c6f846153, type: 3}
+  _spoiledSprite: {fileID: 0}
