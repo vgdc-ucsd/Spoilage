@@ -1,45 +1,58 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class CookingStation : MonoBehaviour
 {
     [Header("Base Station Settings")]
 
     // These properties are used to change the station's appearance when being used
-    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Image _stationImage;
     [SerializeField] private Sprite _defaultSprite;
     [SerializeField] private Sprite _activeSprite;
 
-    protected IngredientObject _currentFood;
-    protected IngredientBehaviour _currentIngredientBehaviour;
+    protected int maxIngredients = 1;
+    protected List<IngredientObject> _currentFoods = new List<IngredientObject>();
+    protected List<IngredientBehaviour> _currentBehaviours = new List<IngredientBehaviour>();
+
+    protected IngredientObject _currentFood => _currentFoods.Count > 0 ? _currentFoods[0] : null;
+    protected IngredientBehaviour _currentIngredientBehaviour => _currentBehaviours.Count > 0 ? _currentBehaviours[0] : null;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public virtual void Start()
     {
-        _spriteRenderer.sprite = _defaultSprite;
+        _stationImage.sprite = _defaultSprite;
     }
 
     // These virtual methods allow child scripts to add their own unique logic
     public virtual void OnPlaceFood(FoodGrab food)
     {
+        var ingredient = food.GetComponent<IngredientObject>();
+        var behaviour = food.GetComponent<IngredientBehaviour>();
+
+        if (ingredient != null && !_currentFoods.Contains(ingredient))
+            _currentFoods.Add(ingredient);
+
+        if (behaviour != null && !_currentBehaviours.Contains(behaviour))
+            _currentBehaviours.Add(behaviour);
+
         Debug.Log($"{gameObject.name}: Food placed.");
         SetSpriteActive(true);
-        _currentFood = food.GetComponent<IngredientObject>();
-        _currentIngredientBehaviour = food.GetComponent<IngredientBehaviour>();
     }
 
     public virtual void OnRemoveFood()
     {
         Debug.Log($"{gameObject.name}: Food removed.");
-        SetSpriteActive(false);
-        _currentFood = null;
-        _currentIngredientBehaviour = null;
+        _currentFoods.Clear();
+        _currentBehaviours.Clear();
+        SetSpriteActive(_currentFoods.Count > 0);
     }
 
     public void SetSpriteActive(bool isActive)
     {
-        if (_spriteRenderer == null)
+        if (_stationImage == null)
         {
-            Debug.LogWarning("SpriteRenderer reference is missing!");
+            Debug.LogWarning("Image reference is missing!");
             return;
         }
 
@@ -49,6 +62,6 @@ public class CookingStation : MonoBehaviour
             return;
         }
 
-        _spriteRenderer.sprite = isActive ? _activeSprite : _defaultSprite;
+        _stationImage.sprite = isActive ? _activeSprite : _defaultSprite;
     }
 }

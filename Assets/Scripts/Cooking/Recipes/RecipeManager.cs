@@ -5,14 +5,13 @@ using UnityEngine;
 public class IngredientRequirement
 {
     public string ingredientName;
-    public string requiredState; //required state is the cooked state
-    public string requiredChoppedState;
 }
 
 [System.Serializable]
 public class Recipe
 {
     public string dishName;
+    public bool requiresAllSpoiled;
     public List<IngredientRequirement> ingredients;
 }
 
@@ -72,39 +71,57 @@ public class RecipeManager : MonoBehaviour
         if (recipe == null || plateIngredients == null) return false;
         if (recipe.ingredients.Count != plateIngredients.Count) return false;
 
-        foreach (var req in recipe.ingredients)
+        if (recipe.requiresAllSpoiled)
         {
-            bool found = false;
-            foreach (var food in plateIngredients)
+            foreach (IngredientObject food in plateIngredients)
             {
-                if (food == null || food.IngredientInstance == null) continue;
+                if (food == null || food.IngredientInstance == null) return false;
 
-                // 1. Get names and states
-                string plateName = food.IngredientInstance.Data.Name.Trim();
-                string plateCookState = food.IngredientInstance.CurrentCookState.ToString().Trim();
-                string plateChoppedState = food.IngredientInstance.CurrentChoppedState.ToString().Trim();
-
-                // 2. Basic Name Match
-                bool nameMatches = plateName.Equals(req.ingredientName.Trim(), System.StringComparison.OrdinalIgnoreCase);
-
-                // 3. Cook State Match
-                bool cookMatches = plateCookState.Equals(req.requiredState.Trim(), System.StringComparison.OrdinalIgnoreCase);
-
-                // 4. Chopped State Match (Optional: if JSON is empty, we assume it's a match)
-                bool choppedMatches = true;
-                if (!string.IsNullOrEmpty(req.requiredChoppedState))
+                if (!food.IngredientInstance.IsSpoiled)
                 {
-                    choppedMatches = plateChoppedState.Equals(req.requiredChoppedState.Trim(), System.StringComparison.OrdinalIgnoreCase);
-                }
-
-                if (nameMatches && cookMatches && choppedMatches)
-                {
-                    found = true;
-                    break;
+                    return false;
                 }
             }
-            if (!found) return false;
         }
-        return true;
+
+        List<string> remainingRequirements = new List<string>();
+
+        foreach (IngredientRequirement req in recipe.ingredients)
+        {
+            remainingRequirements.Add(req.ingredientName.Trim().ToLower());
+        }
+
+        foreach (IngredientObject food in plateIngredients)
+        {
+            if (food == null || food.IngredientInstance == null) continue;
+
+            string plateName = food.IngredientInstance.Data.Name.Trim().ToLower();
+
+            if (!remainingRequirements.Remove(plateName))
+            {
+                return false;
+            }
+        }
+
+        return remainingRequirements.Count == 0;
+    }
+
+    public float GetAverageSpoilage(List<IngredientObject> ingredients)
+    {
+        if (ingredients == null || ingredients.Count == 0)
+        {
+            return 0f;
+        }
+
+        float totalSpoilage = 0f;
+
+        foreach (IngredientObject ingredient in ingredients)
+        {
+            if (ingredient == null || ingredient.IngredientInstance == null) continue;
+
+            totalSpoilage += ingredient.IngredientInstance.SpoilagePercent;
+        }
+
+        return totalSpoilage / ingredients.Count;
     }
 }

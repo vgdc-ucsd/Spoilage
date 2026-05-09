@@ -1,32 +1,111 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
-/*
-    IngrediantBehavior:
-    Timer for each individual food ingrediant
-        Cooking: Set timer for each cookable ingrediant
-        Spoiling: Set timer for each ingrediant
-*/
 public sealed class IngredientBehaviour : MonoBehaviour
 {
-
     [SerializeField] private bool _enableDebugLogs = true;
-    [SerializeField] private GameObject _cookingTimer;
-    [SerializeField] private Image _cookingTimerFill;
 
+    [Header("Spoiling Timer UI")]
     [SerializeField] private GameObject _spoilingTimer;
     [SerializeField] private Image _spoilingTimerFill;
 
     private IngredientObject _ingredientObject;
 
-    private float _cookStateTimer;
-
-    private float _spoilTimer;
-
-    private bool _isOnHeat;
-
     private bool _isOnSpoilSurface;
+
+    private void Awake()
+    {
+        _ingredientObject = GetComponent<IngredientObject>();
+
+        if (_spoilingTimer == null)
+        {
+            Transform timer = transform.Find("Canvas/SpoilTimer");
+            if (timer != null)
+            {
+                _spoilingTimer = timer.gameObject;
+            }
+        }
+
+        if (_spoilingTimerFill == null)
+        {
+            Transform fill = transform.Find("Canvas/SpoilTimer/SpoilFill");
+            if (fill != null)
+            {
+                _spoilingTimerFill = fill.GetComponent<Image>();
+            }
+        }
+
+        HideSpoilingTimer();
+    }
+
+    private void Update()
+    {
+        HandleSpoilage();
+        UpdateSpoilageVisual();
+    }
+
+    private void HandleSpoilage()
+    {
+        Ingredient ingredient = _ingredientObject.IngredientInstance;
+
+        if (ingredient == null) return;
+        if (ingredient.IsSpoiled) return;
+        if (!_isOnSpoilSurface) return;
+        if (ingredient.Data.SpoilTime <= 0f) return;
+
+        float percentPerSecond = 100f / ingredient.Data.SpoilTime;
+        ingredient.AddSpoilagePercent(percentPerSecond * Time.deltaTime);
+
+        if (ingredient.IsSpoiled)
+        {
+            Log("Food reached 100% spoilage.");
+        }
+    }
+
+    private void UpdateSpoilageVisual()
+    {
+        Ingredient ingredient = _ingredientObject.IngredientInstance;
+
+        if (ingredient == null) return;
+
+        if (!_isOnSpoilSurface || ingredient.IsSpoiled)
+        {
+            HideSpoilingTimer();
+            return;
+        }
+
+        float remainingPercent = 1f - ingredient.SpoilagePercent / 100f;
+        ShowSpoilingTimer(remainingPercent);
+    }
+
+    public void PutOnSpoilSurface()
+    {
+        _isOnSpoilSurface = true;
+        Log("Started spoiling.");
+    }
+
+    public void RemoveFromSpoilSurface()
+    {
+        _isOnSpoilSurface = false;
+        HideSpoilingTimer();
+        Log("Stopped spoiling.");
+    }
+
+    private void ShowSpoilingTimer(float fillAmount)
+    {
+        if (_spoilingTimer == null || _spoilingTimerFill == null) return;
+
+        _spoilingTimer.SetActive(true);
+        _spoilingTimerFill.fillAmount = Mathf.Clamp01(fillAmount);
+    }
+
+    private void HideSpoilingTimer()
+    {
+        if (_spoilingTimer != null)
+        {
+            _spoilingTimer.SetActive(false);
+        }
+    }
 
     private void Log(string message)
     {
@@ -35,213 +114,4 @@ public sealed class IngredientBehaviour : MonoBehaviour
             Debug.Log($"[{gameObject.name}] {message}");
         }
     }
-
-    private void Awake()
-    {
-         _ingredientObject = GetComponent<IngredientObject>();
-
-        if (_cookingTimer == null)
-        {
-            _cookingTimer = transform.Find("Canvas/CookingTimer").gameObject;
-        }
-
-        if (_cookingTimerFill == null)
-        {
-            _cookingTimerFill = transform.Find("Canvas/CookingTimer/CookingFill").GetComponent<Image>();
-        }
-
-        if (_spoilingTimer == null)
-        {
-            _spoilingTimer = transform.Find("Canvas/SpoilTimer").gameObject;
-        }
-
-        if (_spoilingTimerFill == null)
-        {
-            _spoilingTimerFill = transform.Find("Canvas/SpoilTimer/SpoilFill").GetComponent<Image>();
-        }
-
-        HideCookingTimer();
-        HideSpoilingTimer();
-    }
-
-    private void Update()
-    {
-        HandleCookingTimers();
-        HandleSpoilTimers();
-        UpdateTimerVisuals();
-    }
-
-    private void HandleSpoilTimers()
-    {
-        Ingredient ingredient = _ingredientObject.IngredientInstance;
-
-        if (!_isOnSpoilSurface || ingredient.IsSpoiled)
-        {
-            return;
-        }
-
-        _spoilTimer += Time.deltaTime;
-
-        if (_spoilTimer >= ingredient.Data.SpoilTime)
-        {
-            ingredient.IsSpoiled = true;
-            _spoilTimer = 0f;
-            _isOnSpoilSurface = false;
-
-            Log("Food SPOILED");
-            HideSpoilingTimer();
-        }
-    }
-
-    private void HandleCookingTimers()
-    {
-        Ingredient ingredient = _ingredientObject.IngredientInstance;
-
-        if (!_isOnHeat || ingredient.IsSpoiled || !ingredient.Data.NeedsCooking)
-        {
-            return;
-        }
-
-        _cookStateTimer += Time.deltaTime;
-
-        switch (ingredient.CurrentCookState)
-        {
-            case CookState.Raw:
-                if (_cookStateTimer >= ingredient.Data.CookTime)
-                {
-                    ingredient.CurrentCookState = CookState.Cooked;
-                    _cookStateTimer = 0f;
-
-                    Log("Became COOKED");
-                }
-                break;
-
-            case CookState.Cooked:
-                if (_cookStateTimer >= ingredient.Data.CookTime)
-                {
-                    ingredient.CurrentCookState = CookState.Burnt;
-                    _cookStateTimer = 0f;
-
-                    Log("Became BURNT");
-                    HideCookingTimer();
-                }
-                break;
-
-            case CookState.Burnt:
-                HideCookingTimer();
-                break;
-        }
-    }
-
-    public void ResetCookingTimer()
-    {
-        _cookStateTimer = 0f;
-        UpdateTimerVisuals();
-    }
-
-    private void UpdateTimerVisuals()
-    {
-        Ingredient ingredient = _ingredientObject.IngredientInstance;
-
-        if (_isOnHeat && !ingredient.IsSpoiled && ingredient.Data.NeedsCooking && ingredient.CurrentCookState != CookState.Burnt)
-        {
-            float cookingProgress = _cookStateTimer / ingredient.Data.CookTime;
-            ShowCookingTimer(1f - cookingProgress);
-            HideSpoilingTimer();
-            return;
-        }
-        if (_isOnSpoilSurface && !ingredient.IsSpoiled)
-        {
-            float spoilProgress = _spoilTimer / ingredient.Data.SpoilTime;
-            ShowSpoilingTimer(1f - spoilProgress);
-            HideCookingTimer();
-            return;
-        }
-        if (ingredient.CurrentCookState == CookState.Raw && _cookStateTimer > 0f)
-        {
-            ShowCookingTimer(1f - (_cookStateTimer / ingredient.Data.CookTime));
-            return;
-        }
-
-        HideCookingTimer();
-        HideSpoilingTimer();
-    }
-
-    private void ShowCookingTimer(float fillAmount)
-    {
-        Ingredient ingredient = _ingredientObject.IngredientInstance;
-
-        _cookingTimer.SetActive(true);
-        _cookingTimerFill.fillAmount = Mathf.Clamp01(fillAmount);
-
-        if (ingredient.CurrentCookState == CookState.Raw)
-        {
-            if (fillAmount > 0.6f)
-            {
-                _cookingTimerFill.color = Color.green;
-            }
-            else if (fillAmount > 0.3f)
-            {
-                _cookingTimerFill.color = Color.yellow;
-            }
-        }
-        else if (ingredient.CurrentCookState == CookState.Cooked){
-            _cookingTimerFill.color = Color.red;
-        }
-    }
-
-    private void HideCookingTimer()
-    {
-        _cookingTimer.SetActive(false);
-    }
-
-    private void ShowSpoilingTimer(float fillAmount)
-    {
-        _spoilingTimer.SetActive(true);
-        _spoilingTimerFill.fillAmount = Mathf.Clamp01(fillAmount);
-    }
-
-    private void HideSpoilingTimer()
-    {
-        _spoilingTimer.SetActive(false);
-    }
-
-
-    public void PutOnHeat()
-    {
-        _isOnHeat = true;
-        _isOnSpoilSurface = false;
-        Log("Started Cooking");
-        Debug.Log(gameObject.name + " started cooking");
-    }
-
-    public void RemoveFromHeat()
-    {
-        _isOnHeat = false;
-
-        Ingredient ingredient = _ingredientObject.IngredientInstance;
-
-        if (ingredient.CurrentCookState == CookState.Raw && _cookStateTimer > 0f)
-        {
-            ShowCookingTimer(1f - (_cookStateTimer / ingredient.Data.CookTime));
-            Log($" ||Cooking Paused at {_cookStateTimer:F2}s");
-            return;
-        }
-
-        ResetCookingTimer();
-        HideCookingTimer();
-    }
-
-    public void PutOnSpoilSurface()
-    {
-        _isOnSpoilSurface = true;
-        _isOnHeat = false;
-        Log("Started Spoiling");
-    }
-
-    public void RemoveFromSpoilSurface()
-    {
-        _isOnSpoilSurface = false;
-    }
-
 }
