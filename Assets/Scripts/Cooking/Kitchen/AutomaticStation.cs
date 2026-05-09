@@ -142,10 +142,9 @@ public class AutomaticStation : CookingStation
 
     private void StopCooking()
     {
+        _timer = 0f;
         _isCooking = false;
         _isOvercooking = false;
-        _timer = 0f;
-
         HideTimer();
     }
 

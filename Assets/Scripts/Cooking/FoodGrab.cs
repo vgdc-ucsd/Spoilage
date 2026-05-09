@@ -31,7 +31,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-        TryGrab();
+        //TryGrab();
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
@@ -41,13 +41,18 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         _originalParent = _rectTransform.parent;
         _originalPosition = _rectTransform.anchoredPosition;
 
+        if (!TryGrab())
+        {
+            return;
+        }
+
         // bring object to top while dragging
         _rectTransform.SetParent(_canvas.transform);
         _rectTransform.SetAsLastSibling();
 
+
         if (_foodImage != null) _foodImage.raycastTarget = false;
 
-        TryGrab();
     }
 
     void IDragHandler.OnDrag(PointerEventData eventData)
@@ -76,9 +81,21 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     {
         _cameFromFridge = value;
     }
+
     public bool TryGrab()
     {
         if (!CanMoveFood || _isPlaced) return false;
+
+        if (_activeStation != null)
+        {
+            _returnStation = _activeStation;
+
+            _activeStation.OnRemoveFood();
+            _activeStation = null;
+        } else
+        {
+            _returnStation = null;
+        }
 
         PointerEventData pointerData = new PointerEventData(EventSystem.current)
         {
@@ -95,6 +112,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             if (tile.GetTopObject() != gameObject) return false;
             tile.RemoveObject(gameObject);
         }
+
 
         // Clean up appliance reference if we pick it back up
         if (_activeStation != null)
