@@ -3324,6 +3324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2119257194}
   - component: {fileID: 2119257195}
+  - component: {fileID: 2119257198}
   - component: {fileID: 2119257196}
   m_Layer: 9
   m_Name: plate
@@ -3364,9 +3365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828e3039c748a4d3a807043b79a99f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Plate
-  _ingredients: []
+  _ingredient: {fileID: 0}
   _stackPoint: {fileID: 2119257194}
-  _stackOffset: 0.1
 --- !u!61 &2119257196
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3413,6 +3413,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 81.46496, y: 81.64174}
   m_EdgeRadius: 0
+--- !u!114 &2119257198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119257193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 014495c9d1795544588c0de3508bb8ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlateGrab
+  currentTile: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
