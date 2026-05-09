@@ -1,69 +1,31 @@
-﻿public abstract class Ingredient
+﻿using UnityEngine;
+
+public sealed class Ingredient
 {
+    public IngredientData Data { get; private set; }
 
-    private readonly IngredientData _data;
+    public float SpoilagePercent { get; private set; }
 
-    private CookState _currentCookState;
-    private ChoppedState _currentChoppedState;
-    private bool _isSpoiled;
-    
-    protected Ingredient(IngredientData data)
+    public bool IsSpoiled => SpoilagePercent >= 100f;
+
+    public Ingredient(IngredientData data)
     {
-        _data = data;
-        _currentCookState = CookState.Raw;
-        _currentChoppedState = ChoppedState.Unchopped;
+        Data = data;
+        SpoilagePercent = 0f;
     }
 
-    public IngredientData Data
+    public void ChangeData(IngredientData newData)
     {
-        get { return _data; }
+        Data = newData;
     }
 
-    public CookState CurrentCookState
+    public void AddSpoilagePercent(float amount)
     {
-        get { return _currentCookState; }
-        set { _currentCookState = value; }
+        SpoilagePercent = Mathf.Clamp(SpoilagePercent + amount, 0f, 100f);
     }
 
-    public ChoppedState CurrentChoppedState
+    public void SetSpoilagePercent(float percent)
     {
-        get { return _currentChoppedState; }
-        set { _currentChoppedState = value; }
-    }
-
-    public bool IsSpoiled
-    {
-        get => _isSpoiled;
-        set => _isSpoiled = value;
-    }
-}
-public enum CookState
-{
-    Raw,
-    Cooked,
-    Toasted,
-    Grilled,
-    Boiled,
-    Burnt
-}
-
-public enum ChoppedState
-{
-    Chopped,
-    Unchopped,
-}
-
-
-public sealed class Dough : Ingredient
-{
-    public Dough(IngredientData data) : base(data)
-    {
-    }
-}
-
-public sealed class Vegetable : Ingredient
-{
-    public Vegetable(IngredientData data) : base(data)
-    {
+        SpoilagePercent = Mathf.Clamp(percent, 0f, 100f);
     }
 }

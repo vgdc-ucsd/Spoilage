@@ -1,40 +1,53 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class Plate : MonoBehaviour
 {
     [SerializeField] private List<IngredientObject> _ingredients = new List<IngredientObject>();
 
     [SerializeField] private Transform _stackPoint;
-    [SerializeField] private float _stackOffset = 0.1f;
+    [SerializeField] private float _stackOffset = 20f;
     
 
-    public void AddIngredient(IngredientObject ingredient)
+    public bool AddIngredient(IngredientObject ingredient)
     {
+        if (ingredient == null) return false;
+
         Debug.Log("AddIngredient was just called for: " + ingredient.name);
-        FoodGrab grab = ingredient.GetComponent<FoodGrab>();
 
-        if (ingredient == null) return;
-
-        if (grab != null)
+        foreach (IngredientObject existing in _ingredients)
         {
-            grab.LockToPlate();
+            if (existing.IngredientInstance.Data.Name == ingredient.IngredientInstance.Data.Name)
+            {
+                Debug.Log("Duplicate Ingredient Type detected: " + ingredient.IngredientInstance.Data.Name);
+                return false;
+            }
         }
-
-        if (_ingredients.Contains(ingredient))
-            return;
 
         _ingredients.Add(ingredient);
 
-        ingredient.transform.SetParent(_stackPoint);
+        FoodGrab grab = ingredient.GetComponent<FoodGrab>();
+        if (grab != null)
+        {
+            grab.LockToPlate();
+            if (ingredient.TryGetComponent<Collider2D>(out var col)) col.enabled = false;
+        }
 
-        Vector3 position = _stackPoint.position;
+        RectTransform rect = ingredient.GetComponent<RectTransform>();
+        rect.SetParent(_stackPoint);
+
+        Vector2 position = Vector2.zero;
         position.y += _stackOffset * (_ingredients.Count - 1);
+        rect.anchoredPosition = position;
 
-        SpriteRenderer sr = ingredient.GetComponent<SpriteRenderer>();
-        sr.sortingOrder = _ingredients.Count;
+        Image img = ingredient.GetComponent<Image>();
+        if (img != null)
+        {
+            rect.SetAsLastSibling();
+        }
 
-        ingredient.transform.position = position;
+        return true;
     }
 
     public List<IngredientObject> GetIngredients()
@@ -54,7 +67,12 @@ public class Plate : MonoBehaviour
 
         foreach (IngredientObject ingredient in _ingredients)
         {
-            Debug.Log($"- {ingredient.IngredientInstance.Data.Name} ({ingredient.IngredientInstance.CurrentCookState} {ingredient.IngredientInstance.CurrentChoppedState})");
+            if (ingredient == null || ingredient.IngredientInstance == null) continue;
+
+            Debug.Log(
+                $"- {ingredient.IngredientInstance.Data.Name} " +
+                $"(Spoilage: {ingredient.IngredientInstance.SpoilagePercent:F1}%)"
+            );
         }
     }
 
@@ -76,4 +94,3 @@ public class Plate : MonoBehaviour
         }
     }
 }
-

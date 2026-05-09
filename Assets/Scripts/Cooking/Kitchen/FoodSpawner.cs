@@ -18,13 +18,15 @@ public class FoodSpawner : MonoBehaviour
     public void SpawnFood()
     {
         if (_currentFood != null) return;
-        GameObject newFood = Instantiate(_foodPrefab, _spawnPoint.position, Quaternion.identity);
+        GameObject newFood = Instantiate(_foodPrefab, _spawnPoint.position, Quaternion.identity, _spawnPoint);
 
         _currentFood = newFood.GetComponent<FoodGrab>();
 
         if (_currentFood != null)
         {
             _currentFood.SetSpawner(this);
+            _currentFood.SetCameFromFridge(true);
+            _currentFood.SetHomePosition(_spawnPoint.position);
         }
     }
 
