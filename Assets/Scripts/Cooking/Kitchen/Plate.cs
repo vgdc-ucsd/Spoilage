@@ -65,15 +65,20 @@ public class Plate : MonoBehaviour
 
         Debug.Log("Plate contains:");
 
+        float totalQualityPercentage = 0;
+
         foreach (IngredientObject ingredient in _ingredients)
         {
             if (ingredient == null || ingredient.IngredientInstance == null) continue;
+
+            totalQualityPercentage += ingredient.IngredientInstance.Data.QualityPercent;
 
             Debug.Log(
                 $"- {ingredient.IngredientInstance.Data.Name} " +
                 $"(Spoilage: {ingredient.IngredientInstance.SpoilagePercent:F1}%)"
             );
         }
+        Debug.Log("Total Quality Percentage: " + totalQualityPercentage);
     }
 
     [ContextMenu("Test Recipe Check")]
