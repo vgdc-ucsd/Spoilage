@@ -20,7 +20,14 @@ public class CookingStation : MonoBehaviour
     protected IngredientObject _currentFood => _currentFoods.Count > 0 ? _currentFoods[0] : null;
     protected IngredientBehaviour _currentIngredientBehaviour => _currentBehaviours.Count > 0 ? _currentBehaviours[0] : null;
 
-    public bool HasSpace => _currentFoods.Count < maxIngredients;
+    public bool HasSpace
+    {
+        get
+        {
+            _currentFoods.RemoveAll(f => f == null);
+            return _currentFoods.Count < maxIngredients;
+        }
+    }
     public int CurrentFoodCount => _currentFoods.Count;
     public int MaxIngredients => maxIngredients;
 
