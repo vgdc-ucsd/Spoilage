@@ -514,6 +514,14 @@ PrefabInstance:
       value: Grill
       objectReference: {fileID: 0}
     - target: {fileID: 8859256187886057906, guid: 9719ce4066217e848a79106289ba6174, type: 3}
+      propertyPath: _stationID
+      value: grill_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859256187886057906, guid: 9719ce4066217e848a79106289ba6174, type: 3}
+      propertyPath: _canOvercook
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859256187886057906, guid: 9719ce4066217e848a79106289ba6174, type: 3}
       propertyPath: _activeSprite
       value: 
       objectReference: {fileID: 21300000, guid: 946a18424ded0c84f830a92aef3bd253, type: 3}
@@ -1038,6 +1046,10 @@ PrefabInstance:
     - target: {fileID: 8859256187886057906, guid: 9719ce4066217e848a79106289ba6174, type: 3}
       propertyPath: _station
       value: Oven
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859256187886057906, guid: 9719ce4066217e848a79106289ba6174, type: 3}
+      propertyPath: _stationID
+      value: oven_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2846,6 +2858,10 @@ PrefabInstance:
     - target: {fileID: 8859256187886057906, guid: 9719ce4066217e848a79106289ba6174, type: 3}
       propertyPath: _station
       value: Pot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859256187886057906, guid: 9719ce4066217e848a79106289ba6174, type: 3}
+      propertyPath: _stationID
+      value: pot_1
       objectReference: {fileID: 0}
     - target: {fileID: 8859256187886057906, guid: 9719ce4066217e848a79106289ba6174, type: 3}
       propertyPath: _activeSprite

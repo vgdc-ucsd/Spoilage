@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
   m_Name: Burnt Flatbread
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  _name: 
+  _name: Burnt Flatbread
   _spoilTime: 0
   _normalSprite: {fileID: 0}
   _spoiledSprite: {fileID: 0}
