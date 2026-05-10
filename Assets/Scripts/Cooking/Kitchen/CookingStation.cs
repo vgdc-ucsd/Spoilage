@@ -61,6 +61,8 @@ public class CookingStation : MonoBehaviour
 
         if (!_currentFoods.Contains(ingredient))
         {
+            _currentFoods.RemoveAll(f => f == null);
+            _currentBehaviours.RemoveAll(b => b == null);
             _currentFoods.Add(ingredient);
         }
 

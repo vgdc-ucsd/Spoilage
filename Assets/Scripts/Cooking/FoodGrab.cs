@@ -38,6 +38,18 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     {
         if (!CanMoveFood || _isPlaced) return;
 
+        CookingStation station = GetComponentInParent<CookingStation>();
+
+        if (station != null)
+        {
+            _returnStation = station;
+            _returnPosition = station.transform.position;
+
+            station.OnRemoveFood();
+
+            _activeStation = null;
+        }
+
         _originalParent = _rectTransform.parent;
         _originalPosition = _rectTransform.anchoredPosition;
 
