@@ -2,6 +2,7 @@
   "recipes": [
     {
       "dishName": "Flatbread",
+      "requiresAllSpoiled": "false",
       "station": "Grill",
       "ingredients": [
         { "ingredientName": "Dough" }
@@ -9,6 +10,7 @@
     },
     {
       "dishName": "Brewer on a Skewer",
+      "requiresAllSpoiled": "false",
       "station": "Grill",
       "ingredients": [
         { "ingredientName": "Dough" },
@@ -17,6 +19,7 @@
     },
     {
       "dishName": "Pickled Pigeons",
+      "requiresAllSpoiled": "false",
       "station": "Grill",
       "ingredients": [
         { "ingredientName": "Cubed Meat" },
@@ -25,6 +28,7 @@
     },
     {
       "dishName": "Ratenudel",
+      "requiresAllSpoiled": "false",
       "station": "Grill",
       "ingredients": [
         { "ingredientName": "Noodles" },
@@ -34,6 +38,7 @@
     },
     {
       "dishName": "Lotus Steak",
+      "requiresAllSpoiled": "false",
       "station": "Grill",
       "ingredients": [
         { "ingredientName": "Diced Potatoes" },
@@ -42,6 +47,7 @@
     },
     {
       "dishName": "Unsauced Amehonpilztopf",
+      "requiresAllSpoiled": "false",
       "station": "Pot",
       "ingredients": [
         { "ingredientName": "Flatbread" },
@@ -51,6 +57,7 @@
     },
     {
       "dishName": "Noodles",
+      "requiresAllSpoiled": "false",
       "station": "Pot",
       "ingredients": [
         { "ingredientName": "Sliced Dough" }
@@ -58,6 +65,7 @@
     },
     {
       "dishName": "Sliced Dough",
+      "requiresAllSpoiled": "false",
       "station": "Cutting Board",
       "ingredients": [
         { "ingredientName": "Dough" }
@@ -65,6 +73,7 @@
     },
     {
       "dishName": "Cubed Meat",
+      "requiresAllSpoiled": "false",
       "station": "Cutting Board",
       "ingredients": [
         { "ingredientName": "Meat" }
@@ -72,6 +81,7 @@
     },
     {
       "dishName": "Diced Potatoes",
+      "requiresAllSpoiled": "false",
       "station": "Cutting Board",
       "ingredients": [
         { "ingredientName": "Potatoes" }
@@ -79,6 +89,7 @@
     },
     {
       "dishName": "Chopped Root Vegetables",
+      "requiresAllSpoiled": "false",
       "station": "Cutting Board",
       "ingredients": [
         { "ingredientName": "Root Vegetables" }
@@ -86,6 +97,7 @@
     },
     {
       "dishName": "Sliced Cheese",
+      "requiresAllSpoiled": "false",
       "station": "Cutting Board",
       "ingredients": [
         { "ingredientName": "Cheese" }
@@ -93,6 +105,7 @@
     },
     {
       "dishName": "Cheesy Bread",
+      "requiresAllSpoiled": "false",
       "station": "Kitchen Tile",
       "ingredients": [
         { "ingredientName": "Flatbread" },
@@ -101,6 +114,7 @@
     },
     {
       "dishName": "Cheesy Beet Bread",
+      "requiresAllSpoiled": "false",
       "station": "Kitchen Tile",
       "ingredients": [
         { "ingredientName": "Cheesy Bread" },
@@ -109,6 +123,7 @@
     },
     {
       "dishName": "Amehonpilztopf",
+      "requiresAllSpoiled": "false",
       "station": "Kitchen Tile",
       "ingredients": [
         { "ingredientName": "Unsauced Amehonpilztopf" },
