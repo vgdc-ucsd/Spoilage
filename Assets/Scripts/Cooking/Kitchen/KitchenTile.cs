@@ -51,25 +51,6 @@ public class KitchenTile : MonoBehaviour
             // Cooking: food only, one per tile
             if (type != "Food") return false;
 
-            ObjectGrab appliance = GetAppliance();
-
-            if (appliance != null)
-            {
-                CookingStation station = appliance.GetComponent<CookingStation>();
-
-                if (station != null)
-                {
-                    if (movingObj == null)
-                    {
-                        return false;
-                    }
-                    FoodGrab foodGrab = movingObj.GetComponent<FoodGrab>();
-                    if (foodGrab != null) return station.CanAcceptFood(foodGrab);
-                    
-                    return false;
-                }
-            }
-
             IngredientObject existingFood = null;
             foreach (var obj in objectsOnTile)
                 if (obj != null && obj.TryGetComponent(out existingFood)) break;
@@ -97,24 +78,6 @@ public class KitchenTile : MonoBehaviour
     public void PlaceObject(GameObject obj)
     {
         if (obj == null) return;
-
-        ObjectGrab appliance = GetAppliance();
-
-        if (appliance != null)
-        {
-            CookingStation station = appliance.GetComponent<CookingStation>();
-
-            if (station != null)
-            {
-                FoodGrab foodGrab = obj.GetComponent<FoodGrab>();
-                
-                if (foodGrab != null && station.CanAcceptFood(foodGrab))
-                {
-                    station.PlaceFood(foodGrab);
-                    return;
-                }
-            }
-        }
 
         IngredientObject newFood = obj.GetComponent<IngredientObject>();
         IngredientObject existingFood = null;
@@ -162,12 +125,10 @@ public class KitchenTile : MonoBehaviour
 
         // Snap to tile using RectTransform (all objects are UI)
         RectTransform objRect = obj.GetComponent<RectTransform>();
-        
         if (objRect != null && _rectTransform != null)
         {
             objRect.SetParent(_rectTransform, false);
             objRect.anchoredPosition = Vector2.zero;
-            objRect.SetAsLastSibling();
         }
         else
         {
@@ -216,17 +177,5 @@ public class KitchenTile : MonoBehaviour
             if (counterRect != null) counterRect.anchoredPosition = Vector2.zero;
             PlaceObject(counter);
         }
-
-    
-    }
-
-    public ObjectGrab GetAppliance()
-    {
-        foreach (var obj in objectsOnTile)
-        {
-            if (obj != null && obj.TryGetComponent(out ObjectGrab appliance)) return appliance;
-
-        }
-        return null;
     }
 }

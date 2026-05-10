@@ -8,14 +8,17 @@ public class AutomaticStation : CookingStation
     [Header("Cooking Settings")]
     [SerializeField] private float _cookDuration = 5f;
     [SerializeField] private float _overcookDuration = 5f;
+    [SerializeField] private bool _canOvercook = false;
 
     [Header("Timer UI")]
     [SerializeField] private GameObject _timerObject;
     [SerializeField] private Image _timerFill;
 
+    [SerializeField] private string _stationID;
+
     private float _timer;
     private bool _isCooking;
-    private bool _isOvercooking;
+    private bool _isOverCooking = false;
 
     public override void Start()
     {
@@ -35,14 +38,16 @@ public class AutomaticStation : CookingStation
         bool wasEmpty = _currentFoods.Count == 0;
 
         base.OnPlaceFood(food);
+        food.SetLastStation(_stationID);
+
         if (wasEmpty)
         {
-            _timer = food.GetSavedCookTimer();
+            _timer = food.GetCookTimer(_stationID);
         }
-
-        if (_currentFoods.Count == 0)
+        else
         {
-            return;
+            // adding new ingredient resets timer
+            _timer = 0f;
         }
 
         StartCooking();
@@ -57,7 +62,7 @@ public class AutomaticStation : CookingStation
 
             if (food != null)
             {
-                food.SaveCookTimer(_timer);
+                food.SaveCookTimer(_stationID, _timer);
             }
         }
         if (_isCooking)
@@ -65,8 +70,10 @@ public class AutomaticStation : CookingStation
             _isCooking = false;
             Debug.Log($"{gameObject.name}: Cooking interrupted.");
         }
-        
+
+        bool wasOvercooking = _isOverCooking;  
         StopCooking();
+        _isOverCooking = wasOvercooking;
         base.OnRemoveFood();
     }
 
@@ -79,10 +86,13 @@ public class AutomaticStation : CookingStation
         }
 
         _isCooking = true;
+
         if (_timer <= 0f)
-        {
-            _isOvercooking = false;
-        }
+            _isOverCooking = false;
+
+        if (_timerFill != null)
+            _timerFill.color = _isOverCooking ? Color.red : Color.green;
+
         SetSpriteActive(true);
         ShowTimer();
 
@@ -92,7 +102,7 @@ public class AutomaticStation : CookingStation
     private void StopCooking()
     {
         _isCooking = false;
-        _isOvercooking = false;
+        _isOverCooking = false;
         HideTimer();
     }
 
@@ -112,25 +122,27 @@ public class AutomaticStation : CookingStation
 
         _timer += Time.deltaTime;
 
-        float duration = _isOvercooking ? _overcookDuration : _cookDuration;
+        float duration = _isOverCooking ? _overcookDuration : _cookDuration;
+
         UpdateTimer(duration);
 
         if (_timer < duration)
-        {
             return;
-        }
 
-        if (_isOvercooking)
+        if (_isOverCooking)
         {
+            _isOverCooking = false;
             FinishOvercooking();
-            return;
         }
-
-        FinishCooking();
+        else
+        {
+            FinishCooking();
+        }
     }
 
     public virtual void FinishCooking()
     {
+        Debug.Log($"FinishCooking called. isCooking: {_isCooking}, isOvercooking: {_isOverCooking}, timer: {_timer}");
         _isCooking = false;
         if (_currentFoods.Count == 0) return;
 
@@ -177,11 +189,14 @@ public class AutomaticStation : CookingStation
 
         Debug.Log($"<color=green>{gameObject.name}: SUCCESS:</color> {resultData.Name}");
 
-        if (CanContinueCooking(recipeManager, survivor))
+        if (_canOvercook && CanContinueCooking(recipeManager, survivor))
         {
             _timer = 0f;
             _isCooking = true;
-            _isOvercooking = true;
+            _isOverCooking = true;
+
+            if (_timerFill != null) _timerFill.color = Color.red;
+            Debug.Log($"Overcook started. isCooking: {_isCooking}, isOvercooking: {_isOverCooking}, timer: {_timer}, overcookDuration: {_overcookDuration}");
 
             ShowTimer();
             SetSpriteActive(true);
@@ -321,10 +336,7 @@ public class AutomaticStation : CookingStation
         float progress = _timer / duration;
         _timerFill.fillAmount = Mathf.Clamp01(1f - progress);
 
-        if (_isOvercooking)
-        {
-            _timerFill.color = Color.red;
-        }
+        _timerFill.color = _isOverCooking ? Color.red : Color.green;
     }
 
     private void ShowTimer()
@@ -342,4 +354,5 @@ public class AutomaticStation : CookingStation
             _timerObject.SetActive(false);
         }
     }
+
 }

@@ -16,30 +16,24 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
     private RectTransform _rectTransform;
     private Canvas _canvas;
-    private CanvasGroup _canvasGroup;
     private Image _foodImage;
     private Vector2 _originalPosition;
     private Transform _originalParent;
 
-    private float _savedCookTimer;
-
     public static bool CanMoveFood = true;
+    private Dictionary<string, float> _stationTimers = new();
+    private string _lastStationID;
 
     private void Awake()
     {
         _rectTransform = GetComponent<RectTransform>();
         _canvas = GetComponentInParent<Canvas>();
         _foodImage = GetComponent<Image>();
-
-        if (_canvasGroup == null)
-        {
-            _canvasGroup = gameObject.AddComponent<CanvasGroup>();
-        }
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-        //TryGrab();
+        TryGrab();
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
@@ -61,28 +55,13 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         _originalParent = _rectTransform.parent;
         _originalPosition = _rectTransform.anchoredPosition;
 
-        if (_activeStation != null)
-        {
-            _returnStation = _activeStation;
-            _returnPosition = _activeStation.transform.position;
-            _activeStation.RemoveFood(this);
-            _activeStation = null;
-        }
-
-        if (!TryGrab())
-        {
-            return;
-        }
-
-        //  bring object to top while dragging
+        // bring object to top while dragging
         _rectTransform.SetParent(_canvas.transform);
         _rectTransform.SetAsLastSibling();
 
-        _canvasGroup.blocksRaycasts = true;
-
         if (_foodImage != null) _foodImage.raycastTarget = false;
 
-
+        TryGrab();
     }
 
     void IDragHandler.OnDrag(PointerEventData eventData)
@@ -111,11 +90,9 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     {
         _cameFromFridge = value;
     }
-
     public bool TryGrab()
     {
         if (!CanMoveFood || _isPlaced) return false;
-
 
         PointerEventData pointerData = new PointerEventData(EventSystem.current)
         {
@@ -133,14 +110,13 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             tile.RemoveObject(gameObject);
         }
 
-
         // Clean up appliance reference if we pick it back up
         if (_activeStation != null)
         {
             _returnStation = _activeStation;
             _returnPosition = _activeStation.transform.position;
 
-            _activeStation.RemoveFood(this);
+            _activeStation.OnRemoveFood();
             _activeStation = null;
         }
         else
@@ -219,7 +195,9 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
                 }
 
                 _activeStation = app;
-                _activeStation.PlaceFood(this);
+                _rectTransform.SetParent(app.transform, false);
+                _rectTransform.anchoredPosition = Vector2.zero;
+                _activeStation.OnPlaceFood(this);
                 foundValidDrop = true;
                 break;
             }
@@ -250,8 +228,6 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             _rectTransform.SetParent(targetTile.GetComponent<RectTransform>() != null 
                 ? targetTile.transform : _originalParent, false);
             _rectTransform.anchoredPosition = Vector2.zero;
-            _activeStation = null;
-            _returnStation = null;
             return;
         }
 
@@ -281,15 +257,15 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             return;
         }
 
-        // if (_returnStation != null && stillNeedsCooking)
-        // {
-        //     _rectTransform.position = _returnPosition;
-        //     _activeStation = _returnStation;
-        //     _activeStation.OnPlaceFood(this);
+        if (_returnStation != null && stillNeedsCooking)
+        {
+            _rectTransform.position = _returnPosition;
+            _activeStation = _returnStation;
+            _activeStation.OnPlaceFood(this);
 
-        //     Debug.Log("Food still needs cooking, snapping back to stove.");
-        //     return;
-        // }
+            Debug.Log("Food still needs cooking, snapping back to stove.");
+            return;
+        }
 
         if (_hasHomePosition)
         {
@@ -317,18 +293,19 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         _isPlaced = true;
     }
 
-    public void SaveCookTimer(float timer)
+    public void SaveCookTimer(string stationID, float timer)
     {
-        _savedCookTimer = timer;
+        _stationTimers[stationID] = timer;
     }
 
-    public float GetSavedCookTimer()
+    public float GetCookTimer(string stationID)
     {
-        return _savedCookTimer;
+        return _stationTimers.TryGetValue(stationID, out float t) ? t : 0f;
     }
 
-    public void ClearSavedCookTimer()
+    public void SetLastStation(string stationID)
     {
-        _savedCookTimer = 0f;
+        _lastStationID = stationID;
     }
+
 }
