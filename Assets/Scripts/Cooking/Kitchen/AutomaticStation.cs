@@ -38,6 +38,7 @@ public class AutomaticStation : CookingStation
     public override void OnPlaceFood(FoodGrab food)
     {
         base.OnPlaceFood(food);
+        _timer = food.GetSavedCookTimer();
 
         if (_currentFoods.Count == 0) return;
         
@@ -101,6 +102,15 @@ public class AutomaticStation : CookingStation
 
     public override void OnRemoveFood()
     {
+        if (_currentFood != null)
+        {
+            FoodGrab food = _currentFood.GetComponent<FoodGrab>();
+
+            if (food != null)
+            {
+                food.SaveCookTimer(_timer);
+            }
+        }
         if (_isCooking)
         {
             _isCooking = false;
@@ -129,7 +139,6 @@ public class AutomaticStation : CookingStation
 
     public void StartCooking()
     {
-        _timer = 0f;
         _isCooking = true;
         Debug.Log($"{gameObject.name}: Started cooking {_currentFoods.Count} ingredient(s).");
     
@@ -142,7 +151,6 @@ public class AutomaticStation : CookingStation
 
     private void StopCooking()
     {
-        _timer = 0f;
         _isCooking = false;
         _isOvercooking = false;
         HideTimer();
