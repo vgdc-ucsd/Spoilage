@@ -1,15 +1,27 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class AutomaticStation : CookingStation
 {
-    private bool _isCooking = false;
+    [Header("Cooking Settings")]
+    [SerializeField] private float _cookDuration = 5f;
+    [SerializeField] private float _overcookDuration = 5f;
+
+    [Header("Timer UI")]
+    [SerializeField] private GameObject _timerObject;
+    [SerializeField] private Image _timerFill;
+
+    private float _timer;
+    private bool _isCooking;
+    private bool _isOvercooking;
 
     public override void Start()
     {
         maxIngredients = 3;
         base.Start();
+        HideTimer();
     }
 
     public override void OnPlaceFood(FoodGrab food)
@@ -20,7 +32,13 @@ public class AutomaticStation : CookingStation
             return;
         }
 
+        bool wasEmpty = _currentFoods.Count == 0;
+
         base.OnPlaceFood(food);
+        if (wasEmpty)
+        {
+            _timer = food.GetSavedCookTimer();
+        }
 
         if (_currentFoods.Count == 0)
         {
@@ -33,12 +51,22 @@ public class AutomaticStation : CookingStation
 
     public override void OnRemoveFood()
     {
+        if (_currentFood != null)
+        {
+            FoodGrab food = _currentFood.GetComponent<FoodGrab>();
+
+            if (food != null)
+            {
+                food.SaveCookTimer(_timer);
+            }
+        }
         if (_isCooking)
         {
             _isCooking = false;
             Debug.Log($"{gameObject.name}: Cooking interrupted.");
         }
-
+        
+        StopCooking();
         base.OnRemoveFood();
     }
 
@@ -51,9 +79,21 @@ public class AutomaticStation : CookingStation
         }
 
         _isCooking = true;
+        if (_timer <= 0f)
+        {
+            _isOvercooking = false;
+        }
         SetSpriteActive(true);
+        ShowTimer();
 
         Debug.Log($"{gameObject.name}: Started cooking {_currentFoods.Count} ingredient(s).");
+    }
+
+    private void StopCooking()
+    {
+        _isCooking = false;
+        _isOvercooking = false;
+        HideTimer();
     }
 
     public virtual void Update()
@@ -63,21 +103,36 @@ public class AutomaticStation : CookingStation
             return;
         }
 
-        // Temporary test input until real timer is implemented
+        /* Temporary test input until real timer is implemented
         if (Keyboard.current != null && Keyboard.current.tKey.wasPressedThisFrame)
         {
             Debug.Log($"{gameObject.name}: T key pressed — finishing cooking.");
             FinishCooking();
+        }*/
+
+        _timer += Time.deltaTime;
+
+        float duration = _isOvercooking ? _overcookDuration : _cookDuration;
+        UpdateTimer(duration);
+
+        if (_timer < duration)
+        {
+            return;
         }
+
+        if (_isOvercooking)
+        {
+            FinishOvercooking();
+            return;
+        }
+
+        FinishCooking();
     }
 
     public virtual void FinishCooking()
     {
-        if (_currentFoods.Count == 0)
-        {
-            _isCooking = false;
-            return;
-        }
+        _isCooking = false;
+        if (_currentFoods.Count == 0) return;
 
         RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
 
@@ -124,14 +179,18 @@ public class AutomaticStation : CookingStation
 
         if (CanContinueCooking(recipeManager, survivor))
         {
+            _timer = 0f;
             _isCooking = true;
+            _isOvercooking = true;
+
+            ShowTimer();
             SetSpriteActive(true);
             Debug.Log($"{gameObject.name}: {resultData.Name} can continue cooking / overcook. Timer restarted.");
             return;
         }
 
-        _isCooking = false;
-        ClearStationTracking();
+        _timer = 0f;
+        StopCooking();
     }
 
     private bool CanContinueCooking(RecipeManager recipeManager, IngredientObject food)
@@ -161,6 +220,51 @@ public class AutomaticStation : CookingStation
         return IngredientLookup.Get(nextResult) != null;
     }
 
+    private void FinishOvercooking()
+    {
+        if (_currentFoods.Count == 0)
+        {
+            StopCooking();
+            return;
+        }
+
+        RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
+
+        if (recipeManager == null)
+        {
+            Debug.LogError($"{gameObject.name}: RecipeManager not found.");
+            StopCooking();
+            return;
+        }
+
+        IngredientObject food = _currentFoods[0];
+
+        List<IngredientObject> singleIngredient = new() { food };
+
+        string resultName = recipeManager.CheckRecipe(singleIngredient, _station);
+
+        if (IsInvalidRecipeResult(resultName))
+        {
+            TurnIntoSlop();
+            return;
+        }
+
+        IngredientData resultData = IngredientLookup.Get(resultName);
+
+        if (resultData == null)
+        {
+            TurnIntoSlop();
+            return;
+        }
+
+        food.ChangeIngredient(resultData);
+
+        Debug.Log($"{gameObject.name}: Overcooked into {resultData.Name}");
+
+        _timer = 0f;
+        StopCooking();
+    }
+
     private void TurnIntoSlop()
     {
         IngredientData slop = IngredientLookup.Get("Slop");
@@ -182,7 +286,8 @@ public class AutomaticStation : CookingStation
         _currentBehaviours.Clear();
         _currentFoods.Add(survivor);
 
-        _isCooking = false;
+        _timer = 0f;
+        StopCooking();
         SetSpriteActive(true);
 
         Debug.Log($"{gameObject.name}: Invalid combination, turned into Slop.");
@@ -204,5 +309,37 @@ public class AutomaticStation : CookingStation
         return string.IsNullOrEmpty(resultName)
             || resultName == "Slop"
             || resultName == "JSON Error";
+    }
+
+    private void UpdateTimer(float duration)
+    {
+        if (_timerFill == null)
+        {
+            return;
+        }
+
+        float progress = _timer / duration;
+        _timerFill.fillAmount = Mathf.Clamp01(1f - progress);
+
+        if (_isOvercooking)
+        {
+            _timerFill.color = Color.red;
+        }
+    }
+
+    private void ShowTimer()
+    {
+        if (_timerObject != null)
+        {
+            _timerObject.SetActive(true);
+        }
+    }
+
+    private void HideTimer()
+    {
+        if (_timerObject != null)
+        {
+            _timerObject.SetActive(false);
+        }
     }
 }
