@@ -1,61 +1,118 @@
 {
   "recipes": [
     {
-      "dishName": "Cheesy Bread",
-      "requiresAllSpoiled": false,
+      "dishName": "Flatbread",
+      "station": "Grill",
       "ingredients": [
-        { "ingredientName": "Flatbread" },
-        { "ingredientName": "Sliced Cheese" }
+        { "ingredientName": "Dough" }
       ]
     },
     {
-      "dishName": "Root Veggies + Potatoes",
-      "requiresAllSpoiled": false,
+      "dishName": "Brewer on a Skewer",
+      "station": "Grill",
+      "ingredients": [
+        { "ingredientName": "Dough" },
+        {"ingredientName": "Chopped Root Vegetables"}
+      ]
+    },
+    {
+      "dishName": "Pickled Pigeons",
+      "station": "Grill",
+      "ingredients": [
+        { "ingredientName": "Cubed Meat" },
+        {"ingredientName": "Sauce"}
+      ]
+    },
+    {
+      "dishName": "Ratenudel",
+      "station": "Grill",
+      "ingredients": [
+        { "ingredientName": "Noodles" },
+        {"ingredientName": "Cubed Meat"},
+        {"ingredientName": "Sliced Cheese"}
+      ]
+    },
+    {
+      "dishName": "Lotus Steak",
+      "station": "Grill",
       "ingredients": [
         { "ingredientName": "Diced Potatoes" },
-        { "ingredientName": "Chopped Root Vegetables" }
+        {"ingredientName": "Chopped Root Vegetables"}
+      ]
+    },
+    {
+      "dishName": "Unsauced Amehonpilztopf",
+      "station": "Pot",
+      "ingredients": [
+        { "ingredientName": "Flatbread" },
+        {"ingredientName": "Diced Potatoes"},
+        {"ingredientName": "Chopped Root Vegetables"}
+      ]
+    },
+    {
+      "dishName": "Noodles",
+      "station": "Pot",
+      "ingredients": [
+        { "ingredientName": "Sliced Dough" }
+      ]
+    },
+    {
+      "dishName": "Sliced Dough",
+      "station": "Cutting Board",
+      "ingredients": [
+        { "ingredientName": "Dough" }
+      ]
+    },
+    {
+      "dishName": "Cubed Meat",
+      "station": "Cutting Board",
+      "ingredients": [
+        { "ingredientName": "Meat" }
+      ]
+    },
+    {
+      "dishName": "Diced Potatoes",
+      "station": "Cutting Board",
+      "ingredients": [
+        { "ingredientName": "Potatoes" }
+      ]
+    },
+    {
+      "dishName": "Chopped Root Vegetables",
+      "station": "Cutting Board",
+      "ingredients": [
+        { "ingredientName": "Root Vegetables" }
+      ]
+    },
+    {
+      "dishName": "Sliced Cheese",
+      "station": "Cutting Board",
+      "ingredients": [
+        { "ingredientName": "Cheese" }
+      ]
+    },
+    {
+      "dishName": "Cheesy Bread",
+      "station": "Kitchen Tile",
+      "ingredients": [
+        { "ingredientName": "Flatbread" },
+        {"ingredientName": "Sliced Cheese"}
       ]
     },
     {
       "dishName": "Cheesy Beet Bread",
-      "requiresAllSpoiled": false,
+      "station": "Kitchen Tile",
       "ingredients": [
         { "ingredientName": "Cheesy Bread" },
-        { "ingredientName": "Boiled Root Veggies" }
-      ]
-    },
-    {
-      "dishName": "Meat + Veggies + Potatoes",
-      "requiresAllSpoiled": false,
-      "ingredients": [
-        { "ingredientName": "Cubed Meat" },
-        { "ingredientName": "Diced Potatoes" },
-        { "ingredientName": "Chopped Root Vegetables" }
-      ]
-    },
-    {
-      "dishName": "Raw Ratenudel",
-      "requiresAllSpoiled": false,
-      "ingredients": [
-        { "ingredientName": "Sliced Dough" },
-        { "ingredientName": "Cubed Meat" },
-        { "ingredientName": "Sliced Cheese" }
+        {"ingredientName": "Boiled Root Veggies"}
       ]
     },
     {
       "dishName": "Amehonpilztopf",
-      "requiresAllSpoiled": false,
+      "station": "Kitchen Tile",
       "ingredients": [
         { "ingredientName": "Unsauced Amehonpilztopf" },
-        { "ingredientName": "Sauce" }
-      ]
-    },
-    {
-      "dishName": "Cubed meat + sauce",
-      "requiresAllSpoiled": false,
-      "ingredients": [
-        { "ingredientName": "Cubed Meat" },
-        { "ingredientName": "Sauce" }
+        {"ingredientName": "Sauce"}
       ]
     }
   ]

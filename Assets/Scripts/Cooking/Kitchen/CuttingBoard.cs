@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class CuttingBoard : ManualStation
 {
-    [SerializeField] private IngredientTransform[] _transforms;
 
     // TODO: delete this once popup button is implemented
     void Update()
@@ -24,19 +24,14 @@ public class CuttingBoard : ManualStation
 
         Debug.Log("Food on cutting board");
 
-        IngredientData currentData = _currentFood.IngredientInstance.Data;
+        RecipeManager rm = FindAnyObjectByType<RecipeManager>();
+        if (rm == null) return;
 
-        if (!TryGetTransform(currentData, out IngredientTransform transform))
-        {
+        // Warn early if nothing can be made with this ingredient here
+        List<IngredientObject> check = new List<IngredientObject> { _currentFood };
+        string result = rm.CheckRecipe(check, _station);
+        if (result == "Slop" || result == "JSON Error")
             Debug.Log("Wrong ingredient for cutting board");
-            return;
-        }
-
-        if (transform.output == null)
-        {
-            Debug.LogWarning("Output ingredient is missing on " + gameObject.name);
-            return;
-        }
     }
 
     public override void OnAction()
@@ -44,45 +39,28 @@ public class CuttingBoard : ManualStation
         Debug.Log($"Action triggered on {gameObject.name}. Current Food: {(_currentFood != null ? _currentFood.name : "NULL")}");
         if (_currentFood == null || _currentFood.IngredientInstance == null) return;
 
-        IngredientData currentData = _currentFood.IngredientInstance.Data;
-
-        if (!TryGetTransform(currentData, out IngredientTransform transform))
-        {
-            Debug.Log("Wrong ingredient for cutting board");
-            return;
-        }
-
-        if (transform.output == null)
-        {
-            Debug.LogWarning("Output ingredient is missing on " + gameObject.name);
-            return;
-        }
-
         base.OnAction();
 
-        Debug.Log("Chopping Food");
+        if (_currentClicks < _clicksPerState) return;
 
-        if (_currentClicks >= _clicksPerState)
+        RecipeManager rm = FindAnyObjectByType<RecipeManager>();
+        if (rm == null) { Debug.LogError("RecipeManager not found!"); return; }
+
+        List<IngredientObject> ingredients = new List<IngredientObject> { _currentFood };
+        string resultName = rm.CheckRecipe(ingredients, _station);
+
+        if (resultName == "Slop" || resultName == "JSON Error")
         {
-            _currentFood.ChangeIngredient(transform.output);
-            Debug.Log("Food is now " + transform.output.Name);
-
-            _currentClicks = 0; // reset for next use
-        }
-    }
-
-    private bool TryGetTransform(IngredientData input, out IngredientTransform matchingTransform)
-    {
-        foreach (IngredientTransform transform in _transforms)
-        {
-            if (transform.input == input)
-            {
-                matchingTransform = transform;
-                return true;
-            }
+            Debug.Log("Wrong ingredient for cutting board");
+            _currentClicks = 0;
+            return;
         }
 
-        matchingTransform = null;
-        return false;
+        IngredientData resultData = IngredientLookup.Get(resultName);
+        if (resultData == null) return;
+
+        _currentFood.ChangeIngredient(resultData);
+        Debug.Log($"Chopped! → {resultData.Name}");
+        _currentClicks = 0;
     }
 }

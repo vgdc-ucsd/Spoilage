@@ -11,6 +11,7 @@ public class IngredientRequirement
 public class Recipe
 {
     public string dishName;
+    public string station;
     public bool requiresAllSpoiled;
     public List<IngredientRequirement> ingredients;
 }
@@ -37,17 +38,17 @@ public class RecipeManager : MonoBehaviour
         {
             // THIS is what fills the "brain" of the manager
             allRecipes = JsonUtility.FromJson<RecipeList>(recipeJsonFile.text);
-            Debug.Log("MANAGER: Loaded " + allRecipes.recipes.Count + " recipes from JSON.");
+            Debug.Log("Recipe Manager: Loaded " + allRecipes.recipes.Count + " recipes from JSON.");
         }
         else
         {
-            Debug.LogError("MANAGER: No JSON file assigned in the Inspector!");
+            Debug.LogError("Recipe Manager: No JSON file assigned in the Inspector!");
         }
     }
 
-    public string CheckRecipe(List<IngredientObject> plateIngredients)
+    public string CheckRecipe(List<IngredientObject> ingredients, string station = "")
     {
-        Debug.Log($"MANAGER: Starting check for {plateIngredients.Count} items on plate.");
+        Debug.Log($"Recipe Manager: Starting check for {ingredients.Count} items.");
 
         if (allRecipes == null || allRecipes.recipes == null)
         {
@@ -56,8 +57,10 @@ public class RecipeManager : MonoBehaviour
 
         foreach (Recipe recipe in allRecipes.recipes)
         {
-            // Now this will actually run because the list isn't empty!
-            if (IsMatch(recipe, plateIngredients))
+            if (!string.IsNullOrEmpty(station) && recipe.station != station)
+            continue;
+            
+            if (IsMatch(recipe, ingredients))
             {
                 return recipe.dishName;
             }

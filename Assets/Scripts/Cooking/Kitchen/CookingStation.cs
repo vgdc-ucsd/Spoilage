@@ -10,6 +10,7 @@ public class CookingStation : MonoBehaviour
     [SerializeField] private Image _stationImage;
     [SerializeField] private Sprite _defaultSprite;
     [SerializeField] private Sprite _activeSprite;
+    [SerializeField] public string _station;
 
     protected int maxIngredients = 1;
     protected List<IngredientObject> _currentFoods = new List<IngredientObject>();

@@ -10,7 +10,7 @@ public class AutomaticStation : CookingStation
 
     public override void Start()
     {
-        maxIngredients = 2;
+        maxIngredients = 3;
         base.Start();
     }
 
@@ -20,42 +20,8 @@ public class AutomaticStation : CookingStation
 
         if (_currentFoods.Count == 0) return;
         
-        // combine ingredients
-        if (_currentFoods.Count > 1)
-        {   
-            //stop cooking when new ingredient is added
-            if (_isCooking)
-            {
-                _isCooking = false;
-            }
-
-            if (!TryCombineIngredients())
-            {
-                Debug.Log($"{gameObject.name}: Invalid combination.");
-                IngredientData slop = IngredientLookup.Get("Slop");
-                if (slop != null)
-                {
-                    IngredientObject survivor = _currentFoods[0];
-                    survivor.ChangeIngredient(slop);
-
-                    for (int i = 1; i < _currentFoods.Count; i++)
-                        Destroy(_currentFoods[i].gameObject);
-
-                    _currentFoods.Clear();
-                    _currentBehaviours.Clear();
-                    _currentFoods.Add(survivor);
-                }
-                return;
-            }
-        }
-
-        if (!CanProcessCurrentIngredients())
-        {
-            Debug.Log($"{gameObject.name}: Nothing to cook with current ingredient.");
-            return;
-        }
-
         StartCooking();
+        Debug.Log($"Ingredient added to {gameObject.name}");
     }
 
     public override void OnRemoveFood()
@@ -67,22 +33,6 @@ public class AutomaticStation : CookingStation
         }
 
         base.OnRemoveFood();
-    }
-
-    private bool CanProcessCurrentIngredients()
-    {
-        if (_currentFoods.Count == 1)
-        {
-            return TryGetTransform(_currentFoods[0].IngredientInstance.Data, out _)
-                || TryGetOvercookTransform(_currentFoods[0].IngredientInstance.Data, out _);
-        }
-
-        // Multiple ingredients: check RecipeManager
-        RecipeManager rm = FindAnyObjectByType<RecipeManager>();
-        if (rm == null) return false;
-
-        string result = rm.CheckRecipe(_currentFoods);
-        return result != "JSON Error" && result != "Slop";
     }
 
     public virtual void StartCooking()
@@ -106,19 +56,47 @@ public class AutomaticStation : CookingStation
     {
         _isCooking = false;
         if (_currentFoods.Count == 0) return;
+        
+        foreach (var food in _currentFoods)
+        Debug.Log($"On station: '{food.IngredientInstance.Data.Name}'");
 
-        IngredientData currentData = _currentFoods[0].IngredientInstance.Data;
+        RecipeManager rm = FindAnyObjectByType<RecipeManager>();
+        if (rm == null) { Debug.LogError("RecipeManager not found!"); return; }
 
-        if (!TryGetTransform(currentData, out IngredientTransform transform))
+        string resultName = rm.CheckRecipe(_currentFoods, _station);
+        IngredientData resultData = resultName != "Slop" && resultName != "JSON Error"
+            ? IngredientLookup.Get(resultName)
+            : null;
+
+        if (resultData != null)
         {
-            Debug.LogWarning($"{gameObject.name}: No transform for {currentData.Name}");
+            IngredientObject survivor = _currentFoods[0];
+            survivor.ChangeIngredient(resultData);
+
+            for (int i = 1; i < _currentFoods.Count; i++)
+                Destroy(_currentFoods[i].gameObject);
+
+            _currentFoods.Clear();
+            _currentBehaviours.Clear();
+            _currentFoods.Add(survivor);
+
+            if (TryGetTransform(resultData, out IngredientTransform overcookTransform))
+            {
+                _isCooking = true;
+                Debug.Log($"Can overcook into {overcookTransform.output.Name}, timer restarted.");
+                return;
+            }
+
+            Debug.Log($"<color=green>SUCCESS:</color> {resultData.Name}");
+        }
+        else
+        {
+            TurnIntoSlop();
             return;
         }
-
-        _currentFoods[0].ChangeIngredient(transform.output);
-        Debug.Log($"Cooking finished! {currentData.Name} → {transform.output.Name}");
-
-        _isCooking = transform.canOvercook && transform.overcookedOutput != null;
+        _currentFoods.Clear();
+        _currentBehaviours.Clear();
+        SetSpriteActive(false);
     }
 
     public virtual void FinishOvercooking()
@@ -148,25 +126,13 @@ public class AutomaticStation : CookingStation
         match = null; return false;
     }
 
-    // Returns true if combination succeeded (or no combination was needed)
-    private bool TryCombineIngredients()
+    private void TurnIntoSlop()
     {
-        RecipeManager rm = FindAnyObjectByType<RecipeManager>();
-        if (rm == null) { Debug.LogError("RecipeManager not found!"); return false; }
+        IngredientData slop = IngredientLookup.Get("Slop");
+        if (slop == null) return;
 
-        string resultName = rm.CheckRecipe(_currentFoods);
-        if (resultName == "JSON Error" || resultName == "Slop")
-        {
-            Debug.Log($"{gameObject.name}: Invalid combination → Slop or error.");
-            return false;
-        }
-
-        IngredientData resultData = IngredientLookup.Get(resultName);
-        if (resultData == null) return false;
-
-        // Collapse: change the first ingredient to the combined result, destroy the rest
         IngredientObject survivor = _currentFoods[0];
-        survivor.ChangeIngredient(resultData);
+        survivor.ChangeIngredient(slop);
 
         for (int i = 1; i < _currentFoods.Count; i++)
             Destroy(_currentFoods[i].gameObject);
@@ -174,8 +140,8 @@ public class AutomaticStation : CookingStation
         _currentFoods.Clear();
         _currentBehaviours.Clear();
         _currentFoods.Add(survivor);
-
-        Debug.Log($"Combined → <b>{resultData.Name}</b>");
-        return true;
+    
+        SetSpriteActive(true);
+        Debug.Log($"Invalid combination, turned into slop.");
     }
 }

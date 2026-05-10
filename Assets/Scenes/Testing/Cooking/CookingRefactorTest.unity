@@ -269,13 +269,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientLookup
   _allPossibleIngredients:
   - {fileID: 11400000, guid: a7a2978b2eb254427b88627e56c7455a, type: 2}
+  - {fileID: 11400000, guid: 65455fdcc849235458ca3dac3a3c9384, type: 2}
+  - {fileID: 11400000, guid: e18ca3b1d9365ec4b81911cb15369422, type: 2}
+  - {fileID: 11400000, guid: f7addf0f412a3004298c55d6c60630a0, type: 2}
+  - {fileID: 11400000, guid: 3cda1b1bff4fefb4f9f714c0a914e68c, type: 2}
+  - {fileID: 11400000, guid: b4fe58e73d7e80847b0c5258eddf51db, type: 2}
+  - {fileID: 11400000, guid: 2de2a344b8ff9cf45b5da9a7a35cf08d, type: 2}
+  - {fileID: 11400000, guid: 251d481b4c0ff4c7d964f4f3526c8c7b, type: 2}
+  - {fileID: 11400000, guid: 2f85c14f293b0468b82befbefed84169, type: 2}
+  - {fileID: 11400000, guid: 216971b6f49c9e14f83d525b9010e809, type: 2}
+  - {fileID: 11400000, guid: 2b3a21708a5d95a4994c7eb7327b60a9, type: 2}
+  - {fileID: 11400000, guid: e9c32f3f51dc8fb46a766bd64cf563eb, type: 2}
+  - {fileID: 11400000, guid: e5eecd703421fd84eb3f2818689ed1c0, type: 2}
   - {fileID: 11400000, guid: 861ee173152c840dc96f287c188d2d61, type: 2}
   - {fileID: 11400000, guid: 2bf78445c0672ce469c7c40503a21ebe, type: 2}
-  - {fileID: 11400000, guid: fa88c609d64bea5499b92786af7edb58, type: 2}
-  - {fileID: 11400000, guid: f6723edf81b304683a9e5c57a0710951, type: 2}
-  - {fileID: 11400000, guid: 1b2da037705c23248b16dd02547e7d5a, type: 2}
   - {fileID: 11400000, guid: 7d58b0f1a3b4d6049b00bb716dfcc5d3, type: 2}
-  - {fileID: 11400000, guid: 991acf3adad57438f8082ba9c5aacfcd, type: 2}
 --- !u!1 &101351875
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,35 +666,8 @@ MonoBehaviour:
   _stationImage: {fileID: 168611831}
   _defaultSprite: {fileID: 21300000, guid: b17969ae778e8034e978113c3c5865ad, type: 3}
   _activeSprite: {fileID: 21300000, guid: 946a18424ded0c84f830a92aef3bd253, type: 3}
-  _transforms:
-  - input: {fileID: 11400000, guid: 90af2ddfb3955a5458cd02072a056aaf, type: 2}
-    output: {fileID: 11400000, guid: 65455fdcc849235458ca3dac3a3c9384, type: 2}
-    canOvercook: 0
-    overcookedOutput: {fileID: 0}
-  - input: {fileID: 11400000, guid: 861ee173152c840dc96f287c188d2d61, type: 2}
-    output: {fileID: 11400000, guid: 6c051fa6bde06409dbe59df991d4600e, type: 2}
-    canOvercook: 0
-    overcookedOutput: {fileID: 0}
-  - input: {fileID: 11400000, guid: fa88c609d64bea5499b92786af7edb58, type: 2}
-    output: {fileID: 11400000, guid: b4fe58e73d7e80847b0c5258eddf51db, type: 2}
-    canOvercook: 0
-    overcookedOutput: {fileID: 0}
-  - input: {fileID: 11400000, guid: 1b2da037705c23248b16dd02547e7d5a, type: 2}
-    output: {fileID: 11400000, guid: 3cda1b1bff4fefb4f9f714c0a914e68c, type: 2}
-    canOvercook: 0
-    overcookedOutput: {fileID: 0}
-  - input: {fileID: 11400000, guid: 216971b6f49c9e14f83d525b9010e809, type: 2}
-    output: {fileID: 11400000, guid: 3cda1b1bff4fefb4f9f714c0a914e68c, type: 2}
-    canOvercook: 0
-    overcookedOutput: {fileID: 0}
-  - input: {fileID: 11400000, guid: 28ff4119d7fb34bbbbf400f3f5907f66, type: 2}
-    output: {fileID: 11400000, guid: e18ca3b1d9365ec4b81911cb15369422, type: 2}
-    canOvercook: 0
-    overcookedOutput: {fileID: 0}
-  - input: {fileID: 11400000, guid: 991acf3adad57438f8082ba9c5aacfcd, type: 2}
-    output: {fileID: 11400000, guid: f7addf0f412a3004298c55d6c60630a0, type: 2}
-    canOvercook: 0
-    overcookedOutput: {fileID: 0}
+  _station: Grill
+  _transforms: []
 --- !u!61 &308743888
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1735,6 +1716,7 @@ MonoBehaviour:
   _stationImage: {fileID: 1614422874}
   _defaultSprite: {fileID: 21300000, guid: b2283a22b4499344485837f10254e4e6, type: 3}
   _activeSprite: {fileID: 21300000, guid: a51c3e87ec1b57144b916ab774c8ac30, type: 3}
+  _station: Oven
   _transforms: []
 --- !u!114 &901675405
 MonoBehaviour:
@@ -2079,15 +2061,8 @@ MonoBehaviour:
   _stationImage: {fileID: 26558744}
   _defaultSprite: {fileID: 21300000, guid: 1e2b91ce16c63a649a5759518e985f51, type: 3}
   _activeSprite: {fileID: 21300000, guid: 51749189baaa87943bb759274a2d2b57, type: 3}
-  _transforms:
-  - input: {fileID: 11400000, guid: e9c32f3f51dc8fb46a766bd64cf563eb, type: 2}
-    output: {fileID: 11400000, guid: be2cc88bf460e2440bdf5d961dc6b72c, type: 2}
-    canOvercook: 0
-    overcookedOutput: {fileID: 0}
-  - input: {fileID: 11400000, guid: f6723edf81b304683a9e5c57a0710951, type: 2}
-    output: {fileID: 11400000, guid: 2de2a344b8ff9cf45b5da9a7a35cf08d, type: 2}
-    canOvercook: 0
-    overcookedOutput: {fileID: 0}
+  _station: Pot
+  _transforms: []
 --- !u!114 &1087063443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2366,24 +2341,8 @@ MonoBehaviour:
   _stationImage: {fileID: 641694693}
   _defaultSprite: {fileID: 21300000, guid: 643cebbca9ff0c5489727d467358ea77, type: 3}
   _activeSprite: {fileID: 21300000, guid: 643cebbca9ff0c5489727d467358ea77, type: 3}
+  _station: Cutting Board
   _clicksPerState: 3
-  _transforms:
-  - input: {fileID: 11400000, guid: 7fd71427803ab784bbd6ba8db57032fb, type: 2}
-    output: {fileID: 11400000, guid: e5eecd703421fd84eb3f2818689ed1c0, type: 2}
-    canOvercook: 0
-    overcookedOutput: {fileID: 0}
-  - input: {fileID: 11400000, guid: f95b264e33954be42b805399e33c0b5b, type: 2}
-    output: {fileID: 11400000, guid: 2b3a21708a5d95a4994c7eb7327b60a9, type: 2}
-    canOvercook: 0
-    overcookedOutput: {fileID: 0}
-  - input: {fileID: 11400000, guid: 373ba28a8a29ea141b21003f34d7c59c, type: 2}
-    output: {fileID: 11400000, guid: e9c32f3f51dc8fb46a766bd64cf563eb, type: 2}
-    canOvercook: 0
-    overcookedOutput: {fileID: 0}
-  - input: {fileID: 11400000, guid: c846348884e95d24b8f40d9ee16322ee, type: 2}
-    output: {fileID: 11400000, guid: 216971b6f49c9e14f83d525b9010e809, type: 2}
-    canOvercook: 0
-    overcookedOutput: {fileID: 0}
 --- !u!114 &1168791518
 MonoBehaviour:
   m_ObjectHideFlags: 0
