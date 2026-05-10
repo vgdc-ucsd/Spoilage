@@ -129,6 +129,14 @@
         { "ingredientName": "Unsauced Amehonpilztopf" },
         {"ingredientName": "Sauce"}
       ]
+    },
+    {
+      "dishName": "Burnt Flatbread",
+      "requiresAllSpoiled": "false",
+      "station": "Grill",
+      "ingredients": [
+        { "ingredientName": "Flatbread" }
+      ]
     }
   ]
 }

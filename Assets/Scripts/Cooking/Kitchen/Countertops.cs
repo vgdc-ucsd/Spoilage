@@ -4,6 +4,12 @@ public class Countertops : CookingStation
 {
     public override void OnPlaceFood(FoodGrab food)
     {
+        if (!HasSpace)
+        {
+            Debug.LogWarning($"{gameObject.name}: Countertop is full.");
+            return;
+        }
+
         base.OnPlaceFood(food);
 
         Debug.Log("Food on Countertop");
@@ -16,14 +22,11 @@ public class Countertops : CookingStation
 
         if (_currentFood.IngredientInstance.IsSpoiled)
         {
-            Debug.Log("Food is already spoiled");
+            Debug.Log("Food is already spoiled.");
             return;
         }
 
-        if (_currentIngredientBehaviour != null)
-        {
-            _currentIngredientBehaviour.PutOnSpoilSurface();
-        }
+        _currentIngredientBehaviour?.PutOnSpoilSurface();
     }
 
     public override void OnRemoveFood()
@@ -33,12 +36,9 @@ public class Countertops : CookingStation
             return;
         }
 
-        if (_currentIngredientBehaviour != null)
-        {
-            _currentIngredientBehaviour.RemoveFromSpoilSurface();
-        }
+        _currentIngredientBehaviour?.RemoveFromSpoilSurface();
 
-        Debug.Log("Food removed from counter");
+        Debug.Log("Food removed from counter.");
 
         base.OnRemoveFood();
     }

@@ -132,8 +132,8 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         if (_foodImage != null) _foodImage.raycastTarget = true;
 
         bool foundValidDrop = false;
+        bool blockedByFullStation = false;
 
-        // Use UI raycast results — all objects the pointer passed over
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
 
@@ -158,6 +158,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             {
                 Debug.Log("Plate found!");
                 IngredientObject info = GetComponent<IngredientObject>();
+
                 if (info != null && plate.AddIngredient(info))
                 {
                     plate.PrintIngredients();
@@ -172,6 +173,13 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             CookingStation app = hitObj.GetComponentInParent<CookingStation>();
             if (app != null)
             {
+                if (!app.HasSpace)
+                {
+                    Debug.Log($"{app.gameObject.name} is full. Cannot drop food here.");
+                    blockedByFullStation = true;
+                    break;
+                }
+
                 _activeStation = app;
                 _rectTransform.SetParent(app.transform, false);
                 _rectTransform.anchoredPosition = Vector2.zero;
@@ -179,6 +187,12 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
                 foundValidDrop = true;
                 break;
             }
+        }
+
+        if (blockedByFullStation)
+        {
+            ReturnToHome();
+            return;
         }
 
         if (foundValidDrop)
@@ -189,6 +203,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
                 if (foodSpawner != null) foodSpawner.SpawnFood();
                 _cameFromFridge = false;
             }
+
             return;
         }
 

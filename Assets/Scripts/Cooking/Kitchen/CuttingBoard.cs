@@ -4,13 +4,21 @@ using System.Collections.Generic;
 
 public class CuttingBoard : ManualStation
 {
-
-    // TODO: delete this once popup button is implemented
-    void Update()
+    public override void Start()
     {
-        if (_currentFood == null) return;
+        maxIngredients = 1;
+        base.Start();
+    }
 
-        if (Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame) // F key
+    private void Update()
+    {
+        if (_currentFood == null)
+        {
+            return;
+        }
+
+        // Temporary test input until popup button is implemented
+        if (Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
         {
             OnAction();
         }
@@ -18,49 +26,93 @@ public class CuttingBoard : ManualStation
 
     public override void OnPlaceFood(FoodGrab food)
     {
+        if (!HasSpace)
+        {
+            Debug.LogWarning($"{gameObject.name}: Cutting board only accepts one ingredient.");
+            return;
+        }
+
         base.OnPlaceFood(food);
 
-        if (_currentFood == null || _currentFood.IngredientInstance == null) return;
+        if (_currentFood == null || _currentFood.IngredientInstance == null)
+        {
+            return;
+        }
 
-        Debug.Log("Food on cutting board");
+        Debug.Log($"{gameObject.name}: Food on cutting board.");
 
-        RecipeManager rm = FindAnyObjectByType<RecipeManager>();
-        if (rm == null) return;
+        RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
 
-        // Warn early if nothing can be made with this ingredient here
-        List<IngredientObject> check = new List<IngredientObject> { _currentFood };
-        string result = rm.CheckRecipe(check, _station);
-        if (result == "Slop" || result == "JSON Error")
-            Debug.Log("Wrong ingredient for cutting board");
+        if (recipeManager == null)
+        {
+            Debug.LogError($"{gameObject.name}: RecipeManager not found.");
+            return;
+        }
+
+        List<IngredientObject> check = new() { _currentFood };
+        string result = recipeManager.CheckRecipe(check, _station);
+
+        if (IsInvalidRecipeResult(result))
+        {
+            Debug.Log($"{gameObject.name}: Wrong ingredient for cutting board.");
+        }
     }
 
     public override void OnAction()
     {
         Debug.Log($"Action triggered on {gameObject.name}. Current Food: {(_currentFood != null ? _currentFood.name : "NULL")}");
-        if (_currentFood == null || _currentFood.IngredientInstance == null) return;
+
+        if (_currentFood == null || _currentFood.IngredientInstance == null)
+        {
+            return;
+        }
 
         base.OnAction();
 
-        if (_currentClicks < _clicksPerState) return;
-
-        RecipeManager rm = FindAnyObjectByType<RecipeManager>();
-        if (rm == null) { Debug.LogError("RecipeManager not found!"); return; }
-
-        List<IngredientObject> ingredients = new List<IngredientObject> { _currentFood };
-        string resultName = rm.CheckRecipe(ingredients, _station);
-
-        if (resultName == "Slop" || resultName == "JSON Error")
+        if (_currentClicks < _clicksPerState)
         {
-            Debug.Log("Wrong ingredient for cutting board");
+            return;
+        }
+
+        RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
+
+        if (recipeManager == null)
+        {
+            Debug.LogError($"{gameObject.name}: RecipeManager not found.");
+            _currentClicks = 0;
+            return;
+        }
+
+        List<IngredientObject> ingredients = new() { _currentFood };
+        string resultName = recipeManager.CheckRecipe(ingredients, _station);
+
+        if (IsInvalidRecipeResult(resultName))
+        {
+            Debug.Log($"{gameObject.name}: Wrong ingredient for cutting board.");
             _currentClicks = 0;
             return;
         }
 
         IngredientData resultData = IngredientLookup.Get(resultName);
-        if (resultData == null) return;
+
+        if (resultData == null)
+        {
+            Debug.LogError($"{gameObject.name}: Could not find IngredientData for result '{resultName}'.");
+            _currentClicks = 0;
+            return;
+        }
 
         _currentFood.ChangeIngredient(resultData);
-        Debug.Log($"Chopped! → {resultData.Name}");
+
+        Debug.Log($"{gameObject.name}: Chopped! → {resultData.Name}");
+
         _currentClicks = 0;
+    }
+
+    private bool IsInvalidRecipeResult(string resultName)
+    {
+        return string.IsNullOrEmpty(resultName)
+            || resultName == "Slop"
+            || resultName == "JSON Error";
     }
 }
