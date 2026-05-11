@@ -46,6 +46,14 @@
       ]
     },
     {
+      "dishName": "Boiled Root Veggied",
+      "requiresAllSpoiled": "false",
+      "station": "Pot",
+      "ingredients": [
+        { "ingredientName": "Chopped Root Vegetables" }
+      ]
+    },
+    {
       "dishName": "Unsauced Amehonpilztopf",
       "requiresAllSpoiled": "false",
       "station": "Pot",
