@@ -168,9 +168,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 401874257}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65453507aebc86345b492d2622a7c716, type: 3}
+  m_Script: {fileID: 11500000, guid: f5f8f8f951463ed9da03fc8010105c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnloadSceneButton
+  _sceneName: Settings
 --- !u!114 &401874260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +265,6 @@ GameObject:
   - component: {fileID: 756962788}
   - component: {fileID: 756962787}
   - component: {fileID: 756962786}
-  - component: {fileID: 756962789}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -346,50 +346,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &756962789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756962785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_AllowHDROutput: 1
-  m_UseScreenCoordOverride: 0
-  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
-  m_Version: 2
 --- !u!1 &1037894702
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,24 +483,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037894702}
   m_CullTransparentMesh: 1
---- !u!1 &1468503959 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 157139673451261568, guid: 717b5077e2de3b911875e6ff0dc2775f, type: 3}
-  m_PrefabInstance: {fileID: 7711859193257872370}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1468503961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1468503959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd5b49fd910e0a347a3d9b3991bafa86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  Master: {fileID: 0}
 --- !u!1001 &7711859193257872370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -634,10 +572,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2850950134031068980, guid: 717b5077e2de3b911875e6ff0dc2775f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2850950134031068980, guid: 717b5077e2de3b911875e6ff0dc2775f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -648,10 +582,6 @@ PrefabInstance:
     - target: {fileID: 3910674596419836224, guid: 717b5077e2de3b911875e6ff0dc2775f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000506588616922560, guid: 717b5077e2de3b911875e6ff0dc2775f, type: 3}
-      propertyPath: m_Name
-      value: Master
       objectReference: {fileID: 0}
     - target: {fileID: 5245941171621319729, guid: 717b5077e2de3b911875e6ff0dc2775f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -693,24 +623,12 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7706318259899815868, guid: 717b5077e2de3b911875e6ff0dc2775f, type: 3}
-      propertyPath: m_Value
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8409252240100240336, guid: 717b5077e2de3b911875e6ff0dc2775f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8718156645017125629, guid: 717b5077e2de3b911875e6ff0dc2775f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8718156645017125629, guid: 717b5077e2de3b911875e6ff0dc2775f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8718156645017125629, guid: 717b5077e2de3b911875e6ff0dc2775f, type: 3}
-      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -719,10 +637,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 891210243350790211, guid: 717b5077e2de3b911875e6ff0dc2775f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 401874258}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 157139673451261568, guid: 717b5077e2de3b911875e6ff0dc2775f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1468503961}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 717b5077e2de3b911875e6ff0dc2775f, type: 3}
 --- !u!224 &7711859193257872371 stripped
 RectTransform:

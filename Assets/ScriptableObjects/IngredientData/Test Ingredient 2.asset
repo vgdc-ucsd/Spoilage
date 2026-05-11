@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
-  m_Name: Burnt Flatbread
-  m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  _name: Burnt Flatbread
-  _spoilTime: 0
-  _normalSprite: {fileID: 0}
-  _spoiledSprite: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 4f604a70ad449884e8ccbb2cb6cba627, type: 3}
+  m_Name: Test Ingredient 2
+  m_EditorClassIdentifier: Assembly-CSharp::Ingredient
+  IngredientName: Test Ingredient 2
+  IngredientSprite: {fileID: 0}

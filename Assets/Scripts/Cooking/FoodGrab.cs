@@ -21,6 +21,8 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     private Transform _originalParent;
 
     public static bool CanMoveFood = true;
+    private Dictionary<string, float> _stationTimers = new();
+    private string _lastStationID;
 
     private void Awake()
     {
@@ -173,7 +175,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
                 if (info != null && plate.AddIngredient(info))
                 {
-                    plate.PrintIngredient();
+                    plate.PrintIngredients();
                     _isPlaced = true;
                     _rectTransform.SetParent(plate.transform);
                     _rectTransform.anchoredPosition = Vector2.zero;
@@ -290,4 +292,20 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     {
         _isPlaced = true;
     }
+
+    public void SaveCookTimer(string stationID, float timer)
+    {
+        _stationTimers[stationID] = timer;
+    }
+
+    public float GetCookTimer(string stationID)
+    {
+        return _stationTimers.TryGetValue(stationID, out float t) ? t : 0f;
+    }
+
+    public void SetLastStation(string stationID)
+    {
+        _lastStationID = stationID;
+    }
+
 }
