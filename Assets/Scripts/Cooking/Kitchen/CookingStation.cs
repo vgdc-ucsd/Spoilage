@@ -10,7 +10,11 @@ public class CookingStation : MonoBehaviour
     [SerializeField] private Image _stationImage;
     [SerializeField] private Sprite _defaultSprite;
     [SerializeField] private Sprite _activeSprite;
+    [SerializeField] private RectTransform _foodAnchor;
 
+
+
+  
     protected int maxIngredients = 1;
     protected List<IngredientObject> _currentFoods = new List<IngredientObject>();
     protected List<IngredientBehaviour> _currentBehaviours = new List<IngredientBehaviour>();
@@ -23,29 +27,73 @@ public class CookingStation : MonoBehaviour
     {
         _stationImage.sprite = _defaultSprite;
     }
+    
 
-    // These virtual methods allow child scripts to add their own unique logic
-    public virtual void OnPlaceFood(FoodGrab food)
+    public bool CanAcceptFood(FoodGrab food)
     {
-        var ingredient = food.GetComponent<IngredientObject>();
-        var behaviour = food.GetComponent<IngredientBehaviour>();
+    return food != null && _currentFoods.Count < maxIngredients;
+    }
+
+    public void PlaceFood(FoodGrab food)
+    {
+        if (!CanAcceptFood(food))
+        return;
+
+        RectTransform foodRect = food.GetComponent<RectTransform>();
+
+        if (foodRect != null && _foodAnchor != null)
+        {
+            foodRect.SetParent(_foodAnchor, false);
+            foodRect.anchoredPosition = Vector2.zero;
+            foodRect.SetAsLastSibling();
+
+        }
+
+        
+        IngredientObject ingredient = food.GetComponent<IngredientObject>();
+        IngredientBehaviour behaviour = food.GetComponent<IngredientBehaviour>();
 
         if (ingredient != null && !_currentFoods.Contains(ingredient))
-            _currentFoods.Add(ingredient);
+        _currentFoods.Add(ingredient);
 
         if (behaviour != null && !_currentBehaviours.Contains(behaviour))
-            _currentBehaviours.Add(behaviour);
+        _currentBehaviours.Add(behaviour);
 
-        Debug.Log($"{gameObject.name}: Food placed.");
         SetSpriteActive(true);
+
+        OnPlaceFood(food);
+        
+    }
+
+    public virtual void OnPlaceFood(FoodGrab food){}
+
+    public virtual void RemoveFood(FoodGrab food)
+    {
+        OnRemoveFood();
+        
+        IngredientObject ingredient = food.GetComponent<IngredientObject>();
+        IngredientBehaviour behaviour = food.GetComponent<IngredientBehaviour>();
+
+        if (ingredient != null)
+            _currentFoods.Remove(ingredient);
+
+        if (behaviour != null)
+            _currentBehaviours.Remove(behaviour);
+
+        SetSpriteActive(_currentFoods.Count > 0);
+
     }
 
     public virtual void OnRemoveFood()
     {
-        Debug.Log($"{gameObject.name}: Food removed.");
         _currentFoods.Clear();
         _currentBehaviours.Clear();
-        SetSpriteActive(_currentFoods.Count > 0);
+        SetSpriteActive(false);
+    }
+
+    public virtual void OnRemoveFood(FoodGrab food)
+    {
+        RemoveFood(food);
     }
 
     public void SetSpriteActive(bool isActive)
