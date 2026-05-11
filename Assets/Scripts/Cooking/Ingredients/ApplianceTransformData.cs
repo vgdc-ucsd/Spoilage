@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
+[System.Serializable]
 public class IngredientTransform
 {
     public IngredientData input;
@@ -31,4 +31,7 @@ public class ApplianceTransformData : ScriptableObject
         output = null;
         return false;
     }
+
+    
+
 }
