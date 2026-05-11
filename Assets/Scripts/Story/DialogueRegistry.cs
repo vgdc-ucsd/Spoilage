@@ -44,6 +44,12 @@ public static class DialogueRegistry
     /// <summary>Folder under <c>Resources/</c> scanned for TextAssets.</summary>
     public const string ResourcesFolder = "Dialogue";
 
+    /// <summary>
+    /// Steepness of the resistance probability curve. At 1.0, a candidate one point below its
+    /// resistance threshold carries ~37% relative weight; two points below ~14%; three ~5%.
+    /// </summary>
+    public const float ResistanceDecay = 1f;
+
     private struct SequenceLocation
     {
         public DialogueSaveFile File;
@@ -55,9 +61,11 @@ public static class DialogueRegistry
     private static bool s_loaded;
 
     /// <summary>
-    /// Resolves a dialogue key to a sequence whose attribute predicates accept current state.
-    /// Considers exact key plus contiguous numbered variants <c>key.0</c>, <c>key.1</c>, ...
-    /// and picks randomly from those that match.
+    /// Resolves a dialogue key to a sequence, weighted by how well each candidate matches
+    /// current state. Hard attributes (time, spoilage) exclude non-matching candidates
+    /// entirely; resistance attributes reduce a candidate's weight via an exponential curve
+    /// rather than excluding it outright. Considers exact key plus contiguous numbered
+    /// variants <c>key.0</c>, <c>key.1</c>, ...
     /// </summary>
     public static bool TryGet(string key, out DialogueSequence sequence)
     {
@@ -69,11 +77,19 @@ public static class DialogueRegistry
             return false;
         }
 
-        List<SequenceLocation> matches = null;
+        List<SequenceLocation> locs = null;
+        List<float> weights = null;
+        float totalWeight = 0f;
 
-        if (s_sequences.TryGetValue(key, out SequenceLocation exact) && Accepts(exact))
+        if (s_sequences.TryGetValue(key, out SequenceLocation exact))
         {
-            (matches ??= new List<SequenceLocation>()).Add(exact);
+            float w = ComputeWeight(exact);
+            if (w > 0f)
+            {
+                (locs ??= new List<SequenceLocation>()).Add(exact);
+                (weights ??= new List<float>()).Add(w);
+                totalWeight += w;
+            }
         }
 
         for (int n = 0; ; n++)
@@ -83,19 +99,35 @@ public static class DialogueRegistry
             {
                 break;
             }
-            if (Accepts(loc))
+            float w = ComputeWeight(loc);
+            if (w > 0f)
             {
-                (matches ??= new List<SequenceLocation>()).Add(loc);
+                (locs ??= new List<SequenceLocation>()).Add(loc);
+                (weights ??= new List<float>()).Add(w);
+                totalWeight += w;
             }
         }
 
-        if (matches == null)
+        if (locs == null)
         {
             return false;
         }
 
-        SequenceLocation pick = matches[Random.Range(0, matches.Count)];
-        sequence = new DialogueSequence(pick.File, pick.Name);
+        float roll = Random.Range(0f, totalWeight);
+        float cumulative = 0f;
+        for (int i = 0; i < locs.Count; i++)
+        {
+            cumulative += weights[i];
+            if (roll <= cumulative)
+            {
+                sequence = new DialogueSequence(locs[i].File, locs[i].Name);
+                return true;
+            }
+        }
+
+        // Floating-point rounding fallback: take the last candidate.
+        SequenceLocation last = locs[locs.Count - 1];
+        sequence = new DialogueSequence(last.File, last.Name);
         return true;
     }
 
@@ -105,28 +137,55 @@ public static class DialogueRegistry
         return TryGet(key, out _);
     }
 
-    private static bool Accepts(SequenceLocation loc)
+    /// <summary>
+    /// Returns the selection weight for a candidate. Hard-filter attributes return 0 when
+    /// unmatched; resistance attributes scale weight smoothly via <see cref="ResistanceCurve"/>.
+    /// </summary>
+    private static float ComputeWeight(SequenceLocation loc)
     {
         IReadOnlyDictionary<string, string> attrs = loc.File.GetAttributes(loc.Name);
         if (attrs == null || attrs.Count == 0)
         {
-            return true;
+            return 1f;
         }
 
         PlayerData player = SaveManager.Instance != null ? SaveManager.Instance.Player : null;
         Customer customer = CustomerLineManager.Instance != null ? CustomerLineManager.Instance.CurrentCustomer : null;
 
+        float weight = 1f;
         foreach (KeyValuePair<string, string> attr in attrs)
         {
-            if (!MatchesState(attr.Key, attr.Value, player, customer))
+            switch (attr.Key)
             {
-                return false;
+                case "resistance_min":
+                    if (player != null && float.TryParse(attr.Value, out float min))
+                        weight *= ResistanceCurve(player.resistanceScore - min);
+                    break;
+                case "resistance_max":
+                    if (player != null && float.TryParse(attr.Value, out float max))
+                        weight *= ResistanceCurve(max - player.resistanceScore);
+                    break;
+                default:
+                    if (!MatchesHardFilter(attr.Key, attr.Value, player, customer))
+                        return 0f;
+                    break;
             }
         }
-        return true;
+        return weight;
     }
 
-    private static bool MatchesState(string key, string value, PlayerData player, Customer customer)
+    /// <summary>
+    /// Curve applied to the signed distance from a resistance threshold.
+    /// Positive delta (at or above threshold) gives full weight 1.0.
+    /// Negative delta (below threshold) decays exponentially toward zero.
+    /// </summary>
+    private static float ResistanceCurve(float delta)
+    {
+        if (delta >= 0f) return 1f;
+        return Mathf.Exp(ResistanceDecay * delta);
+    }
+
+    private static bool MatchesHardFilter(string key, string value, PlayerData player, Customer customer)
     {
         switch (key)
         {
@@ -135,10 +194,6 @@ public static class DialogueRegistry
             case "spoilage":
                 return customer != null && customer.customerData != null
                     && customer.customerData.spoilage.ToString().Equals(value, System.StringComparison.OrdinalIgnoreCase);
-            case "resistance_min":
-                return player != null && float.TryParse(value, out float min) && player.resistanceScore >= min;
-            case "resistance_max":
-                return player != null && float.TryParse(value, out float max) && player.resistanceScore <= max;
             default:
                 return true;
         }

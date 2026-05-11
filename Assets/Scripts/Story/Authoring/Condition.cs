@@ -83,6 +83,25 @@ public class ConditionLeaf : ConditionNode
     };
 }
 
+/// <summary>Holds when the player has given <see cref="itemId"/> to <see cref="recipientId"/>.</summary>
+[Serializable]
+public class ConditionItemExchange : ConditionNode
+{
+    public string itemId;
+    public string recipientId;
+
+    public override bool Evaluate(PlayerData state)
+    {
+        if (state == null || state.itemExchanges == null) return false;
+        for (int i = 0; i < state.itemExchanges.Count; i++)
+        {
+            ItemExchange e = state.itemExchanges[i];
+            if (e != null && e.itemId == itemId && e.recipientId == recipientId) return true;
+        }
+        return false;
+    }
+}
+
 /// <summary>Holds when every child holds. An empty list holds (the AND identity).</summary>
 [Serializable]
 public class ConditionAnd : ConditionNode

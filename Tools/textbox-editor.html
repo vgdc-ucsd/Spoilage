@@ -468,7 +468,6 @@
         <span class="gap"></span>
         <button id="tbAnim"
           title="Add animation region - uses selection if any, otherwise whole box">Animation...</button>
-        <button id="tbClearAnim" title="Remove the currently selected region">Remove animation</button>
         <span class="gap"></span>
         <button id="tbEvent" title="Insert face/body event">Event...</button>
         <button id="tbSound" title="Insert sound event">Sound...</button>
@@ -518,16 +517,16 @@
   </dialog>
 
   <dialog id="dlgEvent">
-    <h3>Face/Body Event</h3>
+    <h3>Face Event</h3>
     <div class="row"><label>Type</label>
       <select id="evtType">
         <option value="20">Mouth</option>
         <option value="21">Eye</option>
-        <option value="22">Brow</option>
-        <option value="23">Body pose</option>
       </select>
     </div>
-    <div class="row"><label>State</label><input type="text" id="evtState" placeholder="smile / angry / neutral ..."></div>
+    <div class="row"><label>State</label>
+      <select id="evtState"></select>
+    </div>
     <div class="actions"><button onclick="document.getElementById('dlgEvent').close()">Cancel</button><button
         class="primary" id="evtInsert">Insert</button></div>
   </dialog>
@@ -1774,6 +1773,10 @@
           if (cellIdx > 0) cellIdx = cellIdx - 1;
         }
         const hit = this.cells[cellIdx];
+        // Pill double-clicked? Open its edit dialog.
+        if (hit && hit.kind === 'pill' && typeof window.openPillEditor === 'function') {
+          if (window.openPillEditor(this, cellIdx, hit)) return;
+        }
         if (!hit || !this._isWordChar(hit)) {
           // Not over a word char
           this.cursorCell = boundary;
@@ -2046,6 +2049,12 @@
         this.selAnchor = this.cursorCell;
         this._commit('insert pill');
       }
+      updatePill(cellIdx, pillObj) {
+        const c = this.cells[cellIdx];
+        if (!c || c.kind !== 'pill') return;
+        this.cells[cellIdx] = { kind: 'pill', ...pillObj };
+        this._commit('edit pill');
+      }
 
       _styleAtCursor() {
         // Use the style of the cell just before the cursor, else default.
@@ -2287,6 +2296,12 @@
         if (this.editingRegion === region) this.editingRegion = null;
         this._commit('delete region');
       }
+      updateRegion(region, anim, params, name) {
+        region.anim = anim;
+        region.params = params;
+        region.name = name || null;
+        this._commit('edit region');
+      }
       getEditingRegion() { return this.editingRegion; }
 
       // ---- History, commit, undo/redo ----
@@ -2438,6 +2453,13 @@
       activeCard: null,       // DOM element (.box-card)
     };
 
+    let _dirty = false;
+    function markDirty() { _dirty = true; }
+    function markClean() { _dirty = false; }
+    window.addEventListener('beforeunload', (e) => {
+      if (_dirty) { e.preventDefault(); e.returnValue = ''; }
+    });
+
     const ATTR_SCHEMA = [
       { key: 'time', label: 'Time division', type: 'enum',
         options: [['', '(any)'], ['early', 'Early (days 1-10)'], ['mid', 'Mid (days 11-20)'], ['late', 'Late (days 21-30)']] },
@@ -2533,6 +2555,7 @@
     function openSeqMenu(name, anchor) {
       popupEl.textContent = '';
       const items = [
+        { label: 'Rename', action: () => renameSeq(name) },
         { label: 'Edit attributes', action: () => openAttrsDialog(name) },
         { label: 'Delete', danger: true, action: () => deleteSeq(name) },
       ];
@@ -2553,10 +2576,32 @@
       if (popupEl.style.display === 'block' && !popupEl.contains(e.target)) closePopup();
     });
 
+    function renameSeq(oldName) {
+      askName('Rename sequence', oldName, (newName) => {
+        if (!newName || newName === oldName) return;
+        if (state.sequences.has(newName)) { setStatus(`Name "${newName}" is already taken`); return; }
+        const boxes = state.sequences.get(oldName);
+        const attrs = state.attributes.get(oldName);
+        // Rebuild both Maps in order, swapping the key at its original position.
+        const newSeqs = new Map();
+        const newAttrs = new Map();
+        for (const [k, v] of state.sequences) {
+          newSeqs.set(k === oldName ? newName : k, k === oldName ? boxes : v);
+          newAttrs.set(k === oldName ? newName : k, k === oldName ? attrs : state.attributes.get(k));
+        }
+        state.sequences = newSeqs;
+        state.attributes = newAttrs;
+        if (state.currentName === oldName) state.currentName = newName;
+        markDirty();
+        refreshSeqList();
+      });
+    }
+
     function deleteSeq(name) {
-      if (!confirm(`Delete sequence "${name}"?`)) return;
+      if (!confirm(`Delete sequence "${name}"?\n\nThis cannot be undone!`)) return;
       state.sequences.delete(name);
       state.attributes.delete(name);
+      markDirty();
       if (state.currentName === name) selectSeq(state.sequences.keys().next().value || null);
       refreshSeqList();
     }
@@ -2600,6 +2645,7 @@
           if (v !== '' && v != null) next[field.key] = v;
         }
         state.attributes.set(name, next);
+        markDirty();
         dlg.close();
       };
       dlg.showModal();
@@ -2697,6 +2743,7 @@
 
     function syncActive(card) {
       // Called by CardEditor.onChange - the box data was just mutated in-place.
+      markDirty();
       if (state.activeCard === card || state.activeCard === null) {
         previewActive();
         syncFontDropdownFromActiveEditor();
@@ -2715,6 +2762,7 @@
     function addBoxAt(index) {
       const boxes = state.sequences.get(state.currentName);
       boxes.splice(index, 0, newBox());
+      markDirty();
       rebuildStack();
       const cards = stackEl.querySelectorAll('.box-card');
       if (cards[index]) { setActiveCard(cards[index]); cards[index]._editor.focus(); }
@@ -2729,6 +2777,7 @@
       if (!isEmpty && !confirm('Delete this textbox?')) return;
       const i = parseInt(card.dataset.idx, 10);
       boxes.splice(i, 1);
+      markDirty();
       rebuildStack();
       refreshSeqList();
     }
@@ -2739,6 +2788,7 @@
       const j = i + delta;
       if (j < 0 || j >= boxes.length) return;
       const tmp = boxes[i]; boxes[i] = boxes[j]; boxes[j] = tmp;
+      markDirty();
       rebuildStack();
       const cards = stackEl.querySelectorAll('.box-card');
       if (cards[j]) { setActiveCard(cards[j]); cards[j]._editor.focus(); }
@@ -2754,6 +2804,7 @@
       state.attributes = parsed.attributes;
       refreshSeqList();
       selectSeq(state.sequences.keys().next().value || null);
+      markClean();
       setStatus(`Loaded ${state.sequences.size} sequences from ${f.name}`);
     };
     document.getElementById('fileSave').onclick = () => {
@@ -2761,12 +2812,14 @@
       const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
       a.download = 'dialogue.textbox.txt'; a.click();
       URL.revokeObjectURL(a.href);
+      markClean();
       setStatus('Saved');
     };
     document.getElementById('fileNew').onclick = () => {
-      if (state.sequences.size && !confirm('Discard current file?')) return;
+      if (_dirty && !confirm('Discard unsaved changes?')) return;
       state.sequences = new Map(); state.attributes = new Map(); state.currentName = null;
       stackEl.textContent = ''; preview.load(''); refreshSeqList();
+      markClean();
     };
 
     // ---- sequence add ----
@@ -2775,6 +2828,7 @@
       if (!name || state.sequences.has(name)) return;
       state.sequences.set(name, [newBox()]);
       state.attributes.set(name, {});
+      markDirty();
       selectSeq(name);
       refreshSeqList();
     });
@@ -2853,22 +2907,52 @@
       ed.focus();
     }
 
+    // When set, the next pill-dialog confirm updates the existing pill at
+    // (editor, cellIdx) instead of inserting a new one. Cleared after use
+    // and on every toolbar-initiated open.
+    let _pillEditing = null;
+
+    function commitPill(pillObj) {
+      if (_pillEditing) {
+        const { editor, cellIdx } = _pillEditing;
+        _pillEditing = null;
+        editor.updatePill(cellIdx, pillObj);
+        editor.focus();
+      } else {
+        insertPill(pillObj);
+      }
+    }
+
+    function setPillButtonLabels(insertId, label) {
+      document.getElementById(insertId).textContent = label;
+    }
+
     document.getElementById('tbReset').onclick = () => insertPill({ pill: 'rst' });
 
     document.getElementById('tbTypewriter').onclick = () => {
-      document.getElementById('dlgTypewriter').showModal(); document.getElementById('twMs').focus();
+      _pillEditing = null;
+      setPillButtonLabels('twInsert', 'Insert');
+      document.getElementById('twMs').value = 40;
+      document.getElementById('dlgTypewriter').showModal();
+      document.getElementById('twMs').focus();
     };
     document.getElementById('twInsert').onclick = () => {
       const ms = parseInt(document.getElementById('twMs').value || '0', 10);
       document.getElementById('dlgTypewriter').close();
-      insertPill({ pill: 'tw', ms: String(ms) });
+      commitPill({ pill: 'tw', ms: String(ms) });
     };
 
-    document.getElementById('tbDelay').onclick = () => { document.getElementById('dlgDelay').showModal(); document.getElementById('dlyMs').focus(); };
+    document.getElementById('tbDelay').onclick = () => {
+      _pillEditing = null;
+      setPillButtonLabels('dlyInsert', 'Insert');
+      document.getElementById('dlyMs').value = 500;
+      document.getElementById('dlgDelay').showModal();
+      document.getElementById('dlyMs').focus();
+    };
     document.getElementById('dlyInsert').onclick = () => {
       const ms = parseInt(document.getElementById('dlyMs').value || '0', 10);
       document.getElementById('dlgDelay').close();
-      insertPill({ pill: 'dly', ms: String(ms) });
+      commitPill({ pill: 'dly', ms: String(ms) });
     };
 
     const animTypeEl = document.getElementById('animType');
@@ -2916,8 +3000,48 @@
     }
     animTypeEl.onchange = rebuildAnimParamsForm; rebuildAnimParamsForm();
 
-    document.getElementById('tbAnim').onclick = () => document.getElementById('dlgAnim').showModal();
-    document.getElementById('animApply').onclick = () => {
+    let _animEditingRegion = null;
+    const animApplyBtn = document.getElementById('animApply');
+
+    document.getElementById('tbAnim').onclick = () => {
+      const ed = activeEditor();
+      const editing = ed ? ed.getEditingRegion() : null;
+      _animEditingRegion = editing;
+
+      if (editing) {
+        animTypeEl.value = editing.anim;
+        rebuildAnimParamsForm();
+        const parsed = {};
+        if (editing.params) {
+          for (const piece of editing.params.split(',')) {
+            const eq = piece.indexOf('=');
+            if (eq > 0) parsed[piece.slice(0, eq).trim()] = piece.slice(eq + 1).trim();
+          }
+        }
+        for (const input of animParamsFormEl.querySelectorAll('[data-param]')) {
+          const k = input.dataset.param;
+          if (k in parsed) {
+            if (input.tagName === 'SELECT' && input.querySelector(`option[value="${parsed[k]}"]`) == null) {
+              // boolean stored as 0/1 in params, but dropdown uses true/false
+              if (parsed[k] === '1') input.value = 'true';
+              else if (parsed[k] === '0') input.value = 'false';
+              else input.value = parsed[k];
+            } else {
+              input.value = parsed[k];
+            }
+          }
+        }
+        document.getElementById('animName').value = editing.name || '';
+        animApplyBtn.textContent = 'Update';
+      } else {
+        rebuildAnimParamsForm();
+        document.getElementById('animName').value = '';
+        animApplyBtn.textContent = 'Apply to selection';
+      }
+      document.getElementById('dlgAnim').showModal();
+    };
+
+    animApplyBtn.onclick = () => {
       const type = animTypeEl.value;
       const def = ANIMS[type];
       const tokens = [];
@@ -2942,6 +3066,14 @@
       const rname = document.getElementById('animName').value.trim();
       document.getElementById('dlgAnim').close();
       const ed = activeEditor(); if (!ed) return;
+
+      if (_animEditingRegion) {
+        ed.updateRegion(_animEditingRegion, type, params, rname);
+        _animEditingRegion = null;
+        ed.focus();
+        return;
+      }
+
       const maxLen = ed.revealLength();
       if (maxLen <= 0) { setStatus('Textbox is empty - type something first'); return; }
       let length = maxLen;
@@ -2958,34 +3090,112 @@
       ed.focus();
     };
 
-    document.getElementById('tbClearAnim').onclick = () => {
-      const ed = activeEditor(); if (!ed) return;
-      const r = ed.getEditingRegion();
-      if (!r) {
-        if (ed.box.regions.length === 0) setStatus('No regions on this textbox');
-        else setStatus('Select a region bar or click Edit on an animation first.');
-        return;
-      }
-      ed.deleteRegion(r);
-      ed.focus();
+    // Per-event-type state options. Stored values are the CustomerData
+    // sprite-slot enum names so the runtime can map them directly to a slot;
+    // labels describe what the writer is asking for.
+    const EVT_STATES = {
+      20: [ // Mouth
+        ['OPEN', 'Talking'],
+        ['CLOSED', 'Closed'],
+        ['ANGER', 'Anger'],
+        ['DISGUST', 'Disgust'],
+      ],
+      21: [ // Eye
+        ['OPEN', 'Open'],
+        ['CLOSED', 'Blinking'],
+        ['ANGER', 'Anger'],
+        ['DISGUST', 'Disgust'],
+        ['WIDENING', 'Widening'],
+      ],
     };
+    const evtTypeEl = document.getElementById('evtType');
+    const evtStateEl = document.getElementById('evtState');
+    function rebuildEvtStates(preferred) {
+      const method = parseInt(evtTypeEl.value, 10);
+      const options = EVT_STATES[method] || [];
+      evtStateEl.textContent = '';
+      for (const [val, label] of options) {
+        const opt = document.createElement('option');
+        opt.value = val; opt.textContent = label;
+        evtStateEl.appendChild(opt);
+      }
+      if (preferred && evtStateEl.querySelector(`option[value="${preferred}"]`)) {
+        evtStateEl.value = preferred;
+      }
+    }
+    evtTypeEl.onchange = () => rebuildEvtStates();
 
-    document.getElementById('tbEvent').onclick = () => { document.getElementById('dlgEvent').showModal(); document.getElementById('evtState').focus(); };
+    document.getElementById('tbEvent').onclick = () => {
+      _pillEditing = null;
+      setPillButtonLabels('evtInsert', 'Insert');
+      evtTypeEl.value = '20';
+      rebuildEvtStates();
+      document.getElementById('dlgEvent').showModal();
+    };
     document.getElementById('evtInsert').onclick = () => {
-      const method = parseInt(document.getElementById('evtType').value, 10);
-      const stateStr = document.getElementById('evtState').value.trim();
+      const method = parseInt(evtTypeEl.value, 10);
+      const stateStr = evtStateEl.value;
       if (!stateStr) return;
       document.getElementById('dlgEvent').close();
-      insertPill({ pill: 'evt', method, state: stateStr });
+      commitPill({ pill: 'evt', method, state: stateStr });
     };
 
-    document.getElementById('tbSound').onclick = () => { document.getElementById('dlgSound').showModal(); document.getElementById('sndName').focus(); };
+    document.getElementById('tbSound').onclick = () => {
+      _pillEditing = null;
+      setPillButtonLabels('sndInsert', 'Insert');
+      document.getElementById('sndName').value = '';
+      document.getElementById('sndVol').value = 100;
+      document.getElementById('dlgSound').showModal();
+      document.getElementById('sndName').focus();
+    };
     document.getElementById('sndInsert').onclick = () => {
       const name = document.getElementById('sndName').value.trim();
       const vol = document.getElementById('sndVol').value.trim();
       if (!name) return;
       document.getElementById('dlgSound').close();
-      insertPill({ pill: 'snd', name, vol: vol || '' });
+      commitPill({ pill: 'snd', name, vol: vol || '' });
+    };
+
+    // Open the right dialog for a pill that was double-clicked in the editor,
+    // pre-filled with that pill's current values. Returns true if handled.
+    window.openPillEditor = function(editor, cellIdx, pill) {
+      switch (pill.pill) {
+        case 'tw':
+          _pillEditing = { editor, cellIdx };
+          setPillButtonLabels('twInsert', 'Update');
+          document.getElementById('twMs').value = parseInt(pill.ms || '0', 10);
+          document.getElementById('dlgTypewriter').showModal();
+          document.getElementById('twMs').focus();
+          return true;
+        case 'dly':
+          _pillEditing = { editor, cellIdx };
+          setPillButtonLabels('dlyInsert', 'Update');
+          document.getElementById('dlyMs').value = parseInt(pill.ms || '0', 10);
+          document.getElementById('dlgDelay').showModal();
+          document.getElementById('dlyMs').focus();
+          return true;
+        case 'evt': {
+          if (pill.method !== 20 && pill.method !== 21) {
+            setStatus('This event type is no longer supported. Delete the pill and re-insert.');
+            return false;
+          }
+          _pillEditing = { editor, cellIdx };
+          setPillButtonLabels('evtInsert', 'Update');
+          evtTypeEl.value = String(pill.method);
+          rebuildEvtStates(pill.state);
+          document.getElementById('dlgEvent').showModal();
+          return true;
+        }
+        case 'snd':
+          _pillEditing = { editor, cellIdx };
+          setPillButtonLabels('sndInsert', 'Update');
+          document.getElementById('sndName').value = pill.name || '';
+          document.getElementById('sndVol').value = pill.vol || 100;
+          document.getElementById('dlgSound').showModal();
+          document.getElementById('sndName').focus();
+          return true;
+      }
+      return false;
     };
 
     // show the full current sequence's save-file representation in case something breaks
@@ -3011,9 +3221,6 @@
     state.sequences.set('untitled', [newBox()]);
     selectSeq('untitled');
     refreshSeqList();
-
-    alert("NOT FOR USE IN PRODUCTION!\n\nInternal debug version, do not use for final files! Report bugs to Nathan Reed (nreed132@gmail.com)")
-
   </script>
 </body>
 

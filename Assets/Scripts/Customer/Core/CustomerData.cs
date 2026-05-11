@@ -51,7 +51,6 @@ public class CustomerData : ScriptableObject
     public Vector3 eyeOffset;
     //public Vector3[] spriteOffsets;
 
-    public string CustomerName;
     public Spoilage spoilage;
     public float patience;
 
