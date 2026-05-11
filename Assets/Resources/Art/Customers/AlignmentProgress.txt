@@ -1,0 +1,18 @@
+Aligning to NoseMouth/Eyes 286
+
+NoseMouth 258 (sprites labeled 250)
+NoseMouth 292
+NoseMouth 259
+NoseMouth 167
+
+
+Eyes 292
+Eyes 259
+Eyes 258 (sprites abeled 250)
+Eyes 167
+Eyes 104
+Eyes 103
+Eyes 102
+Eyes 101
+Eyes 100
+Eyes 208
