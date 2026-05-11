@@ -186,7 +186,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
                 IngredientObject info = GetComponent<IngredientObject>();
                 if (info != null && plate.AddIngredient(info))
                 {
-                    plate.PrintIngredients();
+                    plate.PrintIngredient();
                     _isPlaced = true;
                     _rectTransform.SetParent(plate.transform);
                     _rectTransform.anchoredPosition = Vector2.zero;

@@ -4,41 +4,30 @@ using UnityEngine.UI;
 
 public class Plate : MonoBehaviour
 {
-    [SerializeField] private List<IngredientObject> _ingredients = new List<IngredientObject>();
+    [SerializeField] private IngredientObject _ingredient;
 
     [SerializeField] private Transform _stackPoint;
-    [SerializeField] private float _stackOffset = 20f;
     
 
     public bool AddIngredient(IngredientObject ingredient)
     {
-        if (ingredient == null) return false;
+        if (ingredient == null || _ingredient != null) return false;
 
         Debug.Log("AddIngredient was just called for: " + ingredient.name);
-
-        foreach (IngredientObject existing in _ingredients)
-        {
-            if (existing.IngredientInstance.Data.Name == ingredient.IngredientInstance.Data.Name)
-            {
-                Debug.Log("Duplicate Ingredient Type detected: " + ingredient.IngredientInstance.Data.Name);
-                return false;
-            }
-        }
-
-        _ingredients.Add(ingredient);
 
         FoodGrab grab = ingredient.GetComponent<FoodGrab>();
         if (grab != null)
         {
             grab.LockToPlate();
             if (ingredient.TryGetComponent<Collider2D>(out var col)) col.enabled = false;
+            Debug.Log("Ingredient " + ingredient.IngredientInstance.Data.Name + " placed, locking to plate");
+            Destroy(grab);
         }
 
         RectTransform rect = ingredient.GetComponent<RectTransform>();
         rect.SetParent(_stackPoint);
 
         Vector2 position = Vector2.zero;
-        position.y += _stackOffset * (_ingredients.Count - 1);
         rect.anchoredPosition = position;
 
         Image img = ingredient.GetComponent<Image>();
@@ -47,35 +36,32 @@ public class Plate : MonoBehaviour
             rect.SetAsLastSibling();
         }
 
+        _ingredient = ingredient;
         return true;
     }
 
-    public List<IngredientObject> GetIngredients()
+    public IngredientObject GetIngredient()
     {
-        return _ingredients;
+        return _ingredient;
     }
 
-    public void PrintIngredients()
+    public void PrintIngredient()
     {
-        if (_ingredients.Count == 0)
+        if (_ingredient == null)
         {
             Debug.Log("Plate is empty");
             return;
         }
 
-        Debug.Log("Plate contains:");
+        Debug.Log("Plate contains: ");
 
-        foreach (IngredientObject ingredient in _ingredients)
-        {
-            if (ingredient == null || ingredient.IngredientInstance == null) continue;
-
-            Debug.Log(
-                $"- {ingredient.IngredientInstance.Data.Name} " +
-                $"(Spoilage: {ingredient.IngredientInstance.SpoilagePercent:F1}%)"
-            );
-        }
+        Debug.Log(
+            $"- {_ingredient.IngredientInstance.Data.Name} " +
+            $"(Spoilage: {_ingredient.IngredientInstance.SpoilagePercent:F1}%)"
+        );
     }
 
+    /*
     [ContextMenu("Test Recipe Check")]
     public void CheckForRecipe()
     {
@@ -92,5 +78,5 @@ public class Plate : MonoBehaviour
         {
             Debug.LogError("No RecipeManager found in the scene!");
         }
-    }
+    }*/
 }
