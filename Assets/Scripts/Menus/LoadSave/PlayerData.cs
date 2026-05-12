@@ -8,7 +8,7 @@ public class PlayerData
     public int Reputation;
 
     // TODO: Handle saving other key information
-    // public List<RecipeID> RecipesUnlocked;
+    public RecipeList RecipesUnlocked;
     // public List<StationID> StationsUnlocked;
     // public List<IngredientID> IngredientsUnlocked;
     // public List<UpgradeID> Upgrades; 

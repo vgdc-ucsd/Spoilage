@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CustomerOrderDatabase : MonoBehaviour
+public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
 {
-    public static CustomerOrderDatabase Instance => s_instance;
+    private RecipeManager _recipeManager;
 
-    private static CustomerOrderDatabase s_instance;
+    private SaveManager _saveManager;
 
     [SerializeField]
     private CustomerOrder[] _customerOrders;
@@ -25,13 +25,7 @@ public class CustomerOrderDatabase : MonoBehaviour
 
     private void Awake()
     {
-        if (s_instance != null && s_instance != this)
-        {
-            Destroy(this);
-            return;
-        }
-
-        s_instance = this;
+        
     }
 
     public int PickDishCount(float gameProgress)

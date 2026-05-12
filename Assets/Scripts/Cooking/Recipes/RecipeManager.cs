@@ -27,16 +27,19 @@ public class RecipeList
     public Recipe[] allRecipes;
 }
 
-public class RecipeManager : MonoBehaviour
+public class RecipeManager : Singleton<RecipeManager>
 {
     public TextAsset recipeJsonFile; // Drag your JSON file here in the Inspector!
-    public RecipeList allRecipes;
+    public RecipeList allRecipes {get; private set;}
 
     void Awake()
     {
         LoadRecipes();
     }
 
+    /// <summary>
+    /// Pulls all recipes from json doc into allRecipes 
+    /// </summary>
     void LoadRecipes()
     {
         if (recipeJsonFile != null)
