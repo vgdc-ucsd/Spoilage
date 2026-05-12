@@ -1,58 +1,80 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
-public class PlateGrab : MonoBehaviour
+public class PlateGrab : ObjectGrab, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    private Vector3 _sidebarPosition;
-
-    // We use -3f to ensure it is in front of everything else at the start
-    private void Awake() => _sidebarPosition = transform.position;
-
-    public bool TryGrab()
+    void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
-        // 1. No LockLayout check here.
-        // 2. We check for a tile just like ObjectGrab does
-        KitchenTile tile = GetTileAtPosition(transform.position);
-        if (tile != null)
+        if (!TryGrab()) return;
+
+        _originalParent = _rectTransform.parent;
+        _originalPosition = _rectTransform.anchoredPosition;
+
+        // Bring to top of canvas while dragging
+        _rectTransform.SetParent(_canvas.transform);
+        _rectTransform.SetAsLastSibling();
+
+        if (_applianceImage != null) _applianceImage.raycastTarget = false;
+    }
+
+    void IDragHandler.OnDrag(PointerEventData eventData)
+    {
+        _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
+    }
+
+    void IEndDragHandler.OnEndDrag(PointerEventData eventData)
+    {
+        if (_applianceImage != null) _applianceImage.raycastTarget = true;
+
+        Drop(eventData);
+    }
+
+    public new bool TryGrab()
+    {
+        // Remove from current tile
+        if (currentTile != null)
         {
-            // We'll skip the GetTopObject check for now to ensure it always grabs
-            tile.RemoveObject(gameObject);
+            if (currentTile.GetTopObject() != gameObject) return false;
+            currentTile.RemoveObject(gameObject);
         }
 
-        transform.SetParent(null);
         return true;
     }
 
-    public void UpdateDragPosition()
+    public new void Drop(PointerEventData eventData)
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(UnityEngine.InputSystem.Mouse.current.position.ReadValue());
-        // Mirroring your ObjectGrab logic: Appliances are -2f, so we'll use -3f
-        transform.position = new Vector3(mousePos.x, mousePos.y, -3f);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        KitchenTile targetTile = GetTileFromRaycast(results);
+
+        if (targetTile != null)
+        {
+            targetTile.PlaceObject(gameObject);
+            currentTile = targetTile;
+            return;
+        }
+
+        // Snap back to last valid tile
+        if (currentTile != null)
+        {
+            currentTile.PlaceObject(gameObject);
+            return;
+        }
+
+        // No valid tile at all, return to original position
+        _rectTransform.SetParent(_originalParent, false);
+        _rectTransform.anchoredPosition = _originalPosition;
+        Debug.Log("Invalid placement: returning to original position.");
     }
 
-    public void Drop()
+    private KitchenTile GetTileFromRaycast(List<RaycastResult> results)
     {
-        // Mirroring your ObjectGrab Drop logic
-        KitchenTile tile = GetTileAtPosition(transform.position);
-
-        if (tile != null && tile.CanPlaceObject("Food", gameObject))
+        foreach (var result in results)
         {
-            tile.PlaceObject(gameObject);
-            transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y, -1.5f);
-        }
-        else
-        {
-            transform.position = _sidebarPosition;
-        }
-        transform.SetParent(null);
-    }
-
-    private KitchenTile GetTileAtPosition(Vector2 pos)
-    {
-        // Exact copy-paste from your ObjectGrab
-        Collider2D[] hits = Physics2D.OverlapPointAll(pos);
-        foreach (var hit in hits)
-        {
-            if (hit.TryGetComponent(out KitchenTile tile)) return tile;
+            KitchenTile tile = result.gameObject.GetComponentInParent<KitchenTile>();
+            if (tile != null) return tile;
         }
         return null;
     }

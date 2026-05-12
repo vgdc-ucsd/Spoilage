@@ -68,6 +68,7 @@ public class Customer : MonoBehaviour
         if (customerData.spoilage == CustomerData.Spoilage.STAGE_I)
         {
             transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
+            customerData.spoilageSymtomp = AbstractSpoilageSymptom.GenerateSymptom(this);
         }
         else if (customerData.spoilage == CustomerData.Spoilage.UNSPOILED)
         {
