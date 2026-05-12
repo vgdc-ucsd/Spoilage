@@ -36,24 +36,30 @@ public class KitchenTile : MonoBehaviour
 
         if (SetupManager.Instance.CurrentPhase == GamePhase.Setup)
         {
-            // Setup: appliances only, one per tile
-            if (type != "Appliance") return false;
+            // Setup: appliances and story items only, one per tile
+            if (type != "Appliance" && type != "StoryItem") return false;
 
             foreach (var obj in objectsOnTile)
+            {
                 if (obj != null && obj.TryGetComponent(out ObjectGrab _)) return false;
+                if (obj != null && obj.TryGetComponent(out StoryItemObject _)) return false;
+            }
 
             return true;
         }
 
         if (SetupManager.Instance.CurrentPhase == GamePhase.Cooking)
         {
-            // Cooking: food only, one per tile
-            if (type != "Food") return false;
+            // Cooking: food and story items only, one per tile
+            if (type != "Food" && type != "StoryItem") return false;
 
             ObjectGrab appliance = GetAppliance();
 
             if (appliance != null)
             {
+                // Can't place story items on appliances
+                if (type == "StoryItem") return false;
+
                 CookingStation station = appliance.GetComponent<CookingStation>();
 
                 if (station != null)
@@ -69,12 +75,22 @@ public class KitchenTile : MonoBehaviour
                 }
             }
 
+            StoryItemObject existingStoryItem = null;
+            foreach (var obj in objectsOnTile)
+                if (obj != null && obj.TryGetComponent(out existingStoryItem)) break;
+
+            // Can't place anything if a story item is already here
+            if (existingStoryItem != null) return false;
+
             IngredientObject existingFood = null;
             foreach (var obj in objectsOnTile)
                 if (obj != null && obj.TryGetComponent(out existingFood)) break;
 
-            //if empty, place food
+            //if empty, place food or story item
             if (existingFood == null) return true;
+
+            // Can't place story item if food is already here
+            if (type == "StoryItem") return false;
 
             //if a food item is alr placed we combine
             IngredientObject movingFood = movingObj.GetComponent<IngredientObject>();

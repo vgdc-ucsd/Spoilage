@@ -11,6 +11,7 @@ TagManager:
   - Order Display Object
   - Customer Refusal Test
   - Guard Spawnpoint
+  - Serving Area Tile
   layers:
   - Default
   - TransparentFX
