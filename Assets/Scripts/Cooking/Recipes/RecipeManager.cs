@@ -4,21 +4,27 @@ using UnityEngine;
 [System.Serializable]
 public class IngredientRequirement
 {
-    public string ingredientName;
+    public string name;
+    public int id;
 }
 
 [System.Serializable]
 public class Recipe
 {
-    public string dishName;
-    public bool requiresAllSpoiled;
-    public List<IngredientRequirement> ingredients;
+    public int id;
+    public string name;
+    public int complexity;
+    public int reward;
+    public string appliance;
+    public bool servable;
+    public bool spoiled;
+    public IngredientRequirement[] requiredIngredients;
 }
 
 [System.Serializable]
 public class RecipeList
 {
-    public List<Recipe> recipes;
+    public Recipe[] allRecipes;
 }
 
 public class RecipeManager : MonoBehaviour
@@ -37,7 +43,7 @@ public class RecipeManager : MonoBehaviour
         {
             // THIS is what fills the "brain" of the manager
             allRecipes = JsonUtility.FromJson<RecipeList>(recipeJsonFile.text);
-            Debug.Log("MANAGER: Loaded " + allRecipes.recipes.Count + " recipes from JSON.");
+            Debug.Log("MANAGER: Loaded " + allRecipes.allRecipes.Length + " recipes from JSON.");
         }
         else
         {
@@ -49,17 +55,17 @@ public class RecipeManager : MonoBehaviour
     {
         Debug.Log($"MANAGER: Starting check for {plateIngredients.Count} items on plate.");
 
-        if (allRecipes == null || allRecipes.recipes == null)
+        if (allRecipes == null || allRecipes.allRecipes == null)
         {
             return "JSON Error";
         }
 
-        foreach (Recipe recipe in allRecipes.recipes)
+        foreach (Recipe recipe in allRecipes.allRecipes)
         {
             // Now this will actually run because the list isn't empty!
             if (IsMatch(recipe, plateIngredients))
             {
-                return recipe.dishName;
+                return recipe.name;
             }
         }
 
@@ -69,26 +75,26 @@ public class RecipeManager : MonoBehaviour
     private bool IsMatch(Recipe recipe, List<IngredientObject> plateIngredients)
     {
         if (recipe == null || plateIngredients == null) return false;
-        if (recipe.ingredients.Count != plateIngredients.Count) return false;
+        if (recipe.requiredIngredients.Length != plateIngredients.Count) return false;
 
-        if (recipe.requiresAllSpoiled)
-        {
-            foreach (IngredientObject food in plateIngredients)
-            {
-                if (food == null || food.IngredientInstance == null) return false;
+        // if (recipe.requiresAllSpoiled)
+        // {
+        //     foreach (IngredientObject food in plateIngredients)
+        //     {
+        //         if (food == null || food.IngredientInstance == null) return false;
 
-                if (!food.IngredientInstance.IsSpoiled)
-                {
-                    return false;
-                }
-            }
-        }
+        //         if (!food.IngredientInstance.IsSpoiled)
+        //         {
+        //             return false;
+        //         }
+        //     }
+        // }
 
         List<string> remainingRequirements = new List<string>();
 
-        foreach (IngredientRequirement req in recipe.ingredients)
+        foreach (IngredientRequirement req in recipe.requiredIngredients)
         {
-            remainingRequirements.Add(req.ingredientName.Trim().ToLower());
+            remainingRequirements.Add(req.name.Trim().ToLower());
         }
 
         foreach (IngredientObject food in plateIngredients)

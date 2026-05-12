@@ -74,6 +74,16 @@ public class CustomerOrderDatabase : MonoBehaviour
         return 4;
     }
 
+    /// <summary>
+    /// Generates new CustomerOrder ScriptableObjects based on the current unlocked
+    /// ingredients and appliances. Should be called every time a new one of these
+    /// is unlocked
+    /// </summary>
+    public void UpdateAvailableRecipes()
+    {
+        
+    }
+
     public CustomerOrder GenerateCustomerOrder(int difficulty)
     {
         var availableOrders = new List<CustomerOrder>();
