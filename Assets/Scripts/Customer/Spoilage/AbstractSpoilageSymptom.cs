@@ -1,11 +1,6 @@
 ﻿using System;
 using UnityEngine;
 
-[CreateAssetMenu(
-    fileName = "SpoilageSymptom",
-    menuName = "ScriptableObjects/SpoilageSymptom",
-    order = 0
-)]
 public abstract class AbstractSpoilageSymptom : ScriptableObject
 {
     private static readonly Type[] symptomTypes =

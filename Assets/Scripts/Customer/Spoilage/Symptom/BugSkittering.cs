@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+[CreateAssetMenu(
+    fileName = "SpoilageSymptom",
+    menuName = "ScriptableObjects/SpoilageSymptom",
+    order = 0
+)]
 public class BugSkittering : AbstractSpoilageSymptom
 {
     public BugSkittering()
