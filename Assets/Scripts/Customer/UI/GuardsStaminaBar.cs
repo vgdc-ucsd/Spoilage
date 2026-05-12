@@ -8,7 +8,7 @@ public class GuardsStaminaBar : MonoBehaviour
     public int maxPresses = 5;
     public float buttonPressedReduceAmount;
     private float pressesUsed;
-    public float radialAngle = 180f;
+    public float endAngle = 180f;
     public float startAngle = -90f;
     public RectTransform rectTransform;
     void Start()
@@ -17,7 +17,7 @@ public class GuardsStaminaBar : MonoBehaviour
         //FillImage = GetComponent<RawImage>();
         buttonPressedReduceAmount = 1.0f / maxPresses;
         pressesUsed = 0;
-        
+        rectTransform.rotation = Quaternion.Euler(0, 0, startAngle);
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class GuardsStaminaBar : MonoBehaviour
             Debug.Log("Guard is too eepy to move!");
             return;
         }
-        float rotAngle = pressesUsed / maxPresses * radialAngle + startAngle;
+        float rotAngle = pressesUsed / maxPresses * (endAngle - startAngle) + startAngle;
         rectTransform.rotation = Quaternion.Euler(0, 0, rotAngle);
 
     }
