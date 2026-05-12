@@ -9,10 +9,27 @@ NoseMouth 167
 Eyes 292
 Eyes 259
 Eyes 258 (sprites abeled 250)
-Eyes 167
+Eyes 167: R 4r U
 Eyes 104
 Eyes 103
 Eyes 102
 Eyes 101
 Eyes 100
 Eyes 208
+Eyes 255: 14D
+Eyes 261: 11D 3d 5r
+Eyes 277: 15D 3l
+Eyes 283: 10U 3u 2l
+
+TODO:
+
+NoseMouth 100,
+NoseMouth 101,
+NoseMouth 102,
+NoseMouth 103,
+NoseMouth 104,
+NoseMouth 167,
+NoseMouth 255,
+NoseMouth 261,
+NoseMouth 277,
+NoseMouth 283
