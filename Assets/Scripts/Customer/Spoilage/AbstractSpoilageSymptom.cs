@@ -44,7 +44,7 @@ public abstract class AbstractSpoilageSymptom : ScriptableObject
 
     public void DeleteSymptom()
     {
-        SpoilageTriggerManager.Instance.RemoveSymptom(this);
+        // SpoilageTriggerManager.Instance.RemoveSymptom(this);
         Destroy(this);
     }
 }
