@@ -65,12 +65,12 @@ public class Customer : MonoBehaviour
             */
         }
 
-        if (customerData.spoilage == CustomerData.Spoilage.SLIGHTLY)
+        if (customerData.spoilage == CustomerData.Spoilage.STAGE_I)
         {
             transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
             customerData.spoilageSymtomp = AbstractSpoilageSymptom.GenerateSymptom(this);
         }
-        else if (customerData.spoilage == CustomerData.Spoilage.NOT)
+        else if (customerData.spoilage == CustomerData.Spoilage.UNSPOILED)
         {
             transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
             transform.Find("Sprites/SPOILAGE_BACK").GetComponent<SpriteRenderer>().enabled = false;
