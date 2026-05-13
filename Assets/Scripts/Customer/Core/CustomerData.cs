@@ -39,6 +39,7 @@ public class CustomerData : ScriptableObject
     
     public string CustomerName;
     public Spoilage spoilage;
+    public AbstractSpoilageSymptom spoilageSymtomp;
     public float patience;
 
     public List<CustomerOrder> orders = new List<CustomerOrder>();
