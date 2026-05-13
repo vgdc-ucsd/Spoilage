@@ -9,7 +9,7 @@ public class PlayerData
 
     // TODO: Handle saving other key information
     public RecipeList RecipesUnlocked;
-    // public List<StationID> StationsUnlocked;
+    public StationList StationsUnlocked;
     // public List<IngredientID> IngredientsUnlocked;
     // public List<UpgradeID> Upgrades; 
     // public List<NPCID> NPCs; 

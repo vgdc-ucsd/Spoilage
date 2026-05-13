@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 
 [System.Serializable]
@@ -30,7 +32,7 @@ public class RecipeList
 public class RecipeManager : Singleton<RecipeManager>
 {
     public TextAsset recipeJsonFile; // Drag your JSON file here in the Inspector!
-    public RecipeList allRecipes {get; private set;}
+    public RecipeList allRecipes;
 
     void Awake()
     {
