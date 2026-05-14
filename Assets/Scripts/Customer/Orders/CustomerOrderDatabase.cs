@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using NUnit.Framework;
+using UnityEditor.Build;
 using UnityEngine;
 
 public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
@@ -23,9 +26,16 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
     [SerializeField]
     private AnimationCurve _fourDishChance;
 
-    private void Awake()
+    public override void Awake()
     {
-        
+        base.Awake();
+    }
+
+    public void Start()
+    {
+        _recipeManager = RecipeManager.Instance;
+        _saveManager = SaveManager.Instance;
+        UpdateAvailableRecipes();
     }
 
     public int PickDishCount(float gameProgress)
@@ -44,7 +54,7 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
             return 1;
         }
 
-        float randomValue = Random.Range(0, total);
+        float randomValue = UnityEngine.Random.Range(0, total);
 
         if (randomValue < one)
         {
@@ -69,13 +79,66 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
     }
 
     /// <summary>
-    /// Generates new CustomerOrder ScriptableObjects based on the current unlocked
-    /// ingredients and appliances. Should be called every time a new one of these
-    /// is unlocked
+    /// Adds Recipes to the global UnlockedRecipes based on the current unlocked
+    /// ingredients and appliances. Should be called every time a new recipe or
+    /// appliance is unlocked.
     /// </summary>
     public void UpdateAvailableRecipes()
     {
-        
+        //wow allRecipes.allRecipes is stupid why did i do that
+        foreach (Recipe recipe in _recipeManager.allRecipes.allRecipes)
+        {
+            if (recipe.servable)
+            {
+                if (UpdateAvailableRecipesHelper(recipe))
+                {
+                    _saveManager.Player.RecipesUnlocked.Add(recipe);
+                    Debug.Log("Added " + recipe.name + " to unlocked recipes");
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Recursive function that goes through every required ingredient for a 
+    /// recipe until it reaches the base ingredients, then checks to see if 
+    /// that ingredient is unlocked.
+    /// </summary>
+    /// <returns></returns>
+    protected bool UpdateAvailableRecipesHelper(Recipe recipe)
+    {
+        // BASE CASE: Base ingredient, check if unlocked if not return false
+        if (recipe.requiredIngredients.Length == 0)
+        {
+            Predicate<string> predicate = name => name == recipe.name;
+            return _saveManager.Player.IngredientsUnlocked.Exists(predicate);
+            // wtf is a predicate and why do i need to use one
+        }
+
+        bool result = true;
+
+        // APPLIANCE CHECK: If an appliance is required check to make sure its 
+        // unlocked
+        if (recipe.appliance != "None" && recipe.appliance != "Spoil")
+        {
+            Predicate<string> predicate = app => app == recipe.appliance;
+            if (!_saveManager.Player.StationsUnlocked.Exists(predicate))
+            {
+                result = false;
+            }
+        }
+
+        // INGREDIENT CHECK: Go through each ingredient until reaching base case
+        foreach(RecipeRequirement ingredient in recipe.requiredIngredients)
+        {
+            if (!UpdateAvailableRecipesHelper(
+                _recipeManager.allRecipes.allRecipes[ingredient.id]
+            ))
+            {
+                result = false;
+            }
+        }
+        return result;
     }
 
     public CustomerOrder GenerateCustomerOrder(int difficulty)
@@ -94,7 +157,7 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
 
         if (availableOrders.Count > 0)
         {
-            int randomIndex = Random.Range(0, availableOrders.Count);
+            int randomIndex = UnityEngine.Random.Range(0, availableOrders.Count);
             return availableOrders[randomIndex];
         }
 

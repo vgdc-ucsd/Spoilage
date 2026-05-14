@@ -4,7 +4,7 @@ using System.Data.Common;
 using UnityEngine;
 
 [System.Serializable]
-public class IngredientRequirement
+public class RecipeRequirement
 {
     public string name;
     public int id;
@@ -20,7 +20,7 @@ public class Recipe
     public string appliance;
     public bool servable;
     public bool spoiled;
-    public IngredientRequirement[] requiredIngredients;
+    public RecipeRequirement[] requiredIngredients;
 }
 
 [System.Serializable]
@@ -34,8 +34,9 @@ public class RecipeManager : Singleton<RecipeManager>
     public TextAsset recipeJsonFile; // Drag your JSON file here in the Inspector!
     public RecipeList allRecipes;
 
-    void Awake()
+    public override void Awake()
     {
+        base.Awake();
         LoadRecipes();
     }
 
@@ -97,7 +98,7 @@ public class RecipeManager : Singleton<RecipeManager>
 
         List<string> remainingRequirements = new List<string>();
 
-        foreach (IngredientRequirement req in recipe.requiredIngredients)
+        foreach (RecipeRequirement req in recipe.requiredIngredients)
         {
             remainingRequirements.Add(req.name.Trim().ToLower());
         }

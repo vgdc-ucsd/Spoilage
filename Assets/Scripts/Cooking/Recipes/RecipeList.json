@@ -96,7 +96,8 @@
             "complexity": 0,
             "reward": 0,
             "appliance": "Spoil",
-            "servable": true,
+            "servable": false,
+            "spoiled": true,
             "requiredIngredients": [
                 {
                     "name": "Potatoes",
