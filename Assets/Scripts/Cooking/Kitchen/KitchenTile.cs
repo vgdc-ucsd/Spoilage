@@ -115,7 +115,15 @@ public class KitchenTile : MonoBehaviour
             if (resultData != null)
             {
                 existingFood.ChangeIngredient(resultData);
+
+                IngredientBehaviour newBehaviour = obj.GetComponent<IngredientBehaviour>();
+                if (newBehaviour != null) newBehaviour.RemoveFromSpoilSurface();
+
                 Destroy(obj); // Remove the held ingredient
+
+                IngredientBehaviour existingBehaviour = existingFood.GetComponent<IngredientBehaviour>();
+                if (existingBehaviour != null) existingBehaviour.PutOnSpoilSurface();
+
                 return;
             }
         }
@@ -134,11 +142,15 @@ public class KitchenTile : MonoBehaviour
         {
             Debug.LogWarning($"KitchenTile '{name}': Could not snap '{obj.name}' — missing RectTransform.");
         }
+        IngredientBehaviour behaviour = obj.GetComponent<IngredientBehaviour>();
+        if (behaviour != null) behaviour.PutOnSpoilSurface();
     }
 
     public void RemoveObject(GameObject obj)
     {
         objectsOnTile.Remove(obj);
+        IngredientBehaviour behaviour = obj.GetComponent<IngredientBehaviour>();
+        if (behaviour != null) behaviour.RemoveFromSpoilSurface();
     }
 
     public GameObject GetTopObject()
