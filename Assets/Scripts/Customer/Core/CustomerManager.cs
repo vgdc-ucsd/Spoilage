@@ -46,6 +46,7 @@ public class CustomerManager : Singleton<CustomerManager>
         { "Assets/Resources/Art/Customers/Bases/Character Base #286", new Vector3(0, 0, 0)},
         { "Assets/Resources/Art/Customers/Bases/Character Base #287", new Vector3(0.1f, -0.24f, 0)},
         { "Assets/Resources/Art/Customers/Bases/Character Base #292", new Vector3(0.05f, 0.55f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #307", new Vector3(-0.25f, -0.65f, 0)},
         { "Assets/Resources/Art/Customers/Bases/Character Base #332", new Vector3(0.16f, -0.11f, 0)},
     };
 
@@ -71,7 +72,7 @@ public class CustomerManager : Singleton<CustomerManager>
 
         string eyesDir = getRandomElement(Directory.GetDirectories(EYES_PATH));
         // Using getRandomElement() mostly to make sure the list isn't empty.
-        // If there are for some reason multiple files with the pattern 
+        // If there are for some reason multiple files with the pattern
         // something is wrong with the file structure.
         paths[(int)CustomerData.Indexes.EYES_OPEN] = getRandomElement(
             Directory.GetFiles(eyesDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_STATIC)).ToArray());
@@ -205,7 +206,7 @@ public class CustomerManager : Singleton<CustomerManager>
     /*TODO: CHOOSES DIALOGUE POOL BASED ON PLAYER MORALITY.
     public static int chooseDialoguePool(double moralityStat)
     {
-        
+
     }
     */
 
