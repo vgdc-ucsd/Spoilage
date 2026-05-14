@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class AutomaticStation : CookingStation
 {
     [Header("Cooking Settings")]
+    [SerializeField] private const int OVERCOOKED_QUALITY_PERCENTAGE_DECREASE = 20;
     [SerializeField] private float _cookDuration = 5f;
     [SerializeField] private float _overcookDuration = 5f;
     [SerializeField] private bool _canOvercook = false;
@@ -180,6 +181,7 @@ public class AutomaticStation : CookingStation
         // Collapse: change the first ingredient to the combined result, destroy the rest
         IngredientObject survivor = _currentFoods[0];
         survivor.ChangeIngredient(resultData);
+        survivor.IngredientInstance.Data.QualityPercent = recipeManager.CalculateTotalQuality(_currentFoods);
 
         DestroyExtraIngredients();
 
@@ -187,7 +189,7 @@ public class AutomaticStation : CookingStation
         _currentBehaviours.Clear();
         _currentFoods.Add(survivor);
 
-        Debug.Log($"<color=green>{gameObject.name}: SUCCESS:</color> {resultData.Name}");
+        Debug.Log($"<color=green>{gameObject.name}: SUCCESS:</color> {resultData.Name}. Quality = {survivor.IngredientInstance.Data.QualityPercent}");
 
         if (_canOvercook && CanContinueCooking(recipeManager, survivor))
         {
@@ -273,8 +275,9 @@ public class AutomaticStation : CookingStation
         }
 
         food.ChangeIngredient(resultData);
+        food.IngredientInstance.Data.QualityPercent -= OVERCOOKED_QUALITY_PERCENTAGE_DECREASE;
 
-        Debug.Log($"{gameObject.name}: Overcooked into {resultData.Name}");
+        Debug.Log($"{gameObject.name}: Overcooked into {resultData.Name}. Quality = {food.IngredientInstance.Data.QualityPercent}");
 
         _timer = 0f;
         StopCooking();

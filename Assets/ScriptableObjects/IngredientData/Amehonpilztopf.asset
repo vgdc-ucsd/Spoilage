@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   _name: Amehonpilztopf
   _spoilTime: 15
-  _qualityPercent: -20
+  _qualityPercent: 0
   _normalSprite: {fileID: 0}
   _spoiledSprite: {fileID: 0}

@@ -37,6 +37,10 @@ public class IngredientObject : MonoBehaviour
             return;
         }
 
+        // keep the quality data so it stacks up
+        float oldQuality = _data.QualityPercent;
+        newData.QualityPercent = oldQuality;
+        
         _data = newData;
         IngredientInstance.ChangeData(newData);
         gameObject.name = newData.Name;
