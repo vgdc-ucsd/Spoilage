@@ -53,13 +53,13 @@ public class RecipeManager : Singleton<RecipeManager>
         }
         else
         {
-            Debug.LogError("MANAGER: No JSON file assigned in the Inspector!");
+            Debug.LogError("Recipe Manager: No JSON file assigned in the Inspector!");
         }
     }
 
-    public string CheckRecipe(List<IngredientObject> plateIngredients)
+    public string CheckRecipe(List<IngredientObject> ingredients, string station = "")
     {
-        Debug.Log($"MANAGER: Starting check for {plateIngredients.Count} items on plate.");
+        Debug.Log($"Recipe Manager: Starting check for {ingredients.Count} items.");
 
         if (allRecipes == null || allRecipes.allRecipes == null)
         {
@@ -68,8 +68,10 @@ public class RecipeManager : Singleton<RecipeManager>
 
         foreach (Recipe recipe in allRecipes.allRecipes)
         {
-            // Now this will actually run because the list isn't empty!
-            if (IsMatch(recipe, plateIngredients))
+            if (!string.IsNullOrEmpty(station) && recipe.station != station)
+            continue;
+            
+            if (IsMatch(recipe, ingredients))
             {
                 return recipe.name;
             }

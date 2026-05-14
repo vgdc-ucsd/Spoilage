@@ -8,7 +8,7 @@ public class ManualStation : CookingStation
 
     protected int _currentClicks;
 
-    public override void OnPlaceFood(FoodGrab food)
+    public override bool OnPlaceFood(FoodGrab food)
     {
         base.OnPlaceFood(food);
 
@@ -16,6 +16,7 @@ public class ManualStation : CookingStation
 
         _currentClicks = 0;
         Debug.Log($"Station updated. New item: {food.name}, Clicks reset to 0.");
+        return true;
     }
 
     public override void OnRemoveFood()
