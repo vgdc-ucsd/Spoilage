@@ -68,7 +68,7 @@ public class RecipeManager : Singleton<RecipeManager>
 
         foreach (Recipe recipe in allRecipes.allRecipes)
         {
-            if (!string.IsNullOrEmpty(station) && recipe.station != station)
+            if (!string.IsNullOrEmpty(station) && recipe.appliance != station)
             continue;
             
             if (IsMatch(recipe, ingredients))
