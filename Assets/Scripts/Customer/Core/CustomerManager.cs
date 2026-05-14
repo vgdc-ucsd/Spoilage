@@ -96,7 +96,7 @@ public class CustomerManager : Singleton<CustomerManager>
         paths[(int)CustomerData.Indexes.MOUTH_DISGUST] = getRandomElement(
             Directory.GetFiles(mouthDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_DISGUST)).ToArray());
 
-        if ((int)newData.spoilage >= (int)CustomerData.Spoilage.SLIGHTLY)
+        if ((int)newData.spoilage >= (int)CustomerData.Spoilage.STAGE_I)
         {
             paths[(int)CustomerData.Indexes.SPOILAGE_FRONT] = getRandomElement(
                 Directory.GetFiles(SPOILAGE_PATH + FRONT_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
