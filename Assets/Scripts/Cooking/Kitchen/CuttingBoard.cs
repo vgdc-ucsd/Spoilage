@@ -63,6 +63,8 @@ public class CuttingBoard : ManualStation
     {
         Debug.Log($"Action triggered on {gameObject.name}. Current Food: {(_currentFood != null ? _currentFood.name : "NULL")}");
 
+        SpoilageTriggerManager.Instance.Invoke(SpoilageCategory.DISTRESS);
+
         if (_currentFood == null || _currentFood.IngredientInstance == null)
         {
             return;
