@@ -11,6 +11,7 @@ TagManager:
   - Order Display Object
   - Customer Refusal Test
   - Guard Spawnpoint
+  - Guard Stamina Bar
   layers:
   - Default
   - TransparentFX
