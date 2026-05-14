@@ -9,6 +9,7 @@ public class KitchenTile : MonoBehaviour
     public List<GameObject> objectsOnTile = new List<GameObject>();
 
     private RectTransform _rectTransform;
+    private string _station = "Kitchen Tile";
 
     private void Awake()
     {
@@ -65,7 +66,7 @@ public class KitchenTile : MonoBehaviour
             {
                 // Create a temporary list to check the recipe
                 List<IngredientObject> checkList = new List<IngredientObject> { existingFood, movingFood };
-                string result = recipeManager.CheckRecipe(checkList);
+                string result = recipeManager.CheckRecipe(checkList, _station);
                 return result != "JSON Error";
             }
             return false;
@@ -90,7 +91,7 @@ public class KitchenTile : MonoBehaviour
         {
             RecipeManager rm = FindAnyObjectByType<RecipeManager>();
             List<IngredientObject> combo = new List<IngredientObject> { existingFood, newFood };
-            string resultName = rm.CheckRecipe(combo);
+            string resultName = rm.CheckRecipe(combo, _station);
 
             IngredientData resultData;
 

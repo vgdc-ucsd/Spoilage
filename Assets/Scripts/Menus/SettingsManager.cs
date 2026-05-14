@@ -26,5 +26,6 @@ public class SettingsManager : Singleton<SettingsManager>
         _settings = SaveManager.Instance.Settings;
         Screen.SetResolution(_settings.Res.width, _settings.Res.height, _settings.Fullscreen);
         // TODO: Load volume
+        
     }
 }

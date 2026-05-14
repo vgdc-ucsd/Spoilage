@@ -1,0 +1,150 @@
+{
+  "recipes": [
+    {
+      "dishName": "Flatbread",
+      "requiresAllSpoiled": "false",
+      "station": "Grill",
+      "ingredients": [
+        { "ingredientName": "Dough" }
+      ]
+    },
+    {
+      "dishName": "Brewer on a Skewer",
+      "requiresAllSpoiled": "false",
+      "station": "Grill",
+      "ingredients": [
+        { "ingredientName": "Dough" },
+        {"ingredientName": "Chopped Root Vegetables"}
+      ]
+    },
+    {
+      "dishName": "Pickled Pigeons",
+      "requiresAllSpoiled": "false",
+      "station": "Grill",
+      "ingredients": [
+        { "ingredientName": "Cubed Meat" },
+        {"ingredientName": "Sauce"}
+      ]
+    },
+    {
+      "dishName": "Ratenudel",
+      "requiresAllSpoiled": "false",
+      "station": "Grill",
+      "ingredients": [
+        { "ingredientName": "Noodles" },
+        {"ingredientName": "Cubed Meat"},
+        {"ingredientName": "Sliced Cheese"}
+      ]
+    },
+    {
+      "dishName": "Lotus Steak",
+      "requiresAllSpoiled": "false",
+      "station": "Grill",
+      "ingredients": [
+        { "ingredientName": "Diced Potatoes" },
+        {"ingredientName": "Chopped Root Vegetables"}
+      ]
+    },
+    {
+      "dishName": "Boiled Root Veggies",
+      "requiresAllSpoiled": "false",
+      "station": "Pot",
+      "ingredients": [
+        { "ingredientName": "Chopped Root Vegetables" }
+      ]
+    },
+    {
+      "dishName": "Unsauced Amehonpilztopf",
+      "requiresAllSpoiled": "false",
+      "station": "Pot",
+      "ingredients": [
+        { "ingredientName": "Flatbread" },
+        {"ingredientName": "Diced Potatoes"},
+        {"ingredientName": "Chopped Root Vegetables"}
+      ]
+    },
+    {
+      "dishName": "Noodles",
+      "requiresAllSpoiled": "false",
+      "station": "Pot",
+      "ingredients": [
+        { "ingredientName": "Sliced Dough" }
+      ]
+    },
+    {
+      "dishName": "Sliced Dough",
+      "requiresAllSpoiled": "false",
+      "station": "Cutting Board",
+      "ingredients": [
+        { "ingredientName": "Dough" }
+      ]
+    },
+    {
+      "dishName": "Cubed Meat",
+      "requiresAllSpoiled": "false",
+      "station": "Cutting Board",
+      "ingredients": [
+        { "ingredientName": "Meat" }
+      ]
+    },
+    {
+      "dishName": "Diced Potatoes",
+      "requiresAllSpoiled": "false",
+      "station": "Cutting Board",
+      "ingredients": [
+        { "ingredientName": "Potatoes" }
+      ]
+    },
+    {
+      "dishName": "Chopped Root Vegetables",
+      "requiresAllSpoiled": "false",
+      "station": "Cutting Board",
+      "ingredients": [
+        { "ingredientName": "Root Vegetables" }
+      ]
+    },
+    {
+      "dishName": "Sliced Cheese",
+      "requiresAllSpoiled": "false",
+      "station": "Cutting Board",
+      "ingredients": [
+        { "ingredientName": "Cheese" }
+      ]
+    },
+    {
+      "dishName": "Cheesy Bread",
+      "requiresAllSpoiled": "false",
+      "station": "Kitchen Tile",
+      "ingredients": [
+        { "ingredientName": "Flatbread" },
+        {"ingredientName": "Sliced Cheese"}
+      ]
+    },
+    {
+      "dishName": "Cheesy Beet Bread",
+      "requiresAllSpoiled": "false",
+      "station": "Kitchen Tile",
+      "ingredients": [
+        { "ingredientName": "Cheesy Bread" },
+        {"ingredientName": "Boiled Root Veggies"}
+      ]
+    },
+    {
+      "dishName": "Amehonpilztopf",
+      "requiresAllSpoiled": "false",
+      "station": "Kitchen Tile",
+      "ingredients": [
+        { "ingredientName": "Unsauced Amehonpilztopf" },
+        {"ingredientName": "Sauce"}
+      ]
+    },
+    {
+      "dishName": "Burnt Flatbread",
+      "requiresAllSpoiled": "false",
+      "station": "Grill",
+      "ingredients": [
+        { "ingredientName": "Flatbread" }
+      ]
+    }
+  ]
+}

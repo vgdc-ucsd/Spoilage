@@ -21,6 +21,8 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     private Transform _originalParent;
 
     public static bool CanMoveFood = true;
+    private Dictionary<string, float> _stationTimers = new();
+    private string _lastStationID;
 
     private void Awake()
     {
@@ -37,6 +39,18 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
         if (!CanMoveFood || _isPlaced) return;
+
+        CookingStation station = GetComponentInParent<CookingStation>();
+
+        if (station != null)
+        {
+            _returnStation = station;
+            _returnPosition = station.transform.position;
+
+            station.OnRemoveFood();
+
+            _activeStation = null;
+        }
 
         _originalParent = _rectTransform.parent;
         _originalPosition = _rectTransform.anchoredPosition;
@@ -132,8 +146,8 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         if (_foodImage != null) _foodImage.raycastTarget = true;
 
         bool foundValidDrop = false;
+        bool blockedByFullStation = false;
 
-        // Use UI raycast results — all objects the pointer passed over
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
 
@@ -158,6 +172,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             {
                 Debug.Log("Plate found!");
                 IngredientObject info = GetComponent<IngredientObject>();
+
                 if (info != null && plate.AddIngredient(info))
                 {
                     plate.PrintIngredients();
@@ -172,6 +187,20 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             CookingStation app = hitObj.GetComponentInParent<CookingStation>();
             if (app != null)
             {
+                if (!app.HasSpace)
+                {
+                    Debug.Log($"{app.gameObject.name} is full. Cannot drop food here.");
+                    blockedByFullStation = true;
+                    break;
+                }
+
+                bool placed = app.OnPlaceFood(this);
+                if (!placed)
+                {
+                    blockedByFullStation = true;
+                    break;
+                }
+
                 _activeStation = app;
                 _rectTransform.SetParent(app.transform, false);
                 _rectTransform.anchoredPosition = Vector2.zero;
@@ -179,6 +208,12 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
                 foundValidDrop = true;
                 break;
             }
+        }
+
+        if (blockedByFullStation)
+        {
+            ReturnToHome();
+            return;
         }
 
         if (foundValidDrop)
@@ -189,6 +224,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
                 if (foodSpawner != null) foodSpawner.SpawnFood();
                 _cameFromFridge = false;
             }
+
             return;
         }
 
@@ -263,4 +299,20 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     {
         _isPlaced = true;
     }
+
+    public void SaveCookTimer(string stationID, float timer)
+    {
+        _stationTimers[stationID] = timer;
+    }
+
+    public float GetCookTimer(string stationID)
+    {
+        return _stationTimers.TryGetValue(stationID, out float t) ? t : 0f;
+    }
+
+    public void SetLastStation(string stationID)
+    {
+        _lastStationID = stationID;
+    }
+
 }
