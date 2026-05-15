@@ -38,6 +38,12 @@ public class AutomaticStation : CookingStation
         {
             return true; 
         }
+        
+        if (incoming.IngredientInstance.Data.Name == "Slop")
+        {
+            Debug.Log($"{gameObject.name}: Cannot cook Slop.");
+            return false;
+        }
 
         bool wasEmpty = _currentFoods.Count == 0;
 

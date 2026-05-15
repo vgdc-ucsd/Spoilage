@@ -59,6 +59,14 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         _rectTransform.SetParent(_canvas.transform);
         _rectTransform.SetAsLastSibling();
 
+        Canvas foodCanvas = GetComponent<Canvas>();
+        if (foodCanvas == null)
+            foodCanvas = gameObject.AddComponent<Canvas>();
+        foodCanvas.overrideSorting = true;
+        foodCanvas.sortingOrder = 100;
+        if (GetComponent<UnityEngine.UI.GraphicRaycaster>() == null)
+            gameObject.AddComponent<UnityEngine.UI.GraphicRaycaster>();
+
         if (_foodImage != null) _foodImage.raycastTarget = false;
 
         TryGrab();

@@ -159,6 +159,16 @@ public class KitchenTile : MonoBehaviour
         {
             objRect.SetParent(_rectTransform, false);
             objRect.anchoredPosition = Vector2.zero;
+            objRect.SetAsLastSibling();
+
+            Canvas foodCanvas = obj.GetComponent<Canvas>();
+            if (foodCanvas == null)
+                foodCanvas = obj.AddComponent<Canvas>();
+            foodCanvas.overrideSorting = true;
+            foodCanvas.sortingOrder = 10;
+
+            if (obj.GetComponent<UnityEngine.UI.GraphicRaycaster>() == null)
+            obj.AddComponent<UnityEngine.UI.GraphicRaycaster>();
         }
         else
         {
