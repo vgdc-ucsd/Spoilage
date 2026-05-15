@@ -120,6 +120,15 @@ public class RecipeManager : Singleton<RecipeManager>
         return remainingRequirements.Count == 0;
     }
 
+    public float CalculateTotalQuality(List<IngredientObject> plateIngredients)
+    {
+        float totalQualityPercentage = 0;
+        foreach (IngredientObject food in plateIngredients)
+        {
+            totalQualityPercentage += food.IngredientInstance.Data.QualityPercent;
+        }
+        return totalQualityPercentage;
+    }
     public float GetAverageSpoilage(List<IngredientObject> ingredients)
     {
         if (ingredients == null || ingredients.Count == 0)
