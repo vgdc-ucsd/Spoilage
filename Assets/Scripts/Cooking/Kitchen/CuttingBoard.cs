@@ -34,6 +34,11 @@ public class CuttingBoard : ManualStation
             return true; 
         }
 
+        if (incoming.IngredientInstance.Data.Name == "Slop")
+        {
+            return false;
+        }
+
         if (!HasSpace)
         {
             Debug.LogWarning($"{gameObject.name}: Cutting board only accepts one ingredient.");
