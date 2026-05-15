@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.EventSystems; // New
 
-public class CookingStation : MonoBehaviour
+public class CookingStation : MonoBehaviour, IPointerClickHandler
 {
     [Header("Base Station Settings")]
     [SerializeField] private Image _stationImage;
@@ -20,6 +21,25 @@ public class CookingStation : MonoBehaviour
     protected IngredientObject _currentFood => _currentFoods.Count > 0 ? _currentFoods[0] : null;
     protected IngredientBehaviour _currentIngredientBehaviour => _currentBehaviours.Count > 0 ? _currentBehaviours[0] : null;
 
+    // New 
+    public virtual void OnPointerClick(PointerEventData eventData)
+    {
+        if (FoodGrab.IsDeleteModeActive)
+        {
+            Debug.Log($"[Delete Mode] Clearing all food from station: {gameObject.name}");
+            
+            // Loop through and destroy the game objects
+            foreach (var food in _currentFoods)
+            {
+                if (food != null) Destroy(food.gameObject);
+            }
+            
+            // Reset the station state
+            OnRemoveFood();
+        }
+    }
+    //
+    
     public bool HasSpace
     {
         get

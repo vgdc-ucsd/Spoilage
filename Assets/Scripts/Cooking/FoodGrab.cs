@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    public static bool IsDeleteModeActive = false; // New
     private bool _hasHomePosition;
     private bool _isPlaced = false;
     private bool _cameFromFridge = true;
@@ -33,6 +34,37 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
+        // New 
+        if (IsDeleteModeActive)
+        {
+            // If _spawner is not null, the food is still sitting in the fridge
+            if (_spawner != null)
+            {
+                Debug.Log("[Delete Mode] Deletion blocked: This item is still in the Fridge/Spawner.");
+                return;
+            }
+
+            Debug.Log($"[Delete Mode] Deleting food: {gameObject.name}");
+            
+            // Checks if we are on a station to clean up the station's list
+            CookingStation station = GetComponentInParent<CookingStation>();
+            if (station != null)
+            {
+                station.OnRemoveFood();
+            }
+            
+            // Checks if we are on a tile to clean up tile's reference
+            KitchenTile tile = GetComponentInParent<KitchenTile>();
+            if (tile != null)
+            {
+                tile.RemoveObject(gameObject);
+            }
+
+            Destroy(gameObject);
+            return;
+        }
+        //
+        
         TryGrab();
     }
 
