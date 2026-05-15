@@ -208,7 +208,7 @@ public class AutomaticStation : CookingStation
 
         Debug.Log($"<color=green>{gameObject.name}: SUCCESS:</color> {resultData.Name}. Quality = {survivor.IngredientInstance.Data.QualityPercent}");
 
-        if (_canOvercook && CanContinueCooking(recipeManager, survivor))
+        if (_canOvercook)
         {
             _timer = 0f;
             _isCooking = true;
@@ -262,39 +262,14 @@ public class AutomaticStation : CookingStation
             return;
         }
 
-        RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
-
-        if (recipeManager == null)
-        {
-            Debug.LogError($"{gameObject.name}: RecipeManager not found.");
-            StopCooking();
-            return;
-        }
-
         IngredientObject food = _currentFoods[0];
 
-        List<IngredientObject> singleIngredient = new() { food };
-
-        string resultName = recipeManager.CheckRecipe(singleIngredient, _station);
-
-        if (IsInvalidRecipeResult(resultName))
+        if (food != null && food.IngredientInstance != null)
         {
-            TurnIntoSlop();
-            return;
+            food.IngredientInstance.SetOvercooked(true);
+            food.IngredientInstance.Data.QualityPercent -= OVERCOOKED_QUALITY_PERCENTAGE_DECREASE;
+            Debug.Log($"<color=red>{gameObject.name}: {food.IngredientInstance.Data.Name} is now OVERCOOKED.</color>");
         }
-
-        IngredientData resultData = IngredientLookup.Get(resultName);
-
-        if (resultData == null)
-        {
-            TurnIntoSlop();
-            return;
-        }
-
-        food.ChangeIngredient(resultData);
-        food.IngredientInstance.Data.QualityPercent -= OVERCOOKED_QUALITY_PERCENTAGE_DECREASE;
-
-        Debug.Log($"{gameObject.name}: Overcooked into {resultData.Name}. Quality = {food.IngredientInstance.Data.QualityPercent}");
 
         _timer = 0f;
         StopCooking();
