@@ -10,6 +10,7 @@ public sealed class IngredientData : ScriptableObject
 
     [SerializeField] private Sprite _normalSprite;
     [SerializeField] private Sprite _spoiledSprite;
+    [SerializeField] private Sprite _platedSprite;
 
     public string Name => _name;
     public float SpoilTime => _spoilTime;
@@ -19,4 +20,5 @@ public sealed class IngredientData : ScriptableObject
     }
     public Sprite NormalSprite => _normalSprite;
     public Sprite SpoiledSprite => _spoiledSprite;
+    public Sprite PlatedSprite => _platedSprite;
 }
