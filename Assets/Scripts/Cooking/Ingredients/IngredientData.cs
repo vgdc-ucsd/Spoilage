@@ -5,7 +5,7 @@ public sealed class IngredientData : ScriptableObject
 {
     [SerializeField] private string _name;
 
-    [SerializeField] private float _spoilTime;
+    [SerializeField] private float _spoilTime = 15f;
     [SerializeField] private float _qualityPercent;
 
     [SerializeField] private Sprite _normalSprite;

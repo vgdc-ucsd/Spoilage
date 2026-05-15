@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 59267539}
   - component: {fileID: 59267541}
   - component: {fileID: 59267542}
+  - component: {fileID: 59267543}
   m_Layer: 0
   m_Name: CookingManager
   m_TagString: Untagged
@@ -179,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RecipeManager
   recipeJsonFile: {fileID: 4900000, guid: 7ea483cde0a4c6746ac64dadfe731a7c, type: 3}
   allRecipes:
-    recipes: []
+    allRecipes: []
 --- !u!114 &59267542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +212,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2bf78445c0672ce469c7c40503a21ebe, type: 2}
   - {fileID: 11400000, guid: 7d58b0f1a3b4d6049b00bb716dfcc5d3, type: 2}
   - {fileID: 11400000, guid: b44e2de497d239b4bba057f8e794a380, type: 2}
+  - {fileID: 11400000, guid: cedbcdf337f3374489e7dc1760c969b5, type: 2}
+--- !u!114 &59267543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59267538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcaaf80c2d2849abad08efdf58584dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpoilageTriggerManager
 --- !u!1 &101351875
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +236,7 @@ GameObject:
   - component: {fileID: 101351876}
   - component: {fileID: 101351878}
   - component: {fileID: 101351877}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 143383314}
   - component: {fileID: 143383315}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: spawner (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +363,7 @@ GameObject:
   - component: {fileID: 148294775}
   - component: {fileID: 148294777}
   - component: {fileID: 148294776}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 245943509}
   - component: {fileID: 245943510}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: KitchenTile (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 309587903}
   - component: {fileID: 309587904}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &337538446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,7 +756,7 @@ GameObject:
   - component: {fileID: 394354306}
   - component: {fileID: 394354308}
   - component: {fileID: 394354307}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -906,7 +920,7 @@ GameObject:
   m_Component:
   - component: {fileID: 574175144}
   - component: {fileID: 574175145}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: spawner (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -959,7 +973,7 @@ GameObject:
   - component: {fileID: 580004343}
   - component: {fileID: 580004345}
   - component: {fileID: 580004344}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1034,7 +1048,7 @@ GameObject:
   - component: {fileID: 702167056}
   - component: {fileID: 702167058}
   - component: {fileID: 702167057}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1109,7 +1123,7 @@ GameObject:
   - component: {fileID: 880361405}
   - component: {fileID: 880361407}
   - component: {fileID: 880361406}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1293,7 +1307,7 @@ GameObject:
   - component: {fileID: 1030560249}
   - component: {fileID: 1030560251}
   - component: {fileID: 1030560250}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1366,7 +1380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1120080959}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1407,7 +1421,7 @@ GameObject:
   - component: {fileID: 1124601929}
   - component: {fileID: 1124601931}
   - component: {fileID: 1124601930}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1481,7 +1495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1158196111}
   - component: {fileID: 1158196112}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: KitchenTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1648,7 +1662,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1381376991}
   - component: {fileID: 1381376992}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: spawner (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1776,7 +1790,7 @@ GameObject:
   - component: {fileID: 1532999201}
   - component: {fileID: 1532999203}
   - component: {fileID: 1532999202}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1850,7 +1864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1571831141}
   - component: {fileID: 1571831142}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: spawner (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1903,7 +1917,7 @@ GameObject:
   - component: {fileID: 1628565818}
   - component: {fileID: 1628565820}
   - component: {fileID: 1628565819}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2224,7 +2238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1806378131}
   - component: {fileID: 1806378132}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: spawner (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2276,7 +2290,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1862866746}
   - component: {fileID: 1862866747}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: KitchenTile (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2327,7 +2341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2093535918}
   - component: {fileID: 2093535919}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: KitchenTile (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

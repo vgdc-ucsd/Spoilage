@@ -3,7 +3,8 @@
 public sealed class Ingredient
 {
     public IngredientData Data { get; private set; }
-
+    
+    public bool IsOvercooked { get; private set; }
     public float SpoilagePercent { get; private set; }
 
     public bool IsSpoiled => SpoilagePercent >= 100f;
@@ -18,6 +19,11 @@ public sealed class Ingredient
     public void ChangeData(IngredientData newData)
     {
         Data = newData;
+    }
+
+    public void SetOvercooked(bool state)
+    {
+        IsOvercooked = state;
     }
 
     public void AddSpoilagePercent(float amount)
