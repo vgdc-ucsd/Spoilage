@@ -13,6 +13,7 @@ public class DeleteButton : MonoBehaviour
     {
         _buttonImage = GetComponent<Image>();
         FoodGrab.IsDeleteModeActive = false;
+        FoodGrab.CanMoveFood = true;
     }
 
     public void ToggleDeleteMode()

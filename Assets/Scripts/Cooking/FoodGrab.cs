@@ -70,6 +70,9 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
+        // If delete mode is on, don't drag at all
+        if (IsDeleteModeActive) return; 
+        
         if (!CanMoveFood || _isPlaced) return;
 
         CookingStation station = GetComponentInParent<CookingStation>();
