@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 59267539}
   - component: {fileID: 59267541}
   - component: {fileID: 59267542}
+  - component: {fileID: 59267543}
   m_Layer: 0
   m_Name: CookingManager
   m_TagString: Untagged
@@ -179,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RecipeManager
   recipeJsonFile: {fileID: 4900000, guid: 7ea483cde0a4c6746ac64dadfe731a7c, type: 3}
   allRecipes:
-    recipes: []
+    allRecipes: []
 --- !u!114 &59267542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +212,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2bf78445c0672ce469c7c40503a21ebe, type: 2}
   - {fileID: 11400000, guid: 7d58b0f1a3b4d6049b00bb716dfcc5d3, type: 2}
   - {fileID: 11400000, guid: b44e2de497d239b4bba057f8e794a380, type: 2}
+  - {fileID: 11400000, guid: cedbcdf337f3374489e7dc1760c969b5, type: 2}
+--- !u!114 &59267543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59267538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcaaf80c2d2849abad08efdf58584dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpoilageTriggerManager
 --- !u!1 &101351875
 GameObject:
   m_ObjectHideFlags: 0
