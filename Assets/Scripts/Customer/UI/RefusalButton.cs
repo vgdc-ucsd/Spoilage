@@ -12,6 +12,8 @@ public class RefusalButton : MonoBehaviour
     [SerializeField] private GameObject guardsPrefab;
     [SerializeField] private GameObject guardSpawnpoint;
     [SerializeField] private GameObject customerOverride;
+    [SerializeField] private GameObject guardStaminaBar;
+    private GuardsStaminaBar guardStaminaFillImage;
     public float guardMoveDuration = 1f;
     public float guardPauseAtCustomer = 0.5f;
 
@@ -19,6 +21,8 @@ public class RefusalButton : MonoBehaviour
     {
         buttonPress.AddListener(AnimateButton);
         buttonPress.AddListener(RemoveCustomer);
+        guardStaminaBar = GameObject.FindGameObjectWithTag("Guard Stamina Bar");
+        guardStaminaFillImage = guardStaminaBar.GetComponent<GuardsStaminaBar>();
     }
 
     void OnMouseDown()
@@ -53,6 +57,7 @@ public class RefusalButton : MonoBehaviour
         {
             Debug.LogError("One or more required objects are not assigned in the inspector.");
         }
+        guardStaminaFillImage.buttonPressed();
     }
 
     private IEnumerator GlideGuardToCustomerAndReturn(GameObject guards, GameObject customerToRemove)
