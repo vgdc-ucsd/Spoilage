@@ -19,6 +19,7 @@ public class AutomaticStation : CookingStation
     private float _timer;
     private bool _isCooking;
     private bool _isOverCooking = false;
+    private bool _canCook = true;
 
     public override void Start()
     {
@@ -31,13 +32,6 @@ public class AutomaticStation : CookingStation
     {
         IngredientObject incoming = food.GetComponent<IngredientObject>();
         if (incoming == null) return false;
-
-        //if ingredient is alr overcooked dont let place
-        /*if (incoming.IngredientInstance.IsOvercooked)
-        {
-            Debug.Log($"{gameObject.name}: Rejected {incoming.name} because it is already overcooked.");
-            return false;
-        }*/
 
         if (_currentFoods.Contains(incoming))
         {
@@ -57,6 +51,17 @@ public class AutomaticStation : CookingStation
         }
 
         base.OnPlaceFood(food);
+
+        //if ingredient is alr overcooked dont let place
+        if (incoming.IngredientInstance.IsOvercooked)
+        {
+            Debug.Log($"{gameObject.name}: Rejected {incoming.name} because it is already overcooked.");
+            _canCook = false;
+        }
+        else
+        {
+            _canCook = true;
+        }
 
         if (_currentFoods.Count == 0) return false;
 
@@ -101,6 +106,7 @@ public class AutomaticStation : CookingStation
 
     public virtual void StartCooking()
     {
+        if (!_canCook) return;
         if (_currentFoods.Count == 0)
         {
             Debug.LogWarning($"{gameObject.name}: Tried to start cooking with no ingredients.");
