@@ -25,11 +25,18 @@ public class CookingStation : MonoBehaviour, IPointerClickHandler
     {
         if (FoodGrab.IsDeleteModeActive)
         {
-            Debug.Log($"[Delete Mode] Clearing station: {gameObject.name}");
-            foreach (var food in _currentFoods)
+            Debug.Log($"[Delete Mode] Station {gameObject.name} clicked. Deleting children.");
+
+            for (int i = transform.childCount - 1; i >= 0; i--)
             {
-                if (food != null) Destroy(food.gameObject);
+                Transform child = transform.GetChild(i);
+                
+                if (child.GetComponent<FoodGrab>() != null)
+                {
+                    Destroy(child.gameObject);
+                }
             }
+
             OnRemoveFood();
         }
     }

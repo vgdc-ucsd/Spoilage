@@ -213,17 +213,12 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
                     break;
                 }
 
-                bool placed = app.OnPlaceFood(this);
-                if (!placed)
-                {
-                    blockedByFullStation = true;
-                    break;
-                }
-
-                _activeStation = app;
                 _rectTransform.SetParent(app.transform, false);
                 _rectTransform.anchoredPosition = Vector2.zero;
+
+                _activeStation = app;
                 _activeStation.OnPlaceFood(this);
+                
                 foundValidDrop = true;
                 break;
             }
