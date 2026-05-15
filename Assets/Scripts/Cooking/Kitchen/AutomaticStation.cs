@@ -287,7 +287,7 @@ public class AutomaticStation : CookingStation
         {
             food.IngredientInstance.SetOvercooked(true);
             food.IngredientInstance.Data.QualityPercent -= OVERCOOKED_QUALITY_PERCENTAGE_DECREASE;
-            Debug.Log($"<color=red>{gameObject.name}: {food.IngredientInstance.Data.Name} is now OVERCOOKED.</color>");
+            Debug.Log($"<color=red>{gameObject.name}: {food.IngredientInstance.Data.Name} is now OVERCOOKED.</color> Quality = {food.IngredientInstance.Data.QualityPercent}");
         }
 
         _timer = 0f;
