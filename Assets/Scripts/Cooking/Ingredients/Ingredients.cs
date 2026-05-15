@@ -7,6 +7,7 @@ public sealed class Ingredient
     public float SpoilagePercent { get; private set; }
 
     public bool IsSpoiled => SpoilagePercent >= 100f;
+    public bool IsPlated;
 
     public Ingredient(IngredientData data)
     {

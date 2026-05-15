@@ -44,6 +44,15 @@ public sealed class IngredientBehaviour : MonoBehaviour
         UpdateSpoilageVisual();
     }
 
+    public void PlateIngredient()
+    {
+        _ingredientObject.IngredientInstance.IsPlated = true;
+    }
+    public void UnplateIngredient()
+    {
+        _ingredientObject.IngredientInstance.IsPlated = false;
+    }
+    
     private void HandleSpoilage()
     {
         Ingredient ingredient = _ingredientObject.IngredientInstance;

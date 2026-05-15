@@ -72,7 +72,14 @@ public class IngredientObject : MonoBehaviour
         }
         else
         {
-            _image.sprite = IngredientInstance.Data.NormalSprite;
+            if(IngredientInstance.IsPlated)
+            {
+                _image.sprite = IngredientInstance.Data.PlatedSprite;
+            }
+            else
+            {
+                _image.sprite = IngredientInstance.Data.NormalSprite;
+            }
         }
     }
 }
