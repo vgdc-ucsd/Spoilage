@@ -26,6 +26,14 @@ public class CuttingBoard : ManualStation
 
     public override bool OnPlaceFood(FoodGrab food)
     {
+        IngredientObject incoming = food.GetComponent<IngredientObject>();
+        if (incoming == null) return false;
+
+        if (_currentFoods.Contains(incoming))
+        {
+            return true; 
+        }
+
         if (!HasSpace)
         {
             Debug.LogWarning($"{gameObject.name}: Cutting board only accepts one ingredient.");

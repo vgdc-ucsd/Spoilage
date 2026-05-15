@@ -30,19 +30,23 @@ public class AutomaticStation : CookingStation
 
     public override bool OnPlaceFood(FoodGrab food)
     {
+        IngredientObject incoming = food.GetComponent<IngredientObject>();
+        if (incoming == null) return false;
+
+        if (_currentFoods.Contains(incoming))
+        {
+            return true; 
+        }
+
         bool wasEmpty = _currentFoods.Count == 0;
 
-        IngredientObject incoming = food.GetComponent<IngredientObject>();
-        if (incoming != null)
+        foreach (IngredientObject existing in _currentFoods)
         {
-            foreach (IngredientObject existing in _currentFoods)
+            if (existing != null && 
+                existing.IngredientInstance.Data == incoming.IngredientInstance.Data)
             {
-                if (existing != null && 
-                    existing.IngredientInstance.Data == incoming.IngredientInstance.Data)
-                {
-                    Debug.Log($"{gameObject.name}: Duplicate ingredient '{incoming.IngredientInstance.Data.Name}' rejected.");
-                    return false;
-                }
+                Debug.Log($"{gameObject.name}: Duplicate ingredient '{incoming.IngredientInstance.Data.Name}' rejected.");
+                return false;
             }
         }
 
