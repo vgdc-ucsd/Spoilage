@@ -9,6 +9,7 @@ public class KitchenTile : MonoBehaviour
     public List<GameObject> objectsOnTile = new List<GameObject>();
 
     private RectTransform _rectTransform;
+    private string _station = "Kitchen Tile";
 
     private void Awake()
     {
@@ -50,25 +51,6 @@ public class KitchenTile : MonoBehaviour
             // Cooking: food only, one per tile
             if (type != "Food") return false;
 
-            ObjectGrab appliance = GetAppliance();
-
-            if (appliance != null)
-            {
-                CookingStation station = appliance.GetComponent<CookingStation>();
-
-                if (station != null)
-                {
-                    if (movingObj == null)
-                    {
-                        return false;
-                    }
-                    FoodGrab foodGrab = movingObj.GetComponent<FoodGrab>();
-                    if (foodGrab != null) return station.CanAcceptFood(foodGrab);
-                    
-                    return false;
-                }
-            }
-
             IngredientObject existingFood = null;
             foreach (var obj in objectsOnTile)
                 if (obj != null && obj.TryGetComponent(out existingFood)) break;
@@ -84,7 +66,7 @@ public class KitchenTile : MonoBehaviour
             {
                 // Create a temporary list to check the recipe
                 List<IngredientObject> checkList = new List<IngredientObject> { existingFood, movingFood };
-                string result = recipeManager.CheckRecipe(checkList);
+                string result = recipeManager.CheckRecipe(checkList, _station);
                 return result != "JSON Error";
             }
             return false;
@@ -96,24 +78,6 @@ public class KitchenTile : MonoBehaviour
     public void PlaceObject(GameObject obj)
     {
         if (obj == null) return;
-
-        ObjectGrab appliance = GetAppliance();
-
-        if (appliance != null)
-        {
-            CookingStation station = appliance.GetComponent<CookingStation>();
-
-            if (station != null)
-            {
-                FoodGrab foodGrab = obj.GetComponent<FoodGrab>();
-                
-                if (foodGrab != null && station.CanAcceptFood(foodGrab))
-                {
-                    station.PlaceFood(foodGrab);
-                    return;
-                }
-            }
-        }
 
         IngredientObject newFood = obj.GetComponent<IngredientObject>();
         IngredientObject existingFood = null;
@@ -127,7 +91,10 @@ public class KitchenTile : MonoBehaviour
         {
             RecipeManager rm = FindAnyObjectByType<RecipeManager>();
             List<IngredientObject> combo = new List<IngredientObject> { existingFood, newFood };
-            string resultName = rm.CheckRecipe(combo);
+
+            float averageSpoilage = rm.GetAverageSpoilage(combo);
+
+            string resultName = rm.CheckRecipe(combo, _station);
 
             IngredientData resultData;
 
@@ -135,10 +102,27 @@ public class KitchenTile : MonoBehaviour
             {
                 //Valid recipe
                 resultData = IngredientLookup.Get(resultName); 
+                Recipe matchedRecipe = System.Array.Find(rm.allRecipes.allRecipes, r => r.name == resultName);
+
                 if (resultData != null)
                 {
                     // PRINT SUCCESS HERE
                     Debug.Log($"<color=green>SUCCESS:</color> Combined {existingFood.IngredientInstance.Data.Name} + {newFood.IngredientInstance.Data.Name} into <b>{resultData.Name}</b>");
+                    resultData.QualityPercent = rm.CalculateTotalQuality(combo);
+                    Debug.Log("Quality:" + resultData.QualityPercent);
+                    existingFood.ChangeIngredient(resultData);
+
+                    if (matchedRecipe != null && matchedRecipe.spoiled)
+                    {
+                        // Stage II dishes are born rotten
+                        existingFood.IngredientInstance.SetSpoilagePercent(100f);
+                    }
+                    else
+                    {
+                        // Normal dishes use the averaging math
+                        float avg = rm.GetAverageSpoilage(combo);
+                        existingFood.IngredientInstance.SetSpoilagePercent(avg);
+                    }
                 }
             }
             else
@@ -151,7 +135,17 @@ public class KitchenTile : MonoBehaviour
             if (resultData != null)
             {
                 existingFood.ChangeIngredient(resultData);
+
+                existingFood.IngredientInstance.SetSpoilagePercent(averageSpoilage);
+
+                IngredientBehaviour newBehaviour = obj.GetComponent<IngredientBehaviour>();
+                if (newBehaviour != null) newBehaviour.RemoveFromSpoilSurface();
+
                 Destroy(obj); // Remove the held ingredient
+
+                IngredientBehaviour existingBehaviour = existingFood.GetComponent<IngredientBehaviour>();
+                if (existingBehaviour != null) existingBehaviour.PutOnSpoilSurface();
+
                 return;
             }
         }
@@ -161,22 +155,34 @@ public class KitchenTile : MonoBehaviour
 
         // Snap to tile using RectTransform (all objects are UI)
         RectTransform objRect = obj.GetComponent<RectTransform>();
-        
         if (objRect != null && _rectTransform != null)
         {
             objRect.SetParent(_rectTransform, false);
             objRect.anchoredPosition = Vector2.zero;
             objRect.SetAsLastSibling();
+
+            Canvas foodCanvas = obj.GetComponent<Canvas>();
+            if (foodCanvas == null)
+                foodCanvas = obj.AddComponent<Canvas>();
+            foodCanvas.overrideSorting = true;
+            foodCanvas.sortingOrder = 10;
+
+            if (obj.GetComponent<UnityEngine.UI.GraphicRaycaster>() == null)
+            obj.AddComponent<UnityEngine.UI.GraphicRaycaster>();
         }
         else
         {
             Debug.LogWarning($"KitchenTile '{name}': Could not snap '{obj.name}' — missing RectTransform.");
         }
+        IngredientBehaviour behaviour = obj.GetComponent<IngredientBehaviour>();
+        if (behaviour != null) behaviour.PutOnSpoilSurface();
     }
 
     public void RemoveObject(GameObject obj)
     {
         objectsOnTile.Remove(obj);
+        IngredientBehaviour behaviour = obj.GetComponent<IngredientBehaviour>();
+        if (behaviour != null) behaviour.RemoveFromSpoilSurface();
     }
 
     public GameObject GetTopObject()
@@ -215,17 +221,5 @@ public class KitchenTile : MonoBehaviour
             if (counterRect != null) counterRect.anchoredPosition = Vector2.zero;
             PlaceObject(counter);
         }
-
-    
-    }
-
-    public ObjectGrab GetAppliance()
-    {
-        foreach (var obj in objectsOnTile)
-        {
-            if (obj != null && obj.TryGetComponent(out ObjectGrab appliance)) return appliance;
-
-        }
-        return null;
     }
 }

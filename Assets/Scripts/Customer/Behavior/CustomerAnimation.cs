@@ -149,6 +149,62 @@ public class CustomerAnimation : MonoBehaviour
         isBlinking = blink;
     }
 
+    public void SetTalking(bool talking)
+    {
+        isTalking = talking;
+        SetOpenMouth(talking);
+    }
+
+    public void ApplyMouthState(string state)
+    {
+        switch (state)
+        {
+            case "OPEN":
+                SetMouthMood(Mood.NEUTRAL);
+                SetTalking(true);
+                break;
+            case "ANGER":
+                SetMouthMood(Mood.ANGER);
+                SetTalking(false);
+                break;
+            case "DISGUST":
+                SetMouthMood(Mood.DISGUST);
+                SetTalking(false);
+                break;
+            default: // CLOSED
+                SetMouthMood(Mood.NEUTRAL);
+                SetTalking(false);
+                break;
+        }
+    }
+
+    public void ApplyEyeState(string state)
+    {
+        switch (state)
+        {
+            case "CLOSED":
+                isBlinking = false;
+                SetOpenEyes(false);
+                break;
+            case "ANGER":
+                isBlinking = false;
+                SetEyeMood(Mood.ANGER);
+                break;
+            case "DISGUST":
+                isBlinking = false;
+                SetEyeMood(Mood.DISGUST);
+                break;
+            case "WIDENING":
+                isBlinking = false;
+                SetEyeMood(Mood.WIDENING);
+                break;
+            default: // OPEN
+                isBlinking = true;
+                SetEyeMood(Mood.NEUTRAL);
+                break;
+        }
+    }
+
     private void SetOpenMouth(bool open)
     {
         ResetMouth();

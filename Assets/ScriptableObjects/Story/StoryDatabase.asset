@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fcd15b5e29c8436fbf08c51881c3a8b, type: 3}
+  m_Name: StoryDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::StoryDatabase
+  roster: {fileID: 11400000, guid: 749541067ee814b92ac18f87f112f3a8, type: 2}
+  timeline: {fileID: 11400000, guid: e51ddb02c09ef4077b3755722b2b6869, type: 2}
+  radio: {fileID: 11400000, guid: 9d0e612558fd141b4a96c73f863e2ad9, type: 2}
+  reactionary: {fileID: 11400000, guid: a087d4df371144522aecf8525330a326, type: 2}
+  endings: {fileID: 11400000, guid: 410b2c11ff34f40bd92bb95f6c90e793, type: 2}
+  items: {fileID: 11400000, guid: 99c95eea4b1214415b6b066b74f575a1, type: 2}
+  randomDialogue: {fileID: 11400000, guid: dc80f05cfeeec4698bef4c3efa77147e, type: 2}
