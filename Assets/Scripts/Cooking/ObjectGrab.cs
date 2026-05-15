@@ -9,11 +9,11 @@ public class ObjectGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     public KitchenTile currentTile;
 
-    protected RectTransform _rectTransform;
-    protected Canvas _canvas;
-    protected Image _applianceImage;
-    protected Vector2 _originalPosition;
-    protected Transform _originalParent;
+    private RectTransform _rectTransform;
+    private Canvas _canvas;
+    private Image _applianceImage;
+    private Vector2 _originalPosition;
+    private Transform _originalParent;
 
     private void Awake()
     {

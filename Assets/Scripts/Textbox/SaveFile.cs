@@ -22,7 +22,11 @@ namespace TextboxControl
             public int NameStart;
             public int NameLength;
             public BoxSpan[] Boxes;
+            public Dictionary<string, string> Attributes;
         }
+
+        private static readonly IReadOnlyDictionary<string, string> EmptyAttributes =
+            new Dictionary<string, string>();
 
         private DialogueSaveFile(string text, Entry[] entries)
         {
@@ -37,6 +41,31 @@ namespace TextboxControl
         {
             int index = FindEntryIndex(name);
             return index >= 0 ? _entries[index].Boxes.Length : -1;
+        }
+
+        /// <summary>
+        /// Enumerates the sequence names declared in this save file, in declaration order.
+        /// </summary>
+        public IEnumerable<string> EnumerateSequenceNames()
+        {
+            for (int i = 0; i < _entries.Length; i++)
+            {
+                Entry entry = _entries[i];
+                yield return _text.Substring(entry.NameStart, entry.NameLength);
+            }
+        }
+
+        /// <summary>
+        /// Returns the parsed attribute dictionary for a sequence, or null when the sequence is missing.
+        /// </summary>
+        public IReadOnlyDictionary<string, string> GetAttributes(string name)
+        {
+            int index = FindEntryIndex(name);
+            if (index < 0)
+            {
+                return null;
+            }
+            return _entries[index].Attributes ?? EmptyAttributes;
         }
 
         /// <summary>
@@ -74,6 +103,7 @@ namespace TextboxControl
 
             List<Entry> entries = new List<Entry>();
             List<BoxSpan> currentBoxes = new List<BoxSpan>();
+            Dictionary<string, string> currentAttrs = null;
 
             int nameStart = -1;
             int nameLen = 0;
@@ -120,6 +150,18 @@ namespace TextboxControl
                     continue;
                 }
 
+                if (text[lineOff] == '@')
+                {
+                    if (nameStart < 0)
+                    {
+                        throw new FormatException($"Attribute line at position {lineOff} has no preceding sequence name.");
+                    }
+
+                    currentAttrs ??= new Dictionary<string, string>();
+                    ParseAttributeLine(text, lineOff, lineLen, currentAttrs);
+                    continue;
+                }
+
                 if (text[lineOff + lineLen - 1] != ':')
                 {
                     throw new FormatException($"Expected sequence header ending in ':' at position {lineOff}.");
@@ -133,8 +175,9 @@ namespace TextboxControl
 
                 if (nameStart >= 0)
                 {
-                    entries.Add(CreateEntry(nameStart, nameLen, currentBoxes));
+                    entries.Add(CreateEntry(nameStart, nameLen, currentBoxes, currentAttrs));
                     currentBoxes.Clear();
+                    currentAttrs = null;
                 }
 
                 nameStart = lineOff;
@@ -143,10 +186,57 @@ namespace TextboxControl
 
             if (nameStart >= 0)
             {
-                entries.Add(CreateEntry(nameStart, nameLen, currentBoxes));
+                entries.Add(CreateEntry(nameStart, nameLen, currentBoxes, currentAttrs));
             }
 
             return new DialogueSaveFile(text, entries.ToArray());
+        }
+
+        private static void ParseAttributeLine(string text, int lineOff, int lineLen, Dictionary<string, string> attrs)
+        {
+            int end = lineOff + lineLen;
+            int i = lineOff;
+            while (i < end)
+            {
+                while (i < end && (text[i] == ' ' || text[i] == '\t'))
+                {
+                    i++;
+                }
+                if (i >= end)
+                {
+                    break;
+                }
+                if (text[i] != '@')
+                {
+                    throw new FormatException($"Expected '@' at position {i} in attribute line.");
+                }
+
+                int keyStart = ++i;
+                while (i < end && text[i] != '=' && text[i] != ' ' && text[i] != '\t')
+                {
+                    i++;
+                }
+                int keyLen = i - keyStart;
+                if (keyLen == 0)
+                {
+                    throw new FormatException($"Empty attribute key at position {keyStart}.");
+                }
+
+                string key = text.Substring(keyStart, keyLen);
+                string value = "";
+
+                if (i < end && text[i] == '=')
+                {
+                    int valStart = ++i;
+                    while (i < end && text[i] != ' ' && text[i] != '\t')
+                    {
+                        i++;
+                    }
+                    value = text.Substring(valStart, i - valStart);
+                }
+
+                attrs[key] = value;
+            }
         }
 
         private int FindEntryIndex(string name)
@@ -168,13 +258,14 @@ namespace TextboxControl
             return -1;
         }
 
-        private static Entry CreateEntry(int nameStart, int nameLength, List<BoxSpan> boxes)
+        private static Entry CreateEntry(int nameStart, int nameLength, List<BoxSpan> boxes, Dictionary<string, string> attrs)
         {
             return new Entry
             {
                 NameStart = nameStart,
                 NameLength = nameLength,
                 Boxes = boxes.ToArray(),
+                Attributes = attrs,
             };
         }
 
