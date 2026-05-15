@@ -91,6 +91,9 @@ public class KitchenTile : MonoBehaviour
         {
             RecipeManager rm = FindAnyObjectByType<RecipeManager>();
             List<IngredientObject> combo = new List<IngredientObject> { existingFood, newFood };
+
+            float averageSpoilage = rm.GetAverageSpoilage(combo);
+
             string resultName = rm.CheckRecipe(combo, _station);
 
             IngredientData resultData;
@@ -99,12 +102,27 @@ public class KitchenTile : MonoBehaviour
             {
                 //Valid recipe
                 resultData = IngredientLookup.Get(resultName); 
+                Recipe matchedRecipe = System.Array.Find(rm.allRecipes.allRecipes, r => r.name == resultName);
+
                 if (resultData != null)
                 {
                     // PRINT SUCCESS HERE
                     Debug.Log($"<color=green>SUCCESS:</color> Combined {existingFood.IngredientInstance.Data.Name} + {newFood.IngredientInstance.Data.Name} into <b>{resultData.Name}</b>");
                     resultData.QualityPercent = rm.CalculateTotalQuality(combo);
                     Debug.Log("Quality:" + resultData.QualityPercent);
+                    existingFood.ChangeIngredient(resultData);
+
+                    if (matchedRecipe != null && matchedRecipe.spoiled)
+                    {
+                        // Stage II dishes are born rotten
+                        existingFood.IngredientInstance.SetSpoilagePercent(100f);
+                    }
+                    else
+                    {
+                        // Normal dishes use the averaging math
+                        float avg = rm.GetAverageSpoilage(combo);
+                        existingFood.IngredientInstance.SetSpoilagePercent(avg);
+                    }
                 }
             }
             else
@@ -117,6 +135,8 @@ public class KitchenTile : MonoBehaviour
             if (resultData != null)
             {
                 existingFood.ChangeIngredient(resultData);
+
+                existingFood.IngredientInstance.SetSpoilagePercent(averageSpoilage);
 
                 IngredientBehaviour newBehaviour = obj.GetComponent<IngredientBehaviour>();
                 if (newBehaviour != null) newBehaviour.RemoveFromSpoilSurface();
