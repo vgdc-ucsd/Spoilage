@@ -4,11 +4,15 @@ using UnityEngine;
 public class CustomerLineManager : Singleton<CustomerLineManager>
 {
     public Customer CurrentCustomer;
+    
+    // TODO: Demo wiring, remove
     private bool _dayStarted;
 
     public void CallBellPressed()
     {
+        // TODO: Demo wiring, remove
         StartDay();
+
         CheckOrder();
         StartCoroutine(LoadNextCustomerAnimation());
     }
@@ -23,6 +27,7 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
         // TODO - check if order is correct
     }
 
+    // TODO: Demo wiring, remove
     private void StartDay()
     {
         if (_dayStarted) return;
