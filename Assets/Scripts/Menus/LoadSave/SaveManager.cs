@@ -11,8 +11,9 @@ public class SaveManager : Singleton<SaveManager>
     private string _settingsSavePath;
     private static Queue<Action> s_loadQueue = new Queue<Action>();
 
-    void Start()
+    public override void Awake()
     {
+        base.Awake();
         _playerSavePath = Application.persistentDataPath + "/savefile.json";
         _settingsSavePath = Application.persistentDataPath + "/settings.json";
 
@@ -50,6 +51,7 @@ public class SaveManager : Singleton<SaveManager>
         {
             // No save file exists, start fresh
             Player = new PlayerData();
+            Debug.Log("Creating new Player object");
         }
     }
 

@@ -37,6 +37,10 @@ public class IngredientObject : MonoBehaviour
             return;
         }
 
+        // keep the quality data so it stacks up
+        float oldQuality = _data.QualityPercent;
+        newData.QualityPercent = oldQuality;
+        
         _data = newData;
         IngredientInstance.ChangeData(newData);
         gameObject.name = newData.Name;
@@ -72,7 +76,14 @@ public class IngredientObject : MonoBehaviour
         }
         else
         {
-            _image.sprite = IngredientInstance.Data.NormalSprite;
+            if(IngredientInstance.IsPlated)
+            {
+                _image.sprite = IngredientInstance.Data.PlatedSprite;
+            }
+            else
+            {
+                _image.sprite = IngredientInstance.Data.NormalSprite;
+            }
         }
     }
 }
