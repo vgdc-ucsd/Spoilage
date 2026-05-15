@@ -269,18 +269,18 @@
             "spoiled":true,
             "requiredIngredients": [
                 {
-                    "name": "Spoiled Dough",
+                    "name": "Dough",
                     "id": 6
                 },
                 {
-                    "name":"Spoiled Cheese",
+                    "name":"Cheese",
                     "id": 10
                 }
             ]
         },
         {
             "id": 20,
-            "name": "Pickled Pidgeons",
+            "name": "Pickled Pigeons",
             "complexity": 2,
             "reward": 300,
             "appliance": "Grill",
@@ -368,11 +368,11 @@
             "spoiled":true,
             "requiredIngredients": [
                 {
-                    "name":"Spoiled Meat",
+                    "name":"Meat",
                     "id": 7
                 },
                 {
-                    "name": "Spoiled Sauce",
+                    "name": "Sauce",
                     "id": 11
                 }
             ]
@@ -387,7 +387,7 @@
             "spoiled": true,
             "requiredIngredients": [
                 {
-                    "name": "Spoiled Meat",
+                    "name": "Meat",
                     "id": 7
                 },
                 {
@@ -425,11 +425,11 @@
             "spoiled": true,
             "requiredIngredients": [
                 {
-                    "name": "Diced Spoiled Potatoes",
+                    "name": "Diced Potatoes",
                     "id": 36
                 },
                 {
-                    "name": "Chopped Spoiled Veggies",
+                    "name": "Chopped Veggies",
                     "id": 30
                 }
             ]
@@ -448,7 +448,7 @@
                     "id": 27
                 },
                 {
-                    "name": "Spoiled Cheese",
+                    "name": "Cheese",
                     "id": 10
                 }
             ]
@@ -478,7 +478,7 @@
             "spoiled": true,
             "requiredIngredients": [
                 {
-                    "name": "Spoiled Root Veggies",
+                    "name": "Root Veggies",
                     "id": 9
                 }
             ]
@@ -531,7 +531,7 @@
             "spoiled": true,
             "requiredIngredients": [
                 {
-                    "name": "Spoiled Cheese",
+                    "name": "Cheese",
                     "id": 10
                 }
             ]
@@ -546,7 +546,7 @@
             "spoiled": true,
             "requiredIngredients": [
                 {
-                    "name": "Spoiled Sauce",
+                    "name": "Sauce",
                     "id": 11
                 }
             ]
@@ -561,7 +561,7 @@
             "spoiled": true,
             "requiredIngredients": [
                 {
-                    "name": "Chopped Spoiled Veggies",
+                    "name": "Chopped Veggies",
                     "id": 30
                 },
                 {

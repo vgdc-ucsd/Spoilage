@@ -160,6 +160,8 @@ public class AutomaticStation : CookingStation
             return;
         }
 
+        float averageSpoilage = recipeManager.GetAverageSpoilage(_currentFoods);
+
         foreach (IngredientObject food in _currentFoods)
         {
             Debug.Log($"{gameObject.name}: On station: '{food.IngredientInstance.Data.Name}'");
@@ -181,9 +183,20 @@ public class AutomaticStation : CookingStation
             return;
         }
 
-        // Collapse: change the first ingredient to the combined result, destroy the rest
+        Recipe matchedRecipe = System.Array.Find(recipeManager.allRecipes.allRecipes, r => r.name == resultName);
+
         IngredientObject survivor = _currentFoods[0];
         survivor.ChangeIngredient(resultData);
+
+        if (matchedRecipe != null && matchedRecipe.spoiled)
+        {
+            //stage 2 spoiled
+            survivor.IngredientInstance.SetSpoilagePercent(100f);
+        }
+        else
+        {
+            survivor.IngredientInstance.SetSpoilagePercent(averageSpoilage);
+        }
 
         DestroyExtraIngredients();
 
