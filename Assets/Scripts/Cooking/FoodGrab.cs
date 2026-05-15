@@ -36,22 +36,22 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     {
         if (IsDeleteModeActive)
         {
-            // Don't delete if still in fridge/spawner
-            if (_spawner != null) 
-            {
-                Debug.Log("[Delete Mode] Cannot delete items still in the spawner.");
-                return;
-            }
+            if (_spawner != null) return;
 
-            Debug.Log($"[Delete Mode] Deleting food: {gameObject.name}");
-            
             CookingStation station = GetComponentInParent<CookingStation>();
-            if (station != null) station.OnRemoveFood();
-
-            Destroy(gameObject);
+            
+            if (station != null)
+            {
+                // Station deletes all children
+                station.OnPointerClick(eventData); 
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
             return;
         }
-        
+
         TryGrab();
     }
 
