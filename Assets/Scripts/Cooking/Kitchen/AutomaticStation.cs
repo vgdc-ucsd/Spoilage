@@ -32,6 +32,13 @@ public class AutomaticStation : CookingStation
         IngredientObject incoming = food.GetComponent<IngredientObject>();
         if (incoming == null) return false;
 
+        //if ingredient is alr overcooked dont let place
+        /*if (incoming.IngredientInstance.IsOvercooked)
+        {
+            Debug.Log($"{gameObject.name}: Rejected {incoming.name} because it is already overcooked.");
+            return false;
+        }*/
+
         if (_currentFoods.Contains(incoming))
         {
             return true; 
@@ -206,7 +213,7 @@ public class AutomaticStation : CookingStation
 
         Debug.Log($"<color=green>{gameObject.name}: SUCCESS:</color> {resultData.Name}");
 
-        if (_canOvercook && CanContinueCooking(recipeManager, survivor))
+        if (_canOvercook)
         {
             _timer = 0f;
             _isCooking = true;
@@ -260,38 +267,13 @@ public class AutomaticStation : CookingStation
             return;
         }
 
-        RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
-
-        if (recipeManager == null)
-        {
-            Debug.LogError($"{gameObject.name}: RecipeManager not found.");
-            StopCooking();
-            return;
-        }
-
         IngredientObject food = _currentFoods[0];
 
-        List<IngredientObject> singleIngredient = new() { food };
-
-        string resultName = recipeManager.CheckRecipe(singleIngredient, _station);
-
-        if (IsInvalidRecipeResult(resultName))
+        if (food != null && food.IngredientInstance != null)
         {
-            TurnIntoSlop();
-            return;
+            food.IngredientInstance.SetOvercooked(true);
+            Debug.Log($"<color=red>{gameObject.name}: {food.IngredientInstance.Data.Name} is now OVERCOOKED.</color>");
         }
-
-        IngredientData resultData = IngredientLookup.Get(resultName);
-
-        if (resultData == null)
-        {
-            TurnIntoSlop();
-            return;
-        }
-
-        food.ChangeIngredient(resultData);
-
-        Debug.Log($"{gameObject.name}: Overcooked into {resultData.Name}");
 
         _timer = 0f;
         StopCooking();
