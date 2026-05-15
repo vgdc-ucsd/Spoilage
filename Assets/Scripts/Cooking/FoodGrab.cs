@@ -179,6 +179,16 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
                 foundValidDrop = true;
                 break;
             }
+
+            UtilityStation util = hitObj.GetComponentInParent<UtilityStation>();
+            if (util != null)
+            {
+                _rectTransform.SetParent(util.transform, false);
+                _rectTransform.anchoredPosition = Vector2.zero;
+                util.OnPlaceFood(this);
+                foundValidDrop = true;
+                break;
+            }
         }
 
         if (foundValidDrop)

@@ -8,6 +8,10 @@ public class IngredientObject : MonoBehaviour
 
     public Ingredient IngredientInstance { get; private set; }
 
+    public float GetSeasoningBonus => IngredientInstance?.SeasoningBonus ?? 0f;
+
+    public bool IsSeasoned => IngredientInstance != null && IngredientInstance.IsSeasoned;
+
     private void Awake()
     {
         if (_image == null)
@@ -38,8 +42,8 @@ public class IngredientObject : MonoBehaviour
         }
 
         _data = newData;
-        IngredientInstance.ChangeData(newData);
         gameObject.name = newData.Name;
+        IngredientInstance.ChangeData(newData);
         UpdateSprite();
     }
 
@@ -74,5 +78,17 @@ public class IngredientObject : MonoBehaviour
         {
             _image.sprite = IngredientInstance.Data.NormalSprite;
         }
+    }
+
+    public bool SeasonIngredient()
+    {
+        if (IngredientInstance == null) return false;
+        return IngredientInstance.Season();
+    }
+
+    public bool RemoveSeasoning()
+    {
+        if (IngredientInstance == null) return false;
+        return IngredientInstance.RemoveSeasoning();
     }
 }
