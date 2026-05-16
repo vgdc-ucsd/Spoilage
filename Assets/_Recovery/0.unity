@@ -211,18 +211,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2bf78445c0672ce469c7c40503a21ebe, type: 2}
   - {fileID: 11400000, guid: 7d58b0f1a3b4d6049b00bb716dfcc5d3, type: 2}
   - {fileID: 11400000, guid: b44e2de497d239b4bba057f8e794a380, type: 2}
---- !u!114 &59267543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 59267538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffcaaf80c2d2849abad08efdf58584dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpoilageTriggerManager
 --- !u!1 &94957161
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,18 +978,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436464732}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5065172, y: 2.5065172, z: 2.5065172}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1545693348}
-  m_Father: {fileID: 1137313260}
+  m_Father: {fileID: 927183952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 236.393, y: 137.204}
-  m_SizeDelta: {x: 44.384, y: 21.742}
+  m_AnchoredPosition: {x: 335, y: 330}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &436464734
 MonoBehaviour:
@@ -1566,6 +1554,7 @@ RectTransform:
   - {fileID: 1728573175}
   - {fileID: 563984800}
   - {fileID: 1723279418}
+  - {fileID: 436464733}
   - {fileID: 94957162}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1763,11 +1752,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1124601928}
   m_CullTransparentMesh: 1
---- !u!224 &1137313260 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4250980159529447660, guid: ed8ece700f05e4200a33b3f780d96e2e, type: 3}
-  m_PrefabInstance: {fileID: 3516634112874739114}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1158196110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,11 +2260,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545693347}
   m_CullTransparentMesh: 1
---- !u!1 &1548167819 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5997921261872719499, guid: ed8ece700f05e4200a33b3f780d96e2e, type: 3}
-  m_PrefabInstance: {fileID: 3516634112874739114}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1571831140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2844,17 +2823,6 @@ MonoBehaviour:
   _foodPrefab: {fileID: 3975591956179657070, guid: 0341d5e0aeb324b38b9b373fea85da93, type: 3}
   _spawnPoint: {fileID: 880361405}
   _spawnFoodOnStart: 1
---- !u!114 &1825700620 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4672419527737734646, guid: ed8ece700f05e4200a33b3f780d96e2e, type: 3}
-  m_PrefabInstance: {fileID: 3516634112874739114}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1862866745
 GameObject:
   m_ObjectHideFlags: 0
@@ -3153,11 +3121,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c9a3197cd8f944f28f3c6acea1a2d2c, type: 3}
---- !u!1 &767081658248340014 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3401246149377442977, guid: 5c9a3197cd8f944f28f3c6acea1a2d2c, type: 3}
-  m_PrefabInstance: {fileID: 767081658248340013}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1339859767336454457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3255,17 +3218,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 225e1e463b0764541b9b4067b88abb8d, type: 3}
---- !u!114 &1339859767336454458 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1082519048356928947, guid: 225e1e463b0764541b9b4067b88abb8d, type: 3}
-  m_PrefabInstance: {fileID: 1339859767336454457}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &1750101492253340383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3451,40 +3403,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3304657329983854006, guid: ed8ece700f05e4200a33b3f780d96e2e, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6297348357831675866, guid: ed8ece700f05e4200a33b3f780d96e2e, type: 3}
-      propertyPath: _timerFill
-      value: 
-      objectReference: {fileID: 1825700620}
-    - target: {fileID: 6297348357831675866, guid: ed8ece700f05e4200a33b3f780d96e2e, type: 3}
-      propertyPath: _timerObject
-      value: 
-      objectReference: {fileID: 1548167819}
-    - target: {fileID: 6297348357831675866, guid: ed8ece700f05e4200a33b3f780d96e2e, type: 3}
-      propertyPath: _cutTimerFill
-      value: 
-      objectReference: {fileID: 1339859767336454458}
-    - target: {fileID: 6297348357831675866, guid: ed8ece700f05e4200a33b3f780d96e2e, type: 3}
-      propertyPath: _cutTimerObject
-      value: 
-      objectReference: {fileID: 767081658248340014}
-    - target: {fileID: 6297348357831675866, guid: ed8ece700f05e4200a33b3f780d96e2e, type: 3}
-      propertyPath: _cutButtonObject
-      value: 
-      objectReference: {fileID: 436464732}
     - target: {fileID: 6828640592005574430, guid: ed8ece700f05e4200a33b3f780d96e2e, type: 3}
       propertyPath: m_Name
       value: CuttingBoard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4250980159529447660, guid: ed8ece700f05e4200a33b3f780d96e2e, type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 436464733}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed8ece700f05e4200a33b3f780d96e2e, type: 3}
 --- !u!114 &3516634112874739115 stripped
