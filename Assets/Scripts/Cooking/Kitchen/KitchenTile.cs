@@ -176,6 +176,9 @@ public class KitchenTile : MonoBehaviour
         }
         IngredientBehaviour behaviour = obj.GetComponent<IngredientBehaviour>();
         if (behaviour != null) behaviour.PutOnSpoilSurface();
+
+        // Plating test
+        behaviour.PlateIngredient();
     }
 
     public void RemoveObject(GameObject obj)
@@ -183,6 +186,9 @@ public class KitchenTile : MonoBehaviour
         objectsOnTile.Remove(obj);
         IngredientBehaviour behaviour = obj.GetComponent<IngredientBehaviour>();
         if (behaviour != null) behaviour.RemoveFromSpoilSurface();
+        
+        // Unplating test
+        behaviour.UnplateIngredient();
     }
 
     public GameObject GetTopObject()

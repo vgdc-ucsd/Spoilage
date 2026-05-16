@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   _name: Cheesy Bread
   _spoilTime: 5
-  _normalSprite: {fileID: 21300000, guid: 2ba77826ce80a9240bcf56b07f26b51a, type: 3}
-  _spoiledSprite: {fileID: 0}
+  _qualityPercent: 0
+  _normalSprite: {fileID: -1359041589569770227, guid: 6c5c45284371446c0a91941e03889837, type: 3}
+  _spoiledSprite: {fileID: -3370235101964169472, guid: c5802340f0e974d119717483b62a27e8, type: 3}
+  _platedSprite: {fileID: 5418842250782441390, guid: f6e2ac0384ac84f1385bbcf7cc95e917, type: 3}
