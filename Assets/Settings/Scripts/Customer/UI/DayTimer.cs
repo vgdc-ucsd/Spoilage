@@ -38,7 +38,6 @@ public class DayTimer : Singleton<DayTimer> {
         {
              _textMeshPro.text = string.Empty;
              currentMilitaryTime += 1;
-             Debug.Log("Printing current time: " + currentMilitaryTime);
             if(currentMilitaryTime > 11)
             {
                 
