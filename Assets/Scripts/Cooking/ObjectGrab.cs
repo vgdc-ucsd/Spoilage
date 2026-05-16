@@ -14,6 +14,7 @@ public class ObjectGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     private Image _applianceImage;
     private Vector2 _originalPosition;
     private Transform _originalParent;
+    private KitchenTile _sourceTileBeforeDrag;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class ObjectGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
         if (!CanMoveAppliances || LockLayout.IsLocked) return;
+        _sourceTileBeforeDrag = currentTile;
         if (!TryGrab()) return;
 
         _originalParent = _rectTransform.parent;
@@ -81,6 +83,26 @@ public class ObjectGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
         KitchenTile targetTile = GetTileFromRaycast(results);
 
+        // This lets you swap the appliances
+        if (targetTile != null && targetTile.HasAppliance() && _sourceTileBeforeDrag != null)
+        {
+            GameObject otherAppliance = targetTile.GetTopObject();
+            ObjectGrab otherGrab = otherAppliance != null ? otherAppliance.GetComponent<ObjectGrab>() : null;
+
+            if (otherGrab != null)
+            {
+                targetTile.RemoveObject(otherAppliance);
+
+                _sourceTileBeforeDrag.PlaceObject(otherAppliance);
+                otherGrab.currentTile = _sourceTileBeforeDrag;
+
+                targetTile.PlaceObject(gameObject);
+                currentTile = targetTile;
+                return;
+            }
+        }
+
+        // This is basically the standard way to place things
         if (targetTile != null && targetTile.CanPlaceObject("Appliance", gameObject))
         {
             targetTile.PlaceObject(gameObject);
@@ -88,14 +110,14 @@ public class ObjectGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             return;
         }
 
-        // Snap back to last valid tile
-        if (currentTile != null)
+        // Snaps back if placement fails
+        if (_sourceTileBeforeDrag != null)
         {
-            currentTile.PlaceObject(gameObject);
+            _sourceTileBeforeDrag.PlaceObject(gameObject);
+            currentTile = _sourceTileBeforeDrag;
             return;
         }
 
-        // No valid tile at all, return to original position
         _rectTransform.SetParent(_originalParent, false);
         _rectTransform.anchoredPosition = _originalPosition;
         Debug.Log("Invalid placement: returning to original position.");
