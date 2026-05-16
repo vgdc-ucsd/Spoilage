@@ -163,7 +163,7 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
             }
             int random = UnityEngine.Random.Range(0, weightSum);
             int index = 0;
-            while (random > 0) {
+            while (random >= availableOrders[index].likelihood) {
                 random -= availableOrders[index].likelihood;
                 index++;
             }
