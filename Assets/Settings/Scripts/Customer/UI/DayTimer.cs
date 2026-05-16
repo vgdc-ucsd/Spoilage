@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class DayTimer : Singleton<DayTimer> {
     [SerializeField] float _startTime = 9.00f;
     [SerializeField] float _endTime = 17.00f; //Military time
     [SerializeField] float _realWorldMinutes = 10.0f;
+    private Boolean isCounting = true;
     private float currentMilitaryTime;
     private float secondsPassed = 0.0f;
     private float clockIncrementTime;
@@ -23,32 +25,34 @@ public class DayTimer : Singleton<DayTimer> {
     {
         currentMilitaryTime = _startTime;
         secondsPassed = 0.0f;
+        isCounting = true;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        secondsPassed += Time.deltaTime;
-        if(secondsPassed >= _realWorldMinutes * 60)
-        {
-            //TODO: End day function
-        }
-        // if (secondsPassed % clockIncrementTime < epsilon)
-        if (Mathf.Floor(secondsPassed / clockIncrementTime) + _startTime > currentMilitaryTime)
-        {
-             _textMeshPro.text = string.Empty;
-             currentMilitaryTime += 1;
-            if(currentMilitaryTime > 11)
+    {   
+        if(isCounting){
+            secondsPassed += Time.deltaTime;
+            if(secondsPassed >= _realWorldMinutes * 60)
             {
-                
-                _textMeshPro.text = (currentMilitaryTime - 1) % 12 + 1  + ":00 PM";
-            } else
-            {
-                _textMeshPro.text = currentMilitaryTime + ":00 AM";
+                //TODO: End day function
+                isCounting = false;
             }
-            
-           
-            
-        }
+            // if (secondsPassed % clockIncrementTime < epsilon)
+            if (Mathf.Floor(secondsPassed / clockIncrementTime) + _startTime > currentMilitaryTime)
+            {
+                _textMeshPro.text = string.Empty;
+                currentMilitaryTime += 1;
+                if(currentMilitaryTime > 11)
+                {
+                    
+                    _textMeshPro.text = (currentMilitaryTime - 1) % 12 + 1  + ":00 PM";
+                } else
+                {
+                    _textMeshPro.text = currentMilitaryTime + ":00 AM";
+                }   
+                
+            }
+        }    
     }
 }
