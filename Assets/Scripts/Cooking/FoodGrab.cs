@@ -132,9 +132,19 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         KitchenTile tile = GetTileFromRaycast(results);
 
         if (tile != null)
-        {
+        {            
             if (tile.GetTopObject() != gameObject) return false;
+
+            // Unplate ingredients upon pickup
+            GameObject curr = tile.GetTopObject();
+            if (curr.TryGetComponent<IngredientObject>(out IngredientObject component))
+            {
+                IngredientBehaviour currBehaviour = curr.GetComponent<IngredientBehaviour>();
+                currBehaviour.UnplateIngredient();
+            }
+
             tile.RemoveObject(gameObject);
+
         }
 
         // Clean up appliance reference if we pick it back up
@@ -230,6 +240,16 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
                 foundValidDrop = true;
                 break;
             }
+
+            UtilityStation util = hitObj.GetComponentInParent<UtilityStation>();
+            if (util != null)
+            {
+                _rectTransform.SetParent(util.transform, false);
+                _rectTransform.anchoredPosition = Vector2.zero;
+                util.OnPlaceFood(this);
+                foundValidDrop = true;
+                break;
+            }
         }
 
         if (blockedByFullStation)
@@ -275,6 +295,19 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         {
             _rectTransform.SetParent(_originalParent);
             _rectTransform.anchoredPosition = _originalPosition;
+
+            // Add back to tile
+            KitchenTile originalTile = _originalParent.GetComponent<KitchenTile>();
+            originalTile.PlaceObject(info.gameObject);
+
+            // Plates object when snapping back on
+            if(_originalParent.name.Contains("KitchenTile"))
+            {
+                IngredientBehaviour behaviour = info.GetComponent<IngredientBehaviour>();
+                behaviour.PlateIngredient();
+            }
+
+
             Debug.Log("Invalid drop, returning fridge food home.");
             return;
         }
