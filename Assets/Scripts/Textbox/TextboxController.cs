@@ -21,6 +21,12 @@ namespace TextboxControl
         public event Action OnComplete;
 
         /// <summary>
+        /// Fired for external control codes (Mouth, Eye, Sound, etc.) during playback.
+        /// Parameters are the raw string tokens following the method code.
+        /// </summary>
+        public event Action<int, string[]> OnExternalControl;
+
+        /// <summary>
         /// True while the reducer is actively revealing text.
         /// </summary>
         public bool IsRevealing => _initialized && _reducer.IsPlaying;
@@ -38,6 +44,7 @@ namespace TextboxControl
             _reducer = new Reducer();
             _reducer.OnError += msg => Debug.LogWarning($"[TextboxControl] {msg}", this);
             _reducer.OnComplete += () => OnComplete?.Invoke();
+            _reducer.OnExternalControl += (method, parameters) => OnExternalControl?.Invoke(method, parameters);
 
             _animator = new TextAnimator(_target, _reducer);
             _initialized = true;

@@ -1,65 +1,82 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 
 [System.Serializable]
-public class IngredientRequirement
+public class RecipeRequirement
 {
-    public string ingredientName;
+    public string name;
+    public int id;
 }
 
 [System.Serializable]
 public class Recipe
 {
-    public string dishName;
+    public int id;
+    public string name;
+    public int complexity;
+    public int reward;
+    public string appliance;
+    public bool servable;
+    public bool spoiled;
+    public RecipeRequirement[] requiredIngredients;
+
+    //for stage 2 spoiled recipes
     public bool requiresAllSpoiled;
-    public List<IngredientRequirement> ingredients;
 }
 
 [System.Serializable]
 public class RecipeList
 {
-    public List<Recipe> recipes;
+    public Recipe[] allRecipes;
 }
 
-public class RecipeManager : MonoBehaviour
+public class RecipeManager : Singleton<RecipeManager>
 {
     public TextAsset recipeJsonFile; // Drag your JSON file here in the Inspector!
     public RecipeList allRecipes;
 
-    void Awake()
+    public override void Awake()
     {
+        base.Awake();
         LoadRecipes();
     }
 
+    /// <summary>
+    /// Pulls all recipes from json doc into allRecipes 
+    /// </summary>
     void LoadRecipes()
     {
         if (recipeJsonFile != null)
         {
             // THIS is what fills the "brain" of the manager
             allRecipes = JsonUtility.FromJson<RecipeList>(recipeJsonFile.text);
-            Debug.Log("MANAGER: Loaded " + allRecipes.recipes.Count + " recipes from JSON.");
+            Debug.Log("MANAGER: Loaded " + allRecipes.allRecipes.Length + " recipes from JSON.");
         }
         else
         {
-            Debug.LogError("MANAGER: No JSON file assigned in the Inspector!");
+            Debug.LogError("Recipe Manager: No JSON file assigned in the Inspector!");
         }
     }
 
-    public string CheckRecipe(List<IngredientObject> plateIngredients)
+    public string CheckRecipe(List<IngredientObject> ingredients, string station = "")
     {
-        Debug.Log($"MANAGER: Starting check for {plateIngredients.Count} items on plate.");
+        Debug.Log($"Recipe Manager: Starting check for {ingredients.Count} items.");
 
-        if (allRecipes == null || allRecipes.recipes == null)
+        if (allRecipes == null || allRecipes.allRecipes == null)
         {
             return "JSON Error";
         }
 
-        foreach (Recipe recipe in allRecipes.recipes)
+        foreach (Recipe recipe in allRecipes.allRecipes)
         {
-            // Now this will actually run because the list isn't empty!
-            if (IsMatch(recipe, plateIngredients))
+            if (!string.IsNullOrEmpty(station) && recipe.appliance != station)
+            continue;
+            
+            if (IsMatch(recipe, ingredients))
             {
-                return recipe.dishName;
+                return recipe.name;
             }
         }
 
@@ -69,35 +86,33 @@ public class RecipeManager : MonoBehaviour
     private bool IsMatch(Recipe recipe, List<IngredientObject> plateIngredients)
     {
         if (recipe == null || plateIngredients == null) return false;
-        if (recipe.ingredients.Count != plateIngredients.Count) return false;
-
-        if (recipe.requiresAllSpoiled)
-        {
-            foreach (IngredientObject food in plateIngredients)
-            {
-                if (food == null || food.IngredientInstance == null) return false;
-
-                if (!food.IngredientInstance.IsSpoiled)
-                {
-                    return false;
-                }
-            }
-        }
+        if (recipe.requiredIngredients.Length != plateIngredients.Count) return false;
 
         List<string> remainingRequirements = new List<string>();
 
-        foreach (IngredientRequirement req in recipe.ingredients)
+        foreach (RecipeRequirement req in recipe.requiredIngredients)
         {
-            remainingRequirements.Add(req.ingredientName.Trim().ToLower());
+            remainingRequirements.Add(req.name.Trim().ToLower());
         }
 
         foreach (IngredientObject food in plateIngredients)
         {
             if (food == null || food.IngredientInstance == null) continue;
 
-            string plateName = food.IngredientInstance.Data.Name.Trim().ToLower();
+            string baseName = food.IngredientInstance.Data.Name.Trim().ToLower();
 
-            if (!remainingRequirements.Remove(plateName))
+            if (remainingRequirements.Contains(baseName))
+            {
+                //stage 2 logic
+                if (recipe.spoiled && !food.IngredientInstance.IsSpoiled)
+                {
+                    return false; 
+                }
+
+                // Remove it from the list and keep checking other ingredients
+                remainingRequirements.Remove(baseName);
+            }
+            else
             {
                 return false;
             }
@@ -106,6 +121,15 @@ public class RecipeManager : MonoBehaviour
         return remainingRequirements.Count == 0;
     }
 
+    public float CalculateTotalQuality(List<IngredientObject> plateIngredients)
+    {
+        float totalQualityPercentage = 0;
+        foreach (IngredientObject food in plateIngredients)
+        {
+            totalQualityPercentage += food.IngredientInstance.Data.QualityPercent;
+        }
+        return totalQualityPercentage;
+    }
     public float GetAverageSpoilage(List<IngredientObject> ingredients)
     {
         if (ingredients == null || ingredients.Count == 0)
