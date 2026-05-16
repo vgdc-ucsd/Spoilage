@@ -289,6 +289,7 @@ Transform:
   - {fileID: 1382083667}
   - {fileID: 1573873192}
   - {fileID: 1470453232}
+  - {fileID: 1865494426}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1106200419
@@ -403,6 +404,22 @@ MonoBehaviour:
     Day: 0
     Wealth: 0
     Reputation: 0
+    RecipesUnlocked: []
+    StationsUnlocked:
+    - Grill
+    IngredientsUnlocked:
+    - Dough
+    resistanceScore: 7
+    activeSetId: 
+    activeAdditionalId: 
+    refusedCharacterIds: []
+    servedCharacterIds: []
+    semiKeyRefusedToday: 0
+    semiKeyRefusedLifetime: 0
+    semiImportantDishesFailedToday: 0
+    semiImportantDishesFailedLifetime: 0
+    itemExchanges: []
+    pendingReactionaryIds: []
   Settings:
     Volume: 0.75
     Fullscreen: 0
@@ -518,6 +535,8 @@ MonoBehaviour:
         Data3: 0
         Data4: 0
       Path: 
+  busListOk: 0
+  sysemIsOk: 0
 --- !u!1 &1573873191
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +581,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58513dc821ae9684eae82c1ad73477d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+--- !u!1 &1865494425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1865494426}
+  - component: {fileID: 1865494427}
+  m_Layer: 0
+  m_Name: StoryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1865494426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865494425}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 21.47767, y: 3.26077, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 960963375}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1865494427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865494425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6237190545d8d4c59bcd687d431da4f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryManager
+  _database: {fileID: 11400000, guid: 1158043c24c8e4be68b60e379bfae126, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
