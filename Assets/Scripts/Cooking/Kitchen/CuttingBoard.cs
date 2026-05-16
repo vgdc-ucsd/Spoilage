@@ -122,6 +122,11 @@ public class CuttingBoard : ManualStation
 
         Debug.Log($"{gameObject.name}: Chopped! → {resultData.Name}");
 
+        //reset cooking timer
+        FoodGrab foodGrab = _currentFood.GetComponent<FoodGrab>();
+        if (foodGrab != null)
+            foodGrab.ClearCookTimers();
+
         _currentClicks = 0;
     }
 
