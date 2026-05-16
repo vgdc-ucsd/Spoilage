@@ -365,6 +365,11 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         return _stationTimers.TryGetValue(stationID, out float t) ? t : 0f;
     }
 
+    public void ClearCookTimers()
+    {
+        _stationTimers.Clear();
+    }
+
     public void SetLastStation(string stationID)
     {
         _lastStationID = stationID;

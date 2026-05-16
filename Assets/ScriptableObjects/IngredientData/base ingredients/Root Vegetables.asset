@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   _name: Root Vegetables
   _spoilTime: 15
+  _qualityPercent: 0
   _normalSprite: {fileID: 21300000, guid: 19a243195141657488522f0c4e9b0bb3, type: 3}
-  _spoiledSprite: {fileID: 0}
+  _spoiledSprite: {fileID: 21300000, guid: bad413df7060aa24cabacd3c8eaa2c2c, type: 3}
+  _platedSprite: {fileID: 0}
