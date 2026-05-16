@@ -319,12 +319,12 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             KitchenTile originalTile = _originalParent.GetComponent<KitchenTile>();
             originalTile.PlaceObject(info.gameObject);
 
-            // Plates object when snapping back on
-            if(_originalParent.name.Contains("KitchenTile"))
-            {
-                IngredientBehaviour behaviour = info.GetComponent<IngredientBehaviour>();
-                behaviour.PlateIngredient();
-            }
+            // // Plates object when snapping back on
+            // if(_originalParent.name.Contains("KitchenTile"))
+            // {
+            //     IngredientBehaviour behaviour = info.GetComponent<IngredientBehaviour>();
+            //     behaviour.PlateIngredient();
+            // }
 
 
             Debug.Log("Invalid drop, returning fridge food home.");
