@@ -2,16 +2,14 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-// TODO: Once proper uses are created, remove customerOverride and the ternary
-//       using it. This field was created only to keep the test scene running.
-
 public class RefusalButton : MonoBehaviour
 {
     public Animator anim;
     public UnityEvent buttonPress;
     [SerializeField] private GameObject guardsPrefab;
     [SerializeField] private GameObject guardSpawnpoint;
-    [SerializeField] private GameObject customerOverride;
+    [SerializeField] private GameObject guardStaminaBar;
+    private GuardsStaminaBar guardStaminaFillImage;
     public float guardMoveDuration = 1f;
     public float guardPauseAtCustomer = 0.5f;
 
@@ -19,6 +17,8 @@ public class RefusalButton : MonoBehaviour
     {
         buttonPress.AddListener(AnimateButton);
         buttonPress.AddListener(RemoveCustomer);
+        guardStaminaBar = GameObject.FindGameObjectWithTag("Guard Stamina Bar");
+        guardStaminaFillImage = guardStaminaBar.GetComponent<GuardsStaminaBar>();
     }
 
     void OnMouseDown()
@@ -36,9 +36,13 @@ public class RefusalButton : MonoBehaviour
         // TODO: Check ResourceManager for remaining refusals before proceeding.
         // If none left, play an error sound/animation and return.
 
-        GameObject customerToRemove = customerOverride != null
-            ? customerOverride
-            : CustomerLineManager.Instance.CurrentCustomer?.gameObject;
+        Customer currentCustomer = CustomerLineManager.Instance.CurrentCustomer;
+        GameObject customerToRemove = currentCustomer?.gameObject;
+
+        if (currentCustomer != null)
+        {
+            StoryManager.Instance.OnCustomerRefused(currentCustomer.customerData);
+        }
 
         if (guardsPrefab != null && guardSpawnpoint != null && customerToRemove != null)
         {
@@ -53,6 +57,7 @@ public class RefusalButton : MonoBehaviour
         {
             Debug.LogError("One or more required objects are not assigned in the inspector.");
         }
+        guardStaminaFillImage.buttonPressed();
     }
 
     private IEnumerator GlideGuardToCustomerAndReturn(GameObject guards, GameObject customerToRemove)
@@ -83,6 +88,6 @@ public class RefusalButton : MonoBehaviour
 
         guards.transform.position = startPosition;
 
-        // TODO: Call CustomerLineManager to advance to next customer or trigger end-of-section.
+        CustomerLineManager.Instance.Advance();
     }
 }
