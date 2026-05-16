@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Customer : MonoBehaviour
 {
@@ -8,9 +9,15 @@ public class Customer : MonoBehaviour
     public GameObject customerObject;
     public int spoilage;
 
+    [SerializeField] private Image _spoilageFront;
+    [SerializeField] private Image _spoilageBack;
+    [SerializeField] private RectTransform _facialFeatures;
+
     [ContextMenu("Initialize Customer")]
     public void InitializeCustomer()
     {
+        float scaleFactor = GetComponentInParent<Canvas>().scaleFactor;
+
         if (customerData == null)
         {
             customerData = CustomerManager.Instance.GenerateCustomerData();
@@ -38,7 +45,9 @@ public class Customer : MonoBehaviour
             }
             if (currTransform != null)
             {
-                currTransform.GetComponent<SpriteRenderer>().sprite = customerData.sprites[i];
+                Image img = currTransform.GetComponent<Image>(); 
+                img.sprite = customerData.sprites[i];
+                img.SetNativeSize();
             }
             /*
             switch ((CustomerData.Indexes)i)
@@ -67,16 +76,16 @@ public class Customer : MonoBehaviour
 
         if (customerData.spoilage == CustomerData.Spoilage.STAGE_I)
         {
-            transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
+            _spoilageFront.enabled = false;
             customerData.spoilageSymtomp = AbstractSpoilageSymptom.GenerateSymptom(this);
         }
         else if (customerData.spoilage == CustomerData.Spoilage.UNSPOILED)
         {
-            transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
-            transform.Find("Sprites/SPOILAGE_BACK").GetComponent<SpriteRenderer>().enabled = false;
+            _spoilageFront.enabled = false;
+            _spoilageBack.enabled = false;
         }
 
-        transform.Find("Sprites/FACIAL_FEATURES").localPosition = customerData.faceOffset;
+        _facialFeatures.localPosition = customerData.faceOffset * scaleFactor;
     }
     
     // public void InstantiateCustomer()

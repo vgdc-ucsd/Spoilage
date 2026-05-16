@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c578f7c190dac765a42eaad03d4e61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomerManager
-  CustomerPrefab: {fileID: 2053961289165473929, guid: e0c568a7d3841d648b5bb5fd2367c051, type: 3}
+  CustomerPrefab: {fileID: 5625943115496503055, guid: 3a491048a5dcd864782119676ccdf271, type: 3}
   PresetCustomerData: []
   _customerTransform: {fileID: 0}
 --- !u!114 &1127705643908020269

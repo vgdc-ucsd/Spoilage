@@ -1,24 +1,25 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CustomerAnimation : MonoBehaviour
 {
     public bool isBlinking { get; private set; }
     public bool isTalking { get; private set; }
-    [SerializeField] private SpriteRenderer eyesOpenRenderer;
-    [SerializeField] private SpriteRenderer eyesClosedRenderer;
-    [SerializeField] private SpriteRenderer eyesDisgustRenderer;
-    [SerializeField] private SpriteRenderer eyesAngerRenderer;
-    [SerializeField] private SpriteRenderer eyesWideningRenderer;
-    [SerializeField] private SpriteRenderer mouthOpenRenderer;
-    [SerializeField] private SpriteRenderer mouthClosedRenderer;
-    [SerializeField] private SpriteRenderer mouthDisgustRenderer;
-    [SerializeField] private SpriteRenderer mouthAngerRenderer;
+    [SerializeField] private Image _eyesOpenRenderer;
+    [SerializeField] private Image _eyesClosedRenderer;
+    [SerializeField] private Image _eyesDisgustRenderer;
+    [SerializeField] private Image _eyesAngerRenderer;
+    [SerializeField] private Image _eyesWideningRenderer;
+    [SerializeField] private Image _mouthOpenRenderer;
+    [SerializeField] private Image _mouthClosedRenderer;
+    [SerializeField] private Image _mouthDisgustRenderer;
+    [SerializeField] private Image _mouthAngerRenderer;
 
-    [SerializeField] private Mood currentMood;
+    [SerializeField] private Mood _currentMood;
 
-    private SpriteRenderer currentEyesRenderer;
-    private SpriteRenderer currentMouthRenderer;
+    private Image _currentEyesRenderer;
+    private Image _currentMouthRenderer;
 
     private const float MIN_BLINK_TIME = 0.1f;
     private const float MAX_BLINK_TIME = 0.4f;
@@ -38,8 +39,8 @@ public class CustomerAnimation : MonoBehaviour
     {
         isBlinking = true;
         isTalking = false;
-        currentEyesRenderer = eyesOpenRenderer;
-        currentMouthRenderer = mouthClosedRenderer;
+        _currentEyesRenderer = _eyesOpenRenderer;
+        _currentMouthRenderer = _mouthClosedRenderer;
         SetMood(Mood.NEUTRAL);
         StartCoroutine(RandomBlinking());
     }
@@ -47,7 +48,7 @@ public class CustomerAnimation : MonoBehaviour
     [ContextMenu("Update Mood")]
     private void updateMood()
     {
-        SetMood(currentMood);
+        SetMood(_currentMood);
     }
 
     private IEnumerator RandomBlinking()
@@ -69,7 +70,7 @@ public class CustomerAnimation : MonoBehaviour
 
     public void SetMood(Mood mood)
     {
-        currentMood = mood;
+        _currentMood = mood;
         SetEyeMood(mood);
         SetMouthMood(mood);
     }
@@ -79,16 +80,16 @@ public class CustomerAnimation : MonoBehaviour
         switch (mood)
         {
             case Mood.DISGUST:
-                currentEyesRenderer = eyesDisgustRenderer;
+                _currentEyesRenderer = _eyesDisgustRenderer;
                 break;
             case Mood.ANGER:
-                currentEyesRenderer = eyesAngerRenderer;
+                _currentEyesRenderer = _eyesAngerRenderer;
                 break;
             case Mood.WIDENING:
-                currentEyesRenderer = eyesWideningRenderer;
+                _currentEyesRenderer = _eyesWideningRenderer;
                 break;
             default:
-                currentEyesRenderer = eyesOpenRenderer;
+                _currentEyesRenderer = _eyesOpenRenderer;
                 break;
         }
         SetOpenEyes(true);  // force update to new eye mood
@@ -99,13 +100,13 @@ public class CustomerAnimation : MonoBehaviour
         switch (mood)
         {
             case Mood.DISGUST:
-                currentMouthRenderer = mouthDisgustRenderer;
+                _currentMouthRenderer = _mouthDisgustRenderer;
                 break;
             case Mood.ANGER:
-                currentMouthRenderer = mouthAngerRenderer;
+                _currentMouthRenderer = _mouthAngerRenderer;
                 break;
             default:
-                currentMouthRenderer = mouthClosedRenderer;
+                _currentMouthRenderer = _mouthClosedRenderer;
                 break;
         }
         if (!isTalking)
@@ -119,29 +120,29 @@ public class CustomerAnimation : MonoBehaviour
         ResetEyes();
         if (open)
         {
-            if (currentEyesRenderer.sprite != null)
+            if (_currentEyesRenderer.sprite != null)
             {
-                currentEyesRenderer.enabled = true;
+                _currentEyesRenderer.enabled = true;
             }
             else
             {
                 Debug.LogWarning("Attempted to use eyes with missing sprite! Defaulting to neutral eyes.");
-                eyesOpenRenderer.enabled = true;
+                _eyesOpenRenderer.enabled = true;
             }
         }
         else
         {
-            eyesClosedRenderer.enabled = true;
+            _eyesClosedRenderer.enabled = true;
         }
     }
 
     private void ResetEyes()
     {
-        eyesOpenRenderer.enabled = false;
-        eyesClosedRenderer.enabled = false;
-        eyesDisgustRenderer.enabled = false;
-        eyesAngerRenderer.enabled = false;
-        eyesWideningRenderer.enabled = false;
+        _eyesOpenRenderer.enabled = false;
+        _eyesClosedRenderer.enabled = false;
+        _eyesDisgustRenderer.enabled = false;
+        _eyesAngerRenderer.enabled = false;
+        _eyesWideningRenderer.enabled = false;
     }
 
     public void SetBlinking(bool blink)
@@ -210,28 +211,28 @@ public class CustomerAnimation : MonoBehaviour
         ResetMouth();
         if (open)
         {
-            mouthOpenRenderer.enabled = true;
+            _mouthOpenRenderer.enabled = true;
         }
         else
         {
-            if (currentMouthRenderer.sprite != null)
+            if (_currentMouthRenderer.sprite != null)
             {
-                currentMouthRenderer.enabled = true;
+                _currentMouthRenderer.enabled = true;
             }
             else
             {
                 Debug.LogWarning("Attempted to use mouth with missing sprite! Defaulting to neutral mouth.");
-                mouthClosedRenderer.enabled = true;
+                _mouthClosedRenderer.enabled = true;
             }
         }
     }
 
     private void ResetMouth()
     {
-        mouthOpenRenderer.enabled = false;
-        mouthClosedRenderer.enabled = false;
-        mouthDisgustRenderer.enabled = false;
-        mouthAngerRenderer.enabled = false;
+        _mouthOpenRenderer.enabled = false;
+        _mouthClosedRenderer.enabled = false;
+        _mouthDisgustRenderer.enabled = false;
+        _mouthAngerRenderer.enabled = false;
     }
 
     [ContextMenu("Toggle Blinking")]
