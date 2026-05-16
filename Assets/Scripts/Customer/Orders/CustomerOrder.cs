@@ -13,6 +13,7 @@ public class CustomerOrder : ScriptableObject
     public string DishName;
     public Ingredient[] Ingredients;
     public Difficulty difficulty;
+    public int likelihood;
 
     //  We'll need a function somewhere to check if the player has the ingredients for this order. 
     //  Maybe in the CustomerManager or maybe in a separate InventoryManager but that's another subteam's responsibility
