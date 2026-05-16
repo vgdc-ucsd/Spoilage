@@ -157,8 +157,17 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
 
         if (availableOrders.Count > 0)
         {
-            int randomIndex = UnityEngine.Random.Range(0, availableOrders.Count);
-            return availableOrders[randomIndex];
+            int weightSum = 0;
+            foreach (CustomerOrder order in availableOrders) {
+                weightSum += order.likelihood;
+            }
+            int random = UnityEngine.Random.Range(0, weightSum);
+            int index = 0;
+            while (random >= availableOrders[index].likelihood) {
+                random -= availableOrders[index].likelihood;
+                index++;
+            }
+            return availableOrders[index];
         }
 
         return null;
