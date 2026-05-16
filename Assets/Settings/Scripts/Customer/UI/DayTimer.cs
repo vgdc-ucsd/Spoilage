@@ -8,7 +8,7 @@ public class DayTimer : Singleton<DayTimer> {
     [SerializeField] float _startUITime = 9.00f;
     [SerializeField] float _endUITime = 17.00f; //Military time
     [SerializeField] float _realWorldMinutes = 10.0f;
-    private Boolean isCounting = true;
+    private Boolean isCounting = false;
     private float currentMilitaryTime;
     private float secondsPassed = 0.0f;
     private float clockIncrementTime;
@@ -20,7 +20,7 @@ public class DayTimer : Singleton<DayTimer> {
          _textMeshPro.text = _startUITime + ":00 AM";
     }
 
-    public void resetTimer()
+    public void startTimer()
     {
         currentMilitaryTime = _startUITime;
         secondsPassed = 0.0f;
