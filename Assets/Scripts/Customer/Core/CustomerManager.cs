@@ -56,8 +56,13 @@ public class CustomerManager : Singleton<CustomerManager>
     /// <returns>The generated customer as type Customer</returns>
     public Customer GenerateCustomer()
     {
+        return GenerateCustomer(GenerateCustomerData());
+    }
+
+    public Customer GenerateCustomer(CustomerData customerData)
+    {
         Customer instantiatedCustomer = Instantiate(CustomerPrefab, _customerTransform).GetComponent<Customer>();
-        instantiatedCustomer.customerData = GenerateCustomerData();
+        instantiatedCustomer.customerData = customerData;
         instantiatedCustomer.customerObject = instantiatedCustomer.gameObject;
         instantiatedCustomer.InitializeCustomer();
 

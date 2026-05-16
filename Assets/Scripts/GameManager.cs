@@ -41,7 +41,7 @@ public class GameManager : Singleton<GameManager>
                 break;
         }
     }
-
+    
     public void Quit()
     {
         // TODO: Handle exit any additional exit processes
