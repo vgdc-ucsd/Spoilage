@@ -1,30 +1,22 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 
 public class CallBell : MonoBehaviour
 {
-    [SerializeField]
-    private UnityEvent _callBellAction;
-
     void Start()
     {
         LockLayout.IsLocked = false;
         FoodGrab.CanMoveFood = false;
-
-        _callBellAction.AddListener(CallBellStart);
     }
 
-    public void CallBellStart()
+    public void RingBell()
     {
-        LockLayout.IsLocked = true;
-        FoodGrab.CanMoveFood = true;
-
-        _callBellAction.RemoveListener(CallBellStart);
-    }
-
-    private void OnMouseDown()
-    {
-        _callBellAction.Invoke();
+        if (SetupManager.Instance.CurrentPhase == GamePhase.Setup)
+        {
+            SetupManager.Instance.StartCooking();
+        }
+        else
+        {
+            
+        }
     }
 }

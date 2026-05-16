@@ -5,16 +5,13 @@ public enum GamePhase
     Cooking
 }
 
-public class SetupManager : MonoBehaviour
+public class SetupManager : Singleton<SetupManager>
 {
-    public static SetupManager Instance { get; private set; }
     public GamePhase CurrentPhase { get; private set; } = GamePhase.Setup;
 
-    private void Awake()
+    public override void Awake()
     {
-        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
-        Instance = this;
-
+        base.Awake();
         FoodGrab.CanMoveFood = false;
         ObjectGrab.CanMoveAppliances = true;
     }
