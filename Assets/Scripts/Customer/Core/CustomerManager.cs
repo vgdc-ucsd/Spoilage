@@ -179,7 +179,7 @@ public class CustomerManager : Singleton<CustomerManager>
 
         for (int i = 0; i < orderCount; i++)
         {
-            CustomerOrder order = customerOrderDatabase.GenerateCustomerOrder(0); // TODO: Get actual difficulty.
+            Recipe order = customerOrderDatabase.GenerateCustomerOrder();
 
             if (order != null)
             {
