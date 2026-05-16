@@ -50,10 +50,70 @@ public class CustomerManager : Singleton<CustomerManager>
         { "Assets/Resources/Art/Customers/Bases/Character Base #332", new Vector3(0.16f, -0.11f, 0)},
     };
 
+    ///<summary>
+    /// Generates a new customer with random data.
+    ///</summary>
+    /// <returns>The generated customer as type Customer</returns>
     public Customer GenerateCustomer()
     {
         Customer instantiatedCustomer = Instantiate(CustomerPrefab, _customerTransform).GetComponent<Customer>();
         instantiatedCustomer.customerData = GenerateCustomerData();
+        instantiatedCustomer.customerObject = instantiatedCustomer.gameObject;
+        instantiatedCustomer.InitializeCustomer();
+
+        return instantiatedCustomer;
+    }
+
+    ///<summary>
+    /// Generates a new customer at a specified transform with random data.
+    ///</summary>
+    /// <returns>The generated customer as type Customer</returns>
+    public Customer GenerateCustomer(Transform customerTransform)
+    {
+        Customer instantiatedCustomer = Instantiate(CustomerPrefab, customerTransform).GetComponent<Customer>();
+        instantiatedCustomer.customerData = GenerateCustomerData();
+        instantiatedCustomer.customerObject = instantiatedCustomer.gameObject;
+        instantiatedCustomer.InitializeCustomer();
+
+        return instantiatedCustomer;
+    }
+
+    /// <summary>
+    /// Generates a new customer with preset data based on the given index. If the index is out of bounds, returns null.
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public Customer GenerateCustomer(int index)
+    {
+        if (index < 0 || index >= PresetCustomerData.Length)
+        {
+            Debug.LogError("Invalid preset customer index: " + index);
+            return null;
+        }
+
+        Customer instantiatedCustomer = Instantiate(CustomerPrefab, _customerTransform).GetComponent<Customer>();
+        instantiatedCustomer.customerData = PresetCustomerData[index];
+        instantiatedCustomer.customerObject = instantiatedCustomer.gameObject;
+        instantiatedCustomer.InitializeCustomer();
+
+        return instantiatedCustomer;
+    }
+
+    /// <summary>
+    /// Generates a new customer with preset data based on the given index at a specified transform. 
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public Customer GenerateCustomer(Transform customerTransform, int index)
+    {
+        if (index < 0 || index >= PresetCustomerData.Length)
+        {
+            Debug.LogError("Invalid preset customer index: " + index);
+            return null;
+        }
+
+        Customer instantiatedCustomer = Instantiate(CustomerPrefab, customerTransform).GetComponent<Customer>();
+        instantiatedCustomer.customerData = PresetCustomerData[index];
         instantiatedCustomer.customerObject = instantiatedCustomer.gameObject;
         instantiatedCustomer.InitializeCustomer();
 

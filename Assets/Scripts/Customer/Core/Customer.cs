@@ -6,7 +6,8 @@ public class Customer : MonoBehaviour
     public CustomerData customerData;
     
     public GameObject customerObject;
-    public int spoilage;
+    public float current_patience;
+    public CustomerOrder current_order;
 
     [ContextMenu("Initialize Customer")]
     public void InitializeCustomer()
@@ -77,18 +78,14 @@ public class Customer : MonoBehaviour
         }
 
         transform.Find("Sprites/FACIAL_FEATURES").localPosition = customerData.faceOffset;
+
+        // Initialize patience
+        current_patience = customerData.patience;
+
+        // Initialize order
+        if (customerData.orders.Count > 0)
+        {
+            current_order = customerData.orders[0];
+        }
     }
-    
-    // public void InstantiateCustomer()
-    // {
-    //     for (int i = 0; i < CustomerData.NUM_SPRITES; i++)
-    //     {
-    //         GameObject newSprite = new GameObject("Customer Sprite " + i);
-    //         SpriteRenderer renderer = newSprite.AddComponent<SpriteRenderer>();
-    //         renderer.sprite = customerData.sprites[i];
-    //         newSprite.transform.position = customerData.spriteOffsets[i];
-    //         newSprite.transform.SetParent(customerObject.transform);
-    //         Instantiate(newSprite);
-    //     }
-    // }
 }

@@ -20,6 +20,15 @@ public class CustomerOrder : ScriptableObject
 
     public bool CheckPlayerHasIngredients()
     {
-        return true;
+        return true; 
     }
 }
+
+
+
+/// Notes to myself:
+/// - There is a confusion between class Dish from the cooking team and class CustomerOrder from the customer team. Right now
+/// the CustomerOrder ScriptableObject is being used to represent the a dish that the customer orders, but the cooking team has 
+/// a Dish class that is being used to represent the dish that the player is cooking. They should match up, but they are currently separate. 
+/// We should probably merge them at some point to avoid confusion.
+/// - 
