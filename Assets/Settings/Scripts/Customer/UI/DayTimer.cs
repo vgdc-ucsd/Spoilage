@@ -5,8 +5,8 @@ using UnityEngine;
 public class DayTimer : Singleton<DayTimer> {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private TextMeshProUGUI _textMeshPro;
-    [SerializeField] float _startTime = 9.00f;
-    [SerializeField] float _endTime = 17.00f; //Military time
+    [SerializeField] float _startUITime = 9.00f;
+    [SerializeField] float _endUITime = 17.00f; //Military time
     [SerializeField] float _realWorldMinutes = 10.0f;
     private Boolean isCounting = true;
     private float currentMilitaryTime;
@@ -14,16 +14,15 @@ public class DayTimer : Singleton<DayTimer> {
     private float clockIncrementTime;
     void Start()
     {
-        clockIncrementTime = Instance._realWorldMinutes * 60 / (Instance._endTime - Instance._startTime);
-        currentMilitaryTime = Instance._startTime;
+        clockIncrementTime = Instance._realWorldMinutes * 60 / (Instance._endUITime - Instance._startUITime);
+        currentMilitaryTime = Instance._startUITime;
         _textMeshPro = gameObject.GetComponent<TextMeshProUGUI>();
-         _textMeshPro.text = _startTime + ":00 AM";
-        
+         _textMeshPro.text = _startUITime + ":00 AM";
     }
 
     public void resetTimer()
     {
-        currentMilitaryTime = _startTime;
+        currentMilitaryTime = _startUITime;
         secondsPassed = 0.0f;
         isCounting = true;
     }
@@ -38,8 +37,7 @@ public class DayTimer : Singleton<DayTimer> {
                 //TODO: End day function
                 isCounting = false;
             }
-            // if (secondsPassed % clockIncrementTime < epsilon)
-            if (Mathf.Floor(secondsPassed / clockIncrementTime) + _startTime > currentMilitaryTime)
+            if (Mathf.Floor(secondsPassed / clockIncrementTime) + _startUITime > currentMilitaryTime)
             {
                 _textMeshPro.text = string.Empty;
                 currentMilitaryTime += 1;
@@ -50,8 +48,7 @@ public class DayTimer : Singleton<DayTimer> {
                 } else
                 {
                     _textMeshPro.text = currentMilitaryTime + ":00 AM";
-                }   
-                
+                }    
             }
         }    
     }
