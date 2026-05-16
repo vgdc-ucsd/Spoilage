@@ -53,7 +53,6 @@ public class RecipeManager : Singleton<RecipeManager>
         {
             // THIS is what fills the "brain" of the manager
             allRecipes = JsonUtility.FromJson<RecipeList>(recipeJsonFile.text);
-            Debug.Log("MANAGER: Loaded " + allRecipes.allRecipes.Length + " recipes from JSON.");
         }
         else
         {

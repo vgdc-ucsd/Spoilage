@@ -7,11 +7,11 @@
 )]
 public class BlinkingRapidly : AbstractSpoilageSymptom
 {
-    private float _blinkingSpeedMultiplier;
+    // private float _blinkingSpeedMultiplier;
 
     public BlinkingRapidly()
     {
-        _blinkingSpeedMultiplier = 1;
+        // _blinkingSpeedMultiplier = 1;
         category = SpoilageCategory.DISTRESS;
     }
 

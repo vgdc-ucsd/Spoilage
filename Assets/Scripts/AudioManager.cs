@@ -89,7 +89,6 @@ public class AudioManager : Singleton<AudioManager>
     public void SetVolume(float volume, string busString = "bus:/")
     {
         float dB = LinearToDecibels(volume);
-        UnityEngine.Debug.Log($"Set Volume to : {dB} dB");
 
         FMOD.Studio.Bus bus = RuntimeManager.GetBus(busString);
         bus.setVolume(dB);

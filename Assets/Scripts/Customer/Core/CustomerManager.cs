@@ -151,7 +151,6 @@ public class CustomerManager : Singleton<CustomerManager>
                 if (sheet != null && sheet.Length >= 2)
                 {
                     newData.sprites[i] = sheet[1];
-                    Debug.Log(newData.sprites[i]);
                 }
                 //newData.sprites[i] = sheet != null && sheet.Length >= 2 ? sheet[1] : null;
             }
