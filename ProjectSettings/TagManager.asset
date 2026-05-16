@@ -12,6 +12,7 @@ TagManager:
   - Customer Refusal Test
   - Guard Spawnpoint
   - Guard Stamina Bar
+  - StarRating
   layers:
   - Default
   - TransparentFX
