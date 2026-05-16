@@ -18,6 +18,14 @@ public class ObjectGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     private void Awake()
     {
+        KitchenTile parentTile = GetComponentInParent<KitchenTile>();
+        if (parentTile != null)
+        {
+            currentTile = parentTile;
+            if (!parentTile.objectsOnTile.Contains(gameObject))
+                parentTile.objectsOnTile.Add(gameObject);
+        }
+
         _rectTransform = GetComponent<RectTransform>();
         _canvas = GetComponentInParent<Canvas>();
         _applianceImage = GetComponent<Image>();
@@ -35,6 +43,15 @@ public class ObjectGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         // Bring to top of canvas while dragging
         _rectTransform.SetParent(_canvas.transform);
         _rectTransform.SetAsLastSibling();
+
+        Canvas applianceCanvas = GetComponent<Canvas>();
+        if (applianceCanvas == null)
+            applianceCanvas = gameObject.AddComponent<Canvas>();
+        applianceCanvas.overrideSorting = true;
+        applianceCanvas.sortingOrder = 100;
+
+        if (GetComponent<GraphicRaycaster>() == null)
+            gameObject.AddComponent<GraphicRaycaster>();
 
         if (_applianceImage != null) _applianceImage.raycastTarget = false;
     }

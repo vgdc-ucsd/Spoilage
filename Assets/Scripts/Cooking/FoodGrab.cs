@@ -123,6 +123,10 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
         if (_foodImage != null) _foodImage.raycastTarget = true;
 
+        Canvas foodCanvas = GetComponent<Canvas>();
+        if (foodCanvas != null)
+            foodCanvas.overrideSorting = false;
+
         Drop(eventData);
     }
 
