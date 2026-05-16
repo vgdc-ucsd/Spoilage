@@ -1,0 +1,9 @@
+order:
+	Afternoon. Quite the establishment ya got here.
+	Just a [DISH] for me. That’ll be it.
+reject:
+	Woah, okay. So much for tryin’ somethin’ new.
+success:
+	Hey. Thanks. You don’t eat stuff like this every day.
+failure:
+	Bleh. Can’t have anything good nowadays, huh?

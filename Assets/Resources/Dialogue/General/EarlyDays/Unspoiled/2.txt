@@ -1,0 +1,9 @@
+order:
+	Yes, hello, I have things to get back to. I’d appreciate it if you’d hurry.
+	A [DISH] will do.
+reject:
+	Fine. I had no time for a fresh-cooked meal, anyway.
+success:
+	My regards. I’ll remember this place.
+failure:
+	I spent my five minute lunch break on this. Just perfect.
