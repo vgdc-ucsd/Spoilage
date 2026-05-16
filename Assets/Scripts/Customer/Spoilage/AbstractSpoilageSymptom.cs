@@ -31,7 +31,7 @@ public abstract class AbstractSpoilageSymptom : ScriptableObject
         AbstractSpoilageSymptom symptom = (AbstractSpoilageSymptom)
             ScriptableObject.CreateInstance(randomSymptomType);
         symptom.customer = customer;
-        SpoilageTriggerManager.Instance.AddSymptom(symptom);
+        SpoilageTriggerManager.Instance?.AddSymptom(symptom);
 
         return symptom;
     }

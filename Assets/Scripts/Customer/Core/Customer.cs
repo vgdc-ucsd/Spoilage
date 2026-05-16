@@ -16,8 +16,6 @@ public class Customer : MonoBehaviour
     [ContextMenu("Initialize Customer")]
     public void InitializeCustomer()
     {
-        float scaleFactor = GetComponentInParent<Canvas>().scaleFactor;
-
         if (customerData == null)
         {
             customerData = CustomerManager.Instance.GenerateCustomerData();
@@ -85,7 +83,7 @@ public class Customer : MonoBehaviour
             _spoilageBack.enabled = false;
         }
 
-        _facialFeatures.localPosition = customerData.faceOffset * scaleFactor;
+        _facialFeatures.localPosition = customerData.faceOffset * 100;
     }
     
     // public void InstantiateCustomer()

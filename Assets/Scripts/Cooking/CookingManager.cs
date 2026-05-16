@@ -11,6 +11,8 @@ public class CookingManager : Singleton<CookingManager>
     public void StartDay()
     {
         CurrentPhase = GamePhase.Cooking;
+        FoodGrab.CanMoveFood = true;
+        ObjectGrab.CanMoveAppliances = false;
         StoryManager.Instance.InitRun();
         StoryManager.Instance.BeginDay();
         NextCustomer();
@@ -23,6 +25,6 @@ public class CookingManager : Singleton<CookingManager>
 
     public void NextCustomer()
     {
-        CustomerLineManager.Instance.Advance();
+        // CustomerLineManager.Instance.Advance();
     }
 }
