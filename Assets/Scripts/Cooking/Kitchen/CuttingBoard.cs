@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
 public class CuttingBoard : ManualStation
@@ -10,20 +9,6 @@ public class CuttingBoard : ManualStation
         base.Start();
     }
 
-    private void Update()
-    {
-        if (_currentFood == null)
-        {
-            return;
-        }
-
-        // Temporary test input until popup button is implemented
-        if (Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
-        {
-            OnAction();
-        }
-    }
-
     public override bool OnPlaceFood(FoodGrab food)
     {
         IngredientObject incoming = food.GetComponent<IngredientObject>();
@@ -31,7 +16,7 @@ public class CuttingBoard : ManualStation
 
         if (_currentFoods.Contains(incoming))
         {
-            return true; 
+            return true;
         }
 
         if (incoming.IngredientInstance.Data.Name == "Slop")
@@ -69,14 +54,28 @@ public class CuttingBoard : ManualStation
         {
             Debug.Log($"{gameObject.name}: Wrong ingredient for cutting board.");
         }
+
         return true;
+    }
+
+    public void PressCutButton()
+    {
+        Debug.Log($"{gameObject.name}: Cut button pressed.");
+        OnAction();
     }
 
     public override void OnAction()
     {
         Debug.Log($"Action triggered on {gameObject.name}. Current Food: {(_currentFood != null ? _currentFood.name : "NULL")}");
 
-        SpoilageTriggerManager.Instance.Invoke(SpoilageCategory.DISTRESS);
+        if (SpoilageTriggerManager.Instance != null)
+        {
+            SpoilageTriggerManager.Instance.Invoke(SpoilageCategory.DISTRESS);
+        }
+        else
+        {
+            Debug.LogWarning($"{gameObject.name}: SpoilageTriggerManager.Instance is null.");
+        }
 
         if (_currentFood == null || _currentFood.IngredientInstance == null)
         {
@@ -84,6 +83,13 @@ public class CuttingBoard : ManualStation
         }
 
         base.OnAction();
+
+        Debug.Log($"{gameObject.name}: Click progress = {_currentClicks}/{_clicksPerState}");
+
+        if (_currentClicks < _clicksPerState)
+        {
+            return;
+        }
 
         if (_currentClicks < _clicksPerState)
         {
