@@ -19,6 +19,8 @@ public class CallBell : MonoBehaviour
     {
         LockLayout.IsLocked = true;
         FoodGrab.CanMoveFood = true;
+        
+        CustomerLineManager.Instance.CallBellPressed();
 
         _callBellAction.RemoveListener(CallBellStart);
     }
