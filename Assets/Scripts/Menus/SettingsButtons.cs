@@ -1,19 +1,34 @@
 using UnityEngine;
 using UnityEngine.UI; 
+using UnityEngine.SceneManagement;
+
 public class SettingsButtons : MonoBehaviour
 {
     public Slider Master;
-    
+    public GameObject BackButton;
 
     void Start()
     {
-        Master = GameObject.Find("Master").GetComponent<Slider>();
-        float value = Master.value;
+        if (Master != null)
+            Master.GetComponent<Slider>().onValueChanged.AddListener(OnValueChanged);
         
+        if (BackButton != null)
+            BackButton.GetComponent<Button>().onClick.AddListener(Back);
+
         // Listen to changes
-        Master.onValueChanged.AddListener(OnValueChanged);
+
+        float value = Master.value;
     }
-    
+    void Back()
+    {
+        Scene settings = SceneManager.GetSceneByName("Settings");
+        if (settings.isLoaded)
+        {
+            SceneManager.UnloadSceneAsync("Settings");
+            
+            return;
+        }
+    }
     void OnValueChanged(float value)
     {
         AudioManager.Instance.SetVolume(value);
