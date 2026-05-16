@@ -10,13 +10,13 @@ public class CallBell : MonoBehaviour
 
     public void RingBell()
     {
-        if (SetupManager.Instance.CurrentPhase == GamePhase.Setup)
+        if (CookingManager.Instance.CurrentPhase == GamePhase.Setup)
         {
-            SetupManager.Instance.StartCooking();
+            CookingManager.Instance.StartDay();
         }
         else
         {
-            
+            CookingManager.Instance.ServeOrder();
         }
     }
 }

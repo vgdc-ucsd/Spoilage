@@ -35,7 +35,7 @@ public class KitchenTile : MonoBehaviour
             return false;
         }
 
-        if (SetupManager.Instance.CurrentPhase == GamePhase.Setup)
+        if (CookingManager.Instance.CurrentPhase == GamePhase.Setup)
         {
             // Setup: appliances only, one per tile
             if (type != "Appliance") return false;
@@ -46,7 +46,7 @@ public class KitchenTile : MonoBehaviour
             return true;
         }
 
-        if (SetupManager.Instance.CurrentPhase == GamePhase.Cooking)
+        if (CookingManager.Instance.CurrentPhase == GamePhase.Cooking)
         {
             // Cooking: food only, one per tile
             if (type != "Food") return false;
