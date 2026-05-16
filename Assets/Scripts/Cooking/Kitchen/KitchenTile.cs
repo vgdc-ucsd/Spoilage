@@ -91,6 +91,9 @@ public class KitchenTile : MonoBehaviour
         {
             RecipeManager rm = FindAnyObjectByType<RecipeManager>();
             List<IngredientObject> combo = new List<IngredientObject> { existingFood, newFood };
+
+            float averageSpoilage = rm.GetAverageSpoilage(combo);
+
             string resultName = rm.CheckRecipe(combo, _station);
 
             IngredientData resultData;
@@ -99,12 +102,27 @@ public class KitchenTile : MonoBehaviour
             {
                 //Valid recipe
                 resultData = IngredientLookup.Get(resultName); 
+                Recipe matchedRecipe = System.Array.Find(rm.allRecipes.allRecipes, r => r.name == resultName);
+
                 if (resultData != null)
                 {
                     // PRINT SUCCESS HERE
                     Debug.Log($"<color=green>SUCCESS:</color> Combined {existingFood.IngredientInstance.Data.Name} + {newFood.IngredientInstance.Data.Name} into <b>{resultData.Name}</b>");
                     resultData.QualityPercent = rm.CalculateTotalQuality(combo);
                     Debug.Log("Quality:" + resultData.QualityPercent);
+                    existingFood.ChangeIngredient(resultData);
+
+                    if (matchedRecipe != null && matchedRecipe.spoiled)
+                    {
+                        // Stage II dishes are born rotten
+                        existingFood.IngredientInstance.SetSpoilagePercent(100f);
+                    }
+                    else
+                    {
+                        // Normal dishes use the averaging math
+                        float avg = rm.GetAverageSpoilage(combo);
+                        existingFood.IngredientInstance.SetSpoilagePercent(avg);
+                    }
                 }
             }
             else
@@ -117,7 +135,17 @@ public class KitchenTile : MonoBehaviour
             if (resultData != null)
             {
                 existingFood.ChangeIngredient(resultData);
+
+                existingFood.IngredientInstance.SetSpoilagePercent(averageSpoilage);
+
+                IngredientBehaviour newBehaviour = obj.GetComponent<IngredientBehaviour>();
+                if (newBehaviour != null) newBehaviour.RemoveFromSpoilSurface();
+
                 Destroy(obj); // Remove the held ingredient
+
+                IngredientBehaviour existingBehaviour = existingFood.GetComponent<IngredientBehaviour>();
+                if (existingBehaviour != null) existingBehaviour.PutOnSpoilSurface();
+
                 return;
             }
         }
@@ -131,16 +159,30 @@ public class KitchenTile : MonoBehaviour
         {
             objRect.SetParent(_rectTransform, false);
             objRect.anchoredPosition = Vector2.zero;
+            objRect.SetAsLastSibling();
+
+            Canvas foodCanvas = obj.GetComponent<Canvas>();
+            if (foodCanvas == null)
+                foodCanvas = obj.AddComponent<Canvas>();
+            foodCanvas.overrideSorting = true;
+            foodCanvas.sortingOrder = 10;
+
+            if (obj.GetComponent<UnityEngine.UI.GraphicRaycaster>() == null)
+            obj.AddComponent<UnityEngine.UI.GraphicRaycaster>();
         }
         else
         {
             Debug.LogWarning($"KitchenTile '{name}': Could not snap '{obj.name}' — missing RectTransform.");
         }
+        IngredientBehaviour behaviour = obj.GetComponent<IngredientBehaviour>();
+        if (behaviour != null) behaviour.PutOnSpoilSurface();
     }
 
     public void RemoveObject(GameObject obj)
     {
         objectsOnTile.Remove(obj);
+        IngredientBehaviour behaviour = obj.GetComponent<IngredientBehaviour>();
+        if (behaviour != null) behaviour.RemoveFromSpoilSurface();
     }
 
     public GameObject GetTopObject()
