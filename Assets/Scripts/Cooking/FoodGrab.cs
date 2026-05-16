@@ -57,9 +57,27 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
-        if (!CanMoveFood || _isPlaced) return;
+        if (!CanMoveFood || IsDeleteModeActive || _isPlaced) return;
 
         CookingStation station = GetComponentInParent<CookingStation>();
+
+        if (station is AutomaticStation autoStation)
+        {
+            if (autoStation._isCooking && !autoStation._isOverCooking)
+            {
+                Debug.Log($"[FoodGrab] Cannot move {gameObject.name} while it is actively cooking!");
+                return;
+            }
+        }
+
+        if (_cameFromFridge)
+        {
+            if (_spawner != null)
+            {
+                _spawner.SpawnFood();
+                _cameFromFridge = false;
+            }
+        }
 
         if (station != null)
         {
@@ -74,7 +92,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         _originalParent = _rectTransform.parent;
         _originalPosition = _rectTransform.anchoredPosition;
 
-        // bring object to top while dragging
+        // Bring object to top while dragging
         _rectTransform.SetParent(_canvas.transform);
         _rectTransform.SetAsLastSibling();
 
@@ -83,6 +101,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             foodCanvas = gameObject.AddComponent<Canvas>();
         foodCanvas.overrideSorting = true;
         foodCanvas.sortingOrder = 100;
+        
         if (GetComponent<UnityEngine.UI.GraphicRaycaster>() == null)
             gameObject.AddComponent<UnityEngine.UI.GraphicRaycaster>();
 

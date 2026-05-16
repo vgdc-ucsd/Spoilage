@@ -18,10 +18,9 @@ public class AutomaticStation : CookingStation
     [SerializeField] private string _stationID;
 
     private float _timer;
-    private bool _isCooking;
-    private bool _isOverCooking = false;
+    public bool _isCooking;
+    public bool _isOverCooking = false;
     private bool _canCook = true;
-
     public override void Start()
     {
         maxIngredients = 3;
