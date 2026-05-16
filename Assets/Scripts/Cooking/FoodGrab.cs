@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    public static bool IsDeleteModeActive = false;
     private bool _hasHomePosition;
     private bool _isPlaced = false;
     private bool _cameFromFridge = true;
@@ -33,6 +34,24 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
+        if (IsDeleteModeActive)
+        {
+            if (_spawner != null) return;
+
+            CookingStation station = GetComponentInParent<CookingStation>();
+            
+            if (station != null)
+            {
+                // Station deletes all children
+                station.OnPointerClick(eventData); 
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+            return;
+        }
+
         TryGrab();
     }
 
@@ -58,6 +77,14 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         // bring object to top while dragging
         _rectTransform.SetParent(_canvas.transform);
         _rectTransform.SetAsLastSibling();
+
+        Canvas foodCanvas = GetComponent<Canvas>();
+        if (foodCanvas == null)
+            foodCanvas = gameObject.AddComponent<Canvas>();
+        foodCanvas.overrideSorting = true;
+        foodCanvas.sortingOrder = 100;
+        if (GetComponent<UnityEngine.UI.GraphicRaycaster>() == null)
+            gameObject.AddComponent<UnityEngine.UI.GraphicRaycaster>();
 
         if (_foodImage != null) _foodImage.raycastTarget = false;
 
@@ -194,17 +221,22 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
                     break;
                 }
 
-                bool placed = app.OnPlaceFood(this);
-                if (!placed)
-                {
-                    blockedByFullStation = true;
-                    break;
-                }
-
-                _activeStation = app;
                 _rectTransform.SetParent(app.transform, false);
                 _rectTransform.anchoredPosition = Vector2.zero;
+
+                _activeStation = app;
                 _activeStation.OnPlaceFood(this);
+                
+                foundValidDrop = true;
+                break;
+            }
+
+            UtilityStation util = hitObj.GetComponentInParent<UtilityStation>();
+            if (util != null)
+            {
+                _rectTransform.SetParent(util.transform, false);
+                _rectTransform.anchoredPosition = Vector2.zero;
+                util.OnPlaceFood(this);
                 foundValidDrop = true;
                 break;
             }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class AutomaticStation : CookingStation
 {
     [Header("Cooking Settings")]
+    [SerializeField] private const int OVERCOOKED_QUALITY_PERCENTAGE_DECREASE = 20;
     [SerializeField] private float _cookDuration = 5f;
     [SerializeField] private float _overcookDuration = 5f;
     [SerializeField] private bool _canOvercook = false;
@@ -19,6 +20,7 @@ public class AutomaticStation : CookingStation
     private float _timer;
     private bool _isCooking;
     private bool _isOverCooking = false;
+    private bool _canCook = true;
 
     public override void Start()
     {
@@ -29,23 +31,44 @@ public class AutomaticStation : CookingStation
 
     public override bool OnPlaceFood(FoodGrab food)
     {
+        IngredientObject incoming = food.GetComponent<IngredientObject>();
+        if (incoming == null) return false;
+
+        if (_currentFoods.Contains(incoming))
+        {
+            return true; 
+        }
+        
+        if (incoming.IngredientInstance.Data.Name == "Slop")
+        {
+            Debug.Log($"{gameObject.name}: Cannot cook Slop.");
+            return false;
+        }
+
         bool wasEmpty = _currentFoods.Count == 0;
 
-        IngredientObject incoming = food.GetComponent<IngredientObject>();
-        if (incoming != null)
+        foreach (IngredientObject existing in _currentFoods)
         {
-            foreach (IngredientObject existing in _currentFoods)
+            if (existing != null && 
+                existing.IngredientInstance.Data == incoming.IngredientInstance.Data)
             {
-                if (existing != null && 
-                    existing.IngredientInstance.Data == incoming.IngredientInstance.Data)
-                {
-                    Debug.Log($"{gameObject.name}: Duplicate ingredient '{incoming.IngredientInstance.Data.Name}' rejected.");
-                    return false;
-                }
+                Debug.Log($"{gameObject.name}: Duplicate ingredient '{incoming.IngredientInstance.Data.Name}' rejected.");
+                return false;
             }
         }
 
         base.OnPlaceFood(food);
+
+        //if ingredient is alr overcooked dont let place
+        if (incoming.IngredientInstance.IsOvercooked)
+        {
+            Debug.Log($"{gameObject.name}: Rejected {incoming.name} because it is already overcooked.");
+            _canCook = false;
+        }
+        else
+        {
+            _canCook = true;
+        }
 
         if (_currentFoods.Count == 0) return false;
 
@@ -90,6 +113,7 @@ public class AutomaticStation : CookingStation
 
     public virtual void StartCooking()
     {
+        if (!_canCook) return;
         if (_currentFoods.Count == 0)
         {
             Debug.LogWarning($"{gameObject.name}: Tried to start cooking with no ingredients.");
@@ -156,6 +180,8 @@ public class AutomaticStation : CookingStation
             return;
         }
 
+        float averageSpoilage = recipeManager.GetAverageSpoilage(_currentFoods);
+
         foreach (IngredientObject food in _currentFoods)
         {
             Debug.Log($"{gameObject.name}: On station: '{food.IngredientInstance.Data.Name}'");
@@ -177,9 +203,21 @@ public class AutomaticStation : CookingStation
             return;
         }
 
-        // Collapse: change the first ingredient to the combined result, destroy the rest
+        Recipe matchedRecipe = System.Array.Find(recipeManager.allRecipes.allRecipes, r => r.name == resultName);
+
         IngredientObject survivor = _currentFoods[0];
         survivor.ChangeIngredient(resultData);
+        survivor.IngredientInstance.Data.QualityPercent = recipeManager.CalculateTotalQuality(_currentFoods);
+
+        if (matchedRecipe != null && matchedRecipe.spoiled)
+        {
+            //stage 2 spoiled
+            survivor.IngredientInstance.SetSpoilagePercent(100f);
+        }
+        else
+        {
+            survivor.IngredientInstance.SetSpoilagePercent(averageSpoilage);
+        }
 
         DestroyExtraIngredients();
 
@@ -187,9 +225,9 @@ public class AutomaticStation : CookingStation
         _currentBehaviours.Clear();
         _currentFoods.Add(survivor);
 
-        Debug.Log($"<color=green>{gameObject.name}: SUCCESS:</color> {resultData.Name}");
+        Debug.Log($"<color=green>{gameObject.name}: SUCCESS:</color> {resultData.Name}. Quality = {survivor.IngredientInstance.Data.QualityPercent}");
 
-        if (_canOvercook && CanContinueCooking(recipeManager, survivor))
+        if (_canOvercook)
         {
             _timer = 0f;
             _isCooking = true;
@@ -243,38 +281,14 @@ public class AutomaticStation : CookingStation
             return;
         }
 
-        RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
-
-        if (recipeManager == null)
-        {
-            Debug.LogError($"{gameObject.name}: RecipeManager not found.");
-            StopCooking();
-            return;
-        }
-
         IngredientObject food = _currentFoods[0];
 
-        List<IngredientObject> singleIngredient = new() { food };
-
-        string resultName = recipeManager.CheckRecipe(singleIngredient, _station);
-
-        if (IsInvalidRecipeResult(resultName))
+        if (food != null && food.IngredientInstance != null)
         {
-            TurnIntoSlop();
-            return;
+            food.IngredientInstance.SetOvercooked(true);
+            food.IngredientInstance.Data.QualityPercent -= OVERCOOKED_QUALITY_PERCENTAGE_DECREASE;
+            Debug.Log($"<color=red>{gameObject.name}: {food.IngredientInstance.Data.Name} is now OVERCOOKED.</color> Quality = {food.IngredientInstance.Data.QualityPercent}");
         }
-
-        IngredientData resultData = IngredientLookup.Get(resultName);
-
-        if (resultData == null)
-        {
-            TurnIntoSlop();
-            return;
-        }
-
-        food.ChangeIngredient(resultData);
-
-        Debug.Log($"{gameObject.name}: Overcooked into {resultData.Name}");
 
         _timer = 0f;
         StopCooking();

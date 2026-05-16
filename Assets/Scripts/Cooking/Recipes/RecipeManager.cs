@@ -21,6 +21,9 @@ public class Recipe
     public bool servable;
     public bool spoiled;
     public RecipeRequirement[] requiredIngredients;
+
+    //for stage 2 spoiled recipes
+    public bool requiresAllSpoiled;
 }
 
 [System.Serializable]
@@ -85,19 +88,6 @@ public class RecipeManager : Singleton<RecipeManager>
         if (recipe == null || plateIngredients == null) return false;
         if (recipe.requiredIngredients.Length != plateIngredients.Count) return false;
 
-        // if (recipe.requiresAllSpoiled)
-        // {
-        //     foreach (IngredientObject food in plateIngredients)
-        //     {
-        //         if (food == null || food.IngredientInstance == null) return false;
-
-        //         if (!food.IngredientInstance.IsSpoiled)
-        //         {
-        //             return false;
-        //         }
-        //     }
-        // }
-
         List<string> remainingRequirements = new List<string>();
 
         foreach (RecipeRequirement req in recipe.requiredIngredients)
@@ -109,9 +99,20 @@ public class RecipeManager : Singleton<RecipeManager>
         {
             if (food == null || food.IngredientInstance == null) continue;
 
-            string plateName = food.IngredientInstance.Data.Name.Trim().ToLower();
+            string baseName = food.IngredientInstance.Data.Name.Trim().ToLower();
 
-            if (!remainingRequirements.Remove(plateName))
+            if (remainingRequirements.Contains(baseName))
+            {
+                //stage 2 logic
+                if (recipe.spoiled && !food.IngredientInstance.IsSpoiled)
+                {
+                    return false; 
+                }
+
+                // Remove it from the list and keep checking other ingredients
+                remainingRequirements.Remove(baseName);
+            }
+            else
             {
                 return false;
             }
@@ -120,6 +121,15 @@ public class RecipeManager : Singleton<RecipeManager>
         return remainingRequirements.Count == 0;
     }
 
+    public float CalculateTotalQuality(List<IngredientObject> plateIngredients)
+    {
+        float totalQualityPercentage = 0;
+        foreach (IngredientObject food in plateIngredients)
+        {
+            totalQualityPercentage += food.IngredientInstance.Data.QualityPercent;
+        }
+        return totalQualityPercentage;
+    }
     public float GetAverageSpoilage(List<IngredientObject> ingredients)
     {
         if (ingredients == null || ingredients.Count == 0)
