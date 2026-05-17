@@ -154,10 +154,6 @@ public class CuttingBoard : ManualStation
         Debug.Log($"{gameObject.name}: Chopped! → {resultData.Name}");
 
         FillTimer();
-
-        // Keep the cut button visible while food is still on the board.
-        // If you want the button to disappear after successful chopping, uncomment this:
-        // HideCutButton();
     }
 
     private void UpdateTimer()
