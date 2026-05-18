@@ -110,7 +110,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             gameObject.AddComponent<UnityEngine.UI.GraphicRaycaster>();
 
         if (_foodImage != null) _foodImage.raycastTarget = false;
-
+        
         TryGrab();
     }
 
@@ -186,11 +186,6 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             _activeStation.OnRemoveFood();
             _activeStation = null;
         }
-        else
-        {
-            _returnStation = null;
-        }
-
 
         if (_spawner != null)
         {
@@ -316,10 +311,6 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     private void ReturnToHome()
     {
         IngredientObject info = GetComponent<IngredientObject>();
-
-        bool stillNeedsCooking =
-            info != null &&
-            info.IngredientInstance != null;
         
         if (_cameFromFridge)
         {
@@ -342,9 +333,10 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             return;
         }
 
-        if (_returnStation != null && stillNeedsCooking)
+        if (_returnStation != null)
         {
-            _rectTransform.position = _returnPosition;
+            _rectTransform.SetParent(_returnStation.transform, false);
+            _rectTransform.anchoredPosition = Vector2.zero;
             _activeStation = _returnStation;
             _activeStation.OnPlaceFood(this);
 
@@ -357,6 +349,14 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             _rectTransform.SetParent(_originalParent);
             _rectTransform.anchoredPosition = _originalPosition;
             Debug.Log("Missed drop, returning food to fridge.");
+        }
+
+        KitchenTile tile = _originalParent.GetComponent<KitchenTile>();
+        if (tile != null)
+        {
+            tile.PlaceObject(gameObject); // handles PutOnSpoilSurface
+            Debug.Log("Invalid drop, snapping back to kitchen tile.");
+            return;
         }
 
         _rectTransform.SetParent(_originalParent);

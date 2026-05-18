@@ -120,7 +120,11 @@ public class AutomaticStation : CookingStation
         }
 
         _isCooking = true;
-        LockFood();
+
+        if (_isOverCooking)
+            UnlockFood(); // stay unlocked during overcook
+        else
+            LockFood();  // lock during normal cooking
 
         if (_timer <= 0f)
             _isOverCooking = false;
