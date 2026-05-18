@@ -302,6 +302,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             _rectTransform.SetParent(targetTile.GetComponent<RectTransform>() != null 
                 ? targetTile.transform : _originalParent, false);
             _rectTransform.anchoredPosition = Vector2.zero;
+            _returnStation = null;
             return;
         }
 
