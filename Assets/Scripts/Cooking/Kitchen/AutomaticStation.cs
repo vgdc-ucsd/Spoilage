@@ -120,6 +120,7 @@ public class AutomaticStation : CookingStation
         }
 
         _isCooking = true;
+        LockFood();
 
         if (_timer <= 0f)
             _isOverCooking = false;
@@ -137,6 +138,7 @@ public class AutomaticStation : CookingStation
     {
         _isCooking = false;
         _isOverCooking = false;
+        UnlockFood();
         HideTimer();
     }
 
@@ -231,6 +233,7 @@ public class AutomaticStation : CookingStation
             _timer = 0f;
             _isCooking = true;
             _isOverCooking = true;
+            UnlockFood();
 
             if (_timerFill != null) _timerFill.color = Color.red;
             Debug.Log($"Overcook started. isCooking: {_isCooking}, isOvercooking: {_isOverCooking}, timer: {_timer}, overcookDuration: {_overcookDuration}");
@@ -368,6 +371,26 @@ public class AutomaticStation : CookingStation
         if (_timerObject != null)
         {
             _timerObject.SetActive(false);
+        }
+    }
+
+    private void LockFood()
+    {
+        foreach (IngredientObject food in _currentFoods)
+        {
+            if (food == null) continue;
+            FoodGrab grab = food.GetComponent<FoodGrab>();
+            if (grab != null) grab.IsLocked = true;
+        }
+    }
+
+    private void UnlockFood()
+    {
+        foreach (IngredientObject food in _currentFoods)
+        {
+            if (food == null) continue;
+            FoodGrab grab = food.GetComponent<FoodGrab>();
+            if (grab != null) grab.IsLocked = false;
         }
     }
 }

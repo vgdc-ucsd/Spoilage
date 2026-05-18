@@ -11,6 +11,9 @@ public class CuttingBoard : ManualStation
     [Header("Cut Button UI")]
     [SerializeField] private GameObject _cutButtonObject;
 
+    private Dictionary<IngredientObject, int> _clickProgress = new();
+    private bool _isChopped = false;
+
     public override void Start()
     {
         maxIngredients = 1;
@@ -48,12 +51,6 @@ public class CuttingBoard : ManualStation
             return false;
         }
 
-        _currentClicks = 0;
-
-        ShowTimer();
-        ShowCutButton();
-        UpdateTimer();
-
         Debug.Log($"{gameObject.name}: Food on cutting board.");
 
         RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
@@ -70,17 +67,35 @@ public class CuttingBoard : ManualStation
         if (IsInvalidRecipeResult(result))
         {
             Debug.Log($"{gameObject.name}: Wrong ingredient for cutting board.");
+            HideTimer();
+            HideCutButton();
+            return true;
         }
+
+        if (!_clickProgress.ContainsKey(_currentFood))
+            _clickProgress[_currentFood] = 0;
+        
+        _currentClicks = _clickProgress[_currentFood];
+        _isChopped = _currentClicks >= _clicksPerState;
+
+        ShowTimer();
+        ShowCutButton();
+        UpdateTimer();
 
         return true;
     }
 
     public override void OnRemoveFood()
     {
+        if (_currentFood != null)
+        {
+            _clickProgress[_currentFood] = _currentClicks;
+        }
+
         base.OnRemoveFood();
 
         _currentClicks = 0;
-        UpdateTimer();
+        _isChopped = false;
 
         HideTimer();
         HideCutButton();
@@ -100,6 +115,8 @@ public class CuttingBoard : ManualStation
         {
             return;
         }
+
+        if (_isChopped) return;
 
         if (SpoilageTriggerManager.Instance != null)
         {
@@ -122,7 +139,6 @@ public class CuttingBoard : ManualStation
         }
 
         RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
-
         if (recipeManager == null)
         {
             Debug.LogError($"{gameObject.name}: RecipeManager not found.");
@@ -132,14 +148,7 @@ public class CuttingBoard : ManualStation
 
         List<IngredientObject> ingredients = new() { _currentFood };
         string resultName = recipeManager.CheckRecipe(ingredients, _station);
-
-        if (IsInvalidRecipeResult(resultName))
-        {
-            Debug.Log($"{gameObject.name}: Wrong ingredient for cutting board.");
-            ResetTimer();
-            return;
-        }
-
+        
         IngredientData resultData = IngredientLookup.Get(resultName);
 
         if (resultData == null)
@@ -150,6 +159,8 @@ public class CuttingBoard : ManualStation
         }
 
         _currentFood.ChangeIngredient(resultData);
+        _clickProgress[_currentFood] = _clicksPerState; // Save as fully chopped
+        _isChopped = true;
 
         Debug.Log($"{gameObject.name}: Chopped! → {resultData.Name}");
 
