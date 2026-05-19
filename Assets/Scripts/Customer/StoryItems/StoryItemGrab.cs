@@ -41,9 +41,9 @@ public class StoryItemGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
     {
-        if (_image != null) _image.raycastTarget = true;
-
         Drop(eventData);
+
+        if (_image != null) _image.raycastTarget = true;
     }
 
     public bool TryGrab()
