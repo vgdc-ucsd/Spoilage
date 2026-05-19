@@ -1,35 +1,88 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ManualStation : CookingStation
+public abstract class ManualStation : CookingStation
 {
-    [Header("Cut Settings")]
+    [Header("Manual Settings")]
     [SerializeField] protected int _clicksPerState = 3;
-    // TODO: create popup button that when clicked, calls OnAction()
+
+    [Header("Manual UI")]
+    [SerializeField] protected GameObject _timerObject;
+    [SerializeField] protected Image _timerFill;
+    [SerializeField] protected GameObject _actionButtonObject;
 
     protected int _currentClicks;
+    protected bool _isActionComplete;
 
     public override bool OnPlaceFood(FoodGrab food)
     {
-        base.OnPlaceFood(food);
-
-        // execute any special logic after calling base to ensure the food is set before accessing it
+        bool placed = base.OnPlaceFood(food);
 
         _currentClicks = 0;
-        Debug.Log($"Station updated. New item: {food.name}, Clicks reset to 0.");
-        return true;
+        _isActionComplete = false;
+
+        ShowManualUI();
+        UpdateTimer();
+
+        return placed;
     }
 
     public override void OnRemoveFood()
     {
-        // execute any special logic before calling base to ensure the food is still accessible if needed
-        
         _currentClicks = 0;
+        _isActionComplete = false;
+
+        HideManualUI();
 
         base.OnRemoveFood();
     }
 
     public virtual void OnAction()
     {
+        if (_currentFood == null || _isActionComplete)
+            return;
+
         _currentClicks++;
+        UpdateTimer();
+
+        if (_currentClicks >= _clicksPerState)
+        {
+            _isActionComplete = true;
+            FillTimer();
+            CompleteManualAction();
+        }
+    }
+
+    protected abstract void CompleteManualAction();
+
+    protected void UpdateTimer()
+    {
+        if (_timerFill == null || _clicksPerState <= 0) return;
+        _timerFill.fillAmount = Mathf.Clamp01((float)_currentClicks / _clicksPerState);
+    }
+
+    protected void FillTimer()
+    {
+        if (_timerFill != null)
+            _timerFill.fillAmount = 1f;
+    }
+
+    protected void ResetTimer()
+    {
+        _currentClicks = 0;
+        _isActionComplete = false;
+        UpdateTimer();
+    }
+
+    protected void ShowManualUI()
+    {
+        if (_timerObject != null) _timerObject.SetActive(true);
+        if (_actionButtonObject != null) _actionButtonObject.SetActive(true);
+    }
+
+    protected void HideManualUI()
+    {
+        if (_timerObject != null) _timerObject.SetActive(false);
+        if (_actionButtonObject != null) _actionButtonObject.SetActive(false);
     }
 }

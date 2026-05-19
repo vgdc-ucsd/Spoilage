@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class CuttingBoard : ManualStation
+public class Blender : ManualStation
 {
     public override void Start()
     {
@@ -22,7 +22,7 @@ public class CuttingBoard : ManualStation
 
         if (!HasSpace)
         {
-            Debug.LogWarning($"{gameObject.name}: Cutting board only accepts one ingredient.");
+            Debug.LogWarning($"{gameObject.name}: Blender only accepts three ingredients max.");
             return false;
         }
 
@@ -43,19 +43,19 @@ public class CuttingBoard : ManualStation
 
         if (IsInvalidRecipeResult(result))
         {
-            Debug.Log($"{gameObject.name}: Wrong ingredient for cutting board.");
+            Debug.Log($"{gameObject.name}: Wrong ingredient for blender.");
             HideManualUI();
             return true;
         }
 
-        Debug.Log($"{gameObject.name}: Food on cutting board.");
+        Debug.Log($"{gameObject.name}: Food in blender.");
 
         return placed;
     }
 
     public void PressCutButton()
     {
-        Debug.Log($"{gameObject.name}: Cut button pressed.");
+        Debug.Log($"{gameObject.name}: Blend button pressed.");
         OnAction();
     }
 
