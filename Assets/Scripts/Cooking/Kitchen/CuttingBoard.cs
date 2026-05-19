@@ -1,27 +1,26 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class CuttingBoard : ManualStation
 {
+    [Header("Cutting Timer UI")]
+    [SerializeField] private GameObject _timerObject;
+    [SerializeField] private Image _timerFill;
+
+    [Header("Cut Button UI")]
+    [SerializeField] private GameObject _cutButtonObject;
+
+    private Dictionary<IngredientObject, int> _clickProgress = new();
+    private bool _isChopped = false;
+
     public override void Start()
     {
         maxIngredients = 1;
         base.Start();
-    }
 
-    private void Update()
-    {
-        if (_currentFood == null)
-        {
-            return;
-        }
-
-        // Temporary test input until popup button is implemented
-        if (Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
-        {
-            OnAction();
-        }
+        HideTimer();
+        HideCutButton();
     }
 
     public override bool OnPlaceFood(FoodGrab food)
@@ -31,7 +30,7 @@ public class CuttingBoard : ManualStation
 
         if (_currentFoods.Contains(incoming))
         {
-            return true; 
+            return true;
         }
 
         if (incoming.IngredientInstance.Data.Name == "Slop")
@@ -68,22 +67,71 @@ public class CuttingBoard : ManualStation
         if (IsInvalidRecipeResult(result))
         {
             Debug.Log($"{gameObject.name}: Wrong ingredient for cutting board.");
+            HideTimer();
+            HideCutButton();
+            return true;
         }
+
+        if (!_clickProgress.ContainsKey(_currentFood))
+            _clickProgress[_currentFood] = 0;
+        
+        _currentClicks = _clickProgress[_currentFood];
+        _isChopped = _currentClicks >= _clicksPerState;
+
+        ShowTimer();
+        ShowCutButton();
+        UpdateTimer();
+
         return true;
+    }
+
+    public override void OnRemoveFood()
+    {
+        if (_currentFood != null)
+        {
+            _clickProgress[_currentFood] = _currentClicks;
+        }
+
+        base.OnRemoveFood();
+
+        _currentClicks = 0;
+        _isChopped = false;
+
+        HideTimer();
+        HideCutButton();
+    }
+
+    public void PressCutButton()
+    {
+        Debug.Log($"{gameObject.name}: Cut button pressed.");
+        OnAction();
     }
 
     public override void OnAction()
     {
         Debug.Log($"Action triggered on {gameObject.name}. Current Food: {(_currentFood != null ? _currentFood.name : "NULL")}");
 
-        SpoilageTriggerManager.Instance.Invoke(SpoilageCategory.DISTRESS);
-
         if (_currentFood == null || _currentFood.IngredientInstance == null)
         {
             return;
         }
 
+        if (_isChopped) return;
+
+        if (SpoilageTriggerManager.Instance != null)
+        {
+            SpoilageTriggerManager.Instance.Invoke(SpoilageCategory.DISTRESS);
+        }
+        else
+        {
+            Debug.LogWarning($"{gameObject.name}: SpoilageTriggerManager.Instance is null.");
+        }
+
         base.OnAction();
+
+        UpdateTimer();
+
+        Debug.Log($"{gameObject.name}: Click progress = {_currentClicks}/{_clicksPerState}");
 
         if (_currentClicks < _clicksPerState)
         {
@@ -91,43 +139,98 @@ public class CuttingBoard : ManualStation
         }
 
         RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
-
         if (recipeManager == null)
         {
             Debug.LogError($"{gameObject.name}: RecipeManager not found.");
-            _currentClicks = 0;
+            ResetTimer();
             return;
         }
 
         List<IngredientObject> ingredients = new() { _currentFood };
         string resultName = recipeManager.CheckRecipe(ingredients, _station);
-
-        if (IsInvalidRecipeResult(resultName))
-        {
-            Debug.Log($"{gameObject.name}: Wrong ingredient for cutting board.");
-            _currentClicks = 0;
-            return;
-        }
-
+        
         IngredientData resultData = IngredientLookup.Get(resultName);
 
         if (resultData == null)
         {
             Debug.LogError($"{gameObject.name}: Could not find IngredientData for result '{resultName}'.");
-            _currentClicks = 0;
+            ResetTimer();
             return;
         }
 
         _currentFood.ChangeIngredient(resultData);
+        _clickProgress[_currentFood] = _clicksPerState; // Save as fully chopped
+        _isChopped = true;
 
         Debug.Log($"{gameObject.name}: Chopped! → {resultData.Name}");
 
-        //reset cooking timer
-        FoodGrab foodGrab = _currentFood.GetComponent<FoodGrab>();
-        if (foodGrab != null)
-            foodGrab.ClearCookTimers();
+        FillTimer();
+    }
 
+    private void UpdateTimer()
+    {
+        if (_timerFill == null)
+        {
+            return;
+        }
+
+        if (_clicksPerState <= 0)
+        {
+            return;
+        }
+
+        float progress = (float)_currentClicks / _clicksPerState;
+        _timerFill.fillAmount = Mathf.Clamp01(progress);
+        _timerFill.color = Color.green;
+    }
+
+    private void FillTimer()
+    {
+        if (_timerFill == null)
+        {
+            return;
+        }
+
+        _timerFill.fillAmount = 1f;
+        _timerFill.color = Color.green;
+    }
+
+    private void ResetTimer()
+    {
         _currentClicks = 0;
+        UpdateTimer();
+    }
+
+    private void ShowTimer()
+    {
+        if (_timerObject != null)
+        {
+            _timerObject.SetActive(true);
+        }
+    }
+
+    private void HideTimer()
+    {
+        if (_timerObject != null)
+        {
+            _timerObject.SetActive(false);
+        }
+    }
+
+    private void ShowCutButton()
+    {
+        if (_cutButtonObject != null)
+        {
+            _cutButtonObject.SetActive(true);
+        }
+    }
+
+    private void HideCutButton()
+    {
+        if (_cutButtonObject != null)
+        {
+            _cutButtonObject.SetActive(false);
+        }
     }
 
     private bool IsInvalidRecipeResult(string resultName)

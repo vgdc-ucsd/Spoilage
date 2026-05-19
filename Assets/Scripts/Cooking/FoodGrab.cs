@@ -24,6 +24,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     public static bool CanMoveFood = true;
     private Dictionary<string, float> _stationTimers = new();
     private string _lastStationID;
+    public bool IsLocked = false;
 
     private void Awake()
     {
@@ -52,11 +53,14 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             return;
         }
 
+        if (IsLocked) return;
+
         TryGrab();
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
+        if (IsLocked) return;
         if (!CanMoveFood || IsDeleteModeActive || _isPlaced) return;
 
         CookingStation station = GetComponentInParent<CookingStation>();
@@ -106,12 +110,13 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             gameObject.AddComponent<UnityEngine.UI.GraphicRaycaster>();
 
         if (_foodImage != null) _foodImage.raycastTarget = false;
-
+        
         TryGrab();
     }
 
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
+        if (IsLocked) return;
         if (!CanMoveFood || _isPlaced) return;
 
         _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
@@ -119,6 +124,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
     {
+        if (IsLocked) return;
         if (!CanMoveFood || _isPlaced) return;
 
         if (_foodImage != null) _foodImage.raycastTarget = true;
@@ -142,6 +148,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     }
     public bool TryGrab()
     {
+        if (IsLocked) return false;
         if (!CanMoveFood || _isPlaced) return false;
 
         PointerEventData pointerData = new PointerEventData(EventSystem.current)
@@ -179,11 +186,6 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             _activeStation.OnRemoveFood();
             _activeStation = null;
         }
-        else
-        {
-            _returnStation = null;
-        }
-
 
         if (_spawner != null)
         {
@@ -300,6 +302,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             _rectTransform.SetParent(targetTile.GetComponent<RectTransform>() != null 
                 ? targetTile.transform : _originalParent, false);
             _rectTransform.anchoredPosition = Vector2.zero;
+            _returnStation = null;
             return;
         }
 
@@ -309,10 +312,6 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
     private void ReturnToHome()
     {
         IngredientObject info = GetComponent<IngredientObject>();
-
-        bool stillNeedsCooking =
-            info != null &&
-            info.IngredientInstance != null;
         
         if (_cameFromFridge)
         {
@@ -335,16 +334,10 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             return;
         }
 
-        if (_spawner == null) 
+        if (_returnStation != null)
         {
-            Debug.Log("Duplicate or invalid fridge item, destroying.");
-            Destroy(gameObject); 
-            return;
-        }
-
-        if (_returnStation != null && stillNeedsCooking)
-        {
-            _rectTransform.position = _returnPosition;
+            _rectTransform.SetParent(_returnStation.transform, false);
+            _rectTransform.anchoredPosition = Vector2.zero;
             _activeStation = _returnStation;
             _activeStation.OnPlaceFood(this);
 
@@ -358,6 +351,17 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
             _rectTransform.anchoredPosition = _originalPosition;
             Debug.Log("Missed drop, returning food to fridge.");
         }
+
+        KitchenTile tile = _originalParent.GetComponent<KitchenTile>();
+        if (tile != null)
+        {
+            tile.PlaceObject(gameObject); // handles PutOnSpoilSurface
+            Debug.Log("Invalid drop, snapping back to kitchen tile.");
+            return;
+        }
+
+        _rectTransform.SetParent(_originalParent);
+        _rectTransform.anchoredPosition = _originalPosition;
 
         _activeStation = null;
         _returnStation = null;

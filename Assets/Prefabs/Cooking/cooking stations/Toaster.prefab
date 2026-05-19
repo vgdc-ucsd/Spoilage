@@ -302,6 +302,8 @@ MonoBehaviour:
   _timerObject: {fileID: 3401246149377442977}
   _timerFill: {fileID: 7246497820136325963}
   _stationID: Oven1
+  _isCooking: 0
+  _isOverCooking: 0
 --- !u!61 &6165871231623236679
 BoxCollider2D:
   m_ObjectHideFlags: 0
