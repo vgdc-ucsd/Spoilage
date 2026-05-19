@@ -3,7 +3,7 @@ using UnityEngine;
 public class SeasoningStation : UtilityStation
 {
 
-    private DishObject _currentFood;
+    private IngredientObject _currentIngredient;
     private int _counter;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,22 +18,23 @@ public class SeasoningStation : UtilityStation
         
     }
 
-    // Maybe don't use foodgrab food, also make new dish object to operate on and replace all the IngredientIntance/State
-    public override void OnPlaceFood(UtilityGrab dish)
+        // Maybe don't use foodgrab food, also make new dish object to operate on 
+        // and replace all the IngredientIntance/State
+    public override void OnPlaceFood(FoodGrab dish)
     {
-         _currentFood = dish.GetComponent<DishObject>();
+        _currentIngredient = dish.GetComponent<IngredientObject>();
 
-        if (_currentFood == null)
+        if (_currentIngredient == null)
         {
-            Debug.LogWarning("No Dish found!");
+            Debug.LogWarning("No Ingredient found!");
             return;
         }
 
         Debug.Log("Food on Station");
 
-        if (_currentFood.DishInstance.CurrentState == DishState.Seasoned)
+        if (_currentIngredient.IsSeasoned)
         {
-            Debug.Log("Food is already seasoned");
+            Debug.Log("Ingredient is already seasoned");
             return; 
         }
 
@@ -43,21 +44,23 @@ public class SeasoningStation : UtilityStation
 
     public void SeasonFood()
     {
-        _counter--;
-        Debug.Log("Seasoning, " + _counter + " uses left.");
+        if(_currentIngredient == null) return;
+        if(_counter > 0)
+        {
+            _counter--;
+            _currentIngredient.SeasonIngredient();
+            Debug.Log("Seasoning, " + _counter + " uses left.");
+        }
+        else
+        {
+            Debug.Log("No more seasoning left");
+        }
     }
 
      public override void OnRemoveFood()
-    /*{
-        _currentFood = null;
-    }*/
     {
-        if (_currentFood == null) return;
+        if (_currentIngredient == null) return;
 
-        _currentFood.DishInstance.CurrentState = DishState.Seasoned;
-
-        Debug.Log("Food is now Seasoned");
-
-        _currentFood = null;
+        _currentIngredient = null;
     }
 }

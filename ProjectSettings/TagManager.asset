@@ -13,6 +13,7 @@ TagManager:
   - Guard Spawnpoint
   - Guard Stamina Bar
   - Serving Area Tile
+  - StarRating
   layers:
   - Default
   - TransparentFX

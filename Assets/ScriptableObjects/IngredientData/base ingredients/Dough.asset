@@ -16,4 +16,5 @@ MonoBehaviour:
   _spoilTime: 15
   _qualityPercent: 0
   _normalSprite: {fileID: 21300000, guid: 9d9f52d93ef48554d92c1cd11cd1aaf3, type: 3}
-  _spoiledSprite: {fileID: 0}
+  _spoiledSprite: {fileID: -4653964057535779921, guid: 1d3bc3bd50253495084ed6e99ea15b58, type: 3}
+  _platedSprite: {fileID: 0}
