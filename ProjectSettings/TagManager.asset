@@ -12,6 +12,8 @@ TagManager:
   - Customer Refusal Test
   - Guard Spawnpoint
   - Guard Stamina Bar
+  - Stamina Bar Fill
+  - Stamina Bar Arrow
   layers:
   - Default
   - TransparentFX
