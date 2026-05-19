@@ -35,7 +35,7 @@ public class RefusalButton : MonoBehaviour
     {
         // TODO: Check ResourceManager for remaining refusals before proceeding.
         // If none left, play an error sound/animation and return.
-
+        
         Customer currentCustomer = CustomerLineManager.Instance.CurrentCustomer;
         GameObject customerToRemove = currentCustomer?.gameObject;
 
