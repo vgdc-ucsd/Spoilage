@@ -110,7 +110,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4973515374291182453
 CanvasRenderer:
@@ -252,7 +252,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6517700985564062406}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -264,7 +264,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -480, y: -354}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2438008716437360300
 MonoBehaviour:
@@ -298,10 +298,12 @@ MonoBehaviour:
   maxIngredients: 1
   _cookDuration: 5
   _overcookDuration: 5
-  _canOvercook: 0
+  _canOvercook: 1
   _timerObject: {fileID: 3401246149377442977}
   _timerFill: {fileID: 7246497820136325963}
   _stationID: Oven1
+  _isCooking: 0
+  _isOverCooking: 0
 --- !u!61 &6165871231623236679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -336,7 +338,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.35064697, y: 13.335215}
+  m_Offset: {x: 0.86396027, y: 25.655891}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -346,7 +348,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 90, y: 70}
+  m_Size: {x: 183.43205, y: 145.9777}
   m_EdgeRadius: 0
 --- !u!1 &8935117493545673796
 GameObject:

@@ -14,6 +14,7 @@ TagManager:
   - Guard Stamina Bar
   - Stamina Bar Fill
   - Stamina Bar Arrow
+  - StarRating
   layers:
   - Default
   - TransparentFX
