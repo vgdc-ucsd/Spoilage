@@ -14,6 +14,12 @@ public abstract class ManualStation : CookingStation
     protected int _currentClicks;
     protected bool _isActionComplete;
 
+    public override void Start()
+    {
+        base.Start();
+        HideManualUI();
+    }
+    
     public override bool OnPlaceFood(FoodGrab food)
     {
         bool placed = base.OnPlaceFood(food);

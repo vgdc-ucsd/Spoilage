@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cut
+  m_text: Blend
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -579,14 +579,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Blender
   _stationImage: {fileID: 1439787757170371108}
-  _defaultSprite: {fileID: 0}
-  _activeSprite: {fileID: 0}
-  _station: 
+  _defaultSprite: {fileID: 8118242888825828781, guid: 7f9858a5b08524cf8bfdc659e493a2ea, type: 3}
+  _activeSprite: {fileID: 6370200035509205986, guid: 5fa5ead9c279a44e9a04f44603421e15, type: 3}
+  _station: Blender
   maxIngredients: 3
   _clicksPerState: 5
-  _timerObject: {fileID: 0}
-  _timerFill: {fileID: 0}
-  _actionButtonObject: {fileID: 0}
+  _timerObject: {fileID: 5997921261872719499}
+  _timerFill: {fileID: 4672419527737734646}
+  _actionButtonObject: {fileID: 7948047525517841250}
 --- !u!1 &7948047525517841250
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,9 +708,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CuttingBoard, Assembly-CSharp
-        m_MethodName: PressCutButton
+      - m_Target: {fileID: 8803183462364715164}
+        m_TargetAssemblyTypeName: Blender, Assembly-CSharp
+        m_MethodName: PressBlendButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
