@@ -259,10 +259,29 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
                 _rectTransform.SetParent(app.transform, false);
                 _rectTransform.anchoredPosition = Vector2.zero;
 
-                _activeStation = app;
-                _activeStation.OnPlaceFood(this);
-                
-                foundValidDrop = true;
+                bool placed = app.OnPlaceFood(this);
+
+                if (placed)
+                {
+                    _activeStation = app;
+                    foundValidDrop = true;
+                }
+                else
+                {
+                    // remove this rejected food from any tile tracking
+                    KitchenTile originalTile = _originalParent.GetComponent<KitchenTile>();
+                    if (originalTile != null)
+                    {
+                        originalTile.RemoveObject(gameObject);
+                    }
+                    // snap back without triggering tile placement logic
+                    _rectTransform.SetParent(_originalParent, false);
+                    _rectTransform.anchoredPosition = _originalPosition;
+
+                    _activeStation = null;
+                    _returnStation = null;
+                }
+
                 break;
             }
 
