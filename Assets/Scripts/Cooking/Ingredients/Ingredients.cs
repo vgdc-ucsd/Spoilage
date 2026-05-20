@@ -25,6 +25,7 @@ public sealed class Ingredient
     public void ChangeData(IngredientData newData)
     {
         Data = newData;
+        Data.QualityPercent -= (SeasoningBonus ?? 0f);
         SeasoningBonus = null;
     }
 
@@ -32,12 +33,14 @@ public sealed class Ingredient
     {
         if(IsSeasoned) return false;
         SeasoningBonus = CONSTANT_SEASONING_BONUS;
+        Data.QualityPercent += (SeasoningBonus ?? 0f);
         return true;
     }
 
     public bool RemoveSeasoning()
     {
         if (!IsSeasoned) return false;
+        Data.QualityPercent -= (SeasoningBonus ?? 0f);
         SeasoningBonus = null;
         return true;
     }

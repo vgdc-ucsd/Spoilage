@@ -49,7 +49,7 @@ public class SeasoningStation : UtilityStation
         {
             _counter--;
             _currentIngredient.SeasonIngredient();
-            Debug.Log("Seasoning, " + _counter + " uses left.");
+            Debug.Log("Seasoning, " + _counter + " uses left. Quality: " + _currentIngredient.IngredientInstance.Data.QualityPercent);
         }
         else
         {
