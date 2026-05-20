@@ -21,6 +21,7 @@ public sealed class Ingredient
     {
         Data = data;
         SpoilagePercent = 0f;
+        QualityPercent = 0f;
         SeasoningBonus = null;
     }
 
