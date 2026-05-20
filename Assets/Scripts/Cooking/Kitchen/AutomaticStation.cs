@@ -206,7 +206,7 @@ public class AutomaticStation : CookingStation
 
         IngredientObject survivor = _currentFoods[0];
         survivor.ChangeIngredient(resultData);
-        survivor.IngredientInstance.Data.QualityPercent = recipeManager.CalculateTotalQuality(_currentFoods);
+        survivor.QualityPercent = recipeManager.CalculateTotalQuality(_currentFoods);
 
         if (matchedRecipe != null && matchedRecipe.spoiled)
         {
@@ -224,7 +224,7 @@ public class AutomaticStation : CookingStation
         _currentBehaviours.Clear();
         _currentFoods.Add(survivor);
 
-        Debug.Log($"<color=green>{gameObject.name}: SUCCESS:</color> {resultData.Name}. Quality = {survivor.IngredientInstance.Data.QualityPercent}");
+        Debug.Log($"<color=green>{gameObject.name}: SUCCESS:</color> {resultData.Name}. Quality = {survivor.QualityPercent}");
 
         if (_canOvercook)
         {
@@ -285,13 +285,12 @@ public class AutomaticStation : CookingStation
         if (food != null && food.IngredientInstance != null)
         {
             food.IngredientInstance.SetOvercooked(true);
-            food.IngredientInstance.Data.QualityPercent -= OVERCOOKED_QUALITY_PERCENTAGE_DECREASE;
               
             IngredientBehaviour behaviour = food.GetComponent<IngredientBehaviour>();
             if (behaviour != null)
                 behaviour.SetBurntOverlay(true);
 
-            Debug.Log($"<color=red>{gameObject.name}: {food.IngredientInstance.Data.Name} is now OVERCOOKED.</color> Quality = {food.IngredientInstance.Data.QualityPercent}");
+            Debug.Log($"<color=red>{gameObject.name}: {food.IngredientInstance.Data.Name} is now OVERCOOKED.</color> Quality = {food.QualityPercent}");
         }
 
         _timer = 0f;
