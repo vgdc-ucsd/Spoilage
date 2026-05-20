@@ -17,6 +17,7 @@ public class Recipe
     public string name;
     public int complexity;
     public int reward;
+    public int rarityWeight;
     public string appliance;
     public bool servable;
     public bool spoiled;

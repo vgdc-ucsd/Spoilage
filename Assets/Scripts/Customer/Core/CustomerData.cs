@@ -56,7 +56,7 @@ public class CustomerData : ScriptableObject
     public AbstractSpoilageSymptom spoilageSymtomp;
     public float patience;
 
-    public List<CustomerOrder> orders = new List<CustomerOrder>();
+    public List<Recipe> orders = new List<Recipe>();
 
     /// <summary>
     /// Identifier for story-relevant characters, empty for randomly generated

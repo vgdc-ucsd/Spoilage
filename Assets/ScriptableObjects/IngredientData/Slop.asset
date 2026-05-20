@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   _name: Slop
   _spoilTime: 0
-  _normalSprite: {fileID: -8113185096396602001, guid: 45824706ed86c47b8bc5a213d5ac9e70, type: 3}
-  _spoiledSprite: {fileID: 0}
+  _qualityPercent: 0
+  _normalSprite: {fileID: -1817306782046942760, guid: a0440694b996b459cab51a0b2b6f6c3a, type: 3}
+  _spoiledSprite: {fileID: -1817306782046942760, guid: a0440694b996b459cab51a0b2b6f6c3a, type: 3}
+  _platedSprite: {fileID: -8467415073555904604, guid: 93de1f45c5667428799c298675d50b4e, type: 3}

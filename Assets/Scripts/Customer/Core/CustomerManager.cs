@@ -52,8 +52,13 @@ public class CustomerManager : Singleton<CustomerManager>
 
     public Customer GenerateCustomer()
     {
+        return GenerateCustomer(GenerateCustomerData());
+    }
+
+    public Customer GenerateCustomer(CustomerData customerData)
+    {
         Customer instantiatedCustomer = Instantiate(CustomerPrefab, _customerTransform).GetComponent<Customer>();
-        instantiatedCustomer.customerData = GenerateCustomerData();
+        instantiatedCustomer.customerData = customerData;
         instantiatedCustomer.customerObject = instantiatedCustomer.gameObject;
         instantiatedCustomer.InitializeCustomer();
 
@@ -174,7 +179,7 @@ public class CustomerManager : Singleton<CustomerManager>
 
         for (int i = 0; i < orderCount; i++)
         {
-            CustomerOrder order = customerOrderDatabase.GenerateCustomerOrder(0); // TODO: Get actual difficulty.
+            Recipe order = customerOrderDatabase.GenerateCustomerOrder();
 
             if (order != null)
             {
