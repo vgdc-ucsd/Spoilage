@@ -28,37 +28,27 @@ public class Blender : ManualStation
 
         foreach (IngredientObject existing in _currentFoods)
         {
-            if (existing != null &&
-                existing.IngredientInstance.Data == incoming.IngredientInstance.Data)
+            if (existing == null || existing.IngredientInstance == null) continue;
+
+            string existingName = existing.IngredientInstance.Data.Name;
+            string incomingName = incoming.IngredientInstance.Data.Name;
+
+            if (existingName == incomingName)
             {
-                Debug.Log($"{gameObject.name}: Duplicate ingredient rejected.");
+                Debug.Log($"{gameObject.name}: Duplicate ingredient '{incomingName}' rejected.");
                 return false;
             }
         }
 
         bool placed = base.OnPlaceFood(food);
 
-        // reset blender clicks every time a new ingredient is added
+        LockFood();
+
         _currentClicks = 0;
         _isActionComplete = false;
         UpdateTimer();
 
-        RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
-        if (recipeManager == null)
-        {
-            Debug.LogError($"{gameObject.name}: RecipeManager not found.");
-            return false;
-        }
-
-        string result = recipeManager.CheckRecipe(_currentFoods, _station);
-
-        if (IsInvalidRecipeResult(result))
-        {
-            Debug.Log($"{gameObject.name}: Current blender ingredients do not make a recipe yet.");
-            return true;
-        }
-
-        Debug.Log($"{gameObject.name}: Valid blender recipe found: {result}");
+        Debug.Log($"{gameObject.name}: Added ingredient. Blend clicks reset.");
 
         return placed;
     }
@@ -83,8 +73,7 @@ public class Blender : ManualStation
 
         if (IsInvalidRecipeResult(resultName))
         {
-            Debug.Log($"{gameObject.name}: Cannot blend. Invalid recipe.");
-            ResetTimer();
+            TurnIntoSlop();
             return;
         }
 
@@ -106,7 +95,36 @@ public class Blender : ManualStation
         _currentBehaviours.Clear();
         _currentFoods.Add(survivor);
 
+        UnlockFood();
+
         Debug.Log($"{gameObject.name}: Blended! → {resultData.Name}");
+    }
+
+    private void TurnIntoSlop()
+    {
+        IngredientData slop = IngredientLookup.Get("Slop");
+
+        if (slop == null)
+        {
+            Debug.LogError($"{gameObject.name}: Slop IngredientData not found.");
+            ResetTimer();
+            return;
+        }
+
+        IngredientObject survivor = _currentFoods[0];
+        survivor.ChangeIngredient(slop);
+
+        DestroyExtraIngredients();
+
+        _currentFoods.Clear();
+        _currentBehaviours.Clear();
+        _currentFoods.Add(survivor);
+
+        UnlockFood();
+        ResetTimer();
+        SetSpriteActive(true);
+
+        Debug.Log($"{gameObject.name}: Invalid blend, turned into Slop.");
     }
 
     private void DestroyExtraIngredients()
@@ -114,9 +132,31 @@ public class Blender : ManualStation
         for (int i = 1; i < _currentFoods.Count; i++)
         {
             if (_currentFoods[i] != null)
-            {
                 Destroy(_currentFoods[i].gameObject);
-            }
+        }
+    }
+
+    private void LockFood()
+    {
+        foreach (IngredientObject food in _currentFoods)
+        {
+            if (food == null) continue;
+
+            FoodGrab grab = food.GetComponent<FoodGrab>();
+            if (grab != null)
+                grab.IsLocked = true;
+        }
+    }
+
+    private void UnlockFood()
+    {
+        foreach (IngredientObject food in _currentFoods)
+        {
+            if (food == null) continue;
+
+            FoodGrab grab = food.GetComponent<FoodGrab>();
+            if (grab != null)
+                grab.IsLocked = false;
         }
     }
 
