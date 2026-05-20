@@ -5,7 +5,7 @@ public class Blender : ManualStation
 {
     public override void Start()
     {
-        maxIngredients = 1;
+        maxIngredients = 3;
         base.Start();
     }
 
@@ -26,10 +26,22 @@ public class Blender : ManualStation
             return false;
         }
 
+        foreach (IngredientObject existing in _currentFoods)
+        {
+            if (existing != null &&
+                existing.IngredientInstance.Data == incoming.IngredientInstance.Data)
+            {
+                Debug.Log($"{gameObject.name}: Duplicate ingredient rejected.");
+                return false;
+            }
+        }
+
         bool placed = base.OnPlaceFood(food);
 
-        if (_currentFood == null || _currentFood.IngredientInstance == null)
-            return false;
+        // reset blender clicks every time a new ingredient is added
+        _currentClicks = 0;
+        _isActionComplete = false;
+        UpdateTimer();
 
         RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
         if (recipeManager == null)
@@ -38,22 +50,20 @@ public class Blender : ManualStation
             return false;
         }
 
-        List<IngredientObject> check = new() { _currentFood };
-        string result = recipeManager.CheckRecipe(check, _station);
+        string result = recipeManager.CheckRecipe(_currentFoods, _station);
 
         if (IsInvalidRecipeResult(result))
         {
-            Debug.Log($"{gameObject.name}: Wrong ingredient for blender.");
-            HideManualUI();
+            Debug.Log($"{gameObject.name}: Current blender ingredients do not make a recipe yet.");
             return true;
         }
 
-        Debug.Log($"{gameObject.name}: Food in blender.");
+        Debug.Log($"{gameObject.name}: Valid blender recipe found: {result}");
 
         return placed;
     }
 
-    public void PressCutButton()
+    public void PressBlendButton()
     {
         Debug.Log($"{gameObject.name}: Blend button pressed.");
         OnAction();
@@ -69,8 +79,14 @@ public class Blender : ManualStation
             return;
         }
 
-        List<IngredientObject> ingredients = new() { _currentFood };
-        string resultName = recipeManager.CheckRecipe(ingredients, _station);
+        string resultName = recipeManager.CheckRecipe(_currentFoods, _station);
+
+        if (IsInvalidRecipeResult(resultName))
+        {
+            Debug.Log($"{gameObject.name}: Cannot blend. Invalid recipe.");
+            ResetTimer();
+            return;
+        }
 
         IngredientData resultData = IngredientLookup.Get(resultName);
 
@@ -81,9 +97,27 @@ public class Blender : ManualStation
             return;
         }
 
-        _currentFood.ChangeIngredient(resultData);
+        IngredientObject survivor = _currentFoods[0];
+        survivor.ChangeIngredient(resultData);
 
-        Debug.Log($"{gameObject.name}: Chopped! → {resultData.Name}");
+        DestroyExtraIngredients();
+
+        _currentFoods.Clear();
+        _currentBehaviours.Clear();
+        _currentFoods.Add(survivor);
+
+        Debug.Log($"{gameObject.name}: Blended! → {resultData.Name}");
+    }
+
+    private void DestroyExtraIngredients()
+    {
+        for (int i = 1; i < _currentFoods.Count; i++)
+        {
+            if (_currentFoods[i] != null)
+            {
+                Destroy(_currentFoods[i].gameObject);
+            }
+        }
     }
 
     private bool IsInvalidRecipeResult(string resultName)

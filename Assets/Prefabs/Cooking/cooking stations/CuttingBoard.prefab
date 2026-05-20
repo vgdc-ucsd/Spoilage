@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 204938233375531329}
   - component: {fileID: 4273827558751349673}
   m_Layer: 5
-  m_Name: CuttingBoard 1
+  m_Name: CuttingBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
