@@ -31,15 +31,11 @@ public override bool OnPlaceFood(FoodGrab food)
 
         Debug.Log($"Comparing existing '{existingName}' with incoming '{incomingName}'");
 
-        if (existingName.Trim().ToLower() ==
-            incomingName.Trim().ToLower())
+        if (existingName.Trim().ToLower() == incomingName.Trim().ToLower())
         {
             Debug.Log($"{gameObject.name}: Duplicate ingredient rejected.");
 
-            FoodGrab incomingGrab = incoming.GetComponent<FoodGrab>();
-
-            if (incomingGrab != null)
-                incomingGrab.IsLocked = false;
+            Destroy(incoming.gameObject);
 
             return false;
         }
@@ -96,6 +92,7 @@ public override bool OnPlaceFood(FoodGrab food)
         if (IsInvalidRecipeResult(resultName))
         {
             TurnIntoSlop();
+            HideManualUI();
             return;
         }
 

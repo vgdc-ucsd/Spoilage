@@ -52,6 +52,7 @@ public class AutomaticStation : CookingStation
                 existing.IngredientInstance.Data == incoming.IngredientInstance.Data)
             {
                 Debug.Log($"{gameObject.name}: Duplicate ingredient '{incoming.IngredientInstance.Data.Name}' rejected.");
+                Destroy(incoming.gameObject);
                 return false;
             }
         }
