@@ -21,9 +21,8 @@ public class Customer : MonoBehaviour
         {
             customerData.spoilageSymptom.customer = transform.gameObject;
 
-            // DEBUG!!!!!
-            customerData.spoilageSymptom?.ApplySpoilage(); 
-            Debug.Log("Spoiled");
+            // DEBUG
+            //customerData.spoilageSymptom.ApplySpoilage(); 
         }
 
         for (int i = 0; i < customerData.sprites.Length; i++)
