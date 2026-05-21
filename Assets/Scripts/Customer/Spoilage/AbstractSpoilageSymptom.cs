@@ -6,11 +6,11 @@ public abstract class AbstractSpoilageSymptom : ScriptableObject
     public static readonly Type[] symptomTypes =
     {
         typeof(BlinkingRapidly),
-        //typeof(Soilage),
-        //typeof(Sweating),
+        // typeof(Soilage),
+        typeof(Sweating),
         typeof(BugSkittering),
         // typeof(Gurgling),
-        // typeof(Tentacles),
+        typeof(Tentacles),
         // typeof(Ourgh),
         // typeof(Ewww),
         // typeof(Threat),
@@ -23,7 +23,7 @@ public abstract class AbstractSpoilageSymptom : ScriptableObject
 
     public abstract void ApplySpoilage();
 
-        public void DeleteSymptom()
+    public void DeleteSymptom()
     {
         // SpoilageTriggerManager.Instance.RemoveSymptom(this);
         Destroy(this);

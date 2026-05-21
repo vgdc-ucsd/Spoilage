@@ -91,7 +91,7 @@ public class CustomerAnimation : MonoBehaviour
     }
     private float GetBlinkTime()
     {
-        return Random.Range(MIN_BLINK_COOLDOWN, MAX_BLINK_COOLDOWN) * currentBlinkMultiplier;
+        return Random.Range(MIN_BLINK_TIME, MAX_BLINK_TIME) * currentBlinkMultiplier;
     }
 
     public void StartSpoilageAnim()
