@@ -15,5 +15,6 @@ MonoBehaviour:
   _name: Meat
   _spoilTime: 15
   _qualityPercent: 0
-  _normalSprite: {fileID: 21300000, guid: cd90246b15852f9418722d61970bf7b0, type: 3}
-  _spoiledSprite: {fileID: 0}
+  _normalSprite: {fileID: -9178132903147745508, guid: e9a536c16252a4c3fb25bfacb8580250, type: 3}
+  _spoiledSprite: {fileID: -7155634840893203162, guid: cd68d53c6d4cc47bc80c23dac1f6111a, type: 3}
+  _platedSprite: {fileID: 0}

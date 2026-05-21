@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   _name: Potatoes
   _spoilTime: 15
-  _normalSprite: {fileID: 21300000, guid: 88a500256b46ea24b87dd3b3e3c9f25a, type: 3}
-  _spoiledSprite: {fileID: 0}
+  _qualityPercent: 0
+  _normalSprite: {fileID: -3614249259976814567, guid: fb2521bfba19e4ad68821a224d706eac, type: 3}
+  _spoiledSprite: {fileID: -6227326207025260386, guid: eb2364d992db244d594c9ac4537dc191, type: 3}
+  _platedSprite: {fileID: 0}

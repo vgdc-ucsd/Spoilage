@@ -18,10 +18,9 @@ public class AutomaticStation : CookingStation
     [SerializeField] private string _stationID;
 
     private float _timer;
-    private bool _isCooking;
-    private bool _isOverCooking = false;
+    public bool _isCooking;
+    public bool _isOverCooking = false;
     private bool _canCook = true;
-
     public override void Start()
     {
         maxIngredients = 3;
@@ -122,6 +121,11 @@ public class AutomaticStation : CookingStation
 
         _isCooking = true;
 
+        if (_isOverCooking)
+            UnlockFood(); // stay unlocked during overcook
+        else
+            LockFood();  // lock during normal cooking
+
         if (_timer <= 0f)
             _isOverCooking = false;
 
@@ -138,6 +142,7 @@ public class AutomaticStation : CookingStation
     {
         _isCooking = false;
         _isOverCooking = false;
+        UnlockFood();
         HideTimer();
     }
 
@@ -232,6 +237,7 @@ public class AutomaticStation : CookingStation
             _timer = 0f;
             _isCooking = true;
             _isOverCooking = true;
+            UnlockFood();
 
             if (_timerFill != null) _timerFill.color = Color.red;
             Debug.Log($"Overcook started. isCooking: {_isCooking}, isOvercooking: {_isOverCooking}, timer: {_timer}, overcookDuration: {_overcookDuration}");
@@ -287,6 +293,11 @@ public class AutomaticStation : CookingStation
         {
             food.IngredientInstance.SetOvercooked(true);
             food.IngredientInstance.Data.QualityPercent -= OVERCOOKED_QUALITY_PERCENTAGE_DECREASE;
+              
+            IngredientBehaviour behaviour = food.GetComponent<IngredientBehaviour>();
+            if (behaviour != null)
+                behaviour.SetBurntOverlay(true);
+
             Debug.Log($"<color=red>{gameObject.name}: {food.IngredientInstance.Data.Name} is now OVERCOOKED.</color> Quality = {food.IngredientInstance.Data.QualityPercent}");
         }
 
@@ -364,6 +375,26 @@ public class AutomaticStation : CookingStation
         if (_timerObject != null)
         {
             _timerObject.SetActive(false);
+        }
+    }
+
+    private void LockFood()
+    {
+        foreach (IngredientObject food in _currentFoods)
+        {
+            if (food == null) continue;
+            FoodGrab grab = food.GetComponent<FoodGrab>();
+            if (grab != null) grab.IsLocked = true;
+        }
+    }
+
+    private void UnlockFood()
+    {
+        foreach (IngredientObject food in _currentFoods)
+        {
+            if (food == null) continue;
+            FoodGrab grab = food.GetComponent<FoodGrab>();
+            if (grab != null) grab.IsLocked = false;
         }
     }
 }

@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using NUnit.Framework;
-using UnityEditor.Build;
 using UnityEngine;
 
 public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
@@ -9,9 +6,6 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
     private RecipeManager _recipeManager;
 
     private SaveManager _saveManager;
-
-    [SerializeField]
-    private CustomerOrder[] _customerOrders;
 
     [Header("Chance curves based on game progress from 0 to 1")]
     [SerializeField]
@@ -35,6 +29,7 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
     {
         _recipeManager = RecipeManager.Instance;
         _saveManager = SaveManager.Instance;
+
         UpdateAvailableRecipes();
     }
 
@@ -85,12 +80,13 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
     /// </summary>
     public void UpdateAvailableRecipes()
     {
-        //wow allRecipes.allRecipes is stupid why did i do that
+        SyncUnlockedRecipes();
+
         foreach (Recipe recipe in _recipeManager.allRecipes.allRecipes)
         {
             if (recipe.servable)
             {
-                if (UpdateAvailableRecipesHelper(recipe))
+                if (CheckPlayerCanMakeRecipe(recipe) && !IsRecipeUnlocked(recipe))
                 {
                     _saveManager.Player.RecipesUnlocked.Add(recipe);
                     Debug.Log("Added " + recipe.name + " to unlocked recipes");
@@ -104,15 +100,12 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
     /// recipe until it reaches the base ingredients, then checks to see if 
     /// that ingredient is unlocked.
     /// </summary>
-    /// <returns></returns>
-    protected bool UpdateAvailableRecipesHelper(Recipe recipe)
+    public bool CheckPlayerCanMakeRecipe(Recipe recipe)
     {
         // BASE CASE: Base ingredient, check if unlocked if not return false
-        if (recipe.requiredIngredients.Length == 0)
+        if (recipe.requiredIngredients == null || recipe.requiredIngredients.Length == 0)
         {
-            Predicate<string> predicate = name => name == recipe.name;
-            return _saveManager.Player.IngredientsUnlocked.Exists(predicate);
-            // wtf is a predicate and why do i need to use one
+            return _saveManager.Player.IngredientsUnlocked.Contains(recipe.name);
         }
 
         bool result = true;
@@ -121,19 +114,16 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
         // unlocked
         if (recipe.appliance != "None" && recipe.appliance != "Spoil")
         {
-            Predicate<string> predicate = app => app == recipe.appliance;
-            if (!_saveManager.Player.StationsUnlocked.Exists(predicate))
+            if (!_saveManager.Player.StationsUnlocked.Contains(recipe.appliance))
             {
                 result = false;
             }
         }
 
         // INGREDIENT CHECK: Go through each ingredient until reaching base case
-        foreach(RecipeRequirement ingredient in recipe.requiredIngredients)
+        foreach (RecipeRequirement ingredient in recipe.requiredIngredients)
         {
-            if (!UpdateAvailableRecipesHelper(
-                _recipeManager.allRecipes.allRecipes[ingredient.id]
-            ))
+            if (!CheckPlayerCanMakeRecipe(_recipeManager.allRecipes.allRecipes[ingredient.id]))
             {
                 result = false;
             }
@@ -141,26 +131,33 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
         return result;
     }
 
-    public CustomerOrder GenerateCustomerOrder(int difficulty)
+    public Recipe GenerateCustomerOrder()
     {
-        var availableOrders = new List<CustomerOrder>();
+        return null;
+    }
 
-        for (int i = 0; i < _customerOrders.Length; i++)
+    private void SyncUnlockedRecipes()
+    {
+        List<Recipe> unlockedRecipes = _saveManager.Player.RecipesUnlocked;
+
+        for (int i = 0; i < unlockedRecipes.Count; i++)
         {
-            CustomerOrder customerOrder = _customerOrders[i];
+            Recipe recipe = unlockedRecipes[i];
 
-            if ((int)customerOrder.difficulty <= difficulty && customerOrder.CheckPlayerHasIngredients())
+            unlockedRecipes[i] = _recipeManager.allRecipes.allRecipes[recipe.id];
+        }
+    }
+
+    private bool IsRecipeUnlocked(Recipe recipe)
+    {
+        foreach (Recipe unlockedRecipe in _saveManager.Player.RecipesUnlocked)
+        {
+            if (unlockedRecipe.id == recipe.id)
             {
-                availableOrders.Add(customerOrder);
+                return true;
             }
         }
 
-        if (availableOrders.Count > 0)
-        {
-            int randomIndex = UnityEngine.Random.Range(0, availableOrders.Count);
-            return availableOrders[randomIndex];
-        }
-
-        return null;
+        return false;
     }
 }

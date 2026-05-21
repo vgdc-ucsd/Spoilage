@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   _name: Pickled Pigeons
   _spoilTime: 15
-  _normalSprite: {fileID: 21300000, guid: d2cfb3b73a22aa047bcb094c6f846153, type: 3}
-  _spoiledSprite: {fileID: 0}
+  _qualityPercent: 0
+  _normalSprite: {fileID: 9001998451646319863, guid: 3a900afc6b29746da83ac5d50e234ad8, type: 3}
+  _spoiledSprite: {fileID: -1482802776380183350, guid: 9655c4f798d95418a8433a87851ec0c4, type: 3}
+  _platedSprite: {fileID: -1168446412730190243, guid: 730b3c1141997413087e2df8775fef38, type: 3}
