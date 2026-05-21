@@ -14,6 +14,7 @@ public class Threat : AbstractSpoilageSymptom
 
     public override void ApplySpoilage() {
         Debug.Log("Threat");
+        // TODO: DIALOGUE
     }
 }
 

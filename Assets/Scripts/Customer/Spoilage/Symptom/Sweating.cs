@@ -14,5 +14,6 @@ public class Sweating : AbstractSpoilageSymptom
 
     public override void ApplySpoilage() {
         Debug.Log("Sweating");
+        // TODO: VISUALS
     }
 }

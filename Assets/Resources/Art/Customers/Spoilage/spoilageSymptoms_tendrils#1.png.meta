@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: 6db600d4a720a0f1cafbe1bc3cfab298
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2176271720572668499
+    second: spoilageSymptoms_tendrils#1_0
+  - first:
+      213: 7184954600013623993
+    second: spoilageSymptoms_tendrils#1_1
+  - first:
+      213: 6418033266060302193
+    second: spoilageSymptoms_tendrils#1_2
+  - first:
+      213: -33015959588092623
+    second: spoilageSymptoms_tendrils#1_3
+  - first:
+      213: -2500824701748116435
+    second: spoilageSymptoms_tendrils#1_4
+  - first:
+      213: -2909661399810030200
+    second: spoilageSymptoms_tendrils#1_5
+  - first:
+      213: -1303342316298152947
+    second: spoilageSymptoms_tendrils#1_6
+  - first:
+      213: 8764218282066090962
+    second: spoilageSymptoms_tendrils#1_7
+  - first:
+      213: -6509606715667093661
+    second: spoilageSymptoms_tendrils#1_8
+  - first:
+      213: 4506295870551820871
+    second: spoilageSymptoms_tendrils#1_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spoilageSymptoms_tendrils#1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da5b98886645cc1e0800000000000000
+      internalID: -2176271720572668499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_tendrils#1_1
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b2fe15242616b360800000000000000
+      internalID: 7184954600013623993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 567a829f6a11dd74a9a5578161424f8c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      spoilageSymptoms_tendrils#1_0: -2176271720572668499
+      spoilageSymptoms_tendrils#1_1: 7184954600013623993
+      spoilageSymptoms_tendrils#1_2: 6418033266060302193
+      spoilageSymptoms_tendrils#1_3: -33015959588092623
+      spoilageSymptoms_tendrils#1_4: -2500824701748116435
+      spoilageSymptoms_tendrils#1_5: -2909661399810030200
+      spoilageSymptoms_tendrils#1_6: -1303342316298152947
+      spoilageSymptoms_tendrils#1_7: 8764218282066090962
+      spoilageSymptoms_tendrils#1_8: -6509606715667093661
+      spoilageSymptoms_tendrils#1_9: 4506295870551820871
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

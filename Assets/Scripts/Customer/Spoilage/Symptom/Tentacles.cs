@@ -14,6 +14,7 @@ public class Tentacles : AbstractSpoilageSymptom
 
     public override void ApplySpoilage() {
         Debug.Log("Tentacles");
+        // TODO: VISUAL
     }
 }
 

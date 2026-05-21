@@ -6,14 +6,24 @@ public class Customer : MonoBehaviour
     public CustomerData customerData;
     
     public GameObject customerObject;
-    public int spoilage;
+    //public int spoilage;
 
     [ContextMenu("Initialize Customer")]
     public void InitializeCustomer()
     {
+        
         if (customerData == null)
         {
             customerData = CustomerManager.Instance.GenerateCustomerData();
+        }
+
+        if (customerData.spoilageSymptom != null && customerData.spoilageSymptom.customer == null)
+        {
+            customerData.spoilageSymptom.customer = transform.gameObject;
+
+            // DEBUG!!!!!
+            customerData.spoilageSymptom?.ApplySpoilage(); 
+            Debug.Log("Spoiled");
         }
 
         for (int i = 0; i < customerData.sprites.Length; i++)
@@ -65,6 +75,7 @@ public class Customer : MonoBehaviour
             */
         }
 
+        /*
         if (customerData.spoilage == CustomerData.Spoilage.STAGE_I)
         {
             transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
@@ -75,8 +86,12 @@ public class Customer : MonoBehaviour
             transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
             transform.Find("Sprites/SPOILAGE_BACK").GetComponent<SpriteRenderer>().enabled = false;
         }
+        */
 
         transform.Find("Sprites/FACIAL_FEATURES").localPosition = customerData.faceOffset;
+        transform.Find("Sprites/SPOILAGE").localPosition = customerData.faceOffset;
+
+        
     }
     
     // public void InstantiateCustomer()

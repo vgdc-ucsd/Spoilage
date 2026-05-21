@@ -52,7 +52,7 @@ public class CustomerData : ScriptableObject
     //public Vector3[] spriteOffsets;
 
     public Spoilage spoilage;
-    public AbstractSpoilageSymptom spoilageSymtomp;
+    public AbstractSpoilageSymptom spoilageSymptom;
     public float patience;
 
     public List<CustomerOrder> orders = new List<CustomerOrder>();
