@@ -14,5 +14,7 @@ public class Soilage : AbstractSpoilageSymptom
 
     public override void ApplySpoilage() {
         Debug.Log("Soilage");
+        // TODO: AUDIO
+        // TODO: DIALOGUE
     }
 }
