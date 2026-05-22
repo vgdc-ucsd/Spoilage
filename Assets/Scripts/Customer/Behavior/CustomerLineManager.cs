@@ -4,16 +4,37 @@ using UnityEngine;
 public class CustomerLineManager : Singleton<CustomerLineManager>
 {
     public Customer CurrentCustomer;
+    
+    // TODO: Demo wiring, remove
+    private bool _dayStarted;
 
     public void CallBellPressed()
     {
+        // TODO: Demo wiring, remove
+        StartDay();
+
         CheckOrder();
+        StartCoroutine(LoadNextCustomerAnimation());
+    }
+
+    public void Advance()
+    {
         StartCoroutine(LoadNextCustomerAnimation());
     }
 
     private void CheckOrder()
     {
         // TODO - check if order is correct
+    }
+
+    // TODO: Demo wiring, remove
+    private void StartDay()
+    {
+        if (_dayStarted) return;
+
+        StoryManager.Instance.InitRun();
+        StoryManager.Instance.BeginDay();
+        _dayStarted = true;
     }
 
     private IEnumerator UnloadCurrentCustomerAnimation()
@@ -32,10 +53,22 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
         {
             yield return StartCoroutine(UnloadCurrentCustomerAnimation());
         }
-        CurrentCustomer = CustomerManager.Instance.GenerateCustomer();
+        CurrentCustomer = GenerateCustomer();
 
         // TODO - customer slides in from left side
 
         yield return null;
+    }
+
+    private Customer GenerateCustomer()
+    {
+        if (!StoryManager.Instance.TryDequeueCustomer(out CustomerData customerData))
+        {
+            return CustomerManager.Instance.GenerateCustomer();
+        }
+
+        return customerData == null
+            ? CustomerManager.Instance.GenerateCustomer()
+            : CustomerManager.Instance.GenerateCustomer(customerData);
     }
 }

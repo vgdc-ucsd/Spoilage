@@ -1,0 +1,34 @@
+Aligning to NoseMouth/Eyes 286
+
+
+Eyes 292
+Eyes 259
+Eyes 258 (sprites abeled 250)
+Eyes 167: R 4r U
+Eyes 104
+Eyes 103
+Eyes 102
+Eyes 101
+Eyes 100
+Eyes 208
+Eyes 255: 14D
+Eyes 261: 11D 3d 5r
+Eyes 277: 15D 3l
+Eyes 283: 10U 3u 2l
+
+NoseMouth 258 (sprites labeled 250)
+NoseMouth 292
+NoseMouth 259
+NoseMouth 167: R 3r U
+NoseMouth 100: R
+NoseMouth 101: R
+NoseMouth 102: 6r
+NoseMouth 103: R 5r 5u
+NoseMouth 104: U 2u
+NoseMouth 255: 11D
+NoseMouth 261: 9D R
+NoseMouth 277: 13D
+NoseMouth 283 10U
+
+TODO:
+

@@ -6,14 +6,23 @@ public class Customer : MonoBehaviour
     public CustomerData customerData;
     
     public GameObject customerObject;
-    public int spoilage;
+    //public int spoilage;
 
     [ContextMenu("Initialize Customer")]
     public void InitializeCustomer()
     {
+        
         if (customerData == null)
         {
             customerData = CustomerManager.Instance.GenerateCustomerData();
+        }
+
+        if (customerData.spoilageSymptom != null && customerData.spoilageSymptom.customer == null)
+        {
+            customerData.spoilageSymptom.customer = transform.gameObject;
+
+            // DEBUG
+            //customerData.spoilageSymptom.ApplySpoilage(); 
         }
 
         for (int i = 0; i < customerData.sprites.Length; i++)
@@ -65,17 +74,23 @@ public class Customer : MonoBehaviour
             */
         }
 
-        if (customerData.spoilage == CustomerData.Spoilage.SLIGHTLY)
+        /*
+        if (customerData.spoilage == CustomerData.Spoilage.STAGE_I)
         {
             transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
+            customerData.spoilageSymtomp = AbstractSpoilageSymptom.GenerateSymptom(this);
         }
-        else if (customerData.spoilage == CustomerData.Spoilage.NOT)
+        else if (customerData.spoilage == CustomerData.Spoilage.UNSPOILED)
         {
             transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
             transform.Find("Sprites/SPOILAGE_BACK").GetComponent<SpriteRenderer>().enabled = false;
         }
+        */
 
-        //transform.Find("Sprites/FACIAL_FEATURES").position = customerData.faceOffset;
+        transform.Find("Sprites/FACIAL_FEATURES").localPosition = customerData.faceOffset;
+        transform.Find("Sprites/SPOILAGE").localPosition = customerData.faceOffset;
+
+        
     }
     
     // public void InstantiateCustomer()

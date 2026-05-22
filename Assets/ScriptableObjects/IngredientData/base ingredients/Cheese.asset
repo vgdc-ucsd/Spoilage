@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   _name: Cheese
   _spoilTime: 15
+  _qualityPercent: 0
   _normalSprite: {fileID: 21300000, guid: fd667c5f9ad57f740a779c439fef8c5b, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: 00ea089406294dd479284aec3e30548b, type: 3}

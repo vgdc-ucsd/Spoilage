@@ -7,6 +7,15 @@ public class IngredientObject : MonoBehaviour
     [SerializeField] private Image _image;
 
     public Ingredient IngredientInstance { get; private set; }
+    // public float GetQualityPercent => IngredientInstance.QualityPercent;
+    public float QualityPercent { 
+        get => IngredientInstance.QualityPercent; 
+        set => IngredientInstance.QualityPercent = value; }
+
+
+    public float GetSeasoningBonus => IngredientInstance?.SeasoningBonus ?? 0f;
+
+    public bool IsSeasoned => IngredientInstance != null && IngredientInstance.IsSeasoned;
 
     private void Awake()
     {
@@ -36,10 +45,10 @@ public class IngredientObject : MonoBehaviour
             Debug.LogWarning("Tried to change ingredient into null data.");
             return;
         }
-
+        
         _data = newData;
-        IngredientInstance.ChangeData(newData);
         gameObject.name = newData.Name;
+        IngredientInstance.ChangeData(newData);
         UpdateSprite();
     }
 
@@ -72,7 +81,26 @@ public class IngredientObject : MonoBehaviour
         }
         else
         {
-            _image.sprite = IngredientInstance.Data.NormalSprite;
+            if(IngredientInstance.IsPlated)
+            {
+                _image.sprite = IngredientInstance.Data.PlatedSprite;
+            }
+            else
+            {
+                _image.sprite = IngredientInstance.Data.NormalSprite;
+            }
         }
+    }
+
+    public bool SeasonIngredient()
+    {
+        if (IngredientInstance == null) return false;
+        return IngredientInstance.Season();
+    }
+
+    public bool RemoveSeasoning()
+    {
+        if (IngredientInstance == null) return false;
+        return IngredientInstance.RemoveSeasoning();
     }
 }

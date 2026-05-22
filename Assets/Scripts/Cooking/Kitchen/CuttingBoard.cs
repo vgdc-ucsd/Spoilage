@@ -1,88 +1,95 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class CuttingBoard : ManualStation
 {
-    [SerializeField] private IngredientTransform[] _transforms;
-
-    // TODO: delete this once popup button is implemented
-    void Update()
+    public override void Start()
     {
-        if (_currentFood == null) return;
-
-        if (Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame) // F key
-        {
-            OnAction();
-        }
+        maxIngredients = 1;
+        base.Start();
     }
 
-    public override void OnPlaceFood(FoodGrab food)
+    public override bool OnPlaceFood(FoodGrab food)
     {
-        base.OnPlaceFood(food);
+        IngredientObject incoming = food.GetComponent<IngredientObject>();
+        if (incoming == null) return false;
 
-        if (_currentFood == null || _currentFood.IngredientInstance == null) return;
+        if (_currentFoods.Contains(incoming))
+            return true;
 
-        Debug.Log("Food on cutting board");
+        if (incoming.IngredientInstance.Data.Name == "Slop")
+            return false;
 
-        IngredientData currentData = _currentFood.IngredientInstance.Data;
-
-        if (!TryGetTransform(currentData, out IngredientTransform transform))
+        if (!HasSpace)
         {
-            Debug.Log("Wrong ingredient for cutting board");
-            return;
+            Debug.LogWarning($"{gameObject.name}: Cutting board only accepts one ingredient.");
+            return false;
         }
 
-        if (transform.output == null)
+        bool placed = base.OnPlaceFood(food);
+
+        if (_currentFood == null || _currentFood.IngredientInstance == null)
+            return false;
+
+        RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
+        if (recipeManager == null)
         {
-            Debug.LogWarning("Output ingredient is missing on " + gameObject.name);
-            return;
+            Debug.LogError($"{gameObject.name}: RecipeManager not found.");
+            return false;
         }
+
+        List<IngredientObject> check = new() { _currentFood };
+        string result = recipeManager.CheckRecipe(check, _station);
+
+        if (IsInvalidRecipeResult(result))
+        {
+            Debug.Log($"{gameObject.name}: Wrong ingredient for cutting board.");
+            HideManualUI();
+            return true;
+        }
+
+        Debug.Log($"{gameObject.name}: Food on cutting board.");
+
+        return placed;
     }
 
-    public override void OnAction()
+    public void PressCutButton()
     {
-        Debug.Log($"Action triggered on {gameObject.name}. Current Food: {(_currentFood != null ? _currentFood.name : "NULL")}");
-        if (_currentFood == null || _currentFood.IngredientInstance == null) return;
-
-        IngredientData currentData = _currentFood.IngredientInstance.Data;
-
-        if (!TryGetTransform(currentData, out IngredientTransform transform))
-        {
-            Debug.Log("Wrong ingredient for cutting board");
-            return;
-        }
-
-        if (transform.output == null)
-        {
-            Debug.LogWarning("Output ingredient is missing on " + gameObject.name);
-            return;
-        }
-
-        base.OnAction();
-
-        Debug.Log("Chopping Food");
-
-        if (_currentClicks >= _clicksPerState)
-        {
-            _currentFood.ChangeIngredient(transform.output);
-            Debug.Log("Food is now " + transform.output.Name);
-
-            _currentClicks = 0; // reset for next use
-        }
+        Debug.Log($"{gameObject.name}: Cut button pressed.");
+        OnAction();
     }
 
-    private bool TryGetTransform(IngredientData input, out IngredientTransform matchingTransform)
+    protected override void CompleteManualAction()
     {
-        foreach (IngredientTransform transform in _transforms)
+        RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
+        if (recipeManager == null)
         {
-            if (transform.input == input)
-            {
-                matchingTransform = transform;
-                return true;
-            }
+            Debug.LogError($"{gameObject.name}: RecipeManager not found.");
+            ResetTimer();
+            return;
         }
 
-        matchingTransform = null;
-        return false;
+        List<IngredientObject> ingredients = new() { _currentFood };
+        string resultName = recipeManager.CheckRecipe(ingredients, _station);
+
+        IngredientData resultData = IngredientLookup.Get(resultName);
+
+        if (resultData == null)
+        {
+            Debug.LogError($"{gameObject.name}: Could not find IngredientData for result '{resultName}'.");
+            ResetTimer();
+            return;
+        }
+
+        _currentFood.ChangeIngredient(resultData);
+
+        Debug.Log($"{gameObject.name}: Chopped! → {resultData.Name}");
+    }
+
+    private bool IsInvalidRecipeResult(string resultName)
+    {
+        return string.IsNullOrEmpty(resultName)
+            || resultName == "Slop"
+            || resultName == "JSON Error";
     }
 }

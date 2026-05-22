@@ -73,7 +73,7 @@ public class UtilityGrab : MonoBehaviour
                 _activeUtility = _util;
                 transform.position = hit.transform.position;
                 Debug.Log("Snapped to: " + hit.name);
-                _activeUtility.OnPlaceFood(this);
+               // _activeUtility.OnPlaceFood(this);
                 return;
             }
 

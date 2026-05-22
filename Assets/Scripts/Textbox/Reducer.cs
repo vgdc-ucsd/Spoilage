@@ -36,6 +36,7 @@ namespace TextboxControl
 
         public event Action OnComplete;
         public event Action<string> OnError;
+        public event Action<int, string[]> OnExternalControl;
 
         public bool IsPlaying => _isPlaying;
         public int RevealedCount => _buffer.Count;
@@ -553,12 +554,6 @@ namespace TextboxControl
             CaptureRemainingParams(_paramSpans);
             EndSequence();
 
-            if (_paramSpans.Count == 0)
-            {
-                Debug.Log($"[TextboxControl] external control ignored: {method}");
-                return;
-            }
-
             string source = _cursor.Source;
             string[] parameters = new string[_paramSpans.Count];
             for (int i = 0; i < _paramSpans.Count; i++)
@@ -567,7 +562,16 @@ namespace TextboxControl
                 parameters[i] = source.Substring(offset, length);
             }
 
-            Debug.Log($"[TextboxControl] external control ignored: {method}: {string.Join(", ", parameters)}");
+            if (OnExternalControl != null)
+            {
+                OnExternalControl(method, parameters);
+                return;
+            }
+
+            if (parameters.Length == 0)
+                Debug.Log($"[TextboxControl] external control ignored: {method}");
+            else
+                Debug.Log($"[TextboxControl] external control ignored: {method}: {string.Join(", ", parameters)}");
         }
 
         private void ClearRegions()

@@ -1,14 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CustomerOrderDatabase : MonoBehaviour
+public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
 {
-    public static CustomerOrderDatabase Instance => s_instance;
+    private RecipeManager _recipeManager;
 
-    private static CustomerOrderDatabase s_instance;
-
-    [SerializeField]
-    private CustomerOrder[] _customerOrders;
+    private SaveManager _saveManager;
 
     [Header("Chance curves based on game progress from 0 to 1")]
     [SerializeField]
@@ -23,15 +20,17 @@ public class CustomerOrderDatabase : MonoBehaviour
     [SerializeField]
     private AnimationCurve _fourDishChance;
 
-    private void Awake()
+    public override void Awake()
     {
-        if (s_instance != null && s_instance != this)
-        {
-            Destroy(this);
-            return;
-        }
+        base.Awake();
+    }
 
-        s_instance = this;
+    public void Start()
+    {
+        _recipeManager = RecipeManager.Instance;
+        _saveManager = SaveManager.Instance;
+
+        UpdateAvailableRecipes();
     }
 
     public int PickDishCount(float gameProgress)
@@ -50,7 +49,7 @@ public class CustomerOrderDatabase : MonoBehaviour
             return 1;
         }
 
-        float randomValue = Random.Range(0, total);
+        float randomValue = UnityEngine.Random.Range(0, total);
 
         if (randomValue < one)
         {
@@ -74,26 +73,91 @@ public class CustomerOrderDatabase : MonoBehaviour
         return 4;
     }
 
-    public CustomerOrder GenerateCustomerOrder(int difficulty)
+    /// <summary>
+    /// Adds Recipes to the global UnlockedRecipes based on the current unlocked
+    /// ingredients and appliances. Should be called every time a new recipe or
+    /// appliance is unlocked.
+    /// </summary>
+    public void UpdateAvailableRecipes()
     {
-        var availableOrders = new List<CustomerOrder>();
+        SyncUnlockedRecipes();
 
-        for (int i = 0; i < _customerOrders.Length; i++)
+        foreach (Recipe recipe in _recipeManager.allRecipes.allRecipes)
         {
-            CustomerOrder customerOrder = _customerOrders[i];
-
-            if ((int)customerOrder.difficulty <= difficulty && customerOrder.CheckPlayerHasIngredients())
+            if (recipe.servable)
             {
-                availableOrders.Add(customerOrder);
+                if (CheckPlayerCanMakeRecipe(recipe) && !IsRecipeUnlocked(recipe))
+                {
+                    _saveManager.Player.RecipesUnlocked.Add(recipe);
+                    Debug.Log("Added " + recipe.name + " to unlocked recipes");
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Recursive function that goes through every required ingredient for a 
+    /// recipe until it reaches the base ingredients, then checks to see if 
+    /// that ingredient is unlocked.
+    /// </summary>
+    public bool CheckPlayerCanMakeRecipe(Recipe recipe)
+    {
+        // BASE CASE: Base ingredient, check if unlocked if not return false
+        if (recipe.requiredIngredients == null || recipe.requiredIngredients.Length == 0)
+        {
+            return _saveManager.Player.IngredientsUnlocked.Contains(recipe.name);
+        }
+
+        bool result = true;
+
+        // APPLIANCE CHECK: If an appliance is required check to make sure its 
+        // unlocked
+        if (recipe.appliance != "None" && recipe.appliance != "Spoil")
+        {
+            if (!_saveManager.Player.StationsUnlocked.Contains(recipe.appliance))
+            {
+                result = false;
             }
         }
 
-        if (availableOrders.Count > 0)
+        // INGREDIENT CHECK: Go through each ingredient until reaching base case
+        foreach (RecipeRequirement ingredient in recipe.requiredIngredients)
         {
-            int randomIndex = Random.Range(0, availableOrders.Count);
-            return availableOrders[randomIndex];
+            if (!CheckPlayerCanMakeRecipe(_recipeManager.allRecipes.allRecipes[ingredient.id]))
+            {
+                result = false;
+            }
+        }
+        return result;
+    }
+
+    public Recipe GenerateCustomerOrder()
+    {
+        return null;
+    }
+
+    private void SyncUnlockedRecipes()
+    {
+        List<Recipe> unlockedRecipes = _saveManager.Player.RecipesUnlocked;
+
+        for (int i = 0; i < unlockedRecipes.Count; i++)
+        {
+            Recipe recipe = unlockedRecipes[i];
+
+            unlockedRecipes[i] = _recipeManager.allRecipes.allRecipes[recipe.id];
+        }
+    }
+
+    private bool IsRecipeUnlocked(Recipe recipe)
+    {
+        foreach (Recipe unlockedRecipe in _saveManager.Player.RecipesUnlocked)
+        {
+            if (unlockedRecipe.id == recipe.id)
+            {
+                return true;
+            }
         }
 
-        return null;
+        return false;
     }
 }

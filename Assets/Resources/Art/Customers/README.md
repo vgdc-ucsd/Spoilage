@@ -2,7 +2,7 @@
 
 ## NoseMouths and Eyes
 
-These can just be piled into their own directories for now, I might break into subfolders later though to handle spoiled versions and animations
+The file structure for eyes and nosemouths is the same. Within their respective folders, each variant should have its own folder. The name of each variety's folder does not matter, however within that folder must be a file with `static` in the name. Other spritesheets may be present for different expressions and follow the art team's naming conventions.
 
 ## Bases, Clothes, Hair
 
@@ -11,7 +11,7 @@ Since these are dependent on the body base the file layout is a bit more complic
 ### Body folder diagram
 
 ```
-Assets/Art/Characters/Bases/
+Assets/Resources/Characters/Bases/
 ├── BodyA/ 
 │   ├── ColorVariant1.png
 │   ├── ColorVariant2.png

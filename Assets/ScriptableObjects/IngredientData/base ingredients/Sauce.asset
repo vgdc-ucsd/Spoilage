@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   _name: Sauce
   _spoilTime: 15
-  _normalSprite: {fileID: -848060630314123986, guid: 2ca9d08e0e44cf1498a336ea5e5746c1, type: 3}
-  _spoiledSprite: {fileID: 0}
+  _qualityPercent: 0
+  _normalSprite: {fileID: -2213005881939514877, guid: 9e83aed379e874d6da99f9b14c92952b, type: 3}
+  _spoiledSprite: {fileID: 221284786951778382, guid: 8d2f237ba1fbb4943aecd3831a1196c1, type: 3}
+  _platedSprite: {fileID: 0}

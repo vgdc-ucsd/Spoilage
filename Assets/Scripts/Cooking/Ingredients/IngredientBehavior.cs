@@ -13,9 +13,19 @@ public sealed class IngredientBehaviour : MonoBehaviour
 
     private bool _isOnSpoilSurface;
 
+    private Material _materialInstance;
+    private static readonly int s_burntProperty = Shader.PropertyToID("_Boolean");
+
     private void Awake()
     {
         _ingredientObject = GetComponent<IngredientObject>();
+
+        Image img = GetComponentInChildren<Image>();
+        if (img != null)
+        {
+            _materialInstance = new Material(img.material);
+            img.material = _materialInstance;
+        }
 
         if (_spoilingTimer == null)
         {
@@ -44,6 +54,15 @@ public sealed class IngredientBehaviour : MonoBehaviour
         UpdateSpoilageVisual();
     }
 
+    public void PlateIngredient()
+    {
+        _ingredientObject.IngredientInstance.IsPlated = true;
+    }
+    public void UnplateIngredient()
+    {
+        _ingredientObject.IngredientInstance.IsPlated = false;
+    }
+    
     private void HandleSpoilage()
     {
         Ingredient ingredient = _ingredientObject.IngredientInstance;
@@ -67,6 +86,7 @@ public sealed class IngredientBehaviour : MonoBehaviour
         Ingredient ingredient = _ingredientObject.IngredientInstance;
 
         if (ingredient == null) return;
+        if (ingredient.Data.Name == "Slop") { HideSpoilingTimer(); return; }
 
         if (!_isOnSpoilSurface || ingredient.IsSpoiled)
         {
@@ -113,5 +133,11 @@ public sealed class IngredientBehaviour : MonoBehaviour
         {
             Debug.Log($"[{gameObject.name}] {message}");
         }
+    }
+
+    public void SetBurntOverlay(bool isBurnt)
+    {
+        if (_materialInstance != null)
+            _materialInstance.SetFloat(s_burntProperty, isBurnt ? 1 : 0);
     }
 }

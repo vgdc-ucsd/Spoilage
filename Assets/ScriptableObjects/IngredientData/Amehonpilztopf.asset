@@ -13,14 +13,8 @@ MonoBehaviour:
   m_Name: Amehonpilztopf
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   _name: Amehonpilztopf
-  _needsCooking: 0
-  _cookTime: 5
   _spoilTime: 15
-  _isSpoiled: 0
-  _isChopped: 0
-  _needsChopping: 0
-  _rawSprite: {fileID: 0}
-  _cookedSprite: {fileID: 0}
-  _burntSprite: {fileID: 0}
-  _unchoppedSprite: {fileID: 0}
-  _choppedSprite: {fileID: 0}
+  _qualityPercent: 0
+  _normalSprite: {fileID: -7126241524506945432, guid: f83c28715ad284a92b617319e8b3276b, type: 3}
+  _spoiledSprite: {fileID: -7994706127082150880, guid: de0cdf2ed4a3840ba8f268f7d1494b0a, type: 3}
+  _platedSprite: {fileID: 0}

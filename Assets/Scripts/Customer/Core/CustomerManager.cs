@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -13,9 +14,11 @@ public class CustomerManager : Singleton<CustomerManager>
 
     private const string EYES_PATH = "Assets/Resources/Art/Customers/Eyes/";
     private const string MOUTH_PATH = "Assets/Resources/Art/Customers/NoseMouths/";
+    /*
     private const string SPOILAGE_PATH = "Assets/Resources/Art/Customers/Spoilage/";
     private const string FRONT_FOLDER = "Front/";
     private const string BACK_FOLDER = "Back/";
+    */
     private const string BASES_PATH = "Assets/Resources/Art/Customers/Bases/";
     private const string CLOTHES_FOLDER = "/Clothes/";
     private const string HAIR_FOLDER = "/Hair/";
@@ -46,14 +49,22 @@ public class CustomerManager : Singleton<CustomerManager>
         { "Assets/Resources/Art/Customers/Bases/Character Base #286", new Vector3(0, 0, 0)},
         { "Assets/Resources/Art/Customers/Bases/Character Base #287", new Vector3(0.1f, -0.24f, 0)},
         { "Assets/Resources/Art/Customers/Bases/Character Base #292", new Vector3(0.05f, 0.55f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #307", new Vector3(-0.25f, -0.65f, 0)},
         { "Assets/Resources/Art/Customers/Bases/Character Base #332", new Vector3(0.16f, -0.11f, 0)},
     };
 
     public Customer GenerateCustomer()
     {
+        return GenerateCustomer(GenerateCustomerData());
+    }
+
+    public Customer GenerateCustomer(CustomerData customerData)
+    {
         Customer instantiatedCustomer = Instantiate(CustomerPrefab, _customerTransform).GetComponent<Customer>();
-        instantiatedCustomer.customerData = GenerateCustomerData();
+        customerData.spoilageSymptom.customer = instantiatedCustomer.transform.gameObject;
+        instantiatedCustomer.customerData = customerData;
         instantiatedCustomer.customerObject = instantiatedCustomer.gameObject;
+        
         instantiatedCustomer.InitializeCustomer();
 
         return instantiatedCustomer;
@@ -71,7 +82,7 @@ public class CustomerManager : Singleton<CustomerManager>
 
         string eyesDir = getRandomElement(Directory.GetDirectories(EYES_PATH));
         // Using getRandomElement() mostly to make sure the list isn't empty.
-        // If there are for some reason multiple files with the pattern 
+        // If there are for some reason multiple files with the pattern
         // something is wrong with the file structure.
         paths[(int)CustomerData.Indexes.EYES_OPEN] = getRandomElement(
             Directory.GetFiles(eyesDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_STATIC)).ToArray());
@@ -95,14 +106,19 @@ public class CustomerManager : Singleton<CustomerManager>
         paths[(int)CustomerData.Indexes.MOUTH_DISGUST] = getRandomElement(
             Directory.GetFiles(mouthDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_DISGUST)).ToArray());
 
-        if ((int)newData.spoilage >= (int)CustomerData.Spoilage.SLIGHTLY)
+        if (newData.spoilage >= CustomerData.Spoilage.STAGE_I)
+        {
+            newData.spoilageSymptom = GenerateSymptom();
+        }
+/*
+        if ((int)newData.spoilage >= (int)CustomerData.Spoilage.STAGE_I)
         {
             paths[(int)CustomerData.Indexes.SPOILAGE_FRONT] = getRandomElement(
                 Directory.GetFiles(SPOILAGE_PATH + FRONT_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
             paths[(int)CustomerData.Indexes.SPOILAGE_BACK] = getRandomElement(
                 Directory.GetFiles(SPOILAGE_PATH + BACK_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
         }
-
+*/
         string bodyDir = getRandomElement(Directory.GetDirectories(BASES_PATH));
         paths[(int)CustomerData.Indexes.BODY] = getRandomElement(
             Directory.GetFiles(bodyDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
@@ -173,7 +189,7 @@ public class CustomerManager : Singleton<CustomerManager>
 
         for (int i = 0; i < orderCount; i++)
         {
-            CustomerOrder order = customerOrderDatabase.GenerateCustomerOrder(0); // TODO: Get actual difficulty.
+            Recipe order = customerOrderDatabase.GenerateCustomerOrder();
 
             if (order != null)
             {
@@ -183,6 +199,20 @@ public class CustomerManager : Singleton<CustomerManager>
 
         return newData;
     }
+
+    public static AbstractSpoilageSymptom GenerateSymptom()
+    {
+        Type randomSymptomType = AbstractSpoilageSymptom.symptomTypes[
+            UnityEngine.Random.Range(0, AbstractSpoilageSymptom.symptomTypes.Length)
+        ];
+        AbstractSpoilageSymptom symptom = (AbstractSpoilageSymptom)
+            ScriptableObject.CreateInstance(randomSymptomType);
+        SpoilageTriggerManager.Instance.AddSymptom(symptom);
+
+        return symptom;
+    }
+
+
 
     private static string getRandomElement(string[] arr)
     {
@@ -205,7 +235,7 @@ public class CustomerManager : Singleton<CustomerManager>
     /*TODO: CHOOSES DIALOGUE POOL BASED ON PLAYER MORALITY.
     public static int chooseDialoguePool(double moralityStat)
     {
-        
+
     }
     */
 

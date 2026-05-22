@@ -14,7 +14,7 @@ public class UtilityStation : MonoBehaviour
         
     }
 
-    public virtual void OnPlaceFood(UtilityGrab dish)
+    public virtual void OnPlaceFood(FoodGrab dish)
     {
         
     }
