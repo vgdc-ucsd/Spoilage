@@ -1,4 +1,3 @@
-#if UNITY_EDITOR
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +6,7 @@ using UnityEngine.InputSystem;
 // then they should spawn the item on the serving area tile for the player to pick up as shown here.
 public class DEBUG_SpawnStoryItem : MonoBehaviour
 {
+    #if UNITY_EDITOR
     [SerializeField] private StoryItemData _storyItemData;
     [SerializeField] private GameObject _storyItemPrefab;
     private GameObject _servingAreaTile;
@@ -28,5 +28,10 @@ public class DEBUG_SpawnStoryItem : MonoBehaviour
             newStoryItem.GetComponent<StoryItemGrab>().Initialize();
         }
     }
+    #else
+    void Awake()
+    {
+        Destroy(this);
+    }
+    #endif
 }
-#endif

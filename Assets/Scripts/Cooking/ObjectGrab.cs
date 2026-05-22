@@ -101,7 +101,7 @@ public class ObjectGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         KitchenTile targetTile = GetTileFromRaycast(results);
 
         // This lets you swap the appliances
-        if (targetTile != null && targetTile.HasAppliance() && _sourceTileBeforeDrag != null)
+        if (targetTile != null && targetTile.HasCookingStation() && _sourceTileBeforeDrag != null)
         {
             GameObject otherAppliance = targetTile.GetTopObject();
             ObjectGrab otherGrab = otherAppliance != null ? otherAppliance.GetComponent<ObjectGrab>() : null;

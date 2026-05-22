@@ -51,20 +51,29 @@ public class KitchenTile : MonoBehaviour
 
         if (SetupManager.Instance.CurrentPhase == GamePhase.Cooking)
         {
-            // Cooking: food and story items only, one per tile
+            // Cooking: food and story items only
             if (type != "Food" && type != "StoryItem") return false;
 
-            IngredientObject existingFood = null;
-            foreach (var obj in objectsOnTile)
-                if (obj != null && obj.TryGetComponent(out existingFood)) break;
+            // Can't place anything if a story item is already here, regardless of type
+            if (HasStoryItem()) return false;
 
-            //if empty, place food or story item
-            if (existingFood == null) return true;
+            if (type == "StoryItem")
+            {
+                // Can't place story item if food is already here
+                if (HasFood()) return false;
 
-            // Can't place story item if food is already here
-            if (type == "StoryItem") return false;
+                // Can't place story item if cooking station is already here
+                if (HasCookingStation()) return false;
+
+                return true;
+            }
+
+            //if empty, place food
+            if (!HasFood()) return true;
 
             //if a food item is alr placed we combine
+            // There is already food here and it must be the top object
+            IngredientObject existingFood = GetTopObject().GetComponent<IngredientObject>();
             IngredientObject movingFood = movingObj.GetComponent<IngredientObject>();
             RecipeManager recipeManager = FindAnyObjectByType<RecipeManager>();
 
@@ -203,7 +212,7 @@ public class KitchenTile : MonoBehaviour
         return objectsOnTile.Count > 0 ? objectsOnTile[objectsOnTile.Count - 1] : null;
     }
 
-    public bool HasAppliance()
+    public bool HasCookingStation()
     {
         foreach (var obj in objectsOnTile)
             if (obj != null && obj.TryGetComponent(out ObjectGrab _)) return true;
@@ -217,6 +226,13 @@ public class KitchenTile : MonoBehaviour
         return false;
     }
 
+    public bool HasStoryItem()
+    {
+        foreach (var obj in objectsOnTile)
+            if (obj != null && obj.GetComponent<StoryItemObject>() != null) return true;
+        return false;
+    }
+
     public void SetCountertopIfEmpty()
     {
         if (_counterPrefab == null)
@@ -225,7 +241,9 @@ public class KitchenTile : MonoBehaviour
             return;
         }
 
-        if (objectsOnTile.Count == 0)
+        // Allow placing counter if tile is empty or only has a story item
+        if (objectsOnTile.Count == 0 ||
+            (objectsOnTile.Count == 1 && objectsOnTile[0] != null && objectsOnTile[0].TryGetComponent(out StoryItemObject _)))
         {
             GameObject counter = Instantiate(_counterPrefab, transform);
             RectTransform counterRect = counter.GetComponent<RectTransform>();

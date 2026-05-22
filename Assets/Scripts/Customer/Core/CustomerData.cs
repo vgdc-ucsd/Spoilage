@@ -56,6 +56,7 @@ public class CustomerData : ScriptableObject
     public float patience;
 
     public List<Recipe> orders = new List<Recipe>();
+    public StoryItemData desiredStoryItem;
 
     /// <summary>
     /// Identifier for story-relevant characters, empty for randomly generated
