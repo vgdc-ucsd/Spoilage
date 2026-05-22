@@ -59,7 +59,7 @@ public class PauseMenu : Singleton<PauseMenu>
             }
         }
     }
-
+    
     public void Resume()
     {
         
@@ -94,6 +94,7 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         GameManager.Instance.Load(GameScene.MAIN_MENU);
         //SceneLoader.Instance.ChangeScene("MainMenu");
+        // removing scenes
         Scene settings = SceneManager.GetSceneByName("Settings");
         if (settings.isLoaded)
         {
