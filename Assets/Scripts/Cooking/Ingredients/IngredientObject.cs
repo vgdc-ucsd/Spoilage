@@ -7,6 +7,11 @@ public class IngredientObject : MonoBehaviour
     [SerializeField] private Image _image;
 
     public Ingredient IngredientInstance { get; private set; }
+    // public float GetQualityPercent => IngredientInstance.QualityPercent;
+    public float QualityPercent { 
+        get => IngredientInstance.QualityPercent; 
+        set => IngredientInstance.QualityPercent = value; }
+
 
     public float GetSeasoningBonus => IngredientInstance?.SeasoningBonus ?? 0f;
 
@@ -40,10 +45,6 @@ public class IngredientObject : MonoBehaviour
             Debug.LogWarning("Tried to change ingredient into null data.");
             return;
         }
-
-        // keep the quality data so it stacks up
-        float oldQuality = _data.QualityPercent;
-        newData.QualityPercent = oldQuality;
         
         _data = newData;
         gameObject.name = newData.Name;

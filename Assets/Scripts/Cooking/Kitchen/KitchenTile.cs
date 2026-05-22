@@ -107,10 +107,9 @@ public class KitchenTile : MonoBehaviour
                 if (resultData != null)
                 {
                     // PRINT SUCCESS HERE
-                    Debug.Log($"<color=green>SUCCESS:</color> Combined {existingFood.IngredientInstance.Data.Name} + {newFood.IngredientInstance.Data.Name} into <b>{resultData.Name}</b>");
-                    resultData.QualityPercent = rm.CalculateTotalQuality(combo);
-                    Debug.Log("Quality:" + resultData.QualityPercent);
+                    Debug.Log($"<color=green>SUCCESS:</color> Combined {existingFood.IngredientInstance.Data.Name} + {newFood.IngredientInstance.Data.Name} into <b>{resultData.Name}</b>.");
                     existingFood.ChangeIngredient(resultData);
+                    existingFood.QualityPercent = rm.CalculateTotalQuality(combo);
 
                     if (matchedRecipe != null && matchedRecipe.spoiled)
                     {
