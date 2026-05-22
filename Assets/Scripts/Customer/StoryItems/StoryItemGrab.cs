@@ -3,8 +3,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class StoryItemGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class StoryItemGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
+    public static bool IsDeleteModeActive = false;
     public KitchenTile currentTile;
 
     protected RectTransform _rectTransform;
@@ -22,7 +23,7 @@ public class StoryItemGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
-        if (!TryGrab()) return;
+        if (!TryGrab() || IsDeleteModeActive) return;
 
         _originalParent = _rectTransform.parent;
         _originalPosition = _rectTransform.anchoredPosition;
@@ -36,14 +37,26 @@ public class StoryItemGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
+        if (IsDeleteModeActive) return;
+
         _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
     }
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
     {
+        if (IsDeleteModeActive) return;
+
         Drop(eventData);
 
         if (_image != null) _image.raycastTarget = true;
+    }
+
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    {
+        if (IsDeleteModeActive)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public bool TryGrab()
@@ -87,7 +100,7 @@ public class StoryItemGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private KitchenTile GetTileFromRaycast(List<RaycastResult> results)
     {
-        foreach (var result in results)
+        foreach (RaycastResult result in results)
         {
             KitchenTile tile = result.gameObject.GetComponentInParent<KitchenTile>();
             if (tile != null) return tile;

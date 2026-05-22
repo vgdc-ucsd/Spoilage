@@ -13,6 +13,7 @@ public class DeleteButton : MonoBehaviour
         _isActive = !_isActive;
         FoodGrab.IsDeleteModeActive = _isActive;
         FoodGrab.CanMoveFood = !_isActive;
+        StoryItemGrab.IsDeleteModeActive = _isActive;
         
         if (_img != null) _img.color = _isActive ? Color.red : Color.white;
         Debug.Log($"[Delete Mode] Active: {_isActive}");
