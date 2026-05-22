@@ -527,7 +527,7 @@ MonoBehaviour:
   _clicksPerState: 3
   _timerObject: {fileID: 5997921261872719499}
   _timerFill: {fileID: 4672419527737734646}
-  _cutButtonObject: {fileID: 7948047525517841250}
+  _actionButtonObject: {fileID: 7948047525517841250}
 --- !u!61 &204938233375531329
 BoxCollider2D:
   m_ObjectHideFlags: 0

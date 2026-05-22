@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -13,9 +14,11 @@ public class CustomerManager : Singleton<CustomerManager>
 
     private const string EYES_PATH = "Assets/Resources/Art/Customers/Eyes/";
     private const string MOUTH_PATH = "Assets/Resources/Art/Customers/NoseMouths/";
+    /*
     private const string SPOILAGE_PATH = "Assets/Resources/Art/Customers/Spoilage/";
     private const string FRONT_FOLDER = "Front/";
     private const string BACK_FOLDER = "Back/";
+    */
     private const string BASES_PATH = "Assets/Resources/Art/Customers/Bases/";
     private const string CLOTHES_FOLDER = "/Clothes/";
     private const string HAIR_FOLDER = "/Hair/";
@@ -58,8 +61,10 @@ public class CustomerManager : Singleton<CustomerManager>
     public Customer GenerateCustomer(CustomerData customerData)
     {
         Customer instantiatedCustomer = Instantiate(CustomerPrefab, _customerTransform).GetComponent<Customer>();
+        customerData.spoilageSymptom.customer = instantiatedCustomer.transform.gameObject;
         instantiatedCustomer.customerData = customerData;
         instantiatedCustomer.customerObject = instantiatedCustomer.gameObject;
+        
         instantiatedCustomer.InitializeCustomer();
 
         return instantiatedCustomer;
@@ -101,6 +106,11 @@ public class CustomerManager : Singleton<CustomerManager>
         paths[(int)CustomerData.Indexes.MOUTH_DISGUST] = getRandomElement(
             Directory.GetFiles(mouthDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_DISGUST)).ToArray());
 
+        if (newData.spoilage >= CustomerData.Spoilage.STAGE_I)
+        {
+            newData.spoilageSymptom = GenerateSymptom();
+        }
+/*
         if ((int)newData.spoilage >= (int)CustomerData.Spoilage.STAGE_I)
         {
             paths[(int)CustomerData.Indexes.SPOILAGE_FRONT] = getRandomElement(
@@ -108,7 +118,7 @@ public class CustomerManager : Singleton<CustomerManager>
             paths[(int)CustomerData.Indexes.SPOILAGE_BACK] = getRandomElement(
                 Directory.GetFiles(SPOILAGE_PATH + BACK_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
         }
-
+*/
         string bodyDir = getRandomElement(Directory.GetDirectories(BASES_PATH));
         paths[(int)CustomerData.Indexes.BODY] = getRandomElement(
             Directory.GetFiles(bodyDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
@@ -189,6 +199,20 @@ public class CustomerManager : Singleton<CustomerManager>
 
         return newData;
     }
+
+    public static AbstractSpoilageSymptom GenerateSymptom()
+    {
+        Type randomSymptomType = AbstractSpoilageSymptom.symptomTypes[
+            UnityEngine.Random.Range(0, AbstractSpoilageSymptom.symptomTypes.Length)
+        ];
+        AbstractSpoilageSymptom symptom = (AbstractSpoilageSymptom)
+            ScriptableObject.CreateInstance(randomSymptomType);
+        SpoilageTriggerManager.Instance.AddSymptom(symptom);
+
+        return symptom;
+    }
+
+
 
     private static string getRandomElement(string[] arr)
     {
