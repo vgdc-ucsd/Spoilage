@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cut
+  m_text: Blend
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 643cebbca9ff0c5489727d467358ea77, type: 3}
+  m_Sprite: {fileID: 8118242888825828781, guid: 7f9858a5b08524cf8bfdc659e493a2ea, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -476,11 +476,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 945483245699230252}
-  - component: {fileID: 6297348357831675866}
   - component: {fileID: 204938233375531329}
   - component: {fileID: 4273827558751349673}
+  - component: {fileID: 8803183462364715164}
   m_Layer: 5
-  m_Name: CuttingBoard
+  m_Name: Blender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -507,27 +507,6 @@ RectTransform:
   m_AnchoredPosition: {x: -184.8, y: -144.7}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6297348357831675866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6828640592005574430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85b418d8422d9954683c5a7863e1d66f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CuttingBoard
-  _stationImage: {fileID: 1439787757170371108}
-  _defaultSprite: {fileID: 21300000, guid: 643cebbca9ff0c5489727d467358ea77, type: 3}
-  _activeSprite: {fileID: 21300000, guid: 643cebbca9ff0c5489727d467358ea77, type: 3}
-  _station: Cutting Board
-  maxIngredients: 1
-  _clicksPerState: 3
-  _timerObject: {fileID: 5997921261872719499}
-  _timerFill: {fileID: 4672419527737734646}
-  _actionButtonObject: {fileID: 7948047525517841250}
 --- !u!61 &204938233375531329
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -587,6 +566,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectGrab
   currentTile: {fileID: 0}
+--- !u!114 &8803183462364715164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6828640592005574430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b01bf8aa49704ceebca70cd728844bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Blender
+  _stationImage: {fileID: 1439787757170371108}
+  _defaultSprite: {fileID: 8118242888825828781, guid: 7f9858a5b08524cf8bfdc659e493a2ea, type: 3}
+  _activeSprite: {fileID: 6370200035509205986, guid: 5fa5ead9c279a44e9a04f44603421e15, type: 3}
+  _station: Blender
+  maxIngredients: 3
+  _clicksPerState: 5
+  _timerObject: {fileID: 5997921261872719499}
+  _timerFill: {fileID: 4672419527737734646}
+  _actionButtonObject: {fileID: 7948047525517841250}
 --- !u!1 &7948047525517841250
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,9 +708,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6297348357831675866}
-        m_TargetAssemblyTypeName: CuttingBoard, Assembly-CSharp
-        m_MethodName: PressCutButton
+      - m_Target: {fileID: 8803183462364715164}
+        m_TargetAssemblyTypeName: Blender, Assembly-CSharp
+        m_MethodName: PressBlendButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
