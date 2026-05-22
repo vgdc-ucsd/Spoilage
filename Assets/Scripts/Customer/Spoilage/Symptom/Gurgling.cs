@@ -14,6 +14,8 @@ public class Gurgling : AbstractSpoilageSymptom
 
     public override void ApplySpoilage() {
         Debug.Log("Gurgling");
+        // TODO: DIALOGUE
+        // TODO: AUDIO
     }
 }
 

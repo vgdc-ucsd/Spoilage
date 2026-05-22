@@ -127,7 +127,7 @@ public class RecipeManager : Singleton<RecipeManager>
         float totalQualityPercentage = 0;
         foreach (IngredientObject food in plateIngredients)
         {
-            totalQualityPercentage += food.IngredientInstance.Data.QualityPercent;
+            totalQualityPercentage += food.QualityPercent;
         }
         return totalQualityPercentage;
     }
