@@ -11,12 +11,15 @@ public class BlinkingRapidly : AbstractSpoilageSymptom
 
     public BlinkingRapidly()
     {
-        _blinkingSpeedMultiplier = 1;
+        // Smaller = faster, gets applied to delays.
+        _blinkingSpeedMultiplier = 0.25f;
         category = SpoilageCategory.DISTRESS;
     }
 
     public override void ApplySpoilage()
     {
         Debug.Log("Blinking Rapidly");
+        customer.GetComponent<CustomerAnimation>().currentBlinkMultiplier = _blinkingSpeedMultiplier;
+        // TODO: VISUALS
     }
 }
