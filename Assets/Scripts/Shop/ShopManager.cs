@@ -1,9 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ShopManager : Singleton<ShopManager>
 {
-    private int _wealth;
-    public int Wealth
+    private float _wealth;
+    public float Wealth
     {
         get => _wealth;
         set

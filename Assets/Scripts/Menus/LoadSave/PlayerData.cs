@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 /// <summary>
@@ -18,7 +18,7 @@ public class ItemExchange
 public class PlayerData
 {
     public int Day;
-    public int Wealth;
+    public float Wealth;
     public int Reputation;
 
     // TODO: Handle saving other key information
