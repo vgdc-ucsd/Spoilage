@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918e1c96f9fc68cc18ac2ae3792387ab, type: 3}
+  m_Name: Drunk
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerData
+  sprites:
+  - {fileID: 21300000, guid: 66d01ba322914484b8ae2ac718aea5af, type: 3}
+  - {fileID: 21300000, guid: 5162efaf40767f743a3a22c95111c949, type: 3}
+  - {fileID: -3394240918064034640, guid: d6cac0942a4e48841a3eb63bfbb75a80, type: 3}
+  - {fileID: -7235004303834735130, guid: d6cac0942a4e48841a3eb63bfbb75a80, type: 3}
+  - {fileID: -9192948263893634837, guid: 86849938973cee54c8bfcb0e592c4d8c, type: 3}
+  - {fileID: -8046276784422647318, guid: 5ced6d762a6f22c468da005c0d34e0b7, type: 3}
+  - {fileID: 21300000, guid: 8c3c6197f3a1a804789db956f6926f8d, type: 3}
+  - {fileID: -4520168566669903916, guid: 70a5bd00258da534ba4a71771137e942, type: 3}
+  - {fileID: -7436518206759785634, guid: 661c8e9bf4be0e74b96ccb1eae30cc5c, type: 3}
+  - {fileID: 369394973315231505, guid: c70ad98187f21f7419e7f1bb25ab9129, type: 3}
+  - {fileID: 8401878401559650478, guid: ad52dcad9974b254699ae2f948f28ab1, type: 3}
+  - {fileID: 21300000, guid: fd8c134141f47e145bba69560db1e4c6, type: 3}
+  - {fileID: 21300000, guid: dbb6b9d725a694d4fa4b1af788fbe83b, type: 3}
+  - {fileID: 21300000, guid: 1fe3a67698ccd564b9072a3b1e84e41c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  faceOffset: {x: 0, y: 0, z: 0}
+  eyeOffset: {x: 0, y: 0, z: 0}
+  spoilage: 0
+  spoilageSymptom: {fileID: 0}
+  patience: 0
+  orders: []
+  id: Drunk
+  tier: 2

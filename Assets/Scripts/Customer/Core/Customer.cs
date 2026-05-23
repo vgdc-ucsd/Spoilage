@@ -4,19 +4,32 @@ using UnityEngine.InputSystem;
 public class Customer : MonoBehaviour
 {
     public CustomerData customerData;
-    
+
     public GameObject customerObject;
-    //public int spoilage;
+
+    private PlayerData Player => SaveManager.Instance.Player;
+
+    private const string SK_PROPHET = "Prophet";
+    private const string SK_BILLMAN = "Billman";
+    private const string SK_SISTER = "Unlucky Twin Girl";
+    private const string SK_PALE = "Pale Spoiled";
+    private const string SK_DRUNK = "Drunk";
+    private const string SK_WIDOW = "Suspicious Widow";
+    private const string SK_DOCTOR = "Doctor";
+    private const string SK_VIOLENT = "Violent Spoiled";
+    private const string SK_DEFEATED = "Defeated Spoiled";
+    private const string SK_FAMISHED = "Famished Spoiled";
+    private const string SK_EXECUTOR = "Executor";
 
     [ContextMenu("Initialize Customer")]
     public void InitializeCustomer()
     {
-        
+
         if (customerData == null)
         {
             customerData = CustomerManager.Instance.GenerateCustomerData();
         }
-
+/*
         if (customerData.spoilage >= CustomerData.Spoilage.STAGE_I
             && customerData.spoilageSymptom == null)
         {
@@ -29,8 +42,9 @@ public class Customer : MonoBehaviour
             customerData.spoilageSymptom.Register();
 
             // DEBUG
-            //customerData.spoilageSymptom.ApplySpoilage(); 
+            //customerData.spoilageSymptom.ApplySpoilage();
         }
+*/
 
         for (int i = 0; i < customerData.sprites.Length; i++)
         {
@@ -56,48 +70,104 @@ public class Customer : MonoBehaviour
             {
                 currTransform.GetComponent<SpriteRenderer>().sprite = customerData.sprites[i];
             }
-            /*
-            switch ((CustomerData.Indexes)i)
+        }
+
+        if (customerData.tier == CustomerData.Tier.None)
+        {
+            if (customerData.spoilage == CustomerData.Spoilage.STAGE_I)
             {
-                case CustomerData.Indexes.MOUTH_OPEN:
-                case CustomerData.Indexes.MOUTH_CLOSED:
-                case CustomerData.Indexes.MOUTH_ANGER:
-                case CustomerData.Indexes.MOUTH_DISGUST:
-                    transform.Find("Sprites/FACIAL_FEATURES").localPosition = customerData.faceOffset;
-                    transform.Find("Sprites/FACIAL_FEATURES").localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                    break;
-                case CustomerData.Indexes.EYES_OPEN:
-                case CustomerData.Indexes.EYES_CLOSED:
-                case CustomerData.Indexes.EYES_ANGER:
-                case CustomerData.Indexes.EYES_DISGUST:
-                case CustomerData.Indexes.EYES_WIDENING:
-                    transform.Find("Sprites/FACIAL_FEATURES").localPosition = customerData.eyeOffset;
-                    transform.Find("Sprites/FACIAL_FEATURES").localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                    break;
-                    // TODO: Use this location to apply the correct LOCAL offsets (the facial features that look right on its normal base model) (grab from CustomerManager/CustomerData list of local offsets)
-                    //transform.Find("Sprites/FACIAL_FEATURES/" + ((CustomerData.Indexes)i).ToString()).localPosition = new UnityEngine.Vector3(0.0f, 0.0f, 0.0f);
-                    // TODO: once local positions are correct, apply GLOBAL offsets based on the different in height of character and face size (grab from CustomerManager/CustomerData list of global offsets)
+                customerData.spoilageSymptom.AssignCustomer(transform.gameObject);
+                customerData.spoilageSymptom.Register();
             }
-            */
+            else if (customerData.spoilage == CustomerData.Spoilage.STAGE_II)
+            {
+                transform.Find("Sprites/SPOILAGE/SPOILAGE_BACK_1").GetComponent<SpriteRenderer>().sprite =
+                    customerData.sprites[(int) CustomerData.Indexes.TENDRILS_1];
+
+                transform.Find("Sprites/SPOILAGE/SPOILAGE_BACK_2").GetComponent<SpriteRenderer>().sprite =
+                    customerData.sprites[(int) CustomerData.Indexes.TENDRILS_2];
+
+                GetComponent<CustomerAnimation>().StartSpoilageAnim();
+            }
+        }
+        else // Key or semi-key
+        {
+            switch (customerData.id)
+            {
+                case SK_PROPHET:
+                    // Unknown if special behavior is needed
+                    break;
+                case SK_BILLMAN:
+                    applySpoilageOnDay(24);
+                    break;
+                case SK_SISTER:
+                    applySpoilageOnDay(22);
+                    break;
+                case SK_DRUNK:
+                    applySpoilageOnDay(18);
+                    break;
+                case SK_WIDOW:
+                    // Discrepancy between spreadsheet and coggle, spreadsheet
+                    // says widow should start and end with stage I spoilage,
+                    // coggle says she should transition from unspoiled --> stage I on day 14
+                    applySpoilageOnDay(0);
+                    // applySpoilageOnDay(p, 14);
+                    break;
+                case SK_DOCTOR:
+                    // if day < 21 assign customer to spoilage
+                    // else load and apply special sprites
+                    if (Player.Day < 21)
+                    {
+                        customerData.spoilageSymptom.AssignCustomer(transform.gameObject);
+                        customerData.spoilageSymptom.Register();
+                    } else
+                    {
+                        customerData.spoilageSymptom.DeleteSymptom();
+                        customerData.spoilageSymptom = null;
+
+                        customerData.spoilage = CustomerData.Spoilage.STAGE_II;
+
+                        // Apply stage II spoilage sprites
+                        Sprite spoiledBase = Resources.Load<Sprite>("Art/Customers/Spoilage/Fully Spoiled/spoilageSymptoms_fullySpoiled_body1");
+                        Sprite[] tendrils = Resources.LoadAll<Sprite>("Art/Customers/Spoilage/Fully Spoiled/spoilageSymptoms_fullySpoiled_tendrils_spritesheet");
+
+                        transform.Find("Sprites/BODY").GetComponent<SpriteRenderer>().sprite = spoiledBase;
+
+                        transform.Find("Sprites/SPOILAGE/SPOILAGE_BACK_1").GetComponent<SpriteRenderer>().sprite = tendrils[0];
+                        transform.Find("Sprites/SPOILAGE/SPOILAGE_BACK_2").GetComponent<SpriteRenderer>().sprite = tendrils[1];
+                        goto case SK_EXECUTOR;
+                    }
+                    break;
+
+                case SK_PALE:
+                case SK_VIOLENT:
+                case SK_DEFEATED:
+                case SK_FAMISHED:
+                case SK_EXECUTOR:
+                    GetComponent<CustomerAnimation>().StartSpoilageAnim();
+                    break;
+            }
         }
 
-        /*
-        if (customerData.spoilage == CustomerData.Spoilage.STAGE_I)
-        {
-            transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
-            customerData.spoilageSymtomp = AbstractSpoilageSymptom.GenerateSymptom(this);
-        }
-        else if (customerData.spoilage == CustomerData.Spoilage.UNSPOILED)
-        {
-            transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
-            transform.Find("Sprites/SPOILAGE_BACK").GetComponent<SpriteRenderer>().enabled = false;
-        }
-        */
 
+        // Apply offsets
         transform.Find("Sprites/FACIAL_FEATURES").localPosition = customerData.faceOffset;
         transform.Find("Sprites/SPOILAGE").localPosition = customerData.faceOffset;
+    }
 
-        
+    private void applySpoilageOnDay(int day)
+    {
+        if (Player.Day >= day)
+        {
+            customerData.spoilageSymptom.AssignCustomer(transform.gameObject);
+            customerData.spoilageSymptom.Register();
+            customerData.spoilage = CustomerData.Spoilage.STAGE_I;
+        }
+        else
+        {
+            customerData.spoilageSymptom.DeleteSymptom();
+            customerData.spoilageSymptom = null;
+        }
     }
 
     private void OnDestroy()
@@ -107,7 +177,7 @@ public class Customer : MonoBehaviour
             customerData.spoilageSymptom.Unregister();
         }
     }
-    
+
     // public void InstantiateCustomer()
     // {
     //     for (int i = 0; i < CustomerData.NUM_SPRITES; i++)

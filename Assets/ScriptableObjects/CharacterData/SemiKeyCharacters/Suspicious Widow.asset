@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918e1c96f9fc68cc18ac2ae3792387ab, type: 3}
+  m_Name: Suspicious Widow
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerData
+  sprites:
+  - {fileID: 21300000, guid: e93f863434d046146998a6ff088235ea, type: 3}
+  - {fileID: 21300000, guid: 0bb846d8055c53d4fbe75bee3ccddaff, type: 3}
+  - {fileID: -8934840382771582135, guid: 75faea85567a1704ba993b503a393034, type: 3}
+  - {fileID: 21300000, guid: fd5363936e8336f42a16030a8114f194, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 246fcc78f682f784c9c17babd1dd1b95, type: 3}
+  - {fileID: -1883448119044240626, guid: d7922cc90eb853048ae1be974cad3812, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 1660afd1c06565a45b7a4dd5133e5f51, type: 3}
+  - {fileID: 21300000, guid: 99f8d752070214f45a1ec5270304ae18, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  faceOffset: {x: 0, y: 0, z: 0}
+  eyeOffset: {x: 0, y: 0, z: 0}
+  spoilage: 0
+  spoilageSymptom: {fileID: 0}
+  patience: 0
+  orders: []
+  id: Suspicious Widow
+  tier: 2

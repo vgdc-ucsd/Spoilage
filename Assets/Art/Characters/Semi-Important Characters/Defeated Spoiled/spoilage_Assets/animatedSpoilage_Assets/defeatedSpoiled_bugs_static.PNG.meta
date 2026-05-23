@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: d84d8f7a11d5b074d851bbd943949514
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1838438738938424595
+    second: defeatedSpoiled_bugs_static_0
+  - first:
+      213: -3826819418453387472
+    second: defeatedSpoiled_bugs_static_1
+  - first:
+      213: -5402627415658475384
+    second: defeatedSpoiled_bugs_static_2
+  - first:
+      213: 8986947538887251092
+    second: defeatedSpoiled_bugs_static_3
+  - first:
+      213: -4554729935467361207
+    second: defeatedSpoiled_bugs_static_4
+  - first:
+      213: -4208085072119679237
+    second: defeatedSpoiled_bugs_static_5
+  - first:
+      213: 7031908335154339983
+    second: defeatedSpoiled_bugs_static_6
+  - first:
+      213: 132820045449527470
+    second: defeatedSpoiled_bugs_static_7
+  - first:
+      213: -5202121871917666629
+    second: defeatedSpoiled_bugs_static_8
+  - first:
+      213: -6056406667553023718
+    second: defeatedSpoiled_bugs_static_9
+  - first:
+      213: -211870655262915611
+    second: defeatedSpoiled_bugs_static_10
+  - first:
+      213: -2898208713189567056
+    second: defeatedSpoiled_bugs_static_11
+  - first:
+      213: -6501394396174162221
+    second: defeatedSpoiled_bugs_static_12
+  - first:
+      213: -7520699500173236336
+    second: defeatedSpoiled_bugs_static_13
+  - first:
+      213: -582571805350742996
+    second: defeatedSpoiled_bugs_static_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: defeatedSpoiled_bugs_static_0
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 973
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31dedb7ea42738910800000000000000
+      internalID: 1838438738938424595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_bugs_static_1
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 971
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 037d487a30864eac0800000000000000
+      internalID: -3826819418453387472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_bugs_static_2
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 958
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 880d3e36df20605b0800000000000000
+      internalID: -5402627415658475384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_bugs_static_3
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 948
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4941276fb2d08bc70800000000000000
+      internalID: 8986947538887251092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_bugs_static_4
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 926
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94c41a471495ac0c0800000000000000
+      internalID: -4554729935467361207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_bugs_static_5
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 914
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf6beab1ce0e995c0800000000000000
+      internalID: -4208085072119679237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_bugs_static_6
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 891
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f80abf9cf5b569160800000000000000
+      internalID: 7031908335154339983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_bugs_static_7
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 882
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea0021ca02fd7d100800000000000000
+      internalID: 132820045449527470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_bugs_static_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 873
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbeae0238b95ec7b0800000000000000
+      internalID: -5202121871917666629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_bugs_static_9
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 846
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a19d13d593253fba0800000000000000
+      internalID: -6056406667553023718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_bugs_static_10
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 803
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e389b6f2c84f0df0800000000000000
+      internalID: -211870655262915611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_bugs_static_11
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 542
+        width: 54
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b5d46dd78e77c7d0800000000000000
+      internalID: -2898208713189567056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_bugs_static_12
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 415
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d6e2571e3866c5a0800000000000000
+      internalID: -6501394396174162221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_bugs_static_13
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 101
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09767b5a6ab11a790800000000000000
+      internalID: -7520699500173236336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_bugs_static_14
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 56
+        width: 41
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2439e5970a4ae7f0800000000000000
+      internalID: -582571805350742996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      defeatedSpoiled_bugs_static_0: 1838438738938424595
+      defeatedSpoiled_bugs_static_1: -3826819418453387472
+      defeatedSpoiled_bugs_static_10: -211870655262915611
+      defeatedSpoiled_bugs_static_11: -2898208713189567056
+      defeatedSpoiled_bugs_static_12: -6501394396174162221
+      defeatedSpoiled_bugs_static_13: -7520699500173236336
+      defeatedSpoiled_bugs_static_14: -582571805350742996
+      defeatedSpoiled_bugs_static_2: -5402627415658475384
+      defeatedSpoiled_bugs_static_3: 8986947538887251092
+      defeatedSpoiled_bugs_static_4: -4554729935467361207
+      defeatedSpoiled_bugs_static_5: -4208085072119679237
+      defeatedSpoiled_bugs_static_6: 7031908335154339983
+      defeatedSpoiled_bugs_static_7: 132820045449527470
+      defeatedSpoiled_bugs_static_8: -5202121871917666629
+      defeatedSpoiled_bugs_static_9: -6056406667553023718
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -26,6 +26,21 @@ TextureImporter:
   - first:
       213: 5222323045396059049
     second: nose_mouth100_static_7
+  - first:
+      213: 2469637103672569122
+    second: nose_mouth100_static_8
+  - first:
+      213: -2199163721308131385
+    second: nose_mouth100_static_9
+  - first:
+      213: 6344310499757006313
+    second: nose_mouth100_static_10
+  - first:
+      213: 4483075042365038022
+    second: nose_mouth100_static_11
+  - first:
+      213: -1703849015700350304
+    second: nose_mouth100_static_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -150,10 +165,10 @@ TextureImporter:
       name: nose_mouth100_static_0
       rect:
         serializedVersion: 2
-        x: 424
-        y: 749
-        width: 20
-        height: 51
+        x: 425
+        y: 750
+        width: 17
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +187,10 @@ TextureImporter:
       name: nose_mouth100_static_1
       rect:
         serializedVersion: 2
-        x: 436
-        y: 759
-        width: 9
-        height: 14
+        x: 438
+        y: 762
+        width: 10
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +209,10 @@ TextureImporter:
       name: nose_mouth100_static_2
       rect:
         serializedVersion: 2
-        x: 443
-        y: 764
-        width: 10
-        height: 8
+        x: 449
+        y: 748
+        width: 23
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +231,10 @@ TextureImporter:
       name: nose_mouth100_static_3
       rect:
         serializedVersion: 2
-        x: 452
-        y: 744
+        x: 438
+        y: 749
         width: 22
-        height: 57
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,10 +253,10 @@ TextureImporter:
       name: nose_mouth100_static_4
       rect:
         serializedVersion: 2
-        x: 437
-        y: 749
-        width: 26
-        height: 7
+        x: 407
+        y: 717
+        width: 66
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,10 +275,10 @@ TextureImporter:
       name: nose_mouth100_static_5
       rect:
         serializedVersion: 2
-        x: 406
-        y: 716
-        width: 83
-        height: 30
+        x: 411
+        y: 718
+        width: 13
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,10 +297,10 @@ TextureImporter:
       name: nose_mouth100_static_6
       rect:
         serializedVersion: 2
-        x: 413
-        y: 670
-        width: 68
-        height: 33
+        x: 469
+        y: 717
+        width: 17
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,10 +319,10 @@ TextureImporter:
       name: nose_mouth100_static_7
       rect:
         serializedVersion: 2
-        x: 432
-        y: 660
-        width: 26
-        height: 14
+        x: 414
+        y: 678
+        width: 65
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,6 +333,116 @@ TextureImporter:
       bones: []
       spriteID: 9a31b27042b697840800000000000000
       internalID: 5222323045396059049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nose_mouth100_static_8
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 692
+        width: 37
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22d27807cd9e54220800000000000000
+      internalID: 2469637103672569122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nose_mouth100_static_9
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 673
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cfa0844f300b71e0800000000000000
+      internalID: -2199163721308131385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nose_mouth100_static_10
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 673
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ed1cc239c48b0850800000000000000
+      internalID: 6344310499757006313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nose_mouth100_static_11
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 672
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cd5699aff4173e30800000000000000
+      internalID: 4483075042365038022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nose_mouth100_static_12
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 661
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aa184cf856ba58e0800000000000000
+      internalID: -1703849015700350304
       vertices: []
       indices: 
       edges: []
@@ -338,12 +463,17 @@ TextureImporter:
     nameFileIdTable:
       nose_mouth100_static_0: -6713912476655701221
       nose_mouth100_static_1: -1241953918086314572
+      nose_mouth100_static_10: 6344310499757006313
+      nose_mouth100_static_11: 4483075042365038022
+      nose_mouth100_static_12: -1703849015700350304
       nose_mouth100_static_2: -4122576333054131149
       nose_mouth100_static_3: 6365146063368223908
       nose_mouth100_static_4: -1983081443323552578
       nose_mouth100_static_5: 8138124334013528764
       nose_mouth100_static_6: 7489272937650762297
       nose_mouth100_static_7: 5222323045396059049
+      nose_mouth100_static_8: 2469637103672569122
+      nose_mouth100_static_9: -2199163721308131385
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

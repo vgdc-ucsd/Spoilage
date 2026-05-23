@@ -26,6 +26,27 @@ TextureImporter:
   - first:
       213: 1875973171401199132
     second: Violent_talking_spritesheet_7
+  - first:
+      213: -5885751073136846885
+    second: Violent_talking_spritesheet_8
+  - first:
+      213: -5980555802806334023
+    second: Violent_talking_spritesheet_9
+  - first:
+      213: -6169835965949932407
+    second: Violent_talking_spritesheet_10
+  - first:
+      213: -8901193675483277958
+    second: Violent_talking_spritesheet_11
+  - first:
+      213: -3741048035760731971
+    second: Violent_talking_spritesheet_12
+  - first:
+      213: -2419163415170004434
+    second: Violent_talking_spritesheet_13
+  - first:
+      213: -1333390811201924130
+    second: Violent_talking_spritesheet_14
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -67,7 +88,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -150,12 +171,12 @@ TextureImporter:
       name: Violent_talking_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 317
-        y: 673
-        width: 38
-        height: 184
+        x: 0
+        y: 0
+        width: 920
+        height: 1240
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -172,12 +193,12 @@ TextureImporter:
       name: Violent_talking_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 362
-        y: 805
-        width: 18
-        height: 21
+        x: 920
+        y: 0
+        width: 920
+        height: 1240
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -190,143 +211,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Violent_talking_spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 327
-        y: 767
-        width: 51
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bfe37ce869c235d10800000000000000
-      internalID: 2113081675319033595
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Violent_talking_spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 375
-        y: 724
-        width: 88
-        height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 061decded79caf8f0800000000000000
-      internalID: -505870465427910304
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Violent_talking_spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 333
-        y: 740
-        width: 23
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 25034f40c4e92b430800000000000000
-      internalID: 3797271485164564562
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Violent_talking_spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 360
-        y: 747
-        width: 32
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6aa86164f4cda21a0800000000000000
-      internalID: -6833407251544896858
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Violent_talking_spritesheet_6
-      rect:
-        serializedVersion: 2
-        x: 330
-        y: 581
-        width: 255
-        height: 148
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b7a70ee3a12722e90800000000000000
-      internalID: -7051948609459160453
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Violent_talking_spritesheet_7
-      rect:
-        serializedVersion: 2
-        x: 453
-        y: 576
-        width: 58
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c1e0889f8abc80a10800000000000000
-      internalID: 1875973171401199132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: a695f06d792f0b24a89dfa52e434aa01
     internalID: 0
     vertices: []
     indices: 
@@ -334,16 +223,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Violent_talking_spritesheet_0: 1703469512368609192
       Violent_talking_spritesheet_1: 8612816137851959107
-      Violent_talking_spritesheet_2: 2113081675319033595
-      Violent_talking_spritesheet_3: -505870465427910304
-      Violent_talking_spritesheet_4: 3797271485164564562
-      Violent_talking_spritesheet_5: -6833407251544896858
-      Violent_talking_spritesheet_6: -7051948609459160453
-      Violent_talking_spritesheet_7: 1875973171401199132
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

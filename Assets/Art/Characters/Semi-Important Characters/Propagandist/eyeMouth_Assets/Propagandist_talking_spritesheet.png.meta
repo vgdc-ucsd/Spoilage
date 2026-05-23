@@ -20,6 +20,27 @@ TextureImporter:
   - first:
       213: 7707666649291977069
     second: Propagandist_talking_spritesheet_5
+  - first:
+      213: -8226621075443461693
+    second: Propagandist_talking_spritesheet_6
+  - first:
+      213: 4668382400460391862
+    second: Propagandist_talking_spritesheet_7
+  - first:
+      213: 1454082519608695758
+    second: Propagandist_talking_spritesheet_8
+  - first:
+      213: 5436417793042321510
+    second: Propagandist_talking_spritesheet_9
+  - first:
+      213: -2513556529916403258
+    second: Propagandist_talking_spritesheet_10
+  - first:
+      213: -4375678588655329138
+    second: Propagandist_talking_spritesheet_11
+  - first:
+      213: 7370341645331218401
+    second: Propagandist_talking_spritesheet_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +82,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -144,12 +165,12 @@ TextureImporter:
       name: Propagandist_talking_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 376
-        y: 709
-        width: 54
-        height: 141
+        x: 0
+        y: 0
+        width: 920
+        height: 1240
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -166,12 +187,12 @@ TextureImporter:
       name: Propagandist_talking_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 407
-        y: 749
-        width: 34
-        height: 36
+        x: 920
+        y: 0
+        width: 920
+        height: 1240
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -184,99 +205,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Propagandist_talking_spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 417
-        y: 744
-        width: 19
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c6acdd9644ce56fa0800000000000000
-      internalID: -5807976365846312340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Propagandist_talking_spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 403
-        y: 707
-        width: 31
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a1689629031e12a10800000000000000
-      internalID: 1883033717948646938
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Propagandist_talking_spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 426
-        y: 699
-        width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e6bed0e030ea5d520800000000000000
-      internalID: 2726276477586631534
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Propagandist_talking_spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 374
-        y: 609
-        width: 119
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d617c260bf127fa60800000000000000
-      internalID: 7707666649291977069
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: c491e4ec6b9e72d4dbd08f6a10665302
     internalID: 0
     vertices: []
     indices: 
@@ -284,14 +217,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Propagandist_talking_spritesheet_0: 7313165880524800938
       Propagandist_talking_spritesheet_1: 2008953575663157301
-      Propagandist_talking_spritesheet_2: -5807976365846312340
-      Propagandist_talking_spritesheet_3: 1883033717948646938
-      Propagandist_talking_spritesheet_4: 2726276477586631534
-      Propagandist_talking_spritesheet_5: 7707666649291977069
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

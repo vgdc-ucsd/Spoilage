@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918e1c96f9fc68cc18ac2ae3792387ab, type: 3}
+  m_Name: Pale Spoiled
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerData
+  sprites:
+  - {fileID: 21300000, guid: 1069ccf00d1346546a13b856b4ec52bb, type: 3}
+  - {fileID: 21300000, guid: 2fd6fc1e645526641b95e221f6aeccf3, type: 3}
+  - {fileID: -8236636454698549307, guid: 9834e05a26077914fa8fe6ffc76c535d, type: 3}
+  - {fileID: 21300000, guid: 43a69881514234a4ca04f832c021ed1e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: ce3fd7faf2b2d114787a14c28fab826b, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 623de4851b6659f48ac9c1b2b6f31aee, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  faceOffset: {x: 0, y: 0, z: 0}
+  eyeOffset: {x: 0, y: 0, z: 0}
+  spoilage: 0
+  spoilageSymptom: {fileID: 0}
+  patience: 0
+  orders: []
+  id: Pale Spoiled
+  tier: 2

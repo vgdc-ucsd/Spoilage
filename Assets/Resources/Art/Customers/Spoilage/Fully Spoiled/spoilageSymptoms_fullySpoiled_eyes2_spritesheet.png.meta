@@ -1,0 +1,780 @@
+fileFormatVersion: 2
+guid: 01b1e30b8372b164a872fa090f89ce74
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -916989143877640359
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_0
+  - first:
+      213: -5436299216301888191
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_1
+  - first:
+      213: 7472898726119540803
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_2
+  - first:
+      213: 2011195812274047419
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_3
+  - first:
+      213: -3302195790156437546
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_4
+  - first:
+      213: 1743772183388760933
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_5
+  - first:
+      213: -2263735140852178802
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_6
+  - first:
+      213: 142239827290021187
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_7
+  - first:
+      213: -3888025354122809904
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_8
+  - first:
+      213: 2944235906344191846
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_9
+  - first:
+      213: 945136281706773548
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_10
+  - first:
+      213: 5370627009621670912
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_11
+  - first:
+      213: -3893638851013581189
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_12
+  - first:
+      213: -891974104616856791
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_13
+  - first:
+      213: 5642769180310978930
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_14
+  - first:
+      213: 8310962527331631476
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_15
+  - first:
+      213: 8749886295111362068
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_16
+  - first:
+      213: -4497976368507951633
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_17
+  - first:
+      213: -7222490195363768389
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_18
+  - first:
+      213: -1493090622026223410
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_19
+  - first:
+      213: 1502599009663671501
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_20
+  - first:
+      213: 1987161094495535120
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_21
+  - first:
+      213: -4151017648154839863
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_22
+  - first:
+      213: -6219981528293160377
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_23
+  - first:
+      213: -5993928615723090441
+    second: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 613
+        width: 208
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95f98486b333643f0800000000000000
+      internalID: -916989143877640359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 730
+        width: 112
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14d679f5aa26e84b0800000000000000
+      internalID: -5436299216301888191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1448
+        y: 734
+        width: 30
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34803dc5cc115b760800000000000000
+      internalID: 7472898726119540803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 1469
+        y: 735
+        width: 13
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb9095c7fe339eb10800000000000000
+      internalID: 2011195812274047419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 731
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d76fe4bc6e3c22d0800000000000000
+      internalID: -3302195790156437546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 730
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56b2818df8f133810800000000000000
+      internalID: 1743772183388760933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 708
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e80efe712e89590e0800000000000000
+      internalID: -2263735140852178802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 612
+        width: 174
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34dd88a8e5659f100800000000000000
+      internalID: 142239827290021187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 1339
+        y: 683
+        width: 117
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dd2cc14a85fa0ac0800000000000000
+      internalID: -3888025354122809904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 695
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 667889425f60cd820800000000000000
+      internalID: 2944235906344191846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 603
+        width: 26
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2c377fc07ccd1d00800000000000000
+      internalID: 945136281706773548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 596
+        width: 54
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c3e997fcc488a40800000000000000
+      internalID: 5370627009621670912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 1371
+        y: 605
+        width: 43
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b76eca9281407f9c0800000000000000
+      internalID: -3893638851013581189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 284
+        width: 201
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 923177917421f93f0800000000000000
+      internalID: -891974104616856791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 391
+        width: 97
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27145fd3ca42f4e40800000000000000
+      internalID: 5642769180310978930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 423
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4714f2f9268765370800000000000000
+      internalID: 8310962527331631476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 419
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 416eb2df937dd6970800000000000000
+      internalID: 8749886295111362068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 418
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe56bfaf25af391c0800000000000000
+      internalID: -4497976368507951633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 303
+        width: 205
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb7d9970f6f84cb90800000000000000
+      internalID: -7222490195363768389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 387
+        width: 22
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec0f8a07df9774be0800000000000000
+      internalID: -1493090622026223410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 396
+        width: 55
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcc5bd296dd4ad410800000000000000
+      internalID: 1502599009663671501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 402
+        width: 54
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01002ecac70d39b10800000000000000
+      internalID: 1987161094495535120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 285
+        width: 54
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c47a59217f9466c0800000000000000
+      internalID: -4151017648154839863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 1307
+        y: 282
+        width: 44
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74a489041cf2ea9a0800000000000000
+      internalID: -6219981528293160377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spoilageSymptoms_fullySpoiled_eyes2_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 285
+        width: 84
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fdb6c26ea941dca0800000000000000
+      internalID: -5993928615723090441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_0: -916989143877640359
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_1: -5436299216301888191
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_10: 945136281706773548
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_11: 5370627009621670912
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_12: -3893638851013581189
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_13: -891974104616856791
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_14: 5642769180310978930
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_15: 8310962527331631476
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_16: 8749886295111362068
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_17: -4497976368507951633
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_18: -7222490195363768389
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_19: -1493090622026223410
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_2: 7472898726119540803
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_20: 1502599009663671501
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_21: 1987161094495535120
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_22: -4151017648154839863
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_23: -6219981528293160377
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_24: -5993928615723090441
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_3: 2011195812274047419
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_4: -3302195790156437546
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_5: 1743772183388760933
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_6: -2263735140852178802
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_7: 142239827290021187
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_8: -3888025354122809904
+      spoilageSymptoms_fullySpoiled_eyes2_spritesheet_9: 2944235906344191846
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,278 @@
+fileFormatVersion: 2
+guid: 79a6a5f480104a047845fc0ea00f991e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8675782318047175117
+    second: eyes_eyebrows257_disgust_spritesheet_0
+  - first:
+      213: 5156563443969923336
+    second: eyes_eyebrows257_disgust_spritesheet_1
+  - first:
+      213: 6370729671004894635
+    second: eyes_eyebrows257_disgust_spritesheet_2
+  - first:
+      213: -7151610299043060068
+    second: eyes_eyebrows257_disgust_spritesheet_3
+  - first:
+      213: -4162304767292708016
+    second: eyes_eyebrows257_disgust_spritesheet_4
+  - first:
+      213: 7235460896664659257
+    second: eyes_eyebrows257_disgust_spritesheet_5
+  - first:
+      213: 9034133473755276093
+    second: eyes_eyebrows257_disgust_spritesheet_6
+  - first:
+      213: 2212015974799418229
+    second: eyes_eyebrows257_disgust_spritesheet_7
+  - first:
+      213: 7357719330466669290
+    second: eyes_eyebrows257_disgust_spritesheet_8
+  - first:
+      213: 1032616277111200772
+    second: eyes_eyebrows257_disgust_spritesheet_9
+  - first:
+      213: 573924617412282470
+    second: eyes_eyebrows257_disgust_spritesheet_10
+  - first:
+      213: -2479661448198011647
+    second: eyes_eyebrows257_disgust_spritesheet_11
+  - first:
+      213: 7124490998134255426
+    second: eyes_eyebrows257_disgust_spritesheet_12
+  - first:
+      213: 4677874628329131797
+    second: eyes_eyebrows257_disgust_spritesheet_13
+  - first:
+      213: -2965338111390572539
+    second: eyes_eyebrows257_disgust_spritesheet_14
+  - first:
+      213: 339621997057171789
+    second: eyes_eyebrows257_disgust_spritesheet_15
+  - first:
+      213: -5291844174383628269
+    second: eyes_eyebrows257_disgust_spritesheet_16
+  - first:
+      213: -8005567350681017779
+    second: eyes_eyebrows257_disgust_spritesheet_17
+  - first:
+      213: 4778022224062754847
+    second: eyes_eyebrows257_disgust_spritesheet_18
+  - first:
+      213: 8230400239749874264
+    second: eyes_eyebrows257_disgust_spritesheet_19
+  - first:
+      213: 6816023826882318455
+    second: eyes_eyebrows257_disgust_spritesheet_20
+  - first:
+      213: 4000218835223282997
+    second: eyes_eyebrows257_disgust_spritesheet_21
+  - first:
+      213: -3121263663893858070
+    second: eyes_eyebrows257_disgust_spritesheet_22
+  - first:
+      213: 781493662567505450
+    second: eyes_eyebrows257_disgust_spritesheet_23
+  - first:
+      213: -5026283982385872530
+    second: eyes_eyebrows257_disgust_spritesheet_24
+  - first:
+      213: -4247013413264340221
+    second: eyes_eyebrows257_disgust_spritesheet_25
+  - first:
+      213: -336120540839453238
+    second: eyes_eyebrows257_disgust_spritesheet_26
+  - first:
+      213: 223843702414523205
+    second: eyes_eyebrows257_disgust_spritesheet_27
+  - first:
+      213: -1962454027888037847
+    second: eyes_eyebrows257_disgust_spritesheet_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: eyes_eyebrows257_disgust_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc121df4d02966870800000000000000
+      internalID: 8675782318047175117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows257_disgust_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8099793b12bcf8740800000000000000
+      internalID: 5156563443969923336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 074095130d04fc5439e4990407cb98ce
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      eyes_eyebrows257_disgust_spritesheet_0: 8675782318047175117
+      eyes_eyebrows257_disgust_spritesheet_1: 5156563443969923336
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
