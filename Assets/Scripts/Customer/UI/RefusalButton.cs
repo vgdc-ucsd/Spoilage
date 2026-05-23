@@ -23,12 +23,20 @@ public class RefusalButton : MonoBehaviour
 
     void OnMouseDown()
     {
+        Press();
+    }
+
+    public void Press()
+    {
         buttonPress.Invoke();
     }
 
     public void AnimateButton()
     {
-        anim.SetTrigger("Button Pressed");
+        if (anim != null)
+        {
+            anim.SetTrigger("Button Pressed");
+        }
     }
 
     public void RemoveCustomer()

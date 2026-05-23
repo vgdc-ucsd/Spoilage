@@ -23,8 +23,13 @@ public class CallBell : MonoBehaviour
         _callBellAction.RemoveListener(CallBellStart);
     }
 
-    private void OnMouseDown()
+    public void Press()
     {
         _callBellAction.Invoke();
+    }
+
+    private void OnMouseDown()
+    {
+        Press();
     }
 }
