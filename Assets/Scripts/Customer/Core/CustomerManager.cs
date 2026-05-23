@@ -18,7 +18,8 @@ public class CustomerManager : Singleton<CustomerManager>
     private const string CLOTHES_FOLDER = "/Clothes/";
     private const string HAIR_FOLDER = "/Hair/";
 
-    private const string SPOILAGE_II_FOLDER = "";
+    // TODO: This path may be inaccurate
+    private const string SPOILAGE_II_PATH = "Assets/Resources/Art/Customers/Spoilage/Fully Spoiled/";
 
     private const string REGEX_NOT_META = "^(?!.*\\.meta)(?!.*reference).*";
     private const string REGEX_STATIC = "static.*$";
@@ -216,19 +217,19 @@ public class CustomerManager : Singleton<CustomerManager>
     private void AssignStageIISprites(CustomerData newData)
     {
         string basePath = getRandomElement(
-            Directory.GetFiles(SPOILAGE_II_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_SPOILAGE_BASE)).ToArray());
+            Directory.GetFiles(SPOILAGE_II_PATH).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_SPOILAGE_BASE)).ToArray());
         string eyesPath = getRandomElement(
-            Directory.GetFiles(SPOILAGE_II_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_SPOILAGE_EYES)).ToArray());
+            Directory.GetFiles(SPOILAGE_II_PATH).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_SPOILAGE_EYES)).ToArray());
         string tendrilsPath = getRandomElement(
-            Directory.GetFiles(SPOILAGE_II_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_SPOILAGE_TENDRILS)).ToArray());
+            Directory.GetFiles(SPOILAGE_II_PATH).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_SPOILAGE_TENDRILS)).ToArray());
 
-        newData.sprites[(int)CustomerData.Indexes.BODY] = Resources.Load<Sprite>(basePath);
+        newData.sprites[(int)CustomerData.Indexes.BODY] = Resources.Load<Sprite>(trimPath(basePath));
 
-        Sprite[] eyeSprites = Resources.LoadAll<Sprite>(eyesPath);
+        Sprite[] eyeSprites = Resources.LoadAll<Sprite>(trimPath(eyesPath));
         newData.sprites[(int)CustomerData.Indexes.EYES_OPEN] = eyeSprites[0];
         newData.sprites[(int)CustomerData.Indexes.EYES_CLOSED] = eyeSprites[1];
 
-        Sprite[] tendrilSprites = Resources.LoadAll<Sprite>(tendrilsPath);
+        Sprite[] tendrilSprites = Resources.LoadAll<Sprite>(trimPath(tendrilsPath));
         newData.sprites[(int)CustomerData.Indexes.TENDRILS_1] = tendrilSprites[0];
         newData.sprites[(int)CustomerData.Indexes.TENDRILS_2] = tendrilSprites[1];
     }

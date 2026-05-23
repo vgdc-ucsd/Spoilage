@@ -15,7 +15,7 @@ public class Customer : MonoBehaviour
     private const string SK_WIDOW = "e";    
     private const string SK_DOCTOR = "f";    
     private const string SK_VIOLENT = "g";    
-    private const string SK_DEAF = "h";    
+    private const string SK_DEFEATED = "h";    
     private const string SK_FAMISHED = "i";    
     private const string SK_EXECUTOR = "j";    
 
@@ -90,38 +90,60 @@ public class Customer : MonoBehaviour
         } 
         else // Key or semi-key
         {
-            PlayerData player = SaveManager.Instance.Player;
+            PlayerData p = SaveManager.Instance.Player;
             switch (customerData.id)
             {
                 case SK_PROPHET:
                     // Unknown if special behavior is needed
                     break;
                 case SK_BILLMAN:
-                    // if day > ?? assign customer to spoilage
-                    // else set customerData.spoilageSymptom to null
+                    applySpoilageOnDay(p, 24);
                     break;
                 case SK_SISTER:
-                    // if day > ?? assign customer to spoilage
-                    // else set customerData.spoilageSymptom to null
+                    applySpoilageOnDay(p, 22);
                     break;
                 case SK_DRUNK:
-                    // if day > ?? assign customer to spoilage
-                    // else set customerData.spoilageSymptom to null
+                    applySpoilageOnDay(p, 18);
                     break;
                 case SK_WIDOW:
-                    // Assign customer to spoilage
+                    // Discrepancy between spreadsheet and coggle, spreadsheet
+                    // says widow should start and end with stage I spoilage, 
+                    // coggle says she should transition from unspoiled --> stage I on day 14
+                    applySpoilageOnDay(p, 0); 
+                    // applySpoilageOnDay(p, 14);
                     break;
                 case SK_DOCTOR:
-                    // if day < ?? assign customer to spoilage
+                    // if day < 21 assign customer to spoilage
                     // else load and apply special sprites
+                    if (p.Day < 21)
+                    {
+                        customerData.spoilageSymptom.AssignCustomer(transform.gameObject);
+                        customerData.spoilageSymptom.Register();
+                    } else
+                    {
+                        customerData.spoilageSymptom.DeleteSymptom();
+                        customerData.spoilageSymptom = null;
+
+                        customerData.spoilage = CustomerData.Spoilage.STAGE_II;
+
+                        // Apply stage II spoilage sprites
+                        Sprite spoiledBase = Resources.Load<Sprite>("Art/Customers/Spoilage/Fully Spoiled/spoilageSymptoms_fullySpoiled_body1");
+                        Sprite[] tendrils = Resources.LoadAll<Sprite>("Art/Customers/Spoilage/Fully Spoiled/spoilageSymptoms_fullySpoiled_tendrils");
+
+                        transform.Find("Sprites/BODY").GetComponent<SpriteRenderer>().sprite = spoiledBase;
+
+                        transform.Find("Sprites/SPOILAGE/SPOILAGE_BACK_1").GetComponent<SpriteRenderer>().sprite = tendrils[0];
+                        transform.Find("Sprites/SPOILAGE/SPOILAGE_BACK_2").GetComponent<SpriteRenderer>().sprite = tendrils[1];
+                        goto case SK_EXECUTOR;
+                    }
                     break;
                 
                 case SK_PALE:
                 case SK_VIOLENT:
-                case SK_DEAF:
+                case SK_DEFEATED:
                 case SK_FAMISHED:
                 case SK_EXECUTOR:
-                    // Start spoilage anim?
+                    GetComponent<CustomerAnimation>().StartSpoilageAnim();
                     break;
             }
         }
@@ -130,6 +152,20 @@ public class Customer : MonoBehaviour
         // Apply offsets
         transform.Find("Sprites/FACIAL_FEATURES").localPosition = customerData.faceOffset;
         transform.Find("Sprites/SPOILAGE").localPosition = customerData.faceOffset;
+    }
+
+    private void applySpoilageOnDay(PlayerData player, int day)
+    {
+        if (player.Day >= day)
+        {
+            customerData.spoilageSymptom.AssignCustomer(transform.gameObject);
+            customerData.spoilageSymptom.Register();
+        }
+        else
+        {
+            customerData.spoilageSymptom.DeleteSymptom();
+            customerData.spoilageSymptom = null;
+        }
     }
 
     private void OnDestroy()
