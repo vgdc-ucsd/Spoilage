@@ -14,7 +14,8 @@ public class Ourgh : AbstractSpoilageSymptom
 
     public override void ApplySpoilage() {
         Debug.Log("Ourgh");
-        // TODO: DIALOGUE
+        SetMood(CustomerAnimation.Mood.DISGUST);
+        PlayDialogue("ourgh");
         // TODO: AUDIO
     }
 }
