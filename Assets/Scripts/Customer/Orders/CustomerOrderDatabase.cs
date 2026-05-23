@@ -1,13 +1,18 @@
+using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
 {
+    //singleton hell
     private RecipeManager _recipeManager;
-
     private SaveManager _saveManager;
+    private CustomerLineManager _lineManager;
+    private ResourceManager _resourceManager;
 
-    // private ServingStation _servingStation
+    [SerializeField]
+    private ServingStation _servingStation;
 
     [Header("Chance curves based on game progress from 0 to 1")]
     [SerializeField]
@@ -22,8 +27,13 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
     [SerializeField]
     private AnimationCurve _fourDishChance;
 
+    public List<Recipe> CustomerOrder;
+
+    private int orderStreak = 0;
+
     public override void Awake()
     {
+        CustomerOrder = new(4);
         base.Awake();
     }
 
@@ -31,13 +41,16 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
     {
         _recipeManager = RecipeManager.Instance;
         _saveManager = SaveManager.Instance;
+        _lineManager = CustomerLineManager.Instance;
+        _resourceManager = ResourceManager.Instance;
 
         UpdateAvailableRecipes();
     }
 
     public int PickDishCount(float gameProgress)
     {
-        gameProgress = Mathf.Clamp01(gameProgress);
+        //divide by 30 because days are 1-30
+        gameProgress = Mathf.Clamp01(gameProgress / 30);
 
         float one = Mathf.Max(0, _oneDishChance.Evaluate(gameProgress));
         float two = Mathf.Max(0, _twoDishChance.Evaluate(gameProgress));
@@ -133,10 +146,43 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
         return result;
     }
 
-    public bool SubmitOrder()
+    public bool SubmitOrder(IngredientObject dish)
     {
+        //check the set of orders against the dish submitted by name
+        Predicate<Recipe> predicate = x => x.name == dish.name;
+        Recipe match = CustomerOrder.Find(predicate);
+        bool success = match != null;
+        CustomerData customerData = _lineManager.CurrentCustomer.customerData;
 
-        return false;
+        if (success)
+        {
+            // increase the necessary resources
+            orderStreak++;
+            _resourceManager.Wealth += (int)(match.reward * dish.QualityPercent);
+            customerData.patience = (customerData.patience + 0.5 > 1) ? 1 : customerData.patience += 0.5f;
+            
+            //it looks like reputation didnt really get fully fleshed out so im not gonna touch it
+            // _resourceManager.Reputation += orderStreak;
+
+            //not sure if they wrote this method knowing the customer could order multiple things, but oh well
+            StoryManager.Instance.OnCustomerServed(customerData, success);
+
+            CustomerOrder.Remove(match);
+
+            //check if the order is done
+            if (CustomerOrder.Count == 0)
+            {
+                //new customer!
+                _lineManager.Advance();
+            }
+        }   else
+        {
+            orderStreak = 0;
+
+            StoryManager.Instance.OnCustomerServed(customerData, success);
+        }
+
+        return success;
     }
 
     public Recipe GenerateCustomerOrder()

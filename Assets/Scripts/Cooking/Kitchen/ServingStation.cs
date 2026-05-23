@@ -1,9 +1,24 @@
 using UnityEngine;
+using UnityEngine.Events;
 using System.Collections.Generic;
 
 public class ServingStation : KitchenTile
 {
-    public new void PlaceObject(GameObject obj)
+    public UnityEvent PlateSubmitted;
+    private CustomerOrderDatabase _customerOrderDatabase;
+
+    private void Start()
+    {
+        _customerOrderDatabase = CustomerOrderDatabase.Instance;
+        if (PlateSubmitted == null)
+            PlateSubmitted = new UnityEvent();
+
+        CustomerLineManager.Instance.PlateSubmitted = PlateSubmitted;
+
+        PlateSubmitted.AddListener(OnPlateSubmitted);
+    }
+
+    public override void PlaceObject(GameObject obj)
     {
         base.PlaceObject(obj);
 
@@ -32,7 +47,7 @@ public class ServingStation : KitchenTile
         return existingFood;
     }
 
-    public new bool CanPlaceObject(string type, GameObject movingObj = null)
+    public override bool CanPlaceObject(string type, GameObject movingObj = null)
     {
         //this type doesn't accept appliances
         if (type == "Appliance") return false;
@@ -40,11 +55,25 @@ public class ServingStation : KitchenTile
         return base.CanPlaceObject(type, movingObj);
     }
 
-    public new void RemoveObject(GameObject obj)
+    public override void RemoveObject(GameObject obj)
     {
         IngredientBehaviour behaviour = obj.GetComponent<IngredientBehaviour>();
         behaviour.UnplateIngredient();
         
         base.RemoveObject(obj);
+    }
+
+    void OnPlateSubmitted()
+    {
+        IngredientObject existingFood = null;
+
+        // Find existing food on tile
+        foreach (var item in objectsOnTile)
+            if (item != null && item.TryGetComponent(out existingFood)) break;
+
+        if (_customerOrderDatabase.SubmitOrder(existingFood))
+        {
+            objectsOnTile.Clear();
+        }
     }
 }
