@@ -6,7 +6,18 @@ public class Customer : MonoBehaviour
     public CustomerData customerData;
     
     public GameObject customerObject;
-    //public int spoilage;
+
+    private const string SK_PROPHET = "a";
+    private const string SK_BILLMAN = "b";    
+    private const string SK_SISTER = "c";    
+    private const string SK_PALE = "p";    
+    private const string SK_DRUNK = "d";    
+    private const string SK_WIDOW = "e";    
+    private const string SK_DOCTOR = "f";    
+    private const string SK_VIOLENT = "g";    
+    private const string SK_DEAF = "h";    
+    private const string SK_FAMISHED = "i";    
+    private const string SK_EXECUTOR = "j";    
 
     [ContextMenu("Initialize Customer")]
     public void InitializeCustomer()
@@ -16,7 +27,7 @@ public class Customer : MonoBehaviour
         {
             customerData = CustomerManager.Instance.GenerateCustomerData();
         }
-
+/*
         if (customerData.spoilage >= CustomerData.Spoilage.STAGE_I
             && customerData.spoilageSymptom == null)
         {
@@ -31,6 +42,7 @@ public class Customer : MonoBehaviour
             // DEBUG
             //customerData.spoilageSymptom.ApplySpoilage(); 
         }
+*/
 
         for (int i = 0; i < customerData.sprites.Length; i++)
         {
@@ -56,48 +68,68 @@ public class Customer : MonoBehaviour
             {
                 currTransform.GetComponent<SpriteRenderer>().sprite = customerData.sprites[i];
             }
-            /*
-            switch ((CustomerData.Indexes)i)
+        }
+
+        if (customerData.tier == CustomerData.Tier.None)
+        {
+            if (customerData.spoilage == CustomerData.Spoilage.STAGE_I)
             {
-                case CustomerData.Indexes.MOUTH_OPEN:
-                case CustomerData.Indexes.MOUTH_CLOSED:
-                case CustomerData.Indexes.MOUTH_ANGER:
-                case CustomerData.Indexes.MOUTH_DISGUST:
-                    transform.Find("Sprites/FACIAL_FEATURES").localPosition = customerData.faceOffset;
-                    transform.Find("Sprites/FACIAL_FEATURES").localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                    break;
-                case CustomerData.Indexes.EYES_OPEN:
-                case CustomerData.Indexes.EYES_CLOSED:
-                case CustomerData.Indexes.EYES_ANGER:
-                case CustomerData.Indexes.EYES_DISGUST:
-                case CustomerData.Indexes.EYES_WIDENING:
-                    transform.Find("Sprites/FACIAL_FEATURES").localPosition = customerData.eyeOffset;
-                    transform.Find("Sprites/FACIAL_FEATURES").localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                    break;
-                    // TODO: Use this location to apply the correct LOCAL offsets (the facial features that look right on its normal base model) (grab from CustomerManager/CustomerData list of local offsets)
-                    //transform.Find("Sprites/FACIAL_FEATURES/" + ((CustomerData.Indexes)i).ToString()).localPosition = new UnityEngine.Vector3(0.0f, 0.0f, 0.0f);
-                    // TODO: once local positions are correct, apply GLOBAL offsets based on the different in height of character and face size (grab from CustomerManager/CustomerData list of global offsets)
+                customerData.spoilageSymptom.AssignCustomer(transform.gameObject);
+                customerData.spoilageSymptom.Register();
+            } 
+            else if (customerData.spoilage == CustomerData.Spoilage.STAGE_II)
+            {
+                transform.Find("Sprites/SPOILAGE/SPOILAGE_BACK_1").GetComponent<SpriteRenderer>().sprite = 
+                    customerData.sprites[(int) CustomerData.Indexes.TENDRILS_1];
+
+                transform.Find("Sprites/SPOILAGE/SPOILAGE_BACK_2").GetComponent<SpriteRenderer>().sprite = 
+                    customerData.sprites[(int) CustomerData.Indexes.TENDRILS_2];
+
+                GetComponent<CustomerAnimation>().StartSpoilageAnim();
             }
-            */
-        }
-
-        /*
-        if (customerData.spoilage == CustomerData.Spoilage.STAGE_I)
+        } 
+        else // Key or semi-key
         {
-            transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
-            customerData.spoilageSymtomp = AbstractSpoilageSymptom.GenerateSymptom(this);
+            PlayerData player = SaveManager.Instance.Player;
+            switch (customerData.id)
+            {
+                case SK_PROPHET:
+                    // Unknown if special behavior is needed
+                    break;
+                case SK_BILLMAN:
+                    // if day > ?? assign customer to spoilage
+                    // else set customerData.spoilageSymptom to null
+                    break;
+                case SK_SISTER:
+                    // if day > ?? assign customer to spoilage
+                    // else set customerData.spoilageSymptom to null
+                    break;
+                case SK_DRUNK:
+                    // if day > ?? assign customer to spoilage
+                    // else set customerData.spoilageSymptom to null
+                    break;
+                case SK_WIDOW:
+                    // Assign customer to spoilage
+                    break;
+                case SK_DOCTOR:
+                    // if day < ?? assign customer to spoilage
+                    // else load and apply special sprites
+                    break;
+                
+                case SK_PALE:
+                case SK_VIOLENT:
+                case SK_DEAF:
+                case SK_FAMISHED:
+                case SK_EXECUTOR:
+                    // Start spoilage anim?
+                    break;
+            }
         }
-        else if (customerData.spoilage == CustomerData.Spoilage.UNSPOILED)
-        {
-            transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
-            transform.Find("Sprites/SPOILAGE_BACK").GetComponent<SpriteRenderer>().enabled = false;
-        }
-        */
+        
 
+        // Apply offsets
         transform.Find("Sprites/FACIAL_FEATURES").localPosition = customerData.faceOffset;
         transform.Find("Sprites/SPOILAGE").localPosition = customerData.faceOffset;
-
-        
     }
 
     private void OnDestroy()
