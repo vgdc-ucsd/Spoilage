@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class PauseMenu : Singleton<PauseMenu>
 {
     public static bool GameIsPaused = false;
+    public GameObject Menu;
     public GameObject PauseUI;
+    public GameObject SettingsUI;
+    public GameObject SavesUI;
 
     public GameObject ResumeButton;
     public GameObject LoadButton;
@@ -19,7 +22,7 @@ public class PauseMenu : Singleton<PauseMenu>
             ResumeButton.GetComponent<Button>().onClick.AddListener(Resume);
 
         if (LoadButton != null)
-            MainMenuButton.GetComponent<Button>().onClick.AddListener(ReturnToMenu);
+            MainMenuButton.GetComponent<Button>().onClick.AddListener(LoadSaves);
 
         if (SettingsButton != null)
             SettingsButton.GetComponent<Button>().onClick.AddListener(LoadSettings);
@@ -61,23 +64,38 @@ public class PauseMenu : Singleton<PauseMenu>
                 Resume();
             }
         }
+
+        // if (Mouse.current.leftButton.wasPressedThisFrame)
+        //     Debug.Log("mouse click");
     }
 
     public void Resume()
     {
         GameIsPaused = false;
         Time.timeScale = 1f;
-        PauseUI.SetActive(false);
+        Menu.SetActive(false);
     }
 
     public void LoadSettings()
     {
-        Scene settings = SceneManager.GetSceneByName("Settings");
-        if (settings.isLoaded)
-        {
-            return;
-        }
-        SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
+        Debug.Log("Settings clicked");
+        PauseUI.SetActive(false);
+        SettingsUI.SetActive(true);
+        SavesUI.SetActive(false);
+        // Scene settings = SceneManager.GetSceneByName("Settings");
+        // if (settings.isLoaded)
+        // {
+        //     return;
+        // }
+        // SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
+    }
+
+    public void LoadSaves()
+    {
+        Debug.Log("Settings clicked");
+        PauseUI.SetActive(false);
+        SettingsUI.SetActive(false);
+        SavesUI.SetActive(true);
     }
 
     public void QuitButton()
@@ -88,12 +106,16 @@ public class PauseMenu : Singleton<PauseMenu>
     void Pause()
     {
         PauseUI.SetActive(true);
+        SettingsUI.SetActive(false);
+        SavesUI.SetActive(false);
+
         GameIsPaused = true;
         Time.timeScale = 0f;
     }
 
     public void ReturnToMenu()
     {
+        Debug.Log("Main menu clicked");
         GameManager.Instance.Load(GameScene.MAIN_MENU);
         //SceneLoader.Instance.ChangeScene("MainMenu");
         Scene settings = SceneManager.GetSceneByName("Settings");
