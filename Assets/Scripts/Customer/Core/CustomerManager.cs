@@ -18,7 +18,6 @@ public class CustomerManager : Singleton<CustomerManager>
     private const string CLOTHES_FOLDER = "/Clothes/";
     private const string HAIR_FOLDER = "/Hair/";
 
-    // TODO: This path may be inaccurate
     private const string SPOILAGE_II_PATH = "Assets/Resources/Art/Customers/Spoilage/Fully Spoiled/";
 
     private const string REGEX_NOT_META = "^(?!.*\\.meta)(?!.*reference).*";
@@ -74,18 +73,18 @@ public class CustomerManager : Singleton<CustomerManager>
     {
         CustomerData newData = ScriptableObject.CreateInstance<CustomerData>();
 
-        // Curves? Static distribution?
+        // Curves? Static distribution? I made the current numbers up randomly
         float spoilageSeed = UnityEngine.Random.Range(0f, 1f);
 
-        if (spoilageSeed <= 0.7f)
+        if (spoilageSeed <= 0.7f) // 70% chance
         {
             newData.spoilage = CustomerData.Spoilage.UNSPOILED;
         } 
-        else if (spoilageSeed <= .7f + .2f)
+        else if (spoilageSeed <= .9f) // 20% chance
         {
             newData.spoilage = CustomerData.Spoilage.STAGE_I;
         } 
-        else
+        else // 10% chance
         {
             newData.spoilage = CustomerData.Spoilage.STAGE_II;
         }
