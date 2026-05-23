@@ -1,0 +1,251 @@
+fileFormatVersion: 2
+guid: 80fac697957c8774cad522f156e9d4fe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7791166024235281514
+    second: defeatedSpoiled_blinking_spritesheet_0
+  - first:
+      213: -2005615964615679453
+    second: defeatedSpoiled_blinking_spritesheet_1
+  - first:
+      213: 6207650908785320587
+    second: defeatedSpoiled_blinking_spritesheet_2
+  - first:
+      213: -3243013075076575052
+    second: defeatedSpoiled_blinking_spritesheet_3
+  - first:
+      213: 4245189973778477408
+    second: defeatedSpoiled_blinking_spritesheet_4
+  - first:
+      213: 3709189919891161454
+    second: defeatedSpoiled_blinking_spritesheet_5
+  - first:
+      213: -439274736046472081
+    second: defeatedSpoiled_blinking_spritesheet_6
+  - first:
+      213: 6446343675552439475
+    second: defeatedSpoiled_blinking_spritesheet_7
+  - first:
+      213: 5904142378962116604
+    second: defeatedSpoiled_blinking_spritesheet_8
+  - first:
+      213: -8574355085494207558
+    second: defeatedSpoiled_blinking_spritesheet_9
+  - first:
+      213: 8565167844917653334
+    second: defeatedSpoiled_blinking_spritesheet_10
+  - first:
+      213: 1521654701161894461
+    second: defeatedSpoiled_blinking_spritesheet_11
+  - first:
+      213: 1816223262887151268
+    second: defeatedSpoiled_blinking_spritesheet_12
+  - first:
+      213: 4416600641369337047
+    second: defeatedSpoiled_blinking_spritesheet_13
+  - first:
+      213: 1468077162575082725
+    second: defeatedSpoiled_blinking_spritesheet_14
+  - first:
+      213: -5679419024010931574
+    second: defeatedSpoiled_blinking_spritesheet_15
+  - first:
+      213: -1761019816798400619
+    second: defeatedSpoiled_blinking_spritesheet_16
+  - first:
+      213: -4251867104769607938
+    second: defeatedSpoiled_blinking_spritesheet_17
+  - first:
+      213: -635859471751445378
+    second: defeatedSpoiled_blinking_spritesheet_18
+  - first:
+      213: 6379085882839949359
+    second: defeatedSpoiled_blinking_spritesheet_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: defeatedSpoiled_blinking_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6931d53c7c730e390800000000000000
+      internalID: -7791166024235281514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_blinking_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 322ea3908ee9a24e0800000000000000
+      internalID: -2005615964615679453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f8af2bf79d90f744f917a00313f66464
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      defeatedSpoiled_blinking_spritesheet_0: -7791166024235281514
+      defeatedSpoiled_blinking_spritesheet_1: -2005615964615679453
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
