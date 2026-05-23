@@ -50,12 +50,12 @@ public class Tentacles : AbstractSpoilageSymptom
 
         if (back)
         {
-            customer.transform.Find("Sprites/SPOILAGE/SPOILAGE_BACK_1").GetComponent<SpriteRenderer>().sprite = sprites[0];
-            customer.transform.Find("Sprites/SPOILAGE/SPOILAGE_BACK_2").GetComponent<SpriteRenderer>().sprite = sprites[1];
+            Customer.SetSprite(customer, "Sprites/SPOILAGE/SPOILAGE_BACK_1", sprites[0]);
+            Customer.SetSprite(customer, "Sprites/SPOILAGE/SPOILAGE_BACK_2", sprites[1]);
         } else
         {
-            customer.transform.Find("Sprites/SPOILAGE/SPOILAGE_FRONT_1").GetComponent<SpriteRenderer>().sprite = sprites[0];
-            customer.transform.Find("Sprites/SPOILAGE/SPOILAGE_FRONT_2").GetComponent<SpriteRenderer>().sprite = sprites[1];
+            Customer.SetSprite(customer, "Sprites/SPOILAGE/SPOILAGE_FRONT_1", sprites[0]);
+            Customer.SetSprite(customer, "Sprites/SPOILAGE/SPOILAGE_FRONT_2", sprites[1]);
         }
         
         customer.GetComponent<CustomerAnimation>().StartSpoilageAnim();

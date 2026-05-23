@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Customer : MonoBehaviour
 {
@@ -47,7 +48,13 @@ public class Customer : MonoBehaviour
             }
             if (currTransform != null)
             {
-                currTransform.GetComponent<SpriteRenderer>().sprite = customerData.sprites[i];
+                Image image = currTransform.GetComponent<Image>();
+                if (image != null)
+                {
+                    image.sprite = customerData.sprites[i];
+                    image.enabled = image.sprite != null;
+                    image.SetNativeSize();
+                }
             }
             /*
             switch ((CustomerData.Indexes)i)
@@ -74,35 +81,31 @@ public class Customer : MonoBehaviour
             */
         }
 
-        /*
-        if (customerData.spoilage == CustomerData.Spoilage.STAGE_I)
-        {
-            transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
-            customerData.spoilageSymtomp = AbstractSpoilageSymptom.GenerateSymptom(this);
-        }
-        else if (customerData.spoilage == CustomerData.Spoilage.UNSPOILED)
-        {
-            transform.Find("Sprites/SPOILAGE_FRONT").GetComponent<SpriteRenderer>().enabled = false;
-            transform.Find("Sprites/SPOILAGE_BACK").GetComponent<SpriteRenderer>().enabled = false;
-        }
-        */
-
-        transform.Find("Sprites/FACIAL_FEATURES").localPosition = customerData.faceOffset;
-        transform.Find("Sprites/SPOILAGE").localPosition = customerData.faceOffset;
+        SetAnchoredPosition("Sprites/FACIAL_FEATURES", customerData.faceOffset);
+        SetAnchoredPosition("Sprites/SPOILAGE", customerData.faceOffset);
 
         
     }
+
+    public static void SetSprite(GameObject root, string path, Sprite sprite)
+    {
+        if (root == null) return;
+
+        Transform slot = root.transform.Find(path);
+        Image image = slot == null ? null : slot.GetComponent<Image>();
+        if (image == null) return;
+
+        image.sprite = sprite;
+        image.enabled = sprite != null;
+        image.SetNativeSize();
+    }
+
+    private void SetAnchoredPosition(string path, Vector3 position)
+    {
+        RectTransform rectTransform = transform.Find(path) as RectTransform;
+        if (rectTransform == null) return;
+
+        rectTransform.anchoredPosition = new Vector2(position.x, position.y);
+    }
     
-    // public void InstantiateCustomer()
-    // {
-    //     for (int i = 0; i < CustomerData.NUM_SPRITES; i++)
-    //     {
-    //         GameObject newSprite = new GameObject("Customer Sprite " + i);
-    //         SpriteRenderer renderer = newSprite.AddComponent<SpriteRenderer>();
-    //         renderer.sprite = customerData.sprites[i];
-    //         newSprite.transform.position = customerData.spriteOffsets[i];
-    //         newSprite.transform.SetParent(customerObject.transform);
-    //         Instantiate(newSprite);
-    //     }
-    // }
 }

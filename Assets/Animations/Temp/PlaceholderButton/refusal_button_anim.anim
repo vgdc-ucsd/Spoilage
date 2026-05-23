@@ -42,8 +42,8 @@ AnimationClip:
       value: {fileID: 7317637451483724349, guid: 8157a1cc686f8a949924c8a4b784650c, type: 3}
     attribute: m_Sprite
     path: 
-    classID: 212
-    script: {fileID: 0}
+    classID: 114
+    script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
     flags: 2
   m_SampleRate: 12
   m_WrapMode: 0
@@ -55,8 +55,8 @@ AnimationClip:
     - serializedVersion: 2
       path: 0
       attribute: 0
-      script: {fileID: 0}
-      typeID: 212
+      script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+      typeID: 114
       customType: 23
       isPPtrCurve: 1
       isIntCurve: 0

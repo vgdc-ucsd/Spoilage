@@ -1,32 +1,32 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class CustomerAnimation : MonoBehaviour
 {
     public bool isBlinking { get; private set; }
     public bool isTalking { get; private set; }
-    [SerializeField] private SpriteRenderer eyesOpenRenderer;
-    [SerializeField] private SpriteRenderer eyesClosedRenderer;
-    [SerializeField] private SpriteRenderer eyesDisgustRenderer;
-    [SerializeField] private SpriteRenderer eyesAngerRenderer;
-    [SerializeField] private SpriteRenderer eyesWideningRenderer;
-    [SerializeField] private SpriteRenderer mouthOpenRenderer;
-    [SerializeField] private SpriteRenderer mouthClosedRenderer;
-    [SerializeField] private SpriteRenderer mouthDisgustRenderer;
-    [SerializeField] private SpriteRenderer mouthAngerRenderer;
-    [SerializeField] private SpriteRenderer spoilageBackRenderer1;
-    [SerializeField] private SpriteRenderer spoilageBackRenderer2;
-    [SerializeField] private SpriteRenderer spoilageFrontRenderer1;
-    [SerializeField] private SpriteRenderer spoilageFrontRenderer2;
+    [SerializeField] private Image eyesOpenRenderer;
+    [SerializeField] private Image eyesClosedRenderer;
+    [SerializeField] private Image eyesDisgustRenderer;
+    [SerializeField] private Image eyesAngerRenderer;
+    [SerializeField] private Image eyesWideningRenderer;
+    [SerializeField] private Image mouthOpenRenderer;
+    [SerializeField] private Image mouthClosedRenderer;
+    [SerializeField] private Image mouthDisgustRenderer;
+    [SerializeField] private Image mouthAngerRenderer;
+    [SerializeField] private Image spoilageBackRenderer1;
+    [SerializeField] private Image spoilageBackRenderer2;
+    [SerializeField] private Image spoilageFrontRenderer1;
+    [SerializeField] private Image spoilageFrontRenderer2;
     
 
     [SerializeField] private Mood currentMood;
     [SerializeField] private SpoilageStatus currentSpoilageStatus;
     [SerializeField] public float currentBlinkMultiplier = 1;
 
-    private SpriteRenderer currentEyesRenderer;
-    private SpriteRenderer currentMouthRenderer;
+    private Image currentEyesRenderer;
+    private Image currentMouthRenderer;
 
     private const float MIN_BLINK_TIME = 0.1f;
     private const float MAX_BLINK_TIME = 0.4f;

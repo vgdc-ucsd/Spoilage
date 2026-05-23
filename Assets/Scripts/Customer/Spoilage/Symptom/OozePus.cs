@@ -25,9 +25,8 @@ public class OozePus : AbstractSpoilageSymptom
         string chosen = spritePaths[Random.Range(0, spritePaths.Length)];
         sprite = Resources.Load<Sprite>(chosen);
 
-        customer.transform.Find("Sprites/SPOILAGE/SPOILAGE_FRONT_1").GetComponent<SpriteRenderer>().sprite = sprite;
-        customer.transform.Find("Sprites/SPOILAGE/SPOILAGE_FRONT_2").GetComponent<SpriteRenderer>().sprite = sprite;
+        Customer.SetSprite(customer, "Sprites/SPOILAGE/SPOILAGE_FRONT_1", sprite);
+        Customer.SetSprite(customer, "Sprites/SPOILAGE/SPOILAGE_FRONT_2", sprite);
         customer.GetComponent<CustomerAnimation>().SetSpoilageStatus(CustomerAnimation.SpoilageStatus.FRAME_1);
     }
 }
-
