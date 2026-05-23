@@ -221,7 +221,6 @@ public class CustomerManager : Singleton<CustomerManager>
             Directory.GetFiles(SPOILAGE_II_PATH).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_SPOILAGE_EYES)).ToArray());
         string tendrilsPath = getRandomElement(
             Directory.GetFiles(SPOILAGE_II_PATH).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_SPOILAGE_TENDRILS)).ToArray());
-
         newData.sprites[(int)CustomerData.Indexes.BODY] = Resources.Load<Sprite>(trimPath(basePath));
 
         Sprite[] eyeSprites = Resources.LoadAll<Sprite>(trimPath(eyesPath));
@@ -231,6 +230,23 @@ public class CustomerManager : Singleton<CustomerManager>
         Sprite[] tendrilSprites = Resources.LoadAll<Sprite>(trimPath(tendrilsPath));
         newData.sprites[(int)CustomerData.Indexes.TENDRILS_1] = tendrilSprites[0];
         newData.sprites[(int)CustomerData.Indexes.TENDRILS_2] = tendrilSprites[1];
+
+        // Customer order
+        customerOrderDatabase.GenerateCustomerOrder(newData);
+
+        // int orderCount = customerOrderDatabase.PickDishCount(0.5f); // TODO: Get actual game progress.
+
+        // for (int i = 0; i < orderCount; i++)
+        // {
+        //     Recipe order = customerOrderDatabase.GenerateCustomerOrder();
+
+        //     if (order != null)
+        //     {
+        //         newData.orders.Add(order);
+        //     }
+        // }
+
+        return newData;
     }
 
     public static AbstractSpoilageSymptom GenerateSymptom()
