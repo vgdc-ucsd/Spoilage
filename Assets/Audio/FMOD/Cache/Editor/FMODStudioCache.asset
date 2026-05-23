@@ -27,6 +27,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-9067770029143337085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CookingStations/BoilingPot
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/CookingStations/BoilingPot
+  Guid:
+    Data1: 872715543
+    Data2: 1127849028
+    Data3: -1431423831
+    Data4: -1464210282
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 25062
 --- !u!114 &-9046864464392512891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,7 +81,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-5553493973716200052
+--- !u!114 &-8916890235675290610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,16 +91,414 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Mouse Click
+  m_Name: event:/SFX/CookingStations/ToasterOvenOpen
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/Mouse Click
+  Path: event:/SFX/CookingStations/ToasterOvenOpen
   Guid:
-    Data1: 913499987
-    Data2: 1257137184
-    Data3: 721764226
-    Data4: 399753858
+    Data1: -2120015250
+    Data2: 1151129764
+    Data3: 1526637966
+    Data4: -1770503132
   Banks:
-  - {fileID: 9010977136365538664}
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8840537910252004833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CookingStations/ToasterOvenTurnOn
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/CookingStations/ToasterOvenTurnOn
+  Guid:
+    Data1: 1143133861
+    Data2: 1170157757
+    Data3: -368904787
+    Data4: -1148426043
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8785539515631250083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/KeyCharacterMusic/RebelDeath
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/KeyCharacterMusic/RebelDeath
+  Guid:
+    Data1: -1777596247
+    Data2: 1306215187
+    Data3: 525018754
+    Data4: 552302858
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 80026
+--- !u!114 &-8458159632360063860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/KeyCharacterMusic/Warlord
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/KeyCharacterMusic/Warlord
+  Guid:
+    Data1: -2129984830
+    Data2: 1298017944
+    Data3: -887359353
+    Data4: -1148450928
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 92575
+--- !u!114 &-7211937612751943566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/LoseConditionMusic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/LoseConditionMusic
+  Guid:
+    Data1: 609613275
+    Data2: 1086889999
+    Data3: -239765105
+    Data4: -1084929551
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 46829
+--- !u!114 &-7090159478188054836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Customers/PatienceStart
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Customers/PatienceStart
+  Guid:
+    Data1: -916227492
+    Data2: 1240167646
+    Data3: -134233186
+    Data4: 1531767308
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6998218620755771229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HorrorMusic/HorrorMusic3
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/HorrorMusic/HorrorMusic3
+  Guid:
+    Data1: 310488652
+    Data2: 1176488239
+    Data3: -408406637
+    Data4: 293946828
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 147786
+--- !u!114 &-6806465214983688288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/Unpause
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/UI/Unpause
+  Guid:
+    Data1: -152383719
+    Data2: 1218398664
+    Data3: 1886526106
+    Data4: 1978190248
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6790149877269588560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/CozyMusic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/CozyMusic
+  Guid:
+    Data1: 605490530
+    Data2: 1228506693
+    Data3: 1733514633
+    Data4: -1848308412
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 30000
+--- !u!114 &-6154913026089411243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Customers/BugSkittering
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Customers/BugSkittering
+  Guid:
+    Data1: 2121237645
+    Data2: 1129723210
+    Data3: 1262927748
+    Data4: -906076645
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5869879296646931555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CookingStations/ToasterOvenClose
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/CookingStations/ToasterOvenClose
+  Guid:
+    Data1: 1077999779
+    Data2: 1088503629
+    Data3: -2045906022
+    Data4: -287679668
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5636469228397668282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/KeyCharacterMusic/Prophet
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/KeyCharacterMusic/Prophet
+  Guid:
+    Data1: 2097933688
+    Data2: 1178490703
+    Data3: -1560756057
+    Data4: -83141315
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 74666
+--- !u!114 &-5355533996996579300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: FMOD/Spoilage/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639150657363166593
+  FileSizes:
+  - Name: Desktop
+    Value: 1378
+  Exists: 1
+--- !u!114 &-4647687907948311307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TitleScreenMusic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/TitleScreenMusic
+  Guid:
+    Data1: -1482400712
+    Data2: 1297059966
+    Data3: 949063089
+    Data4: 523028968
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 335020
+--- !u!114 &-4497153159454069092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/CozyMusic/CozyMusic4
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/CozyMusic/CozyMusic4
+  Guid:
+    Data1: 410065095
+    Data2: 1078397531
+    Data3: -30995286
+    Data4: 706157935
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 399151
+--- !u!114 &-4219328946597579627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/PageTurn
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/PageTurn
+  Guid:
+    Data1: 841165318
+    Data2: 1087540208
+    Data3: 1880150402
+    Data4: -2130583506
+  Banks:
+  - {fileID: 7455927534273330210}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -126,6 +551,351 @@ MonoBehaviour:
   lastModified: 639109145103748403
   FileSizes: []
   Exists: 1
+--- !u!114 &-3710986090365144012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/RadioKeyMusic/ResistanceRadioMusic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/RadioKeyMusic/ResistanceRadioMusic
+  Guid:
+    Data1: 1071993352
+    Data2: 1187566728
+    Data3: 33809334
+    Data4: -1039015559
+  Banks:
+  - {fileID: -266926278857740399}
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3632158567263996310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/KeyCharacterMusic/LeftHand
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/KeyCharacterMusic/LeftHand
+  Guid:
+    Data1: 1095731979
+    Data2: 1266517381
+    Data3: -800362832
+    Data4: 1913006793
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 135529
+--- !u!114 &-3455653030028015506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HorrorMusic/HorrorMusic2
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/HorrorMusic/HorrorMusic2
+  Guid:
+    Data1: -1766608534
+    Data2: 1259864413
+    Data3: -1887093077
+    Data4: 2134040233
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 48000
+--- !u!114 &-3337491599926970085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: FMOD/Spoilage/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639150657363200460
+  FileSizes:
+  - Name: Desktop
+    Value: 3284
+  Exists: 1
+--- !u!114 &-2845341629405864589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Customers/OurghHigh
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Customers/OurghHigh
+  Guid:
+    Data1: -1354553200
+    Data2: 1334880409
+    Data3: 1495343273
+    Data4: -1055921140
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2544197503294836929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Customers/Soilage
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Customers/Soilage
+  Guid:
+    Data1: 1869458756
+    Data2: 1272525037
+    Data3: 1818105490
+    Data4: 1812656722
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2453895915848033211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HorrorMusic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/HorrorMusic
+  Guid:
+    Data1: -243445157
+    Data2: 1122018183
+    Data3: -473817691
+    Data4: 1514264991
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 50000
+--- !u!114 &-2364944049835555793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CookingStations/Grill
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/CookingStations/Grill
+  Guid:
+    Data1: 1583961587
+    Data2: 1299175927
+    Data3: -531360121
+    Data4: 641769151
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 15225
+--- !u!114 &-2037105181234081705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/CozyMusic/CozyMusic2
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/CozyMusic/CozyMusic2
+  Guid:
+    Data1: -1440088820
+    Data2: 1221658164
+    Data3: -1756104279
+    Data4: -1286696332
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 90360
+--- !u!114 &-1905834053326822601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/CreditsMusic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/CreditsMusic
+  Guid:
+    Data1: 1470866638
+    Data2: 1215209202
+    Data3: -117677680
+    Data4: 1061993031
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 40000
+--- !u!114 &-1706601012026255398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/KeyCharacterMusic/RightHand
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/KeyCharacterMusic/RightHand
+  Guid:
+    Data1: 1000468926
+    Data2: 1231072577
+    Data3: 1856799928
+    Data4: -985744008
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 55133
+--- !u!114 &-1672797095733287612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/RadioMusic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/RadioMusic
+  Guid:
+    Data1: -1164129898
+    Data2: 1280215468
+    Data3: 846417049
+    Data4: -1804911977
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-969732179804099435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Orders/BellSFX
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Orders/BellSFX
+  Guid:
+    Data1: -815573005
+    Data2: 1119080084
+    Data3: 1191654031
+    Data4: 138565137
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-593385498946202934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +916,53 @@ MonoBehaviour:
   - Name: 
     Value: 834
   Exists: 1
+--- !u!114 &-588864378527547799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ShopMusic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/ShopMusic
+  Guid:
+    Data1: 961975296
+    Data2: 1193639160
+    Data3: -1129735771
+    Data4: -161538712
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 44339
+--- !u!114 &-266926278857740399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: FMOD/Spoilage/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 639150657372511134
+  FileSizes:
+  - Name: Desktop
+    Value: 27196992
+  Exists: 1
 --- !u!114 &-235656898575395292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +981,33 @@ MonoBehaviour:
   lastModified: 639109145103748403
   FileSizes: []
   Exists: 1
+--- !u!114 &-157820691897035117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Customers/PatienceEnd
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Customers/PatienceEnd
+  Guid:
+    Data1: -1899813300
+    Data2: 1103780952
+    Data3: 1224009614
+    Data4: -935912093
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,24 +1021,121 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EventCache
   EditorBanks:
-  - {fileID: 143293701694791366}
-  - {fileID: 9010977136365538664}
+  - {fileID: -3337491599926970085}
+  - {fileID: -5355533996996579300}
+  - {fileID: -266926278857740399}
+  - {fileID: 7455927534273330210}
   EditorEvents:
-  - {fileID: -5553493973716200052}
-  - {fileID: 5792835645183439097}
+  - {fileID: -588864378527547799}
+  - {fileID: -4647687907948311307}
+  - {fileID: -2453895915848033211}
+  - {fileID: -6790149877269588560}
+  - {fileID: -1672797095733287612}
+  - {fileID: -8458159632360063860}
+  - {fileID: -3710986090365144012}
+  - {fileID: -3632158567263996310}
+  - {fileID: -2037105181234081705}
+  - {fileID: 6236837027616528961}
+  - {fileID: 4801896816712560811}
+  - {fileID: 6490756041237992893}
+  - {fileID: -6998218620755771229}
+  - {fileID: 6854120468785616160}
+  - {fileID: -3455653030028015506}
+  - {fileID: -5636469228397668282}
+  - {fileID: 6200140442591447162}
+  - {fileID: 4476784275748806114}
+  - {fileID: 7431336633437802}
+  - {fileID: -8785539515631250083}
+  - {fileID: -1706601012026255398}
+  - {fileID: -4497153159454069092}
+  - {fileID: -1905834053326822601}
+  - {fileID: 7328000557721270623}
+  - {fileID: -7211937612751943566}
+  - {fileID: 6565823463705730404}
+  - {fileID: -4219328946597579627}
+  - {fileID: 4689024635523975663}
+  - {fileID: -9067770029143337085}
+  - {fileID: -6806465214983688288}
+  - {fileID: 8376262190177704447}
+  - {fileID: 112961455481485608}
+  - {fileID: -2544197503294836929}
+  - {fileID: -157820691897035117}
+  - {fileID: -7090159478188054836}
+  - {fileID: 2875781600218657489}
+  - {fileID: -8916890235675290610}
+  - {fileID: 2237436046907602600}
+  - {fileID: 7402799104672578157}
+  - {fileID: 4228742496865696922}
+  - {fileID: -6154913026089411243}
+  - {fileID: -2845341629405864589}
+  - {fileID: 1817452008249591143}
+  - {fileID: -5869879296646931555}
+  - {fileID: -8840537910252004833}
+  - {fileID: 9021698721924443035}
+  - {fileID: 3859035457760400371}
+  - {fileID: 2262487033933072800}
+  - {fileID: 1820635031979785384}
+  - {fileID: -2364944049835555793}
+  - {fileID: -969732179804099435}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 9010977136365538664}
+  - {fileID: -5355533996996579300}
   StringsBanks:
-  - {fileID: 143293701694791366}
+  - {fileID: -3337491599926970085}
   cacheVersion: 131858
-  cacheTime: 639119560391458551
+  cacheTime: 639150657381471188
   SerializableEventsDict:
-  - key: event:/Mouse Click
+  - key: event:/ShopMusic
     index: 0
-  - key: event:/Random Mouse Click
+  - key: event:/TitleScreenMusic
     index: 1
---- !u!114 &143293701694791366
+  - key: event:/HorrorMusic
+    index: 2
+  - key: event:/CozyMusic
+    index: 3
+  - key: event:/RadioMusic
+    index: 4
+  - key: event:/KeyCharacterMusic/Warlord
+    index: 5
+  - key: event:/RadioKeyMusic/ResistanceRadioMusic
+    index: 6
+  - key: event:/KeyCharacterMusic/LeftHand
+    index: 7
+  - key: event:/CozyMusic/CozyMusic2
+    index: 8
+  - key: event:/CozyMusic/CozyMusic1
+    index: 9
+  - key: event:/KeyCharacterMusic/Rebel
+    index: 10
+  - key: event:/RadioKeyMusic/WarlordRadioMusic
+    index: 11
+  - key: event:/HorrorMusic/HorrorMusic3
+    index: 12
+  - key: event:/HorrorMusic/HorrorMusic1
+    index: 13
+  - key: event:/HorrorMusic/HorrorMusic2
+    index: 14
+  - key: event:/KeyCharacterMusic/Prophet
+    index: 15
+  - key: event:/SemiKeyCharacterMusic/Ratcatcher
+    index: 16
+  - key: event:/SemiKeyCharacterMusic/Horsemen
+    index: 17
+  - key: event:/CozyMusic/CozyMusic3
+    index: 18
+  - key: event:/KeyCharacterMusic/RebelDeath
+    index: 19
+  - key: event:/KeyCharacterMusic/RightHand
+    index: 20
+  - key: event:/CozyMusic/CozyMusic4
+    index: 21
+  - key: event:/CreditsMusic
+    index: 22
+  - key: event:/SFX
+    index: 23
+  - key: event:/RadioStatic
+    index: 24
+--- !u!114 &7431336633437802
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,17 +1144,213 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: Assets/Audio/Banks/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 639119560391458551
-  FileSizes:
-  - Name: 
-    Value: 834
-  Exists: 1
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/CozyMusic/CozyMusic3
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/CozyMusic/CozyMusic3
+  Guid:
+    Data1: 612020130
+    Data2: 1085649011
+    Data3: 1428261044
+    Data4: -310714920
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 89147
+--- !u!114 &112961455481485608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CookingStations/BoilingPotDone
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/CookingStations/BoilingPotDone
+  Guid:
+    Data1: -768336335
+    Data2: 1333025021
+    Data3: -148303433
+    Data4: 1021816704
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1817452008249591143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Customers/StomachGurgling
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Customers/StomachGurgling
+  Guid:
+    Data1: -1487463523
+    Data2: 1187276523
+    Data3: 1140845726
+    Data4: 1291332254
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1820635031979785384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CookingStations/Seasoning
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/CookingStations/Seasoning
+  Guid:
+    Data1: -2058779
+    Data2: 1332225170
+    Data3: 674585486
+    Data4: -519718192
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2237436046907602600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Customers/PatienceAlmostDone
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Customers/PatienceAlmostDone
+  Guid:
+    Data1: 1404361591
+    Data2: 1268576641
+    Data3: -2022004072
+    Data4: 672524944
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2262487033933072800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Customers/SuccessiveDialoguePopup
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Customers/SuccessiveDialoguePopup
+  Guid:
+    Data1: 836450762
+    Data2: 1074167427
+    Data3: -1060114761
+    Data4: 1340890630
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2875781600218657489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/Pause
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/UI/Pause
+  Guid:
+    Data1: 725806177
+    Data2: 1274525496
+    Data3: -1748716641
+    Data4: -1090490321
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3859035457760400371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Orders/BellWinSFX
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Orders/BellWinSFX
+  Guid:
+    Data1: 1659423433
+    Data2: 1115362406
+    Data3: -807457378
+    Data4: 556220242
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4204699655340083563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +1378,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &5792835645183439097
+--- !u!114 &4228742496865696922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,16 +1388,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Random Mouse Click
+  m_Name: event:/SFX/Customers/OurghDeep
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/Random Mouse Click
+  Path: event:/SFX/Customers/OurghDeep
   Guid:
-    Data1: 838846572
-    Data2: 1085311905
-    Data3: -1365905987
-    Data4: 1894843911
+    Data1: 1785399428
+    Data2: 1233474951
+    Data3: -2131304285
+    Data4: -1215924605
   Banks:
-  - {fileID: 9010977136365538664}
+  - {fileID: 7455927534273330210}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -268,6 +1405,114 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4476784275748806114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SemiKeyCharacterMusic/Horsemen
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SemiKeyCharacterMusic/Horsemen
+  Guid:
+    Data1: -1679025256
+    Data2: 1320942231
+    Data3: -836574034
+    Data4: 883782116
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 108270
+--- !u!114 &4689024635523975663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/RefuseButton
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/RefuseButton
+  Guid:
+    Data1: 543831307
+    Data2: 1300647268
+    Data3: 503650979
+    Data4: 4616965
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4801896816712560811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/KeyCharacterMusic/Rebel
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/KeyCharacterMusic/Rebel
+  Guid:
+    Data1: -987819984
+    Data2: 1133385539
+    Data3: -785134658
+    Data4: -1825847724
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 115475
+--- !u!114 &6200140442591447162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SemiKeyCharacterMusic/Ratcatcher
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SemiKeyCharacterMusic/Ratcatcher
+  Guid:
+    Data1: -431459447
+    Data2: 1219481685
+    Data3: -1591884629
+    Data4: 1306811323
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 64679
 --- !u!114 &6209611467306578561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +1533,170 @@ MonoBehaviour:
   - Name: 
     Value: 834
   Exists: 1
---- !u!114 &9010977136365538664
+--- !u!114 &6236837027616528961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/CozyMusic/CozyMusic1
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/CozyMusic/CozyMusic1
+  Guid:
+    Data1: 1333835802
+    Data2: 1197173597
+    Data3: 1937961111
+    Data4: -31121253
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 117333
+--- !u!114 &6490756041237992893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/RadioKeyMusic/WarlordRadioMusic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/RadioKeyMusic/WarlordRadioMusic
+  Guid:
+    Data1: 48383050
+    Data2: 1267592027
+    Data3: -1623884651
+    Data4: -1898618427
+  Banks:
+  - {fileID: -266926278857740399}
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6565823463705730404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/ButtonClick
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/UI/ButtonClick
+  Guid:
+    Data1: 219561729
+    Data2: 1165205719
+    Data3: -223074888
+    Data4: 991561828
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6854120468785616160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HorrorMusic/HorrorMusic1
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/HorrorMusic/HorrorMusic1
+  Guid:
+    Data1: -1918849713
+    Data2: 1095764762
+    Data3: 1415190947
+    Data4: -1525153524
+  Banks:
+  - {fileID: -266926278857740399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 20500
+--- !u!114 &7328000557721270623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/RadioStatic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/RadioStatic
+  Guid:
+    Data1: -173572117
+    Data2: 1261832132
+    Data3: -14466123
+    Data4: 1863816880
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7402799104672578157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CookingStations/ToasterOvenDone
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/CookingStations/ToasterOvenDone
+  Guid:
+    Data1: 571451267
+    Data2: 1129545946
+    Data3: -1900443760
+    Data4: 2023716547
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7455927534273330210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -298,11 +1706,67 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Name: bank:/SFX.bank
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: Assets/Audio/Banks/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 639119560391456896
-  FileSizes: []
+  Path: FMOD/Spoilage/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 639150657381471188
+  FileSizes:
+  - Name: Desktop
+    Value: 1231264
   Exists: 1
+--- !u!114 &8376262190177704447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Customers/DialoguePopup
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Customers/DialoguePopup
+  Guid:
+    Data1: -1539236315
+    Data2: 1288414043
+    Data3: 181971092
+    Data4: 1285996536
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &9021698721924443035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Customers/PatienceHalf
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Customers/PatienceHalf
+  Guid:
+    Data1: -668266063
+    Data2: 1286207014
+    Data3: 1330037672
+    Data4: 1495723943
+  Banks:
+  - {fileID: 7455927534273330210}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
