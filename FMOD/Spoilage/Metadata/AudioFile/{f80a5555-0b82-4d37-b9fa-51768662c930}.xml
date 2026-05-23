@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{f80a5555-0b82-4d37-b9fa-51768662c930}">
+		<property name="assetPath">
+			<value>BoilingPot.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>25.062312925170069</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cafdfd12-8ae6-4b57-905b-00a391e31db0}</destination>
+		</relationship>
+	</object>
+</objects>

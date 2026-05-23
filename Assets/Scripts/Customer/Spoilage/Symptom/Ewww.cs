@@ -14,7 +14,8 @@ public class Ewww : AbstractSpoilageSymptom
 
     public override void ApplySpoilage() {
         Debug.Log("Ewww");
-        // TODO: DIALOGUE
+        SetMood(CustomerAnimation.Mood.DISGUST);
+        PlayDialogue("ewww");
     }
 }
 

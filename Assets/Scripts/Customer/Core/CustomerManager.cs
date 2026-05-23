@@ -61,7 +61,6 @@ public class CustomerManager : Singleton<CustomerManager>
     public Customer GenerateCustomer(CustomerData customerData)
     {
         Customer instantiatedCustomer = Instantiate(CustomerPrefab, _customerTransform).GetComponent<Customer>();
-        customerData.spoilageSymptom.customer = instantiatedCustomer.transform.gameObject;
         instantiatedCustomer.customerData = customerData;
         instantiatedCustomer.customerObject = instantiatedCustomer.gameObject;
         
@@ -207,7 +206,6 @@ public class CustomerManager : Singleton<CustomerManager>
         ];
         AbstractSpoilageSymptom symptom = (AbstractSpoilageSymptom)
             ScriptableObject.CreateInstance(randomSymptomType);
-        SpoilageTriggerManager.Instance.AddSymptom(symptom);
 
         return symptom;
     }

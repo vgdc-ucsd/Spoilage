@@ -31,7 +31,16 @@ MonoBehaviour:
   - {fileID: 0}
   faceOffset: {x: 0, y: 0, z: 0}
   eyeOffset: {x: 0, y: 0, z: 0}
-  CustomerName: Warlord
   spoilage: 0
+  spoilageSymptom: {fileID: 0}
   patience: 0
   orders: []
+  id: 
+  tier: 0
+  keyMusicEvent:
+    Guid:
+      Data1: -2129984830
+      Data2: 1298017944
+      Data3: -887359353
+      Data4: -1148450928
+    Path: event:/KeyCharacterMusic/Warlord

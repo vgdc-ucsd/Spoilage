@@ -17,7 +17,7 @@ public class CuttingBoard : ManualStation
         if (_currentFoods.Contains(incoming))
             return true;
 
-        if (incoming.IngredientInstance.Data.Name == "Slop")
+        if (incoming.IngredientInstance.Data.Name == RecipeManager.SlopResult)
             return false;
 
         if (!HasSpace)
@@ -41,7 +41,7 @@ public class CuttingBoard : ManualStation
         List<IngredientObject> check = new() { _currentFood };
         string result = recipeManager.CheckRecipe(check, _station);
 
-        if (IsInvalidRecipeResult(result))
+        if (!RecipeManager.IsSuccessfulRecipeResult(result))
         {
             Debug.Log($"{gameObject.name}: Wrong ingredient for cutting board.");
             HideManualUI();
@@ -81,15 +81,12 @@ public class CuttingBoard : ManualStation
             return;
         }
 
+        bool usedUnspoiledFood = SpoilageTriggerManager.IsUnspoiledFood(_currentFood);
+
         _currentFood.ChangeIngredient(resultData);
 
-        Debug.Log($"{gameObject.name}: Chopped! → {resultData.Name}");
-    }
+        SpoilageTriggerManager.TriggerIf(SpoilageCategory.DISGUST, usedUnspoiledFood);
 
-    private bool IsInvalidRecipeResult(string resultName)
-    {
-        return string.IsNullOrEmpty(resultName)
-            || resultName == "Slop"
-            || resultName == "JSON Error";
+        Debug.Log($"{gameObject.name}: Chopped! → {resultData.Name}");
     }
 }

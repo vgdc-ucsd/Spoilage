@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
+  m_Name: Un-topped Spoiled Borscht
+  m_EditorClassIdentifier: Assembly-CSharp::IngredientData
+  _name: Un-topped Spoiled Borscht
+  _spoilTime: 15
+  _normalSprite: {fileID: -3664079815980029488, guid: d1fbac8e85dbb468e87b2d8c7ec91084, type: 3}
+  _spoiledSprite: {fileID: -3664079815980029488, guid: d1fbac8e85dbb468e87b2d8c7ec91084, type: 3}
+  _platedSprite: {fileID: 0}
