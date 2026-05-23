@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : Singleton<PauseMenu>
 {
@@ -9,21 +9,25 @@ public class PauseMenu : Singleton<PauseMenu>
     public GameObject PauseUI;
 
     public GameObject ResumeButton;
+    public GameObject LoadButton;
     public GameObject SettingsButton;
-    public GameObject MainMenuButton; 
+    public GameObject MainMenuButton;
 
     void Start()
     {
         if (ResumeButton != null)
             ResumeButton.GetComponent<Button>().onClick.AddListener(Resume);
-        
+
+        if (LoadButton != null)
+            MainMenuButton.GetComponent<Button>().onClick.AddListener(ReturnToMenu);
+
         if (SettingsButton != null)
             SettingsButton.GetComponent<Button>().onClick.AddListener(LoadSettings);
-        
+
         if (MainMenuButton != null)
             MainMenuButton.GetComponent<Button>().onClick.AddListener(ReturnToMenu);
-        
     }
+
     void Update()
     {
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -43,17 +47,16 @@ public class PauseMenu : Singleton<PauseMenu>
                 {
                     return;
                 }
-                
 
                 UnityEngine.Debug.Log("Pause");
-                
+
                 //SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
                 Pause();
             }
             else
             {
                 UnityEngine.Debug.Log("Resume");
-                
+
                 //SceneManager.UnloadSceneAsync("PauseMenu");
                 Resume();
             }
@@ -62,7 +65,6 @@ public class PauseMenu : Singleton<PauseMenu>
 
     public void Resume()
     {
-        
         GameIsPaused = false;
         Time.timeScale = 1f;
         PauseUI.SetActive(false);
@@ -112,5 +114,4 @@ public class PauseMenu : Singleton<PauseMenu>
         Resume();
     }
 }
-
 
