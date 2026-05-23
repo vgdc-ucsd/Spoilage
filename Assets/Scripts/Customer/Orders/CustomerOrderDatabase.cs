@@ -33,7 +33,7 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
 
     public override void Awake()
     {
-        CustomerOrder = new(4);
+        CustomerOrder = _lineManager.CurrentCustomer.customerData.orders;
         base.Awake();
     }
 
@@ -185,9 +185,34 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
         return success;
     }
 
-    public Recipe GenerateCustomerOrder()
+    public void GenerateCustomerOrder()
     {
-        return null;
+        CustomerData customerData = _lineManager.CurrentCustomer.customerData;
+        List<Recipe> unlockedRecipes = _saveManager.Player.RecipesUnlocked;
+        int dishCount = PickDishCount(_saveManager.Player.Day);
+
+        for (int i = 0; i < dishCount; i++)
+        {
+            //TODO: implement weighting
+
+            //Default Customer
+            if (customerData.spoilage != CustomerData.Spoilage.STAGE_II)
+            {
+                Predicate<Recipe> unspoiledRecipeCheck = x => x.spoiled == false;
+                List<Recipe> unspoiledRecipes = unlockedRecipes.FindAll(unspoiledRecipeCheck);
+                int rand = UnityEngine.Random.Range(0, unspoiledRecipes.Count);
+                CustomerOrder.Add(unspoiledRecipes[rand]);
+            }
+
+            //Spoiled Customer
+            if (customerData.spoilage == CustomerData.Spoilage.STAGE_II)
+            {
+                Predicate<Recipe> spoiledRecipeCheck = x => x.spoiled == true;
+                List<Recipe> spoiledRecipes = unlockedRecipes.FindAll(spoiledRecipeCheck);
+                int rand = UnityEngine.Random.Range(0, spoiledRecipes.Count);
+                CustomerOrder.Add(spoiledRecipes[rand]);
+            }
+        }
     }
 
     private void SyncUnlockedRecipes()
