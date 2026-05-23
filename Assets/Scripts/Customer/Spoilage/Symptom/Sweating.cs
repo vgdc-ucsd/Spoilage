@@ -15,8 +15,6 @@ public class Sweating : AbstractSpoilageSymptom
         "Art/Customers/Spoilage/Sweat2_spritesheet",
     };
 
-    private Sprite[] sprites;
-    
     public Sweating()
     {
         category = SpoilageCategory.TEMPERATURE;
@@ -24,15 +22,7 @@ public class Sweating : AbstractSpoilageSymptom
 
     public override void ApplySpoilage() {
         Debug.Log("Sweating");
-        
-        string chosen = spritePaths[Random.Range(0, spritePaths.Length)];
-        sprites = Resources.LoadAll<Sprite>(chosen);
-
-        customer.transform.Find("Sprites/SPOILAGE/SPOILAGE_FRONT_1").GetComponent<SpriteRenderer>().sprite = sprites[0];
-        customer.transform.Find("Sprites/SPOILAGE/SPOILAGE_FRONT_2").GetComponent<SpriteRenderer>().sprite = sprites[1];
-
-        customer.GetComponent<CustomerAnimation>().StartSpoilageAnim();
-
+        ApplyFrontSpriteSheet(spritePaths);
         // TODO: VISUALS
     }
 }

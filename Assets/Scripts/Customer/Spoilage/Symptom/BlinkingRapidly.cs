@@ -19,7 +19,7 @@ public class BlinkingRapidly : AbstractSpoilageSymptom
     public override void ApplySpoilage()
     {
         Debug.Log("Blinking Rapidly");
-        customer.GetComponent<CustomerAnimation>().currentBlinkMultiplier = _blinkingSpeedMultiplier;
+        SetBlinkMultiplier(_blinkingSpeedMultiplier);
         // TODO: VISUALS
     }
 }

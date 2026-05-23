@@ -14,7 +14,8 @@ public class Threat : AbstractSpoilageSymptom
 
     public override void ApplySpoilage() {
         Debug.Log("Threat");
-        // TODO: DIALOGUE
+        SetMood(CustomerAnimation.Mood.ANGER);
+        PlayDialogue("threat");
     }
 }
 
