@@ -877,10 +877,8 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EventCache
   EditorBanks:
-  - {fileID: 1533055711694998812}
-  - {fileID: -5768321078851806021}
-  - {fileID: -3430203922279549745}
-  - {fileID: -7508130291575533131}
+  - {fileID: 8437523649617439468}
+  - {fileID: 5605448820466535885}
   EditorEvents:
   - {fileID: -5623944045124274994}
   - {fileID: 5232444456431789545}
@@ -948,15 +946,15 @@ MonoBehaviour:
   - {fileID: 4095161870208332722}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -5768321078851806021}
+  - {fileID: 5605448820466535885}
   StringsBanks:
-  - {fileID: 1533055711694998812}
+  - {fileID: 8437523649617439468}
   cacheVersion: 131859
   cacheTime: 639151297600852798
   SerializableEventsDict:
-  - key: event:/ShopMusic
+  - key: event:/Mouse Click
     index: 0
-  - key: event:/RadioKeyMusic/ResistanceRadioMusic
+  - key: event:/Random Mouse Click
     index: 1
   - key: event:/KeyCharacterMusic/LeftHand
     index: 2
@@ -1117,14 +1115,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/RadioKeyMusic/WarlordRadioMusic
+  m_Name: event:/Random Mouse Click
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/RadioKeyMusic/WarlordRadioMusic
+  Path: event:/Random Mouse Click
   Guid:
-    Data1: 48383050
-    Data2: 1267592027
-    Data3: -1623884651
-    Data4: -1898618427
+    Data1: 838846572
+    Data2: 1085311905
+    Data3: -1365905987
+    Data4: 1894843911
   Banks:
   - {fileID: -7508130291575533131}
   - {fileID: -3430203922279549745}
@@ -1174,7 +1172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: FMOD/Spoilage/Build/Desktop/Master.strings.bank
+  Path: Assets/Audio/Banks/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
   lastModified: 639151297591175234
