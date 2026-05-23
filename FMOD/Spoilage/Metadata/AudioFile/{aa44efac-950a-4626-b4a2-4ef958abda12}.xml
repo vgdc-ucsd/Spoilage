@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{aa44efac-950a-4626-b4a2-4ef958abda12}">
+		<property name="assetPath">
+			<value>Spoiled(loop when spoiled char on screen, have to cut off last 1 second of silence).mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>20.871836734693879</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cafdfd12-8ae6-4b57-905b-00a391e31db0}</destination>
+		</relationship>
+	</object>
+</objects>

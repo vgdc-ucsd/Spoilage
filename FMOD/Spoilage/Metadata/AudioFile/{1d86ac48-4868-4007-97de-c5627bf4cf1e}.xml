@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{1d86ac48-4868-4007-97de-c5627bf4cf1e}">
+		<property name="assetPath">
+			<value>SFX (Sound Effects)/Cook Book/Flipping Pages/Paper Hover 2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.604172335600907</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cafdfd12-8ae6-4b57-905b-00a391e31db0}</destination>
+		</relationship>
+	</object>
+</objects>

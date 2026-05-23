@@ -70,7 +70,7 @@ public class PauseMenu : Singleton<PauseMenu>
         if (Mouse.current.leftButton.wasPressedThisFrame)
             Debug.Log("mouse click");
     }
-
+    
     public void Resume()
     {
         GameIsPaused = false;
@@ -122,6 +122,7 @@ public class PauseMenu : Singleton<PauseMenu>
         Debug.Log("Main menu clicked");
         GameManager.Instance.Load(GameScene.MAIN_MENU);
         //SceneLoader.Instance.ChangeScene("MainMenu");
+        // removing scenes
         Scene settings = SceneManager.GetSceneByName("Settings");
         if (settings.isLoaded)
         {
