@@ -2,7 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using FMODUnity;
 using Microsoft.VisualBasic;
-using System.Diagnostics;
+using FMOD.Studio;
+using System.Linq;
 
 [System.Serializable]
 public class SFXEntry
@@ -11,14 +12,30 @@ public class SFXEntry
     public EventReference eventReference;
 }
 
+[System.Serializable]
+public class MusicEntry
+{
+    public string id;
+    public EventReference eventReference;
+    [HideInInspector] public EventInstance eventInstance;
+}
+
+
+
+
 
 public class AudioManager : Singleton<AudioManager>
 {
     [SerializeField] private List<SFXEntry> SFXEntries;
-    
-
     private Dictionary<string, EventReference> sfxMap;
-   
+    
+    /// <summary>
+    /// References to FMOD events with multi-instruments, which randomly shuffle and play a list of songs
+    /// </summary>
+    [SerializeField] private List<MusicEntry> musicEntries;
+    private Dictionary<string, MusicEntry> musicMap;
+    private EventInstance currentMusicInstance;
+
     private FMOD.Studio.Bus masterBus;
     
     private float currentVolume = 1.0f;
@@ -34,6 +51,7 @@ public class AudioManager : Singleton<AudioManager>
       
 
         sfxMap = new Dictionary<string, EventReference>();
+        musicMap = new Dictionary<string, MusicEntry>();
 
         foreach (SFXEntry entry in SFXEntries)
         {
@@ -47,7 +65,12 @@ public class AudioManager : Singleton<AudioManager>
             }
         }
 
-        
+        foreach (MusicEntry musicEntry in musicEntries)
+        {
+            musicEntry.eventInstance = RuntimeManager.CreateInstance(musicEntry.eventReference);
+            musicMap.Add(musicEntry.id, musicEntry);
+        }
+        PlayTitleMusic();
     }
     
     public void Start()
@@ -68,11 +91,11 @@ public class AudioManager : Singleton<AudioManager>
         if (sfxMap.TryGetValue(id, out EventReference eventReference))
         {
             RuntimeManager.PlayOneShot(eventReference);
-            UnityEngine.Debug.Log("Played audio: " + id);
+            Debug.Log("Played audio: " + id);
         }
         else
         {
-            UnityEngine.Debug.LogWarning($"SFX id not found: {id}");
+            Debug.LogWarning($"SFX id not found: {id}");
         }
     }
     public void IncreaseVolume(float v = 0.1f)
@@ -89,7 +112,7 @@ public class AudioManager : Singleton<AudioManager>
     public void SetVolume(float volume, string busString = "bus:/")
     {
         float dB = LinearToDecibels(volume);
-        UnityEngine.Debug.Log($"Set Volume to : {dB} dB");
+        Debug.Log($"Set Volume to : {dB} dB");
 
         FMOD.Studio.Bus bus = RuntimeManager.GetBus(busString);
         bus.setVolume(dB);
@@ -100,10 +123,63 @@ public class AudioManager : Singleton<AudioManager>
     {
         if (linear <= 0.00f)
             return -80f; 
-         return Mathf.Lerp(-80f, 0.0f, linear);
+         return Mathf.Lerp(-80f, 1.0f, linear);
     }
 
+    /// <summary>
+    /// Plays one of the background music events,
+    /// these include title screen, cozy, horror, shop, and radio
+    /// </summary>
+    /// <param name="id">Which background music entry to start playing</param>
+    private void PlayMusicEntry(string id)
+    {
+        if (!musicMap.ContainsKey(id))
+        {
+            Debug.LogError($"Key {id} is not a valid music entry");
+            return;
+        }
+        currentMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        musicMap[id].eventInstance.start();
+        currentMusicInstance = musicMap[id].eventInstance;
+        Debug.Log($"Playing background music with id: {id}");
+    }
 
+    
+
+    public void PlayTitleMusic()
+    {
+        PlayMusicEntry("Title");
+    }
+
+    public void PlayCozyMusic()
+    {
+        PlayMusicEntry("Cozy");
+    }
+
+    public void PlayHorrorMusic()
+    {
+        PlayMusicEntry("Horror");
+    }
+
+    public void PlayShopMusic()
+    {
+        PlayMusicEntry("Shop");
+    }
+
+    public void PlayRadioMusic()
+    {
+        PlayMusicEntry("Radio");
+    }
+
+    public void PlayCreditsMusic()
+    {
+        PlayMusicEntry("Credits");
+    }
+
+    public void PlayLoseMusic()
+    {
+        PlayMusicEntry("Lose");
+    }
 
 
 
