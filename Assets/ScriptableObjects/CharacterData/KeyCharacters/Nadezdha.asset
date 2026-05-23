@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918e1c96f9fc68cc18ac2ae3792387ab, type: 3}
+  m_Name: Nadezdha
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerData
+  sprites:
+  - {fileID: 21300000, guid: 6154322787a49a24cbc88311983e2a47, type: 3}
+  - {fileID: 21300000, guid: b30f99a68a52344479b88ba23efe0595, type: 3}
+  - {fileID: -7789184887051683438, guid: 09e769012808ba540a91612ea5475b8a, type: 3}
+  - {fileID: 21300000, guid: d48ffcc401acbae439509ae787a20263, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 3581d06d858425c438897a1a3b8c22b9, type: 3}
+  - {fileID: -7050055149127384751, guid: 2c288007df0d9e44f9d40d0632343172, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 6e5fabb63d9895143ad7963cfcbda27b, type: 3}
+  - {fileID: 21300000, guid: 1f5ca063a4e42834fb96d79c345b1f98, type: 3}
+  - {fileID: 21300000, guid: 19cc82b08b2510b45ac9c93236334b75, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  faceOffset: {x: 0, y: 0, z: 0}
+  eyeOffset: {x: 0, y: 0, z: 0}
+  spoilage: 0
+  spoilageSymtomp: {fileID: 0}
+  patience: 0
+  orders: []
+  id: Nadezdha
+  tier: 1

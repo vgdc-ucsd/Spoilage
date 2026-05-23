@@ -147,10 +147,10 @@ TextureImporter:
       name: nose_mouth103_static_0
       rect:
         serializedVersion: 2
-        x: 399
-        y: 697
-        width: 89
-        height: 111
+        x: 400
+        y: 703
+        width: 87
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: nose_mouth103_static_1
       rect:
         serializedVersion: 2
-        x: 430
-        y: 773
+        x: 423
+        y: 771
         width: 13
-        height: 36
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: nose_mouth103_static_2
       rect:
         serializedVersion: 2
-        x: 372
-        y: 643
-        width: 29
-        height: 58
+        x: 373
+        y: 647
+        width: 26
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,9 +213,9 @@ TextureImporter:
       name: nose_mouth103_static_3
       rect:
         serializedVersion: 2
-        x: 414
+        x: 415
         y: 665
-        width: 61
+        width: 58
         height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -235,10 +235,10 @@ TextureImporter:
       name: nose_mouth103_static_4
       rect:
         serializedVersion: 2
-        x: 434
+        x: 436
         y: 681
-        width: 17
-        height: 9
+        width: 13
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,10 +257,10 @@ TextureImporter:
       name: nose_mouth103_static_5
       rect:
         serializedVersion: 2
-        x: 497
-        y: 644
-        width: 25
-        height: 57
+        x: 499
+        y: 647
+        width: 23
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,10 +279,10 @@ TextureImporter:
       name: nose_mouth103_static_6
       rect:
         serializedVersion: 2
-        x: 427
-        y: 637
-        width: 32
-        height: 28
+        x: 429
+        y: 646
+        width: 28
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918e1c96f9fc68cc18ac2ae3792387ab, type: 3}
+  m_Name: Radioman
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerData
+  sprites:
+  - {fileID: 21300000, guid: a1185b9bdcfcd224a975c007206cd593, type: 3}
+  - {fileID: 21300000, guid: 54fbcc1c0a6e17541a7b5463a248caa0, type: 3}
+  - {fileID: 9022184305726913960, guid: 3d1961000f4d34c43b6f75520c9291e2, type: 3}
+  - {fileID: 21300000, guid: 7fc09e4f5dbc99549be062750e1fb831, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: c136fdb342b05d34895321f5b246de01, type: 3}
+  - {fileID: -748102886045526262, guid: 2ef9cee65831250418cb8ff2eb884fff, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: b242b0a51442d1545a4eff6dd8f61da7, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 74d8076ff26970040b12d2315fdf18ec, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  faceOffset: {x: 0, y: 0, z: 0}
+  eyeOffset: {x: 0, y: 0, z: 0}
+  spoilage: 0
+  spoilageSymtomp: {fileID: 0}
+  patience: 0
+  orders: []
+  id: Radioman
+  tier: 2

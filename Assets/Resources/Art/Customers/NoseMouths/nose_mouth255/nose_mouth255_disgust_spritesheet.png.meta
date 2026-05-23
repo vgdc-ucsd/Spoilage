@@ -1,0 +1,254 @@
+fileFormatVersion: 2
+guid: db5bcc837820af544a606993e0f66de0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9104968700384369297
+    second: nose_mouth255_disgust_spritesheet_0
+  - first:
+      213: 1745496277864694248
+    second: nose_mouth255_disgust_spritesheet_1
+  - first:
+      213: -7441054130554522340
+    second: nose_mouth255_disgust_spritesheet_2
+  - first:
+      213: 5127820209910994153
+    second: nose_mouth255_disgust_spritesheet_3
+  - first:
+      213: -8367333664066994844
+    second: nose_mouth255_disgust_spritesheet_4
+  - first:
+      213: 6459840861195781166
+    second: nose_mouth255_disgust_spritesheet_5
+  - first:
+      213: -1515094106105738999
+    second: nose_mouth255_disgust_spritesheet_6
+  - first:
+      213: 6319004817218129031
+    second: nose_mouth255_disgust_spritesheet_7
+  - first:
+      213: -957758402075179561
+    second: nose_mouth255_disgust_spritesheet_8
+  - first:
+      213: -1536398481761272365
+    second: nose_mouth255_disgust_spritesheet_9
+  - first:
+      213: -1329631385144512761
+    second: nose_mouth255_disgust_spritesheet_10
+  - first:
+      213: -6751789196957471237
+    second: nose_mouth255_disgust_spritesheet_11
+  - first:
+      213: 6421940460330628544
+    second: nose_mouth255_disgust_spritesheet_12
+  - first:
+      213: 7113337892550154770
+    second: nose_mouth255_disgust_spritesheet_13
+  - first:
+      213: 3523717334500567060
+    second: nose_mouth255_disgust_spritesheet_14
+  - first:
+      213: -6875571748533202097
+    second: nose_mouth255_disgust_spritesheet_15
+  - first:
+      213: -5628924198427312998
+    second: nose_mouth255_disgust_spritesheet_16
+  - first:
+      213: 6038320644412616199
+    second: nose_mouth255_disgust_spritesheet_17
+  - first:
+      213: -2973541669154964299
+    second: nose_mouth255_disgust_spritesheet_18
+  - first:
+      213: -5122171084644843249
+    second: nose_mouth255_disgust_spritesheet_19
+  - first:
+      213: 2132595894425840184
+    second: nose_mouth255_disgust_spritesheet_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: nose_mouth255_disgust_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f652a8a0537a4a180800000000000000
+      internalID: -9104968700384369297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nose_mouth255_disgust_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e144eedd9f393810800000000000000
+      internalID: 1745496277864694248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 14d3600de4bb318438eb01fcd955b78a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      nose_mouth255_disgust_spritesheet_0: -9104968700384369297
+      nose_mouth255_disgust_spritesheet_1: 1745496277864694248
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

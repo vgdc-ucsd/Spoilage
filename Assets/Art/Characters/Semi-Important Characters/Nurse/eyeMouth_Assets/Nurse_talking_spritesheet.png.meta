@@ -23,6 +23,27 @@ TextureImporter:
   - first:
       213: -4695857837907785513
     second: Nurse_talking_spritesheet_6
+  - first:
+      213: -3977734949516167910
+    second: Nurse_talking_spritesheet_7
+  - first:
+      213: 1707662754654550259
+    second: Nurse_talking_spritesheet_8
+  - first:
+      213: 245301277947330025
+    second: Nurse_talking_spritesheet_9
+  - first:
+      213: -3782692241229942214
+    second: Nurse_talking_spritesheet_10
+  - first:
+      213: 764599985435202186
+    second: Nurse_talking_spritesheet_11
+  - first:
+      213: -5217913798942838994
+    second: Nurse_talking_spritesheet_12
+  - first:
+      213: 2528196681809058098
+    second: Nurse_talking_spritesheet_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -64,7 +85,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -147,12 +168,12 @@ TextureImporter:
       name: Nurse_talking_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 377
-        y: 706
-        width: 31
-        height: 94
+        x: 0
+        y: 0
+        width: 920
+        height: 1240
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,12 +190,12 @@ TextureImporter:
       name: Nurse_talking_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 401
-        y: 791
-        width: 7
-        height: 9
+        x: 920
+        y: 0
+        width: 920
+        height: 1240
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -187,121 +208,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Nurse_talking_spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 404
-        y: 736
-        width: 14
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a067f6cec7dfb8f90800000000000000
-      internalID: -6950182886931728886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nurse_talking_spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 414
-        y: 714
-        width: 21
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 126e2a98d24edc330800000000000000
-      internalID: 3732890550393824801
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nurse_talking_spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 429
-        y: 708
-        width: 20
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9257f317b01f42200800000000000000
-      internalID: 154513318684357929
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nurse_talking_spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 408
-        y: 651
-        width: 95
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4a1cffe288e323aa0800000000000000
-      internalID: -6182810583801282140
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nurse_talking_spritesheet_6
-      rect:
-        serializedVersion: 2
-        x: 425
-        y: 638
-        width: 55
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7d8c5c71d26f4deb0800000000000000
-      internalID: -4695857837907785513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: b3ee991cbed462f4b8d783ac0729ad9f
     internalID: 0
     vertices: []
     indices: 
@@ -309,15 +220,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Nurse_talking_spritesheet_0: 6327607057728156664
       Nurse_talking_spritesheet_1: 8916326141358308127
-      Nurse_talking_spritesheet_2: -6950182886931728886
-      Nurse_talking_spritesheet_3: 3732890550393824801
-      Nurse_talking_spritesheet_4: 154513318684357929
-      Nurse_talking_spritesheet_5: -6182810583801282140
-      Nurse_talking_spritesheet_6: -4695857837907785513
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

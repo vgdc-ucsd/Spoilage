@@ -1,0 +1,317 @@
+fileFormatVersion: 2
+guid: 83e6a258eae9b6646bdf7535f0c4e0e3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3789987484879921283
+    second: eyes_eyebrows283_anger_spritesheet_0
+  - first:
+      213: -3030838015478853243
+    second: eyes_eyebrows283_anger_spritesheet_1
+  - first:
+      213: 7447261147397034686
+    second: eyes_eyebrows283_anger_spritesheet_2
+  - first:
+      213: -4440644751552321326
+    second: eyes_eyebrows283_anger_spritesheet_3
+  - first:
+      213: -2108812364019181977
+    second: eyes_eyebrows283_anger_spritesheet_4
+  - first:
+      213: -1323325972550522495
+    second: eyes_eyebrows283_anger_spritesheet_5
+  - first:
+      213: -2773537964873298037
+    second: eyes_eyebrows283_anger_spritesheet_6
+  - first:
+      213: 1016165945805610829
+    second: eyes_eyebrows283_anger_spritesheet_7
+  - first:
+      213: 6622261411290152515
+    second: eyes_eyebrows283_anger_spritesheet_8
+  - first:
+      213: -2510280312899363723
+    second: eyes_eyebrows283_anger_spritesheet_9
+  - first:
+      213: -5862681213826477823
+    second: eyes_eyebrows283_anger_spritesheet_10
+  - first:
+      213: 5722816239608673486
+    second: eyes_eyebrows283_anger_spritesheet_11
+  - first:
+      213: -5024432731852477065
+    second: eyes_eyebrows283_anger_spritesheet_12
+  - first:
+      213: -874545880958296270
+    second: eyes_eyebrows283_anger_spritesheet_13
+  - first:
+      213: 2250899756252447765
+    second: eyes_eyebrows283_anger_spritesheet_14
+  - first:
+      213: -7749483425262902994
+    second: eyes_eyebrows283_anger_spritesheet_15
+  - first:
+      213: -88578228627719330
+    second: eyes_eyebrows283_anger_spritesheet_16
+  - first:
+      213: -8280605800083510432
+    second: eyes_eyebrows283_anger_spritesheet_17
+  - first:
+      213: -5573655359316081148
+    second: eyes_eyebrows283_anger_spritesheet_18
+  - first:
+      213: -4115439531050107400
+    second: eyes_eyebrows283_anger_spritesheet_19
+  - first:
+      213: 2459773355959809027
+    second: eyes_eyebrows283_anger_spritesheet_20
+  - first:
+      213: -8897593859587491624
+    second: eyes_eyebrows283_anger_spritesheet_21
+  - first:
+      213: -8651154566329302319
+    second: eyes_eyebrows283_anger_spritesheet_22
+  - first:
+      213: 1160481411365177054
+    second: eyes_eyebrows283_anger_spritesheet_23
+  - first:
+      213: -8637017650561369863
+    second: eyes_eyebrows283_anger_spritesheet_24
+  - first:
+      213: 831185648744120522
+    second: eyes_eyebrows283_anger_spritesheet_25
+  - first:
+      213: -5095651908964825495
+    second: eyes_eyebrows283_anger_spritesheet_26
+  - first:
+      213: 1080184594412883726
+    second: eyes_eyebrows283_anger_spritesheet_27
+  - first:
+      213: 712985532413610645
+    second: eyes_eyebrows283_anger_spritesheet_28
+  - first:
+      213: -3094621009491298015
+    second: eyes_eyebrows283_anger_spritesheet_29
+  - first:
+      213: -3295826930484941085
+    second: eyes_eyebrows283_anger_spritesheet_30
+  - first:
+      213: 786351226342451228
+    second: eyes_eyebrows283_anger_spritesheet_31
+  - first:
+      213: -7694876008409312050
+    second: eyes_eyebrows283_anger_spritesheet_32
+  - first:
+      213: 4855107423264084533
+    second: eyes_eyebrows283_anger_spritesheet_33
+  - first:
+      213: 3282748473739752967
+    second: eyes_eyebrows283_anger_spritesheet_34
+  - first:
+      213: -2032982009870908443
+    second: eyes_eyebrows283_anger_spritesheet_35
+  - first:
+      213: -9217607995370037834
+    second: eyes_eyebrows283_anger_spritesheet_36
+  - first:
+      213: 7627407517653809653
+    second: eyes_eyebrows283_anger_spritesheet_37
+  - first:
+      213: 7719939387675339779
+    second: eyes_eyebrows283_anger_spritesheet_38
+  - first:
+      213: -6941975058198402264
+    second: eyes_eyebrows283_anger_spritesheet_39
+  - first:
+      213: 8210410832873877687
+    second: eyes_eyebrows283_anger_spritesheet_40
+  - first:
+      213: -7975653408163843309
+    second: eyes_eyebrows283_anger_spritesheet_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: eyes_eyebrows283_anger_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 380a17b898db89430800000000000000
+      internalID: 3789987484879921283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows283_anger_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58112ab02ec40f5d0800000000000000
+      internalID: -3030838015478853243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9b55a82e5b4e0664b89c0674b524a495
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      eyes_eyebrows283_anger_spritesheet_0: 3789987484879921283
+      eyes_eyebrows283_anger_spritesheet_1: -3030838015478853243
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
