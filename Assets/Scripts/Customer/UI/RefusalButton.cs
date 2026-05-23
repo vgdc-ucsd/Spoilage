@@ -21,11 +21,6 @@ public class RefusalButton : MonoBehaviour
         guardStaminaFillImage = guardStaminaBar.GetComponent<GuardsStaminaBar>();
     }
 
-    void OnMouseDown()
-    {
-        Press();
-    }
-
     public void Press()
     {
         buttonPress.Invoke();

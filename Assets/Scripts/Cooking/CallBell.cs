@@ -27,9 +27,4 @@ public class CallBell : MonoBehaviour
     {
         _callBellAction.Invoke();
     }
-
-    private void OnMouseDown()
-    {
-        Press();
-    }
 }
