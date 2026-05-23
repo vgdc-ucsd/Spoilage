@@ -30,11 +30,11 @@ public class ResourceManager : Singleton<ResourceManager>
         data.Wealth = Wealth;
     }
 
-    public void Save()
+    public void Save(int saveID)
     {
         PlayerData data = SaveManager.Instance.Player;
         data.Reputation = Reputation;
         data.Wealth = Wealth;
-        SaveManager.Instance.SaveGame();
+        SaveManager.Instance.SaveGame(saveID);
     }
 }

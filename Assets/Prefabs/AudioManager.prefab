@@ -1,0 +1,402 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3962660680559954779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4736422936584531011}
+  - component: {fileID: 3930597464462584264}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4736422936584531011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3962660680559954779}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3930597464462584264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3962660680559954779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62febb2324a64e3d8dd3d00c257cc44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  SFXEntries:
+  - id: BugSkittering
+    eventReference:
+      Guid:
+        Data1: 2121237645
+        Data2: 1129723210
+        Data3: 1262927748
+        Data4: -906076645
+      Path: event:/SFX/Customers/BugSkittering
+  - id: DialoguePopup
+    eventReference:
+      Guid:
+        Data1: -1539236315
+        Data2: 1288414043
+        Data3: 181971092
+        Data4: 1285996536
+      Path: event:/SFX/Customers/DialoguePopup
+  - id: SuccessiveDialoguePopup
+    eventReference:
+      Guid:
+        Data1: 836450762
+        Data2: 1074167427
+        Data3: -1060114761
+        Data4: 1340890630
+      Path: event:/SFX/Customers/SuccessiveDialoguePopup
+  - id: OurghDeep
+    eventReference:
+      Guid:
+        Data1: 1785399428
+        Data2: 1233474951
+        Data3: -2131304285
+        Data4: -1215924605
+      Path: event:/SFX/Customers/OurghDeep
+  - id: OurghHigh
+    eventReference:
+      Guid:
+        Data1: -1354553200
+        Data2: 1334880409
+        Data3: 1495343273
+        Data4: -1055921140
+      Path: event:/SFX/Customers/OurghHigh
+  - id: PatienceAlmostDone
+    eventReference:
+      Guid:
+        Data1: 1404361591
+        Data2: 1268576641
+        Data3: -2022004072
+        Data4: 672524944
+      Path: event:/SFX/Customers/PatienceAlmostDone
+  - id: PatienceEnd
+    eventReference:
+      Guid:
+        Data1: -1899813300
+        Data2: 1103780952
+        Data3: 1224009614
+        Data4: -935912093
+      Path: event:/SFX/Customers/PatienceEnd
+  - id: PatienceHalf
+    eventReference:
+      Guid:
+        Data1: -668266063
+        Data2: 1286207014
+        Data3: 1330037672
+        Data4: 1495723943
+      Path: event:/SFX/Customers/PatienceHalf
+  - id: PatienceStart
+    eventReference:
+      Guid:
+        Data1: -916227492
+        Data2: 1240167646
+        Data3: -134233186
+        Data4: 1531767308
+      Path: event:/SFX/Customers/PatienceStart
+  - id: Soilage
+    eventReference:
+      Guid:
+        Data1: 1869458756
+        Data2: 1272525037
+        Data3: 1818105490
+        Data4: 1812656722
+      Path: event:/SFX/Customers/Soilage
+  - id: StomachGurgling
+    eventReference:
+      Guid:
+        Data1: -1487463523
+        Data2: 1187276523
+        Data3: 1140845726
+        Data4: 1291332254
+      Path: event:/SFX/Customers/StomachGurgling
+  - id: BoilingPotDone
+    eventReference:
+      Guid:
+        Data1: -768336335
+        Data2: 1333025021
+        Data3: -148303433
+        Data4: 1021816704
+      Path: event:/SFX/CookingStations/BoilingPotDone
+  - id: BoilingPot
+    eventReference:
+      Guid:
+        Data1: 872715543
+        Data2: 1127849028
+        Data3: -1431423831
+        Data4: -1464210282
+      Path: event:/SFX/CookingStations/BoilingPot
+  - id: Grill
+    eventReference:
+      Guid:
+        Data1: 1583961587
+        Data2: 1299175927
+        Data3: -531360121
+        Data4: 641769151
+      Path: event:/SFX/CookingStations/Grill
+  - id: Seasoning
+    eventReference:
+      Guid:
+        Data1: -2058779
+        Data2: 1332225170
+        Data3: 674585486
+        Data4: -519718192
+      Path: event:/SFX/CookingStations/Seasoning
+  - id: ToasterOvenClose
+    eventReference:
+      Guid:
+        Data1: 1077999779
+        Data2: 1088503629
+        Data3: -2045906022
+        Data4: -287679668
+      Path: event:/SFX/CookingStations/ToasterOvenClose
+  - id: ToasterOvenOpen
+    eventReference:
+      Guid:
+        Data1: -2120015250
+        Data2: 1151129764
+        Data3: 1526637966
+        Data4: -1770503132
+      Path: event:/SFX/CookingStations/ToasterOvenOpen
+  - id: ToasterOvenDone
+    eventReference:
+      Guid:
+        Data1: 571451267
+        Data2: 1129545946
+        Data3: -1900443760
+        Data4: 2023716547
+      Path: event:/SFX/CookingStations/ToasterOvenDone
+  - id: ToasterOvenTurnOn
+    eventReference:
+      Guid:
+        Data1: 1143133861
+        Data2: 1170157757
+        Data3: -368904787
+        Data4: -1148426043
+      Path: event:/SFX/CookingStations/ToasterOvenTurnOn
+  - id: OrderBellNew
+    eventReference:
+      Guid:
+        Data1: -815573005
+        Data2: 1119080084
+        Data3: 1191654031
+        Data4: 138565137
+      Path: event:/SFX/Orders/BellSFX
+  - id: OrderBellComplete
+    eventReference:
+      Guid:
+        Data1: 1659423433
+        Data2: 1115362406
+        Data3: -807457378
+        Data4: 556220242
+      Path: event:/SFX/Orders/BellWinSFX
+  - id: Pause
+    eventReference:
+      Guid:
+        Data1: 725806177
+        Data2: 1274525496
+        Data3: -1748716641
+        Data4: -1090490321
+      Path: event:/SFX/UI/Pause
+  - id: Unpause
+    eventReference:
+      Guid:
+        Data1: -152383719
+        Data2: 1218398664
+        Data3: 1886526106
+        Data4: 1978190248
+      Path: event:/SFX/UI/Unpause
+  - id: PageTurn
+    eventReference:
+      Guid:
+        Data1: 841165318
+        Data2: 1087540208
+        Data3: 1880150402
+        Data4: -2130583506
+      Path: event:/SFX/PageTurn
+  - id: RefuseButton
+    eventReference:
+      Guid:
+        Data1: 543831307
+        Data2: 1300647268
+        Data3: 503650979
+        Data4: 4616965
+      Path: event:/SFX/RefuseButton
+  - id: ButtonClick
+    eventReference:
+      Guid:
+        Data1: 219561729
+        Data2: 1165205719
+        Data3: -223074888
+        Data4: 991561828
+      Path: event:/SFX/UI/ButtonClick
+  - id: Blender
+    eventReference:
+      Guid:
+        Data1: -270783138
+        Data2: 1149984604
+        Data3: -867543139
+        Data4: 265716088
+      Path: event:/SFX/CookingStations/Blender
+  - id: CuttingBoard
+    eventReference:
+      Guid:
+        Data1: 320094530
+        Data2: 1083095789
+        Data3: -1871868497
+        Data4: -885664129
+      Path: event:/SFX/CookingStations/CuttingBoard
+  - id: Pickup
+    eventReference:
+      Guid:
+        Data1: 103403177
+        Data2: 1217379891
+        Data3: 1994228608
+        Data4: -512167330
+      Path: event:/SFX/UI/Pickup
+  - id: Place
+    eventReference:
+      Guid:
+        Data1: -1863314932
+        Data2: 1207036274
+        Data3: -191173474
+        Data4: -1238255938
+      Path: event:/SFX/UI/Place
+  - id: ShopHover
+    eventReference:
+      Guid:
+        Data1: 354758170
+        Data2: 1172275735
+        Data3: -7565128
+        Data4: -1447314052
+      Path: event:/SFX/UI/ShopHover
+  - id: ShopPurchase
+    eventReference:
+      Guid:
+        Data1: 454179315
+        Data2: 1338963087
+        Data3: 466864530
+        Data4: -344999841
+      Path: event:/SFX/UI/ShopPurchase
+  - id: RadioMumbleShort
+    eventReference:
+      Guid:
+        Data1: -1749315098
+        Data2: 1229209997
+        Data3: 1977597592
+        Data4: 393209765
+      Path: event:/SFX/RadioMumbleShort
+  - id: RadioMumbleMedium
+    eventReference:
+      Guid:
+        Data1: -516815285
+        Data2: 1283895464
+        Data3: 821365939
+        Data4: 105655607
+      Path: event:/SFX/RadioMumbleMedium
+  - id: RadioMumbleLong
+    eventReference:
+      Guid:
+        Data1: 956210160
+        Data2: 1205801943
+        Data3: -56629110
+        Data4: 695509854
+      Path: event:/SFX/RadioMumbleLong
+  - id: Trash
+    eventReference:
+      Guid:
+        Data1: 956210160
+        Data2: 1205801943
+        Data3: -56629110
+        Data4: 695509854
+      Path: event:/SFX/Trash
+  musicEntries:
+  - id: Title
+    eventReference:
+      Guid:
+        Data1: -1482400712
+        Data2: 1297059966
+        Data3: 949063089
+        Data4: 523028968
+      Path: event:/TitleScreenMusic
+  - id: Shop
+    eventReference:
+      Guid:
+        Data1: 961975296
+        Data2: 1193639160
+        Data3: -1129735771
+        Data4: -161538712
+      Path: event:/ShopMusic
+  - id: Radio
+    eventReference:
+      Guid:
+        Data1: -1164129898
+        Data2: 1280215468
+        Data3: 846417049
+        Data4: -1804911977
+      Path: event:/RadioMusic
+  - id: Horror
+    eventReference:
+      Guid:
+        Data1: -243445157
+        Data2: 1122018183
+        Data3: -473817691
+        Data4: 1514264991
+      Path: event:/HorrorMusic
+  - id: Cozy
+    eventReference:
+      Guid:
+        Data1: 605490530
+        Data2: 1228506693
+        Data3: 1733514633
+        Data4: -1848308412
+      Path: event:/CozyMusic
+  - id: Credits
+    eventReference:
+      Guid:
+        Data1: 1470866638
+        Data2: 1215209202
+        Data3: -117677680
+        Data4: 1061993031
+      Path: event:/CreditsMusic
+  - id: Lose
+    eventReference:
+      Guid:
+        Data1: 609613275
+        Data2: 1086889999
+        Data3: -239765105
+        Data4: -1084929551
+      Path: event:/LoseConditionMusic
+  - id: KitchenLayout
+    eventReference:
+      Guid:
+        Data1: 117310468
+        Data2: 1253486595
+        Data3: -1689475926
+        Data4: -1745083328
+      Path: event:/KitchenLayoutMusic
+  busListOk: 0
+  sysemIsOk: 0

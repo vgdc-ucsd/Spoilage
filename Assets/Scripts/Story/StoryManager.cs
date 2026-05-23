@@ -547,6 +547,6 @@ public class StoryManager : Singleton<StoryManager>
 
     private void Save()
     {
-        SaveManager.Instance.SaveGame();
+        SaveManager.Instance.SaveGame(SaveManager.Instance.Player.SaveID);
     }
 }

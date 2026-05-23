@@ -2086,7 +2086,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 861ee173152c840dc96f287c188d2d61, type: 2}
   - {fileID: 11400000, guid: 2bf78445c0672ce469c7c40503a21ebe, type: 2}
   - {fileID: 11400000, guid: 7d58b0f1a3b4d6049b00bb716dfcc5d3, type: 2}
-  - {fileID: 11400000, guid: b44e2de497d239b4bba057f8e794a380, type: 2}
+  - {fileID: 11400000, guid: 90ce8f0019ae24d4f9fb30aacf871c10, type: 2}
+  - {fileID: 11400000, guid: 6e1680b61032b4b1a8d5c15b5fd62a36, type: 2}
+  - {fileID: 11400000, guid: bbc08b01202724e02b6b493daba2c5fb, type: 2}
+  - {fileID: 11400000, guid: 2212b8544df92444bb2c14464efd8a65, type: 2}
+  - {fileID: 11400000, guid: 8dd7487ab1039430dbbffb513aea544c, type: 2}
+  - {fileID: 11400000, guid: 96699c0cdf3984488bdcdca67e9b5b15, type: 2}
+  - {fileID: 11400000, guid: 25740527ebba74d2d8cdf516742f89ac, type: 2}
+  - {fileID: 11400000, guid: 2ec8ca7c78d37479bbfa7bace76c4955, type: 2}
+  - {fileID: 11400000, guid: 68b433ca725a749cf9289089e576332b, type: 2}
+  - {fileID: 11400000, guid: 2ca2c9ea0582d47d5860f935f4f30b81, type: 2}
+  - {fileID: 11400000, guid: a07fb6bd9b34340e8b9494adcef3dbc9, type: 2}
+  - {fileID: 11400000, guid: 39d5994044ed649dcb4347d83c8480ae, type: 2}
+  - {fileID: 11400000, guid: 436c5498555c4457c8a5bb5b8b0cf093, type: 2}
+  - {fileID: 11400000, guid: bf2006d54538643dbb30b5ff617da84f, type: 2}
+  - {fileID: 11400000, guid: afd84f2cdc89c49848708162d1d9906b, type: 2}
+  - {fileID: 11400000, guid: d383d5805ab0f411bb7f35725d47478b, type: 2}
+  - {fileID: 11400000, guid: 1df8a314f32e64710b7319d06e261403, type: 2}
+  - {fileID: 11400000, guid: 164775680435440f384122598d53dfc4, type: 2}
+  - {fileID: 11400000, guid: 7ae5c1f0bd26a4422b4c6c10f80a0322, type: 2}
+  - {fileID: 11400000, guid: dfcb4f7841d794679b512b9443c907c8, type: 2}
+  - {fileID: 11400000, guid: d884f7a5be0fb4da1a116b6c6520a83b, type: 2}
 --- !u!114 &901461947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4967,6 +4987,10 @@ PrefabInstance:
     - target: {fileID: 4540061025966508533, guid: 5c9a3197cd8f944f28f3c6acea1a2d2c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5902929677166472249, guid: 5c9a3197cd8f944f28f3c6acea1a2d2c, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6517700985564062406, guid: 5c9a3197cd8f944f28f3c6acea1a2d2c, type: 3}
       propertyPath: m_Name
