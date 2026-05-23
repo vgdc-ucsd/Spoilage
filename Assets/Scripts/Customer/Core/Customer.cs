@@ -158,6 +158,7 @@ public class Customer : MonoBehaviour
 
         SetAnchoredPosition("Sprites/FACIAL_FEATURES", customerData.faceOffset);
         SetAnchoredPosition("Sprites/SPOILAGE", customerData.faceOffset);
+    }
 
     private void applySpoilageOnDay(int day)
     {

@@ -123,12 +123,7 @@ public class CustomerManager : Singleton<CustomerManager>
 
         for (int i = 0; i < orderCount; i++)
         {
-            Recipe order = customerOrderDatabase.GenerateCustomerOrder();
-
-            if (order != null)
-            {
-                newData.orders.Add(order);
-            }
+            customerOrderDatabase.GenerateCustomerOrder(newData);
         }
 
         return newData;
@@ -237,6 +232,7 @@ public class CustomerManager : Singleton<CustomerManager>
         newData.sprites[(int)CustomerData.Indexes.TENDRILS_2] = tendrilSprites[1];
 
         // Customer order
+        CustomerOrderDatabase customerOrderDatabase = CustomerOrderDatabase.Instance;
         customerOrderDatabase.GenerateCustomerOrder(newData);
 
         // int orderCount = customerOrderDatabase.PickDishCount(0.5f); // TODO: Get actual game progress.
@@ -251,7 +247,7 @@ public class CustomerManager : Singleton<CustomerManager>
         //     }
         // }
 
-        return newData;
+        // return newData;
     }
 
     public static AbstractSpoilageSymptom GenerateSymptom()
