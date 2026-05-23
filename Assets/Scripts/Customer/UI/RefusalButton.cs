@@ -71,59 +71,41 @@ public class RefusalButton : MonoBehaviour
         RectTransform customerRect = customerToRemove.GetComponent<RectTransform>();
         RectTransform animationParent = spawnRect.parent as RectTransform;
 
-        Vector2 startPosition = GetAnchoredPositionInParent(spawnRect, animationParent);
-        Vector2 customerPosition = GetAnchoredPositionInParent(customerRect, animationParent);
+        Vector3 startPosition = spawnRect.position;
+        Vector3 customerPosition = customerRect.position;
 
         guardRect.SetParent(animationParent, false);
-        guardRect.anchoredPosition = startPosition;
+        guardRect.position = startPosition;
         guardRect.SetAsLastSibling();
 
         float elapsed = 0f;
         while (elapsed < guardMoveDuration)
         {
-            guardRect.anchoredPosition = Vector2.Lerp(startPosition, customerPosition, elapsed / guardMoveDuration);
+            guardRect.position = Vector3.Lerp(startPosition, customerPosition, elapsed / guardMoveDuration);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        guardRect.anchoredPosition = customerPosition;
+        guardRect.position = customerPosition;
         yield return new WaitForSeconds(guardPauseAtCustomer);
 
         guards.GetComponent<Image>().color = Color.red;
 
-        Vector2 currentCustomerPosition = GetAnchoredPositionInParent(customerRect, animationParent);
-        customerRect.SetParent(animationParent, false);
-        customerRect.anchoredPosition = currentCustomerPosition;
-        customerRect.SetAsLastSibling();
         guardRect.SetAsLastSibling();
 
         elapsed = 0f;
         while (elapsed < guardMoveDuration)
         {
-            Vector2 currentPosition = Vector2.Lerp(customerPosition, startPosition, elapsed / guardMoveDuration);
-            guardRect.anchoredPosition = currentPosition;
-            customerRect.anchoredPosition = currentPosition;
+            Vector3 currentPosition = Vector3.Lerp(customerPosition, startPosition, elapsed / guardMoveDuration);
+            guardRect.position = currentPosition;
+            customerRect.position = currentPosition;
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        guardRect.anchoredPosition = startPosition;
-        customerRect.anchoredPosition = startPosition;
+        guardRect.position = startPosition;
+        customerRect.position = startPosition;
 
         CustomerLineManager.Instance.Advance();
-    }
-
-    private static Vector2 GetAnchoredPositionInParent(RectTransform rectTransform, RectTransform parent)
-    {
-        Camera camera = GetCanvasCamera(parent);
-        Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(camera, rectTransform.position);
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(parent, screenPosition, camera, out Vector2 anchoredPosition);
-        return anchoredPosition;
-    }
-
-    private static Camera GetCanvasCamera(RectTransform rectTransform)
-    {
-        Canvas canvas = rectTransform.GetComponentInParent<Canvas>();
-        return canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay ? canvas.worldCamera : null;
     }
 }
