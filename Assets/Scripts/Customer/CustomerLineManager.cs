@@ -5,6 +5,9 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
 {
     public Customer CurrentCustomer;
 
+    [SerializeField]
+    private OrderInstructionsDisplay _orderInstructionsDisplay;
+
     public void CallBellPressed()
     {
         CheckOrder();
@@ -22,6 +25,7 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
 
         // TODO - customer slides out to left side
 
+        _orderInstructionsDisplay?.Clear();
         Destroy(CurrentCustomer.gameObject);
         yield return null;
     }
@@ -33,6 +37,7 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
             yield return StartCoroutine(UnloadCurrentCustomerAnimation());
         }
         CurrentCustomer = CustomerManager.Instance.GenerateCustomer();
+        _orderInstructionsDisplay?.DisplayCustomer(CurrentCustomer);
 
         // TODO - customer slides in from left side
 

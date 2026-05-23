@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -44,6 +45,37 @@ public class RecipeManager : MonoBehaviour
         {
             Debug.LogError("MANAGER: No JSON file assigned in the Inspector!");
         }
+    }
+
+    public bool TryGetRecipe(string dishName, out Recipe recipe)
+    {
+        recipe = null;
+
+        if ((allRecipes == null || allRecipes.recipes == null) && recipeJsonFile != null)
+        {
+            LoadRecipes();
+        }
+
+        if (string.IsNullOrWhiteSpace(dishName) || allRecipes == null || allRecipes.recipes == null)
+        {
+            return false;
+        }
+
+        foreach (Recipe candidate in allRecipes.recipes)
+        {
+            if (candidate == null)
+            {
+                continue;
+            }
+
+            if (string.Equals(candidate.dishName?.Trim(), dishName.Trim(), StringComparison.OrdinalIgnoreCase))
+            {
+                recipe = candidate;
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public string CheckRecipe(List<IngredientObject> plateIngredients)
