@@ -17,6 +17,27 @@ TextureImporter:
   - first:
       213: -3213772782833591871
     second: Nurse_blinking_spritesheet_4
+  - first:
+      213: -1160784059894450259
+    second: Nurse_blinking_spritesheet_5
+  - first:
+      213: -2319996769676034893
+    second: Nurse_blinking_spritesheet_6
+  - first:
+      213: 6805262387198206326
+    second: Nurse_blinking_spritesheet_7
+  - first:
+      213: -1907427853330066998
+    second: Nurse_blinking_spritesheet_8
+  - first:
+      213: 6987201525696752013
+    second: Nurse_blinking_spritesheet_9
+  - first:
+      213: -7212370474699211350
+    second: Nurse_blinking_spritesheet_10
+  - first:
+      213: 1479881109102202860
+    second: Nurse_blinking_spritesheet_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,7 +79,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -141,12 +162,12 @@ TextureImporter:
       name: Nurse_blinking_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 285
-        y: 801
-        width: 113
-        height: 50
+        x: 0
+        y: 0
+        width: 920
+        height: 1240
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -163,12 +184,12 @@ TextureImporter:
       name: Nurse_blinking_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 444
-        y: 849
-        width: 106
-        height: 42
+        x: 920
+        y: 0
+        width: 920
+        height: 1240
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -181,77 +202,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Nurse_blinking_spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 456
-        y: 795
-        width: 97
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 09ab6d00d2e553e80800000000000000
-      internalID: -8199543999177508208
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nurse_blinking_spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 293
-        y: 759
-        width: 87
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 99850467961963200800000000000000
-      internalID: 159474718959753369
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nurse_blinking_spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 301
-        y: 785
-        width: 76
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1c9926a6ea26663d0800000000000000
-      internalID: -3213772782833591871
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 2ef08e16ec3ce5347bdeb1ca467473a4
     internalID: 0
     vertices: []
     indices: 
@@ -259,13 +214,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Nurse_blinking_spritesheet_0: 6134653485757181197
       Nurse_blinking_spritesheet_1: 1542197482154473188
-      Nurse_blinking_spritesheet_2: -8199543999177508208
-      Nurse_blinking_spritesheet_3: 159474718959753369
-      Nurse_blinking_spritesheet_4: -3213772782833591871
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

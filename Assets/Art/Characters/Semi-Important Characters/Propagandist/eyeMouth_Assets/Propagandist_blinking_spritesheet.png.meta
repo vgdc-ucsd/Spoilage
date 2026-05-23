@@ -23,6 +23,36 @@ TextureImporter:
   - first:
       213: -7321241009128461698
     second: Propagandist_blinking_spritesheet_6
+  - first:
+      213: 5445111992334998277
+    second: Propagandist_blinking_spritesheet_7
+  - first:
+      213: 3275447689827467144
+    second: Propagandist_blinking_spritesheet_8
+  - first:
+      213: -7373876363980993384
+    second: Propagandist_blinking_spritesheet_9
+  - first:
+      213: 8753983155537965920
+    second: Propagandist_blinking_spritesheet_10
+  - first:
+      213: -5370262320518577156
+    second: Propagandist_blinking_spritesheet_11
+  - first:
+      213: -5987932741549326731
+    second: Propagandist_blinking_spritesheet_12
+  - first:
+      213: -7898476883766679808
+    second: Propagandist_blinking_spritesheet_13
+  - first:
+      213: -173589265123890801
+    second: Propagandist_blinking_spritesheet_14
+  - first:
+      213: -6576862178140556981
+    second: Propagandist_blinking_spritesheet_15
+  - first:
+      213: -6610852543417705572
+    second: Propagandist_blinking_spritesheet_16
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -64,7 +94,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -147,12 +177,12 @@ TextureImporter:
       name: Propagandist_blinking_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 323
-        y: 828
-        width: 82
-        height: 29
+        x: 0
+        y: 0
+        width: 920
+        height: 1240
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,12 +199,12 @@ TextureImporter:
       name: Propagandist_blinking_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 343
-        y: 792
-        width: 52
-        height: 44
+        x: 920
+        y: 0
+        width: 920
+        height: 1240
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -187,121 +217,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Propagandist_blinking_spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 488
-        y: 794
-        width: 106
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 326d26953746aabc0800000000000000
-      internalID: -3771091291385702877
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Propagandist_blinking_spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 322
-        y: 780
-        width: 69
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9770030204a8f8340800000000000000
-      internalID: 4868261730233354105
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Propagandist_blinking_spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 490
-        y: 772
-        width: 78
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9ba4c60096c28d040800000000000000
-      internalID: 4672533442887174841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Propagandist_blinking_spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 482
-        y: 748
-        width: 107
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 46d95a38044f25f70800000000000000
-      internalID: 9174663948830874980
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Propagandist_blinking_spritesheet_6
-      rect:
-        serializedVersion: 2
-        x: 492
-        y: 742
-        width: 63
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e7a20ef771ab56a90800000000000000
-      internalID: -7321241009128461698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: e45b9b615adcd7e429312a81fcd5e62a
     internalID: 0
     vertices: []
     indices: 
@@ -309,15 +229,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Propagandist_blinking_spritesheet_0: -9088850616502717936
       Propagandist_blinking_spritesheet_1: 7770599855108430668
-      Propagandist_blinking_spritesheet_2: -3771091291385702877
-      Propagandist_blinking_spritesheet_3: 4868261730233354105
-      Propagandist_blinking_spritesheet_4: 4672533442887174841
-      Propagandist_blinking_spritesheet_5: 9174663948830874980
-      Propagandist_blinking_spritesheet_6: -7321241009128461698
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -129,10 +129,10 @@ TextureImporter:
       name: base167_hairTop_A_0
       rect:
         serializedVersion: 2
-        x: 272
-        y: 819
-        width: 350
-        height: 218
+        x: 220
+        y: 820
+        width: 422
+        height: 284
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -1,0 +1,314 @@
+fileFormatVersion: 2
+guid: e9772dc769e86e241ac2dff956c7cdb2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6054220183583155450
+    second: eyes_eyebrows283_blinking_spritesheet_0
+  - first:
+      213: 7718220447109955619
+    second: eyes_eyebrows283_blinking_spritesheet_1
+  - first:
+      213: 2347308751636786607
+    second: eyes_eyebrows283_blinking_spritesheet_2
+  - first:
+      213: -7782905698503487404
+    second: eyes_eyebrows283_blinking_spritesheet_3
+  - first:
+      213: -6908206029939738161
+    second: eyes_eyebrows283_blinking_spritesheet_4
+  - first:
+      213: -3504595288949572839
+    second: eyes_eyebrows283_blinking_spritesheet_5
+  - first:
+      213: -4423362411309319384
+    second: eyes_eyebrows283_blinking_spritesheet_6
+  - first:
+      213: 7491780829935189331
+    second: eyes_eyebrows283_blinking_spritesheet_7
+  - first:
+      213: 3148109086475279840
+    second: eyes_eyebrows283_blinking_spritesheet_8
+  - first:
+      213: -4060127148682632822
+    second: eyes_eyebrows283_blinking_spritesheet_9
+  - first:
+      213: 620806312455880856
+    second: eyes_eyebrows283_blinking_spritesheet_10
+  - first:
+      213: 7504502913996605101
+    second: eyes_eyebrows283_blinking_spritesheet_11
+  - first:
+      213: 5807626538789622754
+    second: eyes_eyebrows283_blinking_spritesheet_12
+  - first:
+      213: 6544569383751790197
+    second: eyes_eyebrows283_blinking_spritesheet_13
+  - first:
+      213: 3641399609829827840
+    second: eyes_eyebrows283_blinking_spritesheet_14
+  - first:
+      213: -7654314668251100700
+    second: eyes_eyebrows283_blinking_spritesheet_15
+  - first:
+      213: -2553476720111125479
+    second: eyes_eyebrows283_blinking_spritesheet_16
+  - first:
+      213: -1212577293190272093
+    second: eyes_eyebrows283_blinking_spritesheet_17
+  - first:
+      213: 1330735793032435424
+    second: eyes_eyebrows283_blinking_spritesheet_18
+  - first:
+      213: 1462274072006865900
+    second: eyes_eyebrows283_blinking_spritesheet_19
+  - first:
+      213: -3746591763086120496
+    second: eyes_eyebrows283_blinking_spritesheet_20
+  - first:
+      213: 5241750296424756933
+    second: eyes_eyebrows283_blinking_spritesheet_21
+  - first:
+      213: -3585286199253430680
+    second: eyes_eyebrows283_blinking_spritesheet_22
+  - first:
+      213: -5614110926949200426
+    second: eyes_eyebrows283_blinking_spritesheet_23
+  - first:
+      213: 2976898302991317426
+    second: eyes_eyebrows283_blinking_spritesheet_24
+  - first:
+      213: 7895817451684450630
+    second: eyes_eyebrows283_blinking_spritesheet_25
+  - first:
+      213: -774436002413229609
+    second: eyes_eyebrows283_blinking_spritesheet_26
+  - first:
+      213: -5159343856069384919
+    second: eyes_eyebrows283_blinking_spritesheet_27
+  - first:
+      213: 3425231114394217904
+    second: eyes_eyebrows283_blinking_spritesheet_28
+  - first:
+      213: -3359137378119068128
+    second: eyes_eyebrows283_blinking_spritesheet_29
+  - first:
+      213: -886704334324693524
+    second: eyes_eyebrows283_blinking_spritesheet_30
+  - first:
+      213: -7854714843901612346
+    second: eyes_eyebrows283_blinking_spritesheet_31
+  - first:
+      213: -2812973896150981079
+    second: eyes_eyebrows283_blinking_spritesheet_32
+  - first:
+      213: -5109546262359452084
+    second: eyes_eyebrows283_blinking_spritesheet_33
+  - first:
+      213: -4586798403325175177
+    second: eyes_eyebrows283_blinking_spritesheet_34
+  - first:
+      213: -2658442491622699343
+    second: eyes_eyebrows283_blinking_spritesheet_35
+  - first:
+      213: -7671164749238457154
+    second: eyes_eyebrows283_blinking_spritesheet_36
+  - first:
+      213: 466833139327897544
+    second: eyes_eyebrows283_blinking_spritesheet_37
+  - first:
+      213: -2618491901014074138
+    second: eyes_eyebrows283_blinking_spritesheet_38
+  - first:
+      213: 9182018623058878688
+    second: eyes_eyebrows283_blinking_spritesheet_39
+  - first:
+      213: 1289810652367553073
+    second: eyes_eyebrows283_blinking_spritesheet_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: eyes_eyebrows283_blinking_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60b9685d1d61bfba0800000000000000
+      internalID: -6054220183583155450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows283_blinking_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32045209a90ac1b60800000000000000
+      internalID: 7718220447109955619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f872482e97e1410459a072e9e479da74
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      eyes_eyebrows283_blinking_spritesheet_0: -6054220183583155450
+      eyes_eyebrows283_blinking_spritesheet_1: 7718220447109955619
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

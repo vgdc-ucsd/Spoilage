@@ -1178,11 +1178,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 476093760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61bc0f08720ecc44ca178b1660567cc9, type: 3}
+  m_Script: {fileID: 11500000, guid: dfc6f216658714c00bd993e7698b3693, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KitchenTile
+  m_EditorClassIdentifier: Assembly-CSharp::ServingStation
   _counterPrefab: {fileID: 0}
   objectsOnTile: []
+  PlateSubmitted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &499114077
 GameObject:
   m_ObjectHideFlags: 0
@@ -4987,6 +4990,10 @@ PrefabInstance:
     - target: {fileID: 4540061025966508533, guid: 5c9a3197cd8f944f28f3c6acea1a2d2c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5902929677166472249, guid: 5c9a3197cd8f944f28f3c6acea1a2d2c, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6517700985564062406, guid: 5c9a3197cd8f944f28f3c6acea1a2d2c, type: 3}
       propertyPath: m_Name

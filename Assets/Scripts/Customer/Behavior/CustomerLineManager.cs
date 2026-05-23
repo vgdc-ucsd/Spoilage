@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CustomerLineManager : Singleton<CustomerLineManager>
 {
     public Customer CurrentCustomer;
+    
+    public UnityEvent PlateSubmitted;
     
     // TODO: Demo wiring, remove
     private bool _dayStarted;
@@ -14,7 +17,6 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
         StartDay();
 
         CheckOrder();
-        StartCoroutine(LoadNextCustomerAnimation());
     }
 
     public void Advance()
@@ -24,13 +26,18 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
 
     private void CheckOrder()
     {
-        // TODO - check if order is correct
+        //sends a signal to the serving station to begin submission process
+        //the actual order submission logic is in CustomerOrderDatabase
+        //i <3 spaghetti code
+        PlateSubmitted.Invoke();
     }
 
     // TODO: Demo wiring, remove
     private void StartDay()
     {
         if (_dayStarted) return;
+
+        StartCoroutine(LoadNextCustomerAnimation());
 
         StoryManager.Instance.InitRun();
         StoryManager.Instance.BeginDay();

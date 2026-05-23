@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918e1c96f9fc68cc18ac2ae3792387ab, type: 3}
+  m_Name: Doctor
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerData
+  sprites:
+  - {fileID: 21300000, guid: 7fd45b63de1007b49848812adb472b69, type: 3}
+  - {fileID: 21300000, guid: ad0f1583ed9d95849a97a8f0508c47c7, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: d62eb3b2e5898a241a13db7c9cb3cc22, type: 3}
+  - {fileID: -5859289920003706497, guid: 8faecbb5305f4aa4883f9dd423b469a4, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 0ccaec1431f48fb45852aaa7f9e51d84, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 03b8aedada5d5d0449c8a52361596c06, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  faceOffset: {x: 0, y: 0, z: 0}
+  eyeOffset: {x: 0, y: 0, z: 0}
+  spoilage: 0
+  spoilageSymtomp: {fileID: 0}
+  patience: 0
+  orders: []
+  id: Doctor
+  tier: 2

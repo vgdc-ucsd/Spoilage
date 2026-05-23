@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918e1c96f9fc68cc18ac2ae3792387ab, type: 3}
+  m_Name: Famished Spoiled
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerData
+  sprites:
+  - {fileID: 21300000, guid: ea51e41da3ee6e148b6c64beb428bfcc, type: 3}
+  - {fileID: 21300000, guid: 0051c7f17aa3a95479cffc04b68251fb, type: 3}
+  - {fileID: -3999101013630876138, guid: bdda0b86bca494946985e2a35b37a2d7, type: 3}
+  - {fileID: 21300000, guid: 6719707e1977ad848b2627423d1f8b88, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: a2d83053d6f376e48a4376fd24646086, type: 3}
+  - {fileID: 12285381467300670, guid: 76e4cff45e4993f4c922c6a037832075, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: -205270267638800340, guid: d0bdaf3f7e2a22846b34ace59e64e2b2, type: 3}
+  - {fileID: 21300000, guid: dc32b4c24fd249247823403ed30494af, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  faceOffset: {x: 0, y: 0, z: 0}
+  eyeOffset: {x: 0, y: 0, z: 0}
+  spoilage: 0
+  spoilageSymptom: {fileID: 0}
+  patience: 0
+  orders: []
+  id: Famished Spoiled
+  tier: 2

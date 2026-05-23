@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918e1c96f9fc68cc18ac2ae3792387ab, type: 3}
+  m_Name: Violent Spoiled
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerData
+  sprites:
+  - {fileID: 21300000, guid: 51f7d03b762a2294992ba71f76285b56, type: 3}
+  - {fileID: 0}
+  - {fileID: 8612816137851959107, guid: f584003bae2e93c4d92d97f0457b4c63, type: 3}
+  - {fileID: 21300000, guid: bab1004150ca3fa448d972f6fc2f5c0e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: -5898229700281392419, guid: a2b1f1d0905106a458caef24a9ed2938, type: 3}
+  - {fileID: 8716540085950043277, guid: a2b1f1d0905106a458caef24a9ed2938, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 4793379f51e2b794192037e7c5de5789, type: 3}
+  - {fileID: 21300000, guid: 8fcc4f04ee2a15d488d1b3b3b4600437, type: 3}
+  - {fileID: 21300000, guid: f8e9b641cf9577c429e1df545ac437f7, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  faceOffset: {x: 0, y: 0, z: 0}
+  eyeOffset: {x: 0, y: 0, z: 0}
+  spoilage: 0
+  spoilageSymtomp: {fileID: 0}
+  patience: 0
+  orders: []
+  id: Violent Spoiled
+  tier: 2
