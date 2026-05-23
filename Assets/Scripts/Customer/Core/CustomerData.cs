@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CustomerData", menuName = "ScriptableObjects/CustomerData", order = 1)]
@@ -70,4 +71,12 @@ public class CustomerData : ScriptableObject
     /// <see cref="id"/>.
     /// </summary>
     public Tier tier = Tier.None;
+
+
+    /// <summary>
+    /// For key characters that have their own music themes,
+    /// this theme will play when the character enters.
+    /// </summary>
+    public EventReference keyMusicEvent;
+
 }
