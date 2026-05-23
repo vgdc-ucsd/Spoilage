@@ -28,6 +28,11 @@ public class AudioManager : Singleton<AudioManager>
 {
     [SerializeField] private List<SFXEntry> SFXEntries;
     private Dictionary<string, EventReference> sfxMap;
+
+    /// <summary>
+    /// Map of existing SFX, in case you want to stop them early
+    /// </summary>
+    private Dictionary<string, EventInstance> currentPlayingSFX;
     
     /// <summary>
     /// References to FMOD events with multi-instruments, which randomly shuffle and play a list of songs
@@ -52,7 +57,7 @@ public class AudioManager : Singleton<AudioManager>
 
         sfxMap = new Dictionary<string, EventReference>();
         musicMap = new Dictionary<string, MusicEntry>();
-
+        currentPlayingSFX = new Dictionary<string, EventInstance>();
         foreach (SFXEntry entry in SFXEntries)
         {
             if (!sfxMap.ContainsKey(entry.id))
@@ -70,7 +75,8 @@ public class AudioManager : Singleton<AudioManager>
             musicEntry.eventInstance = RuntimeManager.CreateInstance(musicEntry.eventReference);
             musicMap.Add(musicEntry.id, musicEntry);
         }
-        PlayTitleMusic();
+
+        PlayMusicEntry("Title"); // play title screen music
     }
     
     public void Start()
@@ -83,19 +89,36 @@ public class AudioManager : Singleton<AudioManager>
         masterBus = RuntimeManager.GetBus("bus:/");
         SetVolume(currentVolume);
         //printBusList();
-
     }
 
     public void PlaySFX(string id)
     {
         if (sfxMap.TryGetValue(id, out EventReference eventReference))
         {
-            RuntimeManager.PlayOneShot(eventReference);
+            var instance = RuntimeManager.CreateInstance(eventReference);
+            instance.set3DAttributes(RuntimeUtils.To3DAttributes(Vector3.zero));
+            instance.start();
+            instance.release();
+            currentPlayingSFX.Add(id, instance);
             Debug.Log("Played audio: " + id);
         }
         else
         {
             Debug.LogWarning($"SFX id not found: {id}");
+        }
+    }
+    
+
+    public void StopSFX(string id)
+    {
+        if (currentPlayingSFX.ContainsKey(id))
+        {
+            currentPlayingSFX[id].stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            Debug.Log("Stopped playing audio: " + id);
+        }
+        else 
+        {
+            Debug.LogWarning($"SFX id not found or not in currentPlayingSFX: {id}");
         }
     }
     public void IncreaseVolume(float v = 0.1f)
@@ -146,40 +169,7 @@ public class AudioManager : Singleton<AudioManager>
 
     
 
-    public void PlayTitleMusic()
-    {
-        PlayMusicEntry("Title");
-    }
-
-    public void PlayCozyMusic()
-    {
-        PlayMusicEntry("Cozy");
-    }
-
-    public void PlayHorrorMusic()
-    {
-        PlayMusicEntry("Horror");
-    }
-
-    public void PlayShopMusic()
-    {
-        PlayMusicEntry("Shop");
-    }
-
-    public void PlayRadioMusic()
-    {
-        PlayMusicEntry("Radio");
-    }
-
-    public void PlayCreditsMusic()
-    {
-        PlayMusicEntry("Credits");
-    }
-
-    public void PlayLoseMusic()
-    {
-        PlayMusicEntry("Lose");
-    }
+    
 
 
 

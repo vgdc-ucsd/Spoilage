@@ -4988,6 +4988,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5902929677166472249, guid: 5c9a3197cd8f944f28f3c6acea1a2d2c, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6517700985564062406, guid: 5c9a3197cd8f944f28f3c6acea1a2d2c, type: 3}
       propertyPath: m_Name
       value: Toaster
