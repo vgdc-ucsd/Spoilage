@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Customer : MonoBehaviour
 {
@@ -68,7 +69,13 @@ public class Customer : MonoBehaviour
             }
             if (currTransform != null)
             {
-                currTransform.GetComponent<SpriteRenderer>().sprite = customerData.sprites[i];
+                Image image = currTransform.GetComponent<Image>();
+                if (image != null)
+                {
+                    image.sprite = customerData.sprites[i];
+                    image.enabled = image.sprite != null;
+                    image.SetNativeSize();
+                }
             }
         }
 
@@ -149,10 +156,8 @@ public class Customer : MonoBehaviour
             }
         }
 
-
-        // Apply offsets
-        transform.Find("Sprites/FACIAL_FEATURES").localPosition = customerData.faceOffset;
-        transform.Find("Sprites/SPOILAGE").localPosition = customerData.faceOffset;
+        SetAnchoredPosition("Sprites/FACIAL_FEATURES", customerData.faceOffset);
+        SetAnchoredPosition("Sprites/SPOILAGE", customerData.faceOffset);
     }
 
     private void applySpoilageOnDay(int day)
@@ -170,6 +175,27 @@ public class Customer : MonoBehaviour
         }
     }
 
+    public static void SetSprite(GameObject root, string path, Sprite sprite)
+    {
+        if (root == null) return;
+
+        Transform slot = root.transform.Find(path);
+        Image image = slot == null ? null : slot.GetComponent<Image>();
+        if (image == null) return;
+
+        image.sprite = sprite;
+        image.enabled = sprite != null;
+        image.SetNativeSize();
+    }
+
+    private void SetAnchoredPosition(string path, Vector3 position)
+    {
+        RectTransform rectTransform = transform.Find(path) as RectTransform;
+        if (rectTransform == null) return;
+
+        rectTransform.anchoredPosition = new Vector2(position.x, position.y);
+    }
+
     private void OnDestroy()
     {
         if (customerData != null && customerData.spoilageSymptom != null)
@@ -177,17 +203,5 @@ public class Customer : MonoBehaviour
             customerData.spoilageSymptom.Unregister();
         }
     }
-
-    // public void InstantiateCustomer()
-    // {
-    //     for (int i = 0; i < CustomerData.NUM_SPRITES; i++)
-    //     {
-    //         GameObject newSprite = new GameObject("Customer Sprite " + i);
-    //         SpriteRenderer renderer = newSprite.AddComponent<SpriteRenderer>();
-    //         renderer.sprite = customerData.sprites[i];
-    //         newSprite.transform.position = customerData.spriteOffsets[i];
-    //         newSprite.transform.SetParent(customerObject.transform);
-    //         Instantiate(newSprite);
-    //     }
-    // }
+    
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class RefusalButton : MonoBehaviour
 {
@@ -21,14 +22,17 @@ public class RefusalButton : MonoBehaviour
         guardStaminaFillImage = guardStaminaBar.GetComponent<GuardsStaminaBar>();
     }
 
-    void OnMouseDown()
+    public void Press()
     {
         buttonPress.Invoke();
     }
 
     public void AnimateButton()
     {
-        anim.SetTrigger("Button Pressed");
+        if (anim != null)
+        {
+            anim.SetTrigger("Button Pressed");
+        }
     }
 
     public void RemoveCustomer()
@@ -46,7 +50,7 @@ public class RefusalButton : MonoBehaviour
 
         if (guardsPrefab != null && guardSpawnpoint != null && customerToRemove != null)
         {
-            GameObject guards = Instantiate(guardsPrefab, guardSpawnpoint.transform.position, Quaternion.identity);
+            GameObject guards = Instantiate(guardsPrefab);
             StartCoroutine(GlideGuardToCustomerAndReturn(guards, customerToRemove));
         }
         else if (customerToRemove == null)
@@ -62,31 +66,45 @@ public class RefusalButton : MonoBehaviour
 
     private IEnumerator GlideGuardToCustomerAndReturn(GameObject guards, GameObject customerToRemove)
     {
-        Vector3 startPosition = guardSpawnpoint.transform.position;
-        Vector3 customerPosition = customerToRemove.transform.position;
+        RectTransform guardRect = guards.GetComponent<RectTransform>();
+        RectTransform spawnRect = guardSpawnpoint.GetComponent<RectTransform>();
+        RectTransform customerRect = customerToRemove.GetComponent<RectTransform>();
+        RectTransform animationParent = spawnRect.parent as RectTransform;
+
+        Vector3 startPosition = spawnRect.position;
+        Vector3 customerPosition = customerRect.position;
+
+        guardRect.SetParent(animationParent, false);
+        guardRect.position = startPosition;
+        guardRect.SetAsLastSibling();
 
         float elapsed = 0f;
         while (elapsed < guardMoveDuration)
         {
-            guards.transform.position = Vector3.Lerp(startPosition, customerPosition, elapsed / guardMoveDuration);
+            guardRect.position = Vector3.Lerp(startPosition, customerPosition, elapsed / guardMoveDuration);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        guards.transform.position = customerPosition;
+        guardRect.position = customerPosition;
         yield return new WaitForSeconds(guardPauseAtCustomer);
-        guards.GetComponent<Renderer>().material.color = Color.red;
+
+        guards.GetComponent<Image>().color = Color.red;
+
+        guardRect.SetAsLastSibling();
 
         elapsed = 0f;
         while (elapsed < guardMoveDuration)
         {
-            guards.transform.position = Vector3.Lerp(customerPosition, startPosition, elapsed / guardMoveDuration);
-            customerToRemove.transform.SetParent(guards.transform);
+            Vector3 currentPosition = Vector3.Lerp(customerPosition, startPosition, elapsed / guardMoveDuration);
+            guardRect.position = currentPosition;
+            customerRect.position = currentPosition;
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        guards.transform.position = startPosition;
+        guardRect.position = startPosition;
+        customerRect.position = startPosition;
 
         CustomerLineManager.Instance.Advance();
     }

@@ -43,4 +43,3 @@ public class Tentacles : AbstractSpoilageSymptom
         StartSpoilageAnimation();
     }
 }
-

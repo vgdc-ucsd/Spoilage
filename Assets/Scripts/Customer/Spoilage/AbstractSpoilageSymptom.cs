@@ -133,14 +133,14 @@ public abstract class AbstractSpoilageSymptom : ScriptableObject
 
     protected void SetFrontSprites(Sprite[] sprites)
     {
-        SetRendererSprite("SPOILAGE_FRONT_1", sprites[0]);
-        SetRendererSprite("SPOILAGE_FRONT_2", sprites[1]);
+        SetSprite("SPOILAGE_FRONT_1", sprites[0]);
+        SetSprite("SPOILAGE_FRONT_2", sprites[1]);
     }
 
     protected void SetBackSprites(Sprite[] sprites)
     {
-        SetRendererSprite("SPOILAGE_BACK_1", sprites[0]);
-        SetRendererSprite("SPOILAGE_BACK_2", sprites[1]);
+        SetSprite("SPOILAGE_BACK_1", sprites[0]);
+        SetSprite("SPOILAGE_BACK_2", sprites[1]);
     }
 
     protected void StartSpoilageAnimation()
@@ -150,15 +150,13 @@ public abstract class AbstractSpoilageSymptom : ScriptableObject
 
     private void SetFrontSprite(Sprite sprite)
     {
-        SetRendererSprite("SPOILAGE_FRONT_1", sprite);
-        SetRendererSprite("SPOILAGE_FRONT_2", sprite);
+        SetSprite("SPOILAGE_FRONT_1", sprite);
+        SetSprite("SPOILAGE_FRONT_2", sprite);
     }
 
-    private void SetRendererSprite(string rendererName, Sprite sprite)
+    private void SetSprite(string rendererName, Sprite sprite)
     {
-        Transform rendererTransform = customer.transform.Find("Sprites/SPOILAGE/" + rendererName);
-        SpriteRenderer renderer = rendererTransform.GetComponent<SpriteRenderer>();
-        renderer.sprite = sprite;
+        Customer.SetSprite(customer, "Sprites/SPOILAGE/" + rendererName, sprite);
     }
 
     private static string PickRandomPath(string[] spritePaths)

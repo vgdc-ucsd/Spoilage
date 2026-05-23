@@ -10,7 +10,7 @@ public class CustomerManager : Singleton<CustomerManager>
     public GameObject CustomerPrefab;
     public CustomerData[] PresetCustomerData;
     [SerializeField]
-    private Transform _customerTransform;
+    private RectTransform _customerTransform;
 
     private const string EYES_PATH = "Assets/Resources/Art/Customers/Eyes/";
     private const string MOUTH_PATH = "Assets/Resources/Art/Customers/NoseMouths/";
@@ -36,21 +36,21 @@ public class CustomerManager : Singleton<CustomerManager>
 
     private static readonly Dictionary<string, Vector3> s_faceOffsets = new()
     {
-        { "Assets/Resources/Art/Customers/Bases/Character Base #167", new Vector3(-0.12f, 0.1f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #255", new Vector3(-0.02f, 1.16f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #256", new Vector3(0.01f, -0.07f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #257", new Vector3(-0.01f, -0.74f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #258", new Vector3(0.09f, -0.66f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #259", new Vector3(-0.08f, 1.04f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #260", new Vector3(0.04f, 0.32f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #261", new Vector3(-0.11f, 0.81f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #277", new Vector3(0.03f, 1.25f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #284", new Vector3(0.06f, -0.9f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #286", new Vector3(0, 0, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #287", new Vector3(0.1f, -0.24f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #292", new Vector3(0.05f, 0.55f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #307", new Vector3(-0.25f, -0.65f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #332", new Vector3(0.16f, -0.11f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #167", new Vector3(-12f, 10f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #255", new Vector3(-2f, 116f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #256", new Vector3(1f, -7f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #257", new Vector3(-1f, -74f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #258", new Vector3(9f, -66f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #259", new Vector3(-8f, 104f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #260", new Vector3(4f, 32f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #261", new Vector3(-11f, 81f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #277", new Vector3(3f, 125f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #284", new Vector3(6f, -90f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #286", new Vector3(0f, 0f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #287", new Vector3(10f, -24f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #292", new Vector3(5f, 55f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #307", new Vector3(-25f, -65f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #332", new Vector3(16f, -11f, 0)},
     };
 
     public Customer GenerateCustomer()
@@ -60,6 +60,11 @@ public class CustomerManager : Singleton<CustomerManager>
 
     public Customer GenerateCustomer(CustomerData customerData)
     {
+        if (customerData == null)
+        {
+            customerData = GenerateCustomerData();
+        }
+
         Customer instantiatedCustomer = Instantiate(CustomerPrefab, _customerTransform).GetComponent<Customer>();
         instantiatedCustomer.customerData = customerData;
         instantiatedCustomer.customerObject = instantiatedCustomer.gameObject;
@@ -118,12 +123,7 @@ public class CustomerManager : Singleton<CustomerManager>
 
         for (int i = 0; i < orderCount; i++)
         {
-            Recipe order = customerOrderDatabase.GenerateCustomerOrder();
-
-            if (order != null)
-            {
-                newData.orders.Add(order);
-            }
+            customerOrderDatabase.GenerateCustomerOrder(newData);
         }
 
         return newData;
@@ -209,7 +209,7 @@ public class CustomerManager : Singleton<CustomerManager>
         else
         {
             Debug.LogWarning("Face offset not found for body " + bodyDir);
-            newData.faceOffset = new Vector3(0, 1.75f, 0);
+            newData.faceOffset = new Vector3(0f, 175f, 0);
         }
     }
 
@@ -232,6 +232,7 @@ public class CustomerManager : Singleton<CustomerManager>
         newData.sprites[(int)CustomerData.Indexes.TENDRILS_2] = tendrilSprites[1];
 
         // Customer order
+        CustomerOrderDatabase customerOrderDatabase = CustomerOrderDatabase.Instance;
         customerOrderDatabase.GenerateCustomerOrder(newData);
 
         // int orderCount = customerOrderDatabase.PickDishCount(0.5f); // TODO: Get actual game progress.
@@ -246,7 +247,7 @@ public class CustomerManager : Singleton<CustomerManager>
         //     }
         // }
 
-        return newData;
+        // return newData;
     }
 
     public static AbstractSpoilageSymptom GenerateSymptom()
