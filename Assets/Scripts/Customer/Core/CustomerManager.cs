@@ -184,7 +184,7 @@ public class CustomerManager : Singleton<CustomerManager>
         CustomerOrderDatabase customerOrderDatabase = CustomerOrderDatabase.Instance;
 
         // Customer order
-        customerOrderDatabase.GenerateCustomerOrder();
+        customerOrderDatabase.GenerateCustomerOrder(newData);
 
         // int orderCount = customerOrderDatabase.PickDishCount(0.5f); // TODO: Get actual game progress.
 

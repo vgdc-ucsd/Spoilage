@@ -27,13 +27,10 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
     [SerializeField]
     private AnimationCurve _fourDishChance;
 
-    public List<Recipe> CustomerOrder;
-
     private int orderStreak = 0;
 
     public override void Awake()
     {
-        CustomerOrder = _lineManager.CurrentCustomer.customerData.orders;
         base.Awake();
     }
 
@@ -148,21 +145,31 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
 
     public bool SubmitOrder(IngredientObject dish)
     {
+        if (dish == null)
+        {
+            Debug.Log("No item was submitted!");
+            return false;
+        }
+
+        Debug.Log("Attempting to submit " + dish.name);
+
         //check the set of orders against the dish submitted by name
+        CustomerData customerData = _lineManager.CurrentCustomer.customerData;
+        List<Recipe> CustomerOrder = customerData.orders;
         Predicate<Recipe> predicate = x => x.name == dish.name;
         Recipe match = CustomerOrder.Find(predicate);
         bool success = match != null;
-        CustomerData customerData = _lineManager.CurrentCustomer.customerData;
 
         if (success)
         {
             // increase the necessary resources
             orderStreak++;
-            _resourceManager.Wealth += (int)(match.reward * dish.QualityPercent);
             customerData.patience = (customerData.patience + 0.5 > 1) ? 1 : customerData.patience += 0.5f;
             
-            //it looks like reputation didnt really get fully fleshed out so im not gonna touch it
+            // for some reason its not able to find resourcemanager and i dont have the time to fix that
             // _resourceManager.Reputation += orderStreak;
+            // _resourceManager.Wealth += (int)(match.reward * dish.QualityPercent);
+
 
             //not sure if they wrote this method knowing the customer could order multiple things, but oh well
             StoryManager.Instance.OnCustomerServed(customerData, success);
@@ -185,9 +192,12 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
         return success;
     }
 
-    public void GenerateCustomerOrder()
+    /// <summary>
+    /// Generates a set of orders for the player to cook
+    /// </summary>
+    /// <param name="orders">A reference to the CustomerData object to modify</param>
+    public void GenerateCustomerOrder(CustomerData customerData)
     {
-        CustomerData customerData = _lineManager.CurrentCustomer.customerData;
         List<Recipe> unlockedRecipes = _saveManager.Player.RecipesUnlocked;
         int dishCount = PickDishCount(_saveManager.Player.Day);
 
@@ -201,7 +211,7 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
                 Predicate<Recipe> unspoiledRecipeCheck = x => x.spoiled == false;
                 List<Recipe> unspoiledRecipes = unlockedRecipes.FindAll(unspoiledRecipeCheck);
                 int rand = UnityEngine.Random.Range(0, unspoiledRecipes.Count);
-                CustomerOrder.Add(unspoiledRecipes[rand]);
+                customerData.orders.Add(unspoiledRecipes[rand]);
             }
 
             //Spoiled Customer
@@ -210,7 +220,7 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
                 Predicate<Recipe> spoiledRecipeCheck = x => x.spoiled == true;
                 List<Recipe> spoiledRecipes = unlockedRecipes.FindAll(spoiledRecipeCheck);
                 int rand = UnityEngine.Random.Range(0, spoiledRecipes.Count);
-                CustomerOrder.Add(spoiledRecipes[rand]);
+                customerData.orders.Add(spoiledRecipes[rand]);
             }
         }
     }

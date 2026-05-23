@@ -73,7 +73,10 @@ public class ServingStation : KitchenTile
 
         if (_customerOrderDatabase.SubmitOrder(existingFood))
         {
-            objectsOnTile.Clear();
+            foreach (GameObject obj in objectsOnTile)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
