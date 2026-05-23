@@ -7,17 +7,17 @@ public class Customer : MonoBehaviour
     
     public GameObject customerObject;
 
-    private const string SK_PROPHET = "a";
-    private const string SK_BILLMAN = "b";    
-    private const string SK_SISTER = "c";    
-    private const string SK_PALE = "p";    
-    private const string SK_DRUNK = "d";    
-    private const string SK_WIDOW = "e";    
-    private const string SK_DOCTOR = "f";    
-    private const string SK_VIOLENT = "g";    
-    private const string SK_DEFEATED = "h";    
-    private const string SK_FAMISHED = "i";    
-    private const string SK_EXECUTOR = "j";    
+    private const string SK_PROPHET = "Prophet";
+    private const string SK_BILLMAN = "The Billman";    
+    private const string SK_SISTER = "Unlucky Sister";
+    private const string SK_PALE = "The Pale Spoiled";    
+    private const string SK_DRUNK = "Drunk Beggar";    
+    private const string SK_WIDOW = "Suspicious Widow";    
+    private const string SK_DOCTOR = "Spoilage Doctor";    
+    private const string SK_VIOLENT = "The Violen Spoiled";    
+    private const string SK_DEFEATED = "The Defeated Spoiled";    
+    private const string SK_FAMISHED = "The Famished Spoiled";    
+    private const string SK_EXECUTOR = "Executor";    
 
     [ContextMenu("Initialize Customer")]
     public void InitializeCustomer()
