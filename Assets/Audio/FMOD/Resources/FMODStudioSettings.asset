@@ -607,15 +607,15 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: FMODUnity::FMODUnity.Settings
   switchSettingsMigration: 1
-  HasSourceProject: 1
-  HasPlatforms: 1
+  HasSourceProject: 0
+  HasPlatforms: 0
   sourceProjectPath: FMOD/Spoilage/Spoilage.fspro
-  sourceBankPath: FMOD/Spoilage/Build
+  sourceBankPath: FMOD/Spoilage/Build/Desktop
   sourceBankPathUnformatted: 
-  BankRefreshCooldown: 1
+  BankRefreshCooldown: -1
   ShowBankRefreshWindow: 1
   AutomaticEventLoading: 0
-  BankLoadType: 1
+  BankLoadType: 0
   AutomaticSampleLoading: 1
   EncryptionKey: 
   ImportType: 0
@@ -650,9 +650,9 @@ MonoBehaviour:
   EnableErrorCallback: 0
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
-  CurrentVersion: 131858
+  CurrentVersion: 131859
   HideSetupWizard: 1
-  LastEventReferenceScanVersion: 131858
+  LastEventReferenceScanVersion: 131859
   Platforms:
   - {fileID: -5298645106493316457}
   - {fileID: -4921243367062041255}

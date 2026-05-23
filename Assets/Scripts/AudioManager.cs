@@ -21,6 +21,9 @@ public class MusicEntry
 }
 
 
+
+
+
 public class AudioManager : Singleton<AudioManager>
 {
     [SerializeField] private List<SFXEntry> SFXEntries;
@@ -29,12 +32,9 @@ public class AudioManager : Singleton<AudioManager>
     /// <summary>
     /// References to FMOD events with multi-instruments, which randomly shuffle and play a list of songs
     /// </summary>
-    [SerializeField] private Dictionary<string, MusicEntry> musicEntries;
+    [SerializeField] private List<MusicEntry> musicEntries;
+    private Dictionary<string, MusicEntry> musicMap;
     private EventInstance currentMusicInstance;
-    /// <summary>
-    /// On some days, the radio will play a key track instead of a randomly-selected one
-    /// </summary>
-    [SerializeField] private Dictionary<int, EventReference> radioKeyMusicEvents;
 
     private FMOD.Studio.Bus masterBus;
     
@@ -51,6 +51,7 @@ public class AudioManager : Singleton<AudioManager>
       
 
         sfxMap = new Dictionary<string, EventReference>();
+        musicMap = new Dictionary<string, MusicEntry>();
 
         foreach (SFXEntry entry in SFXEntries)
         {
@@ -64,11 +65,12 @@ public class AudioManager : Singleton<AudioManager>
             }
         }
 
-        foreach (MusicEntry musicEntry in musicEntries.Values)
+        foreach (MusicEntry musicEntry in musicEntries)
         {
             musicEntry.eventInstance = RuntimeManager.CreateInstance(musicEntry.eventReference);
+            musicMap.Add(musicEntry.id, musicEntry);
         }
-        musicEntries["Title"].eventInstance.start();
+        PlayTitleMusic();
     }
     
     public void Start()
@@ -121,7 +123,7 @@ public class AudioManager : Singleton<AudioManager>
     {
         if (linear <= 0.00f)
             return -80f; 
-         return Mathf.Lerp(-80f, 0.0f, linear);
+         return Mathf.Lerp(-80f, 1.0f, linear);
     }
 
     /// <summary>
@@ -131,28 +133,18 @@ public class AudioManager : Singleton<AudioManager>
     /// <param name="id">Which background music entry to start playing</param>
     private void PlayMusicEntry(string id)
     {
-        if (!musicEntries.ContainsKey(id))
+        if (!musicMap.ContainsKey(id))
         {
             Debug.LogError($"Key {id} is not a valid music entry");
             return;
         }
         currentMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        musicEntries[id].eventInstance.start();
-        currentMusicInstance = musicEntries[id].eventInstance;
+        musicMap[id].eventInstance.start();
+        currentMusicInstance = musicMap[id].eventInstance;
         Debug.Log($"Playing background music with id: {id}");
     }
 
-    /// <summary>
-    /// Plays a key music theme, including for specific radio tracks and key character motifs
-    /// <para> Key character motifs are assigned in the corresponding character's CustomerData </para>
-    /// </summary>
-    /// <param name="eventReference"></param>
-    public void PlayKeyMusicEvent(EventReference eventReference)
-    {
-        currentMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        RuntimeManager.PlayOneShot(eventReference);
-        Debug.Log("Playing key music event");
-    }
+    
 
     public void PlayTitleMusic()
     {
@@ -174,14 +166,19 @@ public class AudioManager : Singleton<AudioManager>
         PlayMusicEntry("Shop");
     }
 
-    public void PlayRadioMusic(int dayIndex)
+    public void PlayRadioMusic()
     {
-        if (radioKeyMusicEvents.ContainsKey(dayIndex))
-        {
-            PlayKeyMusicEvent(radioKeyMusicEvents[dayIndex]);
-            Debug.Log($"Playing key radio music for day {dayIndex}");
-        }
-        else PlayMusicEntry("Radio");
+        PlayMusicEntry("Radio");
+    }
+
+    public void PlayCreditsMusic()
+    {
+        PlayMusicEntry("Credits");
+    }
+
+    public void PlayLoseMusic()
+    {
+        PlayMusicEntry("Lose");
     }
 
 
