@@ -13,7 +13,6 @@ public class OozePus : AbstractSpoilageSymptom
         "Art/Customers/Spoilage/spoilageSymptoms_pustules#3",
         "Art/Customers/Spoilage/spoilageSymptoms_pustules#4",
     };
-    private Sprite sprite;
     public OozePus()
     {
         category = SpoilageCategory.RAGE;
@@ -21,13 +20,6 @@ public class OozePus : AbstractSpoilageSymptom
 
     public override void ApplySpoilage() {
         Debug.Log("Ooze Pus");
-        
-        string chosen = spritePaths[Random.Range(0, spritePaths.Length)];
-        sprite = Resources.Load<Sprite>(chosen);
-
-        customer.transform.Find("Sprites/SPOILAGE/SPOILAGE_FRONT_1").GetComponent<SpriteRenderer>().sprite = sprite;
-        customer.transform.Find("Sprites/SPOILAGE/SPOILAGE_FRONT_2").GetComponent<SpriteRenderer>().sprite = sprite;
-        customer.GetComponent<CustomerAnimation>().SetSpoilageStatus(CustomerAnimation.SpoilageStatus.FRAME_1);
+        ApplyFrontStaticSprite(spritePaths);
     }
 }
-

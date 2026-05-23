@@ -17,7 +17,7 @@ public override bool OnPlaceFood(FoodGrab food)
         return false;
 
     // reject slop
-    if (incoming.IngredientInstance.Data.Name == "Slop")
+    if (incoming.IngredientInstance.Data.Name == RecipeManager.SlopResult)
         return false;
 
     // reject duplicates FIRST
@@ -89,7 +89,7 @@ public override bool OnPlaceFood(FoodGrab food)
         string resultName = recipeManager.CheckRecipe(_currentFoods, _station);
 
         // invalid recipe = slop
-        if (IsInvalidRecipeResult(resultName))
+        if (!RecipeManager.IsSuccessfulRecipeResult(resultName))
         {
             TurnIntoSlop();
             HideManualUI();
@@ -105,6 +105,7 @@ public override bool OnPlaceFood(FoodGrab food)
             return;
         }
 
+        bool usedUnspoiledFood = SpoilageTriggerManager.ContainsUnspoiledFood(_currentFoods);
         IngredientObject survivor = _currentFoods[0];
 
         survivor.ChangeIngredient(resultData);
@@ -117,12 +118,14 @@ public override bool OnPlaceFood(FoodGrab food)
 
         UnlockFood();
 
+        SpoilageTriggerManager.TriggerIf(SpoilageCategory.DISGUST, usedUnspoiledFood);
+
         Debug.Log($"{gameObject.name}: Blended! → {resultData.Name}");
     }
 
     private void TurnIntoSlop()
     {
-        IngredientData slop = IngredientLookup.Get("Slop");
+        IngredientData slop = IngredientLookup.Get(RecipeManager.SlopResult);
 
         if (slop == null)
         {
@@ -146,6 +149,8 @@ public override bool OnPlaceFood(FoodGrab food)
         ResetTimer();
 
         SetSpriteActive(true);
+
+        SpoilageTriggerManager.Trigger(SpoilageCategory.HUNGER);
 
         Debug.Log($"{gameObject.name}: Invalid blend, turned into Slop.");
     }
@@ -187,10 +192,4 @@ public override bool OnPlaceFood(FoodGrab food)
         }
     }
 
-    private bool IsInvalidRecipeResult(string resultName)
-    {
-        return string.IsNullOrEmpty(resultName)
-            || resultName == "Slop"
-            || resultName == "JSON Error";
-    }
 }
