@@ -56,6 +56,7 @@ public abstract class ManualStation : CookingStation
             _isActionComplete = true;
             FillTimer();
             CompleteManualAction();
+            ApplyQualityBonus(_currentFood);
         }
     }
 

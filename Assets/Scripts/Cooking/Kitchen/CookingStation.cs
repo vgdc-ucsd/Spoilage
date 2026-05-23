@@ -11,9 +11,12 @@ public class CookingStation : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Sprite _activeSprite;
 
     [SerializeField] protected string _station;
+    public string StationName => _station;
 
     [Header("Ingredient Capacity")]
     [SerializeField] protected int maxIngredients = 1;
+
+    protected float _qualityBonus = 0f;
 
     protected readonly List<IngredientObject> _currentFoods = new();
     protected readonly List<IngredientBehaviour> _currentBehaviours = new();
@@ -127,5 +130,26 @@ public class CookingStation : MonoBehaviour, IPointerClickHandler
         }
 
         _stationImage.sprite = isActive ? _activeSprite : _defaultSprite;
+    }
+
+    public virtual void ApplyUpgrade(UpgradeData upgrade)
+    {
+        switch (upgrade.upgradeType)
+        {
+            case UpgradeType.CapacityIncrease:
+                maxIngredients += Mathf.RoundToInt(upgrade.value);
+                Debug.Log($"{gameObject.name}: Capacity increased to {maxIngredients}.");
+                break;
+            case UpgradeType.QualityBonus:
+                _qualityBonus += upgrade.value;
+                Debug.Log($"{gameObject.name}: Quality bonus increased to {_qualityBonus}.");
+                break;
+        }
+    }
+
+    protected void ApplyQualityBonus(IngredientObject food)
+    {
+        if (_qualityBonus <= 0f || food == null) return;
+        food.QualityPercent = Mathf.Clamp(food.QualityPercent + _qualityBonus, 0f, 100f);
     }
 }
