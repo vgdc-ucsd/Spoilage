@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PauseMenu : Singleton<PauseMenu>
 {
     public static bool GameIsPaused = false;
-    public GameObject Menu;
+    public GameObject PauseBar;
     public GameObject PauseUI;
     public GameObject SettingsUI;
     public GameObject SavesUI;
@@ -18,6 +18,8 @@ public class PauseMenu : Singleton<PauseMenu>
 
     void Start()
     {
+        SettingsUI.SetActive(false);
+
         if (ResumeButton != null)
             ResumeButton.GetComponent<Button>().onClick.AddListener(Resume);
 
@@ -65,15 +67,18 @@ public class PauseMenu : Singleton<PauseMenu>
             }
         }
 
-        // if (Mouse.current.leftButton.wasPressedThisFrame)
-        //     Debug.Log("mouse click");
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+            Debug.Log("mouse click");
     }
 
     public void Resume()
     {
         GameIsPaused = false;
         Time.timeScale = 1f;
-        Menu.SetActive(false);
+        PauseUI.SetActive(false);
+        SettingsUI.SetActive(false);
+        SavesUI.SetActive(false);
+        PauseBar.SetActive(false);
     }
 
     public void LoadSettings()
@@ -92,7 +97,7 @@ public class PauseMenu : Singleton<PauseMenu>
 
     public void LoadSaves()
     {
-        Debug.Log("Settings clicked");
+        Debug.Log("Saves clicked");
         PauseUI.SetActive(false);
         SettingsUI.SetActive(false);
         SavesUI.SetActive(true);
@@ -106,8 +111,7 @@ public class PauseMenu : Singleton<PauseMenu>
     void Pause()
     {
         PauseUI.SetActive(true);
-        SettingsUI.SetActive(false);
-        SavesUI.SetActive(false);
+        PauseBar.SetActive(true);
 
         GameIsPaused = true;
         Time.timeScale = 0f;
