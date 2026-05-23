@@ -1,0 +1,50 @@
+using UnityEngine;
+using System.Collections.Generic;
+
+public class ServingStation : KitchenTile
+{
+    public new void PlaceObject(GameObject obj)
+    {
+        base.PlaceObject(obj);
+
+        //all the serving station needs to do is just plate the ingredient at this point
+        IngredientBehaviour existingFood = null;
+
+        // Find existing food on tile
+        foreach (var item in objectsOnTile)
+            if (item != null && item.TryGetComponent(out existingFood)) break;
+
+        //change to plated sprite
+        if (existingFood != null)
+        {
+            existingFood.PlateIngredient();
+        }
+    }
+
+    public IngredientObject GetIngredient()
+    {
+        IngredientObject existingFood = null;
+
+        // Find existing food on tile
+        foreach (var item in objectsOnTile)
+            if (item != null && item.TryGetComponent(out existingFood)) break;
+
+        return existingFood;
+    }
+
+    public new bool CanPlaceObject(string type, GameObject movingObj = null)
+    {
+        //this type doesn't accept appliances
+        if (type == "Appliance") return false;
+
+        return base.CanPlaceObject(type, movingObj);
+    }
+
+    public new void RemoveObject(GameObject obj)
+    {
+        IngredientBehaviour behaviour = obj.GetComponent<IngredientBehaviour>();
+        behaviour.UnplateIngredient();
+        
+        base.RemoveObject(obj);
+    }
+}

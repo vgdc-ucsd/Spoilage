@@ -7,6 +7,8 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
 
     private SaveManager _saveManager;
 
+    // private ServingStation _servingStation
+
     [Header("Chance curves based on game progress from 0 to 1")]
     [SerializeField]
     private AnimationCurve _oneDishChance;
@@ -129,6 +131,12 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
             }
         }
         return result;
+    }
+
+    public bool SubmitOrder()
+    {
+
+        return false;
     }
 
     public Recipe GenerateCustomerOrder()
