@@ -35,6 +35,9 @@ public class RecipeList
 
 public class RecipeManager : Singleton<RecipeManager>
 {
+    public const string JsonErrorResult = "JSON Error";
+    public const string SlopResult = "Slop";
+
     public TextAsset recipeJsonFile; // Drag your JSON file here in the Inspector!
     public RecipeList allRecipes;
 
@@ -67,7 +70,7 @@ public class RecipeManager : Singleton<RecipeManager>
 
         if (allRecipes == null || allRecipes.allRecipes == null)
         {
-            return "JSON Error";
+            return JsonErrorResult;
         }
 
         foreach (Recipe recipe in allRecipes.allRecipes)
@@ -81,7 +84,14 @@ public class RecipeManager : Singleton<RecipeManager>
             }
         }
 
-        return "Slop";
+        return SlopResult;
+    }
+
+    public static bool IsSuccessfulRecipeResult(string resultName)
+    {
+        return !string.IsNullOrEmpty(resultName)
+            && resultName != SlopResult
+            && resultName != JsonErrorResult;
     }
 
     private bool IsMatch(Recipe recipe, List<IngredientObject> plateIngredients)
