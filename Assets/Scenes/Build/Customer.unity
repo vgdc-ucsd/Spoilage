@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6237190545d8d4c59bcd687d431da4f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryManager
-  _database: {fileID: 0}
+  _database: {fileID: 11400000, guid: 1158043c24c8e4be68b60e379bfae126, type: 2}
 --- !u!4 &280192357
 Transform:
   m_ObjectHideFlags: 0
