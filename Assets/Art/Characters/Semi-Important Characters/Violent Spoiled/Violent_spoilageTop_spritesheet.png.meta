@@ -1,0 +1,354 @@
+fileFormatVersion: 2
+guid: 4d931018ebe6b0e4aa98d8ae991c1d1a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1079799457524581651
+    second: Violent_spoilageTop_spritesheet_0
+  - first:
+      213: -3365550495883792332
+    second: Violent_spoilageTop_spritesheet_1
+  - first:
+      213: -6618285292803649657
+    second: Violent_spoilageTop_spritesheet_2
+  - first:
+      213: 6297606047271714448
+    second: Violent_spoilageTop_spritesheet_3
+  - first:
+      213: 5120206819750273254
+    second: Violent_spoilageTop_spritesheet_4
+  - first:
+      213: 5108834083640942376
+    second: Violent_spoilageTop_spritesheet_5
+  - first:
+      213: 3934575265643992477
+    second: Violent_spoilageTop_spritesheet_6
+  - first:
+      213: -3083989507207764027
+    second: Violent_spoilageTop_spritesheet_7
+  - first:
+      213: -7102246129405802749
+    second: Violent_spoilageTop_spritesheet_8
+  - first:
+      213: 3245236056008450911
+    second: Violent_spoilageTop_spritesheet_9
+  - first:
+      213: -3733950744224025373
+    second: Violent_spoilageTop_spritesheet_10
+  - first:
+      213: 581328929045024525
+    second: Violent_spoilageTop_spritesheet_11
+  - first:
+      213: 452210447527907907
+    second: Violent_spoilageTop_spritesheet_12
+  - first:
+      213: -3840869863413843392
+    second: Violent_spoilageTop_spritesheet_13
+  - first:
+      213: -3025523380974422908
+    second: Violent_spoilageTop_spritesheet_14
+  - first:
+      213: 4263791294831861164
+    second: Violent_spoilageTop_spritesheet_15
+  - first:
+      213: 8197481501051347266
+    second: Violent_spoilageTop_spritesheet_16
+  - first:
+      213: 8254408804034534406
+    second: Violent_spoilageTop_spritesheet_17
+  - first:
+      213: 4438612361711456771
+    second: Violent_spoilageTop_spritesheet_18
+  - first:
+      213: 8796160164580407008
+    second: Violent_spoilageTop_spritesheet_19
+  - first:
+      213: 6571673020598361702
+    second: Violent_spoilageTop_spritesheet_20
+  - first:
+      213: -554116196118569687
+    second: Violent_spoilageTop_spritesheet_21
+  - first:
+      213: 7974015454583167866
+    second: Violent_spoilageTop_spritesheet_22
+  - first:
+      213: 8976009898217442821
+    second: Violent_spoilageTop_spritesheet_23
+  - first:
+      213: -5541319304622620625
+    second: Violent_spoilageTop_spritesheet_24
+  - first:
+      213: 8679601878405724149
+    second: Violent_spoilageTop_spritesheet_25
+  - first:
+      213: -1435370034145069688
+    second: Violent_spoilageTop_spritesheet_26
+  - first:
+      213: 5562091424824541774
+    second: Violent_spoilageTop_spritesheet_27
+  - first:
+      213: 802983668035214385
+    second: Violent_spoilageTop_spritesheet_28
+  - first:
+      213: 8761686302271031732
+    second: Violent_spoilageTop_spritesheet_29
+  - first:
+      213: 4669080792365973263
+    second: Violent_spoilageTop_spritesheet_30
+  - first:
+      213: -8362512525741004634
+    second: Violent_spoilageTop_spritesheet_31
+  - first:
+      213: 3420060241178719415
+    second: Violent_spoilageTop_spritesheet_32
+  - first:
+      213: -1813876398067771102
+    second: Violent_spoilageTop_spritesheet_33
+  - first:
+      213: -5541385384110002011
+    second: Violent_spoilageTop_spritesheet_34
+  - first:
+      213: 675375667933514008
+    second: Violent_spoilageTop_spritesheet_35
+  - first:
+      213: -2983055298798182208
+    second: Violent_spoilageTop_spritesheet_36
+  - first:
+      213: 2589272975324229463
+    second: Violent_spoilageTop_spritesheet_37
+  - first:
+      213: -5675494895666248776
+    second: Violent_spoilageTop_spritesheet_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Violent_spoilageTop_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dea76994d18c301f0800000000000000
+      internalID: -1079799457524581651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Violent_spoilageTop_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 430f43bc7a92b41d0800000000000000
+      internalID: -3365550495883792332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Violent_spoilageTop_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78f0f3467902724a0800000000000000
+      internalID: -6618285292803649657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Violent_spoilageTop_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09e7bf67557956750800000000000000
+      internalID: 6297606047271714448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: afc1043f1362adb4788271847713b56c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Violent_spoilageTop_spritesheet_0: -1079799457524581651
+      Violent_spoilageTop_spritesheet_1: -3365550495883792332
+      Violent_spoilageTop_spritesheet_2: -6618285292803649657
+      Violent_spoilageTop_spritesheet_3: 6297606047271714448
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

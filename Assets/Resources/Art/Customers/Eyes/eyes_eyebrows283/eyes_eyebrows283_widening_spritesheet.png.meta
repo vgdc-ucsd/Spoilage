@@ -1,0 +1,311 @@
+fileFormatVersion: 2
+guid: b7f0ded2fb3584a4c8fbc19239feadde
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3009826817435379569
+    second: eyes_eyebrows283_widening_spritesheet_0
+  - first:
+      213: 5600873938121160429
+    second: eyes_eyebrows283_widening_spritesheet_1
+  - first:
+      213: 8507485478531302520
+    second: eyes_eyebrows283_widening_spritesheet_2
+  - first:
+      213: -6351720052532081576
+    second: eyes_eyebrows283_widening_spritesheet_3
+  - first:
+      213: 7487491078863864436
+    second: eyes_eyebrows283_widening_spritesheet_4
+  - first:
+      213: -369980001531159306
+    second: eyes_eyebrows283_widening_spritesheet_5
+  - first:
+      213: -352604120629908758
+    second: eyes_eyebrows283_widening_spritesheet_6
+  - first:
+      213: -8410169360128200656
+    second: eyes_eyebrows283_widening_spritesheet_7
+  - first:
+      213: -393117793010943957
+    second: eyes_eyebrows283_widening_spritesheet_8
+  - first:
+      213: 283666175360732012
+    second: eyes_eyebrows283_widening_spritesheet_9
+  - first:
+      213: 4840524612592448286
+    second: eyes_eyebrows283_widening_spritesheet_10
+  - first:
+      213: -2364108015404342987
+    second: eyes_eyebrows283_widening_spritesheet_11
+  - first:
+      213: -2557654082636384510
+    second: eyes_eyebrows283_widening_spritesheet_12
+  - first:
+      213: 5017767273727124264
+    second: eyes_eyebrows283_widening_spritesheet_13
+  - first:
+      213: 3451137915644007218
+    second: eyes_eyebrows283_widening_spritesheet_14
+  - first:
+      213: 7917661758228274878
+    second: eyes_eyebrows283_widening_spritesheet_15
+  - first:
+      213: -2467698504540977691
+    second: eyes_eyebrows283_widening_spritesheet_16
+  - first:
+      213: -8295823157502091921
+    second: eyes_eyebrows283_widening_spritesheet_17
+  - first:
+      213: 1950649296293965117
+    second: eyes_eyebrows283_widening_spritesheet_18
+  - first:
+      213: 1765343309550550414
+    second: eyes_eyebrows283_widening_spritesheet_19
+  - first:
+      213: -1169049593247097633
+    second: eyes_eyebrows283_widening_spritesheet_20
+  - first:
+      213: 4488037271194751194
+    second: eyes_eyebrows283_widening_spritesheet_21
+  - first:
+      213: 5515953511115200511
+    second: eyes_eyebrows283_widening_spritesheet_22
+  - first:
+      213: -4873425270182995448
+    second: eyes_eyebrows283_widening_spritesheet_23
+  - first:
+      213: 5323190760328240292
+    second: eyes_eyebrows283_widening_spritesheet_24
+  - first:
+      213: -7517943855189795545
+    second: eyes_eyebrows283_widening_spritesheet_25
+  - first:
+      213: 7242147800655840864
+    second: eyes_eyebrows283_widening_spritesheet_26
+  - first:
+      213: -1873984251331630599
+    second: eyes_eyebrows283_widening_spritesheet_27
+  - first:
+      213: 853145744509947099
+    second: eyes_eyebrows283_widening_spritesheet_28
+  - first:
+      213: -352915879496009825
+    second: eyes_eyebrows283_widening_spritesheet_29
+  - first:
+      213: 189356321067443539
+    second: eyes_eyebrows283_widening_spritesheet_30
+  - first:
+      213: -3941120604276688272
+    second: eyes_eyebrows283_widening_spritesheet_31
+  - first:
+      213: 8566448493925100508
+    second: eyes_eyebrows283_widening_spritesheet_32
+  - first:
+      213: 3867435017773316041
+    second: eyes_eyebrows283_widening_spritesheet_33
+  - first:
+      213: 5641642215357275131
+    second: eyes_eyebrows283_widening_spritesheet_34
+  - first:
+      213: -7073373392544759166
+    second: eyes_eyebrows283_widening_spritesheet_35
+  - first:
+      213: 2953215611932094732
+    second: eyes_eyebrows283_widening_spritesheet_36
+  - first:
+      213: -4573574896480547457
+    second: eyes_eyebrows283_widening_spritesheet_37
+  - first:
+      213: 68397012419166803
+    second: eyes_eyebrows283_widening_spritesheet_38
+  - first:
+      213: 5778638858555601633
+    second: eyes_eyebrows283_widening_spritesheet_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: eyes_eyebrows283_widening_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1772ea03b8d05c920800000000000000
+      internalID: 3009826817435379569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows283_widening_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de674790c2d4abd40800000000000000
+      internalID: 5600873938121160429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: af8c00426444c0f488c5674681a763db
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      eyes_eyebrows283_widening_spritesheet_0: 3009826817435379569
+      eyes_eyebrows283_widening_spritesheet_1: 5600873938121160429
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

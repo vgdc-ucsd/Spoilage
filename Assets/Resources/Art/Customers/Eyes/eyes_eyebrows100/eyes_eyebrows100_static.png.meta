@@ -138,10 +138,10 @@ TextureImporter:
       name: eyes_eyebrows100_static_0
       rect:
         serializedVersion: 2
-        x: 345
+        x: 348
         y: 868
-        width: 97
-        height: 24
+        width: 94
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,7 +162,7 @@ TextureImporter:
         serializedVersion: 2
         x: 476
         y: 868
-        width: 97
+        width: 96
         height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -182,10 +182,10 @@ TextureImporter:
       name: eyes_eyebrows100_static_2
       rect:
         serializedVersion: 2
-        x: 339
-        y: 803
-        width: 87
-        height: 40
+        x: 340
+        y: 805
+        width: 86
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +204,10 @@ TextureImporter:
       name: eyes_eyebrows100_static_3
       rect:
         serializedVersion: 2
-        x: 492
-        y: 803
+        x: 493
+        y: 806
         width: 87
-        height: 40
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

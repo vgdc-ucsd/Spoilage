@@ -19,7 +19,7 @@ public class CustomerAnimation : MonoBehaviour
     [SerializeField] private SpriteRenderer spoilageBackRenderer2;
     [SerializeField] private SpriteRenderer spoilageFrontRenderer1;
     [SerializeField] private SpriteRenderer spoilageFrontRenderer2;
-    
+
 
     [SerializeField] private Mood currentMood;
     [SerializeField] private SpoilageStatus currentSpoilageStatus;
@@ -112,25 +112,25 @@ public class CustomerAnimation : MonoBehaviour
     public void SetSpoilageStatus(SpoilageStatus stat)
     {
         currentSpoilageStatus = stat;
-        switch(currentSpoilageStatus)
+        switch (currentSpoilageStatus)
         {
             case SpoilageStatus.OFF:
-                spoilageBackRenderer1.enabled = false;
-                spoilageBackRenderer2.enabled = false;
-                spoilageFrontRenderer1.enabled = false;
-                spoilageFrontRenderer2.enabled = false;
+                spoilageBackRenderer1.color = Color.clear;
+                spoilageBackRenderer2.color = Color.clear;
+                spoilageFrontRenderer1.color = Color.clear;
+                spoilageFrontRenderer2.color = Color.clear;
                 break;
             case SpoilageStatus.FRAME_1:
-                spoilageBackRenderer1.enabled = true;
-                spoilageBackRenderer2.enabled = false;
-                spoilageFrontRenderer1.enabled = true;
-                spoilageFrontRenderer2.enabled = false;
+                spoilageBackRenderer1.color = Color.white;
+                spoilageBackRenderer2.color = Color.clear;
+                spoilageFrontRenderer1.color = Color.white;
+                spoilageFrontRenderer2.color = Color.clear;
                 break;
             case SpoilageStatus.FRAME_2:
-                spoilageBackRenderer1.enabled = false;
-                spoilageBackRenderer2.enabled = true;
-                spoilageFrontRenderer1.enabled = false;
-                spoilageFrontRenderer2.enabled = true;
+                spoilageBackRenderer1.color = Color.clear;
+                spoilageBackRenderer2.color = Color.white;
+                spoilageFrontRenderer1.color = Color.clear;
+                spoilageFrontRenderer2.color = Color.white;
                 break;
         }
     }
@@ -189,27 +189,35 @@ public class CustomerAnimation : MonoBehaviour
         {
             if (currentEyesRenderer.sprite != null)
             {
-                currentEyesRenderer.enabled = true;
+                currentEyesRenderer.color = Color.white;
             }
             else
             {
                 Debug.LogWarning("Attempted to use eyes with missing sprite! Defaulting to neutral eyes.");
-                eyesOpenRenderer.enabled = true;
+                eyesOpenRenderer.color = Color.white;
             }
         }
         else
         {
-            eyesClosedRenderer.enabled = true;
+            if (eyesClosedRenderer.sprite != null)
+            {
+                eyesClosedRenderer.color = Color.white;
+            }
+            else
+            {
+                Debug.LogWarning("Attempted to use closed eyes with missing sprite! Defaulting to open eyes.");
+                eyesOpenRenderer.color = Color.white;
+            }
         }
     }
 
     private void ResetEyes()
     {
-        eyesOpenRenderer.enabled = false;
-        eyesClosedRenderer.enabled = false;
-        eyesDisgustRenderer.enabled = false;
-        eyesAngerRenderer.enabled = false;
-        eyesWideningRenderer.enabled = false;
+        eyesOpenRenderer.color = Color.clear;
+        eyesClosedRenderer.color = Color.clear;
+        eyesDisgustRenderer.color = Color.clear;
+        eyesAngerRenderer.color = Color.clear;
+        eyesWideningRenderer.color = Color.clear;
     }
 
     public void SetBlinking(bool blink)
@@ -278,28 +286,36 @@ public class CustomerAnimation : MonoBehaviour
         ResetMouth();
         if (open)
         {
-            mouthOpenRenderer.enabled = true;
+            if (mouthOpenRenderer.sprite != null)
+            {
+                mouthOpenRenderer.color = Color.white;
+            }
+            else
+            {
+                Debug.LogWarning("Attempted to use open mouth with missing sprite! Defaulting to closed mouth.");
+                mouthClosedRenderer.color = Color.white;
+            }
         }
         else
         {
             if (currentMouthRenderer.sprite != null)
             {
-                currentMouthRenderer.enabled = true;
+                currentMouthRenderer.color = Color.white;
             }
             else
             {
                 Debug.LogWarning("Attempted to use mouth with missing sprite! Defaulting to neutral mouth.");
-                mouthClosedRenderer.enabled = true;
+                mouthClosedRenderer.color = Color.white;
             }
         }
     }
 
     private void ResetMouth()
     {
-        mouthOpenRenderer.enabled = false;
-        mouthClosedRenderer.enabled = false;
-        mouthDisgustRenderer.enabled = false;
-        mouthAngerRenderer.enabled = false;
+        mouthOpenRenderer.color = Color.clear;
+        mouthClosedRenderer.color = Color.clear;
+        mouthDisgustRenderer.color = Color.clear;
+        mouthAngerRenderer.color = Color.clear;
     }
 
     [ContextMenu("Toggle Blinking")]

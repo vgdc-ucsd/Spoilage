@@ -14,6 +14,15 @@ TextureImporter:
   - first:
       213: -1084897195893040720
     second: eyes_eyebrows102_static_3
+  - first:
+      213: 1155166765958795654
+    second: eyes_eyebrows102_static_4
+  - first:
+      213: 1453117498979143236
+    second: eyes_eyebrows102_static_5
+  - first:
+      213: -8664052135519989979
+    second: eyes_eyebrows102_static_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -138,10 +147,10 @@ TextureImporter:
       name: eyes_eyebrows102_static_0
       rect:
         serializedVersion: 2
-        x: 348
-        y: 871
-        width: 91
-        height: 30
+        x: 352
+        y: 873
+        width: 84
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,10 +169,10 @@ TextureImporter:
       name: eyes_eyebrows102_static_1
       rect:
         serializedVersion: 2
-        x: 480
-        y: 871
-        width: 91
-        height: 30
+        x: 482
+        y: 872
+        width: 84
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,10 +191,10 @@ TextureImporter:
       name: eyes_eyebrows102_static_2
       rect:
         serializedVersion: 2
-        x: 342
-        y: 797
-        width: 101
-        height: 61
+        x: 345
+        y: 812
+        width: 83
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +213,10 @@ TextureImporter:
       name: eyes_eyebrows102_static_3
       rect:
         serializedVersion: 2
-        x: 476
+        x: 396
         y: 797
-        width: 101
-        height: 61
+        width: 39
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,6 +227,72 @@ TextureImporter:
       bones: []
       spriteID: 0b95af49fbba1f0f0800000000000000
       internalID: -1084897195893040720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows102_static_4
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 816
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6819f45ad0af70010800000000000000
+      internalID: 1155166765958795654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows102_static_5
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 815
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44e4e879aa28a2410800000000000000
+      internalID: 1453117498979143236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes_eyebrows102_static_6
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 797
+        width: 90
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52fcdd2ac7a13c780800000000000000
+      internalID: -8664052135519989979
       vertices: []
       indices: 
       edges: []
@@ -240,6 +315,9 @@ TextureImporter:
       eyes_eyebrows102_static_1: -6736181726778472562
       eyes_eyebrows102_static_2: 2568701047154318714
       eyes_eyebrows102_static_3: -1084897195893040720
+      eyes_eyebrows102_static_4: 1155166765958795654
+      eyes_eyebrows102_static_5: 1453117498979143236
+      eyes_eyebrows102_static_6: -8664052135519989979
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

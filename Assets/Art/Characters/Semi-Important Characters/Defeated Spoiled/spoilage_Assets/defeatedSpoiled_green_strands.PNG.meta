@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 971311c9cfb0313468eab30134ea5dc2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -610425448153299982
+    second: defeatedSpoiled_green_strands_0
+  - first:
+      213: -7311826831431436443
+    second: defeatedSpoiled_green_strands_1
+  - first:
+      213: 4223676110704587213
+    second: defeatedSpoiled_green_strands_2
+  - first:
+      213: 8400651417137550226
+    second: defeatedSpoiled_green_strands_3
+  - first:
+      213: 4059089428683907512
+    second: defeatedSpoiled_green_strands_4
+  - first:
+      213: -8092503586077875543
+    second: defeatedSpoiled_green_strands_5
+  - first:
+      213: 9085193241453326192
+    second: defeatedSpoiled_green_strands_6
+  - first:
+      213: 126398667823070073
+    second: defeatedSpoiled_green_strands_7
+  - first:
+      213: 5221856350625009868
+    second: defeatedSpoiled_green_strands_8
+  - first:
+      213: -5575893817648487642
+    second: defeatedSpoiled_green_strands_9
+  - first:
+      213: 3719660524887037257
+    second: defeatedSpoiled_green_strands_10
+  - first:
+      213: -7691425037059176975
+    second: defeatedSpoiled_green_strands_11
+  - first:
+      213: 8874408212038647326
+    second: defeatedSpoiled_green_strands_12
+  - first:
+      213: 3285419578585856436
+    second: defeatedSpoiled_green_strands_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: defeatedSpoiled_green_strands_0
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 963
+        width: 108
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f3c6f00a455787f0800000000000000
+      internalID: -610425448153299982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_green_strands_1
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 721
+        width: 112
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 567fb5d8c3c278a90800000000000000
+      internalID: -7311826831431436443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_green_strands_2
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 639
+        width: 83
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc1b9d07b038d9a30800000000000000
+      internalID: 4223676110704587213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_green_strands_3
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 682
+        width: 81
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2939d5094fb159470800000000000000
+      internalID: 8400651417137550226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_green_strands_4
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 345
+        width: 131
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b16f345458c45830800000000000000
+      internalID: 4059089428683907512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_green_strands_5
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 506
+        width: 119
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a2e0484dd6a1bf80800000000000000
+      internalID: -8092503586077875543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_green_strands_6
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 59
+        width: 198
+        height: 606
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07fea902e17151e70800000000000000
+      internalID: 9085193241453326192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_green_strands_7
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 517
+        width: 98
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97b3daf2bee01c100800000000000000
+      internalID: 126398667823070073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_green_strands_8
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 280
+        width: 98
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc01f1f2fa2c77840800000000000000
+      internalID: 5221856350625009868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_green_strands_9
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 0
+        width: 169
+        height: 468
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 623e3cd7d127e92b0800000000000000
+      internalID: -5575893817648487642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_green_strands_10
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 76
+        width: 66
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9455fee2a83ee9330800000000000000
+      internalID: 3719660524887037257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_green_strands_11
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 329
+        width: 13
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f5ca810ea1924590800000000000000
+      internalID: -7691425037059176975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_green_strands_12
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 130
+        width: 144
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1e7f5e004b382b70800000000000000
+      internalID: 8874408212038647326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: defeatedSpoiled_green_strands_13
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 69
+        width: 78
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b939b723b7289d20800000000000000
+      internalID: 3285419578585856436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      defeatedSpoiled_green_strands_0: -610425448153299982
+      defeatedSpoiled_green_strands_1: -7311826831431436443
+      defeatedSpoiled_green_strands_10: 3719660524887037257
+      defeatedSpoiled_green_strands_11: -7691425037059176975
+      defeatedSpoiled_green_strands_12: 8874408212038647326
+      defeatedSpoiled_green_strands_13: 3285419578585856436
+      defeatedSpoiled_green_strands_2: 4223676110704587213
+      defeatedSpoiled_green_strands_3: 8400651417137550226
+      defeatedSpoiled_green_strands_4: 4059089428683907512
+      defeatedSpoiled_green_strands_5: -8092503586077875543
+      defeatedSpoiled_green_strands_6: 9085193241453326192
+      defeatedSpoiled_green_strands_7: 126398667823070073
+      defeatedSpoiled_green_strands_8: 5221856350625009868
+      defeatedSpoiled_green_strands_9: -5575893817648487642
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
