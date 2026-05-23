@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class RefusalButton : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class RefusalButton : MonoBehaviour
 
         if (guardsPrefab != null && guardSpawnpoint != null && customerToRemove != null)
         {
-            GameObject guards = Instantiate(guardsPrefab, guardSpawnpoint.transform.position, Quaternion.identity);
+            GameObject guards = Instantiate(guardsPrefab);
             StartCoroutine(GlideGuardToCustomerAndReturn(guards, customerToRemove));
         }
         else if (customerToRemove == null)
@@ -65,32 +66,64 @@ public class RefusalButton : MonoBehaviour
 
     private IEnumerator GlideGuardToCustomerAndReturn(GameObject guards, GameObject customerToRemove)
     {
-        Vector3 startPosition = guardSpawnpoint.transform.position;
-        Vector3 customerPosition = customerToRemove.transform.position;
+        RectTransform guardRect = guards.GetComponent<RectTransform>();
+        RectTransform spawnRect = guardSpawnpoint.GetComponent<RectTransform>();
+        RectTransform customerRect = customerToRemove.GetComponent<RectTransform>();
+        RectTransform animationParent = spawnRect.parent as RectTransform;
+
+        Vector2 startPosition = GetAnchoredPositionInParent(spawnRect, animationParent);
+        Vector2 customerPosition = GetAnchoredPositionInParent(customerRect, animationParent);
+
+        guardRect.SetParent(animationParent, false);
+        guardRect.anchoredPosition = startPosition;
+        guardRect.SetAsLastSibling();
 
         float elapsed = 0f;
         while (elapsed < guardMoveDuration)
         {
-            guards.transform.position = Vector3.Lerp(startPosition, customerPosition, elapsed / guardMoveDuration);
+            guardRect.anchoredPosition = Vector2.Lerp(startPosition, customerPosition, elapsed / guardMoveDuration);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        guards.transform.position = customerPosition;
+        guardRect.anchoredPosition = customerPosition;
         yield return new WaitForSeconds(guardPauseAtCustomer);
-        guards.GetComponent<Renderer>().material.color = Color.red;
+
+        guards.GetComponent<Image>().color = Color.red;
+
+        Vector2 currentCustomerPosition = GetAnchoredPositionInParent(customerRect, animationParent);
+        customerRect.SetParent(animationParent, false);
+        customerRect.anchoredPosition = currentCustomerPosition;
+        customerRect.SetAsLastSibling();
+        guardRect.SetAsLastSibling();
 
         elapsed = 0f;
         while (elapsed < guardMoveDuration)
         {
-            guards.transform.position = Vector3.Lerp(customerPosition, startPosition, elapsed / guardMoveDuration);
-            customerToRemove.transform.SetParent(guards.transform);
+            Vector2 currentPosition = Vector2.Lerp(customerPosition, startPosition, elapsed / guardMoveDuration);
+            guardRect.anchoredPosition = currentPosition;
+            customerRect.anchoredPosition = currentPosition;
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        guards.transform.position = startPosition;
+        guardRect.anchoredPosition = startPosition;
+        customerRect.anchoredPosition = startPosition;
 
         CustomerLineManager.Instance.Advance();
+    }
+
+    private static Vector2 GetAnchoredPositionInParent(RectTransform rectTransform, RectTransform parent)
+    {
+        Camera camera = GetCanvasCamera(parent);
+        Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(camera, rectTransform.position);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(parent, screenPosition, camera, out Vector2 anchoredPosition);
+        return anchoredPosition;
+    }
+
+    private static Camera GetCanvasCamera(RectTransform rectTransform)
+    {
+        Canvas canvas = rectTransform.GetComponentInParent<Canvas>();
+        return canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay ? canvas.worldCamera : null;
     }
 }
