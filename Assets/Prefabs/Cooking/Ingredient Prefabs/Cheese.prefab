@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 7154303635290254910}
   - component: {fileID: 3008210694099268358}
   - component: {fileID: 988687029012277514}
-  - component: {fileID: 378635242239734866}
-  - component: {fileID: 6951667241120577018}
   - component: {fileID: 4255568932712506482}
   m_Layer: 3
   m_Name: Cheese
@@ -71,70 +69,6 @@ MonoBehaviour:
   _enableDebugLogs: 1
   _spoilingTimer: {fileID: 0}
   _spoilingTimerFill: {fileID: 0}
-  _burntShaderMaterial: {fileID: 2100000, guid: 4f49337d719784552b19dff0c163d8e8, type: 2}
---- !u!58 &378635242239734866
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656822572698704216}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 30
---- !u!50 &6951667241120577018
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656822572698704216}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &4255568932712506482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodGrab
   _plateSpot: {fileID: 0}
+  IsLocked: 0
 --- !u!1 &2131108054845675729
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +148,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 00ea089406294dd479284aec3e30548b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd667c5f9ad57f740a779c439fef8c5b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

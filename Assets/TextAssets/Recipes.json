@@ -107,7 +107,7 @@
         },
         {
             "id": 9,
-            "name": "Spoiled Root Veggies",
+            "name": "Spoiled Root Vegetables",
             "complexity": 0,
             "reward": 0,
             "appliance": "Spoil",
@@ -437,7 +437,7 @@
                     "id": 36
                 },
                 {
-                    "name": "Chopped Veggies",
+                    "name": "Chopped Vegetables",
                     "id": 30
                 }
             ]
@@ -464,7 +464,7 @@
         },
         {
             "id": 29,
-            "name": "Boiled Root Veggies",
+            "name": "Boiled Root Vegetables",
             "complexity": 2,
             "reward": 200,
             "appliance": "Pot",
@@ -479,7 +479,7 @@
         },
         {
             "id": 30,
-            "name": "Chopped Spoiled Veggies",
+            "name": "Chopped Spoiled Vegetables",
             "complexity": 1,
             "reward": 100,
             "appliance": "Cutting Board",
@@ -487,7 +487,7 @@
             "spoiled": true,
             "requiredIngredients": [
                 {
-                    "name": "Root Veggies",
+                    "name": "Spoiled Root Vegetables",
                     "id": 9
                 }
             ]
@@ -527,7 +527,7 @@
                     "id": 31
                 },
                 {
-                    "name": "Boiled Root Veggies",
+                    "name": "Boiled Root Vegetables",
                     "id": 29
                 }
             ]
@@ -572,7 +572,7 @@
             "spoiled": true,
             "requiredIngredients": [
                 {
-                    "name": "Chopped Veggies",
+                    "name": "Chopped Vegetables",
                     "id": 30
                 },
                 {
@@ -973,6 +973,21 @@
                 {
                     "name": "Sauce",
                     "id": 5
+                }
+            ]
+        },
+        {
+            "id": 56,
+            "name": "Cubed Spoiled Meat",
+            "complexity": 1,
+            "reward": 100,
+            "appliance": "Cutting Board",
+            "servable": false,
+            "spoiled": true,
+            "requiredIngredients": [
+                {
+                    "name": "Spoiled Meat",
+                    "id": 7
                 }
             ]
         }
