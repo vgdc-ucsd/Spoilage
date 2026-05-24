@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
-  m_Name: Sliced Dough
+  m_Name: Noodles
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  _name: Sliced Dough
+  _name: Noodles
   _spoilTime: 15
-  _qualityPercent: 0
-  _normalSprite: {fileID: 21300000, guid: 1d3bc3bd50253495084ed6e99ea15b58, type: 3}
-  _spoiledSprite: {fileID: 21300000, guid: 58024b86b0d254566805b625128b1b0c, type: 3}
-  _platedSprite: {fileID: 0}
+  _normalSprite: {fileID: 21300000, guid: f6ef71ed3b8364b7db14b17f3d810c96, type: 3}
+  _spoiledSprite: {fileID: 21300000, guid: 8585365e4f8654cf99a7cc5b82b01397, type: 3}
+  _plateSprite: {fileID: 0}
+  _isSmallIngredient: 1

@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
-  m_Name: Dough
+  m_Name: Cheese
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  _name: Dough
+  _name: Cheese
   _spoilTime: 15
-  _normalSprite: {fileID: 21300000, guid: 84a118ffb2856427190f83ce67f31d61, type: 3}
-  _spoiledSprite: {fileID: 21300000, guid: c0e76be382069eb4c964df63f1938ad3, type: 3}
-  _plateSprite: {fileID: 0}
+  _normalSprite: {fileID: 21300000, guid: fd667c5f9ad57f740a779c439fef8c5b, type: 3}
+  _spoiledSprite: {fileID: 21300000, guid: 00ea089406294dd479284aec3e30548b, type: 3}
+  _plateSprite: {fileID: 21300000, guid: 60140b5f0acaa9c4f89d64be161dbbf8, type: 3}
+  _isSmallIngredient: 1

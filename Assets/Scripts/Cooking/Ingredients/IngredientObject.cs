@@ -19,8 +19,11 @@ public class IngredientObject : MonoBehaviour
 
     public bool IsSeasoned => IngredientInstance != null && IngredientInstance.IsSeasoned;
 
+    private RectTransform _rectTransform;
+
     private void Awake()
     {
+        _rectTransform = GetComponent<RectTransform>();
         IngredientInstance = new Ingredient(_data);
         ChangeIngredient(_data);
         UpdateSprite();
@@ -61,7 +64,7 @@ public class IngredientObject : MonoBehaviour
             _image.sprite = IngredientInstance.Data.NormalSprite;
         }
 
-        if(IngredientInstance.IsPlated && IngredientInstance.Data.PlateSprite != null)
+        if (IngredientInstance.IsPlated && IngredientInstance.Data.PlateSprite != null)
         {
             _plateImage.sprite = IngredientInstance.Data.PlateSprite;
             _plateImage.enabled = true;
@@ -69,6 +72,15 @@ public class IngredientObject : MonoBehaviour
         else
         {
             _plateImage.enabled = false;
+        }
+
+        if (IngredientInstance.Data.IsSmallIngredient)
+        {
+            _rectTransform.sizeDelta = new Vector2(100, 100);
+        }
+        else 
+        {
+            _rectTransform.sizeDelta = new Vector2(200, 200);
         }
 
         _seasoning.SetActive(IngredientInstance.IsSeasoned);

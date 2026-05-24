@@ -73,6 +73,8 @@ public class RecipeManager : Singleton<RecipeManager>
             return JsonErrorResult;
         }
 
+        List<Recipe> matchingRecipes = new List<Recipe>();
+
         foreach (Recipe recipe in allRecipes.allRecipes)
         {
             if (!string.IsNullOrEmpty(station) && recipe.appliance != station)
@@ -80,11 +82,45 @@ public class RecipeManager : Singleton<RecipeManager>
             
             if (IsMatch(recipe, ingredients))
             {
-                return recipe.name;
+                matchingRecipes.Add(recipe);
             }
         }
 
-        return SlopResult;
+        if (matchingRecipes.Count == 0)
+        {
+            return SlopResult;
+        }
+        else if (matchingRecipes.Count == 1)
+        {
+            return matchingRecipes[0].name;
+        }
+        else
+        {
+            return DisambiguateRecipe(matchingRecipes, ingredients);
+        }
+    }
+
+    private string DisambiguateRecipe(List<Recipe> matchingRecipes, List<IngredientObject> ingredients)
+    {
+        // there can only be two possible recipes with the same ingredients; one spoiled, one not spoiled
+        // if both exist, first check if all ingredients are spoiled, if so return the spoiled recipe
+        // if not return the unspoiled recipe
+
+        Recipe spoiledRecipe = matchingRecipes.Find(r => r.spoiled);
+        Recipe unspoiledRecipe = matchingRecipes.Find(r => !r.spoiled);
+
+        foreach (IngredientObject ingredient in ingredients)
+        {
+            if (ingredient == null || ingredient.IngredientInstance == null) continue;
+
+            if (!ingredient.IngredientInstance.IsSpoiled)
+            {
+                return unspoiledRecipe != null ? unspoiledRecipe.name : SlopResult;
+            }
+        }
+
+        // If all ingredients are spoiled, return the spoiled recipe
+        return spoiledRecipe != null ? spoiledRecipe.name : SlopResult;
     }
 
     public static bool IsSuccessfulRecipeResult(string resultName)

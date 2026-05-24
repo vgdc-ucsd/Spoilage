@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
-  m_Name: Pierogi Filling
+  m_Name: Unsauced Amehonpilztopf
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  _name: Pierogi Filling
+  _name: Unsauced Amehonpilztopf
   _spoilTime: 15
-  _normalSprite: {fileID: 21300000, guid: 17936cd473177244e9baee03fe429009, type: 3}
-  _spoiledSprite: {fileID: 21300000, guid: 8b37f28e71f15254eb6d370f60879161, type: 3}
-  _platedSprite: {fileID: 0}
+  _normalSprite: {fileID: 0}
+  _spoiledSprite: {fileID: 0}
+  _plateSprite: {fileID: 21300000, guid: 60140b5f0acaa9c4f89d64be161dbbf8, type: 3}

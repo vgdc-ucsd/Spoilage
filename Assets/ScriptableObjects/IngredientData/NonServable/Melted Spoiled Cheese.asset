@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
-  m_Name: Sliced Sauce
+  m_Name: Melted Spoiled Cheese
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  _name: Sliced Sauce
+  _name: Melted Spoiled Cheese
   _spoilTime: 15
-  _normalSprite: {fileID: 21300000, guid: 1249ea263ed4349daaa95ae7b1438911, type: 3}
-  _spoiledSprite: {fileID: 21300000, guid: b5be41f87c8c647cf91726c4e2139495, type: 3}
-  _platedSprite: {fileID: 0}
+  _normalSprite: {fileID: 21300000, guid: 9397477b0ce7240da8e89967803eee0d, type: 3}
+  _spoiledSprite: {fileID: 21300000, guid: 9397477b0ce7240da8e89967803eee0d, type: 3}
+  _plateSprite: {fileID: 21300000, guid: 60140b5f0acaa9c4f89d64be161dbbf8, type: 3}
+  _isSmallIngredient: 1

@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
-  m_Name: Undressed Aberrant Salad
+  m_Name: Cubed Meat
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  _name: Undressed Aberrant Salad
+  _name: Cubed Meat
   _spoilTime: 15
-  _normalSprite: {fileID: 21300000, guid: 38114b450bbb2474ebc083e36d2e6080, type: 3}
-  _spoiledSprite: {fileID: 21300000, guid: 38114b450bbb2474ebc083e36d2e6080, type: 3}
-  _platedSprite: {fileID: 0}
+  _normalSprite: {fileID: 21300000, guid: 80a6c250a3dfd4a2c963c841598ee357, type: 3}
+  _spoiledSprite: {fileID: 21300000, guid: 5bf1a4086618c46b1a8c7e416259c50e, type: 3}
+  _plateSprite: {fileID: 21300000, guid: 60140b5f0acaa9c4f89d64be161dbbf8, type: 3}
+  _isSmallIngredient: 1
