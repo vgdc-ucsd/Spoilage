@@ -1,10 +1,67 @@
 fileFormatVersion: 2
-guid: 88a500256b46ea24b87dd3b3e3c9f25a
+guid: 89897206a474dcc40a4032dc2a6bfc23
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3634202475941884541
-    second: dough_flattened_unspoiled_0
+      213: 8169671011806649907
+    second: Sparkles_0
+  - first:
+      213: 1899792054539023115
+    second: Sparkles_1
+  - first:
+      213: 5658517712667618684
+    second: Sparkles_2
+  - first:
+      213: 541248757636342385
+    second: Sparkles_3
+  - first:
+      213: -5459949177621275647
+    second: Sparkles_4
+  - first:
+      213: 7571910899294295488
+    second: Sparkles_5
+  - first:
+      213: -8315446359504827858
+    second: Sparkles_6
+  - first:
+      213: -464536711732764626
+    second: Sparkles_7
+  - first:
+      213: 1073627642864386288
+    second: Sparkles_8
+  - first:
+      213: -1771445224453153853
+    second: Sparkles_9
+  - first:
+      213: 7507281517343841426
+    second: Sparkles_10
+  - first:
+      213: 5653293105177726919
+    second: Sparkles_11
+  - first:
+      213: 2062810160900934072
+    second: Sparkles_12
+  - first:
+      213: 6821893273419060047
+    second: Sparkles_13
+  - first:
+      213: 2606951784547883371
+    second: Sparkles_14
+  - first:
+      213: -3063456493105340767
+    second: Sparkles_15
+  - first:
+      213: -4869357019365701372
+    second: Sparkles_16
+  - first:
+      213: -6294869783537117547
+    second: Sparkles_17
+  - first:
+      213: -2049213076321928139
+    second: Sparkles_18
+  - first:
+      213: -3065837422102938556
+    second: Sparkles_19
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +103,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,23 +170,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dough_flattened_unspoiled_0
+      name: Sparkles_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 31
-        width: 357
-        height: 340
+        x: 0
+        y: 0
+        width: 400
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 38d83ab5a18b09dc0800000000000000
-      internalID: -3634202475941884541
+      spriteID: 33e9a8e1080806170800000000000000
+      internalID: 8169671011806649907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sparkles_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0378eddeca6d5a10800000000000000
+      internalID: 1899792054539023115
       vertices: []
       indices: 
       edges: []
@@ -138,7 +217,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: e630e66de6c79334180245958a7526cf
     internalID: 0
     vertices: []
     indices: 
@@ -146,9 +225,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":400.0,"y":400.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      dough_flattened_unspoiled_0: -3634202475941884541
+      Sparkles_0: 8169671011806649907
+      Sparkles_1: 1899792054539023115
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

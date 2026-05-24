@@ -15,5 +15,5 @@ MonoBehaviour:
   _name: Flatbread
   _spoilTime: 15
   _normalSprite: {fileID: 21300000, guid: 15c393d27a5e8d84da5e57d41e977757, type: 3}
-  _spoiledSprite: {fileID: 0}
-  _platedSprite: {fileID: 21300000, guid: 9fb9950b2b45c3b488176cb97cbf21de, type: 3}
+  _spoiledSprite: {fileID: 21300000, guid: be4b2c9711e2f524bb2ef25ae1305aec, type: 3}
+  _plateSprite: {fileID: 21300000, guid: 9fb9950b2b45c3b488176cb97cbf21de, type: 3}

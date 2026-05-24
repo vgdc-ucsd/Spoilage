@@ -461,7 +461,7 @@ PrefabInstance:
     - target: {fileID: 9012525316589607279, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
       propertyPath: _foodPrefab
       value: 
-      objectReference: {fileID: 3975591956179657070, guid: 77208be31effb450888d4dbd3b1090f9, type: 3}
+      objectReference: {fileID: 1936261300112423709, guid: bd931a6fb09c10945879a64ad4b1afbc, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1824,7 +1824,7 @@ PrefabInstance:
     - target: {fileID: 9012525316589607279, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
       propertyPath: _foodPrefab
       value: 
-      objectReference: {fileID: 656822572698704216, guid: c21e30eb0e71244d0a4d7e4b93e0ca43, type: 3}
+      objectReference: {fileID: 7877758625636548768, guid: 099744b1544485a468c983eacefd3b3c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3460,7 +3460,7 @@ PrefabInstance:
     - target: {fileID: 9012525316589607279, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
       propertyPath: _foodPrefab
       value: 
-      objectReference: {fileID: 3975591956179657070, guid: 558914852b49446c0adff6ff4c793b14, type: 3}
+      objectReference: {fileID: 4964480635137925163, guid: 2221bde471236b24da7bcd9b3e623f7f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3561,7 +3561,7 @@ PrefabInstance:
     - target: {fileID: 9012525316589607279, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
       propertyPath: _foodPrefab
       value: 
-      objectReference: {fileID: 3975591956179657070, guid: 48038719222504a7cbb1c2725f7b9b30, type: 3}
+      objectReference: {fileID: 5652765080307390035, guid: b5540caf8985b5744a539baa9ad579d6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3866,7 +3866,7 @@ PrefabInstance:
     - target: {fileID: 9012525316589607279, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
       propertyPath: _foodPrefab
       value: 
-      objectReference: {fileID: 3975591956179657070, guid: 0341d5e0aeb324b38b9b373fea85da93, type: 3}
+      objectReference: {fileID: 674570831394094462, guid: a7edc3119eb4cf0448e9dcc0695ac996, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4439,6 +4439,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9012525316589607279, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
+      propertyPath: _foodPrefab
+      value: 
+      objectReference: {fileID: 2947846222503397523, guid: 9cf5c18ba585f6f4eb8a2d2eda8d2a04, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -124,6 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3c7c05313b5684da5a5e518759487d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodSpawner
-  _foodPrefab: {fileID: 3975591956179657070, guid: 8b22acd40000f4534b2c4581521a587a, type: 3}
+  _foodPrefab: {fileID: 1703443843578801463, guid: a78ce359928a84d4ab36ecf427792fa3, type: 3}
   _spawnPoint: {fileID: 2074188264699072363}
   _spawnFoodOnStart: 1
