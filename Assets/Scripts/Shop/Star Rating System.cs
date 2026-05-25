@@ -12,7 +12,6 @@ public class StarRatingSystem : MonoBehaviour
 
     void Start()
     {
-        starImages = GameObject.FindGameObjectWithTag("StarRating").GetComponentsInChildren<Image>();
         resourceManager = FindAnyObjectByType<ResourceManager>();
         float rating = resourceManager ?  Mathf.Round(ResourceManager.Instance.Reputation * 10f / 14f) : 0;
         UpdateStarRating(rating / 2.0f);
