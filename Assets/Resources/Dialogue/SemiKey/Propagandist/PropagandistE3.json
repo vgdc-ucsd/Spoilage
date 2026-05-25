@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Hello, friend. How have you been as of late? I'm sure you have handled your fair share of those… despicable things.",
+    "Ignoring that, I have a proposition, if you'd be so kind as to listen. I have a dear friend of mine who has shown quite an interest in your restaurant as of late. She is willing to promote your restaurant, but she would prefer if she had something to discuss.",
+    "So, on her behalf, I am ordering a serving of <b>[DISH]</b> for her."
+  ],
+  "Success": [
+    "It looks magnificent! She only loves the best; I'm sure she will be delighted to taste this. I'll make sure your hard work did not go to waste, friend."
+  ],
+  "Fail": [
+    "Ah… it sure looks like… something. I'll ensure that it's kept safe and sound for her to try. (*Whisper: Maybe I should find one of those beggar people, or maybe a mutt.*)"
+  ],
+  "Reject": [
+    "Tch, what is with this sudden change of heart? I thought we were comrades, friend. It's alright. I'm sure my dear friend will have something to say."
+  ]
+}

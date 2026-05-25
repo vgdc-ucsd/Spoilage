@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "So, *you're* the new owner? Hope you're better than the last one, he was a real piece of work.",
+    "...sorry, that was rude of me, let me start that over.",
+    "Nice to meet you, I'm Ana, and I work across the street at the Repose Brothel. Welcome to Lovro Square.",
+    "Some of the girls might come here hungry in between work, so I wanted to come by first to get to know you better. You wouldn't mind us here, right?"
+  ],
+  "Success": [
+    "Wow. Had the wrong idea about you, Dear. Thought you were just here to make a quick buck through some sham food. Glad to see you were someone proper."
+  ],
+  "Fail": [
+    "Ah…damn. Another sham chef. Thought we had enough of those already."
+  ],
+  "Reject": [
+    "Point taken. Guess this shop will forever be cursed with asshole owners."
+  ]
+}

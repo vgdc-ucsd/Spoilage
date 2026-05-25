@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "We're actually twins. I just don't correct Eve about being older.",
+    "Conquering a demon of conquest? Oh…right. I'm sorry, Chef, but it's a bit complicated to explain.",
+    "Just know that whatever the government tells you about Spoilage…it's worse than you can imagine.",
+    "There are monsters in this city, Chef. Twisted by their defeats and desires. That demon my sister talks of is one of many."
+  ],
+  "Success": [
+    "Thanks, Chef. One more thing, before I go. We did not conquer that demon. We complied. I suggest you do the same."
+  ],
+  "Fail": [
+    "Oh…thank you, Chef. One more thing, before I go. We did not conquer that demon. We complied. I suggest you do the same."
+  ],
+  "Reject": [
+    "I'm not speaking crazy, Chef. I'm warning you. Heed it."
+  ]
+}

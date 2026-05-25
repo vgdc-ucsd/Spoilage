@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Do you think you could help me out here? I can't move. I'm stuck.",
+    "It was raining when I walked here. Stepped through some mud, then some more mud, and now, I'm just stuck.",
+    "So I thought some food would give me the energy to lift up my feet. Yeah. A [DISH] or something would be great."
+  ],
+  "Success": [
+    "Hrrgh… gah! One foot… in front of… the other! Why won't… the mud… come off?"
+  ],
+  "Fail": [
+    "It didn't work. And now there's mud all over. Why must there be so much…"
+  ],
+  "Reject": [
+    "Maybe. I didn't want to move anyway."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "You ever tire of being some piggybank for Svetka and her goons?",
+    "I sure as hell do. Someone just needs to come in and smash this whole system together.",
+    "I would join the Revolution, but *fuck—*they're probably just as corrupt. I tell you, no one with power can be trusted.",
+    "It's all just so…tiring. I want something fresh, no bullshit. Something that can actually make you feel good for once. You got any food like that?"
+  ],
+  "Success": [
+    "Now this is what I'm fucking talking about! You're a good one, chef. I'll be coming by again."
+  ],
+  "Fail": [
+    "Another bland fucking dish. You even a chef? You're just another cog in this damn machine. I'm out of here. I'll show what having heart looks like!"
+  ],
+  "Reject": [
+    "Hey, what the fuck? You're just another dog of that fascist? You make me sick."
+  ]
+}

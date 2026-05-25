@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Woah… no way… it's uncanny. It feels just right.",
+    "You'll have to forgive my musings. It's just… I used to work in a small kitchen like this, back in the day. Takes me back, that's all.",
+    "Never mind. I'll just take a [DISH]. It really is perfect…"
+  ],
+  "Success": [
+    "Good… Yeah, really good. I think… I'm ready to leave now."
+  ],
+  "Fail": [
+    "How much would it cost to buy this place? …I don't care if you won't sell it. It's mine."
+  ],
+  "Reject": [
+    "Where did they go…? I can't leave yet. I refuse. Not again."
+  ]
+}

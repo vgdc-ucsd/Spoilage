@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Can you hear the wind?",
+    "I think it's beautiful. How it whistles blowing through the hollow buildings.",
+    "I could listen to it forever if I had [DISH] to keep me fed. Unfortunately, I do not."
+  ],
+  "Success": [
+    "Then perhaps I will. Join me outside if you'd like to listen together."
+  ],
+  "Fail": [
+    "Dispose of this now. It will disturb the sound of its voice."
+  ],
+  "Reject": [
+    "Its song… is too enchanting… I care not if I starve."
+  ]
+}

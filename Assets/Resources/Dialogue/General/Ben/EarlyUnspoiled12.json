@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "I'll take whatever you've got that's light. You know that huge crater a few miles from here?",
+    "I've got a day of diggin' into it ahead of me. Rumor has it that one of the old royals kept a secret bunker near there.",
+    "And, hooo boy! When I hit that bunker, you know what I'm gonna find? …Oh, yeah, I'll take a [DISH]."
+  ],
+  "Success": [
+    "Crickey! This deserves the shiniest plate in the land! I'll be back when I find somethin' like that!"
+  ],
+  "Fail": [
+    "A-as I was sayin', when I find that bunker, I'm gonna find their special sauce! The stuff they used to make everything taste like heaven!"
+  ],
+  "Reject": [
+    "What, you think I'm spoiled? Well, that's just dandy! I was gonna find the medicine used to stop it in the bunker anyways!"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "My, what an adorable restaurant! And I suppose you'd be its owner?",
+    "I simply MUST ask you to prepare me something. I'm ever so famished.",
+    "Ah, and you serve [DISH]! My favorite meal, if you'd believe it. Well?"
+  ],
+  "Success": [
+    "Scrumptious! Divine! Perfection! It brings a tear to the eye. Farewell!"
+  ],
+  "Fail": [
+    "The taste is admittedly dreadful. But I appreciate the effort. Farewell!"
+  ],
+  "Reject": [
+    "Ha! …Hhmhm, very well. But be warned. You might not like where that attitude takes you."
+  ]
+}

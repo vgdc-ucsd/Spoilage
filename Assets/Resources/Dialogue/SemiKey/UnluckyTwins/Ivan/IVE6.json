@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "When I got there, that thing was already standing over her. I was…terrified. I could barely move. I thought this was it, end of our luck.",
+    "I mocked my sister for her beliefs, but deep down, I felt the same. But I didn't see our encounters as trials, I saw them as a ticking bomb.",
+    "That pale man…I too thought he was death. An inevitable end, that Eve and I could not escape. But for some reason, a stranger stepped up to save us.",
+    "He faced the pale monster with determined eyes so we could escape...and once again, we ran. I'm tired of all this death, Chef. When will it end?"
+  ],
+  "Success": [
+    "He mentioned you, Chef. Said he was happy he met you. Thank you…if not for you we would not be here today. I promise I will repay the favor one day."
+  ],
+  "Fail": [
+    "He mentioned you, Chef. Said he was happy he met you. Thank you…if not for you we would not be here today. I promise I will repay the favor one day."
+  ],
+  "Reject": [
+    "Chef? What…what are you talking about? Is this a joke…? It has to be a joke, right?"
+  ]
+}

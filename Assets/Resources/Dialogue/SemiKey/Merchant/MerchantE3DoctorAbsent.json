@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "…",
+    "I'm sorry, young cook. I heard the rumors. They spread like flies… I wish I could've met the good doctor myself, before the curses took him.",
+    "Even the strongest fish can drown in the storm. It is why I remain steadfast. I promised my grandfather I would see my people to justice.",
+    "In such dark times, we are blessed to tread ever forward. So, a <b>[DISH]</b>, and a hail to you, for being strong for all of us, and for a new Mogara!"
+  ],
+  "Success": [
+    "Yes! Incredible work, young cook! Until next time."
+  ],
+  "Fail": [
+    "Ah. Sorrow is a fuel for strength, but a bitter oil for cooking. Don't worry, I completely understand, my friend."
+  ],
+  "Reject": [
+    "Oh… dear. I understand now. What <i>really</i> happened to the doctor? Did the Spoilage take him, or did rotten beasts like you pull the trigger!?"
+  ]
+}

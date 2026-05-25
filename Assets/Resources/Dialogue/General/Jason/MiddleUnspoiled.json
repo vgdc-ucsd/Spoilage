@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Mother told me to stay put.",
+    "...I'm hungry.",
+    "Can I have a [DISH]?"
+  ],
+  "Success": [
+    "Mother would be pleased with you."
+  ],
+  "Fail": [
+    "Mother would punish both of us."
+  ],
+  "Reject": [
+    "Mother was right, she always is…"
+  ]
+}

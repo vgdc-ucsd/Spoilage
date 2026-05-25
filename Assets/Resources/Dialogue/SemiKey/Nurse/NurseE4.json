@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "We meet again, honourable cook.",
+    "Old Aijinkova may be dead, but her people live on. Be proud of what you all have become.",
+    "Serve me [DISH], if you may. <i>Motherland be Proud, Motherland be Strong.</i>"
+  ],
+  "Success": [
+    "I am blessed to taste your cooking once more, friend."
+  ],
+  "Fail": [
+    "Have you changed your tools? You adapt well, but this is just absurd. I am disappointed, cook…"
+  ],
+  "Reject": [
+    "I see. Too many customers? Or have you made a deal with the witch? Liar! <i>Musor</i>!"
+  ]
+}

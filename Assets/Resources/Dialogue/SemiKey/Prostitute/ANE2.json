@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "You know, your food leaves quite the impression, dear. Were you aware of what this store was like before yours?",
+    "The previous owner, Dusan, sold these horrible stews for an arm and a leg, and with his connection to Lady Svetka, limited competition on our street.",
+    "Lovro Square is not the pinnacle of morality, but we do have standards. Dusan always looked to test them.",
+    "That's why, since Dusan's Spoilage, we workers and owners alike have gotten a lot closer than before here. Having a common enemy usually does that."
+  ],
+  "Success": [
+    "I'm happy you are here, dear. It's a nice change of pace from our ugly past."
+  ],
+  "Fail": [
+    "Hmm…dear, as a fellow worker in service, I advise you try to not lose out on loyal customers. Today's service seems quite poor."
+  ],
+  "Reject": [
+    "Hurt your feelings talking shit about your kindred soul? Thought you were different, dear."
+  ]
+}

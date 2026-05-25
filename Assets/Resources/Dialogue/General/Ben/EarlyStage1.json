@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Oh, a restaurant? You… wouldn't happen to have need of an extra pair of hands behind the counter, would you?",
+    "Man! No luck anywhere around here! How am I supposed to…",
+    "Gah… I guess I am a bit peckish, and the food here looks alright… A [DISH], please."
+  ],
+  "Success": [
+    "So, me being spoiled wasn't your problem with me? Huh. Guess I'll try somewhere else."
+  ],
+  "Fail": [
+    "Gross! Gah, this is fine! Everything's fine. I'm outta here."
+  ],
+  "Reject": [
+    "Oh, I get it! You're the same! You're ALL the same!"
+  ]
+}

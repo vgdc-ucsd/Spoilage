@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "...AH! Hello, it, um, seems you've found me. I was just about to order, you know.",
+    "Looking at your ingredients from here, they seem… quite delectable. A bit rude of you to hog them all for yourself, don't you think?",
+    "Oh, but who am I to judge? Why don't you get to work on a [DISH] for me."
+  ],
+  "Success": [
+    "OH! I'M DOING NOTHING! I-it's ready? …And it's good?! Ugh, I guess I can spare a bit of change."
+  ],
+  "Fail": [
+    "OH! I'M DOING NOTHING! I-it's ready? …Ugh, this mark isn't even worth it."
+  ],
+  "Reject": [
+    "YIKES! WE'VE BEEN RUMBLED! Huh? Spoiled? Ohhh, no, I'm nothing like that, I'm just here to stea- ugh, whatever."
+  ]
+}

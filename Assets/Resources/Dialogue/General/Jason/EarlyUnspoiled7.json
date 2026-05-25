@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Why is it so difficult to find a meal around here?",
+    "Like seriously, aren't we supposed to eat better after the warlord took over?",
+    "I guess there's nothing you can do about that, but you can make me a [DISH]."
+  ],
+  "Success": [
+    "Woah, this reminds me of before the war…"
+  ],
+  "Fail": [
+    "Well. It's food, I suppose. No sense in wasting it."
+  ],
+  "Reject": [
+    "Unbelievable, after all that trouble?"
+  ]
+}

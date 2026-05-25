@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Oh, I recognize you. You walk around the corner down the way at, like, eight every day.",
+    "I'm usually out playing guitar over there. Ya notice the same faces when you see them come by a lot.",
+    "Well, now I guess we've both seen each other in our elements, huh? That's cool. Anyways, [DISH], please."
+  ],
+  "Success": [
+    "Smooth work. Say hi while walking home sometime, yeah?"
+  ],
+  "Fail": [
+    "Definitely an interesting style. I can respect that."
+  ],
+  "Reject": [
+    "Didn't know you were so thorny, dude! All this for trying to make friends!"
+  ]
+}

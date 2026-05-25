@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "...Aww, hey there, little guy! Wow, can you run!",
+    "A-ah. Hi. I'm sorry. There was a rat. But please don't hurt it! It'll leave by itself.",
+    "I'd just like a [DISH], if that's doable."
+  ],
+  "Success": [
+    "Hm. …Hehe, I see what they like about this place."
+  ],
+  "Fail": [
+    "They always find a way to disappoint, eh, little buddy?"
+  ],
+  "Reject": [
+    "Fine. But you aren't hurting the rat. I'll make sure of that."
+  ]
+}

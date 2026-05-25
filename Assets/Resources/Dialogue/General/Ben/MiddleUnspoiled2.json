@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "It's cold out. Mind if I stay a minute?",
+    "Surprised a place like this managed to weather the storm.",
+    "Well, I'm here anyway, might as well grab a [DISH]."
+  ],
+  "Success": [
+    "Hm, good stuff. I almost don't want to go back out there."
+  ],
+  "Fail": [
+    "Not exactly the warmth I was expecting. This city, sometimes…"
+  ],
+  "Reject": [
+    "That's… fine. This place's got a draft anyhow."
+  ]
+}

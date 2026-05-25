@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "...  ",
+    "Sorry, I just- need a sec. It's been a rough week.",
+    "Guess I shouldn't bore you with the details, though. A [DISH] would be great."
+  ],
+  "Success": [
+    "This place is really something. Thanks. …You would've loved this place."
+  ],
+  "Fail": [
+    "I'm just asking for one thing to go right for once. Please…"
+  ],
+  "Reject": [
+    "You too? Why… WHY CAN'T YOU PEOPLE LEAVE JUST THEM ALONE?"
+  ]
+}

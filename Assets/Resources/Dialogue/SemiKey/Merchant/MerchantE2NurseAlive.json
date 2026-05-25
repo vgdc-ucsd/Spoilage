@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "<i>Marşalla xattar</i>! I hope you seed a great fortune in these recipes. Do you love the aroma? Verehn has yet to taste the fields of Moġara, my friend…",
+    "…I wish the Kingdom believed in us, you know? We could've been mixing bowls together, but instead they sent us to the snow…God; why the snow?",
+    "I've heard a local rumor that <b>a royal duchess</b> remains in this city. Her accent is strong, so if you see her among us… do not hesitate to call them in.",
+    "In other news, I want to try a new recipe from Moġara, a [DISH] to be specific. I trust you are capable of making it well, young cook."
+  ],
+  "Success": [
+    "A delightful aroma. It may not be the finest, but it is distinctly Mogaran. Thank you, young cook."
+  ],
+  "Fail": [
+    "My recipes do not matter when the royals still live. Promise me we'll get justice, young cook."
+  ],
+  "Reject": [
+    "A royalist, that's what you are! You are just a cruel bootlicker for the royals, you scum!"
+  ]
+}

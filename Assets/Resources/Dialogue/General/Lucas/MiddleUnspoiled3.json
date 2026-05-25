@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "I got another lecture to deliver after this, so I'm going to need the food fast.",
+    "Education is hard to find in Verehn. I will ensure I teach all my students everything I can.",
+    "Who knows when I could die next? So….could I get a [DISH]?"
+  ],
+  "Success": [
+    "Wow…food like this is rare in Verehn. Oh crap, it's going to start soon. I have to go now, Chef!"
+  ],
+  "Fail": [
+    "Damn it, I knew I shouldn't have tried something new. Oh crap, it's going to start soon."
+  ],
+  "Reject": [
+    "Can't we be civilized about this and just let bygones be bygones? Chef…? Please! I really need to get to my students!"
+  ]
+}

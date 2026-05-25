@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "All these broadcasts about the \"spoiled\" are ruining my mood!",
+    "You'd have to be crazy to believe in that junk.",
+    "Here, get me a [DISH], something normal!"
+  ],
+  "Success": [
+    "Now this is what I'm talking about, something normal in all this crazy!"
+  ],
+  "Fail": [
+    "Bleh, what is this FILTH? If I didn't know any better, I'd think you're spoiled."
+  ],
+  "Reject": [
+    "DO YOU THINK I'M NOT NORMAL?!? I'm normal! Everything's NORMAL!"
+  ]
+}

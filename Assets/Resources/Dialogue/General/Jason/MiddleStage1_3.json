@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Oh, is there a point to love?",
+    "Why would he leave me behind in Verehn…",
+    "Make a [DISH] for me, won't you? It was his favorite…"
+  ],
+  "Success": [
+    "He would've loved this…"
+  ],
+  "Fail": [
+    "...It tastes, not like how he described it…"
+  ],
+  "Reject": [
+    "Oh… I suppose there's a reason for everything…"
+  ]
+}

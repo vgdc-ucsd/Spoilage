@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "My friend! What did you think about the promotion on the radio? My work in the press has kept my hands quite full as of late. I presume you enjoyed the helping hand?",
+    "Keep this up, and I'm sure I can remind our friend to continue showing her support for your establishment.",
+    "Anywho, I would love to have some <b>[DISH]</b>."
+  ],
+  "Success": [
+    "My dear friend, your establishment is truly one-of-a-kind. You have my number; I'll make sure to give you a call soon. I'm sure good things will come your way."
+  ],
+  "Fail": [
+    "It's not your best quality, but it's satisfactory, at least. I'll reach out to you soon about any opportunities with <i>our</i> friend."
+  ],
+  "Reject": [
+    "Tch, what is with this sudden change of heart? I thought we were comrades, friend. It's alright. I'm sure my dear friend will have something to say."
+  ]
+}

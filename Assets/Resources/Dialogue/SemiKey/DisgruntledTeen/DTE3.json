@@ -1,0 +1,21 @@
+{
+  "Intro": [
+    "Hey, chef, I've been out there thinking about how I could try to make some real change, and I have an idea. It's going to involve you, though.",
+    "Remember that old man who visits your store? One of my buddies said she remembered seeing his face before in some pamphlet.",
+    "We did some digging, and found out that he used to do work for Svetka. Normally, I would just go ahead and mess with him…but he seems pitiful.",
+    "Could you double check for us he ain't some super fucked up dude. Show this pamphlet to him, maybe it will give us a clue? Community is counting on you!"
+  ],
+  "Success": [
+    "Thanks, Chef! I'll be nearby if anything goes wrong."
+  ],
+  "Fail": [
+    "Off today, Chef? What's wrong, getting cold feet?"
+  ],
+  "Reject": [
+    "What, you too scared to rebel? Didn't realize you were a goddamn coward, Chef."
+  ],
+  "Item": {
+    "Stage": "success",
+    "ID": "PropagandaPamphlet"
+  }
+}

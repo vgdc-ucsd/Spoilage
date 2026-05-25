@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Oh, my turn? Excuse me for just a moment…",
+    "...Ssh! Use your inside voice here, okay? There are some not-so-nice people around here….",
+    "A-apologies. I'd like a [DISH], large enough for two."
+  ],
+  "Success": [
+    "Thank you so much. You're good folk. …Come on, let's go!"
+  ],
+  "Fail": [
+    "Ew, that's- …don't worry, we'll find you something else to eat."
+  ],
+  "Reject": [
+    "No! Please! …O-oh, don't cry. It's okay. We'll be okay…."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "Intro": [
+    "Afternoon. Quite the establishment ya got here.",
+    "Just a [DISH] for me. That'll be it."
+  ],
+  "Success": [
+    "Hey. Thanks. You don't eat stuff like this every day."
+  ],
+  "Fail": [
+    "Bleh. Can't have anything good nowadays, huh?"
+  ],
+  "Reject": [
+    "Woah, okay. So much for tryin' somethin' new."
+  ]
+}

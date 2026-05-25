@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "<i>Marşalla xattar</i>, young cook!",
+    "How is Verehn's finest cook? Did your people enjoy fresh new bowls? You know I cannot stay away for too long, you muffin!",
+    "Oh! Pardon me, there's a line behind me. In that case, I will have a [DISH], if you may."
+  ],
+  "Success": [
+    "Thank you, young cook! Great work! You really are a beacon in this dark city. May God bless your tools."
+  ],
+  "Fail": [
+    "Oh dear. This is… up for improvement. Well, there is always next time to improve. Do not let yourself down!"
+  ],
+  "Reject": [
+    "Wait, Stop! What have I done to deserve this? Getting people culled when their backs are turned? You cruel, cruel piece of work. I curse that tyra-."
+  ]
+}

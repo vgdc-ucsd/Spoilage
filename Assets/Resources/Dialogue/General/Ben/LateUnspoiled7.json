@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "So then… the site of the whirlpool must be right about… here!",
+    "Curious thing ye are… Ahoy, good sea monster. I hear ye call these waters yer own.",
+    "Mind not I, charting the tides 'round your abode. Though… if ye got [DISH] to spare, I'd be in yer debt if ye gave me some."
+  ],
+  "Success": [
+    "Brings a tear to the eye. Wait till' my mates hear the tale of the hospitable sea monster! Ha ha!"
+  ],
+  "Fail": [
+    "Aye… a less capable sailor might've gotten caught in yer waters. Careful of wreckage."
+  ],
+  "Reject": [
+    "Foul fishbeast! I was always ready to go down with my ship! Ye don't scare me!"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Well hey there! It's been too long since I've seen a place like this. Have y'always been open down here?",
+    "Anyhow, nice to see that not all folk have given up the good fight.",
+    "I'll keep it simple for ya: one [DISH]. Thanks."
+  ],
+  "Success": [
+    "Ha-HA! Great stuff. You keep it up, ya hear?"
+  ],
+  "Fail": [
+    "Hey, no worries. And keep practicing. You'll get there eventually."
+  ],
+  "Reject": [
+    "Oh. Huh. …sorry, I guess."
+  ]
+}

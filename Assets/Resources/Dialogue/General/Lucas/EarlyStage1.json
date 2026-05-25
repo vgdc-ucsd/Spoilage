@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "All this damn light. It's making my migraine worse.",
+    "I tried going to a doctor for some ergotamine, but he kept talking about some happy pills.",
+    "Damn, am I going crazy, or is everything so stressful? It's hurting my head."
+  ],
+  "Success": [
+    "Ah…this was soothing. My migraine is feeling better thanks to you."
+  ],
+  "Fail": [
+    "Damn it, this is hurting my head even more! Fuck, I need some medicine now."
+  ],
+  "Reject": [
+    "Well, fuck you too. My head hurts too much to be dealing with more stress."
+  ]
+}
