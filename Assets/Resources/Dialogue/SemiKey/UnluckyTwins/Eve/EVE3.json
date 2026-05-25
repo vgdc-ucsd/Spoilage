@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Stand ready for my arrival, lowly chef. I have come to take you under my wing, and become the shepherd to the lost soul within you.",
+    "You could make a fine apostle to the blessed Eve, the one who had conquered the demon of Conquest itself!",
+    "Curious, are you not? Of what trials I had undergone to become the dashing mystic I am today?",
+    "Be my faithful servant, and I might be willing to divulge. Oh, and do be kind to my younger brother. He's a sensitive soul, always following me around."
+  ],
+  "Success": [
+    "The type of work I expect from my future apostle."
+  ],
+  "Fail": [
+    "Are you attempting to test me as well? Why have you served me such despicable food?"
+  ],
+  "Reject": [
+    "You dare to reject this opportunity? You are even more of a fool than my little brother."
+  ]
+}

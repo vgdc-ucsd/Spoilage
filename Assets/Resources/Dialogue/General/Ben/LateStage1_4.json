@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Pretty… Your fire is pretty. We're friends now.",
+    "Not as pretty as mine though. I left it at home. But you'd be jealous.",
+    "We're friends! And friends share fire! Cook me a [DISH] with yours."
+  ],
+  "Success": [
+    "As pretty as it looked. You'll have to come over to see mine. Some day!"
+  ],
+  "Fail": [
+    "Why don't we go together? Take my hand. Two eyes aren't enough to see it!"
+  ],
+  "Reject": [
+    "I see you felt it. Even from here. My fire."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Say, you hear about that spoiling business?",
+    "I heard it's nasty stuff, wouldn't want to get myself mixed up.",
+    "Anyway, don't want to ruin my own appetite, how's about a [DISH]?"
+  ],
+  "Success": [
+    "Wow, this is pretty nice, worth the risk of coming here."
+  ],
+  "Fail": [
+    "What are you serving me? Do you take me for one of them spoiled?"
+  ],
+  "Reject": [
+    "What? Why not! Ugh, you probably think I'm one of them spoiled, whatever."
+  ]
+}

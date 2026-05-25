@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Kid, you gotta enjoy your youth. I couldn't wake up this morning because my back's pinched. Then again, I spent the whole night with the Scarab boys.",
+    "Makes me think if I'm just too old for this, no? But what's the alternative? Sit by for my turn as goons round up anyone who they think looks spoiled?",
+    "Always said that I was going out in a blaze, but my wife used to be here to smack some sense into me. But I have to do my part, any way that I can.",
+    "Anyways, get me something that can make me feel young again, yeah? Like…<b>[DISH]</b>."
+  ],
+  "Success": [
+    "This really takes me back…. Thanks, kid. I needed this. One last push, then I'll rest."
+  ],
+  "Fail": [
+    "Good effort, but I think this made me feel older."
+  ],
+  "Reject": [
+    "Maybe I can still get to the countryside…"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Hey, do you also feel like something's off? People keep giving me the strangest looks.",
+    "You too?! That's so weird! There's gotta be some, like, massive prank going on, or something. They've got some nerve!",
+    "Oh my gosh, they've been hating on you, too? Same! You're the best, we should talk some more. Maybe over some [DISH]?"
+  ],
+  "Success": [
+    "It's so rare that you find someone who just, like, gets it, you know? Haha, of course you do! I'll see ya later."
+  ],
+  "Fail": [
+    "Oh, I'm more of a dog person. But hey, differences make us human, right? It'd be weird if we were EXACTLY the same."
+  ],
+  "Reject": [
+    "Shut. UP. You ALSO hate yourself? What a small world! And don't worry, I can help you do something about that!"
+  ]
+}

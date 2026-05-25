@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Did you know? Did you know that I have been…spoiled this entire time? For how long? When did this start? I…cannot accept this.",
+    "The man I have been searching for all this time visited me last night. He had pale skin and a terrible smile…so uncanny it's still vivid in memory.",
+    "He asked me about my cure. I told him I knew no such thing, but he only laughed. He told me that it was too late. No Spoiled could save another.",
+    "I…I only wanted to help others. I need something, anything, to feel normal. The pills no longer work! I can feel something. Under my skin. Moving."
+  ],
+  "Success": [
+    "It's only when I am here that I feel like I'm something that I am not. Thank you for not reporting me. I will try to fix this."
+  ],
+  "Fail": [
+    "Why…why can I no longer taste?"
+  ],
+  "Reject": [
+    "You can't! Please, I need more time. There…must be a way to cure this. I cannot die a monster!"
+  ]
+}

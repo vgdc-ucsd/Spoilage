@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "My friend… Why the long face?",
+    "…Ah, about the advertisement… Unfortunately, your food just was not up to standard. I'm sure you understand how business goes. Some things are better left unspoken, unless you would have preferred a scathing review?",
+    "Now, I would love to have some <b>[DISH]</b> to fill me up."
+  ],
+  "Success": [
+    "Maybe I was mistaken; it was surely a fluke last time, was it not? Don't worry your little head about it, friend. I'm sure our friend is reasonable enough to listen."
+  ],
+  "Fail": [
+    "Hm… was I mistaken about you? Actually, let me hold my tongue; Mother told me if I don't have anything nice to say, I shouldn't speak. I'll take my leave, comrade."
+  ],
+  "Reject": [
+    "Tch, what is with this sudden change of heart? I thought we were comrades, friend. It's alright. I'm sure my dear friend will have something to say."
+  ]
+}

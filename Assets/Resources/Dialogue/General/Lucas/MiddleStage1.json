@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "This city is going to shit. Svetka doesn't care about leading; she only wants to capture those who are spoiled for her experiments.",
+    "It's why I retired from mercenary work. No amount of money can pay for the guilt. And she sure as hell holds no loyalty to her own.",
+    "Sick bastards. This hiding has left me starving for a good meal. Could I get a [DISH]?"
+  ],
+  "Success": [
+    "This is the first meal that I've had in a while that doesn't taste like shit. I…thank you. I missed being able to enjoy regular food."
+  ],
+  "Fail": [
+    "Yep…tastes like shit. Don't know why I thought it would be different here."
+  ],
+  "Reject": [
+    "Wait, please, spare me. Anywhere but back to her! You don't know what she does to the Spoiled! It's why I ran! Please!"
+  ]
+}

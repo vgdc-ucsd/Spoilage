@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "This place has seen better days, indeed. I'm surprised you're still open.",
+    "Oh, but I meant no offense, friend. The state of things merely weighs on one's expectations.",
+    "If you are taking orders, a [DISH] would do just fine."
+  ],
+  "Success": [
+    "Delicious. Maybe, someday, the beauty of the interior will be reflected in the exterior."
+  ],
+  "Fail": [
+    "Eeeeh. Maybe I should have expected that."
+  ],
+  "Reject": [
+    "That's fair enough, I suppose. 'Tis vital to be ready before you attempt to serve."
+  ]
+}

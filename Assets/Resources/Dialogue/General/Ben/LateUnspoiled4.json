@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "I want for nothing. Long for nothing. I am at peace. Content with nothing.",
+    "Tell me… is it working? Am I saved? Now that I've forsaken all things?",
+    "I could know for sure if I ate a [DISH]. One prepared without extravagance. I ask that you serve me honestly."
+  ],
+  "Success": [
+    "Then I am free. I can see them again. …Who did I want to see again…?"
+  ],
+  "Fail": [
+    "You… you prepared this correctly, yes? Then the Spoilage still owns me. What more must I give?"
+  ],
+  "Reject": [
+    "Has it returned? Was the mere asking for clarity too much? How… how must I live this life?"
+  ]
+}

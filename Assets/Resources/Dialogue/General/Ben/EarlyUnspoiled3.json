@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Uhhhh… yeah… I'd like… uh, no. Yeah. No.",
+    "Hmm… ooh! No, no… What would you recom- No, wait!",
+    "Yes. One [DISH] please."
+  ],
+  "Success": [
+    "This is… this is good. I appreciate it."
+  ],
+  "Fail": [
+    "Oh. OH. Can't make a good decision to save my life…"
+  ],
+  "Reject": [
+    "...You're right, I should just go."
+  ]
+}

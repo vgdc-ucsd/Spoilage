@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Hehe, I'm on top of the world!",
+    "I got a promotion from Svetka herself, a new home for the wife and kids, and I enjoyed a nice secret trip to Repose!",
+    "Can't get better than this! Give me a [DISH], Chef! I'm on a roll!"
+  ],
+  "Success": [
+    "Fuck yeah! Life is good, thanks, Chef!"
+  ],
+  "Fail": [
+    "Damn, I guess this streak of good luck was bound to end soon."
+  ],
+  "Reject": [
+    "What? But…today was supposed to be my day!"
+  ]
+}

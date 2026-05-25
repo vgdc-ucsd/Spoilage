@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Tell me: do you fear magic, my friend? Do you stand in awe of its power?",
+    "Ah, but I see in those eyes a nonbeliever. To which I take offense, for I happen to be a world-renowned warlock!",
+    "Yes, indeed, you fear me now. But I am kind. So fetch me a [DISH], and I shall spare you my might."
+  ],
+  "Success": [
+    "You lack a skill for spellcraft. This may be what saves you. Farewell, good warrior."
+  ],
+  "Fail": [
+    "You dare slight a warlock!? Very well! Face the powers born of the beyond!"
+  ],
+  "Reject": [
+    "Hmhmhm… I believe you bear the arcane powers as well. May witchery be all you desire."
+  ]
+}

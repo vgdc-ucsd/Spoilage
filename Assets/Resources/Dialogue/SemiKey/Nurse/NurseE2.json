@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "We meet again. Why? Do not ask. Your cooking is unlike any treasure our people have grasped even before the war. My Aijinkova is reborn. <i>Spasibo</i>.",
+    "Speaking of which, a warning to you. A beast in lamb's clothes approaches your diner. He calls himself a <b>doctor</b>, but he cares for the gluttonous.",
+    "I worry he made many into monsters. Devils curse him. For the clock strikes fast, his venom will endanger all who come here.",
+    "Aijinkova's legacy must remain fervent against corruption! Force him off your lands. I'll be waiting for him outside to put him down with holy hands."
+  ],
+  "Success": [
+    "<i>Da</i>. Repose, Holy Mikali. Dispose to the snow. Depose demonkind. Drink the vodka, sink to the Burning Novka."
+  ],
+  "Fail": [
+    "This dish is foul, but do not rout. Consider it a gift to our good doctor, honourable cook."
+  ],
+  "Reject": [
+    "<i>Blyat</i>! Too many deals with unkind souls made you soft. Aijinkova is choked off her air by submissive fools like you!"
+  ]
+}

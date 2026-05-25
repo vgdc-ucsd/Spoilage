@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "What? Oh, this is different. What happened here?",
+    "Do you own this place now? Sorry, it's just that this building used to be very empty. It's good for being alone.",
+    "But I guess someone decided it's a restaurant now. Well, since it is, I could go for a [DISH] right now."
+  ],
+  "Success": [
+    "At least it's nice to know the place is getting put to good use by someone."
+  ],
+  "Fail": [
+    "It died for this. Whatever."
+  ],
+  "Reject": [
+    "And… and what makes you think you have some right to it anyway?!"
+  ]
+}

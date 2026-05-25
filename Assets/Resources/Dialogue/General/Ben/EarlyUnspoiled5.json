@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Hey there. Looking for a bite, and this place seems the type to provide.",
+    "That's a special thing, you know. Not just anyone can make magic with a Verehnian cookbook, that's for sure.",
+    "But let's put my intuition to the test, shall we? One [DISH]. Take your time."
+  ],
+  "Success": [
+    "Well, whaddaya know? I could learn a thing or three from you."
+  ],
+  "Fail": [
+    "That's about as wrong as my intuition's ever been."
+  ],
+  "Reject": [
+    "So you're just as rotten as the rest, eh? Shame."
+  ]
+}

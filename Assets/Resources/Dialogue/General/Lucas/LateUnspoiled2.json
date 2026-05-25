@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Oh, the bombing. I can still hear it. See it.",
+    "It's fresh in mind. So vivid. That man…I witnessed it.",
+    "It's such a scary time. I need to calm down. Could I get a [DISH]?"
+  ],
+  "Success": [
+    "My nerves…they are calm for once. Thank you, Chef."
+  ],
+  "Fail": [
+    "I can't…I can't calm down. I still see it! The Bombing!"
+  ],
+  "Reject": [
+    "No, no, no, no! Please, I don't want to die either!"
+  ]
+}

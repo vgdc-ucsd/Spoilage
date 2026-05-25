@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Gah! Please, I need food. Anything you can spare, I'll take.",
+    "Money? Oh… what can I get for this much?",
+    "That's enough for a [DISH], right?! Oh, thank goodness…."
+  ],
+  "Success": [
+    "Mmm! Agh, delicious! Wait, you cooked this with… I see. Thanks. I might come back here."
+  ],
+  "Fail": [
+    "Oh, I'll take it! It doesn't even matter anymore!"
+  ],
+  "Reject": [
+    "DO YOU KNOW HOW HARD IT IS TO…? Fine then! I'll starve! Happy?"
+  ]
+}

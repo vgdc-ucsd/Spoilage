@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Hey there. Quiet around here recently, huh.",
+    "I used to like the quiet. Not so sure about it now though.",
+    "…[DISH]."
+  ],
+  "Success": [
+    "It might be good to get some music playing here. Bring up the atmosphere and stuff."
+  ],
+  "Fail": [
+    "Please say something. Speak to me. I don't like this."
+  ],
+  "Reject": [
+    "Hm… It's only getting softer."
+  ]
+}

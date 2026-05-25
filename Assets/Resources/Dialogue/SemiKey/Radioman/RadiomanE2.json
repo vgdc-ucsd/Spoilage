@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Hey, kid. Next patrol is gonna be in 5 minutes, so I'll make this quick.",
+    "A friend has been sheltering some people… in need. But goons might have caught wind.",
+    "They've been surrounding the house, and food is running out. I can slip in and deliver some, though.",
+    "Hope you could help out with that. Some <b>[DISH]</b> would work."
+  ],
+  "Success": [
+    "I'll make sure they know who helped them. I'll throw in a free shoutout tonight as thanks."
+  ],
+  "Fail": [
+    "Thanks for the effort, kid. But they're suffering enough, no? Hah, I'll scrounge up something"
+  ],
+  "Reject": [
+    "I guess you're just a lot of hot air and empty promises, huh? I'm using your back door."
+  ]
+}

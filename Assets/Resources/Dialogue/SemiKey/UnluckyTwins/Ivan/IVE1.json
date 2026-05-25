@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Sorry about my sister. She's eccentric in her beliefs, but I assure you she means no harm.",
+    "We all have our own ways of coping in this time. Hers is just odder than most.",
+    "I'll pay for both of us, so don't get upset with her, alright?"
+  ],
+  "Success": [
+    "Thank you, I'm sorry once again about my sister."
+  ],
+  "Fail": [
+    "Oh…thank you. Sorry about my sister. I'll make sure she doesn't return to harass you."
+  ],
+  "Reject": [
+    "Oh, uh, sorry if we offended you in any way. We'll be on our way."
+  ]
+}

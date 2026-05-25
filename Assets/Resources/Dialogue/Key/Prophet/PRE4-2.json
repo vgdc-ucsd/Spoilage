@@ -1,0 +1,17 @@
+{
+  "Monologue": [
+    "Are you a weasel, its little fangs sunk into the skull of an eagle, never to let go? Or are you a beetle underneath <i>her</i> heel, shiny and squashed?",
+    "You live in the ruins of <i>Verehn</i>. A culinary goliath on a tarnished stage. Your taste is just as sharp and lethal as any bayonet.",
+    "You have lived your life in fear and compliance. Following the rules and recipes to the very last drop of ink. Clever little lamb.",
+    "Choose to serve her, and go play your part as usual. Or, give her a taste of twisting fate as sweet as sugar.",
+    "Poison, for a little girl who still writhes inside her, starving, clutching her guts for anything to eat. Rot is kinder than starvation.",
+    "Goodbye. May we meet again someday—some other life, when the sun comes back from the clouds."
+  ],
+  "Success": [],
+  "Fail": [],
+  "Reject": [],
+  "Item": {
+    "Stage": "intro",
+    "ID": "Poison Dish"
+  }
+}

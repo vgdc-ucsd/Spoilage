@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Don't those Redwall kids know that the world isn't black and white?",
+    "They harass us government workers as if we were the same as the National Guard.",
+    "Someone needs to run our government's finances! That doesn't make me evil! It's tiring…can you get me a [DISH]?"
+  ],
+  "Success": [
+    "Thanks, Chef, this makes me feel better."
+  ],
+  "Fail": [
+    "What? You have something to say, too? Is this some message about how evil I am? I'm not a bad person, god damn it!"
+  ],
+  "Reject": [
+    "Wait, wait, I didn't mean to insult the guard! I'm sorry, it was a slip of the tongue!"
+  ]
+}

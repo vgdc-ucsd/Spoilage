@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "This isn't the right place!",
+    "I thought… I am supposed to be in Partine!",
+    "…I suppose I still need to eat, get me a [DISH]."
+  ],
+  "Success": [
+    "…At least the food is good."
+  ],
+  "Fail": [
+    "…Is this the capital's food?"
+  ],
+  "Reject": [
+    "…Hah, rejected after being stranded, what a joke."
+  ]
+}

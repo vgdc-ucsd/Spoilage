@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Good morning, can I have… <i>yaaawwn</i>…",
+    "Oh, pardon my manners. I just can't seem to… keep an eye… open…",
+    "If it's not too much trouble. A [DISH], please."
+  ],
+  "Success": [
+    "Mmm. Perhaps… I'll stay awake just a bit longer."
+  ],
+  "Fail": [
+    "It tastes of nothing. I want to… go… back…"
+  ],
+  "Reject": [
+    "Very well. I grow so… very… weary of this."
+  ]
+}

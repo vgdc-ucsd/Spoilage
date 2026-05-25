@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Hello again…looks my sister ended up taking a liking to you, huh? Sorry about the inconvenience, but it's really hard to stop her once her mind is set.",
+    "Sister Ana would always be the one to reign her in, but lately, she has been having a hard time with her work at Repose. Times are tough",
+    "I wish I could help Sister Ana out for once. She offers shelter and food to us kids without a home without expecting anything in return.",
+    "Eve takes it for granted, saying it's expected for a mystic to be treated well. I'm worried that she might actually believe that."
+  ],
+  "Success": [
+    "Thank you. Saving up money is hard, but food like this is worth it."
+  ],
+  "Fail": [
+    "I'm sorry, Chef, but saving up money is hard for us. Could you put some more effort into the next dish?"
+  ],
+  "Reject": [
+    "Oh, this is not stolen money if that's what you are worried about. Orphan kids aren't always thieves. But if that's how you feel…we'll be on our way."
+  ]
+}

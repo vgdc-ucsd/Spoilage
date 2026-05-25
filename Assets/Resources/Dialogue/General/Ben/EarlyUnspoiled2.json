@@ -1,0 +1,15 @@
+{
+  "Intro": [
+    "Yes, hello, I have things to get back to. I'd appreciate it if you'd hurry.",
+    "A [DISH] will do."
+  ],
+  "Success": [
+    "My regards. I'll remember this place."
+  ],
+  "Fail": [
+    "I spent my five-minute lunch break on this. Just perfect."
+  ],
+  "Reject": [
+    "Fine. I had no time for a fresh-cooked meal, anyway."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "I'm trying to find some good food for my pet, but it's been to no avail.",
+    "What type of pet is it?",
+    "Why it's a chimpanzee, of course. You got food for that type of animal here? What about a [DISH]?"
+  ],
+  "Success": [
+    "Oh, Ham is going to love this. I can't wait to give this to him."
+  ],
+  "Fail": [
+    "Oh, Ham is going to hate this. I can't give this to him."
+  ],
+  "Reject": [
+    "What's wrong with me having an ape as my pet? It's totally normal!"
+  ]
+}

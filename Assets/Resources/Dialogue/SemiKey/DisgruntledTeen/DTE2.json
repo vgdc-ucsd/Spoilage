@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Hey, Chef, guess who's back. Your food wasn't half-bad last time. I'm back to double check it wasn't just some fluke.",
+    "I noticed you didn't seem odded out by my whole \"fuck the system\" talk. You one of those secret revolutionary guys? Don't worry, I won't snitch, *but—*!",
+    "Don't tell your bosses I was shit-talking. Seriously. Redwall Street already has it hard enough as is with Svetka, don't need any new enemies.",
+    "Huh? You're not? Hey man, I don't care if you are, no need to lie. But if it really means that much to you, then let's just be cool, okay?"
+  ],
+  "Success": [
+    "God damn, you know how to cook. That was no fluke last time, you're the real deal. I'll be back, Chef, see you around."
+  ],
+  "Fail": [
+    "This tastes like shit. The fluke crap I said earlier was just an excuse to come by here again, but didn't think I was actually right."
+  ],
+  "Reject": [
+    "Hey, what the fuck? Are you really this upset about me bringing up the revolutionaries? God damn wimp is what you are."
+  ]
+}

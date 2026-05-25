@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Have you considered joining my sacred apostlehood, lowly chef? To be the St. Andrew of my story? I assure you will be treated well as my first.",
+    "What was that? Those spoiled monsters? What hogwash has my brother been telling you? They are more than just some common spoiled!",
+    "They are the Four Horseman who will usher the end of this world! And it is my divine mission to wage war and overcome their attempts of destruction!",
+    "I have encountered and overcome three of them already, with War being the mightiest of them all! I am so close to achieving my destiny."
+  ],
+  "Success": [
+    "I can feel your devout loyalty in these dishes. I hope you accept my offer soon, lowly chef."
+  ],
+  "Fail": [
+    "Were you scared of my trials, lowly chef? Why waver on your quality now?"
+  ],
+  "Reject": [
+    "Rejecting me on the eve of my destiny? Foolish."
+  ]
+}

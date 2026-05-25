@@ -1,0 +1,18 @@
+{
+  "Intro": [
+    "This place is quite gloomy. This could be a Spoilage hotspot, if not treated *personally* by yours truly.",
+    "Worry not, I am Doctor Octavian. I have studied this disease longer than you could imagine.",
+    "Two years.",
+    "Use these happy pills I developed in your food, they will help combat the negativity which causes Spoilage.",
+    "No? Why not? Preposterous, I am a doctor. Who else would you trust with medicine but me? There are no side effects…except maybe for hallucinations."
+  ],
+  "Success": [
+    "This dish…could it be a cure to the Spoilage? I feel…satisfied. Yes, satisfied. What did you lace this with?"
+  ],
+  "Fail": [
+    "Wrong, wrong, wrong! It's all so horrible. Are you trying to make people spoil? You should have just used my pills instead."
+  ],
+  "Reject": [
+    "You dare to diagnose me with Spoilage? A modern doctor full of medical knowledge? Let's see who Svetka will trust when I declare *you* to be the spoiled one. She will certainly listen to me!"
+  ]
+}

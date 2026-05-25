@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Hmm…the list…is getting smaller.",
+    "Potential friends…are being rejected. You are going to end up…hmm…all alone.",
+    "Do you believe…in *her words*? That around us…hmm…your neighbors…could be just like us?",
+    "You should. She is right in her…views. But she has power…hmm…to fend off us…and you do not. Show me why I should…hmm…spare you."
+  ],
+  "Success": [
+    "Good…hmm…goood. I am…satisfied."
+  ],
+  "Fail": [
+    "...all alone…and unable to make friends…hmm…pitiful. You do not deserve…the power to control."
+  ],
+  "Reject": [
+    ""
+  ]
+}

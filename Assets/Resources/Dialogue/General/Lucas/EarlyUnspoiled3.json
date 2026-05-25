@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "You know I was a lawyer before the war?",
+    "Yeah, those nobles paid me well. I miss it. I used to be respected. Now I'm nothing.",
+    "Svetka doesn't care about us lawyers. Ha…just talking about this is making me hungry. Could I have a [DISH]?"
+  ],
+  "Success": [
+    "Finally, some good fucking food."
+  ],
+  "Fail": [
+    "This food is horrible! I would've brought this to court in the past…but now…"
+  ],
+  "Reject": [
+    "Damn you, I would've brought this to court in the past…but now…I guess I will go."
+  ]
+}

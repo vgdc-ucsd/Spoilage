@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Here to see if that little doodad of mine isn't causing any problems with your radio. No signal cuts, or grainy voices, right?",
+    "Wouldn't want whatever crazy stuff the boy is spouting to get disrupted. I couldn't even come up with half of what he has been spouting.",
+    "But his tactics have been working. Resistance ain't ever been this organized. so I guess I'll let him piggyback off my old station a while longer.",
+    "Broadcast is coming up soon, so need something quick and simple. You got <b>[DISH]</b>?"
+  ],
+  "Success": [
+    "That hits the spot. I'll see if I can squeeze in a shout out to this place when I can."
+  ],
+  "Fail": [
+    "Oof, you're trying to poison this old man? Hah, I hope this isn't your best work."
+  ],
+  "Reject": [
+    "Woah, there! Seems our mutual friend thought wrong about you."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "The great Eve has returned, lowly chef. Our sacred site shall grow with my good work.",
+    "Sister Ana told me to be cautious of shady chefs, but you do not seem to be of that character.",
+    "I sense a fine soul within you, and God's guiding hand has never once failed me before during my trials.",
+    "Who knows, you may even be worthy of being my first follower if you are to appease me once more."
+  ],
+  "Success": [
+    "Impressive once more, lowly chef. Perhaps you are fit to be my first follower."
+  ],
+  "Fail": [
+    "Are you trying to make me look like a fool? I know you can do better, so why fail now?"
+  ],
+  "Reject": [
+    "You dare to reject this opportunity? You are even more of a fool than my little brother."
+  ]
+}

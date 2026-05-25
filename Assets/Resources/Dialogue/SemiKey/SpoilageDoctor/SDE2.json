@@ -1,0 +1,18 @@
+{
+  "Intro": [
+    "Worry not, I have returned. People are paranoid that Spoilage causes them to morph into wretched beasts. Couldn't be further from the truth.",
+    "I would know—I've been treating them.",
+    "Don't look at me like that. All great doctors work with victims to find cures. And I have learned something very valuable from my experiments indeed.",
+    "Lady Svetka might kill me for saying this, but…I think Spoilage works differently than what the authorities are telling us.",
+    "Why am I telling you this? Well, I have no one else, and you seem very willing to listen. I would share more, but first, I would like to eat. I am quite hungry from my work."
+  ],
+  "Success": [
+    "Delicious. Lately, my taste has been off with most foods, but your dishes always seem to awaken my slumbering taste buds."
+  ],
+  "Fail": [
+    "It's getting worse…? I'm sorry, it seems my taste has been off lately."
+  ],
+  "Reject": [
+    "You dare to consider me sick with Spoilage? Do not be so close-minded to shut off the very science that might cure this city!"
+  ]
+}

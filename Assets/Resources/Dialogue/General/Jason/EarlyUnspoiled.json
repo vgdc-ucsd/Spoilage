@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "EXCUSE ME!—",
+    "Finally, I've been STARVING. Would it kill you to not be so lazy?",
+    "Let's see... What a poor selection. Give me a [DISH]."
+  ],
+  "Success": [
+    "It'll do, at least you're good for one thing."
+  ],
+  "Fail": [
+    "UGH, what is this disgusting pile of garbage? Lazy AND useless to boot!"
+  ],
+  "Reject": [
+    "WHAT?!? I WILL be telling EVERYONE of this transgression!"
+  ]
+}

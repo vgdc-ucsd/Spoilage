@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Hunger is the passion of life. The Wise Twinned One showed us the truth.",
+    "Chef, we have learned to detest carelessness.",
+    "Please show us that you know how to handle sustenance. Give us a [DISH]."
+  ],
+  "Success": [
+    "Acceptable. The Wise Twinned One is benevolent. They will surely show you mercy."
+  ],
+  "Fail": [
+    "Wasteful. The Wise Twinned One despises carelessness. They will be coming."
+  ],
+  "Reject": [
+    "Disappointing. The Wise Twinned One will punish you."
+  ]
+}

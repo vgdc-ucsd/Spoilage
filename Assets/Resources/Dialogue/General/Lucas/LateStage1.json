@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Glory to the State. Glory to Svetka!",
+    "We brave citizens must stand united! United against internal enemies!",
+    "Could I get a [DISH], fellow citizen?"
+  ],
+  "Success": [
+    "How wonderful. You make our nation proud."
+  ],
+  "Fail": [
+    "Taste…why is my taste wrong? I'm sorry, Citizen, I must go."
+  ],
+  "Reject": [
+    "Wha-what did I do wrong? I'm loyal! I don't deserve this! I'm not like the others!"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Der Traum. How interesting. A new food review is ready.",
+    "Can you handle my criticism, or are you another cowardly chef?",
+    "Let us test your merit. Give me a [DISH]."
+  ],
+  "Success": [
+    "…it seems you are more than worthy of good praise. I shall let the world know of this fine dining."
+  ],
+  "Fail": [
+    "Terrible. Just terrible. It's assaulting my taste buds. Der Traum shall live forever with the shame of my bad review."
+  ],
+  "Reject": [
+    "Coward. I shall post a terrible review indeed. Then you will know not to reject me again."
+  ]
+}

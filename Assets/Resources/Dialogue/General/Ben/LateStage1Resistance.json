@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Didja hear, didja hear? A friend told me that the fascist is finally gonna lift the city's quarantine in a few weeks!",
+    "I mean, SURE, I've heard similar things a few other times, but… but this time! Man, I'm… I'm finally gonna see the world!",
+    "So whaddaya waiting for? Let's celebrate! Hit me with a [DISH], and we'll toast to everything beyond Aijinkova!"
+  ],
+  "Success": [
+    "Ahh, I haven't felt like this in years. Everything around here feels so much brighter."
+  ],
+  "Fail": [
+    "Please, just… just let me believe? For just a second?"
+  ],
+  "Reject": [
+    "\"Why? Wha… no…! NO! THAT'S NOT TRUE! I'M NOT! YOU'RE LYING!"
+  ]
+}

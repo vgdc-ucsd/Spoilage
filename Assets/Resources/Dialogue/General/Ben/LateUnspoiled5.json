@@ -1,0 +1,14 @@
+{
+  "Intro": [
+    "Hey, can I have a [DISH]?"
+  ],
+  "Success": [
+    "Thank you…what?"
+  ],
+  "Fail": [
+    "...Thanks."
+  ],
+  "Reject": [
+    "Oh, okay."
+  ]
+}

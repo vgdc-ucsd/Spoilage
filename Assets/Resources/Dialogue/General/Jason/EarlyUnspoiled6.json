@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "You shouldn't be doing this, you know.",
+    "Making food for us, you're better off keeping it to yourself.",
+    "Heh, well, since you want to be a sucker, get me a [DISH]."
+  ],
+  "Success": [
+    "I can see why you'd open a shop, good job."
+  ],
+  "Fail": [
+    "Is this why you wanted to open a shop? To serve…this?"
+  ],
+  "Reject": [
+    "Seriously? What's even the point of opening a shop then?"
+  ]
+}

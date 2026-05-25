@@ -1,0 +1,13 @@
+{
+  "Intro": [
+    "Thank you for allowing me in. I came to offer my greetings to the new restaurateur. Please be at ease.",
+    "Your application has been accepted. You may open <b>Der Traum</b> and operate for eight hours a day until curfew. Congratulations.",
+    "I am Lieutenant General Izolda Zaychik. You may remember me from the beheading of the old Verehnian nobles.",
+    "A place like this is important. Somewhere for people to recover from those mosquitoes in the palace. I have great respect for what you do.",
+    "I ask that you be vigilant. <b>Press that button,</b> and the guards will come to take out any Spoiled. They will be valuable in our search for a cure.",
+    "Under the law, the penalty for letting a Spoiled go free without any reasonable attempt to report or apprehend is jail time. Make your decisions wisely."
+  ],
+  "Success": [],
+  "Fail": [],
+  "Reject": []
+}

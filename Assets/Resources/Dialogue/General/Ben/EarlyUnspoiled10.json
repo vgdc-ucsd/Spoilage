@@ -1,0 +1,15 @@
+{
+  "Intro": [
+    "Fascinating little city, this. Even after twenty years, you never know what you're gonna find.",
+    "I wonder if you've got anything good. Maybe… a [DISH]?"
+  ],
+  "Success": [
+    "Nice. I might become a regular. …But don't count on it."
+  ],
+  "Fail": [
+    "I guess some things never change. Wandering gets you nowhere."
+  ],
+  "Reject": [
+    "Okay, okay! I really don't know what to expect from people these days."
+  ]
+}

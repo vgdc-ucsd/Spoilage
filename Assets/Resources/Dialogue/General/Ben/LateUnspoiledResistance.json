@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Hi. Just looking for something real simple to eat. Nothing too fancy.",
+    "I want something so normal that if anyone happened to be watching right now, they'd get bored and leave.",
+    "But of course that isn't the case. Right? How about a [DISH]?"
+  ],
+  "Success": [
+    "It's good. …Persistent, huh?"
+  ],
+  "Fail": [
+    "Fittin' to cause a stir, are you? Just be sure that's really what you want."
+  ],
+  "Reject": [
+    "Careful. You wouldn't want to attract too many eyes."
+  ]
+}
