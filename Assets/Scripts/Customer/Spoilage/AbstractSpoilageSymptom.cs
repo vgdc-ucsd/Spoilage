@@ -99,7 +99,8 @@ public abstract class AbstractSpoilageSymptom : ScriptableObject
 
     protected void PlayDialogue(string suffix)
     {
-        SpoilageTriggerManager.PlayDialogue(suffix);
+        // TODO
+        // DialogueManager.Instance.PlayDialogue();
     }
 
     protected void ApplyFrontSpriteSheet(string[] spritePaths)
