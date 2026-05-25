@@ -75,7 +75,7 @@ public class ServingStation : KitchenTile
         {
             foreach (GameObject obj in objectsOnTile)
             {
-                Destroy(gameObject);
+                Destroy(obj);
             }
         }
     }

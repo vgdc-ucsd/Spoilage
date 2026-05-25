@@ -309,8 +309,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71ad1a3dcfce5a439d231d5ed69febf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
+  PauseBar: {fileID: 0}
   PauseUI: {fileID: 372596081}
+  SettingsUI: {fileID: 0}
+  SavesUI: {fileID: 0}
   ResumeButton: {fileID: 75356970}
+  LoadButton: {fileID: 0}
   SettingsButton: {fileID: 571999900}
   MainMenuButton: {fileID: 192783722}
 --- !u!1 &192783722
@@ -924,8 +928,8 @@ Camera:
   m_GameObject: {fileID: 885122280}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1397,6 +1401,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameSaveManger
   Player:
+    SaveID: 0
+    SaveName: 
     Day: 0
     Wealth: 0
     Reputation: 0

@@ -3,71 +3,71 @@
         {
             "id": 0,
             "name": "Dough",
-            "complexity": 0,
+            "spoiled": false,
+            "servable": false,
             "reward": 0,
             "appliance": "None",
-            "servable": false,
-            "spoiled": false,
+            "complexity": 0,
             "requiredIngredients": null
         },
         {
             "id": 1,
             "name": "Meat",
-            "complexity": 0,
+            "spoiled": false,
+            "servable": false,
             "reward": 0,
             "appliance": "None",
-            "servable": false,
-            "spoiled": false,
+            "complexity": 0,
             "requiredIngredients": null
         },
         {
             "id": 2,
             "name": "Potatoes",
-            "complexity": 0,
+            "spoiled": false,
+            "servable": false,
             "reward": 0,
             "appliance": "None",
-            "servable": false,
-            "spoiled": false,
+            "complexity": 0,
             "requiredIngredients": null
         },
         {
             "id": 3,
             "name": "Root Vegetables",
-            "complexity": 0,
+            "spoiled": false,
+            "servable": false,
             "reward": 0,
             "appliance": "None",
-            "servable": false,
-            "spoiled": false,
+            "complexity": 0,
             "requiredIngredients": null
         },
         {
             "id": 4,
             "name": "Cheese",
-            "complexity": 0,
+            "spoiled": false,
+            "servable": false,
             "reward": 0,
             "appliance": "None",
-            "servable": false,
-            "spoiled": false,
+            "complexity": 0,
             "requiredIngredients": null
         },
         {
             "id": 5,
             "name": "Sauce",
-            "complexity": 0,
+            "spoiled": false,
+            "servable": false,
             "reward": 0,
             "appliance": "None",
-            "servable": false,
-            "spoiled": false,
+            "complexity": 0,
             "requiredIngredients": null
         },
         {
             "id": 6,
-            "name": "Spoiled Dough",
-            "complexity": 0,
-            "reward": 0,
-            "appliance": "Spoil",
+            "name": "Sliced Dough",
+            "spoiled": false,
             "servable": false,
-            "spoiled":true,
+            "reward": 0,
+            "appliance": "Cutting Board",
+            "complexity": 1,
             "requiredIngredients": [
                 {
                     "name": "Dough",
@@ -77,12 +77,12 @@
         },
         {
             "id": 7,
-            "name": "Spoiled Meat",
-            "complexity": 0,
-            "reward": 0,
-            "appliance": "Spoil",
+            "name": "Cubed Meat",
+            "spoiled": false,
             "servable": false,
-            "spoiled":true,
+            "reward": 0,
+            "appliance": "Cutting Board",
+            "complexity": 1,
             "requiredIngredients": [
                 {
                     "name": "Meat",
@@ -92,12 +92,12 @@
         },
         {
             "id": 8,
-            "name": "Spoiled Potatoes",
-            "complexity": 0,
-            "reward": 0,
-            "appliance": "Spoil",
+            "name": "Diced Potatoes",
+            "spoiled": false,
             "servable": false,
-            "spoiled": true,
+            "reward": 0,
+            "appliance": "Cutting Board",
+            "complexity": 1,
             "requiredIngredients": [
                 {
                     "name": "Potatoes",
@@ -107,117 +107,27 @@
         },
         {
             "id": 9,
-            "name": "Spoiled Root Veggies",
-            "complexity": 0,
-            "reward": 0,
-            "appliance": "Spoil",
-            "servable": false,
-            "spoiled":true,
-            "requiredIngredients": [
-                {
-                    "name":"Root Vegetables",
-                    "id":3
-                }
-            ]
-        },
-        {
-            "id": 10,
-            "name": "Spoiled Cheese",
-            "complexity": 0,
-            "reward": 0,
-            "appliance": "Spoil",
-            "servable": false,
-            "spoiled": true,
-            "requiredIngredients": [
-                {
-                    "name": "Cheese",
-                    "id":4
-                }
-            ]
-        },
-        {
-            "id": 11,
-            "name": "Spoiled Sauce",
-            "complexity": 0,
-            "reward": 0,
-            "appliance": "Spoil",
-            "servable": false,
-            "spoiled":true,
-            "requiredIngredients": [
-                {
-                    "name":"Sauce",
-                    "id":5
-                }
-            ]
-        },
-        {
-            "id": 12,
-            "name": "Sliced Dough",
-            "complexity": 1,
-            "reward": 100,
-            "appliance": "Cutting Board",
-            "servable": false,
-            "spoiled":false,
-            "requiredIngredients": [
-                {
-                    "name": "Dough",
-                    "id":0
-                }
-            ]
-        },
-        {
-            "id": 13,
-            "name": "Cubed Meat",
-            "complexity": 1,
-            "reward": 100,
-            "appliance": "Cutting Board",
-            "servable": false,
-            "spoiled":false,
-            "requiredIngredients": [
-                {
-                    "name": "Meat",
-                    "id":1
-                }
-            ]
-        },
-        {
-            "id": 14,
-            "name": "Diced Potatoes",
-            "complexity": 1,
-            "reward": 100,
-            "appliance": "Cutting Board",
-            "servable": false,
-            "spoiled":false,
-            "requiredIngredients": [
-                {
-                    "name": "Potatoes",
-                    "id": 2
-                }
-            ]
-        },
-        {
-            "id": 15,
             "name": "Chopped Root Vegetables",
-            "complexity": 1,
-            "reward": 100,
-            "appliance": "Cutting Board",
+            "spoiled": false,
             "servable": false,
-            "spoiled":false,
+            "reward": 0,
+            "appliance": "Cutting Board",
+            "complexity": 1,
             "requiredIngredients": [
                 {
-                    "name":"Root Vegetables",
+                    "name": "Root Vegetables",
                     "id": 3
                 }
             ]
         },
         {
-            "id": 16,
+            "id": 10,
             "name": "Sliced Cheese",
-            "complexity": 1,
-            "reward": 100,
-            "appliance": "Cutting Board",
+            "spoiled": false,
             "servable": false,
-            "spoiled":false,
+            "reward": 0,
+            "appliance": "Cutting Board",
+            "complexity": 1,
             "requiredIngredients": [
                 {
                     "name": "Cheese",
@@ -226,34 +136,212 @@
             ]
         },
         {
-            "id": 17,
-            "name": "Brewer on a Skewer",
+            "id": 11,
+            "name": "Unsauced Amehonpilztopf",
+            "spoiled": false,
+            "servable": false,
+            "reward": 0,
+            "appliance": "Pot",
             "complexity": 2,
-            "reward": 300,
-            "rarityWeight": 3,
-            "appliance": "Grill",
-            "servable": true,
-            "spoiled":false,
             "requiredIngredients": [
                 {
-                    "name": "Dough",
-                    "id": 0
+                    "name": "Cubed Meat",
+                    "id": 7
                 },
                 {
-                    "name":"Chopped Root Vegetables",
-                    "id": 15
+                    "name": "Diced Potatoes",
+                    "id": 8
+                },
+                {
+                    "name": "Chopped Root Vegetables",
+                    "id": 9
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "name": "Noodles",
+            "spoiled": false,
+            "servable": true,
+            "reward": 14,
+            "appliance": "Pot",
+            "complexity": 2,
+            "requiredIngredients": [
+                {
+                    "name": "Sliced Dough",
+                    "id": 6
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "name": "Boiled Root Vegetables",
+            "spoiled": false,
+            "servable": false,
+            "reward": 0,
+            "appliance": "Pot",
+            "complexity": 2,
+            "requiredIngredients": [
+                {
+                    "name": "Chopped Root Vegetables",
+                    "id": 9
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "name": "Un-topped Offal",
+            "spoiled": true,
+            "servable": false,
+            "reward": 0,
+            "appliance": "Pot",
+            "complexity": 2,
+            "rarityWeight": 3,
+            "requiredIngredients": [
+                {
+                    "name": "Diced Potatoes",
+                    "id": 8
+                },
+                {
+                    "name": "Chopped Root Vegetables",
+                    "id": 9
+                },
+                {
+                    "name": "Cubed Meat",
+                    "id": 7
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "name": "Melted Spoiled Cheese",
+            "spoiled": true,
+            "servable": false,
+            "reward": 0,
+            "appliance": "Pot",
+            "complexity": 1,
+            "requiredIngredients": [
+                {
+                    "name": "Cheese",
+                    "id": 4
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "name": "Sliced Spoiled Sauce",
+            "spoiled": true,
+            "servable": false,
+            "reward": 0,
+            "appliance": "Cutting Board",
+            "complexity": 1,
+            "requiredIngredients": [
+                {
+                    "name": "Sauce",
+                    "id": 11
+                }
+            ]
+        },
+        {
+            "id": 17,
+            "name": "Undressed Aberrant Salad",
+            "spoiled": true,
+            "servable": false,
+            "reward": 0,
+            "appliance": "Kitchen Tile",
+            "complexity": 1,
+            "requiredIngredients": [
+                {
+                    "name": "Chopped Root Vegetables",
+                    "id": 9
+                },
+                {
+                    "name": "Sliced Spoiled Sauce",
+                    "id": 16
                 }
             ]
         },
         {
             "id": 18,
-            "name": "Flatbread",
+            "name": "Potato Puree",
+            "spoiled": false,
+            "servable": false,
+            "reward": 0,
+            "appliance": "Blender",
             "complexity": 1,
-            "reward": 100,
-            "rarityWeight": 5,
-            "appliance": "Grill",
+            "rarityWeight": 3,
+            "requiredIngredients": [
+                {
+                    "name": "Potatoes",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "name": "Pierogi Filling",
+            "spoiled": false,
+            "servable": false,
+            "reward": 0,
+            "appliance": "Blender",
+            "complexity": 3,
+            "rarityWeight": 3,
+            "requiredIngredients": [
+                {
+                    "name": "Potatoes",
+                    "id": 2
+                },
+                {
+                    "name": "Cheese",
+                    "id": 4
+                },
+                {
+                    "name": "Root Vegetables",
+                    "id": 3
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "name": "Roast Meat",
+            "spoiled": false,
+            "servable": false,
+            "reward": 0,
+            "appliance": "Oven",
+            "complexity": 1,
+            "rarityWeight": 3,
+            "requiredIngredients": [
+                {
+                    "name": "Meat",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "id": 21,
+            "name": "Sliced Roast",
+            "spoiled": false,
+            "servable": false,
+            "reward": 0,
+            "appliance": "Cutting Board",
+            "complexity": 1,
+            "rarityWeight": 3,
+            "requiredIngredients": [
+                {
+                    "name": "Roast Meat",
+                    "id": 20
+                }
+            ]
+        },
+        {
+            "id": 22,
+            "name": "Flatbread",
+            "spoiled": false,
             "servable": true,
-            "spoiled":false,
+            "reward": 10,
+            "appliance": "Grill",
+            "complexity": 1,
+            "rarityWeight": 5,
             "requiredIngredients": [
                 {
                     "name": "Dough",
@@ -262,38 +350,38 @@
             ]
         },
         {
-            "id": 19,
-            "name": "\"Spinach\" Pie",
-            "complexity": 1,
-            "reward": 200,
-            "rarityWeight": 5,
-            "appliance": "Oven",
+            "id": 23,
+            "name": "Brewer on a Skewer",
+            "spoiled": false,
             "servable": true,
-            "spoiled":true,
+            "reward": 16,
+            "appliance": "Grill",
+            "complexity": 2,
+            "rarityWeight": 3,
             "requiredIngredients": [
                 {
                     "name": "Dough",
-                    "id": 6
+                    "id": 0
                 },
                 {
-                    "name":"Cheese",
-                    "id": 10
+                    "name": "Chopped Root Vegetables",
+                    "id": 9
                 }
             ]
         },
         {
-            "id": 20,
-            "name": "Pickled Pigeons",
-            "complexity": 2,
-            "reward": 300,
-            "rarityWeight": 3,
-            "appliance": "Grill",
+            "id": 24,
+            "name": "Amehonpilztopf",
+            "spoiled": false,
             "servable": true,
-            "spoiled":false,
+            "reward": 55,
+            "appliance": "Kitchen Tile",
+            "complexity": 2,
+            "rarityWeight": 3,
             "requiredIngredients": [
                 {
-                    "name":"Cubed Meat",
-                    "id": 13
+                    "name": "Unsauced Amehonpilztopf",
+                    "id": 11
                 },
                 {
                     "name": "Sauce",
@@ -302,159 +390,162 @@
             ]
         },
         {
-            "id": 21,
-            "name": "Noodles",
-            "complexity": 2,
-            "reward": 200,
-            "appliance": "Pot",
-            "servable": false,
-            "spoiled":false,
-            "requiredIngredients": [
-                {
-                    "name": "Sliced Dough",
-                    "id": 12
-                }
-            ]
-        },
-        {
-            "id": 22,
+            "id": 25,
             "name": "Ratenudel",
-            "complexity": 3,
-            "reward": 700,
-            "rarityWeight": 1,
-            "appliance": "Grill",
+            "spoiled": false,
             "servable": true,
-            "spoiled":false,
+            "reward": 51,
+            "appliance": "Grill",
+            "complexity": 3,
+            "rarityWeight": 1,
             "requiredIngredients": [
                 {
                     "name": "Noodles",
-                    "id": 21
+                    "id": 12
                 },
                 {
                     "name": "Cubed Meat",
-                    "id": 13
+                    "id": 7
                 },
                 {
                     "name": "Sliced Cheese",
-                    "id": 16
-                }
-            ]
-        },
-        {
-            "id": 23,
-            "name": "Unsauced Amehonpilztopf",
-            "complexity": 2,
-            "reward": 600,
-            "appliance": "Pot",
-            "servable": false,
-            "spoiled":false,
-            "requiredIngredients": [
-                {
-                    "name": "Cubed Meat",
-                    "id": 13
-                },
-                {
-                    "name":"Diced Potatoes",
-                    "id": 14
-                },
-                {
-                    "name":"Chopped Root Vegetables",
-                    "id": 15
-                }
-            ]
-        },
-        {
-            "id": 24,
-            "name": "Aspic",
-            "complexity": 1,
-            "reward": 200,
-            "rarityWeight": 5,
-            "appliance": "Pot",
-            "servable": true,
-            "spoiled":true,
-            "requiredIngredients": [
-                {
-                    "name":"Meat",
-                    "id": 7
-                },
-                {
-                    "name": "Sauce",
-                    "id": 11
-                }
-            ]
-        },
-        {
-            "id": 25,
-            "name": "Maggot Pilaf",
-            "complexity": 2,
-            "reward": 300,
-            "rarityWeight": 3,
-            "appliance": "Pot",
-            "servable": true,
-            "spoiled": true,
-            "requiredIngredients": [
-                {
-                    "name": "Meat",
-                    "id": 7
-                },
-                {
-                    "name":"Chopped Root Vegetables",
-                    "id": 15
+                    "id": 10
                 }
             ]
         },
         {
             "id": 26,
             "name": "Lotus Steak",
-            "complexity": 2,
-            "reward": 400,
-            "rarityWeight": 3,
-            "appliance": "Grill",
-            "servable": true,
             "spoiled": false,
+            "servable": true,
+            "reward": 21,
+            "appliance": "Grill",
+            "complexity": 2,
+            "rarityWeight": 3,
             "requiredIngredients": [
                 {
                     "name": "Diced Potatoes",
-                    "id": 14
+                    "id": 8
                 },
                 {
                     "name": "Chopped Root Vegetables",
-                    "id": 15
+                    "id": 9
                 }
             ]
         },
         {
             "id": 27,
-            "name": "Un-topped Spoiled Borscht",
-            "complexity": 2,
-            "reward": 400,
-            "appliance": "Pot",
-            "servable": false,
-            "spoiled": true,
+            "name": "Cheesy Bread",
+            "spoiled": false,
+            "servable": true,
+            "reward": 18,
+            "appliance": "Kitchen Tile",
+            "complexity": 1,
+            "rarityWeight": 5,
             "requiredIngredients": [
                 {
-                    "name": "Diced Potatoes",
-                    "id": 36
+                    "name": "Flatbread",
+                    "id": 22
                 },
                 {
-                    "name": "Chopped Veggies",
-                    "id": 30
+                    "name": "Sliced Cheese",
+                    "id": 10
                 }
             ]
         },
         {
             "id": 28,
-            "name": "Spoiled Borscht",
-            "complexity": 2,
-            "reward": 400,
-            "rarityWeight": 3,
-            "appliance": "Kitchen Tile",
+            "name": "Cheesy Beet Bread",
+            "spoiled": false,
             "servable": true,
-            "spoiled": true,
+            "reward": 29,
+            "appliance": "Kitchen Tile",
+            "complexity": 1,
+            "rarityWeight": 5,
             "requiredIngredients": [
                 {
-                    "name": "Un-topped Spoiled Borscht",
+                    "name": "Cheesy Bread",
                     "id": 27
+                },
+                {
+                    "name": "Boiled Root Vegetables",
+                    "id": 13
+                }
+            ]
+        },
+        {
+            "id": 29,
+            "name": "Pickled Pigeons",
+            "spoiled": false,
+            "servable": true,
+            "reward": 24,
+            "appliance": "Grill",
+            "complexity": 2,
+            "rarityWeight": 3,
+            "requiredIngredients": [
+                {
+                    "name": "Cubed Meat",
+                    "id": 7
+                },
+                {
+                    "name": "Sauce",
+                    "id": 5
+                }
+            ]
+        },
+        {
+            "id": 30,
+            "name": "Bloated Sushi",
+            "spoiled": true,
+            "servable": true,
+            "reward": 25,
+            "appliance": "Grill",
+            "complexity": 2,
+            "rarityWeight": 3,
+            "requiredIngredients": [
+                {
+                    "name": "Sliced Dough",
+                    "id": 6
+                },
+                {
+                    "name": "Root Vegetables",
+                    "id": 3
+                }
+            ]
+        },
+        {
+            "id": 31,
+            "name": "Maggot Pilaf",
+            "spoiled": true,
+            "servable": true,
+            "reward": 27,
+            "appliance": "Pot",
+            "complexity": 2,
+            "rarityWeight": 3,
+            "requiredIngredients": [
+                {
+                    "name": "Meat",
+                    "id": 7
+                },
+                {
+                    "name": "Chopped Root Vegetables",
+                    "id": 9
+                }
+            ]
+        },
+        {
+            "id": 32,
+            "name": "Awful Offal",
+            "spoiled": true,
+            "servable": true,
+            "reward": 69,
+            "appliance": "Kitchen Tile",
+            "complexity": 2,
+            "rarityWeight": 3,
+            "requiredIngredients": [
+                {
+                    "name": "Un-topped Offal",
+                    "id": 14
                 },
                 {
                     "name": "Cheese",
@@ -463,99 +554,59 @@
             ]
         },
         {
-            "id": 29,
-            "name": "Boiled Root Veggies",
-            "complexity": 2,
-            "reward": 200,
-            "appliance": "Pot",
-            "servable": false,
-            "spoiled": false,
-            "requiredIngredients": [
-                {
-                    "name": "Chopped Root Vegetables",
-                    "id": 15
-                }
-            ]
-        },
-        {
-            "id": 30,
-            "name": "Chopped Spoiled Veggies",
-            "complexity": 1,
-            "reward": 100,
-            "appliance": "Cutting Board",
-            "servable": false,
-            "spoiled": true,
-            "requiredIngredients": [
-                {
-                    "name": "Root Veggies",
-                    "id": 9
-                }
-            ]
-        },
-        {
-            "id": 31,
-            "name": "Cheesy Bread",
-            "complexity": 1,
-            "reward": 200,
-            "rarityWeight": 5,
-            "appliance": "Kitchen Tile",
-            "servable": true,
-            "spoiled": false,
-            "requiredIngredients": [
-                {
-                    "name": "Flatbread",
-                    "id": 18
-                },
-                {
-                    "name":"Sliced Cheese",
-                    "id": 16
-                }
-            ]
-        },
-        {
-            "id": 32,
-            "name": "Cheesy Beet Bread",
-            "complexity": 1,
-            "reward": 300,
-            "rarityWeight": 5,
-            "appliance": "Kitchen Tile",
-            "servable": true,
-            "spoiled": false,
-            "requiredIngredients": [
-                {
-                    "name": "Cheesy Bread",
-                    "id": 31
-                },
-                {
-                    "name": "Boiled Root Veggies",
-                    "id": 29
-                }
-            ]
-        },
-        {
             "id": 33,
-            "name": "Melted Spoiled Cheese",
-            "complexity": 1,
-            "reward": 100,
-            "appliance": "Pot",
-            "servable": false,
+            "name": "\"Spinach\" Pie",
             "spoiled": true,
+            "servable": true,
+            "reward": 36,
+            "appliance": "Oven",
+            "complexity": 1,
+            "rarityWeight": 5,
             "requiredIngredients": [
                 {
-                    "name": "Cheese",
+                    "name": "Dough",
+                    "id": 0
+                },
+                {
+                    "name": "Sliced Cheese",
                     "id": 10
                 }
             ]
         },
         {
             "id": 34,
-            "name": "Sliced Spoiled Sauce",
-            "complexity": 1,
-            "reward": 100,
-            "appliance": "Cutting Board",
-            "servable": false,
+            "name": "Aberrant Salad",
             "spoiled": true,
+            "servable": true,
+            "reward": 32,
+            "appliance": "Kitchen Tile",
+            "complexity": 1,
+            "rarityWeight": 5,
             "requiredIngredients": [
+                {
+                    "name": "Melted Spoiled Cheese",
+                    "id": 15
+                },
+                {
+                    "name": "Undressed Aberrant Salad",
+                    "id": 17
+                }
+            ]
+        },
+        {
+            "id": 35,
+            "name": "Aspic",
+            "spoiled": true,
+            "servable": true,
+            "reward": 28,
+            "appliance": "Pot",
+            "complexity": 1,
+            "rarityWeight": 5,
+            "requiredIngredients": [
+                {
+                    "name": "Meat",
+                    "id": 7
+                },
                 {
                     "name": "Sauce",
                     "id": 11
@@ -563,416 +614,166 @@
             ]
         },
         {
-            "id": 35,
-            "name": "Undressed Aberrant Salad",
-            "complexity": 1,
-            "reward": 200,
-            "appliance": "Kitchen Tile",
-            "servable": false,
-            "spoiled": true,
-            "requiredIngredients": [
-                {
-                    "name": "Chopped Veggies",
-                    "id": 30
-                },
-                {
-                    "name": "Sliced Spoiled Sauce",
-                    "id": 34
-                }
-            ]
-        },
-        {
             "id": 36,
-            "name": "Diced Spoiled Potatoes",
-            "complexity": 1,
-            "reward": 100,
-            "appliance": "Cutting Board",
-            "servable": false,
-            "spoiled": true,
-            "requiredIngredients": [
-                {
-                    "name": "Spoiled Potatoes",
-                    "id": 8
-                }
-            ]
-        },
-        {
-            "id": 37,
-            "name": "Aberrant Salad",
-            "complexity": 1,
-            "reward": 300,
-            "rarityWeight": 5,
-            "appliance": "Kitchen Tile",
-            "servable": true,
-            "spoiled": true,
-            "requiredIngredients": [
-                {
-                    "name": "Melted Spoiled Cheese",
-                    "id": 33
-                },
-                {
-                    "name": "Undressed Aberrant Salad",
-                    "id": 35
-                }
-            ]
-        },
-        {
-            "id": 38,
-            "name": "Amehonpilztopf",
-            "complexity": 2,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Kitchen Tile",
-            "servable": true,
-            "spoiled": false,
-            "requiredIngredients": [
-                {
-                    "name": "Unsauced Amehonpilztopf",
-                    "id": 23
-                },
-                {
-                    "name": "Sauce",
-                    "id": 5
-                }
-            ]
-        },
-        {
-            "id": 39,
-            "name": "Un-topped Offal",
-            "complexity": 2,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Pot",
-            "servable": false,
-            "spoiled": true,
-            "requiredIngredients": [
-                {
-                    "name": "Diced Potatoes",
-                    "id": 14
-                },
-                {
-                    "name": "Chopped Root Vegetables",
-                    "id": 15
-                },
-                {
-                    "name": "Cubed Meat",
-                    "id": 13
-                }
-            ]
-        },
-        {
-            "id": 40,
-            "name": "Sliced Spoiled Cheese",
-            "complexity": 1,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Cutting Board",
-            "servable": false,
-            "spoiled": true,
-            "requiredIngredients": [
-                {
-                    "name": "Diced Potatoes",
-                    "id": 14
-                },
-                {
-                    "name": "Chopped Root Vegetables",
-                    "id": 15
-                },
-                {
-                    "name": "Cubed Meat",
-                    "id": 13
-                }
-            ]
-        },
-        {
-            "id": 41,
-            "name": "Potato Puree",
-            "complexity": 1,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Blender",
-            "servable": false,
-            "spoiled": false,
-            "requiredIngredients": [
-                {
-                    "name": "Potatoes",
-                    "id": 2
-                }
-            ]
-        },
-        {
-            "id": 42,
-            "name": "Pierogi Filling",
-            "complexity": 3,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Blender",
-            "servable": false,
-            "spoiled": false,
-            "requiredIngredients": [
-                {
-                    "name": "Potatoes",
-                    "id": 2
-                },
-                {
-                    "name": "Cheese",
-                    "id": 4
-                },
-                {
-                    "name": "Root Vegetables",
-                    "id": 3
-                }
-            ]
-        },
-        {
-            "id": 43,
-            "name": "Roast Meat",
-            "complexity": 1,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Oven",
-            "servable": false,
-            "spoiled": false,
-            "requiredIngredients": [
-                {
-                    "name": "Meat",
-                    "id": 1
-                }
-            ]
-        },
-        {
-            "id": 44,
-            "name": "Bloated Sushi",
-            "complexity": 2,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Grill",
-            "servable": true,
-            "spoiled": true,
-            "requiredIngredients": [
-                {
-                    "name": "Sliced Dough",
-                    "id": 12
-                },
-                {
-                    "name": "Root Vegetables",
-                    "id": 3
-                }
-            ]
-        },
-        {
-            "id": 45,
-            "name": "Awful Offal",
-            "complexity": 2,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Kitchen Tile",
-            "servable": true,
-            "spoiled": true,
-            "requiredIngredients": [
-                {
-                    "name": "Un-topped Offal",
-                    "id": 39
-                },
-                {
-                    "name": "Cheese",
-                    "id": 4
-                }
-            ]
-        },
-        {
-            "id": 46,
             "name": "Potato Pancakes",
-            "complexity": 1,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Grill",
-            "servable": true,
             "spoiled": false,
+            "servable": true,
+            "reward": 19,
+            "appliance": "Grill",
+            "complexity": 1,
+            "rarityWeight": 3,
             "requiredIngredients": [
                 {
                     "name": "Potato Puree",
-                    "id": 41
-                }
-            ]
-        },
-        {
-            "id": 47,
-            "name": "Potato Bapka",
-            "complexity": 1,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Grill",
-            "servable": true,
-            "spoiled": false,
-            "requiredIngredients": [
-                {
-                    "name": "Potato Puree",
-                    "id": 41
-                },
-                {
-                    "name": "Cubed Meat",
-                    "id": 13
-                }
-            ]
-        },
-        {
-            "id": 48,
-            "name": "Pierogi",
-            "complexity": 2,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Pot",
-            "servable": true,
-            "spoiled": false,
-            "requiredIngredients": [
-                {
-                    "name": "Pierogi Filling",
-                    "id": 42
-                },
-                {
-                    "name": "Dough",
-                    "id": 0
-                }
-            ]
-        },
-        {
-            "id": 49,
-            "name": "Pieczen Huzarska",
-            "complexity": 2,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Kitchen Tile",
-            "servable": true,
-            "spoiled": false,
-            "requiredIngredients": [
-                {
-                    "name": "Sliced Roast",
-                    "id": 50
-                },
-                {
-                    "name": "Sauce",
-                    "id": 5
-                }
-            ]
-        },
-        {
-            "id": 50,
-            "name": "Sliced Roast",
-            "complexity": 1,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Cutting Board",
-            "servable": false,
-            "spoiled": false,
-            "requiredIngredients": [
-                {
-                    "name": "Roast Meat",
-                    "id": 43
-                }
-            ]
-        },
-        {
-            "id": 51,
-            "name": "Cheese Kolache",
-            "complexity": 2,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Oven",
-            "servable": true,
-            "spoiled": false,
-            "requiredIngredients": [
-                {
-                    "name": "Dough",
-                    "id": 0
-                },
-                {
-                    "name": "Cheese",
-                    "id": 4
-                }
-            ]
-        },
-        {
-            "id": 52,
-            "name": "Tartar Ajvar",
-            "complexity": 3,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Blender",
-            "servable": true,
-            "spoiled": true,
-            "requiredIngredients": [
-                {
-                    "name": "Meat",
-                    "id": 1
-                },
-                {
-                    "name": "Sauce",
-                    "id": 5
-                },
-                {
-                    "name": "Root Vegetables",
-                    "id": 3
-                }
-            ]
-        },
-        {
-            "id": 53,
-            "name": "Dolgo Salo",
-            "complexity": 2,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Kitchen Tile",
-            "servable": true,
-            "spoiled": true,
-            "requiredIngredients": [
-                {
-                    "name": "Cubed Meat",
-                    "id": 13
-                },
-                {
-                    "name": "Flatbread",
                     "id": 18
                 }
             ]
         },
         {
-            "id": 54,
-            "name": "Golovashlik",
-            "complexity": 3,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Grill",
+            "id": 37,
+            "name": "Potato Bapka",
+            "spoiled": false,
             "servable": true,
-            "spoiled": true,
+            "reward": 27,
+            "appliance": "Oven",
+            "complexity": 1,
+            "rarityWeight": 3,
             "requiredIngredients": [
                 {
+                    "name": "Potato Puree",
+                    "id": 18
+                },
+                {
                     "name": "Cubed Meat",
-                    "id": 13
-                },
-                {
-                    "name": "Sliced Sauce",
-                    "id": 55
-                },
-                {
-                    "name": "Chopped Root Vegetables",
-                    "id": 15
+                    "id": 7
                 }
             ]
         },
         {
-            "id": 55,
-            "name": "Sliced Sauce",
-            "complexity": 1,
-            "reward": 600,
-            "rarityWeight": 3,
-            "appliance": "Cutting Board",
-            "servable": false,
+            "id": 38,
+            "name": "Pierogi",
             "spoiled": false,
+            "servable": true,
+            "reward": 61,
+            "appliance": "Pot",
+            "complexity": 2,
+            "rarityWeight": 3,
             "requiredIngredients": [
+                {
+                    "name": "Pierogi Filling",
+                    "id": 19
+                },
+                {
+                    "name": "Dough",
+                    "id": 0
+                }
+            ]
+        },
+        {
+            "id": 39,
+            "name": "Pieczen Huzarska",
+            "spoiled": false,
+            "servable": true,
+            "reward": 43,
+            "appliance": "Kitchen Tile",
+            "complexity": 2,
+            "rarityWeight": 3,
+            "requiredIngredients": [
+                {
+                    "name": "Sliced Roast",
+                    "id": 21
+                },
                 {
                     "name": "Sauce",
                     "id": 5
+                }
+            ]
+        },
+        {
+            "id": 40,
+            "name": "Cheese Kolache",
+            "spoiled": false,
+            "servable": true,
+            "reward": 17,
+            "appliance": "Oven",
+            "complexity": 2,
+            "rarityWeight": 3,
+            "requiredIngredients": [
+                {
+                    "name": "Dough",
+                    "id": 0
+                },
+                {
+                    "name": "Cheese",
+                    "id": 4
+                }
+            ]
+        },
+        {
+            "id": 41,
+            "name": "Tartar Ajvar",
+            "spoiled": true,
+            "servable": true,
+            "reward": 42,
+            "appliance": "Blender",
+            "complexity": 3,
+            "rarityWeight": 3,
+            "requiredIngredients": [
+                {
+                    "name": "Meat",
+                    "id": 1
+                },
+                {
+                    "name": "Sauce",
+                    "id": 5
+                },
+                {
+                    "name": "Root Vegetables",
+                    "id": 3
+                }
+            ]
+        },
+        {
+            "id": 42,
+            "name": "Dolgo Salo",
+            "spoiled": true,
+            "servable": true,
+            "reward": 31,
+            "appliance": "Kitchen Tile",
+            "complexity": 2,
+            "rarityWeight": 3,
+            "requiredIngredients": [
+                {
+                    "name": "Cubed Meat",
+                    "id": 7
+                },
+                {
+                    "name": "Flatbread",
+                    "id": 22
+                }
+            ]
+        },
+        {
+            "id": 43,
+            "name": "Golovashlik",
+            "spoiled": true,
+            "servable": true,
+            "reward": 59,
+            "appliance": "Grill",
+            "complexity": 3,
+            "rarityWeight": 3,
+            "requiredIngredients": [
+                {
+                    "name": "Cubed Meat",
+                    "id": 7
+                },
+                {
+                    "name": "Sliced Spoiled Sauce",
+                    "id": 16
+                },
+                {
+                    "name": "Chopped Root Vegetables",
+                    "id": 9
                 }
             ]
         }

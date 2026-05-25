@@ -78,6 +78,7 @@ public sealed class IngredientBehaviour : MonoBehaviour
         if (ingredient.IsSpoiled)
         {
             Log("Food reached 100% spoilage.");
+            ingredient.SetSpoilagePercent(100f);
         }
     }
 
