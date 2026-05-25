@@ -6,17 +6,9 @@ using UnityEngine;
 public class SpoilageTriggerManager : Singleton<SpoilageTriggerManager>
 {
     private const string DialoguePrefix = "spoilage.symptom";
-    private const TextboxBubbleSide DialogueSide = TextboxBubbleSide.R;
     private const float DialogueAdvanceDelay = 0.35f;
 
     private readonly Dictionary<SpoilageCategory, Action> _triggerMap = CreateTriggerMap();
-    private TextboxBubbleStack _bubbleStack;
-
-    public override void Awake()
-    {
-        base.Awake();
-        _bubbleStack = FindAnyObjectByType<TextboxBubbleStack>();
-    }
 
     public void AddSymptom(AbstractSpoilageSymptom symptom)
     {
@@ -44,11 +36,6 @@ public class SpoilageTriggerManager : Singleton<SpoilageTriggerManager>
         {
             Trigger(category);
         }
-    }
-
-    public static void PlayDialogue(string suffix)
-    {
-        Instance.PlayDialogueInstance(suffix);
     }
 
     public static bool IsUnspoiledFood(IngredientObject food)
@@ -79,38 +66,5 @@ public class SpoilageTriggerManager : Singleton<SpoilageTriggerManager>
         }
 
         return triggerMap;
-    }
-
-    private void PlayDialogueInstance(string suffix)
-    {
-        string key = DialoguePrefix + "." + suffix;
-        if (!DialogueRegistry.TryGet(key, out DialogueSequence sequence))
-        {
-            UnityEngine.Debug.LogWarning($"Spoilage dialogue sequence '{key}' was not found.");
-            return;
-        }
-
-        if (_bubbleStack == null)
-        {
-            UnityEngine.Debug.LogWarning($"Spoilage dialogue sequence '{key}' could not play because no TextboxBubbleStack exists.");
-            return;
-        }
-
-        StartCoroutine(PlayDialogueSequence(sequence));
-    }
-
-    private IEnumerator PlayDialogueSequence(DialogueSequence sequence)
-    {
-        for (int i = 0; i < sequence.Count; i++)
-        {
-            TextboxControl.TextboxController controller = _bubbleStack.Push(sequence.GetBox(i), DialogueSide);
-
-            while (controller.IsRevealing)
-            {
-                yield return null;
-            }
-
-            yield return new WaitForSeconds(DialogueAdvanceDelay);
-        }
     }
 }

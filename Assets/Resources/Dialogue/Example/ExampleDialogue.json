@@ -1,0 +1,15 @@
+{
+  "Intro": [
+    "this is an example dialogue",
+    "this is a long dialogue item thats 150 characters this is a long dialogue item that's 150 characters this is a long dialogue item thats 150 characters",
+    "additional dialogue <b>with bold</b>",
+    "final dialogue <i>with italics</i>"
+  ],
+  "Success": [],
+  "Fail": [],
+  "Reject": [],
+  "Item": {
+    "Stage": "intro",
+    "ID": "Example Item"
+  }
+}
