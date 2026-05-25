@@ -5,6 +5,7 @@ public class TrashCan : MonoBehaviour
     public void Trash(FoodGrab food)
     {
         Debug.Log("Food thrown in trash can");
+        SpoilageTriggerManager.Trigger(SpoilageCategory.RAGE);
         Destroy(food.gameObject);
     }
 }

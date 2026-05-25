@@ -17,6 +17,8 @@ public class ItemExchange
 [Serializable]
 public class PlayerData
 {
+    public int SaveID;
+    public string SaveName;
     public int Day;
     public float Wealth;
     public int Reputation;

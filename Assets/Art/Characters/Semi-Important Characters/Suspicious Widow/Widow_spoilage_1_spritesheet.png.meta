@@ -1,0 +1,362 @@
+fileFormatVersion: 2
+guid: 3e9399b99e7ceaa499b6db28708ec941
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1641755652324948352
+    second: Widow_spoilage_1_spritesheet_0
+  - first:
+      213: -6181184848875836557
+    second: Widow_spoilage_1_spritesheet_1
+  - first:
+      213: 4310519784930856917
+    second: Widow_spoilage_1_spritesheet_2
+  - first:
+      213: 3208898413797452471
+    second: Widow_spoilage_1_spritesheet_3
+  - first:
+      213: 5689542485914295994
+    second: Widow_spoilage_1_spritesheet_4
+  - first:
+      213: 4157336781863185516
+    second: Widow_spoilage_1_spritesheet_5
+  - first:
+      213: -6897426814503951584
+    second: Widow_spoilage_1_spritesheet_6
+  - first:
+      213: -2040284674696528933
+    second: Widow_spoilage_1_spritesheet_7
+  - first:
+      213: -2073654075019746371
+    second: Widow_spoilage_1_spritesheet_8
+  - first:
+      213: 8149592880793694128
+    second: Widow_spoilage_1_spritesheet_9
+  - first:
+      213: -4283887790242628259
+    second: Widow_spoilage_1_spritesheet_10
+  - first:
+      213: 2682533466647950383
+    second: Widow_spoilage_1_spritesheet_11
+  - first:
+      213: 3083799820272548646
+    second: Widow_spoilage_1_spritesheet_12
+  - first:
+      213: 3955530254426221637
+    second: Widow_spoilage_1_spritesheet_13
+  - first:
+      213: -6702301219137589078
+    second: Widow_spoilage_1_spritesheet_14
+  - first:
+      213: 7230324616438633811
+    second: Widow_spoilage_1_spritesheet_15
+  - first:
+      213: -9175886913381672302
+    second: Widow_spoilage_1_spritesheet_16
+  - first:
+      213: -2429794900369311507
+    second: Widow_spoilage_1_spritesheet_17
+  - first:
+      213: -4081017665168972811
+    second: Widow_spoilage_1_spritesheet_18
+  - first:
+      213: 2029671133587446467
+    second: Widow_spoilage_1_spritesheet_19
+  - first:
+      213: 3321716402116885383
+    second: Widow_spoilage_1_spritesheet_20
+  - first:
+      213: 7631302801096325712
+    second: Widow_spoilage_1_spritesheet_21
+  - first:
+      213: 6923374886711328779
+    second: Widow_spoilage_1_spritesheet_22
+  - first:
+      213: 4938117706409321338
+    second: Widow_spoilage_1_spritesheet_23
+  - first:
+      213: -7939777248334478364
+    second: Widow_spoilage_1_spritesheet_24
+  - first:
+      213: 3080141520455909128
+    second: Widow_spoilage_1_spritesheet_25
+  - first:
+      213: 1869869198763499348
+    second: Widow_spoilage_1_spritesheet_26
+  - first:
+      213: 981989874246823849
+    second: Widow_spoilage_1_spritesheet_27
+  - first:
+      213: -3237037004919893826
+    second: Widow_spoilage_1_spritesheet_28
+  - first:
+      213: 8188750606905099810
+    second: Widow_spoilage_1_spritesheet_29
+  - first:
+      213: -2800780682329865848
+    second: Widow_spoilage_1_spritesheet_30
+  - first:
+      213: 7547284537702231065
+    second: Widow_spoilage_1_spritesheet_31
+  - first:
+      213: 4274462407768721763
+    second: Widow_spoilage_1_spritesheet_32
+  - first:
+      213: -5787943777380155998
+    second: Widow_spoilage_1_spritesheet_33
+  - first:
+      213: -1631733386132681191
+    second: Widow_spoilage_1_spritesheet_34
+  - first:
+      213: 2749658421155379747
+    second: Widow_spoilage_1_spritesheet_35
+  - first:
+      213: 4454051273146997196
+    second: Widow_spoilage_1_spritesheet_36
+  - first:
+      213: 327610474758723322
+    second: Widow_spoilage_1_spritesheet_37
+  - first:
+      213: 8202236821034373420
+    second: Widow_spoilage_1_spritesheet_38
+  - first:
+      213: 4536492455249573436
+    second: Widow_spoilage_1_spritesheet_39
+  - first:
+      213: 6393206948401744057
+    second: Widow_spoilage_1_spritesheet_40
+  - first:
+      213: -1301741442401195398
+    second: Widow_spoilage_1_spritesheet_41
+  - first:
+      213: -943420505405721036
+    second: Widow_spoilage_1_spritesheet_42
+  - first:
+      213: -314023158207942772
+    second: Widow_spoilage_1_spritesheet_43
+  - first:
+      213: 3358509304052011390
+    second: Widow_spoilage_1_spritesheet_44
+  - first:
+      213: -940201901292388575
+    second: Widow_spoilage_1_spritesheet_45
+  - first:
+      213: 1412809889940087928
+    second: Widow_spoilage_1_spritesheet_46
+  - first:
+      213: -1880702158083241
+    second: Widow_spoilage_1_spritesheet_47
+  - first:
+      213: -2545263900805370860
+    second: Widow_spoilage_1_spritesheet_48
+  - first:
+      213: -6819743833191859253
+    second: Widow_spoilage_1_spritesheet_49
+  - first:
+      213: -4075683213847967863
+    second: Widow_spoilage_1_spritesheet_50
+  - first:
+      213: 6972299628969424370
+    second: Widow_spoilage_1_spritesheet_51
+  - first:
+      213: 2191765810272385758
+    second: Widow_spoilage_1_spritesheet_52
+  - first:
+      213: -3436043334550705507
+    second: Widow_spoilage_1_spritesheet_53
+  - first:
+      213: -2479169791441332267
+    second: Widow_spoilage_1_spritesheet_54
+  - first:
+      213: -761198692859166497
+    second: Widow_spoilage_1_spritesheet_55
+  - first:
+      213: 7099363921089870160
+    second: Widow_spoilage_1_spritesheet_56
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Widow_spoilage_1_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0868e2fbeef4739e0800000000000000
+      internalID: -1641755652324948352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Widow_spoilage_1_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 920
+        height: 1240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37baab71125083aa0800000000000000
+      internalID: -6181184848875836557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9ff8d3ec4f76a594ea4949ea4868fe54
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Widow_spoilage_1_spritesheet_0: -1641755652324948352
+      Widow_spoilage_1_spritesheet_1: -6181184848875836557
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

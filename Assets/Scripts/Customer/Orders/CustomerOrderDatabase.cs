@@ -1,11 +1,18 @@
+using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
 {
+    //singleton hell
     private RecipeManager _recipeManager;
-
     private SaveManager _saveManager;
+    private CustomerLineManager _lineManager;
+    private ResourceManager _resourceManager;
+
+    [SerializeField]
+    private ServingStation _servingStation;
 
     [Header("Chance curves based on game progress from 0 to 1")]
     [SerializeField]
@@ -20,6 +27,8 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
     [SerializeField]
     private AnimationCurve _fourDishChance;
 
+    private int orderStreak = 0;
+
     public override void Awake()
     {
         base.Awake();
@@ -29,13 +38,16 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
     {
         _recipeManager = RecipeManager.Instance;
         _saveManager = SaveManager.Instance;
+        _lineManager = CustomerLineManager.Instance;
+        _resourceManager = ResourceManager.Instance;
 
         UpdateAvailableRecipes();
     }
 
     public int PickDishCount(float gameProgress)
     {
-        gameProgress = Mathf.Clamp01(gameProgress);
+        //divide by 30 because days are 1-30
+        gameProgress = Mathf.Clamp01(gameProgress / 30);
 
         float one = Mathf.Max(0, _oneDishChance.Evaluate(gameProgress));
         float two = Mathf.Max(0, _twoDishChance.Evaluate(gameProgress));
@@ -131,9 +143,86 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
         return result;
     }
 
-    public Recipe GenerateCustomerOrder()
+    public bool SubmitOrder(IngredientObject dish)
     {
-        return null;
+        if (dish == null)
+        {
+            Debug.Log("No item was submitted!");
+            return false;
+        }
+
+        Debug.Log("Attempting to submit " + dish.name);
+
+        //check the set of orders against the dish submitted by name
+        CustomerData customerData = _lineManager.CurrentCustomer.customerData;
+        List<Recipe> CustomerOrder = customerData.orders;
+        Predicate<Recipe> predicate = x => x.name == dish.name;
+        Recipe match = CustomerOrder.Find(predicate);
+        bool success = match != null;
+
+        if (success)
+        {
+            // increase the necessary resources
+            orderStreak++;
+            customerData.patience = (customerData.patience + 0.5 > 1) ? 1 : customerData.patience += 0.5f;
+            
+            // for some reason its not able to find resourcemanager and i dont have the time to fix that
+            // _resourceManager.Reputation += orderStreak;
+            // _resourceManager.Wealth += (int)(match.reward * dish.QualityPercent);
+
+
+            //not sure if they wrote this method knowing the customer could order multiple things, but oh well
+            StoryManager.Instance.OnCustomerServed(customerData, success);
+
+            CustomerOrder.Remove(match);
+
+            //check if the order is done
+            if (CustomerOrder.Count == 0)
+            {
+                //new customer!
+                _lineManager.Advance();
+            }
+        }   else
+        {
+            orderStreak = 0;
+
+            StoryManager.Instance.OnCustomerServed(customerData, success);
+        }
+
+        return success;
+    }
+
+    /// <summary>
+    /// Generates a set of orders for the player to cook
+    /// </summary>
+    /// <param name="orders">A reference to the CustomerData object to modify</param>
+    public void GenerateCustomerOrder(CustomerData customerData)
+    {
+        List<Recipe> unlockedRecipes = _saveManager.Player.RecipesUnlocked;
+        int dishCount = PickDishCount(_saveManager.Player.Day);
+
+        for (int i = 0; i < dishCount; i++)
+        {
+            //TODO: implement weighting
+
+            //Default Customer
+            if (customerData.spoilage != CustomerData.Spoilage.STAGE_II)
+            {
+                Predicate<Recipe> unspoiledRecipeCheck = x => x.spoiled == false;
+                List<Recipe> unspoiledRecipes = unlockedRecipes.FindAll(unspoiledRecipeCheck);
+                int rand = UnityEngine.Random.Range(0, unspoiledRecipes.Count);
+                customerData.orders.Add(unspoiledRecipes[rand]);
+            }
+
+            //Spoiled Customer
+            if (customerData.spoilage == CustomerData.Spoilage.STAGE_II)
+            {
+                Predicate<Recipe> spoiledRecipeCheck = x => x.spoiled == true;
+                List<Recipe> spoiledRecipes = unlockedRecipes.FindAll(spoiledRecipeCheck);
+                int rand = UnityEngine.Random.Range(0, spoiledRecipes.Count);
+                customerData.orders.Add(spoiledRecipes[rand]);
+            }
+        }
     }
 
     private void SyncUnlockedRecipes()

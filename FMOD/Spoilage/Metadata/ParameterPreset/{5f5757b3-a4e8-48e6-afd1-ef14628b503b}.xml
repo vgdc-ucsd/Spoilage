@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{5f5757b3-a4e8-48e6-afd1-ef14628b503b}">
+		<property name="name">
+			<value>CozyMusicIndex</value>
+		</property>
+		<relationship name="folder">
+			<destination>{53072ec1-385f-4f96-8ba3-7daed80c9870}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{ed954519-e441-4b5b-bf15-1f5a8ef4dc19}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{ed954519-e441-4b5b-bf15-1f5a8ef4dc19}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>4</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

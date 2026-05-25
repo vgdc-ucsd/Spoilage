@@ -3,10 +3,13 @@ using UnityEngine.UI;
 
 public class DeleteButton : MonoBehaviour
 {
+    [SerializeField] private GameObject _selectedImage;
     private bool _isActive = false;
-    private Image _img;
 
-    void Awake() => _img = GetComponent<Image>();
+    void Awake()
+    {
+        if (_selectedImage != null) _selectedImage.SetActive(false);
+    }
 
     public void ToggleDeleteMode()
     {
@@ -14,7 +17,7 @@ public class DeleteButton : MonoBehaviour
         FoodGrab.IsDeleteModeActive = _isActive;
         FoodGrab.CanMoveFood = !_isActive;
         
-        if (_img != null) _img.color = _isActive ? Color.red : Color.white;
+        if (_selectedImage != null) _selectedImage.SetActive(_isActive);
         Debug.Log($"[Delete Mode] Active: {_isActive}");
     }
 }

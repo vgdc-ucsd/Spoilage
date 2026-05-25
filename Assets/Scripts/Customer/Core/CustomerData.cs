@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CustomerData", menuName = "ScriptableObjects/CustomerData", order = 1)]
@@ -28,8 +29,8 @@ public class CustomerData : ScriptableObject
         HAIR_FRONT,
         HAIR_BACK,
         HAIR_SHADOW,
-        SPOILAGE_FRONT,
-        SPOILAGE_BACK,
+        TENDRILS_1,
+        TENDRILS_2,
     }
 
     /// <summary>
@@ -48,9 +49,6 @@ public class CustomerData : ScriptableObject
 
     public Sprite[] sprites;
     public Vector3 faceOffset;
-    public Vector3 eyeOffset;
-    //public Vector3[] spriteOffsets;
-
     public Spoilage spoilage;
     public AbstractSpoilageSymptom spoilageSymptom;
     public float patience;
@@ -70,4 +68,12 @@ public class CustomerData : ScriptableObject
     /// <see cref="id"/>.
     /// </summary>
     public Tier tier = Tier.None;
+
+
+    /// <summary>
+    /// For key characters that have their own music themes,
+    /// this theme will play when the character enters.
+    /// </summary>
+    public EventReference keyMusicEvent;
+
 }

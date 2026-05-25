@@ -78,6 +78,7 @@ public sealed class IngredientBehaviour : MonoBehaviour
         if (ingredient.IsSpoiled)
         {
             Log("Food reached 100% spoilage.");
+            ingredient.SetSpoilagePercent(100f);
         }
     }
 
@@ -86,7 +87,7 @@ public sealed class IngredientBehaviour : MonoBehaviour
         Ingredient ingredient = _ingredientObject.IngredientInstance;
 
         if (ingredient == null) return;
-        if (ingredient.Data.Name == "Slop") { HideSpoilingTimer(); return; }
+        if (ingredient.Data.Name == RecipeManager.SlopResult) { HideSpoilingTimer(); return; }
 
         if (!_isOnSpoilSurface || ingredient.IsSpoiled)
         {

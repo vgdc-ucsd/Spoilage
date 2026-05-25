@@ -10,18 +10,15 @@ public class CustomerManager : Singleton<CustomerManager>
     public GameObject CustomerPrefab;
     public CustomerData[] PresetCustomerData;
     [SerializeField]
-    private Transform _customerTransform;
+    private RectTransform _customerTransform;
 
     private const string EYES_PATH = "Assets/Resources/Art/Customers/Eyes/";
     private const string MOUTH_PATH = "Assets/Resources/Art/Customers/NoseMouths/";
-    /*
-    private const string SPOILAGE_PATH = "Assets/Resources/Art/Customers/Spoilage/";
-    private const string FRONT_FOLDER = "Front/";
-    private const string BACK_FOLDER = "Back/";
-    */
     private const string BASES_PATH = "Assets/Resources/Art/Customers/Bases/";
     private const string CLOTHES_FOLDER = "/Clothes/";
     private const string HAIR_FOLDER = "/Hair/";
+
+    private const string SPOILAGE_II_PATH = "Assets/Resources/Art/Customers/Spoilage/Fully Spoiled/";
 
     private const string REGEX_NOT_META = "^(?!.*\\.meta)(?!.*reference).*";
     private const string REGEX_STATIC = "static.*$";
@@ -33,24 +30,27 @@ public class CustomerManager : Singleton<CustomerManager>
     private const string REGEX_HAIR_FRONT = "hairTop.*$";
     private const string REGEX_HAIR_BACK = "hairBottom.*$";
     private const string REGEX_HAIR_SHADOW = "hairShadow.*$";
+    private const string REGEX_SPOILAGE_BASE = "body.*$";
+    private const string REGEX_SPOILAGE_EYES = "eyes.*$";
+    private const string REGEX_SPOILAGE_TENDRILS = "tendrils.*$";
 
     private static readonly Dictionary<string, Vector3> s_faceOffsets = new()
     {
-        { "Assets/Resources/Art/Customers/Bases/Character Base #167", new Vector3(-0.12f, 0.1f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #255", new Vector3(-0.02f, 1.16f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #256", new Vector3(0.01f, -0.07f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #257", new Vector3(-0.01f, -0.74f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #258", new Vector3(0.09f, -0.66f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #259", new Vector3(-0.08f, 1.04f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #260", new Vector3(0.04f, 0.32f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #261", new Vector3(-0.11f, 0.81f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #277", new Vector3(0.03f, 1.25f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #284", new Vector3(0.06f, -0.9f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #286", new Vector3(0, 0, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #287", new Vector3(0.1f, -0.24f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #292", new Vector3(0.05f, 0.55f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #307", new Vector3(-0.25f, -0.65f, 0)},
-        { "Assets/Resources/Art/Customers/Bases/Character Base #332", new Vector3(0.16f, -0.11f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #167", new Vector3(-12f, 10f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #255", new Vector3(-2f, 116f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #256", new Vector3(1f, -7f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #257", new Vector3(-1f, -74f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #258", new Vector3(9f, -66f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #259", new Vector3(-8f, 104f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #260", new Vector3(4f, 32f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #261", new Vector3(-11f, 81f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #277", new Vector3(3f, 125f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #284", new Vector3(6f, -90f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #286", new Vector3(0f, 0f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #287", new Vector3(10f, -24f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #292", new Vector3(5f, 55f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #307", new Vector3(-25f, -65f, 0)},
+        { "Assets/Resources/Art/Customers/Bases/Character Base #332", new Vector3(16f, -11f, 0)},
     };
 
     public Customer GenerateCustomer()
@@ -60,8 +60,12 @@ public class CustomerManager : Singleton<CustomerManager>
 
     public Customer GenerateCustomer(CustomerData customerData)
     {
+        if (customerData == null)
+        {
+            customerData = GenerateCustomerData();
+        }
+
         Customer instantiatedCustomer = Instantiate(CustomerPrefab, _customerTransform).GetComponent<Customer>();
-        customerData.spoilageSymptom.customer = instantiatedCustomer.transform.gameObject;
         instantiatedCustomer.customerData = customerData;
         instantiatedCustomer.customerObject = instantiatedCustomer.gameObject;
         
@@ -74,10 +78,59 @@ public class CustomerManager : Singleton<CustomerManager>
     {
         CustomerData newData = ScriptableObject.CreateInstance<CustomerData>();
 
-        newData.spoilage = (CustomerData.Spoilage)UnityEngine.Random.Range(0, 2);
+        // Curves? Static distribution? I made the current numbers up randomly
+        float spoilageSeed = UnityEngine.Random.Range(0f, 1f);
+
+        if (spoilageSeed <= 0.7f) // 70% chance
+        {
+            newData.spoilage = CustomerData.Spoilage.UNSPOILED;
+        } 
+        else if (spoilageSeed <= .9f) // 20% chance
+        {
+            newData.spoilage = CustomerData.Spoilage.STAGE_I;
+        } 
+        else // 10% chance
+        {
+            newData.spoilage = CustomerData.Spoilage.STAGE_II;
+        }
+
+        //newData.spoilage = (CustomerData.Spoilage)UnityEngine.Random.Range(0, 2);
+
         newData.sprites = new Sprite[CustomerData.NUM_SPRITES];
         newData.patience = UnityEngine.Random.Range(0f, 1f); // TODO, talk to design
 
+
+        // Spoilage-dependent choices (sprites and symptom)
+        switch (newData.spoilage)
+        {
+            case CustomerData.Spoilage.STAGE_II:
+                AssignStageIISprites(newData);
+                break;
+                
+            case CustomerData.Spoilage.STAGE_I:
+                newData.spoilageSymptom = GenerateSymptom();
+                goto case CustomerData.Spoilage.UNSPOILED;
+
+            case CustomerData.Spoilage.UNSPOILED:
+                AssignNormalSprites(newData);
+                break;
+        }
+
+        // Customer order
+        CustomerOrderDatabase customerOrderDatabase = CustomerOrderDatabase.Instance;
+
+        int orderCount = customerOrderDatabase.PickDishCount(0.5f); // TODO: Get actual game progress.
+
+        for (int i = 0; i < orderCount; i++)
+        {
+            customerOrderDatabase.GenerateCustomerOrder(newData);
+        }
+
+        return newData;
+    }
+
+    private void AssignNormalSprites(CustomerData newData)
+    {
         string[] paths = new string[CustomerData.NUM_SPRITES];
 
         string eyesDir = getRandomElement(Directory.GetDirectories(EYES_PATH));
@@ -96,7 +149,6 @@ public class CustomerManager : Singleton<CustomerManager>
             Directory.GetFiles(eyesDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_WIDENING)).ToArray());
 
         string mouthDir = getRandomElement(Directory.GetDirectories(MOUTH_PATH));
-
         paths[(int)CustomerData.Indexes.MOUTH_OPEN] = getRandomElement(
             Directory.GetFiles(mouthDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_TALKING)).ToArray());
         paths[(int)CustomerData.Indexes.MOUTH_CLOSED] = getRandomElement(
@@ -106,19 +158,6 @@ public class CustomerManager : Singleton<CustomerManager>
         paths[(int)CustomerData.Indexes.MOUTH_DISGUST] = getRandomElement(
             Directory.GetFiles(mouthDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_DISGUST)).ToArray());
 
-        if (newData.spoilage >= CustomerData.Spoilage.STAGE_I)
-        {
-            newData.spoilageSymptom = GenerateSymptom();
-        }
-/*
-        if ((int)newData.spoilage >= (int)CustomerData.Spoilage.STAGE_I)
-        {
-            paths[(int)CustomerData.Indexes.SPOILAGE_FRONT] = getRandomElement(
-                Directory.GetFiles(SPOILAGE_PATH + FRONT_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
-            paths[(int)CustomerData.Indexes.SPOILAGE_BACK] = getRandomElement(
-                Directory.GetFiles(SPOILAGE_PATH + BACK_FOLDER).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
-        }
-*/
         string bodyDir = getRandomElement(Directory.GetDirectories(BASES_PATH));
         paths[(int)CustomerData.Indexes.BODY] = getRandomElement(
             Directory.GetFiles(bodyDir).Where(path => Regex.IsMatch(path, REGEX_NOT_META)).ToArray());
@@ -153,51 +192,62 @@ public class CustomerManager : Singleton<CustomerManager>
             {
                 // Get the second sprite of the sprite sheet
                 Sprite[] sheet = Resources.LoadAll<Sprite>(trimPath(paths[i]));
-                // Debug.Log("SPRITESHEET:");
-                // for (int j = 0; j < sheet.Length; j++)
-                // {
-                //     Debug.Log(j + ": " + sheet[j]);
-                // }
                 if (sheet != null && sheet.Length >= 2)
                 {
                     newData.sprites[i] = sheet[1];
-                    Debug.Log(newData.sprites[i]);
                 }
-                //newData.sprites[i] = sheet != null && sheet.Length >= 2 ? sheet[1] : null;
             }
             else
             {
                 newData.sprites[i] = Resources.Load<Sprite>(trimPath(paths[i]));
             }
         }
-        //s_faceOffsets.TryGetValue("test", out newData.faceOffset);
         if (s_faceOffsets.ContainsKey(bodyDir))
         {
-            //newData.faceOffset = s_faceOffsets["test"];
             newData.faceOffset = s_faceOffsets[bodyDir];
         }
         else
         {
             Debug.LogWarning("Face offset not found for body " + bodyDir);
-            newData.faceOffset = new Vector3(0, 1.75f, 0);
+            newData.faceOffset = new Vector3(0f, 175f, 0);
         }
+    }
 
-        CustomerOrderDatabase customerOrderDatabase = CustomerOrderDatabase.Instance;
+    private void AssignStageIISprites(CustomerData newData)
+    {
+        string basePath = getRandomElement(
+            Directory.GetFiles(SPOILAGE_II_PATH).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_SPOILAGE_BASE)).ToArray());
+        string eyesPath = getRandomElement(
+            Directory.GetFiles(SPOILAGE_II_PATH).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_SPOILAGE_EYES)).ToArray());
+        string tendrilsPath = getRandomElement(
+            Directory.GetFiles(SPOILAGE_II_PATH).Where(path => Regex.IsMatch(path, REGEX_NOT_META + REGEX_SPOILAGE_TENDRILS)).ToArray());
+        newData.sprites[(int)CustomerData.Indexes.BODY] = Resources.Load<Sprite>(trimPath(basePath));
+
+        Sprite[] eyeSprites = Resources.LoadAll<Sprite>(trimPath(eyesPath));
+        newData.sprites[(int)CustomerData.Indexes.EYES_OPEN] = eyeSprites[0];
+        newData.sprites[(int)CustomerData.Indexes.EYES_CLOSED] = eyeSprites[1];
+
+        Sprite[] tendrilSprites = Resources.LoadAll<Sprite>(trimPath(tendrilsPath));
+        newData.sprites[(int)CustomerData.Indexes.TENDRILS_1] = tendrilSprites[0];
+        newData.sprites[(int)CustomerData.Indexes.TENDRILS_2] = tendrilSprites[1];
 
         // Customer order
-        int orderCount = customerOrderDatabase.PickDishCount(0.5f); // TODO: Get actual game progress.
+        CustomerOrderDatabase customerOrderDatabase = CustomerOrderDatabase.Instance;
+        customerOrderDatabase.GenerateCustomerOrder(newData);
 
-        for (int i = 0; i < orderCount; i++)
-        {
-            Recipe order = customerOrderDatabase.GenerateCustomerOrder();
+        // int orderCount = customerOrderDatabase.PickDishCount(0.5f); // TODO: Get actual game progress.
 
-            if (order != null)
-            {
-                newData.orders.Add(order);
-            }
-        }
+        // for (int i = 0; i < orderCount; i++)
+        // {
+        //     Recipe order = customerOrderDatabase.GenerateCustomerOrder();
 
-        return newData;
+        //     if (order != null)
+        //     {
+        //         newData.orders.Add(order);
+        //     }
+        // }
+
+        // return newData;
     }
 
     public static AbstractSpoilageSymptom GenerateSymptom()
@@ -207,7 +257,6 @@ public class CustomerManager : Singleton<CustomerManager>
         ];
         AbstractSpoilageSymptom symptom = (AbstractSpoilageSymptom)
             ScriptableObject.CreateInstance(randomSymptomType);
-        SpoilageTriggerManager.Instance.AddSymptom(symptom);
 
         return symptom;
     }

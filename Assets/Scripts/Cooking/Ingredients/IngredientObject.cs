@@ -5,6 +5,8 @@ public class IngredientObject : MonoBehaviour
 {
     [SerializeField] private IngredientData _data;
     [SerializeField] private Image _image;
+    [SerializeField] private Image _plateImage;
+    [SerializeField] private GameObject _seasoning;
 
     public Ingredient IngredientInstance { get; private set; }
     // public float GetQualityPercent => IngredientInstance.QualityPercent;
@@ -17,19 +19,13 @@ public class IngredientObject : MonoBehaviour
 
     public bool IsSeasoned => IngredientInstance != null && IngredientInstance.IsSeasoned;
 
+    private RectTransform _rectTransform;
+
     private void Awake()
     {
-        if (_image == null)
-        {
-            _image = GetComponent<Image>();
-        }
-
-        if (_image == null)
-        {
-            _image = GetComponentInChildren<Image>();
-        }
-
+        _rectTransform = GetComponent<RectTransform>();
         IngredientInstance = new Ingredient(_data);
+        ChangeIngredient(_data);
         UpdateSprite();
     }
 
@@ -54,22 +50,6 @@ public class IngredientObject : MonoBehaviour
 
     private void UpdateSprite()
     {
-        if (_image == null)
-        {
-            _image = GetComponent<Image>();
-        }
-
-        if (_image == null)
-        {
-            _image = GetComponentInChildren<Image>();
-        }
-
-        if (_image == null)
-        {
-            Debug.LogWarning("No Image found on " + gameObject.name);
-            return;
-        }
-
         if (IngredientInstance == null || IngredientInstance.Data == null)
         {
             return;
@@ -81,15 +61,29 @@ public class IngredientObject : MonoBehaviour
         }
         else
         {
-            if(IngredientInstance.IsPlated)
-            {
-                _image.sprite = IngredientInstance.Data.PlatedSprite;
-            }
-            else
-            {
-                _image.sprite = IngredientInstance.Data.NormalSprite;
-            }
+            _image.sprite = IngredientInstance.Data.NormalSprite;
         }
+
+        if (IngredientInstance.IsPlated && IngredientInstance.Data.PlateSprite != null)
+        {
+            _plateImage.sprite = IngredientInstance.Data.PlateSprite;
+            _plateImage.enabled = true;
+        }
+        else
+        {
+            _plateImage.enabled = false;
+        }
+
+        if (IngredientInstance.Data.IsSmallIngredient)
+        {
+            _rectTransform.sizeDelta = new Vector2(100, 100);
+        }
+        else 
+        {
+            _rectTransform.sizeDelta = new Vector2(200, 200);
+        }
+
+        _seasoning.SetActive(IngredientInstance.IsSeasoned);
     }
 
     public bool SeasonIngredient()

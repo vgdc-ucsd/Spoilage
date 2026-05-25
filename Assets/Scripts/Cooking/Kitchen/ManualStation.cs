@@ -48,6 +48,11 @@ public abstract class ManualStation : CookingStation
         if (_currentFood == null || _isActionComplete)
             return;
 
+        if (this is CuttingBoard || this is Blender)
+        {
+            SpoilageTriggerManager.Trigger(SpoilageCategory.DISTRESS);
+        }
+
         _currentClicks++;
         UpdateTimer();
 

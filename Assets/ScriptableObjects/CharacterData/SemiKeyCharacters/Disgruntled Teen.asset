@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918e1c96f9fc68cc18ac2ae3792387ab, type: 3}
+  m_Name: Disgruntled Teen
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerData
+  sprites:
+  - {fileID: 21300000, guid: e3be0c67bc8607e47bf42a5c62d3ca61, type: 3}
+  - {fileID: 21300000, guid: 613f8411d8d77a34ca43353784c8cbe7, type: 3}
+  - {fileID: 4374987083770983420, guid: 2ad82730d9a30d14e9a6c893df02aee1, type: 3}
+  - {fileID: 21300000, guid: f6e6201569a14e24a8e3fb0d3452099d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: df09c37d5a0fdfc48905e4930a8314f0, type: 3}
+  - {fileID: -9061962384807958235, guid: a9eb4d0770782b54ab12ffca7efa9c1e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 79a6f11ff09db484aa391a83514a3be7, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 710a8a230b15d924998b64f15188c810, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  faceOffset: {x: 0, y: 0, z: 0}
+  eyeOffset: {x: 0, y: 0, z: 0}
+  spoilage: 0
+  spoilageSymtomp: {fileID: 0}
+  patience: 0
+  orders: []
+  id: Disgruntled Teen
+  tier: 2

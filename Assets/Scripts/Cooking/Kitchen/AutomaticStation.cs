@@ -17,6 +17,10 @@ public class AutomaticStation : CookingStation
 
     [SerializeField] private string _stationID;
 
+    // Colors for timer fill: normal (green) and overcooking (red)
+    private static readonly Color32 s_normalColor = new Color32(83, 242, 117, 255);
+    private static readonly Color32 s_overcookColor = new Color32(255, 0, 0, 255);
+
     private float _timer;
     public bool _isCooking;
     public bool _isOverCooking = false;
@@ -38,7 +42,7 @@ public class AutomaticStation : CookingStation
             return true; 
         }
         
-        if (incoming.IngredientInstance.Data.Name == "Slop")
+        if (incoming.IngredientInstance.Data.Name == RecipeManager.SlopResult)
         {
             Debug.Log($"{gameObject.name}: Cannot cook Slop.");
             return false;
@@ -122,6 +126,11 @@ public class AutomaticStation : CookingStation
 
         _isCooking = true;
 
+        if (IsTemperatureStation())
+        {
+            SpoilageTriggerManager.Trigger(SpoilageCategory.TEMPERATURE);
+        }
+
         if (_isOverCooking)
             UnlockFood(); // stay unlocked during overcook
         else
@@ -131,7 +140,7 @@ public class AutomaticStation : CookingStation
             _isOverCooking = false;
 
         if (_timerFill != null)
-            _timerFill.color = _isOverCooking ? Color.red : Color.green;
+            _timerFill.color = _isOverCooking ? s_overcookColor : s_normalColor;
 
         SetSpriteActive(true);
         ShowTimer();
@@ -187,6 +196,7 @@ public class AutomaticStation : CookingStation
         }
 
         float averageSpoilage = recipeManager.GetAverageSpoilage(_currentFoods);
+        bool usedUnspoiledFood = SpoilageTriggerManager.ContainsUnspoiledFood(_currentFoods);
 
         foreach (IngredientObject food in _currentFoods)
         {
@@ -195,7 +205,7 @@ public class AutomaticStation : CookingStation
 
         string resultName = recipeManager.CheckRecipe(_currentFoods, _station);
 
-        if (IsInvalidRecipeResult(resultName))
+        if (!RecipeManager.IsSuccessfulRecipeResult(resultName))
         {
             TurnIntoSlop();
             return;
@@ -234,6 +244,8 @@ public class AutomaticStation : CookingStation
 
         Debug.Log($"<color=green>{gameObject.name}: SUCCESS:</color> {resultData.Name}. Quality = {survivor.QualityPercent}");
 
+        SpoilageTriggerManager.TriggerIf(SpoilageCategory.DISGUST, usedUnspoiledFood);
+
         if (_canOvercook)
         {
             _timer = 0f;
@@ -241,7 +253,7 @@ public class AutomaticStation : CookingStation
             _isOverCooking = true;
             UnlockFood();
 
-            if (_timerFill != null) _timerFill.color = Color.red;
+            if (_timerFill != null) _timerFill.color = s_overcookColor;
             Debug.Log($"Overcook started. isCooking: {_isCooking}, isOvercooking: {_isOverCooking}, timer: {_timer}, overcookDuration: {_overcookDuration}");
 
             ShowTimer();
@@ -264,7 +276,7 @@ public class AutomaticStation : CookingStation
         List<IngredientObject> singleIngredient = new() { food };
         string nextResult = recipeManager.CheckRecipe(singleIngredient, _station);
 
-        if (IsInvalidRecipeResult(nextResult))
+        if (!RecipeManager.IsSuccessfulRecipeResult(nextResult))
         {
             return false;
         }
@@ -308,7 +320,7 @@ public class AutomaticStation : CookingStation
 
     private void TurnIntoSlop()
     {
-        IngredientData slop = IngredientLookup.Get("Slop");
+        IngredientData slop = IngredientLookup.Get(RecipeManager.SlopResult);
 
         if (slop == null)
         {
@@ -331,7 +343,15 @@ public class AutomaticStation : CookingStation
         StopCooking();
         SetSpriteActive(true);
 
+        SpoilageTriggerManager.Trigger(SpoilageCategory.HUNGER);
+
         Debug.Log($"{gameObject.name}: Invalid combination, turned into Slop.");
+    }
+
+    private bool IsTemperatureStation()
+    {
+        return string.Equals(_station, "Grill", System.StringComparison.OrdinalIgnoreCase)
+            || string.Equals(_station, "Pot", System.StringComparison.OrdinalIgnoreCase);
     }
 
     private void DestroyExtraIngredients()
@@ -341,13 +361,6 @@ public class AutomaticStation : CookingStation
             if (_currentFoods[i] != null)
                 Destroy(_currentFoods[i].gameObject);
         }
-    }
-
-    private bool IsInvalidRecipeResult(string resultName)
-    {
-        return string.IsNullOrEmpty(resultName)
-            || resultName == "Slop"
-            || resultName == "JSON Error";
     }
 
     private void UpdateTimer(float duration)
@@ -360,7 +373,7 @@ public class AutomaticStation : CookingStation
         float progress = _timer / duration;
         _timerFill.fillAmount = Mathf.Clamp01(1f - progress);
 
-        _timerFill.color = _isOverCooking ? Color.red : Color.green;
+        _timerFill.color = _isOverCooking ? s_overcookColor : s_normalColor;
     }
 
     private void ShowTimer()

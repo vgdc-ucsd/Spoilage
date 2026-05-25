@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918e1c96f9fc68cc18ac2ae3792387ab, type: 3}
+  m_Name: Old Man
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerData
+  sprites:
+  - {fileID: 21300000, guid: 7aef3ad0ba85cd448b1fea2dd0c116af, type: 3}
+  - {fileID: 21300000, guid: ed2edabf7f8b54f449b315faf988d63b, type: 3}
+  - {fileID: 3942523872750209940, guid: 943dd2371bca50f4fa227656986f56e7, type: 3}
+  - {fileID: 21300000, guid: cf7168a7c90d23946ad9bb8bec33ebbc, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: e50ea77c6974d2347b0bf4ce49f2c450, type: 3}
+  - {fileID: -8714420012661616323, guid: 590f1baf1b3131b46976aebaad47434b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 7e2bfc05d6024af44969247a1e10c323, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: b6b6050943f79914aa6d45f4da8a7b9b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  faceOffset: {x: 0, y: 0, z: 0}
+  eyeOffset: {x: 0, y: 0, z: 0}
+  spoilage: 0
+  spoilageSymptom: {fileID: 0}
+  patience: 0
+  orders: []
+  id: Old Man
+  tier: 2

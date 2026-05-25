@@ -24,7 +24,7 @@ public class KitchenTile : MonoBehaviour
             Debug.LogWarning($"KitchenTile '{name}': LockLayout instance not found!");
     }
 
-    public bool CanPlaceObject(string type, GameObject movingObj = null)
+    public virtual bool CanPlaceObject(string type, GameObject movingObj = null)
     {
         // Always allow re-snapping the same object
         if (movingObj != null && objectsOnTile.Contains(movingObj)) return true;
@@ -67,7 +67,7 @@ public class KitchenTile : MonoBehaviour
                 // Create a temporary list to check the recipe
                 List<IngredientObject> checkList = new List<IngredientObject> { existingFood, movingFood };
                 string result = recipeManager.CheckRecipe(checkList, _station);
-                return result != "JSON Error";
+                return result != RecipeManager.JsonErrorResult;
             }
             return false;
         }
@@ -75,7 +75,7 @@ public class KitchenTile : MonoBehaviour
         return false;
     }
 
-    public void PlaceObject(GameObject obj)
+    public virtual void PlaceObject(GameObject obj)
     {
         if (obj == null) return;
 
@@ -93,12 +93,14 @@ public class KitchenTile : MonoBehaviour
             List<IngredientObject> combo = new List<IngredientObject> { existingFood, newFood };
 
             float averageSpoilage = rm.GetAverageSpoilage(combo);
+            bool usedUnspoiledFood = SpoilageTriggerManager.ContainsUnspoiledFood(combo);
 
             string resultName = rm.CheckRecipe(combo, _station);
+            bool validRecipe = RecipeManager.IsSuccessfulRecipeResult(resultName);
 
             IngredientData resultData;
 
-            if (resultName != "Slop" && resultName != "JSON Error")
+            if (validRecipe)
             {
                 //Valid recipe
                 resultData = IngredientLookup.Get(resultName); 
@@ -127,7 +129,8 @@ public class KitchenTile : MonoBehaviour
             else
             {
                 // Invalid combo! Turn into "Slop"
-                resultData = IngredientLookup.Get("Slop");
+                resultData = IngredientLookup.Get(RecipeManager.SlopResult);
+                SpoilageTriggerManager.Trigger(SpoilageCategory.HUNGER);
                 Debug.Log("Invalid combination! Turning into Slop.");
             }
 
@@ -144,6 +147,8 @@ public class KitchenTile : MonoBehaviour
 
                 IngredientBehaviour existingBehaviour = existingFood.GetComponent<IngredientBehaviour>();
                 if (existingBehaviour != null) existingBehaviour.PutOnSpoilSurface();
+
+                SpoilageTriggerManager.TriggerIf(SpoilageCategory.DISGUST, validRecipe && usedUnspoiledFood);
 
                 return;
             }
@@ -180,7 +185,7 @@ public class KitchenTile : MonoBehaviour
         // behaviour.PlateIngredient();
     }
 
-    public void RemoveObject(GameObject obj)
+    public virtual void RemoveObject(GameObject obj)
     {
         objectsOnTile.Remove(obj);
         IngredientBehaviour behaviour = obj.GetComponent<IngredientBehaviour>();
