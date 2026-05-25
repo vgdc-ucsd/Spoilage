@@ -53,6 +53,9 @@ public class StoryManager : Singleton<StoryManager>
         player.semiKeyRefusedToday = 0;
         player.semiImportantDishesFailedToday = 0;
 
+        player.CurrentDayCustomersRefused = 0;
+        player.CurrentDayCustomersServed = 0;
+
         BuildCustomerQueue();
         Save();
     }
@@ -149,6 +152,7 @@ public class StoryManager : Singleton<StoryManager>
     {
         PlayerData player = Player;
         string id = customerData.id;
+        player.CurrentDayCustomersRefused++;
         if (!string.IsNullOrEmpty(id))
         {
             AddUnique(player.refusedCharacterIds, id);
@@ -172,6 +176,7 @@ public class StoryManager : Singleton<StoryManager>
     {
         PlayerData player = Player;
         string id = customerData.id;
+        player.CurrentDayCustomersServed++;
         if (success && !string.IsNullOrEmpty(id))
         {
             AddUnique(player.servedCharacterIds, id);

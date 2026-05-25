@@ -1,72 +1,46 @@
 using UnityEngine;
-using System.Collections.Generic;
 using TMPro;
 
 public class SummaryStats : MonoBehaviour
 {
+    private PlayerData _playerData;
+    private int _rentCost = 50; // Constant $50 according to Ethan Carter as of 5/24/2026
 
-    public List<string> incomeNames = new List<string>();
-    public List<int> incomeAmounts = new List<int>();
+    [Header("Text References")]
+    [SerializeField] private TextMeshProUGUI _dayText;
+    [SerializeField] private TextMeshProUGUI _customerServedText;
+    [SerializeField] private TextMeshProUGUI _customerRefusedText;
+    [SerializeField] private TextMeshProUGUI _revenueText;
+    [SerializeField] private TextMeshProUGUI _expensesText;
+    [SerializeField] private TextMeshProUGUI _rentText;
+    [SerializeField] private TextMeshProUGUI _profitsText;
+    [SerializeField] private TextMeshProUGUI _totalText;
 
-    public List<string> costNames = new List<string>();
-    public List<int> costAmounts = new List<int>();
-
-    // Money
-    public TextMeshProUGUI moneyText;
-    public int money;
-
-    public int customersServed;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _playerData = SaveManager.Instance.Player;
         
+        UpdateUIText();
     }
 
-    // Update is called once per frame
-    void Update()
+    void UpdateUIText()
     {
-        UpdateMoneyText();
+        _dayText.text = $"{_playerData.Day}";
+        _customerServedText.text = $"{_playerData.CurrentDayCustomersServed}";
+        _customerRefusedText.text = $"{_playerData.CurrentDayCustomersRefused}";
+
+        _revenueText.text = $"${(int)_playerData.Revenue}";
+        _expensesText.text = $"${(int)_playerData.Expenses}";
+        _rentText.text = $"${_rentCost}";
+
+        float profit = _playerData.Revenue - _playerData.Expenses - _rentCost;
+        _profitsText.text = profit >= 0 ? $"${(int)profit}" : $"-${(int)-profit}";
+
+        _totalText.text = $"${_playerData.Wealth}";
     }
 
-    void UpdateMoneyText()
+    public void NextDayButton()
     {
-        moneyText.text = "Money: $" + SaveManager.Instance.Player.Wealth;
+        Debug.Log("TODO: Load next scene");
     }
-
-    public void AddIncome(string source, int amount)
-    {
-        incomeNames.Add(source);
-        incomeAmounts.Add(amount);
-    }
-
-    public void AddCost(string source, int amount)
-    {
-        costNames.Add(source);
-        costAmounts.Add(amount);
-    }
-
-    public int GetTotalIncome()
-    {
-        int total = 0;
-        foreach (int amount in incomeAmounts)
-            total += amount;
-
-        return total;
-    }
-
-    public int GetTotalCosts()
-    {
-        int total = 0;
-        foreach (int amount in costAmounts)
-            total += amount;
-
-        return total;
-    }
-
-    public int GetNetMoney()
-    {
-        return GetTotalIncome() - GetTotalCosts();
-    }
-
 }

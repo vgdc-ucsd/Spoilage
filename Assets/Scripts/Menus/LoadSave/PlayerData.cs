@@ -69,6 +69,12 @@ public class PlayerData
     /// <summary>Reactionary character ids queued for today's customer pool.</summary>
     public List<string> pendingReactionaryIds = new List<string>();
 
+    // These are used for the end of day summary screen
+    public int CurrentDayCustomersServed;
+    public int CurrentDayCustomersRefused;
+    public float Revenue;
+    public float Expenses;
+
     public PlayerData()
     {
         // TODO: Initialize lists, setup other basic start of game configs
