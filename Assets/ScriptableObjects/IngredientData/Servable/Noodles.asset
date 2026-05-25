@@ -16,5 +16,5 @@ MonoBehaviour:
   _spoilTime: 15
   _normalSprite: {fileID: 21300000, guid: f6ef71ed3b8364b7db14b17f3d810c96, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: 8585365e4f8654cf99a7cc5b82b01397, type: 3}
-  _plateSprite: {fileID: 0}
+  _plateSprite: {fileID: 21300000, guid: 92fd3d1dd6e8b7643887753dc6adc18e, type: 3}
   _isSmallIngredient: 1

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
   m_Name: Spinach Pie
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
-  _name: Spinach Pie
+  _name: '"Spinach" Pie'
   _spoilTime: 15
   _normalSprite: {fileID: 21300000, guid: 268a6bca3119b453f9fba7fbb0bfe33c, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: 268a6bca3119b453f9fba7fbb0bfe33c, type: 3}
   _plateSprite: {fileID: 21300000, guid: 2d7ab3d8ca1fc453e9c1098b52d43df9, type: 3}
+  _isSmallIngredient: 0

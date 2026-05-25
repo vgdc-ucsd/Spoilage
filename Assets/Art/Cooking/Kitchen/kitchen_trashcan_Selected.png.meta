@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9e83aed379e874d6da99f9b14c92952b
+guid: aa231311003435f4181e93972bb48f80
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2213005881939514877
-    second: sauce_unspoiled_0
+      213: -746802734246952161
+    second: kitchen_trashcan_Selected_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,11 +46,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5, y: 0.33}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sauce_unspoiled_0
+      name: kitchen_trashcan_Selected_0
       rect:
         serializedVersion: 2
-        x: 40
-        y: 5
-        width: 118
-        height: 175
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1456
+        y: 213
+        width: 292
+        height: 133
+      alignment: 8
+      pivot: {x: 1, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30a252910e2d941e0800000000000000
-      internalID: -2213005881939514877
+      spriteID: f138be3bed2d2a5f0800000000000000
+      internalID: -746802734246952161
       vertices: []
       indices: 
       edges: []
@@ -138,8 +138,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 4b1ab80692dc21047a1c34163d76eb73
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sauce_unspoiled_0: -2213005881939514877
+      kitchen_trashcan_Selected_0: -746802734246952161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

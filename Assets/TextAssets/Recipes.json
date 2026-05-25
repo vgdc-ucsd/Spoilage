@@ -565,10 +565,10 @@
             "requiredIngredients": [
                 {
                     "name": "Dough",
-                    "id": 6
+                    "id": 0
                 },
                 {
-                    "name": "Cheese",
+                    "name": "Sliced Cheese",
                     "id": 10
                 }
             ]
@@ -635,7 +635,7 @@
             "spoiled": false,
             "servable": true,
             "reward": 27,
-            "appliance": "Grill",
+            "appliance": "Oven",
             "complexity": 1,
             "rarityWeight": 3,
             "requiredIngredients": [
