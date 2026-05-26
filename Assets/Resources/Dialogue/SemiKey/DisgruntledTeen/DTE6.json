@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Chef! I owe you my life, I can't thank you enough. Some soldiers stopped by my Ma's place, and they demanded to know if I killed that guy. Your receipt saved me and my Ma's life.",
+    "If you ever need help with anything, call on me. Redwall Street has your back.",
+    "Let's fucking celebrate! Give me some of your good shit. I can't wait to have some more of your food."
+  ],
+  "Success": [
+    "Alright, time to dig in!"
+  ],
+  "Fail": [
+    "Whoa, what's the deal, chef? Something bothering you? You're off your game."
+  ],
+  "Reject": [
+    "What?"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Hello, my child.",
+    "Mother is here for her children; Mother and her children need sustenance.",
+    "[DISH], that would suffice."
+  ],
+  "Success": [
+    "Good, good! Mother is pleased, my child."
+  ],
+  "Fail": [
+    "This filth is not fit for Mother or her children, bad child."
+  ],
+  "Reject": [
+    "You're supposed to help Mother, bad child"
+  ]
+}

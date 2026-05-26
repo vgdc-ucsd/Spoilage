@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "You seem burdened. Is everything quite alright? I am here to listen.",
+    "Oh, you must forgive me. I run confessionals downtown. I suppose the work never leaves me, hm?",
+    "I came to indulge in a [DISH], if you're willing. But please, feel free to tell me anything you like."
+  ],
+  "Success": [
+    "You are better than I. You heard my confessions without me saying a word. I am in your debt."
+  ],
+  "Fail": [
+    "Do not fear. All you can do is work to overcome your burdens by moving forward. I wish you well."
+  ],
+  "Reject": [
+    "Am I… not fit to hear people's worries? But I swore! I swore myself to being a guiding light!"
+  ]
+}

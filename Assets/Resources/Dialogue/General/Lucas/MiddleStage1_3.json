@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Fucking factories. I can't take it anymore. I thought Svetka promised we would no longer be slaves to the state!",
+    "But how come my hours are still just as shitty, and that hellscape is still just as dusty?",
+    "Fucking lungs hurt, and my skin is itching. I don't wanna die without experiencing some good food. Please make me a [DISH]."
+  ],
+  "Success": [
+    "Ah…I guess I could die happy now. It would be better than going back to the factories."
+  ],
+  "Fail": [
+    "Fuck, is there something wrong with me? I can't taste this…"
+  ],
+  "Reject": [
+    "Wait—think about this, alright? I was just…I was joking! I didn't mean to talk about Svetka like that!"
+  ]
+}

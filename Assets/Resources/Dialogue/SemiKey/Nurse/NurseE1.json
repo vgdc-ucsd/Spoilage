@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "<i>Privet</i>, honourable cook. Why the long face? Can't a nurse catch a break after a war? <i>Niet.</i>",
+    "This land is long dead, and any desire to pick at its roots rot away faster than the cruel bastards who toil in them. In this world, I am no one.",
+    "Give me [DISH] and I'll be on my way. You have people to serve, and I have men to bandage."
+  ],
+  "Success": [
+    "Oh… <i>Mama</i>… I have not tasted a meal of this…substance, since… I– I must leave– important matters– no offense."
+  ],
+  "Fail": [
+    "This meal is terrible. It is my fault for expecting anything out of this… imitation of the past. We will not see each other again. <i>Proshchaniye</i>."
+  ],
+  "Reject": [
+    "I leave my post for one moment and I– Dammit."
+  ]
+}

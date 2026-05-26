@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Kid, I came to say goodbye. I'm moving down south, a nephew has a cabin deep in the woods.",
+    "After last time, maybe I am growing too old to do all this running around every night.",
+    "You got a good head on your shoulders. Hope you can keep it there, hah.",
+    "Speaking of, need something for the road. <b>[DISH]</b> would be perfect for it."
+  ],
+  "Success": [
+    "Amazing as always. I'm gonna miss this. Got a recipe book I might be able to take home?"
+  ],
+  "Fail": [
+    "I'm gonna forget this immediately to keep my memory of you good. Goodbye, kid."
+  ],
+  "Reject": [
+    "I truly did not want it to end like this. Keep on helping people when you can, unlike today."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Bow before me, lowly chef. For it is I, the only, venerable Eve. The mystic chosen personally by God who will soon save this city.",
+    "This will be a fine establishment to make my base of operations.",
+    "Be humble, for this store will one day be a holy site remembered in history blessed by my presence.",
+    "I am quite hungry, chef, do not disappoint me."
+  ],
+  "Success": [
+    "My judgement was not wrong, this will be the new holy site for my followers. I knew God would not fail me."
+  ],
+  "Fail": [
+    "Ugh…this will not only no longer be my holy site, it will henceforth be known as an evil restaurant that attempted to scam the savior of this city!"
+  ],
+  "Reject": [
+    "You dare to reject me? You are even more of a fool than my little brother."
+  ]
+}

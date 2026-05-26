@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "I hope you're keeping well. Lately, I've been nostalgic.",
+    "I miss walking around the block and basking in the smell of caramelized street sweets. Red, sour hawthorn encased in sugar, bursting on the tongue.",
+    "I yearn for the laughter-filled street markets before the stench of violence permeated our senses. Could we ever go back?"
+  ],
+  "Success": [
+    "I want to walk around the block again someday. I want to turn the corner, and ask a hawker for hawthorn candy, and I want to eat it in the sunshine."
+  ],
+  "Fail": [
+    "We all <i>want</i>. Svetka <i>wants</i> to find a cure to Spoilage, but to do so, she relies on people like you turning them in, and stripping them for parts."
+  ],
+  "Reject": [
+    "But I will never agree with that \"messiah\" either."
+  ]
+}

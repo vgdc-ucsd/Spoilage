@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Is this the establishment? Where's that blasted servant?",
+    "No matter, this is the only place that looks sanitary.",
+    "A [DISH] please, or whatever imitation you can afford."
+  ],
+  "Success": [
+    "Adequate, surprising for someone at your station."
+  ],
+  "Fail": [
+    "What I expected, you expect a human to eat this?"
+  ],
+  "Reject": [
+    "You would reject me? Do you have any idea... Oh, forget it, you aren't worth the effort."
+  ]
+}

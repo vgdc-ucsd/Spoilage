@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Have you been tuning in lately? I haven't gotten the chance myself because I've been working with the Scarab boys on some stuff.",
+    "I still think the Messiah boy is spouting nonsense, but at least he's doing something, anything to get the people in need the help they deserve.",
+    "Hopefully, this last one is gonna be enough. I need to spread this fire within me all around town somehow, just like the good old days.",
+    "Then, I can finally rest. I'm gonna go away for a while, so I need something for the road. [DISH] will be perfect."
+  ],
+  "Success": [
+    "You got a good head on your shoulders. May the golden Scarab look fairly on us all."
+  ],
+  "Fail": [
+    "Ah, this is all wrong. No, it has to be perfect for tonight…"
+  ],
+  "Reject": [
+    "You're working for them now!? I can't get caught, not this close… I'll be using your back door."
+  ]
+}

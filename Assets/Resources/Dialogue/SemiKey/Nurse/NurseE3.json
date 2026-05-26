@@ -1,0 +1,18 @@
+{
+  "Intro": [
+    "God bless your presence in these lands. Your food warms my heart, and my excuses to indulge grow scarce. I have no reason to hide the truth… about me."
+  ],
+  "Success": [
+    "Now this… Glorious, as always. You are a legacy made incarnate. I give you my blessings."
+  ],
+  "Fail": [
+    "You have quite the whiplash, friend. I will return once your shock has rebounded."
+  ],
+  "Reject": [
+    "I can respect your loyalty to the free state, but still. Fuck you, <i>blin</i>."
+  ],
+  "Item": {
+    "Stage": "intro",
+    "ID": "Locket"
+  }
+}

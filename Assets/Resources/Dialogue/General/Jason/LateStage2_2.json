@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "...I...",
+    "Need...",
+    "[DISH]."
+  ],
+  "Success": [
+    "WRONG..."
+  ],
+  "Fail": [
+    "YES..."
+  ],
+  "Reject": [
+    "NO..."
+  ]
+}

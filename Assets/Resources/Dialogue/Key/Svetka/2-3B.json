@@ -1,0 +1,13 @@
+{
+  "Intro": [
+    "I can see why your patrons return. This meal is satisfactory.",
+    "You're awfully quiet, aren't you? Complacent and docile, happy to follow the rules, and never stray.",
+    "Hah. If I were like you, perhaps this world would be a lot different. But I should be grateful you don't make my job difficult.",
+    "Good work, chef.",
+    "I'll be sure to have the soldiers come by to eat sometime.",
+    "You've done a great service to the people of Verehn."
+  ],
+  "Success": [],
+  "Fail": [],
+  "Reject": []
+}

@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "What's good, Chef? Thinking of becoming a regular here, even told some friends about this place. Only store around that don't feel rotten to the core.",
+    "Redwall Street kids might be rough around the edges, but we know how to treat a good one right. Don't worry about us causing any trouble.",
+    "Oh right! When I told my Ma about this place, she told me how she wished she could see this place for herself, so I'm thinking of surprising her.",
+    "Got any food that's easy to eat in bed? Don't want her to worry about making any kind of mess."
+  ],
+  "Success": [
+    "Thanks, Chef! Looks like she will love this!"
+  ],
+  "Fail": [
+    "Hey, hey, Chef, what are you doing?! I can't give to my Ma. This looks like shit!"
+  ],
+  "Reject": [
+    "Really? Over takeout? You have to be fucking kidding me."
+  ]
+}

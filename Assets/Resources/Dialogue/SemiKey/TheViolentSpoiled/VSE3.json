@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "YES, YES! THE TIME HAS COME! The smell of smoke and ash, how I have missed you. Are you ready? The moment of defiance is here! WAR IS IMMINENT.",
+    "Who will emerge victorious? THE ONE WHO IS MORE WILLING TO KILL, OF COURSE! Violence is how we manifest destiny!",
+    "I cannot wait to soak my hands in blood once more. Human, prepare a feast! We shall enjoy a banquet fitting for VIOLENCE before we set out!"
+  ],
+  "Success": [
+    "DELICIOUS! HOW WONDERFUL! I AM READY FOR THE FUN! LONG HAVE WE WAITED FOR THE END!"
+  ],
+  "Fail": [
+    "WHY? WHY? WHY? WHY? WHY FAIL NOW? YOU RUINED IT! HOW COULD YOU! I WILL REMEMBER YOUR FACE WHEN THE END COMES. AND I PROMISE YOU, I WON'T FORGET."
+  ],
+  "Reject": [
+    ""
+  ]
+}

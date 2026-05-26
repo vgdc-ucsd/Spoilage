@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Excuse me. We've been getting some complaints about the smell of your establishment.",
+    "The concern is that your food is unsanitary and shouldn't be served to the public.",
+    "Well, no better time for an inspection. Show me a half-decent [DISH], and I'll get out of your hair."
+  ],
+  "Success": [
+    "I'll let you go for now, then. But I am curious about what that smell is."
+  ],
+  "Fail": [
+    "This definitely cannot be legal to serve. You'd better tighten up your act."
+  ],
+  "Reject": [
+    "I was going to let you off the hook with an informal inspection. I guess you'd prefer the works."
+  ]
+}

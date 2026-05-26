@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Greetings, friend! How are you faring on this wonderful day? I hope well. None of those… creatures… have appeared, I pray? Truly reprehensible.",
+    "Ah, I haven't introduced myself yet. I'm Erika. I've heard great things about this restaurant. Has business been good?",
+    "Oh? Forgive me for my manners! I'm afraid I am getting ahead of myself. May I order a serving of <b>[DISH]</b>?"
+  ],
+  "Success": [
+    "This is absolutely divine! I must put in a good word. I'll be sure to keep my eye on you. Thank you and have a good day, friend!"
+  ],
+  "Fail": [
+    "Well, it's certainly something…I can't say that I'm unappreciative… Thank you for the meal, friend."
+  ],
+  "Reject": [
+    "I see how it is, then. I must go."
+  ]
+}

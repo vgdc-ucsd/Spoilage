@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "I'm tired of eating rats.",
+    "The other chef ain't bad, I just want something different.",
+    "Could I get a [DISH]? It looks good."
+  ],
+  "Success": [
+    "Oh, this is so much better than that Ratcatcher's stuff."
+  ],
+  "Fail": [
+    "I miss eating rats."
+  ],
+  "Reject": [
+    "What did I even do?"
+  ]
+}

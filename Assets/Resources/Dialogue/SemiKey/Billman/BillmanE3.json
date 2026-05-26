@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "I greet you again, young one. I must say, I am literally starving for thy meals! The war has changed me so much that why, I feel like a new man!",
+    "Never in my lifespan would I enjoy such disgusting cuisine. The nation will adapt to such new techniques. I exist to taste it myself, first in line!",
+    "Why, I'm feeling adventurous today. Bring me something nice, but include some Spoilage in there. Do not worry, you can trust me. <i>I trusted you.</i>"
+  ],
+  "Success": [
+    "Ohhh. Come to daddy, little worms. I have a special place just for you."
+  ],
+  "Fail": [
+    "Well, it's the thought that counts. Thine worms will act as sustenance. Thine bread burns on the plate."
+  ],
+  "Reject": [
+    "Do people not enjoy a fine taste anymore? Has the Gourmet Age finally come to an end? My heart feels heavy. Maybe <i>I</i> need to change for this new dawn."
+  ]
+}

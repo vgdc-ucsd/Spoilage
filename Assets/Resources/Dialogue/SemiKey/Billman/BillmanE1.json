@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "<i>I have smelled these walls before. Thy paint, thy blood, thine ichor. *hic*</i>",
+    "<i>Under His breath lies the bleach in this world's ceiling, the bitter fumes that once covered the skies in red and yellow, that bright liquor. *hic*</i>",
+    "<i>What we do for the spirit's love is yet formidified, as this room has yet been covered in formaldehyde. Have we truly adapted to this brave new world?</i>",
+    "<i>I DID! It was my own volition that let me here, not the drink. I'll show it. Create thine great</i> [DISH]<i>, apron! I can choose, and so I will choose!</i>"
+  ],
+  "Success": [
+    "Oooh? <i>Hmm. Coarse, but not dry. Stingy, with a hint of foul air. Oh what…</i> taste. No. I cannot describe this with words. A thorough analysis is needed!"
+  ],
+  "Fail": [
+    "<i>Oooh? AUGH! Thy nostrils experience the war once more! It is foul. It is…</i> sour. Was this meal impossible before the War? A dour thought. Interesting."
+  ],
+  "Reject": [
+    "<i>Y- you see me with the eyes of an animal. You desire to hunt, but I am no prey. I am VICIOUS! Brought your kind to near extinction. I can do so again…</i>"
+  ]
+}

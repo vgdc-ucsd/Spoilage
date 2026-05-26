@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Could I…eat here? I'm not spoiled…that's okay? Not many are…uh, welcoming to my children or me in this city.",
+    "After Svetka took my partner, no one saw us as humans. I did not want to be trapped here. But we cannot leave. They do not let us.",
+    "Sorry, I did not mean to talk so long. Could I have [DISH]?"
+  ],
+  "Success": [
+    "Thank you, you are a kind soul."
+  ],
+  "Fail": [
+    "Thank you."
+  ],
+  "Reject": [
+    "Wait! Please! My Children! They have not eaten! I must go back!"
+  ]
+}

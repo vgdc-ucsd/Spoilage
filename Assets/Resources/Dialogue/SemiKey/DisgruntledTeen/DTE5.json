@@ -1,0 +1,18 @@
+{
+  "Intro": [
+    "Hey, chef….uh…I got into some hot shit, and I need someone to help me out.",
+    "I was walking out late yesterday, and I heard a woman scream for help in an alley. One of Svetka's lackeys was there trying to force himself onto her.",
+    "Piece of shit got violent when I tried to stop him. I was scared out of my fucking mind, my hand already on my shiv. Stabbed the guts out of him.",
+    "I need an alibi. I would handle this myself, but I'm worried they might go after Ma if I go into hiding.",
+    "Could you forge a receipt that said I was here last night? I'll pay you all I got, just give me whatever, please."
+  ],
+  "Success": [
+    "Oh, thank fuck. Thank you, Chef, thank you so much! I'm sorry for thrusting this on you, but you were the only one I could trust that wasn't from my street."
+  ],
+  "Fail": [
+    "Oh, thank fuck. Thank you, Chef, thank you so much! I'm sorry for thrusting this on you, but you were the only one I could trust that wasn't from my street."
+  ],
+  "Reject": [
+    "Please, Chef! I can't risk my Ma getting caught up in this! What was I supposed to do, just pretend I didn't see her? Walk away!? Tell me Chef!"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Oh-ho-ho, what is that delectable smell? So much heaven as this I've not felt before!",
+    "Now, if you'd strive to indulge me for a spell, I'll not accept less than your finest service at the fore.",
+    "So fetch me a [DISH], and let me see your mind at work. For there is no finer way to see the compass one follows down the road."
+  ],
+  "Success": [
+    "I see that your spirit has not yet been broken by the murk. You seek to please the many regardless of the load."
+  ],
+  "Fail": [
+    "An attempt was made, your duty you did not shirk. But I wonder, will desire alone lead you where you want to go?"
+  ],
+  "Reject": [
+    "I have to wonder. What drives you: conviction? Curiosity? Or perhaps something more…"
+  ]
+}

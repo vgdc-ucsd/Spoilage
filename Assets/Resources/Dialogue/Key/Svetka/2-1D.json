@@ -1,0 +1,28 @@
+{
+  "Intro": [
+    "Not bad for what you've got.",
+    "I respect your resourcefulness. You make do with what you have, and it's almost quality.",
+    "Restaurants like yours are expendable. We will no longer need your service.",
+    "This establishment will be closed, and you will be—",
+    "What's this?",
+    "…Baklava? You should not have given me this.",
+    "…",
+    "Baklava… it is indulgent. In a way, an antithesis of everything I've built. Sticky, sweet, messy—encased in a fragile shell built to be broken.",
+    "I spent decades in pharmacology. I executed every procedure and experiment with pinpoint accuracy.",
+    "My work is, and always has been, of logic and precision. That is how I rule Verehn.",
+    "I do not cave to pleasure, that sweet, oily sheen that coats your tongue.",
+    "The <i>Moshchny</i>—they fed themselves and their people on frivolous indulgence and sugar, making them fat and lazy with content.",
+    "This was made to be flaky, dripping. It's supposed to coat your fingers in a sticky sweet film, to be licked off with a smile.",
+    "Like an opium for the masses. Obsessive, addictive, and <i>easy</i>. Reminds those who eat of it of a softer, kinder time.",
+    "<i>Sustenance</i> is the cornerstone of our civilization, and indulgence of it, our culture. This baklava…",
+    "I forget myself.",
+    "…"
+  ],
+  "Success": [],
+  "Fail": [],
+  "Reject": [],
+  "Item": {
+    "Stage": "intro",
+    "ID": "Baklava"
+  }
+}

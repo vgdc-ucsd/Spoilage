@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Your food…wasted in unsuccess…we…distaste such carelessness.",
+    "Those who starve…go without sustenance…for days.",
+    "Yet you fail…to help…your kin. Your neglect…causes such pain.",
+    "That which spoiled…make us a dish…consisting…of that forgotten."
+  ],
+  "Success": [
+    "Acceptable…waste not…anymore."
+  ],
+  "Fail": [
+    "...you mock the starving? Watch…as this place…shall wither."
+  ],
+  "Reject": [
+    ""
+  ]
+}

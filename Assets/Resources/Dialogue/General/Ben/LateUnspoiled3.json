@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Hey! Seen any spoiled folk about the place?",
+    "It's nothing personal, but the big guys've got a sweeeet cash reward for any you bring in.",
+    "I'll stick around and see if one pops in. Get me a [DISH], wouldja?"
+  ],
+  "Success": [
+    "You could probably lure some here to catch yourself with food this good."
+  ],
+  "Fail": [
+    "Ah-HA! You're spoiled, eh? …No? Dangit!"
+  ],
+  "Reject": [
+    "Idiot! If I WERE one, I woulda turned myself in!"
+  ]
+}

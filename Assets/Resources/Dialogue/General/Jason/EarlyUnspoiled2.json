@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Yes, I get it, I'll come by later, don't worry.",
+    "Finally gone... So annoying and clingy.",
+    "Give me a [DISH]. I need some fuel to deal with that mess."
+  ],
+  "Success": [
+    "This is solid, better than what I've had at home all week!"
+  ],
+  "Fail": [
+    "You could've just told me you suck at your job. Wasting my time and money."
+  ],
+  "Reject": [
+    "No? To think I would get rejected, you must have poor taste. I'll take my business elsewhere then."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "So, it is done. The royal family is no more.",
+    "I truly wish the outcome was different, but this mess, this War. Their hands are soaked in the blood of my people, as they had to yours.",
+    "I don't know how many Moġarans remain, hell, I may even be the last. But I am glad someone remembers the meals of the Fields, should the worst happen.",
+    "Thank you, friend. How about a [DISH]? So we celebrate a new dawn. May fair Moġara rise from the yoke of Old Aijinkova."
+  ],
+  "Success": [
+    "Yes! Incredible work, young cook! Until next time."
+  ],
+  "Fail": [
+    "Ah. I understand the stress of the situation. I will return once the fire dies down."
+  ],
+  "Reject": [
+    "Oh… fuck, this is really happening. Please God, tell me if more are still out there, please…"
+  ]
+}

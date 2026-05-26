@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Hello again, friend! How has your business been? My work has had me all across Verehn recently.",
+    "I'm sure you can understand how tired you can get from being on your feet all day. Nothing like a little indulgence to bring this stressful day to a close.",
+    "If you can be a dear, friend, I am craving some <b>[DISH]</b>."
+  ],
+  "Success": [
+    "Ah, yes. Truly the best way to end the day. Thank you, friend. I'll be off now, and I'll spread the word."
+  ],
+  "Fail": [
+    "…Well… it is at least agreeable…. Thanks, friend. I'll be off now."
+  ],
+  "Reject": [
+    "Tch, what is with this sudden change of heart? I thought we were comrades, friend. It's alright. I'm sure my dear friend will have something to say."
+  ]
+}

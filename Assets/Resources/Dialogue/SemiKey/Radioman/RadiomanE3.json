@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Hello, kid. Hope you've been having a better time than I've been. Been tossing and turning all night thinking about… the past few weeks.",
+    "I sound like a greenhorn in the trenches long ago. I've seen a lot of things over the years, but that doesn't mean that I'd get over it.",
+    "I've been helping whoever I can, but would it ever be enough? I guess I've been trying to treat the wound when someone's still stabbing us, no?",
+    "Got anything to pick this old man up? Used to get <b>[DISH]</b> whenever I feel like shit."
+  ],
+  "Success": [
+    "Thanks… I needed that. I'm going to try and do more. Somehow, someway. I hope you'll do too."
+  ],
+  "Fail": [
+    "That… was not it. Thanks anyways, for entertaining me. I miss your <b>[DISH]</b>, darling…"
+  ],
+  "Reject": [
+    "I see I guessed wrong about our relationship."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Y'know, I pass this place a lot on my morning jog, but never come in.",
+    "The route by your store's actually relatively level. Makes it good for workin' out.",
+    "Ooh, I've been fixin' for a [DISH] for a while now. Cook me up one of them."
+  ],
+  "Success": [
+    "Oh yeah, that's the stuff. Hoo! Rarin' to go!"
+  ],
+  "Fail": [
+    "Ugh. Whatever you put in this, there's no way I'm eating more of it."
+  ],
+  "Reject": [
+    "Hey, easy there! I'll scram, okay? What's your problem?"
+  ]
+}

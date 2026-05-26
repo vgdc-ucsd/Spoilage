@@ -1,0 +1,19 @@
+{
+  "Monologue": [
+    "So tell me, world child; what are you? A soldier, in a line of ants? A deviant ripple in a still bog?",
+    "You call it <i>Spoilage</i>. Like piercing your thumbs into the soured, pus-filled fruit. But to eat is to love.",
+    "Let me offer you a choice. You can choose to serve her come morning, as if I had never come to darken your door.",
+    "But you know, Little Svetka always loved her sweets.",
+    "One ends her life. The other, feeds a lonely, starving girl, begging for a bite to eat. Both prey on sentimentality.",
+    "Verehn is a city of culinary goliaths. Your palate is your palette—you are no less than an artist.",
+    "Now let's see what gluttony looks like in the starved sockets of peace, what dredges are found in the sunken hollows of war.",
+    "Who knows. Maybe you might be able to save someone after all."
+  ],
+  "Success": [],
+  "Fail": [],
+  "Reject": [],
+  "Item": {
+    "Stage": "intro",
+    "ID": "Poison Dish & Childhood Dish"
+  }
+}

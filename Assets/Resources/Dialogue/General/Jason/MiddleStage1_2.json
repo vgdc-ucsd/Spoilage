@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "...What are you looking at?",
+    "Oh, you just want to know what I want?",
+    "A [DISH], that's all."
+  ],
+  "Success": [
+    "This is satisfactory, let's hope you don't fall like everyone else..."
+  ],
+  "Fail": [
+    "...No. This is miserable. Like the rest of you lot."
+  ],
+  "Reject": [
+    "Unbelievable. You know what, you're probably spoiled anyway. Yes, that must be it..."
+  ]
+}

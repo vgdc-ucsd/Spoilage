@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "THEY'RE COMING! I SAW THEM! THE SPOILED MONSTERS! Bar the doors! NOW! I can't die yet…!",
+    "This is… retribution, isn't it? Then I'll apologize! I'm sorry for abandoning you. I'm sorry for taking from you. I'm sorry for ignoring you.",
+    "For devaluing you… for disrespecting you…  for condemning you. I'm beyond saving, aren't I? Then… I'd like my final meal to be a [DISH]."
+  ],
+  "Success": [
+    "Come what may… I know I'll deserve whatever happens next."
+  ],
+  "Fail": [
+    "I never realized how little I deserved. Thank you for… helping me see that."
+  ],
+  "Reject": [
+    "Then… THEN TAKE ME, SPOILED! FLAY THIS SINFUL FLESH FROM MY BONES!"
+  ]
+}

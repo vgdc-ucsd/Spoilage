@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "What-t-t is happening in these walls? Feeling-g-g such a weight between them.",
+    "Should-d not stay here. Will-l be crushed if I do.",
+    "Alas the food. I need [DISH]."
+  ],
+  "Success": [
+    "Strength-th-th-th-th-TH…!"
+  ],
+  "Fail": [
+    "Goodbye."
+  ],
+  "Reject": [
+    "..."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Ah! Yes, greetings, you- you take food orders here, yes?",
+    "O-of course you do. Forgive me, I'm not used to this part of… town.",
+    "In any case, we don't have [DISH] where I'm from. So if it's not much trouble."
+  ],
+  "Success": [
+    "Hm? Woah! Amazing…"
+  ],
+  "Fail": [
+    "Hrk! I-It's delicious! Perfect, even! Haha…"
+  ],
+  "Reject": [
+    "Huh? Aah! I'm sorry! What'd I do?!"
+  ]
+}

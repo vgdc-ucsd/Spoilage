@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fe031e2894ced48ab558f741117953, type: 3}
+  m_Name: Potato Bapka
+  m_EditorClassIdentifier: Assembly-CSharp::IngredientData
+  _name: Potato Bapka
+  _spoilTime: 15
+  _normalSprite: {fileID: 21300000, guid: 08324979b0c5d4642a18ef6b73c42175, type: 3}
+  _spoiledSprite: {fileID: 21300000, guid: 187f0d51b282da34fadbab8ed98ca459, type: 3}
+  _plateSprite: {fileID: 21300000, guid: e2c6526b30d0a324fb25509ed0c1296f, type: 3}

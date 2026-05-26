@@ -1,0 +1,15 @@
+{
+  "Intro": [
+    "Hey there! Awfully dismal around here, no? You'd get better business in one of the central areas, I think.",
+    "But hey, you seem happy with the quiet, so maybe this is for the best. Anyways, just a [DISH] here."
+  ],
+  "Success": [
+    "Mmm, but maybe you oughta consider moving up! Not half bad!"
+  ],
+  "Fail": [
+    "Not my favorite, but… gotta make due with what you have, right?"
+  ],
+  "Reject": [
+    "Whoa, I'm sorry, I'm sorry! Didn't mean to hit a sore spot!"
+  ]
+}

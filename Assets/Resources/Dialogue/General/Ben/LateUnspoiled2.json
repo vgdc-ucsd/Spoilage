@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Hmm, interesting. 'Finally visited that restaurant next door. Smelled bad.",
+    "Pardon me. I find it easy to forget myself if I don't chronicle where I've been.",
+    "I seem to have enjoyed [DISH] once before. Care to fetch me one?"
+  ],
+  "Success": [
+    "'Dish tasted of something beautiful I can't quite recall."
+  ],
+  "Fail": [
+    "'Dish tasted of charcoal. Do not return."
+  ],
+  "Reject": [
+    "Well then. 'Visiting the restaurant was my undoing. But I'll take this pen to my grave."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "<i>Marşalla xülda</i>, I suppose this is a place to exchange food? Oh! Please forgive my lack of manners.",
+    "I come from Moġara, east of Aldok. I was meaning to find an Aijinkovan cook out west, but that cursed tyrant pushed me here in this dreaded city…",
+    "I have my doubts about any respectable chef living in a warzone, but a local tipped me to your place. I like how you decorated the place! Anyways…",
+    "I heard you acquired a Moġaran recipe book. Can you prepare a [DISH] for me? A cook such as yourself should have no trouble. I am certain of it!"
+  ],
+  "Success": [
+    "The touch, the garnish, the aroma is… acceptable. Yes, this is as close as the real deal! I give you my gratitude, young cook. See you soon."
+  ],
+  "Fail": [
+    "Oh dear… I am sorry. I may have expected too much for a street cook. I simply do not recognize what is in front of me. I must leave, if I may."
+  ],
+  "Reject": [
+    "Oh…<i>Va Dela, hinca hun du?</i>"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Hey, check me out now! 'Clean' enough for ya? Yeah, can't force me out anymore, huh?!",
+    "Wha? Oh, you're new. Sorry 'bout that. Person who used to run this place wouldn't… take too kindly to my being here.",
+    "Could treat myself to celebrate the ol' jerk's come-uppance. Ah, what the heck! Hit me with a [DISH]."
+  ],
+  "Success": [
+    "Gotta be honest, I was lookin' forward to showin' the old guy a thing or two. But… I think this is better!"
+  ],
+  "Fail": [
+    "I guess I wasn't missing much. You weirdos can keep the rich-people food to yourself."
+  ],
+  "Reject": [
+    "And what's YOUR problem with me, then? Go on! I'm listening! Am I not 'classy' enough for you either?"
+  ]
+}

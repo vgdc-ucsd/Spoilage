@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Y-you! Why're you standing like that!? What's happening? What don't I know?",
+    "Don't give me that look! You're planning something, I know!",
+    "I just want a clean, healthy [DISH]. Don't try anything, because I'll know."
+  ],
+  "Success": [
+    "Something isn't right. I'm never this wrong. Stay back!"
+  ],
+  "Fail": [
+    "Gah! It's lethal! I knew! I knew…"
+  ],
+  "Reject": [
+    "I know! I ALWAYS know! Haha, hahahaHAHAHA!"
+  ]
+}

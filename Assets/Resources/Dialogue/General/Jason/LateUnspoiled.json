@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Is this the right-t shop?",
+    "Oh-h you serve food? I guess I could use a snack.",
+    "Could I have a [DISH], thanks-s!"
+  ],
+  "Success": [
+    "Thanks-s, this is too good for me."
+  ],
+  "Fail": [
+    "...Thanks... This is...what I deserve."
+  ],
+  "Reject": [
+    "Oh... Did I do something wrong?"
+  ]
+}

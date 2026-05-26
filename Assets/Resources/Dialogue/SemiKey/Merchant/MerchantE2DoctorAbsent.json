@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "<i>Marşalla xattar</i>! I hope you seed a great fortune in these recipes. Do you love the aroma? Verehn has yet to taste the fields of Moġara, my friend…",
+    "Actually, I wish to thank a patron here, if I may. A masked doctor gave me directions to this place some time ago. Is he here now?",
+    "I heard he is trying to solve the Spoilage happening around here. God bless him, for many good people still lie in these rotten buildings!",
+    "In other news, I want to try a new recipe from Moġara, a [DISH] to be specific. I trust you are capable of making it well, young cook."
+  ],
+  "Success": [
+    "A delightful aroma. It may not be the finest, but it is distinctly Mogaran. Thank you, young cook."
+  ],
+  "Fail": [
+    "Oh dear! I hope the Spoilage clears out soon. I dread seeing my people's cooking so… butchered like this."
+  ],
+  "Reject": [
+    "Where's the doctor? Good people will never accept this kind of treatment. Let me go!"
+  ]
+}

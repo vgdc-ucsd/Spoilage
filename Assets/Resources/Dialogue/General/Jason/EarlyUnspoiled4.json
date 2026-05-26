@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Those imbeciles, sending me on an errand like this.",
+    "They think I don't know what they think of me? A LACKEY!",
+    "Get me a [DISH], and you better hurry it up."
+  ],
+  "Success": [
+    "Finally, let's hope this is good enough."
+  ],
+  "Fail": [
+    "Really? They're going to kill me if I find another shop, ugh."
+  ],
+  "Reject": [
+    "Even someone like you treats me with such disrespect, despicable."
+  ]
+}

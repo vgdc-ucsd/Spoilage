@@ -1,0 +1,18 @@
+{
+  "Intro": [
+    "How I've kept you in anticipation! My further research has led to some interesting results indeed. Listen closely, I do not wish others to overhear.",
+    "I have discovered Spoilage is not contagious and its progression can be halted if the patient is relieved of their mental turmoil. There's more but…",
+    "The answer lies within this city. Rumor is there is a pale man who is seeking something here. People speak of this Spoiled's ability to reveal truths.",
+    "However, all who share their encounter shortly disappear after. Whether this is the government's cover up or the pale man's doing I do not know.",
+    "If you were to ever meet this person, will you divulge any information to me about him? I intend to meet him myself to learn about the Spoilage."
+  ],
+  "Success": [
+    "Thank you, you are the only one I can trust with this information."
+  ],
+  "Fail": [
+    "It's getting worse…? I'm sorry, it seems my taste has been off lately."
+  ],
+  "Reject": [
+    "You fear to learn the truth? I did not take you as someone content with simple-minded ignorance, chef."
+  ]
+}

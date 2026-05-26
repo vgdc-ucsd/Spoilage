@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "And what exactly are you looking at, punk? I'm here for food. Correct me if I'm wrong, but I thought that's what these joints were for.",
+    "Now you listen to me. I'm hungry, and I ain't exactly in a waiting mood right now.",
+    "So I want your finest [DISH]. Make it snappy, and I'll be outta here 'fore you know it."
+  ],
+  "Success": [
+    "Alright, not bad! But don't go gettin' a big head, or you'll have to answer to me!"
+  ],
+  "Fail": [
+    "So what, you're servin' people garbage these days? That's low! You ain't worth my time."
+  ],
+  "Reject": [
+    "Eh, what's that? Think I'm spoiled? Now THAT'S a good one! You got guts, pal, I'll give ya that."
+  ]
+}

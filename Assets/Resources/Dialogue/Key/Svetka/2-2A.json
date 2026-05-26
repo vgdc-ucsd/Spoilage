@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Rest. I'm not here to take you away.",
+    "You have served a wide range of customers, I see.",
+    "You neither comply with the law nor do you open your heart carelessly to the rot in the street.",
+    "Perhaps it was all out of some selfishness. Serving and denying whoever you pleased, as long as it benefited you.",
+    "Or, perhaps the thought never crossed your mind. You proceeded with your operation indiscriminately, as if idly playing a game.",
+    "You've made quite a name for <i>Der Traum</i>; I've come to see you personally, to thank you for your service to the community.",
+    "But there have been reports that you have served the Spoiled. As per policy, I must terminate your permit.",
+    "Before we do that, though, I'd love to try a taste of your work.",
+    "I've heard your dishes even rival the feasts of the old aristocracy."
+  ],
+  "Success": [],
+  "Fail": [],
+  "Reject": []
+}

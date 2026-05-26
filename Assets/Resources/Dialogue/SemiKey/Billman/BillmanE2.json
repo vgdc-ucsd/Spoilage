@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Greetings, young one. I must apologize for my behavior last time we met. My bottle asks plenty from me. You <i>are</i> fond of forgiveness, yes?",
+    "As a Billman, I came to fancy restaurants to rate their high class food for the Motherland. Turns out a civil war can really spoil the mind, goodness!",
+    "Speaking of which, I am impressed with thy <b>revolutionary</b> cooking technique. Indeed, I expect the people will flock to thine own restaurant in no time!",
+    "So please, a <b>DISH</b> will do me no harm, as I have learned. I am quite blessed to taste thy cuisine once more. Truly, a post-war miracle!"
+  ],
+  "Success": [
+    "Bloody excellent! The foamy puss really adds to the experience. I am blessed to review a diner like old times. Five stars to thee!"
+  ],
+  "Fail": [
+    "So wet, so moldy! I could not ask for a finer stash of manure than this. It is truly a pleasure to analyze a unique specimen, young one."
+  ],
+  "Reject": [
+    "Ah, gentlemen. I must've missed the registration to this diner? May you point me to the direction of thy reception desk? Thank you."
+  ]
+}
