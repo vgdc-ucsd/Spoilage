@@ -4,7 +4,7 @@ public class MainMenu : MonoBehaviour
 {
     public void ClickStartGame()
     {
-        GameManager.Instance.StartGame();
+        GameManager.Instance.Load(GameScene.INTRO_CUTSCENE);
     }
 
     public void ClickSettings()
