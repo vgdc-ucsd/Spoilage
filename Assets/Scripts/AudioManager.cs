@@ -107,7 +107,10 @@ public class AudioManager : Singleton<AudioManager>
         {
             Debug.Log("Tried to play a radio track that doesn't exist!");
         }
+        _currentMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         radioMusicInstance.start();
+        _currentMusicInstance = radioMusicInstance;
+        Debug.Log($"Playing radio music for {faction}");
     }
 
     /// <summary>
@@ -146,7 +149,8 @@ public class AudioManager : Singleton<AudioManager>
 
     /// <summary>
     /// Plays one of the background music events,
-    /// these include title screen, cozy, horror, shop, and radio
+    /// these include title screen, cozy, horror, shop,credits
+    /// play radio with the PlayRadioMusic function!!!!
     /// </summary>
     /// <param name="id">Which background music entry to start playing</param>
     public void PlayMusic(string id)
