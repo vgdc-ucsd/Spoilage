@@ -78,7 +78,7 @@ public class AudioManager : Singleton<AudioManager>
                 UnityEngine.Debug.LogWarning($"Duplicate Music id found: {entry.id}");
             }
         }
-        PlayMusic("Title"); // play title screen music
+        PlayMusic("TitleMusic"); // play title screen music
     }
     
     public void Start()
@@ -87,6 +87,27 @@ public class AudioManager : Singleton<AudioManager>
         // fmod is cringe idk man but this works
         SetVolume(0.5f,masterBus);
         //printBusList();
+    }
+    /// <summary>
+    /// Only use for playing music with the radio
+    /// </summary>
+    /// <param name="faction">must be RESISTANCE or WARLORD</param>
+    public void PlayRadioMusic(string faction)
+    {
+        EventInstance radioMusicInstance = RuntimeManager.CreateInstance(_musicMap["RadioMusic"]);
+        if (faction == "RESISTANCE")
+        {
+            radioMusicInstance.setParameterByNameWithLabel("faction","RESISTANCE");
+        }
+        else if (faction == "WARLORD")
+        {
+            radioMusicInstance.setParameterByNameWithLabel("faction","WARLORD");
+        }
+        else
+        {
+            Debug.Log("Tried to play a radio track that doesn't exist!");
+        }
+        radioMusicInstance.start();
     }
 
     /// <summary>
@@ -121,11 +142,7 @@ public class AudioManager : Singleton<AudioManager>
         bus.getVolume(out volume);
         return volume;
     }
-    private float AdjustVolume(float volume)
-    {
-        float clamped = Mathf.Clamp(volume,MIN_VOLUME,MAX_VOLUME);
-        return Mathf.Pow(clamped,VOLUME_FACTOR);
-    }
+    
 
     /// <summary>
     /// Plays one of the background music events,
@@ -144,6 +161,11 @@ public class AudioManager : Singleton<AudioManager>
         newMusicInstance.start();
         _currentMusicInstance = newMusicInstance;
         Debug.Log($"Playing background music with id: {id}");
+    }
+    private float AdjustVolume(float volume)
+    {
+        float clamped = Mathf.Clamp(volume,MIN_VOLUME,MAX_VOLUME);
+        return Mathf.Pow(clamped,VOLUME_FACTOR);
     }
     
 }
