@@ -13,10 +13,14 @@ public class DialogueBubble : MonoBehaviour
 
     public void SetText(string text)
     {
-        // Insert a line break every 50 characters
-        string result = Regex.Replace(text, ".{50}", "$0" + Environment.NewLine);
-        _bubbleText.text = result;
+        // Insert a line break at the end of a word every 50 characters
+        string result = Regex.Replace(
+            text,
+            @"(.{1,50})(\s+|$)",
+            "$1" + Environment.NewLine
+        );
 
+        _bubbleText.text = result;
         _bubbleText.ForceMeshUpdate();
         LayoutRebuilder.ForceRebuildLayoutImmediate(_rt);
     }

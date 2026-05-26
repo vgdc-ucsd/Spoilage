@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
 {
+    public bool Loaded { get; private set; } = false;
+    
     //singleton hell
     private RecipeManager _recipeManager;
     private SaveManager _saveManager;
@@ -37,11 +39,15 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
     public void Start()
     {
         _recipeManager = RecipeManager.Instance;
-        _saveManager = SaveManager.Instance;
         _lineManager = CustomerLineManager.Instance;
         _resourceManager = ResourceManager.Instance;
 
-        UpdateAvailableRecipes();
+        SaveManager.OnLoad(() =>
+        {
+            _saveManager = SaveManager.Instance;
+            UpdateAvailableRecipes();
+            Loaded = true;
+        });
     }
 
     public int PickDishCount(float gameProgress)
