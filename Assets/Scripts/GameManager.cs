@@ -26,15 +26,18 @@ public class GameManager : Singleton<GameManager>
         {
             case GameScene.COOKING:
                 SceneLoader.Instance.ChangeScene("Cooking");
+                // Music handled in scene
                 break;
             case GameScene.SUMMARY:
                 SceneLoader.Instance.ChangeScene("Summary");
                 break;
             case GameScene.MAIN_MENU:
                 SceneLoader.Instance.ChangeScene("MainMenu");
+                AudioManager.Instance.PlayMusic("MainMenuMusic");
                 break;
             case GameScene.SHOP:
                 SceneLoader.Instance.ChangeScene("Shop");
+                AudioManager.Instance.PlayMusic("ShopMusic");
                 break;
             default:
                 Debug.LogError($"Scene {scene} not recognized or configured");

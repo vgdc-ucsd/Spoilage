@@ -31,7 +31,8 @@ public class SettingsButtons : MonoBehaviour
     }
     void OnValueChanged(float value)
     {
-        AudioManager.Instance.SetVolume(value);
+        /// THIS IS BAD AND WILL BREAK! FIX LATER!!!
+        AudioManager.Instance.SetVolume(value,AudioManager.Instance.masterBus);
     }
     
 }
