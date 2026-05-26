@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
   _dialoguePlayer: {fileID: 809385749681356615}
+  _dialogueFiles: {fileID: 11400000, guid: a53fba2c0aedec540aa79bed8323e296, type: 2}
 --- !u!114 &809385749681356615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,4 +65,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialoguePlayer
   _dialogueSpawnpoint: {fileID: 4517966608577863458}
   _bubblePrefab: {fileID: 8308629544837664571, guid: 990756b01b7b6db418f9b68b7177b1d7, type: 3}
-  _containerPrefab: {fileID: 988440965665330389, guid: 4c973f5bce5d79e46bbb6fdf55eb7fc6, type: 3}
