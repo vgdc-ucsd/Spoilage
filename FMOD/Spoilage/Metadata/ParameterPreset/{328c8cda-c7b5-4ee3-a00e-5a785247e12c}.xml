@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{328c8cda-c7b5-4ee3-a00e-5a785247e12c}">
+		<property name="name">
+			<value>HorrorMusicIndex</value>
+		</property>
+		<relationship name="folder">
+			<destination>{53072ec1-385f-4f96-8ba3-7daed80c9870}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{a4e4ad42-57f9-4ac1-a3e1-4e1be65c761e}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{a4e4ad42-57f9-4ac1-a3e1-4e1be65c761e}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>
