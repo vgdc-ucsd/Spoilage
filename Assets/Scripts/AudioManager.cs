@@ -81,13 +81,6 @@ public class AudioManager : Singleton<AudioManager>
         PlayMusic("TitleMusic"); // play title screen music
     }
     
-    public void Start()
-    {
-
-        // fmod is cringe idk man but this works
-        SetVolume(0.5f,masterBus);
-        //printBusList();
-    }
     /// <summary>
     /// Only use for playing music with the radio
     /// </summary>
@@ -149,7 +142,7 @@ public class AudioManager : Singleton<AudioManager>
 
     /// <summary>
     /// Plays one of the background music events,
-    /// these include title screen, cozy, horror, shop,credits
+    /// MainMenuMusic, CozyMusic, HorrorMusic, ShopMusic, CreditsMusic
     /// play radio with the PlayRadioMusic function!!!!
     /// </summary>
     /// <param name="id">Which background music entry to start playing</param>
