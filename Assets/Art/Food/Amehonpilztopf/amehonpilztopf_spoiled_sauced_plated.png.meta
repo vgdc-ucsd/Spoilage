@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 16850000a0de0eb4fa9c141e8dbb5b16
+guid: 00d87fed54b2ddc4a882d1eb782c5a73
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1199783526174053616
-    second: lotusSteakPlate_0
+      213: 3641973015126254392
+    second: amehonpilztopf_spoiled_sauced_plated_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lotusSteakPlate_0
+      name: amehonpilztopf_spoiled_sauced_plated_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 400
-        height: 400
+        x: 66
+        y: 27
+        width: 288
+        height: 295
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 01ba70b5d33895fe0800000000000000
-      internalID: -1199783526174053616
+      spriteID: 833a8284923ea8230800000000000000
+      internalID: 3641973015126254392
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      lotusSteakPlate_0: -1199783526174053616
+      amehonpilztopf_spoiled_sauced_plated_0: 3641973015126254392
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

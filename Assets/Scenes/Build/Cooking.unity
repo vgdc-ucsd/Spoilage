@@ -2433,6 +2433,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab9480d4fe6c486bb1eb0705e9c5db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SetupManager
+  _gameCanvas: {fileID: 0}
+  _startSignImage: {fileID: 0}
+  _signSprites: []
+  _flipSignAnimTime: 0.25
+  _newStationPrefab: {fileID: 0}
+  _closePopupAnimTime: 0.5
+  _stationPopupPrefabs: []
+  InstantiatedStation: {fileID: 0}
 --- !u!4 &901461949
 Transform:
   m_ObjectHideFlags: 0

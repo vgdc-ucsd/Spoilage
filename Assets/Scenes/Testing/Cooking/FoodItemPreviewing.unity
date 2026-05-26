@@ -905,6 +905,10 @@ PrefabInstance:
       propertyPath: _data
       value: 
       objectReference: {fileID: 11400000, guid: b4fe58e73d7e80847b0c5258eddf51db, type: 2}
+    - target: {fileID: 1598001263411857832, guid: a78ce359928a84d4ab36ecf427792fa3, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1703443843578801463, guid: a78ce359928a84d4ab36ecf427792fa3, type: 3}
       propertyPath: m_Name
       value: Ingredient (18)

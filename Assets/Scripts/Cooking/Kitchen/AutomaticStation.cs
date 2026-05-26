@@ -18,8 +18,8 @@ public class AutomaticStation : CookingStation
     [SerializeField] private string _stationID;
 
     // Colors for timer fill: normal (green) and overcooking (red)
-    private static readonly Color32 s_normalColor = new Color32(83, 242, 117, 255);
-    private static readonly Color32 s_overcookColor = new Color32(255, 0, 0, 255);
+    private static readonly Color32 s_normalColor = new Color32(22, 165, 31, 255);
+    private static readonly Color32 s_overcookColor = new Color32(103, 14, 14, 255);
 
     private float _timer;
     public bool _isCooking;
@@ -370,7 +370,7 @@ public class AutomaticStation : CookingStation
         }
 
         float progress = _timer / duration;
-        _timerFill.fillAmount = Mathf.Clamp01(1f - progress);
+        _timerFill.fillAmount = Mathf.Clamp01(progress);
 
         _timerFill.color = _isOverCooking ? s_overcookColor : s_normalColor;
     }

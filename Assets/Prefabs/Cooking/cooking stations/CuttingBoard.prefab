@@ -232,7 +232,7 @@ MonoBehaviour:
   _stationImage: {fileID: 1439787757170371108}
   _defaultSprite: {fileID: 21300000, guid: 643cebbca9ff0c5489727d467358ea77, type: 3}
   _activeSprite: {fileID: 21300000, guid: 643cebbca9ff0c5489727d467358ea77, type: 3}
-  _station: CuttingBoard
+  _station: Cutting Board
   maxIngredients: 1
   _clicksPerState: 3
   _timerObject: {fileID: 4616541645637064829}
@@ -305,11 +305,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9017502122832315577, guid: e59b3056009e0994bb5b0b9731871e98, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 60
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 9017502122832315577, guid: e59b3056009e0994bb5b0b9731871e98, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 9017502122832315577, guid: e59b3056009e0994bb5b0b9731871e98, type: 3}
       propertyPath: m_LocalPosition.x

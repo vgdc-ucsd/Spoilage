@@ -38,16 +38,6 @@ public class CuttingBoard : ManualStation
             return false;
         }
 
-        List<IngredientObject> check = new() { _currentFood };
-        string result = recipeManager.CheckRecipe(check, _station);
-
-        if (!RecipeManager.IsSuccessfulRecipeResult(result))
-        {
-            Debug.Log($"{gameObject.name}: Wrong ingredient for cutting board.");
-            HideManualUI();
-            return true;
-        }
-
         Debug.Log($"{gameObject.name}: Food on cutting board.");
 
         return placed;

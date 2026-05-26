@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: de0cdf2ed4a3840ba8f268f7d1494b0a
+guid: 93546a4c8e552db41929434b3e3163a1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -133132412217857179
-    second: Amehonpilztopf_spoiled_0
+      213: 5994549726714656551
+    second: Amehonpilztopf_sauce_unspoiled_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Amehonpilztopf_spoiled_0
+      name: Amehonpilztopf_sauce_unspoiled_0
       rect:
         serializedVersion: 2
         x: 77
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 56be9a5c6c4072ef0800000000000000
-      internalID: -133132412217857179
+      spriteID: 727fd39473be03350800000000000000
+      internalID: 5994549726714656551
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Amehonpilztopf_spoiled_0: -133132412217857179
+      Amehonpilztopf_sauce_unspoiled_0: 5994549726714656551
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   _name: Unsauced Amehonpilztopf
   _spoilTime: 15
-  _normalSprite: {fileID: 0}
-  _spoiledSprite: {fileID: 0}
+  _normalSprite: {fileID: 21300000, guid: f83c28715ad284a92b617319e8b3276b, type: 3}
+  _spoiledSprite: {fileID: 21300000, guid: de0cdf2ed4a3840ba8f268f7d1494b0a, type: 3}
   _plateSprite: {fileID: 21300000, guid: 60140b5f0acaa9c4f89d64be161dbbf8, type: 3}
+  _isSmallIngredient: 0

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: de0cdf2ed4a3840ba8f268f7d1494b0a
+guid: 47c9f91c3b1d7dc43a0ff0d6dffee0d8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -133132412217857179
-    second: Amehonpilztopf_spoiled_0
+      213: 5260800967602767665
+    second: manual_station_click_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Amehonpilztopf_spoiled_0
+      name: manual_station_click_0
       rect:
         serializedVersion: 2
-        x: 77
-        y: 91
-        width: 254
-        height: 231
+        x: 87
+        y: 62
+        width: 993
+        height: 1077
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 56be9a5c6c4072ef0800000000000000
-      internalID: -133132412217857179
+      spriteID: 1378efb6b9e120940800000000000000
+      internalID: 5260800967602767665
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Amehonpilztopf_spoiled_0: -133132412217857179
+      manual_station_click_0: 5260800967602767665
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 63fec9bce76860544ada0ece76886cf9
+guid: ece5a3e87e35af74a8deab39cff46afb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2742543820757588324
-    second: lotusSteak_unspoiled_0
+      213: -3538174744103287112
+    second: lotusSteakWithPlate_spoiled (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lotusSteak_unspoiled_0
+      name: lotusSteakWithPlate_spoiled (1)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 400
-        height: 400
+        x: 3
+        y: 6
+        width: 393
+        height: 394
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c962dc6fce680f9d0800000000000000
-      internalID: -2742543820757588324
+      spriteID: 8b60778f0d0e5eec0800000000000000
+      internalID: -3538174744103287112
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      lotusSteak_unspoiled_0: -2742543820757588324
+      lotusSteakWithPlate_spoiled (1)_0: -3538174744103287112
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
