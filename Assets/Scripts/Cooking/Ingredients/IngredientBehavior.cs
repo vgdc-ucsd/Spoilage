@@ -95,7 +95,7 @@ public sealed class IngredientBehaviour : MonoBehaviour
             return;
         }
 
-        float remainingPercent = 1f - ingredient.SpoilagePercent / 100f;
+        float remainingPercent = ingredient.SpoilagePercent / 100f;
         ShowSpoilingTimer(remainingPercent);
     }
 
