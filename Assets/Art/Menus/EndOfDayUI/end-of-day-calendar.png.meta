@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 410a98628effe434ba8fa8f1a34a9946
+guid: 0311029d1b8f23e409463c270d79f43b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2739995391077066411
-    second: end-of-day-mockup-ui_0
+      213: 8361668957362390451
+    second: end-of-day-calendar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: end-of-day-mockup-ui_0
+      name: end-of-day-calendar_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1920
-        height: 1081
+        width: 272
+        height: 308
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ba62b538a4b660620800000000000000
-      internalID: 2739995391077066411
+      spriteID: 3b50ffc5d9d9a0470800000000000000
+      internalID: 8361668957362390451
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      end-of-day-mockup-ui_0: 2739995391077066411
+      end-of-day-calendar_0: 8361668957362390451
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

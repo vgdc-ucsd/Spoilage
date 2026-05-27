@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 410a98628effe434ba8fa8f1a34a9946
+guid: 192e7ff06d713f046b5c277b1f412d7f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2739995391077066411
-    second: end-of-day-mockup-ui_0
+      213: 8108535394200588817
+    second: end-of-day-candle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: end-of-day-mockup-ui_0
+      name: end-of-day-candle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1081
+        x: 35
+        y: 34
+        width: 481
+        height: 545
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ba62b538a4b660620800000000000000
-      internalID: 2739995391077066411
+      spriteID: 112120ceafd478070800000000000000
+      internalID: 8108535394200588817
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      end-of-day-mockup-ui_0: 2739995391077066411
+      end-of-day-candle_0: 8108535394200588817
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
