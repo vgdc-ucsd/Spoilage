@@ -15,7 +15,19 @@ public class UpgradeItemScript : MonoBehaviour
 
     void Start()
     {
+        if (upgrade == null) return; // spawned at runtime — Initialize() will configure
         _bought = IsAlreadyOwned();
+        UpdateGUI();
+    }
+
+    /// <summary>
+    /// Called by UpgradeShopSpawner immediately after Instantiate.
+    /// Sets the upgrade and refreshes the display.
+    /// </summary>
+    public void Initialize(UpgradeData upgradeData)
+    {
+        upgrade = upgradeData;
+        _bought = false; // spawner already filtered out owned upgrades
         UpdateGUI();
     }
 

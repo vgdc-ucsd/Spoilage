@@ -2,6 +2,8 @@
 
 public class ShopManager : Singleton<ShopManager>
 {
+    [SerializeField] private UpgradeShopSpawner _upgradeSpawner;
+
     private float _wealth;
     public float Wealth
     {
@@ -21,8 +23,15 @@ public class ShopManager : Singleton<ShopManager>
     private void InitializeShop()
     {
         Wealth = SaveManager.Instance.Player.Wealth;
-        // Temporary upgrades expire at the end of each kitchen day (i.e., on shop entry)
+
+        // 1. Wipe last session's temporary upgrades so the filter below sees clean state
         UpgradeManager.ClearTemporaryUpgrades();
+
+        // 2. Spawn the three upgrade slots with available (unowned) upgrades
+        if (_upgradeSpawner != null)
+            _upgradeSpawner.SpawnUpgrades();
+        else
+            Debug.LogWarning("ShopManager: _upgradeSpawner is not assigned — no upgrade items will appear.");
     }
 
     public void LeaveShop()
