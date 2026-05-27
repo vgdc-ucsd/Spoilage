@@ -31,7 +31,12 @@ public class PlayerData
     public List<Recipe> RecipesUnlocked;
     public List<string> StationsUnlocked;
     public List<string> IngredientsUnlocked;
+    /// <summary>Permanently purchased upgrades. Never cleared.</summary>
     public List<string> Upgrades;
+    /// <summary>Temporary upgrades purchased in the shop, active for one kitchen day then cleared.</summary>
+    public List<string> TemporaryUpgrades;
+    /// <summary>Remaining instant-cook uses granted by the Cooking Instant upgrade.</summary>
+    public int InstantCookingUsesRemaining;
     // public List<NPCID> NPCs;
     // public List<PlotEventID> PlotEvents;
     // public List<StationID> KitchenLayout;
@@ -76,6 +81,8 @@ public class PlayerData
         // Reputation = 50;
         RecipesUnlocked = new();
         Upgrades = new();
+        TemporaryUpgrades = new();
+        InstantCookingUsesRemaining = 0;
 
         // Initialize StationsUnlocked and IngredientsUnlocked with the day 1 status
         StationsUnlocked = new()

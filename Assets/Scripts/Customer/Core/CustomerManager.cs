@@ -81,15 +81,21 @@ public class CustomerManager : Singleton<CustomerManager>
         // Curves? Static distribution? I made the current numbers up randomly
         float spoilageSeed = UnityEngine.Random.Range(0f, 1f);
 
-        if (spoilageSeed <= 0.7f) // 70% chance
+        // Thresholds can be shifted by Following Protocol / Breaking Protocol upgrades
+        float unspoiledThreshold = UpgradeManager.Instance != null
+            ? UpgradeManager.Instance.GetUnspoiledCustomerThreshold()
+            : 0.70f;
+        float stageIThreshold = unspoiledThreshold + 0.20f; // Stage II gets the remainder
+
+        if (spoilageSeed <= unspoiledThreshold)
         {
             newData.spoilage = CustomerData.Spoilage.UNSPOILED;
-        } 
-        else if (spoilageSeed <= .9f) // 20% chance
+        }
+        else if (spoilageSeed <= stageIThreshold)
         {
             newData.spoilage = CustomerData.Spoilage.STAGE_I;
-        } 
-        else // 10% chance
+        }
+        else
         {
             newData.spoilage = CustomerData.Spoilage.STAGE_II;
         }

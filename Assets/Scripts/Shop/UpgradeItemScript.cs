@@ -15,13 +15,32 @@ public class UpgradeItemScript : MonoBehaviour
 
     void Start()
     {
-        _bought = SaveManager.Instance.Player.Upgrades.Contains(upgrade.upgradeID);
+        _bought = IsAlreadyOwned();
         UpdateGUI();
+    }
+
+    private bool IsAlreadyOwned()
+    {
+        PlayerData p = SaveManager.Instance.Player;
+        return p.Upgrades.Contains(upgrade.upgradeID) ||
+               p.TemporaryUpgrades.Contains(upgrade.upgradeID);
+    }
+
+    private bool PrerequisitesMet()
+    {
+        if (upgrade.prerequisites == null || upgrade.prerequisites.Length == 0) return true;
+        PlayerData p = SaveManager.Instance.Player;
+        foreach (string prereqID in upgrade.prerequisites)
+        {
+            if (!p.Upgrades.Contains(prereqID) && !p.TemporaryUpgrades.Contains(prereqID))
+                return false;
+        }
+        return true;
     }
 
     private bool CanBuy()
     {
-        return !_bought && ShopManager.Instance.Wealth >= upgrade.price;
+        return !_bought && PrerequisitesMet() && ShopManager.Instance.Wealth >= upgrade.price;
     }
 
     void OnMouseDown()
@@ -29,7 +48,13 @@ public class UpgradeItemScript : MonoBehaviour
         if (!CanBuy()) return;
 
         ShopManager.Instance.Wealth -= upgrade.price;
-        SaveManager.Instance.Player.Upgrades.Add(upgrade.upgradeID);
+
+        PlayerData p = SaveManager.Instance.Player;
+        if (upgrade.isTemporary)
+            p.TemporaryUpgrades.Add(upgrade.upgradeID);
+        else
+            p.Upgrades.Add(upgrade.upgradeID);
+
         _bought = true;
         GetComponent<SpriteRenderer>().color *= Color.gray;
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
@@ -50,7 +75,7 @@ public class UpgradeItemScript : MonoBehaviour
     {
         priceField.text = "$" + upgrade.price;
         nameField.text = upgrade.upgradeName;
-        typeField.text = "- " + upgrade.upgradeType.ToString() + " -";
+        typeField.text = "- " + (upgrade.isTemporary ? "One Day" : upgrade.upgradeType.ToString()) + " -";
         imageField.sprite = upgrade.icon;
         GetComponent<SpriteRenderer>().color = upgrade.color;
         if (_bought)

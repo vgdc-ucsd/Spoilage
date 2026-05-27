@@ -517,9 +517,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveManager
   Player:
+    SaveID: 0
+    SaveName: 
     Day: 0
     Wealth: 0
     Reputation: 0
+    RecipesUnlocked: []
+    StationsUnlocked:
+    - Grill
+    IngredientsUnlocked:
+    - Dough
+    Upgrades: []
+    TemporaryUpgrades: []
+    InstantCookingUsesRemaining: 0
+    resistanceScore: 7
+    activeSetId: 
+    activeAdditionalId: 
+    refusedCharacterIds: []
+    servedCharacterIds: []
+    semiKeyRefusedToday: 0
+    semiKeyRefusedLifetime: 0
+    semiImportantDishesFailedToday: 0
+    semiImportantDishesFailedLifetime: 0
+    itemExchanges: []
+    pendingReactionaryIds: []
   Settings:
     Volume: 0.75
     Fullscreen: 0

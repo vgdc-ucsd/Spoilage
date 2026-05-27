@@ -21,6 +21,8 @@ public class ShopManager : Singleton<ShopManager>
     private void InitializeShop()
     {
         Wealth = SaveManager.Instance.Player.Wealth;
+        // Temporary upgrades expire at the end of each kitchen day (i.e., on shop entry)
+        UpgradeManager.ClearTemporaryUpgrades();
     }
 
     public void LeaveShop()

@@ -56,7 +56,7 @@ public abstract class ManualStation : CookingStation
         _currentClicks++;
         UpdateTimer();
 
-        if (_currentClicks >= _clicksPerState)
+        if (_currentClicks >= GetEffectiveClicksPerState())
         {
             _isActionComplete = true;
             FillTimer();
@@ -64,6 +64,9 @@ public abstract class ManualStation : CookingStation
             ApplyQualityBonus(_currentFood);
         }
     }
+
+    /// <summary>Override in subclasses to reduce required clicks via upgrades.</summary>
+    protected virtual int GetEffectiveClicksPerState() => _clicksPerState;
 
     protected abstract void CompleteManualAction();
 

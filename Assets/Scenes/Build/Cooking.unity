@@ -1981,6 +1981,82 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
+--- !u!1 &748735015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 748735017}
+  - component: {fileID: 748735016}
+  m_Layer: 0
+  m_Name: UpgradeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &748735016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748735015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555581b97b8848646b554045af457700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
+  _allUpgrades:
+  - {fileID: 11400000, guid: dbb9c5565ff02b94aacbe4f0a18d1946, type: 2}
+  - {fileID: 11400000, guid: 9e09651eead3692468c71e7cb3b4bb38, type: 2}
+  - {fileID: 11400000, guid: 5c079f0fb3e6ff6428b3fa2e8ad6f9ef, type: 2}
+  - {fileID: 11400000, guid: feb9cc792adbeab428bc3b78ecfe42b9, type: 2}
+  - {fileID: 11400000, guid: 509091bfc4ed4dc42ba79555d5af1891, type: 2}
+  - {fileID: 11400000, guid: 68c3762d3cd9c334d90bfe5039421287, type: 2}
+  - {fileID: 11400000, guid: 4b161116d698f7b4d9b0d47823bd7b49, type: 2}
+  - {fileID: 11400000, guid: 5cbba0729bd40f74391f0ec9c972e71a, type: 2}
+  - {fileID: 11400000, guid: c4ac3115e3d434c4794ecf1114ea7df2, type: 2}
+  - {fileID: 11400000, guid: 972c360d689c3f64f86a6220a6685f58, type: 2}
+  - {fileID: 11400000, guid: 05cc7f6ae0dfbca4995c928b83349c74, type: 2}
+  - {fileID: 11400000, guid: 032d2d781148b924d8f715bf523a9ce4, type: 2}
+  - {fileID: 11400000, guid: da0d78bdd4865cc419f69b391ba65f51, type: 2}
+  - {fileID: 11400000, guid: 7eaf5eaafd3aa8a4f89f9c27d7c8e63a, type: 2}
+  - {fileID: 11400000, guid: 064ccf74f80373846a31231cad575e4b, type: 2}
+  - {fileID: 11400000, guid: a20381368771d064aa46c3f9995d2224, type: 2}
+  - {fileID: 11400000, guid: 3acd61424c2fb434985cc8da671e73dc, type: 2}
+  - {fileID: 11400000, guid: d930d495f43ef2c48b490c7d2ebfb211, type: 2}
+  - {fileID: 11400000, guid: 465444a1095239c4198a9fb0a98d3f28, type: 2}
+  - {fileID: 11400000, guid: aad5cac7626d51c4493c73b8094fb9d4, type: 2}
+  - {fileID: 11400000, guid: 2bf8aab0eb42a7542ba0c1937c8d469b, type: 2}
+  - {fileID: 11400000, guid: da4c3d3690aeb8e4dbd19bbfb6424f81, type: 2}
+  - {fileID: 11400000, guid: 58ab220d7aa43004785ad86008a89485, type: 2}
+  - {fileID: 11400000, guid: 2a42b340ce203ba48a1bdab8f3809131, type: 2}
+  - {fileID: 11400000, guid: 4e2177979b7410740bb296dab169353b, type: 2}
+  - {fileID: 11400000, guid: 33244232fff495043819274c53d95f95, type: 2}
+  - {fileID: 11400000, guid: 91cee690c96ee584cabfa915ff9171cc, type: 2}
+  - {fileID: 11400000, guid: 974739753968a2e45a47eca675f4ad6d, type: 2}
+  - {fileID: 11400000, guid: 8d03bb0f6fc822d48af8a1150a8a18e5, type: 2}
+  - {fileID: 11400000, guid: b716681651bda4746b706bd0ddfc2d77, type: 2}
+  - {fileID: 11400000, guid: c324fa2cc5f1079459a7275d674832bf, type: 2}
+--- !u!4 &748735017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748735015}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 435.39996, y: 188.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &828986719
 GameObject:
   m_ObjectHideFlags: 0
@@ -4401,3 +4477,4 @@ SceneRoots:
   - {fileID: 98481741}
   - {fileID: 901461949}
   - {fileID: 453206217}
+  - {fileID: 748735017}

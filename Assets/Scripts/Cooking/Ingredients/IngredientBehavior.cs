@@ -72,8 +72,11 @@ public sealed class IngredientBehaviour : MonoBehaviour
         if (!_isOnSpoilSurface) return;
         if (ingredient.Data.SpoilTime <= 0f) return;
 
+        float spoilMultiplier = UpgradeManager.Instance != null
+            ? UpgradeManager.Instance.GetSpoilRateMultiplier()
+            : 1f;
         float percentPerSecond = 100f / ingredient.Data.SpoilTime;
-        ingredient.AddSpoilagePercent(percentPerSecond * Time.deltaTime);
+        ingredient.AddSpoilagePercent(percentPerSecond * spoilMultiplier * Time.deltaTime);
 
         if (ingredient.IsSpoiled)
         {

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -25,6 +25,29 @@ public class AutomaticStation : CookingStation
     public bool _isCooking;
     public bool _isOverCooking = false;
     private bool _canCook = true;
+
+    // --- Grill Quality: stacking +5% per same recipe, reset on change ---
+    private string _lastRecipeName = "";
+    private int _grillQualityStack = 0;
+    private const float GRILL_QUALITY_PER_STACK = 5f;
+
+    // --- Hotter Grill: 25% speed boost when next recipe starts within 10 s ---
+    private float _timeSinceLastFinish = float.MaxValue;
+    private bool _hotterGrillBoostActive = false;
+    private const float HOTTER_GRILL_WINDOW = 10f;
+    private const float HOTTER_GRILL_BOOST = 0.25f;
+
+    // --- Pot Quality: quality bonus based on recipe variety (last 4 recipes) ---
+    private readonly Queue<string> _recentRecipes = new();
+    private const int POT_QUALITY_HISTORY = 4;
+    private const float POT_QUALITY_MAX_BONUS = 20f;
+
+    // --- Preheat (Oven): passive preheat timer gives 25% speed boost for one recipe ---
+    private float _preheatProgress = 0f;
+    private bool _preheatReady = false;
+    private bool _preheatBoostThisRecipe = false; // latched when preheat is consumed; checked by GetEffectiveCookDuration
+    private const float PREHEAT_DURATION = 30f;
+    private const float PREHEAT_SPEED_BOOST = 0.25f;
     public override void Start()
     {
         maxIngredients = 3;
@@ -88,6 +111,23 @@ public class AutomaticStation : CookingStation
             _timer = 0f;
         }
 
+        // Hotter Grill: activate speed boost if within the restart window
+        _hotterGrillBoostActive = UpgradeManager.Instance != null
+            && UpgradeManager.Instance.HasUpgrade("hotter_grill")
+            && _station == "Grill"
+            && _timeSinceLastFinish <= HOTTER_GRILL_WINDOW;
+
+        // Preheat: latch boost flag BEFORE clearing _preheatReady so GetEffectiveCookDuration sees it
+        _preheatBoostThisRecipe = _preheatReady
+            && UpgradeManager.Instance != null
+            && UpgradeManager.Instance.HasUpgrade("preheat")
+            && _station == "Oven";
+        if (_preheatBoostThisRecipe)
+        {
+            _preheatReady = false;
+            _preheatProgress = 0f;
+        }
+
         StartCooking();
         return true;
     }
@@ -109,7 +149,23 @@ public class AutomaticStation : CookingStation
             Debug.Log($"{gameObject.name}: Cooking interrupted.");
         }
 
-        bool wasOvercooking = _isOverCooking;  
+        bool wasOvercooking = _isOverCooking;
+
+        // Oven Quality: pulling food out early rewards the player; the quality bonus
+        // follows a bell curve — peaks (+15) around the halfway point of the overcook
+        // window and returns to 0 at both ends, so full-completion still penalises.
+        if (wasOvercooking
+            && _currentFood != null
+            && UpgradeManager.Instance != null
+            && UpgradeManager.Instance.HasUpgrade("oven_quality")
+            && _station == "Oven")
+        {
+            float progress = Mathf.Clamp01(_overcookDuration > 0f ? _timer / _overcookDuration : 0f);
+            float bonus = 15f * (1f - Mathf.Abs(progress * 2f - 1f));
+            _currentFood.QualityPercent = Mathf.Clamp(_currentFood.QualityPercent + bonus, 0f, 100f);
+            Debug.Log($"{gameObject.name}: Oven Quality early removal — overcook progress {progress:P0}, bonus +{bonus:F1}. Quality = {_currentFood.QualityPercent}");
+        }
+
         StopCooking();
         _isOverCooking = wasOvercooking;
         base.OnRemoveFood();
@@ -146,23 +202,65 @@ public class AutomaticStation : CookingStation
         ShowTimer();
 
         Debug.Log($"{gameObject.name}: Started cooking {_currentFoods.Count} ingredient(s).");
+
+        // Instant Cooking: set timer to completion so Update() finishes it next tick
+        if (UpgradeManager.Instance != null && UpgradeManager.Instance.TryUseInstantCooking())
+        {
+            _timer = GetEffectiveCookDuration();
+            Debug.Log($"{gameObject.name}: Instant cook used!");
+        }
+    }
+
+    // Returns cook duration after applying Hotter Grill and Preheat boosts
+    private float GetEffectiveCookDuration()
+    {
+        float duration = _cookDuration;
+        if (_hotterGrillBoostActive)
+            duration *= (1f - HOTTER_GRILL_BOOST);
+        if (_preheatBoostThisRecipe)
+            duration *= (1f - PREHEAT_SPEED_BOOST);
+        return Mathf.Max(duration, 0.1f);
     }
 
     private void StopCooking()
     {
         _isCooking = false;
         _isOverCooking = false;
+        _preheatBoostThisRecipe = false;
         UnlockFood();
         HideTimer();
     }
 
     public virtual void Update()
     {
+        // Idle timers (run even when not cooking)
+        if (!_isCooking)
+        {
+            // Hotter Grill: track time since last recipe completion
+            if (_timeSinceLastFinish < float.MaxValue)
+                _timeSinceLastFinish += Time.deltaTime;
+
+            // Preheat: passively build up when oven is idle
+            if (!_preheatReady
+                && UpgradeManager.Instance != null
+                && UpgradeManager.Instance.HasUpgrade("preheat")
+                && _station == "Oven")
+            {
+                _preheatProgress += Time.deltaTime / PREHEAT_DURATION;
+                if (_preheatProgress >= 1f)
+                {
+                    _preheatProgress = 1f;
+                    _preheatReady = true;
+                    Debug.Log($"{gameObject.name}: Oven fully preheated.");
+                }
+            }
+        }
+
         if (!_isCooking || _currentFoods.Count == 0) return;
 
         _timer += Time.deltaTime;
 
-        float duration = _isOverCooking ? _overcookDuration : _cookDuration;
+        float duration = _isOverCooking ? _overcookDuration : GetEffectiveCookDuration();
 
         UpdateTimer(duration);
 
@@ -224,7 +322,43 @@ public class AutomaticStation : CookingStation
         IngredientObject survivor = _currentFoods[0];
         survivor.ChangeIngredient(resultData);
         survivor.QualityPercent = recipeManager.CalculateTotalQuality(_currentFoods);
+
+        // --- Station upgrade quality applications ---
+        if (UpgradeManager.Instance != null)
+        {
+            // Grill Quality: stacking +5% per same recipe repeat
+            if (UpgradeManager.Instance.HasUpgrade("grill_quality") && _station == "Grill")
+            {
+                if (resultName == _lastRecipeName) _grillQualityStack++;
+                else _grillQualityStack = 0;
+                survivor.QualityPercent += _grillQualityStack * GRILL_QUALITY_PER_STACK;
+            }
+
+            // Pot Quality: bonus based on variety in last 4 recipes
+            if (UpgradeManager.Instance.HasUpgrade("pot_quality") && _station == "Pot")
+            {
+                int uniqueCount = new System.Collections.Generic.HashSet<string>(_recentRecipes).Count;
+                float varietyFraction = _recentRecipes.Count > 0
+                    ? (float)uniqueCount / POT_QUALITY_HISTORY
+                    : 0f;
+                survivor.QualityPercent += varietyFraction * POT_QUALITY_MAX_BONUS;
+            }
+
+            // Pot Quality 2: input quality boosts output by an extra 50%
+            if (UpgradeManager.Instance.HasUpgrade("pot_quality_2") && _station == "Pot")
+            {
+                float avgInputQuality = recipeManager.CalculateTotalQuality(_currentFoods);
+                survivor.QualityPercent += avgInputQuality * 0.50f;
+            }
+        }
+
+        _lastRecipeName = resultName;
+        if (_recentRecipes.Count >= POT_QUALITY_HISTORY) _recentRecipes.Dequeue();
+        _recentRecipes.Enqueue(resultName);
+        _timeSinceLastFinish = 0f;
+
         ApplyQualityBonus(survivor);
+        survivor.QualityPercent = Mathf.Clamp(survivor.QualityPercent, 0f, 100f);
 
         if (matchedRecipe != null && matchedRecipe.spoiled)
         {
@@ -305,12 +439,12 @@ public class AutomaticStation : CookingStation
 
         if (food != null && food.IngredientInstance != null)
         {
+            // Overcook fully completed — always apply the penalty regardless of upgrades.
+            // Oven Quality only rewards *early* removal (handled in OnRemoveFood).
             food.IngredientInstance.SetOvercooked(true);
-              
             IngredientBehaviour behaviour = food.GetComponent<IngredientBehaviour>();
             if (behaviour != null)
                 behaviour.SetBurntOverlay(true);
-
             Debug.Log($"<color=red>{gameObject.name}: {food.IngredientInstance.Data.Name} is now OVERCOOKED.</color> Quality = {food.QualityPercent}");
         }
 
