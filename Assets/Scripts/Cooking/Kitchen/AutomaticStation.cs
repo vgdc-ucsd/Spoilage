@@ -224,6 +224,7 @@ public class AutomaticStation : CookingStation
         IngredientObject survivor = _currentFoods[0];
         survivor.ChangeIngredient(resultData);
         survivor.QualityPercent = recipeManager.CalculateTotalQuality(_currentFoods);
+        ApplyQualityBonus(survivor);
 
         if (matchedRecipe != null && matchedRecipe.spoiled)
         {
@@ -409,5 +410,18 @@ public class AutomaticStation : CookingStation
             FoodGrab grab = food.GetComponent<FoodGrab>();
             if (grab != null) grab.IsLocked = false;
         }
+    }
+
+    public override void ApplyUpgrade(UpgradeData upgrade)
+    {
+        if (upgrade.upgradeType == UpgradeType.SpeedBoost)
+        {
+            float reduction = Mathf.Clamp01(upgrade.value);
+            _cookDuration *= (1f - reduction);
+            Debug.Log($"{gameObject.name}: Cook duration reduced to {_cookDuration:F2}s.");
+            return;
+        }
+
+        base.ApplyUpgrade(upgrade);
     }
 }

@@ -1,6 +1,8 @@
-using UnityEngine;
+﻿using System;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class SummaryStats : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class SummaryStats : MonoBehaviour
 
     // Money
     public TextMeshProUGUI moneyText;
-    public int money;
+    public float money;
 
     public int customersServed;
     
@@ -31,7 +33,8 @@ public class SummaryStats : MonoBehaviour
 
     void UpdateMoneyText()
     {
-        moneyText.text = "Money: $" + SaveManager.Instance.Player.Wealth;
+        float updatedMoney = (float)Math.Round((double)SaveManager.Instance.Player.Wealth, 2);
+        moneyText.text = "Money: $" + updatedMoney;
     }
 
     public void AddIncome(string source, int amount)

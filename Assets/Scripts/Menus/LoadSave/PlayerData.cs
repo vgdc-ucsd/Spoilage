@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 /// <summary>
@@ -20,7 +20,7 @@ public class PlayerData
     public int SaveID;
     public string SaveName;
     public int Day;
-    public int Wealth;
+    public float Wealth;
     public int Reputation;
 
     // TODO: Handle saving other key information
@@ -31,9 +31,9 @@ public class PlayerData
     public List<Recipe> RecipesUnlocked;
     public List<string> StationsUnlocked;
     public List<string> IngredientsUnlocked;
-    // public List<UpgradeID> Upgrades; 
-    // public List<NPCID> NPCs; 
-    // public List<PlotEventID> PlotEvents; 
+    public List<string> Upgrades;
+    // public List<NPCID> NPCs;
+    // public List<PlotEventID> PlotEvents;
     // public List<StationID> KitchenLayout;
 
     /// <summary>
@@ -75,6 +75,7 @@ public class PlayerData
         // Day = 1;
         // Reputation = 50;
         RecipesUnlocked = new();
+        Upgrades = new();
 
         // Initialize StationsUnlocked and IngredientsUnlocked with the day 1 status
         StationsUnlocked = new()
