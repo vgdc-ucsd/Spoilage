@@ -9,6 +9,7 @@ public class UpgradeItemScript : MonoBehaviour
     public TextMeshPro priceField;
     public TextMeshPro nameField;
     public TextMeshPro typeField;
+    public TextMeshPro descriptionField;
     public SpriteRenderer imageField;
 
     private bool _bought = false;
@@ -88,6 +89,7 @@ public class UpgradeItemScript : MonoBehaviour
         priceField.text = "$" + upgrade.price;
         nameField.text = upgrade.upgradeName;
         typeField.text = "- " + (upgrade.isTemporary ? "One Day" : upgrade.upgradeType.ToString()) + " -";
+        if (descriptionField != null) descriptionField.text = upgrade.description;
         imageField.sprite = upgrade.icon;
         GetComponent<SpriteRenderer>().color = upgrade.color;
         if (_bought)
