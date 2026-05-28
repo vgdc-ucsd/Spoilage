@@ -124,6 +124,10 @@ public class ObjectGrab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         {
             targetTile.PlaceObject(gameObject);
             currentTile = targetTile;
+            if(gameObject == SetupManager.Instance.InstantiatedStation)
+            {
+                StartCoroutine(SetupManager.Instance.HideNewStationPopup());
+            }
             return;
         }
 

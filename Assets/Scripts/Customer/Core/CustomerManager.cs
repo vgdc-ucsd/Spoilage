@@ -102,13 +102,37 @@ public class CustomerManager : Singleton<CustomerManager>
         CustomerData newData = ScriptableObject.CreateInstance<CustomerData>();
 
         // Curves? Static distribution? I made the current numbers up randomly
+        int day = 0;
         float spoilageSeed = UnityEngine.Random.Range(0f, 1f);
+        float stage1Threshold;
+        float stage2Threshold;
 
-        if (spoilageSeed <= 0.7f) // 70% chance
+        if (SaveManager.Instance?.Player != null)
+        {
+            day = SaveManager.Instance.Player.Day;
+        }
+
+        if (day < 2) 
+        {
+            stage1Threshold = 1.0f;
+            stage2Threshold = 1.0f;
+        }
+        else if (day < 6) // Stage 1 unlocked
+        {
+            stage1Threshold = 0.7f;
+            stage2Threshold = 1.0f;
+        }
+        else // Stage 2 unlocked
+        {
+            stage1Threshold = 0.7f;
+            stage2Threshold = 0.9f;
+        }
+
+        if (spoilageSeed <= stage1Threshold)
         {
             newData.spoilage = CustomerData.Spoilage.UNSPOILED;
         }
-        else if (spoilageSeed <= .9f) // 20% chance
+        else if (spoilageSeed <= stage2Threshold)
         {
             newData.spoilage = CustomerData.Spoilage.STAGE_I;
         }

@@ -44,7 +44,7 @@ public class DialoguePlayer : MonoBehaviour
     {
         Vector3[] corners = new Vector3[4];
         _dialogueSpawnpoint.GetWorldCorners(corners);
-        Vector2 spawnBottomRight = corners[3];
+        Vector2 spawnBottomLeft = corners[0];
         
         foreach (string line in dialogue)
         {
@@ -68,8 +68,9 @@ public class DialoguePlayer : MonoBehaviour
 
                 foreach (DialogueBubble b in _bubbles)
                 {
-                    b.transform.position = new Vector2(0.0f, bubbleHeight) + spawnBottomRight;
-                    bubbleHeight += b.GetSize().y + BUBBLE_SPACING;
+                    Vector2 size = b.GetSize();
+                    b.transform.position = new Vector2(size.x, bubbleHeight) + spawnBottomLeft;
+                    bubbleHeight += size.y + BUBBLE_SPACING;
                     i++;
                 }
 
@@ -96,13 +97,15 @@ public class DialoguePlayer : MonoBehaviour
             float bubbleHeight = 0;
             foreach (DialogueBubble b in _bubbles)
             {
+                Vector2 size = b.GetSize();
+
                 if (i == 0)
                 {
-                    baseBubbleHeight += b.GetSize().y + BUBBLE_SPACING;
+                    baseBubbleHeight += size.y + BUBBLE_SPACING;
                 }
 
-                b.transform.position = new Vector2(0.0f, bubbleHeight) + spawnBottomRight + new Vector2(0f, baseBubbleHeight);
-                bubbleHeight += b.GetSize().y + BUBBLE_SPACING;
+                b.transform.position = new Vector2(size.x, bubbleHeight) + spawnBottomLeft + new Vector2(0f, baseBubbleHeight);
+                bubbleHeight += size.y + BUBBLE_SPACING;
                 i++;
             }
 

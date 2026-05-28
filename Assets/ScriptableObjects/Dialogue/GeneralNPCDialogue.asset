@@ -1,0 +1,219 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2685659694b3f444a99128fa5e7fa642, type: 3}
+  m_Name: GeneralNPCDialogue
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueRegistry
+  DialogueEntries:
+  - DialogueFile: {fileID: 4900000, guid: 52e19c4b3cb3fe745972cbfdbd97aec3, type: 3}
+    Spoilage: 1
+    Appearence: 1
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 6356386ecac3849469e49cd0845b64ea, type: 3}
+    Spoilage: 1
+    Appearence: 1
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 30c47b62c2b0e724bb58ce2fc9368404, type: 3}
+    Spoilage: 1
+    Appearence: 1
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: a8d6ee0e23b8a5943b04764d9c15e294, type: 3}
+    Spoilage: 0
+    Appearence: 1
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 1b8ad56e62b3f3447a5aed45216fb4da, type: 3}
+    Spoilage: 0
+    Appearence: 1
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 6902dc39d3323394aae96feeb6b1a50b, type: 3}
+    Spoilage: 0
+    Appearence: 1
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: cd7bfebbfdfff0243926526b9ab9d54b, type: 3}
+    Spoilage: 0
+    Appearence: 1
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 06ad3b420a6c48948a94191771948551, type: 3}
+    Spoilage: 0
+    Appearence: 1
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: d2ad1c33654660f44a27122c01360aad, type: 3}
+    Spoilage: 0
+    Appearence: 1
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 632aeff74b35a7444b57848e72ceed83, type: 3}
+    Spoilage: 0
+    Appearence: 1
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 96859e9d96a29554985797c0b6a40365, type: 3}
+    Spoilage: 0
+    Appearence: 1
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: d4b54257d472bc743bdc99419c5cc9e2, type: 3}
+    Spoilage: 0
+    Appearence: 1
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 99d20d80968c03b4eb7c92b0b34f9652, type: 3}
+    Spoilage: 0
+    Appearence: 1
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 283f5a76074f4e2428e3aa9b607c1331, type: 3}
+    Spoilage: 0
+    Appearence: 1
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 26db390e95e4a7c46aa1f03916c2d4e8, type: 3}
+    Spoilage: 0
+    Appearence: 1
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 8f241f8b4dd003f468d02d0653884311, type: 3}
+    Spoilage: 1
+    Appearence: 3
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 0a1f59c65bc3db346b127d754b9f2119, type: 3}
+    Spoilage: 1
+    Appearence: 3
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: d48e0d298745a8e49a2e558546dca44e, type: 3}
+    Spoilage: 1
+    Appearence: 3
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 05d5061575b26254d810f2722adbae62, type: 3}
+    Spoilage: 1
+    Appearence: 3
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 395a4f77ccfc15849bbd072ea9fa0b12, type: 3}
+    Spoilage: 1
+    Appearence: 3
+    Route: 1
+  - DialogueFile: {fileID: 4900000, guid: 5c979303a5fc2fe4a9beb8a9c5413b33, type: 3}
+    Spoilage: 1
+    Appearence: 3
+    Route: 2
+  - DialogueFile: {fileID: 4900000, guid: b6fc3a878d18fce43a704aa69a4d941b, type: 3}
+    Spoilage: 2
+    Appearence: 3
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 364da767fe52e6e439702082b9dce03c, type: 3}
+    Spoilage: 2
+    Appearence: 3
+    Route: 1
+  - DialogueFile: {fileID: 4900000, guid: f284e9cee3be88441945da1a063a2fea, type: 3}
+    Spoilage: 2
+    Appearence: 3
+    Route: 2
+  - DialogueFile: {fileID: 4900000, guid: 91e058cc77cc61942b4da3abdc281a5b, type: 3}
+    Spoilage: 0
+    Appearence: 3
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 0ebba79ff0d4cf541a3e326cef7f286b, type: 3}
+    Spoilage: 0
+    Appearence: 3
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 804823d2847761e45aa504c722b6a4c2, type: 3}
+    Spoilage: 0
+    Appearence: 3
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 6a4e29ba62184164381ec9e95127b5cc, type: 3}
+    Spoilage: 0
+    Appearence: 3
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 05dbbe131a08a5b42b689b0194771347, type: 3}
+    Spoilage: 0
+    Appearence: 3
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: bc8a7106fc88e41498e6ad8ac5984309, type: 3}
+    Spoilage: 0
+    Appearence: 3
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: f1d511e1891776f42abc16164d075007, type: 3}
+    Spoilage: 0
+    Appearence: 3
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 2a4bbe2d95c3af2459766b797018dddf, type: 3}
+    Spoilage: 0
+    Appearence: 3
+    Route: 1
+  - DialogueFile: {fileID: 4900000, guid: ceabdddca4b466f419714aa7cc3c423d, type: 3}
+    Spoilage: 0
+    Appearence: 3
+    Route: 1
+  - DialogueFile: {fileID: 4900000, guid: b29ccf8559e7e684f9e2ad18d5ebdb87, type: 3}
+    Spoilage: 0
+    Appearence: 3
+    Route: 1
+  - DialogueFile: {fileID: 4900000, guid: 8d69b3220d7d2404eb40eccd403976e7, type: 3}
+    Spoilage: 0
+    Appearence: 3
+    Route: 2
+  - DialogueFile: {fileID: 4900000, guid: d7fca4ddc2d343f46bf7eaebc86466bc, type: 3}
+    Spoilage: 0
+    Appearence: 0
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 2483bf1055636634fab1f683a302e410, type: 3}
+    Spoilage: 1
+    Appearence: 2
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: c2e147cb7973a024d8b42ad858a7cb3a, type: 3}
+    Spoilage: 1
+    Appearence: 2
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 941470274e4c47e47b2fe0242c099e61, type: 3}
+    Spoilage: 1
+    Appearence: 2
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 4e639c93f62b0c747b43efdd6a0c36a3, type: 3}
+    Spoilage: 1
+    Appearence: 2
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 930f027d92885b045b0261c72b543cff, type: 3}
+    Spoilage: 2
+    Appearence: 2
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: eaea7a79fca4b50498dbd533d10a8f99, type: 3}
+    Spoilage: 0
+    Appearence: 2
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 8c8904717f0584040afdcc4e7c12779d, type: 3}
+    Spoilage: 0
+    Appearence: 2
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: fabbe9e7dcf1a2649a4a487cdfa4f3f4, type: 3}
+    Spoilage: 0
+    Appearence: 2
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 056a2288baad6184ba21a04cdc6d6318, type: 3}
+    Spoilage: 0
+    Appearence: 2
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 6e474435d1265e7489a4e8e5a6880090, type: 3}
+    Spoilage: 0
+    Appearence: 2
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 71daedf0c106a5944b4fe65f7cc270ca, type: 3}
+    Spoilage: 0
+    Appearence: 2
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: f707ea8fb7c58a8439b7e278f5f5f46b, type: 3}
+    Spoilage: 0
+    Appearence: 2
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: ed8728859f0e59d45b0b0e286d7b76e9, type: 3}
+    Spoilage: 0
+    Appearence: 2
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: f9488d3824b79204288dda0dae955a49, type: 3}
+    Spoilage: 0
+    Appearence: 2
+    Route: 0
+  - DialogueFile: {fileID: 4900000, guid: 2ea892728265ff440aa60526c605f728, type: 3}
+    Spoilage: 0
+    Appearence: 2
+    Route: 0
