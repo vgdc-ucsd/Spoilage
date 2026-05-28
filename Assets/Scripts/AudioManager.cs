@@ -21,9 +21,6 @@ public class MusicEntry
 }
 
 
-
-
-
 public class AudioManager : Singleton<AudioManager>
 {
     [SerializeField] private List<SFXEntry> SFXEntries;
@@ -154,7 +151,7 @@ public class AudioManager : Singleton<AudioManager>
     /// these include title screen, cozy, horror, shop, and radio
     /// </summary>
     /// <param name="id">Which background music entry to start playing</param>
-    private void PlayMusicEntry(string id)
+    public void PlayMusicEntry(string id)
     {
         if (!musicMap.ContainsKey(id))
         {
