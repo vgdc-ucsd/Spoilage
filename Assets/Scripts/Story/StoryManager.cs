@@ -22,6 +22,9 @@ public class StoryManager : Singleton<StoryManager>
     public IReadOnlyList<CustomerData> LastCustomerQueue => _lastCustomerQueue;
     public int QueuedSlots => _customerQueue.Count;
 
+    private bool _debug_firstCharacter = true;
+    [SerializeField] CustomerData _debug_warlordData;
+
     /// <summary>
     /// Rolls run-level story choices when starting a new run.
     /// </summary>
@@ -136,6 +139,16 @@ public class StoryManager : Singleton<StoryManager>
     public bool TryDequeueCustomer(out CustomerData customerData)
     {
         customerData = null;
+
+        // for demo to force warlord character first
+        if (_debug_firstCharacter)
+        {
+            _debug_firstCharacter = false;
+            customerData = _debug_warlordData;
+            Debug.Log("DEBUG: Returning debug warlord character.");
+            return true;
+        }
+
         if (_customerQueue.Count == 0)
         {
             return false;

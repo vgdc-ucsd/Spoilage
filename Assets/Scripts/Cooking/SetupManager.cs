@@ -39,6 +39,8 @@ public class SetupManager : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance.PlayMusicEntry("KitchenLayout");
+
         // Initialize new station popup
         if(_newStationPrefab != null)
         {
@@ -56,6 +58,7 @@ public class SetupManager : MonoBehaviour
         CurrentPhase = GamePhase.Cooking;
         FoodGrab.CanMoveFood = true;
         ObjectGrab.CanMoveAppliances = false;
+        AudioManager.Instance.PlayMusicEntry("Cozy");
 
         StartCoroutine(UpdateSignSprite());
 
