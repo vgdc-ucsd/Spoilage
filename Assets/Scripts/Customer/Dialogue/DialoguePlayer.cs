@@ -29,6 +29,7 @@ public class DialoguePlayer : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        _bubbles.Clear();
     }
 
     // Ranges from half to full max wait time depending on the length of the line
@@ -68,6 +69,7 @@ public class DialoguePlayer : MonoBehaviour
 
                 foreach (DialogueBubble b in _bubbles)
                 {
+                    if (b == null) continue;
                     Vector2 size = b.GetSize();
                     b.transform.position = new Vector2(size.x, bubbleHeight) + spawnBottomLeft;
                     bubbleHeight += size.y + BUBBLE_SPACING;
@@ -97,6 +99,7 @@ public class DialoguePlayer : MonoBehaviour
             float bubbleHeight = 0;
             foreach (DialogueBubble b in _bubbles)
             {
+                if (b == null) continue;
                 Vector2 size = b.GetSize();
 
                 if (i == 0)
@@ -109,7 +112,10 @@ public class DialoguePlayer : MonoBehaviour
                 i++;
             }
 
-            _bubbles.Last.Value.FadeOut(FADE_TIME);
+            if (_bubbles.Last != null && _bubbles.Last.Value != null)
+            {
+                _bubbles.Last.Value.FadeOut(FADE_TIME);
+            }
             _bubbles.RemoveLast();
             yield return new WaitForSeconds(MAX_BUBBLE_WAIT_SECONDS / 4.0f);
         }

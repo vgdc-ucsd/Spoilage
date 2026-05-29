@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.InputSystem;
 
 public class IntroCutsceneManager : MonoBehaviour
 {
@@ -17,6 +18,14 @@ public class IntroCutsceneManager : MonoBehaviour
         {
             OnVideoEnd();
         }
+#if UNITY_EDITOR
+        // Skip cutscene in editor for faster testing
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            Debug.Log("Skipping cutscene...");
+            OnVideoEnd();
+        }
+#endif
     }
 
     void OnVideoEnd()

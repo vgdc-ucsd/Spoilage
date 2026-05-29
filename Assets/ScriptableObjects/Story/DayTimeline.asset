@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a486e35af4b478cafffd270c4435a4, type: 3}
   m_Name: DayTimeline
   m_EditorClassIdentifier: Assembly-CSharp::DayTimeline
-  days: []
+  days:
+  - day: 0
+    beginInteraction: {fileID: 11400000, guid: c1e58d0cd3e07014eb3261527cc3c7fb, type: 2}
+    endInteraction: {fileID: 0}
+    semiKeys: []
+    semiKeyPairs: []

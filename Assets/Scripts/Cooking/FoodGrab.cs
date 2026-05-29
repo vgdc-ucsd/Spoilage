@@ -121,7 +121,7 @@ public class FoodGrab : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
        if (foodCanvas == null)
            foodCanvas = gameObject.AddComponent<Canvas>();
        foodCanvas.overrideSorting = true;
-       foodCanvas.sortingOrder = 100;
+       foodCanvas.sortingOrder = 105;
       
        if (GetComponent<UnityEngine.UI.GraphicRaycaster>() == null)
            gameObject.AddComponent<UnityEngine.UI.GraphicRaycaster>();
