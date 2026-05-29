@@ -7,6 +7,8 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
     public Customer CurrentCustomer;
     
     public UnityEvent PlateSubmitted;
+
+    [SerializeField] private CustomerData _debug_warlordData;
     
     // TODO: Demo wiring, remove
     private bool _dayStarted;
@@ -14,9 +16,14 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
     public void CallBellPressed()
     {
         // TODO: Demo wiring, remove
-        StartDay();
-
-        CheckOrder();
+        if (!_dayStarted)
+        {
+            StartDay();
+        }
+        else
+        {
+            CheckOrder();
+        }
     }
 
     public void Advance()
@@ -29,14 +36,20 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
         //sends a signal to the serving station to begin submission process
         //the actual order submission logic is in CustomerOrderDatabase
         //i <3 spaghetti code
+
+        if (CurrentCustomer.customerData.orders.Count == 0)
+        {
+            Debug.LogWarning("Current customer has no orders! Skipping order check.");
+            Advance();
+            return;
+        }
+
         PlateSubmitted.Invoke();
     }
 
     // TODO: Demo wiring, remove
     private void StartDay()
     {
-        if (_dayStarted) return;
-
         StartCoroutine(LoadNextCustomerAnimation());
 
         StoryManager.Instance.InitRun();
@@ -63,6 +76,18 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
         CurrentCustomer = GenerateCustomer();
 
         // TODO - customer slides in from left side
+
+        CustomerDialogue dialogue;
+        if (CurrentCustomer.customerData == _debug_warlordData)
+        {
+            Debug.Log("DEBUG: Loading warlord dialogue.");
+            dialogue = DialogueManager.Instance.DEBUGLoadWarlordDialogue();
+        }
+        else
+        {
+            dialogue = DialogueManager.Instance.SelectGeneralDialogue(CurrentCustomer.customerData);
+        }
+        DialogueManager.Instance.PlayDialogue(dialogue.Intro, null);
 
         yield return null;
     }

@@ -79,11 +79,21 @@ public class PlayerData
         // Initialize StationsUnlocked and IngredientsUnlocked with the day 1 status
         StationsUnlocked = new()
         {
+            "Kitchen Tile",
             "Grill",
+            "Cutting Board",
+            "Pot",
+            "Blender",
+            "Oven"
         };
         IngredientsUnlocked = new()
         {
-            "Dough"
+            "Dough",
+            "Meat",
+            "Potatoes",
+            "Root Vegetables",
+            "Cheese",
+            "Sauce"
         };
     }
 }

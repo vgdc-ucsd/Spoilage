@@ -1408,9 +1408,19 @@ MonoBehaviour:
     Reputation: 0
     RecipesUnlocked: []
     StationsUnlocked:
+    - Kitchen Tile
     - Grill
+    - Cutting Board
+    - Pot
+    - Blender
+    - Oven
     IngredientsUnlocked:
     - Dough
+    - Meat
+    - Potatoes
+    - Root Vegetables
+    - Cheese
+    - Sauce
     resistanceScore: 7
     activeSetId: 
     activeAdditionalId: 

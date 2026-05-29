@@ -169,7 +169,7 @@ public class KitchenTile : MonoBehaviour
             if (foodCanvas == null)
                 foodCanvas = obj.AddComponent<Canvas>();
             foodCanvas.overrideSorting = true;
-            foodCanvas.sortingOrder = 10;
+            foodCanvas.sortingOrder = 100;
 
             if (obj.GetComponent<UnityEngine.UI.GraphicRaycaster>() == null)
             obj.AddComponent<UnityEngine.UI.GraphicRaycaster>();

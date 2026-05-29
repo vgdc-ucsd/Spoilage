@@ -6,7 +6,8 @@ public enum GameScene
     COOKING,
     SUMMARY,
     MAIN_MENU,
-    SHOP
+    SHOP,
+    INTRO_CUTSCENE,
 }
 
 public class GameManager : Singleton<GameManager>
@@ -35,6 +36,9 @@ public class GameManager : Singleton<GameManager>
                 break;
             case GameScene.SHOP:
                 SceneLoader.Instance.ChangeScene("Shop");
+                break;
+            case GameScene.INTRO_CUTSCENE:
+                SceneLoader.Instance.ChangeScene("IntroCutscene");
                 break;
             default:
                 Debug.LogError($"Scene {scene} not recognized or configured");

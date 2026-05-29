@@ -8,6 +8,7 @@ public class DialogueManager : Singleton<DialogueManager>
 {
     [SerializeField] private DialoguePlayer _dialoguePlayer;
     [SerializeField] private DialogueRegistry _dialogueFiles;
+    [SerializeField] private DialogueRegistry _debug_warlordDialogueFiles;
 
     public void PlayDialogue(List<string> dialogue, Action callback)
     {
@@ -18,6 +19,13 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         TextAsset dialogueFile = Resources.Load<TextAsset>(filePath);
         return JsonUtility.FromJson<CustomerDialogue>(dialogueFile.text);
+    }
+
+    public CustomerDialogue DEBUGLoadWarlordDialogue()
+    {
+        CustomerDialogue dialogue = JsonUtility.FromJson<CustomerDialogue>(_debug_warlordDialogueFiles.DialogueEntries[0].DialogueFile.text);
+        Debug.Log(dialogue);
+        return dialogue;
     }
 
     public CustomerDialogue SelectGeneralDialogue(CustomerData data)

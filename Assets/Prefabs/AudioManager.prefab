@@ -398,5 +398,13 @@ MonoBehaviour:
         Data3: -1689475926
         Data4: -1745083328
       Path: event:/KitchenLayoutMusic
+  - id: IntroCutscene
+    eventReference:
+      Guid:
+        Data1: 974229388
+        Data2: 1139655568
+        Data3: 142294961
+        Data4: 1416530668
+      Path: event:/IntroCutsceneMusic
   busListOk: 0
   sysemIsOk: 0
