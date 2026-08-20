@@ -12,7 +12,7 @@ public class DisplayObject : MonoBehaviour
     private int _numIngredients;
     public GameObject orderDisplayPrefab;
     private GameObject _orderObject;
-    private Item _order;
+    private Order _order;
     private int _orderCostLength;
     private int _orderNameLength;
 
@@ -20,7 +20,7 @@ public class DisplayObject : MonoBehaviour
     void Start()
     {
     _orderObject = GameObject.FindGameObjectWithTag("Order");
-    _order = _orderObject.GetComponent<Item>();
+    _order = _orderObject.GetComponent<Order>();
     }
 
     // Update is called once per frame

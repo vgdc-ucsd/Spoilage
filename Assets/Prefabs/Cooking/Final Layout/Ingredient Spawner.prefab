@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6665940767015476592}
-  - component: {fileID: 9012525316589607279}
+  - component: {fileID: 6527733726289834011}
   m_Layer: 5
   m_Name: Ingredient Spawner
   m_TagString: Untagged
@@ -112,7 +112,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 132, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &9012525316589607279
+--- !u!114 &6527733726289834011
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,9 +121,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3287886171193822335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a3c7c05313b5684da5a5e518759487d, type: 3}
+  m_Script: {fileID: 11500000, guid: dfa7d19ab8b8aff43815d6f604069ae6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FoodSpawner
-  _foodPrefab: {fileID: 1703443843578801463, guid: a78ce359928a84d4ab36ecf427792fa3, type: 3}
-  _spawnPoint: {fileID: 2074188264699072363}
-  _spawnFoodOnStart: 1
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnerTileUI
+  _ingredient: {fileID: 0}
+  _tileImage: {fileID: 8303146964773972599}

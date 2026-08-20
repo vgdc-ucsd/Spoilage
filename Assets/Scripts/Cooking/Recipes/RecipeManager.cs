@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -64,21 +62,17 @@ public class RecipeManager : Singleton<RecipeManager>
         }
     }
 
-    public string CheckRecipe(List<IngredientObject> ingredients, string station = "")
+    public IngredientData LookupResult(List<Food> ingredients, Station station)
     {
-        Debug.Log($"Recipe Manager: Starting check for {ingredients.Count} items.");
-
-        if (allRecipes == null || allRecipes.allRecipes == null)
-        {
-            return JsonErrorResult;
-        }
-
         List<Recipe> matchingRecipes = new List<Recipe>();
 
         foreach (Recipe recipe in allRecipes.allRecipes)
         {
-            if (!string.IsNullOrEmpty(station) && recipe.appliance != station)
-            continue;
+            if (station == null)
+            {
+                if (recipe.appliance != "Kitchen Tile") continue;
+            }
+            else if (station.Data.StationName != recipe.appliance) continue;
             
             if (IsMatch(recipe, ingredients))
             {
@@ -88,19 +82,19 @@ public class RecipeManager : Singleton<RecipeManager>
 
         if (matchingRecipes.Count == 0)
         {
-            return SlopResult;
+            return IngredientLookup.Get(SlopResult);
         }
         else if (matchingRecipes.Count == 1)
         {
-            return matchingRecipes[0].name;
+            return IngredientLookup.Get(matchingRecipes[0].name);
         }
         else
         {
-            return DisambiguateRecipe(matchingRecipes, ingredients);
+            return IngredientLookup.Get(DisambiguateRecipe(matchingRecipes, ingredients));
         }
     }
 
-    private string DisambiguateRecipe(List<Recipe> matchingRecipes, List<IngredientObject> ingredients)
+    private string DisambiguateRecipe(List<Recipe> matchingRecipes, List<Food> ingredients)
     {
         // there can only be two possible recipes with the same ingredients; one spoiled, one not spoiled
         // if both exist, first check if all ingredients are spoiled, if so return the spoiled recipe
@@ -109,11 +103,11 @@ public class RecipeManager : Singleton<RecipeManager>
         Recipe spoiledRecipe = matchingRecipes.Find(r => r.spoiled);
         Recipe unspoiledRecipe = matchingRecipes.Find(r => !r.spoiled);
 
-        foreach (IngredientObject ingredient in ingredients)
+        foreach (Food ingredient in ingredients)
         {
-            if (ingredient == null || ingredient.IngredientInstance == null) continue;
+            if (ingredient == null) continue;
 
-            if (!ingredient.IngredientInstance.IsSpoiled)
+            if (!ingredient.IsSpoiled)
             {
                 return unspoiledRecipe != null ? unspoiledRecipe.name : SlopResult;
             }
@@ -130,7 +124,7 @@ public class RecipeManager : Singleton<RecipeManager>
             && resultName != JsonErrorResult;
     }
 
-    private bool IsMatch(Recipe recipe, List<IngredientObject> plateIngredients)
+    private bool IsMatch(Recipe recipe, List<Food> plateIngredients)
     {
         if (recipe == null || plateIngredients == null) return false;
         if (recipe.requiredIngredients.Length != plateIngredients.Count) return false;
@@ -142,16 +136,16 @@ public class RecipeManager : Singleton<RecipeManager>
             remainingRequirements.Add(req.name.Trim().ToLower());
         }
 
-        foreach (IngredientObject food in plateIngredients)
+        foreach (Food food in plateIngredients)
         {
-            if (food == null || food.IngredientInstance == null) continue;
+            if (food == null) continue;
 
-            string baseName = food.IngredientInstance.Data.Name.Trim().ToLower();
+            string baseName = food.Data.Name.Trim().ToLower();
 
             if (remainingRequirements.Contains(baseName))
             {
                 //stage 2 logic
-                if (recipe.spoiled && !food.IngredientInstance.IsSpoiled)
+                if (recipe.spoiled && !food.IsSpoiled)
                 {
                     return false; 
                 }
@@ -166,33 +160,5 @@ public class RecipeManager : Singleton<RecipeManager>
         }
 
         return remainingRequirements.Count == 0;
-    }
-
-    public float CalculateTotalQuality(List<IngredientObject> plateIngredients)
-    {
-        float totalQualityPercentage = 0;
-        foreach (IngredientObject food in plateIngredients)
-        {
-            totalQualityPercentage += food.QualityPercent;
-        }
-        return totalQualityPercentage;
-    }
-    public float GetAverageSpoilage(List<IngredientObject> ingredients)
-    {
-        if (ingredients == null || ingredients.Count == 0)
-        {
-            return 0f;
-        }
-
-        float totalSpoilage = 0f;
-
-        foreach (IngredientObject ingredient in ingredients)
-        {
-            if (ingredient == null || ingredient.IngredientInstance == null) continue;
-
-            totalSpoilage += ingredient.IngredientInstance.SpoilagePercent;
-        }
-
-        return totalSpoilage / ingredients.Count;
     }
 }

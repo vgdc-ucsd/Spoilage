@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class CallBell : MonoBehaviour
@@ -9,17 +8,11 @@ public class CallBell : MonoBehaviour
 
     void Start()
     {
-        LockLayout.IsLocked = false;
-        FoodGrab.CanMoveFood = false;
-
         _callBellAction.AddListener(CallBellStart);
     }
 
     public void CallBellStart()
     {
-        LockLayout.IsLocked = true;
-        FoodGrab.CanMoveFood = true;
-
         _callBellAction.RemoveListener(CallBellStart);
     }
 

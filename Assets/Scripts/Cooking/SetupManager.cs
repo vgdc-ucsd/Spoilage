@@ -8,9 +8,8 @@ public enum GamePhase
     Cooking
 }
 
-public class SetupManager : MonoBehaviour
+public class SetupManager : Singleton<SetupManager>
 {
-    public static SetupManager Instance { get; private set; }
     public GamePhase CurrentPhase { get; private set; } = GamePhase.Setup;
 
     [Header("References")]
@@ -27,15 +26,6 @@ public class SetupManager : MonoBehaviour
     [SerializeField] private List<GameObject> _stationPopupPrefabs;
     private RectTransform _currStationPopup;
     [HideInInspector] public GameObject InstantiatedStation; // This is used to detect when to remove the popup
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
-        Instance = this;
-
-        FoodGrab.CanMoveFood = false;
-        ObjectGrab.CanMoveAppliances = true;
-    }
 
     private void Start()
     {
@@ -56,8 +46,6 @@ public class SetupManager : MonoBehaviour
         if(!CanStartDay()) return;
 
         CurrentPhase = GamePhase.Cooking;
-        FoodGrab.CanMoveFood = true;
-        ObjectGrab.CanMoveAppliances = false;
         AudioManager.Instance.PlayMusicEntry("Cozy");
 
         StartCoroutine(UpdateSignSprite());
@@ -68,10 +56,6 @@ public class SetupManager : MonoBehaviour
     public void StartSetup()
     {
         CurrentPhase = GamePhase.Setup;
-        FoodGrab.CanMoveFood = false;
-        ObjectGrab.CanMoveAppliances = true;
-
-        Debug.Log("Phase: Setup");
     }
 
     private IEnumerator UpdateSignSprite()

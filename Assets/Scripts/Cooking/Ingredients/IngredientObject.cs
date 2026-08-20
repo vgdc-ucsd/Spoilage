@@ -8,7 +8,7 @@ public class IngredientObject : MonoBehaviour
     [SerializeField] private Image _plateImage;
     [SerializeField] private GameObject _seasoning;
 
-    public Ingredient IngredientInstance { get; private set; }
+    public Food IngredientInstance { get; private set; }
     // public float GetQualityPercent => IngredientInstance.QualityPercent;
     public float QualityPercent { 
         get => IngredientInstance.QualityPercent; 
@@ -24,7 +24,7 @@ public class IngredientObject : MonoBehaviour
     private void Awake()
     {
         _rectTransform = GetComponent<RectTransform>();
-        IngredientInstance = new Ingredient(_data);
+        IngredientInstance = new Food(_data);
         ChangeIngredient(_data);
         UpdateSprite();
     }

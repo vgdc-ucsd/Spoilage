@@ -13,9 +13,6 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
     private CustomerLineManager _lineManager;
     private ResourceManager _resourceManager;
 
-    [SerializeField]
-    private ServingStation _servingStation;
-
     [Header("Chance curves based on game progress from 0 to 1")]
     [SerializeField]
     private AnimationCurve _oneDishChance;

@@ -1,66 +1,70 @@
 using UnityEngine;
 
-public class SeasoningStation : UtilityStation
+public class SeasoningStation : Station
 {
 
     private IngredientObject _currentIngredient;
     private int _counter;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        _counter = 3;
-    }
+    public override void Place(Placeable placeable) => throw new System.NotImplementedException();
+    public override Placeable Produces() => throw new System.NotImplementedException();
+    public override void Remove() => throw new System.NotImplementedException();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    /*   // Start is called once before the first execution of Update after the MonoBehaviour is created
+      void Start()
+      {
+          _counter = 3;
+      }
 
-        // Maybe don't use foodgrab food, also make new dish object to operate on 
-        // and replace all the IngredientIntance/State
-    public override void OnPlaceFood(FoodGrab dish)
-    {
-        _currentIngredient = dish.GetComponent<IngredientObject>();
+      // Update is called once per frame
+      void Update()
+      {
 
-        if (_currentIngredient == null)
-        {
-            Debug.LogWarning("No Ingredient found!");
-            return;
-        }
+      }
 
-        Debug.Log("Food on Station");
+          // Maybe don't use foodgrab food, also make new dish object to operate on 
+          // and replace all the IngredientIntance/State
+      public override void OnPlaceFood(FoodGrab dish)
+      {
+          _currentIngredient = dish.GetComponent<IngredientObject>();
 
-        if (_currentIngredient.IsSeasoned)
-        {
-            Debug.Log("Ingredient is already seasoned");
-            return; 
-        }
+          if (_currentIngredient == null)
+          {
+              Debug.LogWarning("No Ingredient found!");
+              return;
+          }
 
-        SeasonFood();
+          Debug.Log("Food on Station");
 
-    }
+          if (_currentIngredient.IsSeasoned)
+          {
+              Debug.Log("Ingredient is already seasoned");
+              return; 
+          }
 
-    public void SeasonFood()
-    {
-        if(_currentIngredient == null) return;
-        if(_counter > 0)
-        {
-            _counter--;
-            _currentIngredient.SeasonIngredient();
-            Debug.Log("Seasoning, " + _counter + " uses left. Quality: " + _currentIngredient.QualityPercent);
-        }
-        else
-        {
-            Debug.Log("No more seasoning left");
-        }
-    }
+          SeasonFood();
 
-     public override void OnRemoveFood()
-    {
-        if (_currentIngredient == null) return;
+      }
 
-        _currentIngredient = null;
-    }
+      public void SeasonFood()
+      {
+          if(_currentIngredient == null) return;
+          if(_counter > 0)
+          {
+              _counter--;
+              _currentIngredient.SeasonIngredient();
+              Debug.Log("Seasoning, " + _counter + " uses left. Quality: " + _currentIngredient.QualityPercent);
+          }
+          else
+          {
+              Debug.Log("No more seasoning left");
+          }
+      }
+
+       public override void OnRemoveFood()
+      {
+          if (_currentIngredient == null) return;
+
+          _currentIngredient = null;
+      } */
 }

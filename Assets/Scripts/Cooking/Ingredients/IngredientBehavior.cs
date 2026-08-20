@@ -65,7 +65,7 @@ public sealed class IngredientBehaviour : MonoBehaviour
     
     private void HandleSpoilage()
     {
-        Ingredient ingredient = _ingredientObject.IngredientInstance;
+        Food ingredient = _ingredientObject.IngredientInstance;
 
         if (ingredient == null) return;
         if (ingredient.IsSpoiled) return;
@@ -84,7 +84,7 @@ public sealed class IngredientBehaviour : MonoBehaviour
 
     private void UpdateSpoilageVisual()
     {
-        Ingredient ingredient = _ingredientObject.IngredientInstance;
+        Food ingredient = _ingredientObject.IngredientInstance;
 
         if (ingredient == null) return;
         if (ingredient.Data.Name == RecipeManager.SlopResult) { HideSpoilingTimer(); return; }
