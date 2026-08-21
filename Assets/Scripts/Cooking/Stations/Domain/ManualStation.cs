@@ -1,16 +1,8 @@
 using UnityEngine;
 
-public class ManualStation : MonoBehaviour
+public class ManualStation : Station
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public override void Place(Placeable placeable) => throw new System.NotImplementedException();
+    public override Placeable Produces() => throw new System.NotImplementedException();
+    public override void Remove() => throw new System.NotImplementedException();
 }

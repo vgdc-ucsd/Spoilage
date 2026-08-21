@@ -71,7 +71,7 @@ public class RecipeManager : Singleton<RecipeManager>
             {
                 if (recipe.appliance != "Kitchen Tile") continue;
             }
-            else if (station.Data.StationName != recipe.appliance) continue;
+            else if (station.Data.CategoryName != recipe.appliance) continue;
             
             if (IsMatch(recipe, ingredients))
             {

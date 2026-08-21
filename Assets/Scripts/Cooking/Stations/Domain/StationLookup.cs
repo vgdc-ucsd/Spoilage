@@ -1,34 +1,35 @@
-using System;
 using UnityEngine;
 
-[Serializable]
-public enum StationType
+public enum StationCategory
 {
     CuttingBoard,
     Pot,
     Blender,
     Oven,
-    Grill
+    Grill,
+    SeasoningStation,
 }
 
 public static class StationLookup
 {
-    public static string GetName(StationType stationType)
+    public static string CategoryName(StationCategory stationType)
     {
         switch (stationType)
         {
-            case StationType.CuttingBoard:
+            case StationCategory.CuttingBoard:
                 return "Cutting Board";
-            case StationType.Pot:
+            case StationCategory.Pot:
                 return "Pot";
-            case StationType.Blender:
+            case StationCategory.Blender:
                 return "Blender";
-            case StationType.Oven:
+            case StationCategory.Oven:
                 return "Oven";
-            case StationType.Grill:
+            case StationCategory.Grill:
                 return "Grill";
+            case StationCategory.SeasoningStation:
+                return "Seasoning Station";
             default:
-                Debug.LogError("Invalid StationType");
+                Debug.LogError("Invalid StationCategory");
                 return null;
         }
     }

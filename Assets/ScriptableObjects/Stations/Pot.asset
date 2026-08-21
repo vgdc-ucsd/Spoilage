@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140daaa8bb2176147a541322cf56f102, type: 3}
+  m_Name: Pot
+  m_EditorClassIdentifier: Assembly-CSharp::StationData
+  _name: Pot
+  _stationCategory: 1
+  _stationType: 0
+  _overcook: 0
+  _spriteOff: {fileID: 21300000, guid: 1e2b91ce16c63a649a5759518e985f51, type: 3}
+  _spriteOn: {fileID: 21300000, guid: 51749189baaa87943bb759274a2d2b57, type: 3}
