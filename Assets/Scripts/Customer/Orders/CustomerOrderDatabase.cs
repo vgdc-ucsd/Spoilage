@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -104,7 +104,6 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
                 if (CheckPlayerCanMakeRecipe(recipe) && !IsRecipeUnlocked(recipe))
                 {
                     _saveManager.Player.RecipesUnlocked.Add(recipe);
-                    Debug.Log("Added " + recipe.name + " to unlocked recipes");
                 }
             }
         }

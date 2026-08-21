@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 using FMODUnity;
 using Microsoft.VisualBasic;
@@ -132,7 +132,6 @@ public class AudioManager : Singleton<AudioManager>
     public void SetVolume(float volume, string busString = "bus:/")
     {
         float dB = LinearToDecibels(volume);
-        Debug.Log($"Set Volume to : {dB} dB");
 
         FMOD.Studio.Bus bus = RuntimeManager.GetBus(busString);
         bus.setVolume(dB);
@@ -161,7 +160,6 @@ public class AudioManager : Singleton<AudioManager>
         currentMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         musicMap[id].eventInstance.start();
         currentMusicInstance = musicMap[id].eventInstance;
-        Debug.Log($"Playing background music with id: {id}");
     }
 
     

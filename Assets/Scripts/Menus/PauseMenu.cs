@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class PauseMenu : Singleton<PauseMenu>
 {
     public static bool GameIsPaused = false;
+    public GameObject Background;
     public GameObject PauseBar;
     public GameObject PauseUI;
     public GameObject SettingsUI;
-    public GameObject SavesUI;
+    //public GameObject SavesUI;
 
     public GameObject ResumeButton;
     public GameObject LoadButton;
@@ -18,7 +19,8 @@ public class PauseMenu : Singleton<PauseMenu>
 
     void Start()
     {
-        SettingsUI.SetActive(false);
+        if (SettingsUI != null)
+            SettingsUI.SetActive(false);
 
         if (ResumeButton != null)
             ResumeButton.GetComponent<Button>().onClick.AddListener(Resume);
@@ -37,13 +39,6 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            Scene settings = SceneManager.GetSceneByName("Settings");
-            if (settings.isLoaded)
-            {
-                SceneManager.UnloadSceneAsync("Settings");
-                PauseUI.SetActive(true);
-                return;
-            }
             if (!GameIsPaused)
             {
                 // stop from pausing in main menu
@@ -53,54 +48,38 @@ public class PauseMenu : Singleton<PauseMenu>
                     return;
                 }
 
-                UnityEngine.Debug.Log("Pause");
-
-                //SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
                 Pause();
             }
             else
             {
-                UnityEngine.Debug.Log("Resume");
-
-                //SceneManager.UnloadSceneAsync("PauseMenu");
                 Resume();
             }
         }
-
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-            Debug.Log("mouse click");
     }
     
     public void Resume()
     {
         GameIsPaused = false;
         Time.timeScale = 1f;
+        Background.SetActive(false);
         PauseUI.SetActive(false);
         SettingsUI.SetActive(false);
-        SavesUI.SetActive(false);
+        //SavesUI.SetActive(false);
         PauseBar.SetActive(false);
     }
 
     public void LoadSettings()
     {
-        Debug.Log("Settings clicked");
         PauseUI.SetActive(false);
         SettingsUI.SetActive(true);
-        SavesUI.SetActive(false);
-        // Scene settings = SceneManager.GetSceneByName("Settings");
-        // if (settings.isLoaded)
-        // {
-        //     return;
-        // }
-        // SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
+        //SavesUI.SetActive(false);
     }
 
     public void LoadSaves()
     {
-        Debug.Log("Saves clicked");
         PauseUI.SetActive(false);
         SettingsUI.SetActive(false);
-        SavesUI.SetActive(true);
+        //SavesUI.SetActive(true);
     }
 
     public void QuitButton()
@@ -110,6 +89,7 @@ public class PauseMenu : Singleton<PauseMenu>
 
     void Pause()
     {
+        Background.SetActive(true);
         PauseUI.SetActive(true);
         PauseBar.SetActive(true);
 
@@ -119,25 +99,20 @@ public class PauseMenu : Singleton<PauseMenu>
 
     public void ReturnToMenu()
     {
-        Debug.Log("Main menu clicked");
         GameManager.Instance.Load(GameScene.MAIN_MENU);
-        //SceneLoader.Instance.ChangeScene("MainMenu");
-        // removing scenes
-        Scene settings = SceneManager.GetSceneByName("Settings");
-        if (settings.isLoaded)
-        {
-            SceneManager.UnloadSceneAsync("Settings");
-        }
+
         Scene Cooking = SceneManager.GetSceneByName("Cooking");
         if (Cooking.isLoaded)
         {
             SceneManager.UnloadSceneAsync("Cooking");
         }
+
         Scene Customer = SceneManager.GetSceneByName("Customer");
         if (Customer.isLoaded)
         {
             SceneManager.UnloadSceneAsync("Customer");
         }
+
         Resume();
     }
 }
