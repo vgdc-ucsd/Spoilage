@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public enum GamePhase
 {
     Setup,
@@ -14,6 +15,11 @@ public class SetupManager : Singleton<SetupManager>
 
     [Header("References")]
     [SerializeField] private GameObject _gameCanvas;
+    [SerializeField] private List<TileUI> _spawnerTiles;
+    [SerializeField] private List<TileUI> _defaultTiles;
+    [SerializeField] private List<TileUI> _upgrade1Tiles;
+    [SerializeField] private List<TileUI> _upgrade2Tiles;
+    [SerializeField] private List<TileUI> _upgrade3Tiles;
 
     [Header("Start Sign")]
     [SerializeField] private Image _startSignImage;
@@ -31,6 +37,12 @@ public class SetupManager : Singleton<SetupManager>
     {
         AudioManager.Instance.PlayMusicEntry("KitchenLayout");
 
+        LockTiles(_spawnerTiles, true);
+        LockTiles(_defaultTiles, false);
+        LockTiles(_upgrade1Tiles, !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant1));
+        LockTiles(_upgrade2Tiles, !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant2));
+        LockTiles(_upgrade3Tiles, !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant3));
+
         // Initialize new station popup
         if(_newStationPrefab != null)
         {
@@ -47,6 +59,7 @@ public class SetupManager : Singleton<SetupManager>
 
         CurrentPhase = GamePhase.Cooking;
         AudioManager.Instance.PlayMusicEntry("Cozy");
+        LockTiles(_spawnerTiles, false);
 
         StartCoroutine(UpdateSignSprite());
 
@@ -56,6 +69,14 @@ public class SetupManager : Singleton<SetupManager>
     public void StartSetup()
     {
         CurrentPhase = GamePhase.Setup;
+    }
+
+    private void LockTiles(List<TileUI> tiles, bool locked)
+    {
+        foreach (TileUI tile in tiles)
+        {
+            tile.Lock(locked);
+        }
     }
 
     private IEnumerator UpdateSignSprite()

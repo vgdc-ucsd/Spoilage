@@ -20,24 +20,28 @@ public class SpawnerTileUI : TileUI
 
     public override void OnPointerEnter(PointerEventData _)
     {
+        if (_locked) return;
         _tileImage.color = Color.white;
         base.OnPointerEnter(_);
     }
     
     public override void OnPointerExit(PointerEventData _)
     {
+        if (_locked) return;
         _tileImage.color = Color.white * HOVER_DARKNESS;
         base.OnPointerExit(_);
     }
 
     public override void OnBeginDrag(PointerEventData _)
     {
+        if (_locked) return;
         Tile.Produces()?.UI.gameObject.SetActive(true);
         base.OnBeginDrag(_);
     }
 
     public override void OnEndDrag(PointerEventData _)
     {
+        if (_locked) return;
         Tile.Produces()?.UI.gameObject.SetActive(false);
         base.OnEndDrag(_);
     }

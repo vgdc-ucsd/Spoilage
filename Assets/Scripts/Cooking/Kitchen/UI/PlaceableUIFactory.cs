@@ -9,6 +9,7 @@ public class PlaceableUIFactory : Singleton<PlaceableUIFactory>
         PlaceableUI ui = Instantiate(_placeableUITemplate, parent);
         ui.SetSprite(ingredient.NormalSprite);
         ui.transform.localPosition = Vector3.zero;
+        if (ingredient.IsSmallIngredient) ui.transform.localScale = Vector3.one * 0.5f;
         return ui;
     }
 }

@@ -1149,6 +1149,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3516559016651552519, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
   m_PrefabInstance: {fileID: 326786699}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &326786701 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2452613108833915716, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
+  m_PrefabInstance: {fileID: 326786699}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44db7a1177fe36445b86b1843ebac132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenTileUI
 --- !u!1 &395268790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,6 +1335,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &413555667 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2452613108833915716, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
+  m_PrefabInstance: {fileID: 317862901}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44db7a1177fe36445b86b1843ebac132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenTileUI
 --- !u!1001 &432943277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1426,6 +1448,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3516559016651552519, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
   m_PrefabInstance: {fileID: 432943277}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &432943279 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2452613108833915716, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
+  m_PrefabInstance: {fileID: 432943277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44db7a1177fe36445b86b1843ebac132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenTileUI
 --- !u!1 &453206215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,6 +1605,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3516559016651552519, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
   m_PrefabInstance: {fileID: 471019773}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &471019775 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2452613108833915716, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
+  m_PrefabInstance: {fileID: 471019773}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44db7a1177fe36445b86b1843ebac132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenTileUI
 --- !u!1 &476093760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,6 +2036,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &833716318 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2452613108833915716, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
+  m_PrefabInstance: {fileID: 528340241}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44db7a1177fe36445b86b1843ebac132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenTileUI
 --- !u!1 &866111424
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,6 +2225,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SetupManager
   _gameCanvas: {fileID: 0}
+  _spawnerTiles:
+  - {fileID: 972039167}
+  - {fileID: 1787502207}
+  - {fileID: 1011802327}
+  - {fileID: 1282186270}
+  - {fileID: 1877159429}
+  - {fileID: 1369681288}
+  _defaultTiles:
+  - {fileID: 1886907469}
+  - {fileID: 1117598576}
+  - {fileID: 432943279}
+  - {fileID: 326786701}
+  - {fileID: 413555667}
+  - {fileID: 1502288747}
+  _upgrade1Tiles:
+  - {fileID: 1566356445}
+  - {fileID: 471019775}
+  _upgrade2Tiles:
+  - {fileID: 833716318}
+  - {fileID: 1467921235}
+  _upgrade3Tiles:
+  - {fileID: 1862533136}
+  - {fileID: 1788166605}
   _startSignImage: {fileID: 630898002}
   _signSprites:
   - {fileID: 21300000, guid: c26ae613146987349bf1079e238e4843, type: 3}
@@ -2313,11 +2391,33 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6665940767015476592, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
   m_PrefabInstance: {fileID: 6457979827547740893}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &972039167 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6527733726289834011, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
+  m_PrefabInstance: {fileID: 6457979827547740893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa7d19ab8b8aff43815d6f604069ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnerTileUI
 --- !u!224 &1011802326 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6665940767015476592, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
   m_PrefabInstance: {fileID: 733269014}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1011802327 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6527733726289834011, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
+  m_PrefabInstance: {fileID: 733269014}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa7d19ab8b8aff43815d6f604069ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnerTileUI
 --- !u!1 &1033181504
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,6 +2456,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1117598576 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2452613108833915716, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
+  m_PrefabInstance: {fileID: 319194503}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44db7a1177fe36445b86b1843ebac132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenTileUI
 --- !u!224 &1174244717 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6665940767015476592, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
@@ -2401,11 +2512,33 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6665940767015476592, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
   m_PrefabInstance: {fileID: 1514519662}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1282186270 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6527733726289834011, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
+  m_PrefabInstance: {fileID: 1514519662}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa7d19ab8b8aff43815d6f604069ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnerTileUI
 --- !u!224 &1369681287 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6665940767015476592, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
   m_PrefabInstance: {fileID: 1559103543}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1369681288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6527733726289834011, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
+  m_PrefabInstance: {fileID: 1559103543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa7d19ab8b8aff43815d6f604069ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnerTileUI
 --- !u!1001 &1467921233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2508,6 +2641,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3516559016651552519, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
   m_PrefabInstance: {fileID: 1467921233}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1467921235 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2452613108833915716, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
+  m_PrefabInstance: {fileID: 1467921233}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44db7a1177fe36445b86b1843ebac132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenTileUI
 --- !u!1001 &1476058743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2610,6 +2754,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3516559016651552519, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
   m_PrefabInstance: {fileID: 1476058743}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1502288747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2452613108833915716, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
+  m_PrefabInstance: {fileID: 905950865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44db7a1177fe36445b86b1843ebac132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenTileUI
 --- !u!1001 &1514519662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2922,6 +3077,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3516559016651552519, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
   m_PrefabInstance: {fileID: 1566356443}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1566356445 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2452613108833915716, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
+  m_PrefabInstance: {fileID: 1566356443}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44db7a1177fe36445b86b1843ebac132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenTileUI
 --- !u!1001 &1739176964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3032,6 +3198,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6665940767015476592, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
   m_PrefabInstance: {fileID: 129488615}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1787502207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6527733726289834011, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
+  m_PrefabInstance: {fileID: 129488615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa7d19ab8b8aff43815d6f604069ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnerTileUI
 --- !u!1001 &1788166603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3134,6 +3311,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3516559016651552519, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
   m_PrefabInstance: {fileID: 1788166603}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1788166605 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2452613108833915716, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
+  m_PrefabInstance: {fileID: 1788166603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44db7a1177fe36445b86b1843ebac132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenTileUI
 --- !u!1001 &1862533134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3236,6 +3424,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3516559016651552519, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
   m_PrefabInstance: {fileID: 1862533134}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1862533136 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2452613108833915716, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
+  m_PrefabInstance: {fileID: 1862533134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44db7a1177fe36445b86b1843ebac132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenTileUI
 --- !u!1 &1873711412
 GameObject:
   m_ObjectHideFlags: 0
@@ -3271,6 +3470,28 @@ RectTransform:
   m_AnchoredPosition: {x: -242, y: 59}
   m_SizeDelta: {x: 100, y: 77}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1877159429 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6527733726289834011, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
+  m_PrefabInstance: {fileID: 1739176964}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa7d19ab8b8aff43815d6f604069ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnerTileUI
+--- !u!114 &1886907469 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2452613108833915716, guid: 7b115c6ea69d02a48bcbb6b7be9b81ef, type: 3}
+  m_PrefabInstance: {fileID: 1476058743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44db7a1177fe36445b86b1843ebac132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenTileUI
 --- !u!1 &1897038822
 GameObject:
   m_ObjectHideFlags: 0
