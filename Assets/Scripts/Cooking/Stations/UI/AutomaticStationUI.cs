@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -7,9 +7,9 @@ public class AutomaticStationUI : MonoBehaviour
 {
     [Header("Cooking Settings")]
     [SerializeField] private const int OVERCOOKED_QUALITY_PERCENTAGE_DECREASE = 20;
-    [SerializeField] private float _cookDuration = 5f;
-    [SerializeField] private float _overcookDuration = 5f;
-    [SerializeField] private bool _canOvercook = false;
+    //[SerializeField] private float _cookDuration = 5f;
+    //[SerializeField] private float _overcookDuration = 5f;
+    //[SerializeField] private bool _canOvercook = false;
 
     [Header("Timer UI")]
     [SerializeField] private GameObject _timerObject;
@@ -24,7 +24,7 @@ public class AutomaticStationUI : MonoBehaviour
     private float _timer;
     public bool _isCooking;
     public bool _isOverCooking = false;
-    private bool _canCook = true;
+    //private bool _canCook = true;
    /*  public override void Start()
     {
         maxIngredients = 3;

@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : Singleton<SceneLoader>
 {
+    [SerializeField] private float _minWaitTime = 0.0f;
+
     private void Start()
     {
         if (SceneManager.loadedSceneCount <= 1)
@@ -24,66 +26,29 @@ public class SceneLoader : Singleton<SceneLoader>
 
     private IEnumerator LoadSceneRoutine(string sceneName)
     {   
-     
-        float minWaitTime = 1.0f;
         float startTime = Time.time;
-        // load the loading screen
-        // additive load scene as specified in testing read me. 
-        yield return SceneManager.LoadSceneAsync("LoadingScreen", LoadSceneMode.Additive);
 
-        // https://docs.unity3d.com/ScriptReference/AsyncOperation.html
+        // TODO: Scene transition, loading screen
+
         AsyncOperation op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         
-
         op.allowSceneActivation = false;
-
-        while (op.progress < 0.9f || (Time.time - startTime) < minWaitTime){
-            float progress = op.progress;
-            //UnityEngine.Debug.Log($"loading scene {sceneName} {progress}" );
-
-            yield return null;
-        }
-
+        yield return new WaitWhile(() => op.progress < 0.9f || (Time.time - startTime) < _minWaitTime);
         op.allowSceneActivation = true;
 
-        while (!op.isDone)
-        {
-            yield return null;
-        }
-
-        SceneManager.UnloadSceneAsync("LoadingScreen");
+        yield return new WaitUntil(() => op.isDone);
     }
 
     private IEnumerator UnloadSceneRoutine(string sceneName)
     {
-        float minWaitTime = 1.0f;
         float startTime = Time.time;
 
-        // https://docs.unity3d.com/ScriptReference/AsyncOperation.html
         AsyncOperation op = SceneManager.UnloadSceneAsync(sceneName);
-        // load the loading screen
-        // additive load scene as specified in testing read me. 
-        yield return SceneManager.LoadSceneAsync("LoadingScreen", LoadSceneMode.Additive);
-
-        
 
         op.allowSceneActivation = false;
-
-        while (op.progress < 0.9f || (Time.time - startTime) < minWaitTime){
-            float progress = op.progress;
-            //UnityEngine.Debug.Log($"loading scene {sceneName} {progress}" );
-
-            yield return null;
-        }
-
+        yield return new WaitWhile(() => op.progress < 0.9f || (Time.time - startTime) < _minWaitTime);
         op.allowSceneActivation = true;
 
-        while (!op.isDone)
-        {
-            yield return null;
-        }
-
-        SceneManager.UnloadSceneAsync("LoadingScreen");
-    
+        yield return new WaitUntil(() => op.isDone);
     }
 }
