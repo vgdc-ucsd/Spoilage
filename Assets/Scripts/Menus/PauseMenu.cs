@@ -17,6 +17,8 @@ public class PauseMenu : Singleton<PauseMenu>
     public GameObject SettingsButton;
     public GameObject MainMenuButton;
 
+    [SerializeField] private Slider _masterVolumeSlider;
+
     void Start()
     {
         if (SettingsUI != null)
@@ -33,6 +35,8 @@ public class PauseMenu : Singleton<PauseMenu>
 
         if (MainMenuButton != null)
             MainMenuButton.GetComponent<Button>().onClick.AddListener(ReturnToMenu);
+
+        _masterVolumeSlider.value = AudioManager.Instance.currentVolume;
     }
 
     void Update()
@@ -114,6 +118,11 @@ public class PauseMenu : Singleton<PauseMenu>
         }
 
         Resume();
+    }
+
+    public void UpdateMasterVolume()
+    {
+        AudioManager.Instance.SetVolume(_masterVolumeSlider.value);
     }
 }
 

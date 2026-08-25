@@ -39,8 +39,8 @@ public class AudioManager : Singleton<AudioManager>
     private EventInstance currentMusicInstance;
 
     private FMOD.Studio.Bus masterBus;
-    
-    private float currentVolume = 1.0f;
+
+    public float currentVolume { get; private set; } = 0.5f;
     private const float MIN_VOLUME = 0.0f;
     private const float MAX_VOLUME = 1.0f;
     private const float VOLUME_STEP = 1.0f;
@@ -131,18 +131,8 @@ public class AudioManager : Singleton<AudioManager>
     }
     public void SetVolume(float volume, string busString = "bus:/")
     {
-        float dB = LinearToDecibels(volume);
-
         FMOD.Studio.Bus bus = RuntimeManager.GetBus(busString);
-        bus.setVolume(dB);
-    }
-    // fmod uses db, but for volume im putting 0.0 - 1.0 so its nicer to use
-    // this convers to db
-    public float LinearToDecibels(float linear)
-    {
-        if (linear <= 0.00f)
-            return -80f; 
-         return Mathf.Lerp(-80f, 1.0f, linear);
+        bus.setVolume(volume);
     }
 
     /// <summary>
