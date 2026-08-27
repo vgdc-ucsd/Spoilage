@@ -11,7 +11,7 @@ public class PlaceableUI : MonoBehaviour
         _image.sprite = sprite;
     }
 
-    public void SetDrag(bool drag)
+    public virtual void SetDrag(bool drag)
     {
         if (drag)
         {

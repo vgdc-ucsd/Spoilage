@@ -11,11 +11,13 @@ public class StationUnlockTile : ITile
     {
         _stationData = data;
         _ui = ui;
-        
+        PlaceableUI pui = PlaceableUIFactory.Instance.Generate(data, _ui.transform);
+
         switch (data.StationType)
         {
             case StationType.Automatic:
-                _station = new AutomaticStation();
+                AutomaticStationUI asui = pui as AutomaticStationUI;
+                _station = new AutomaticStation(data, asui);
                 break;
             case StationType.Manual:
                 _station = new ManualStation();
@@ -23,9 +25,7 @@ public class StationUnlockTile : ITile
             default:
                 Debug.LogError("Station type not recognized");
                 break;
-        }
-        
-        _station.UI = PlaceableUIFactory.Instance.Generate(data, _ui.transform);
+        }   
     }
 
     public bool Accepts(Placeable _) { return false; }

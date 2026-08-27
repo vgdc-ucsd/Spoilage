@@ -7,15 +7,21 @@ public class Food : Placeable
     public bool IsOvercooked { get; private set; }
     public float SpoilagePercent { get; private set; }
 
-    public bool IsSpoiled => SpoilagePercent >= 100f;
+    public bool Spoiling => SpoilagePercent > 0f && SpoilagePercent < 1f;
+    public bool IsSpoiled => SpoilagePercent >= 1f;
     public bool IsPlated;
     public float QualityPercent { get; set; }
     public float? SeasoningBonus { get; private set; }
 
     public bool IsSeasoned => SeasoningBonus.HasValue;
+    public override PlaceableUI UI => _ui;
+
+    private FoodUI _ui;
+    private float _timer = 0f;
 
     private const float CONSTANT_QUALITY_SEASONING_BONUS = 10f;
     private const float CONSTANT_QUALITY_OVERCOOKED_DEDUCTION = 20f;
+    private const float SPOIL_TIME = 15f;
 
     public Food(IngredientData data)
     {
@@ -31,6 +37,13 @@ public class Food : Placeable
         SpoilagePercent = spoilage;
         QualityPercent = quality;
         SeasoningBonus = null;
+        _timer = spoilage * SPOIL_TIME;
+    }
+
+    public void SetUI(FoodUI ui)
+    {
+        _ui = ui;
+        _ui.SetFood(this);
     }
 
     public void ChangeData(IngredientData newData)
@@ -62,13 +75,21 @@ public class Food : Placeable
         QualityPercent -= CONSTANT_QUALITY_OVERCOOKED_DEDUCTION;
     }
 
-    public void AddSpoilagePercent(float amount)
+    public void Spoil(float dt)
     {
-        SpoilagePercent = Mathf.Clamp(SpoilagePercent + amount, 0f, 100f);
-    }
+        _timer += dt;
+        
+        bool becomeSpoiled = IsSpoiled;
+        bool becomeSpoiling = Spoiling;
 
-    public void SetSpoilagePercent(float percent)
-    {
-        SpoilagePercent = Mathf.Clamp(percent, 0f, 100f);
+        SpoilagePercent = Mathf.Clamp01(_timer / SPOIL_TIME);
+        
+        if (!IsSpoiled) _ui.SetSpoilage(SpoilagePercent);
+        
+        becomeSpoiled = !becomeSpoiled && IsSpoiled;
+        becomeSpoiling = !becomeSpoiling && Spoiling;
+
+        if (becomeSpoiled) _ui.Spoil();
+        if (becomeSpoiling) _ui.ShowTimer(true);
     }
 }

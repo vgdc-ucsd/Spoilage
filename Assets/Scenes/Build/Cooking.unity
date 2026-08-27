@@ -2253,6 +2253,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c26ae613146987349bf1079e238e4843, type: 3}
   - {fileID: 21300000, guid: d3ef2af12e1968d48b3cffca1e0b612b, type: 3}
   _flipSignAnimTime: 0.25
+  _stationUnlockPopup: {fileID: 1851016489}
+  _grill: {fileID: 11400000, guid: 592fbf0f7e1be994c864b2b3e0f1ef53, type: 2}
   _newStationPrefab: {fileID: 0}
   _closePopupAnimTime: 0.5
   _stationPopupPrefabs: []
@@ -2284,6 +2286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6a93838b07e154ba0ab0e51d7707f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CookingManager
+  _slopData: {fileID: 11400000, guid: a7a2978b2eb254427b88627e56c7455a, type: 2}
 --- !u!1001 &905950865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2449,6 +2452,7 @@ RectTransform:
   - {fileID: 1897038823}
   - {fileID: 148385198}
   - {fileID: 630898001}
+  - {fileID: 1851016486}
   m_Father: {fileID: 828986720}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3322,6 +3326,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44db7a1177fe36445b86b1843ebac132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenTileUI
+--- !u!1 &1851016485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1851016486}
+  - component: {fileID: 1851016488}
+  - component: {fileID: 1851016487}
+  - component: {fileID: 1851016489}
+  m_Layer: 5
+  m_Name: Station Unlock Popup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1851016486
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851016485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1979207377}
+  m_Father: {fileID: 1033181505}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 40, y: -40}
+  m_SizeDelta: {x: 514, y: 264}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1851016487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851016485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 051011d7c9684204abeed240f52a0956, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1851016488
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851016485}
+  m_CullTransparentMesh: 1
+--- !u!114 &1851016489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851016485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b710a83713abef74ebcbfbd9df2e22d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StationUnlockPopup
+  _tile: {fileID: 1979207380}
+  _popupBG: {fileID: 1851016487}
+  _grillUnlock: {fileID: 21300000, guid: 408b0c5e489d08f4588ad82d3c59813c, type: 3}
+  _potUnlock: {fileID: 21300000, guid: 44252372f8194e143a6b31e50874623c, type: 3}
+  _blenderUnlock: {fileID: 21300000, guid: 8e2069107375c0f459fbe0ab99166657, type: 3}
+  _cuttingBoardUnlock: {fileID: 21300000, guid: 6b167c206d96f614db2908021d1b2a2c, type: 3}
+  _ovenUnlock: {fileID: 21300000, guid: 133a909772e574245a44c561506e6b9b, type: 3}
+  _seasoningStationUnlock: {fileID: 21300000, guid: 051011d7c9684204abeed240f52a0956, type: 3}
 --- !u!1001 &1862533134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3596,7 +3697,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0750bae37ac27ef4c961ecde7de894ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlaceableUIFactory
-  _placeableUITemplate: {fileID: 5893881074077331058, guid: 4ef863cb79e901a43875fbd830695f8d, type: 3}
+  _foodUITemplate: {fileID: 154970377145826796, guid: f6d25c36a7e4749488eb1aaa00c79c6b, type: 3}
+  _automaticStationUITemplate: {fileID: 1610876166936842780, guid: af774649e82776d478360b800769b888, type: 3}
 --- !u!4 &1931810285
 Transform:
   m_ObjectHideFlags: 0
@@ -3612,6 +3714,94 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1201773926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1979207376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1979207377}
+  - component: {fileID: 1979207380}
+  - component: {fileID: 1979207379}
+  - component: {fileID: 1979207378}
+  m_Layer: 5
+  m_Name: Tile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1979207377
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979207376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1851016486}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 134.79999, y: 12.98}
+  m_SizeDelta: {x: 190, y: 190}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1979207378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979207376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1979207379
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979207376}
+  m_CullTransparentMesh: 1
+--- !u!114 &1979207380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979207376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a07a6c11b1c9b4cba876600aa3744a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StationUnlockTileUI
 --- !u!1001 &1981567920
 PrefabInstance:
   m_ObjectHideFlags: 0

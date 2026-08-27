@@ -1,14 +1,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KitchenTile : ITile
+public class KitchenTile : ITemporalTile
 {
+    public StationUI StationUI => (_current as Station)?.UI as StationUI;
     private Placeable _current;
     private KitchenTileUI _ui;
 
     public KitchenTile(KitchenTileUI ui)
     {
         _ui = ui;
+    }
+
+    public void Process(float dt)
+    {
+        if (_current is Food food)
+        {
+            food.Spoil(dt);
+        }
+        else if (_current is Station station)
+        {
+            station.Process(dt);
+        }
     }
 
     public bool Accepts(Placeable placeable)
@@ -34,7 +47,7 @@ public class KitchenTile : ITile
             Food food = CookingManager.Instance.Process(ingredients, null);
             Object.Destroy(currentFood.UI.gameObject);
             Object.Destroy(newFood.UI.gameObject);
-            food.UI = PlaceableUIFactory.Instance.Generate(food.Data, _ui.transform);
+            food.SetUI(PlaceableUIFactory.Instance.Generate(food.Data, _ui.transform));
             _ui.Place(food.UI);
             _current = food;
         }

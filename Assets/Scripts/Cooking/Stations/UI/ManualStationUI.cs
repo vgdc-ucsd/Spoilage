@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class ManualStationUI : Station
+public abstract class ManualStationUI : StationUI
 {
     [Header("Manual Settings")]
     [SerializeField] protected int _clicksPerState = 3;

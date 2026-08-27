@@ -35,11 +35,8 @@ public class SpawnerTile : ITile
 
     private Food GenerateFood()
     {
-        Food food = new Food(_spawnedIngredient)
-        {
-            UI = _ui.GenerateFoodUI()
-        };
-        
+        Food food = new Food(_spawnedIngredient);
+        food.SetUI(_ui.GenerateFoodUI());
         return food;
     }
 }

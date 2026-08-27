@@ -8,12 +8,12 @@ public class SpawnerTileUI : TileUI
     [SerializeField] private Image _tileImage;
     private const float HOVER_DARKNESS = 0.9f;
 
-    void Start()
+    public void Init()
     {
-        Tile = new SpawnerTile(_ingredient, this);
+        Tile = new SpawnerTile(_ingredient, this);        
     }
 
-    public PlaceableUI GenerateFoodUI()
+    public FoodUI GenerateFoodUI()
     {
         return PlaceableUIFactory.Instance.Generate(_ingredient, transform);
     }
@@ -30,19 +30,5 @@ public class SpawnerTileUI : TileUI
         if (_locked) return;
         _tileImage.color = Color.white * HOVER_DARKNESS;
         base.OnPointerExit(_);
-    }
-
-    public override void OnBeginDrag(PointerEventData _)
-    {
-        if (_locked) return;
-        Tile.Produces()?.UI.gameObject.SetActive(true);
-        base.OnBeginDrag(_);
-    }
-
-    public override void OnEndDrag(PointerEventData _)
-    {
-        if (_locked) return;
-        Tile.Produces()?.UI.gameObject.SetActive(false);
-        base.OnEndDrag(_);
     }
 }

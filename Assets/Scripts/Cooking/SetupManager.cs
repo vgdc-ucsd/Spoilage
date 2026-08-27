@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public enum GamePhase
@@ -15,11 +17,11 @@ public class SetupManager : Singleton<SetupManager>
 
     [Header("References")]
     [SerializeField] private GameObject _gameCanvas;
-    [SerializeField] private List<TileUI> _spawnerTiles;
-    [SerializeField] private List<TileUI> _defaultTiles;
-    [SerializeField] private List<TileUI> _upgrade1Tiles;
-    [SerializeField] private List<TileUI> _upgrade2Tiles;
-    [SerializeField] private List<TileUI> _upgrade3Tiles;
+    [SerializeField] private List<SpawnerTileUI> _spawnerTiles;
+    [SerializeField] private List<KitchenTileUI> _defaultTiles;
+    [SerializeField] private List<KitchenTileUI> _upgrade1Tiles;
+    [SerializeField] private List<KitchenTileUI> _upgrade2Tiles;
+    [SerializeField] private List<KitchenTileUI> _upgrade3Tiles;
 
     [Header("Start Sign")]
     [SerializeField] private Image _startSignImage;
@@ -27,6 +29,10 @@ public class SetupManager : Singleton<SetupManager>
     [SerializeField] private float _flipSignAnimTime = 0.25f;
 
     [Header("New Station Popup")]
+    [SerializeField] private StationUnlockPopup _stationUnlockPopup;
+    [SerializeField] private StationData _grill;
+    
+    // TODO old code remove or adapt animations
     public GameObject _newStationPrefab;
     [SerializeField] private float _closePopupAnimTime = 0.5f;
     [SerializeField] private List<GameObject> _stationPopupPrefabs;
@@ -43,7 +49,30 @@ public class SetupManager : Singleton<SetupManager>
         LockTiles(_upgrade2Tiles, !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant2));
         LockTiles(_upgrade3Tiles, !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant3));
 
+        List<KitchenTileUI> kitchenTileUIs = new List<KitchenTileUI>();
+        kitchenTileUIs.AddRange(_defaultTiles);
+        kitchenTileUIs.AddRange(_upgrade1Tiles);
+        kitchenTileUIs.AddRange(_upgrade2Tiles);
+        kitchenTileUIs.AddRange(_upgrade3Tiles);
+
+        foreach (KitchenTileUI ui in kitchenTileUIs)
+        {
+            ui.Init();
+        }
+
+        foreach (SpawnerTileUI ui in _spawnerTiles)
+        {
+            ui.Init();
+        }
+
+        List<ITemporalTile> temporalTiles = kitchenTileUIs.Select(ui => ui.Tile as ITemporalTile).ToList();
+        
+        // TODO add plating tile
+        CookingManager.Instance.SetTiles(temporalTiles);
+
         // Initialize new station popup
+        _stationUnlockPopup.Show(_grill);
+
         if(_newStationPrefab != null)
         {
             GameObject prefab =_stationPopupPrefabs.Find(x => x.name.Contains(_newStationPrefab.name));
@@ -71,7 +100,7 @@ public class SetupManager : Singleton<SetupManager>
         CurrentPhase = GamePhase.Setup;
     }
 
-    private void LockTiles(List<TileUI> tiles, bool locked)
+    private void LockTiles(IEnumerable<TileUI> tiles, bool locked)
     {
         foreach (TileUI tile in tiles)
         {

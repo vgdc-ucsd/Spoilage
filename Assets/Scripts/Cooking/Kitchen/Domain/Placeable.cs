@@ -1,4 +1,10 @@
+using UnityEngine;
+
 public abstract class Placeable
 {
-    public PlaceableUI UI;
+    public abstract PlaceableUI UI { get; }
+    public virtual void Destroy()
+    {
+        Object.Destroy(UI.gameObject);
+    }
 }

@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5649686898600001540}
   - component: {fileID: 169099031028984133}
-  - component: {fileID: 5696520622484773334}
-  - component: {fileID: 6516063265288682829}
   m_Layer: 3
   m_Name: Ingredient
   m_TagString: Untagged
@@ -58,35 +56,6 @@ MonoBehaviour:
   _image: {fileID: 1056004937252261039}
   _plateImage: {fileID: 5904202248838878715}
   _seasoning: {fileID: 8018551443988430847}
---- !u!114 &5696520622484773334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703443843578801463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e70c079e7f78dcd43af15433049add1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IngredientBehaviour
-  _enableDebugLogs: 1
-  _spoilingTimer: {fileID: 0}
-  _spoilingTimerFill: {fileID: 0}
---- !u!114 &6516063265288682829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703443843578801463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f25bb1b4f5999594b805e03c3de01bec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FoodGrab
-  _plateSpot: {fileID: 0}
-  IsLocked: 0
 --- !u!1 &1939835575611522639
 GameObject:
   m_ObjectHideFlags: 0
