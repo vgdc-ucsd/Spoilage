@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class CustomerLineManager : Singleton<CustomerLineManager>
 {
-    public Customer CurrentCustomer;
+   /*  public Customer CurrentCustomer;
     
     public UnityEvent PlateSubmitted;
 
@@ -102,5 +102,5 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
         return customerData == null
             ? CustomerManager.Instance.GenerateCustomer()
             : CustomerManager.Instance.GenerateCustomer(customerData);
-    }
+    } */
 }

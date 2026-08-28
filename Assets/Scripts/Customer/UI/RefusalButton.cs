@@ -40,7 +40,7 @@ public class RefusalButton : MonoBehaviour
         // TODO: Check ResourceManager for remaining refusals before proceeding.
         // If none left, play an error sound/animation and return.
         
-        Customer currentCustomer = CustomerLineManager.Instance.CurrentCustomer;
+        /* Customer currentCustomer = CustomerLineManager.Instance.CurrentCustomer;
         GameObject customerToRemove = currentCustomer?.gameObject;
 
         if (currentCustomer != null)
@@ -61,7 +61,7 @@ public class RefusalButton : MonoBehaviour
         {
             Debug.LogError("One or more required objects are not assigned in the inspector.");
         }
-        guardStaminaFillImage.buttonPressed();
+        guardStaminaFillImage.buttonPressed(); */
     }
 
     private IEnumerator GlideGuardToCustomerAndReturn(GameObject guards, GameObject customerToRemove)
@@ -106,6 +106,6 @@ public class RefusalButton : MonoBehaviour
         guardRect.position = startPosition;
         customerRect.position = startPosition;
 
-        CustomerLineManager.Instance.Advance();
+        // CustomerLineManager.Instance.Advance();
     }
 }

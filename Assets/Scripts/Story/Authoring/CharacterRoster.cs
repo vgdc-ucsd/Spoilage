@@ -48,8 +48,8 @@ public class CharacterRoster : ScriptableObject
 {
     /// <summary>
     /// Key characters available to the run. Each is wired into a specific
-    /// <see cref="DayEntry.beginInteraction"/> or
-    /// <see cref="DayEntry.endInteraction"/> slot on the timeline.
+    /// <see cref="Day.beginInteraction"/> or
+    /// <see cref="Day.endInteraction"/> slot on the timeline.
     /// </summary>
     public List<CustomerData> keyCharacters = new List<CustomerData>();
 

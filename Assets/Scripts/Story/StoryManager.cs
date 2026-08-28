@@ -12,6 +12,10 @@ public class StoryManager : Singleton<StoryManager>
     private const float REFUSE_SPOILED_DELTA = 1f;
     private const float SERVE_SPOILED_DELTA = -1f;
 
+    private InteractionsNode _keyTimeline;
+    private InteractionsNode _semikeyTimeline;
+    private InteractionsNode _additionalTimeline;
+
     [SerializeField]
     private StoryDatabase _database;
 
@@ -28,7 +32,7 @@ public class StoryManager : Singleton<StoryManager>
     /// <summary>
     /// Rolls run-level story choices when starting a new run.
     /// </summary>
-    public void InitRun(bool forceReroll = false)
+    /* public void InitRun(bool forceReroll = false)
     {
         PlayerData player = Player;
 
@@ -46,53 +50,24 @@ public class StoryManager : Singleton<StoryManager>
         Save();
     }
 
-    /// <summary>
-    /// Resets per-day story counters and builds today's guaranteed customer queue.
-    /// </summary>
-    public void BeginDay()
-    {
-        PlayerData player = Player;
-
-        player.semiKeyRefusedToday = 0;
-        player.semiImportantDishesFailedToday = 0;
-
-        BuildCustomerQueue();
-        Save();
-    }
-
-    /// <summary>
-    /// Evaluates story conditions that schedule content for the following day.
-    /// </summary>
-    public void EndDay()
-    {
-        EvalReactionaries();
-        Save();
-    }
-
     public void AdvanceDay()
     {
         Player.Day++;
         Save();
-    }
+    } */
 
-    public DayEntry GetCurrentDayEntry()
+    public InteractionSet GetInteractions()
     {
-        return GetDayEntry(Player.Day);
+        List<Interactions> interactions = new List<Interactions>
+        {
+            _keyTimeline.Data,
+            _semikeyTimeline.Data,
+            _additionalTimeline.Data
+        };
+        return new InteractionSet(interactions);
     }
-
-    public CustomerData GetBeginInteraction()
-    {
-        DayEntry entry = GetCurrentDayEntry();
-        return entry == null ? null : GetInteraction(entry.beginInteraction);
-    }
-
-    public CustomerData GetEndInteraction()
-    {
-        DayEntry entry = GetCurrentDayEntry();
-        return entry == null ? null : GetInteraction(entry.endInteraction);
-    }
-
-    /// <summary>
+}
+    /* /// <summary>
     /// Rebuilds the queue used to guarantee story customers during cooking.
     /// </summary>
     public void BuildCustomerQueue()
@@ -103,7 +78,7 @@ public class StoryManager : Singleton<StoryManager>
         PlayerData player = Player;
 
         List<List<CustomerData>> blocks = new List<List<CustomerData>>();
-        DayEntry entry = GetDayEntry(player.Day);
+        Day entry = GetDayEntry(player.Day);
 
         if (entry != null)
         {
@@ -319,12 +294,12 @@ public class StoryManager : Singleton<StoryManager>
         return last.character == null ? null : last.character.id;
     }
 
-    private DayEntry GetDayEntry(int day)
+    private Day GetDayEntry(int day)
     {
-        List<DayEntry> days = _database.timeline.days;
+        List<Day> days = _database.timeline.days;
         for (int i = 0; i < days.Count; i++)
         {
-            DayEntry entry = days[i];
+            Day entry = days[i];
             if (entry.day == day)
             {
                 return entry;
@@ -350,18 +325,6 @@ public class StoryManager : Singleton<StoryManager>
             if (IsRefused(customer)) continue;
 
             blocks.Add(new List<CustomerData> { customer });
-        }
-    }
-
-    private void AddPairs(List<List<CustomerData>> blocks, List<SemiKeyPair> pairs)
-    {
-        for (int i = 0; i < pairs.Count; i++)
-        {
-            SemiKeyPair pair = pairs[i];
-            if (!IsRunEligible(pair.first) || !IsRunEligible(pair.second)) continue;
-            if (IsRefused(pair.first) || IsRefused(pair.second)) continue;
-
-            blocks.Add(new List<CustomerData> { pair.first, pair.second });
         }
     }
 
@@ -460,30 +423,6 @@ public class StoryManager : Singleton<StoryManager>
         return null;
     }
 
-    private CustomerData FindInTimeline(string id)
-    {
-        List<DayEntry> days = _database.timeline.days;
-        for (int i = 0; i < days.Count; i++)
-        {
-            DayEntry entry = days[i];
-
-            if (MatchesId(entry.beginInteraction, id)) return entry.beginInteraction;
-            if (MatchesId(entry.endInteraction, id)) return entry.endInteraction;
-
-            CustomerData found = FindInList(entry.semiKeys, id);
-            if (found != null) return found;
-
-            for (int pairIndex = 0; pairIndex < entry.semiKeyPairs.Count; pairIndex++)
-            {
-                SemiKeyPair pair = entry.semiKeyPairs[pairIndex];
-                if (MatchesId(pair.first, id)) return pair.first;
-                if (MatchesId(pair.second, id)) return pair.second;
-            }
-        }
-
-        return null;
-    }
-
     private CustomerData FindInReactionaryRules(string id)
     {
         List<ReactionaryRule> rules = _database.reactionary.rules;
@@ -497,36 +436,6 @@ public class StoryManager : Singleton<StoryManager>
         }
 
         return null;
-    }
-
-    private static CustomerData FindInList(List<CustomerData> customers, string id)
-    {
-        for (int i = 0; i < customers.Count; i++)
-        {
-            CustomerData customer = customers[i];
-            if (MatchesId(customer, id))
-            {
-                return customer;
-            }
-        }
-
-        return null;
-    }
-
-    private static bool MatchesId(CustomerData customerData, string id)
-    {
-        return customerData != null && customerData.id == id;
-    }
-
-    private static int CountSlots(List<List<CustomerData>> blocks)
-    {
-        int count = 0;
-        for (int i = 0; i < blocks.Count; i++)
-        {
-            count += blocks[i].Count;
-        }
-
-        return count;
     }
 
     private static void Shuffle<T>(List<T> list)
@@ -563,3 +472,4 @@ public class StoryManager : Singleton<StoryManager>
         SaveManager.Instance.SaveGame(SaveManager.Instance.Player.SaveID);
     }
 }
+ */

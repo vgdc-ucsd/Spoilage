@@ -35,7 +35,7 @@ public class CustomerData : ScriptableObject
 
     /// <summary>
     /// Story importance class. Key characters appear in
-    /// <see cref="DayEntry.beginInteraction"/> or <see cref="DayEntry.endInteraction"/>
+    /// <see cref="Day.beginInteraction"/> or <see cref="Day.endInteraction"/>
     /// slots. SemiKey characters belong to a <see cref="SemiKeySet"/> (or the
     /// additional pool) and appear during cooking alongside random customers,
     /// and may also occupy interaction slots.

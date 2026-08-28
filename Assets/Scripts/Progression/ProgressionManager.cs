@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ProgressionManager : Singleton<ProgressionManager>
 {
-    [SerializeField] private Timeline _timeline;
     [SerializeField] private List<Upgrade> _upgrades;
 
     public HashSet<UpgradeID> Unlocked = new HashSet<UpgradeID>();

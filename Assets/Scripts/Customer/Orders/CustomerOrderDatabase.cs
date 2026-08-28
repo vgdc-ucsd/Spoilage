@@ -147,7 +147,7 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
 
     public bool SubmitOrder(IngredientObject dish)
     {
-        if (dish == null)
+        /* if (dish == null)
         {
             Debug.Log("No item was submitted!");
             return false;
@@ -191,7 +191,9 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
             StoryManager.Instance.OnCustomerServed(customerData, success);
         }
 
-        return success;
+        return success; */
+
+        return false;
     }
 
     /// <summary>
