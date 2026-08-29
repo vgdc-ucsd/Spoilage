@@ -12,9 +12,12 @@ public class StoryManager : Singleton<StoryManager>
     private const float REFUSE_SPOILED_DELTA = 1f;
     private const float SERVE_SPOILED_DELTA = -1f;
 
-    private InteractionsNode _keyTimeline;
-    private InteractionsNode _semikeyTimeline;
-    private InteractionsNode _additionalTimeline;
+    [SerializeField] private InteractionsNode _keyRoot;
+    [SerializeField] private InteractionsNode _set1Root;
+    [SerializeField] private InteractionsNode _set2Root;
+    [SerializeField] private InteractionsNode _set3Root;
+    [SerializeField] private InteractionsNode _billmanRoot;
+    [SerializeField] private InteractionsNode _propagandistRoot;
 
     [SerializeField]
     private StoryDatabase _database;
@@ -29,42 +32,24 @@ public class StoryManager : Singleton<StoryManager>
     private bool _debug_firstCharacter = true;
     [SerializeField] CustomerData _debug_warlordData;
 
-    /// <summary>
-    /// Rolls run-level story choices when starting a new run.
-    /// </summary>
-    /* public void InitRun(bool forceReroll = false)
+    public List<InteractionsNode> InitRunTimelineGraphs()
     {
-        PlayerData player = Player;
-
-        if (forceReroll || player.Day == 0)
+        List<InteractionsNode> _graphRoots = new List<InteractionsNode>
         {
-            player.Day = 1;
-        }
-
-        if (forceReroll || string.IsNullOrEmpty(player.activeSetId))
-        {
-            player.activeSetId = RollSetId();
-            player.activeAdditionalId = RollExtraId();
-        }
-
-        Save();
-    }
-
-    public void AdvanceDay()
-    {
-        Player.Day++;
-        Save();
-    } */
-
-    public InteractionSet GetInteractions()
-    {
-        List<Interactions> interactions = new List<Interactions>
-        {
-            _keyTimeline.Data,
-            _semikeyTimeline.Data,
-            _additionalTimeline.Data
+            _keyRoot
         };
-        return new InteractionSet(interactions);
+
+        int set = Random.Range(0, 3);
+        if (set == 0) _graphRoots.Add(_set1Root); 
+        else if (set == 1) _graphRoots.Add(_set2Root); 
+        else if (set == 2) _graphRoots.Add(_set3Root); 
+
+        int additional = Random.Range(0, 3);
+        // if 0 exclude both 
+        if (additional == 1) _graphRoots.Add(_billmanRoot); 
+        else if (additional == 2) _graphRoots.Add(_propagandistRoot);
+
+        return _graphRoots;
     }
 }
     /* /// <summary>

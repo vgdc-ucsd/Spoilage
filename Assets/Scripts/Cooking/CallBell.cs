@@ -5,6 +5,7 @@ public class CallBell : MonoBehaviour
 {
     [SerializeField]
     private UnityEvent _callBellAction;
+    private bool _locked;
 
     void Start()
     {
@@ -18,6 +19,12 @@ public class CallBell : MonoBehaviour
 
     public void Press()
     {
+        if (_locked) return;
         _callBellAction.Invoke();
+    }
+
+    public void Lock(bool locked)
+    {
+        
     }
 }

@@ -21,11 +21,9 @@ public class DialogueManager : Singleton<DialogueManager>
         return JsonUtility.FromJson<CustomerDialogue>(dialogueFile.text);
     }
 
-    public CustomerDialogue DEBUGLoadWarlordDialogue()
+    public CustomerDialogue LoadCustomerDialogue(TextAsset dialogueFile)
     {
-        CustomerDialogue dialogue = JsonUtility.FromJson<CustomerDialogue>(_debug_warlordDialogueFiles.DialogueEntries[0].DialogueFile.text);
-        Debug.Log(dialogue);
-        return dialogue;
+        return JsonUtility.FromJson<CustomerDialogue>(dialogueFile.text);
     }
 
     public CustomerDialogue SelectGeneralDialogue(CustomerData data)

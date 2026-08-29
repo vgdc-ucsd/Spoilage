@@ -1,4 +1,6 @@
-public abstract class Branch<T>
+using UnityEngine;
+
+public abstract class Branch<T> : ScriptableObject
 {
-    public abstract T Next();
+    public abstract GraphNode<T> Next();
 }

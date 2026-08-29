@@ -7,8 +7,10 @@ public class Customer : MonoBehaviour
     public CustomerData customerData;
 
     public GameObject customerObject;
+    public CustomerDialogue Dialogue => _customerDialogue;
 
     private PlayerData Player => SaveManager.Instance.Player;
+    private CustomerDialogue _customerDialogue;
 
     private const string SK_PROPHET = "Prophet";
     private const string SK_BILLMAN = "Billman";
@@ -158,6 +160,11 @@ public class Customer : MonoBehaviour
 
         SetAnchoredPosition("Sprites/FACIAL_FEATURES", customerData.faceOffset);
         SetAnchoredPosition("Sprites/SPOILAGE", customerData.faceOffset);
+    }
+
+    public void SetDialogue(CustomerDialogue dialogue)
+    {
+        _customerDialogue = dialogue;        
     }
 
     private void applySpoilageOnDay(int day)

@@ -385,6 +385,58 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5750360540307831784, guid: f13807a0b3bf4e846a567b7c38bb498a, type: 3}
   m_PrefabInstance: {fileID: 408894036}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &660603541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 660603542}
+  - component: {fileID: 660603543}
+  m_Layer: 0
+  m_Name: Story Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &660603542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660603541}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 960963375}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &660603543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660603541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6237190545d8d4c59bcd687d431da4f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryManager
+  _keyRoot: {fileID: 11400000, guid: 887b49ddf68222641ab04a9e3dccbb0f, type: 2}
+  _set1Root: {fileID: 0}
+  _set2Root: {fileID: 0}
+  _set3Root: {fileID: 0}
+  _billmanRoot: {fileID: 0}
+  _propagandistRoot: {fileID: 0}
+  _database: {fileID: 0}
+  _debug_warlordData: {fileID: 0}
 --- !u!1 &885122280
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +615,7 @@ Transform:
   - {fileID: 1573873192}
   - {fileID: 1470453232}
   - {fileID: 408894037}
+  - {fileID: 660603542}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1106200419
@@ -861,7 +914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f2ba596662a4c42b949e2c58bdd820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProgressionManager
-  _timeline: {fileID: 0}
   _upgrades: []
 --- !u!1001 &4641783204875819726
 PrefabInstance:

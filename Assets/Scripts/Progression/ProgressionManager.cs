@@ -1,10 +1,11 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class ProgressionManager : Singleton<ProgressionManager>
 {
     [SerializeField] private List<Upgrade> _upgrades;
+    
+    private List<InteractionsNode> _interactionTimelines;
 
     public HashSet<UpgradeID> Unlocked = new HashSet<UpgradeID>();
     public List<UpgradeID> ShopPool { get; private set; }
@@ -13,7 +14,7 @@ public class ProgressionManager : Singleton<ProgressionManager>
 
     public override void Awake()
     {
-        // TODO init from save script and pass loaded data
+        // TODO init from save script instead of awake and pass loaded data
         base.Awake();
         Init();
     }
@@ -22,6 +23,8 @@ public class ProgressionManager : Singleton<ProgressionManager>
     {
         // TODO load ShopPool and StationQueue from save
         bool saveData = false;
+
+        _interactionTimelines = StoryManager.Instance.InitRunTimelineGraphs();
 
         ShopPool = new List<UpgradeID>();
         StationQueue = new List<UpgradeID>();
@@ -48,5 +51,10 @@ public class ProgressionManager : Singleton<ProgressionManager>
         }
 
         Unlocked.Add(upgrade);
+    }
+
+    public InteractionSet GetInteractions()
+    {
+        return new InteractionSet(_interactionTimelines, SaveManager.Instance.Player.Day);
     }
 }

@@ -1,9 +1,85 @@
-﻿using System.Collections;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum TimeOfDay
+{
+    Beginning,
+    Middle,
+    End
+}
+
 public class CustomerLineManager : Singleton<CustomerLineManager>
 {
+    private TimeOfDay _timeOfDay;
+    private Queue<Conversation> _beginningCustomers;
+    private Queue<Conversation> _middleCustomers;
+    private Queue<Conversation> _endCustomers;
+
+    public void GenerateQueues()
+    {
+        InteractionSet interactions = ProgressionManager.Instance.GetInteractions();
+        _beginningCustomers = new Queue<Conversation>(interactions.BeginInteractions.SelectMany(list => list));
+        _middleCustomers = new Queue<Conversation>(interactions.MiddleInteractions.SelectMany(list => list));
+        _endCustomers = new Queue<Conversation>(interactions.EndInteractions.SelectMany(list => list));
+    }
+
+    public void SetTime(TimeOfDay time)
+    {
+        _timeOfDay = time;
+    }
+
+    public void Advance()
+    {
+        CustomerData customer;
+        TextAsset conversationJson;
+
+        if (_timeOfDay == TimeOfDay.Beginning)
+        {
+            if (_beginningCustomers.Count == 0)
+            {
+                SetupManager.Instance.StartDayMiddle();
+                return;
+            }
+
+            Conversation conversation = _beginningCustomers.Dequeue();
+            customer = conversation.Customer;
+            conversationJson = conversation.ConversationJson;
+        }
+        else if (_timeOfDay == TimeOfDay.Middle)
+        {
+            if (_middleCustomers.Count == 0)
+            {
+                conversationJson = null; // TODO
+                customer = CustomerManager.Instance.GenerateCustomerData();
+            }
+            else
+            {   
+                Conversation conversation = _middleCustomers.Dequeue();
+                customer = conversation.Customer;
+                conversationJson = conversation.ConversationJson;
+            }
+        }
+        else
+        {
+            if (_endCustomers.Count == 0)
+            {
+                SetupManager.Instance.FinishDay();
+                return;
+            }
+
+            Conversation conversation = _endCustomers.Dequeue();
+            customer = conversation.Customer;
+            conversationJson = conversation.ConversationJson;
+        }
+
+        CustomerDialogue dialogue = DialogueManager.Instance.LoadCustomerDialogue(conversationJson);
+        CustomerManager.Instance.GenerateCustomer(customer, dialogue);
+        // TODO check if the customer is a rejected semikey character that needs to be replaced
+    }
+
    /*  public Customer CurrentCustomer;
     
     public UnityEvent PlateSubmitted;

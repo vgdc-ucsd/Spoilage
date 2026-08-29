@@ -78,10 +78,10 @@ public class CustomerManager : Singleton<CustomerManager>
 
     public Customer GenerateCustomer()
     {
-        return GenerateCustomer(GenerateCustomerData());
+        return GenerateCustomer(GenerateCustomerData(), null); // TODO
     }
 
-    public Customer GenerateCustomer(CustomerData customerData)
+    public Customer GenerateCustomer(CustomerData customerData, CustomerDialogue dialogue)
     {
         if (customerData == null)
         {
@@ -91,6 +91,7 @@ public class CustomerManager : Singleton<CustomerManager>
         Customer instantiatedCustomer = Instantiate(CustomerPrefab, _customerTransform).GetComponent<Customer>();
         instantiatedCustomer.customerData = customerData;
         instantiatedCustomer.customerObject = instantiatedCustomer.gameObject;
+        instantiatedCustomer.SetDialogue(dialogue);
 
         instantiatedCustomer.InitializeCustomer();
 

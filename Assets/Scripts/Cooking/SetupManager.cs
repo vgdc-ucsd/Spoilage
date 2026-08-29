@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public enum GamePhase
@@ -17,6 +16,7 @@ public class SetupManager : Singleton<SetupManager>
 
     [Header("References")]
     [SerializeField] private GameObject _gameCanvas;
+    [SerializeField] private CallBell _callBell;
     [SerializeField] private List<SpawnerTileUI> _spawnerTiles;
     [SerializeField] private List<KitchenTileUI> _defaultTiles;
     [SerializeField] private List<KitchenTileUI> _upgrade1Tiles;
@@ -43,6 +43,7 @@ public class SetupManager : Singleton<SetupManager>
     {
         AudioManager.Instance.PlayMusicEntry("KitchenLayout");
 
+        _callBell.Lock(true);
         LockTiles(_spawnerTiles, true);
         LockTiles(_defaultTiles, false);
         LockTiles(_upgrade1Tiles, !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant1));
@@ -80,19 +81,40 @@ public class SetupManager : Singleton<SetupManager>
             _currStationPopup = instantiated.GetComponent<RectTransform>();
             InstantiatedStation = _currStationPopup.GetChild(0).GetChild(0).gameObject;
         }
+
+        StartDayBeginning();        
     }
 
-    public void StartCooking()
+    public void StartDayBeginning()
     {
-        if(!CanStartDay()) return;
+        StartCoroutine(UpdateSignSprite());
+        CustomerLineManager.Instance.GenerateQueues();
+        CustomerLineManager.Instance.SetTime(TimeOfDay.Beginning);
+        CustomerLineManager.Instance.Advance();
+    }
 
+    public void StartDayMiddle()
+    {
         CurrentPhase = GamePhase.Cooking;
         AudioManager.Instance.PlayMusicEntry("Cozy");
         LockTiles(_spawnerTiles, false);
+        _callBell.Lock(false);
+        CustomerLineManager.Instance.SetTime(TimeOfDay.Middle);
+        CustomerLineManager.Instance.Advance();
+    }
 
-        StartCoroutine(UpdateSignSprite());
+    public void StartDayEnd()
+    {
+        LockTiles(_spawnerTiles, true);
+        // LockTiles(_, true);
+        _callBell.Lock(true);
+        CustomerLineManager.Instance.SetTime(TimeOfDay.End);
+        CustomerLineManager.Instance.Advance();
+    }
 
-        Debug.Log("Phase: Cooking");
+    public void FinishDay()
+    {
+        
     }
 
     public void StartSetup()
@@ -151,11 +173,6 @@ public class SetupManager : Singleton<SetupManager>
             () => _startSignImage.gameObject.SetActive(false),
             _flipSignAnimTime
         );
-    }
-
-    private bool CanStartDay()
-    {
-        return _newStationPrefab == null && CurrentPhase == GamePhase.Setup;
     }
 
     public IEnumerator HideNewStationPopup()
