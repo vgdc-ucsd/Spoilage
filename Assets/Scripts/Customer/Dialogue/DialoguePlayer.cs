@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DialoguePlayer : MonoBehaviour
 {
-    private const int MAX_VISIBILE_LINES = 3;
+    private const int MAX_VISIBLE_LINES = 3;
     private const float MAX_BUBBLE_WAIT_SECONDS = 3.0f;
     private const float FADE_TIME = MAX_BUBBLE_WAIT_SECONDS / 5.0f;
     private const float BUBBLE_TIME = MAX_BUBBLE_WAIT_SECONDS / 10.0f;
@@ -43,21 +43,18 @@ public class DialoguePlayer : MonoBehaviour
 
     private IEnumerator BubbleDialogue(List<string> dialogue, Action callback)
     {
-        Vector3[] corners = new Vector3[4];
-        _dialogueSpawnpoint.GetWorldCorners(corners);
-        Vector2 spawnBottomLeft = corners[0];
-        
         foreach (string line in dialogue)
         {
             float startTime = Time.time;
 
             DialogueBubble bubble = Instantiate(_bubblePrefab);
             bubble.transform.SetParent(_dialogueSpawnpoint);
+            bubble.transform.localScale = Vector3.one;
             bubble.SetText(line);
             bubble.FadeIn(FADE_TIME);
             _bubbles.AddFirst(bubble);
 
-            if (_bubbles.Count > MAX_VISIBILE_LINES)
+            if (_bubbles.Count > MAX_VISIBLE_LINES)
             {
                 _bubbles.Last.Value.FadeOut(FADE_TIME);
             }
@@ -70,8 +67,8 @@ public class DialoguePlayer : MonoBehaviour
                 foreach (DialogueBubble b in _bubbles)
                 {
                     if (b == null) continue;
-                    Vector2 size = b.GetSize();
-                    b.transform.position = new Vector2(size.x, bubbleHeight) + spawnBottomLeft;
+                    Vector2 size = b.GetSize(); 
+                    b.transform.localPosition = new Vector2(size.x, bubbleHeight);
                     bubbleHeight += size.y + BUBBLE_SPACING;
                     i++;
                 }
@@ -79,7 +76,7 @@ public class DialoguePlayer : MonoBehaviour
                 yield return null;
             }
             
-            if (_bubbles.Count > MAX_VISIBILE_LINES)
+            if (_bubbles.Count > MAX_VISIBLE_LINES)
             {
                 _bubbles.RemoveLast();
             }
@@ -107,7 +104,7 @@ public class DialoguePlayer : MonoBehaviour
                     baseBubbleHeight += size.y + BUBBLE_SPACING;
                 }
 
-                b.transform.position = new Vector2(size.x, bubbleHeight) + spawnBottomLeft + new Vector2(0f, baseBubbleHeight);
+                b.transform.localPosition = new Vector2(size.x, bubbleHeight) + new Vector2(0f, baseBubbleHeight);
                 bubbleHeight += size.y + BUBBLE_SPACING;
                 i++;
             }

@@ -8,7 +8,6 @@ public class DialogueManager : Singleton<DialogueManager>
 {
     [SerializeField] private DialoguePlayer _dialoguePlayer;
     [SerializeField] private DialogueRegistry _dialogueFiles;
-    [SerializeField] private DialogueRegistry _debug_warlordDialogueFiles;
 
     public void PlayDialogue(List<string> dialogue, Action callback)
     {
