@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 343259233480884239}
   - component: {fileID: 5765658885046152828}
   - component: {fileID: 6023783579641672964}
+  - component: {fileID: 4404567148361647494}
   m_Layer: 5
   m_Name: Customer
   m_TagString: Untagged
@@ -352,6 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Customer
   customerData: {fileID: 0}
   customerObject: {fileID: 0}
+  _movement: {fileID: 4404567148361647494}
 --- !u!114 &6023783579641672964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,6 +382,19 @@ MonoBehaviour:
   currentMood: 0
   currentSpoilageStatus: 0
   currentBlinkMultiplier: 1
+--- !u!114 &4404567148361647494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053961289165473929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38e8aa4e8f491f641a1a07251a48be70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerMovement
+  XMainPosition: 0
 --- !u!1 &2784711479208657518
 GameObject:
   m_ObjectHideFlags: 0

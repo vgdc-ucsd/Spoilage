@@ -8,9 +8,11 @@ public class Customer : MonoBehaviour
 
     public GameObject customerObject;
     public CustomerDialogue Dialogue => _customerDialogue;
+    public CustomerMovement Movement => _movement;
 
     private PlayerData Player => SaveManager.Instance.Player;
     private CustomerDialogue _customerDialogue;
+    [SerializeField] private CustomerMovement _movement;
 
     private const string SK_PROPHET = "Prophet";
     private const string SK_BILLMAN = "Billman";

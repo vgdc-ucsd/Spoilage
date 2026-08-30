@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
 public enum TimeOfDay
 {
@@ -17,6 +15,11 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
     private Queue<Conversation> _beginningCustomers;
     private Queue<Conversation> _middleCustomers;
     private Queue<Conversation> _endCustomers;
+    private Customer _customer;
+
+    [SerializeField] private Transform _entrance;
+    [SerializeField] private Transform _counter;
+    [SerializeField] private Transform _exit;
 
     public void GenerateQueues()
     {
@@ -33,6 +36,12 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
 
     public void Advance()
     {
+        if (_customer != null)
+        {
+            GameObject customerGameObject = _customer.gameObject;
+            _customer.Movement.WalkTo(_exit.position, () => Destroy(customerGameObject));
+        }
+
         CustomerData customerData;
         TextAsset conversationJson;
 
@@ -77,8 +86,12 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
         }
 
         CustomerDialogue dialogue = DialogueManager.Instance.LoadCustomerDialogue(conversationJson);
-        Customer customer = CustomerManager.Instance.GenerateCustomer(customerData, dialogue);
-        DialogueManager.Instance.PlayDialogue(dialogue.Intro, () => Advance());
+        _customer = CustomerManager.Instance.GenerateCustomer(customerData, dialogue);
+        _customer.transform.position = new Vector3(_entrance.position.x, _customer.transform.position.y, _customer.transform.position.z);
+        _customer.Movement.WalkTo(
+            _counter.position,
+            () => DialogueManager.Instance.PlayDialogue(dialogue.Intro, () => Advance())
+        );
         // TODO check if the customer is a rejected semikey character that needs to be replaced
     }
 
