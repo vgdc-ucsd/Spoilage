@@ -12,7 +12,7 @@ public class SettingsManager : Singleton<SettingsManager>
 
     public void Start()
     {
-        SaveManager.OnLoad(() => InitializeSettings());
+        SaveManager.OnPlayerLoad(() => InitializeSettings());
     }
 
     public void SetFullscreen(FullScreenMode mode)

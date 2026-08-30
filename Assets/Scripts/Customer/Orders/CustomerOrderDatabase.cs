@@ -39,7 +39,7 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
         _lineManager = CustomerLineManager.Instance;
         _resourceManager = ResourceManager.Instance;
 
-        SaveManager.OnLoad(() =>
+        SaveManager.OnPlayerLoad(() =>
         {
             _saveManager = SaveManager.Instance;
             UpdateAvailableRecipes();

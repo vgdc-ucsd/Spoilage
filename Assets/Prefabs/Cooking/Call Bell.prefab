@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7220180166665890697}
   - component: {fileID: 3822809928568340094}
   - component: {fileID: 4734679048152642206}
+  - component: {fileID: 5513441279209731940}
   m_Layer: 5
   m_Name: Call Bell
   m_TagString: Untagged
@@ -118,5 +119,20 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 3822809928568340094}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5513441279209731940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7123177956695610239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5901b43bd2b4c3545914e231d63826ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CallBell
+  _callBellAction:
     m_PersistentCalls:
       m_Calls: []

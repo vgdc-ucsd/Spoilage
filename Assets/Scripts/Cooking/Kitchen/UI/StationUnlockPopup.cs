@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class StationUnlockPopup : MonoBehaviour
     [SerializeField] private Sprite _cuttingBoardUnlock;
     [SerializeField] private Sprite _ovenUnlock;
     [SerializeField] private Sprite _seasoningStationUnlock;
+    [SerializeField] private float _closePopupAnimTime = 0.5f;
+    [SerializeField] private RectTransform _rt;
 
     public void Show(StationData station)
     {
@@ -42,13 +45,27 @@ public class StationUnlockPopup : MonoBehaviour
         }
 
         _tile.Init(station, this);
-
-        // TODO animation
     }
 
     public void Hide()
     {
-        gameObject.SetActive(false);
-        // TODO animation
+        StartCoroutine(HideNewStationPopup());
+    }
+
+    public IEnumerator HideNewStationPopup()
+    {
+        Vector3 _initPopupPos = _rt.position;
+        Vector3 _targetPopupPos = new(_rt.position.x - _rt.sizeDelta.x, _rt.position.y);
+
+        yield return BasicAnimations.Interpolate(
+            null,
+            (t) =>
+            {
+                float curve = BasicAnimations.EaseInBack(t);
+                _rt.position = Vector3.Lerp(_initPopupPos, _targetPopupPos, curve);
+            },
+            null,
+            _closePopupAnimTime
+        );
     }
 }

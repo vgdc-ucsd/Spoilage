@@ -7,19 +7,18 @@ public class SaveManager : Singleton<SaveManager>
 {
     public PlayerData Player;
     public SettingsData Settings;
-   // private string _playerSavePath;
+
+    private string _saveFolderPath;
     private string _settingsSavePath;
+
     private static Queue<Action> s_loadQueue = new Queue<Action>();
 
     private const int SAVE_SLOT_COUNT = 128;
     private const string SAVE_FOLDER = "saves";
 
-    private string SaveFolderPath =>
-        Path.Combine(Application.persistentDataPath, SAVE_FOLDER);
-
     private string GetSlotPath(int saveId)
     {
-        return Path.Combine(SaveFolderPath, $"save_{saveId:D3}.json");
+        return Path.Combine(_saveFolderPath, $"save_{saveId:D3}.json");
     }
 
     private bool IsValidSaveId(int saveId)
@@ -32,18 +31,12 @@ public class SaveManager : Singleton<SaveManager>
         return IsValidSaveId(saveId) && File.Exists(GetSlotPath(saveId));
     }
 
-    public override void Awake()
+    public void Start()
     {
-        base.Awake();
-     //   _playerSavePath = Application.persistentDataPath + "/savefile.json";
-        _settingsSavePath = Application.persistentDataPath + "/settings.json";
-
+        _saveFolderPath = Path.Combine(Application.persistentDataPath, SAVE_FOLDER);
+        _settingsSavePath = Path.Combine(Application.persistentDataPath, "/settings.json");
+        Player = DebugManager.Instance.DebugPlayerSave;
         LoadSettings();
-        
-        while (s_loadQueue.Count > 0)
-        {
-            s_loadQueue.Dequeue()?.Invoke();
-        }
     }
 
     public void SaveGame(int saveId)
@@ -59,7 +52,7 @@ public class SaveManager : Singleton<SaveManager>
             Player = new PlayerData();
         }
 
-        Directory.CreateDirectory(SaveFolderPath);
+        Directory.CreateDirectory(_saveFolderPath);
 
         Player.SaveID = saveId;
 
@@ -85,9 +78,16 @@ public class SaveManager : Singleton<SaveManager>
         }
         else
         {
-            Player = new PlayerData();
-            Player.SaveID = saveId;
-            Player.SaveName = $"Save {saveId}";
+            Player = new PlayerData
+            {
+                SaveID = saveId,
+                SaveName = $"Save {saveId}"
+            };
+        }
+
+        while (s_loadQueue.Count > 0)
+        {
+            s_loadQueue.Dequeue()?.Invoke();
         }
     }
 
@@ -103,12 +103,6 @@ public class SaveManager : Singleton<SaveManager>
             // No save file exists, start fresh
             Settings = new SettingsData();
         }
-    }
-
-    public void LoadAll(int playerid)
-    {
-        LoadPlayer(playerid);
-        LoadSettings();
     }
 
     private int GetNextAvailableSaveId()
@@ -134,18 +128,18 @@ public class SaveManager : Singleton<SaveManager>
             return;
         }
 
-        Player = new PlayerData();
-        Player.SaveID = saveId;
-        Player.SaveName = $"Save {saveId}";
+        Player = new PlayerData
+        {
+            SaveID = saveId,
+            SaveName = $"Save {saveId}"
+        };
 
         SaveGame(saveId);
     }
 
-
-
-    public static void OnLoad(Action action)
+    public static void OnPlayerLoad(Action action)
     {
-        if (Instance == null)
+        if (Instance == null || Instance.Player == null)
         {
             s_loadQueue.Enqueue(action);
             return;

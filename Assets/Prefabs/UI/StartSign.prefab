@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6438512956798602280}
   - component: {fileID: 2896271861567777102}
   - component: {fileID: 3597609167374308899}
+  - component: {fileID: 5166481541783213249}
   m_Layer: 5
   m_Name: StartSign
   m_TagString: Untagged
@@ -89,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -122,7 +123,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SetupManager, Assembly-CSharp
-        m_MethodName: StartCooking
+        m_MethodName: StartDayMiddle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -132,3 +133,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5166481541783213249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8776518193450017025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7511ea9f1798df4caedf30e2943de5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StartSign
+  _startSignImage: {fileID: 2896271861567777102}
+  _signSprites:
+  - {fileID: 21300000, guid: d3ef2af12e1968d48b3cffca1e0b612b, type: 3}
+  - {fileID: 21300000, guid: c26ae613146987349bf1079e238e4843, type: 3}
+  _flipSignAnimTime: 0.25

@@ -15,7 +15,7 @@ public class ShopManager : Singleton<ShopManager>
 
     void Start()
     {
-        SaveManager.OnLoad(() => InitializeShop());
+        SaveManager.OnPlayerLoad(() => InitializeShop());
     }
 
     private void InitializeShop()

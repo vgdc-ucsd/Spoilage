@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Day1Save
+  m_EditorClassIdentifier: Assembly-CSharp::DebugPlayerData
+  _playerData:
+    SaveID: 0
+    SaveName: Day 1 Debug Save
+    Day: 1
+    Wealth: 0
+    Reputation: 0
+    RecipesUnlocked: []
+    StationsUnlocked:
+    - Kitchen Tile
+    - Grill
+    - Cutting Board
+    - Pot
+    - Blender
+    - Oven
+    IngredientsUnlocked:
+    - Dough
+    resistanceScore: 7
+    activeSetId: 
+    activeAdditionalId: 
+    refusedCharacterIds: []
+    servedCharacterIds: []
+    semiKeyRefusedToday: 0
+    semiKeyRefusedLifetime: 0
+    semiImportantDishesFailedToday: 0
+    semiImportantDishesFailedLifetime: 0
+    itemExchanges: []
+    pendingReactionaryIds: []

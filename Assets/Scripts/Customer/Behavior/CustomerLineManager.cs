@@ -33,19 +33,19 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
 
     public void Advance()
     {
-        CustomerData customer;
+        CustomerData customerData;
         TextAsset conversationJson;
 
         if (_timeOfDay == TimeOfDay.Beginning)
         {
             if (_beginningCustomers.Count == 0)
             {
-                SetupManager.Instance.StartDayMiddle();
+                SetupManager.Instance.StartSetupPhase();
                 return;
             }
 
             Conversation conversation = _beginningCustomers.Dequeue();
-            customer = conversation.Customer;
+            customerData = conversation.Customer;
             conversationJson = conversation.ConversationJson;
         }
         else if (_timeOfDay == TimeOfDay.Middle)
@@ -53,12 +53,13 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
             if (_middleCustomers.Count == 0)
             {
                 conversationJson = null; // TODO
-                customer = CustomerManager.Instance.GenerateCustomerData();
+                customerData = CustomerManager.Instance.GenerateCustomerData();
+                // DialogueManager.Instance.SelectGeneralDialogue(c);
             }
             else
             {   
                 Conversation conversation = _middleCustomers.Dequeue();
-                customer = conversation.Customer;
+                customerData = conversation.Customer;
                 conversationJson = conversation.ConversationJson;
             }
         }
@@ -71,12 +72,13 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
             }
 
             Conversation conversation = _endCustomers.Dequeue();
-            customer = conversation.Customer;
+            customerData = conversation.Customer;
             conversationJson = conversation.ConversationJson;
         }
 
         CustomerDialogue dialogue = DialogueManager.Instance.LoadCustomerDialogue(conversationJson);
-        CustomerManager.Instance.GenerateCustomer(customer, dialogue);
+        Customer customer = CustomerManager.Instance.GenerateCustomer(customerData, dialogue);
+        DialogueManager.Instance.PlayDialogue(dialogue.Intro, () => Advance());
         // TODO check if the customer is a rejected semikey character that needs to be replaced
     }
 
