@@ -49,42 +49,44 @@ public class CookingManager : Singleton<CookingManager>
 
     public void SubmitOrder()
     {
+        if (_platingTile.Food == null) return;
+
         Customer customer = CustomerLineManager.Instance.CurrentCustomer;
-        List<Recipe> CustomerOrder = customer.customerData.orders;
-        /* Predicate<Recipe> predicate = x => x.name == dish.name;
-        Recipe match = CustomerOrder.Find(predicate);
-        bool success = match != null;
- */
-        /* if (success)
+        Food food = _platingTile.Food;
+
+        List<Recipe> orders = customer.customerData.orders;
+        Recipe match = orders.Find(order => order.name == food.Data.Name);
+
+        if (match != null)
         {
-            // increase the necessary resources
-            orderStreak++;
-            customerData.patience = (customerData.patience + 0.5 > 1) ? 1 : customerData.patience += 0.5f;
-            
-            // for some reason its not able to find resourcemanager and i dont have the time to fix that
-            // _resourceManager.Reputation += orderStreak;
-            // _resourceManager.Wealth += (int)(match.reward * dish.QualityPercent);
-
-
-            //not sure if they wrote this method knowing the customer could order multiple things, but oh well
-            StoryManager.Instance.OnCustomerServed(customerData, success);
-
-            CustomerOrder.Remove(match);
-
-            //check if the order is done
-            if (CustomerOrder.Count == 0)
+            // TODO
+            // customer.customerData.patience = (customerData.patience + 0.5 > 1) ? 1 : customerData.patience += 0.5f;
+            orders.Remove(match);
+            if (orders.Count == 0)
             {
-                //new customer!
-                _lineManager.Advance();
+                // _resourceManager.Reputation += orderStreak;
+                // _resourceManager.Wealth += (int)(match.reward * dish.QualityPercent);
+                // orderStreak++;
+                // StoryManager.Instance.OnCustomerServed(customerData, success);
+                DialogueManager.Instance.PlayDialogue(
+                    customer.Dialogue.Success, 
+                    () => CustomerLineManager.Instance.Advance()
+                );
             }
-        }   else
+        }
+        else
         {
-            orderStreak = 0;
-
-            StoryManager.Instance.OnCustomerServed(customerData, success);
+            // orderStreak = 0;
+            // _resourceManager.Reputation -= ;
+            //StoryManager.Instance.OnCustomerServed(customerData, success);
+            DialogueManager.Instance.PlayDialogue(
+                customer.Dialogue.Fail, 
+                () => CustomerLineManager.Instance.Advance()
+            );
         }
 
-        return success; */
+        _platingTile.Remove();
+        food.Destroy();
     }
 
     public void Update()

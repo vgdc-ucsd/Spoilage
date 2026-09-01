@@ -40,5 +40,6 @@ public class StationUnlockTile : ITile
     {
         _station = null;
         _ui.Hide();
+        SetupManager.Instance.SetAllStationsPlaced();
     }
 }

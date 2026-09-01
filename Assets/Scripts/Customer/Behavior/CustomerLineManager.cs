@@ -87,6 +87,7 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
         }
 
         _customer = CustomerManager.Instance.GenerateCustomer(customerData);
+        _customer.SetDialogue(dialogue);
         _customer.transform.position = new Vector3(
             _entrance.position.x, 
             _customer.transform.position.y, 

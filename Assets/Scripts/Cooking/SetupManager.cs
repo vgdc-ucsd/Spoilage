@@ -70,8 +70,11 @@ public class SetupManager : Singleton<SetupManager>
     public void StartSetupPhase()
     {
         CurrentPhase = GamePhase.Setup;
-        _startSign.Lock(false);
+        
+        // TODO unlocks stations with progression
+        _startSign.Lock(true);
         _stationUnlockPopup.Show(_grill);
+        
         LockTiles(_spawnerTiles, true);
         LockTiles(_defaultTiles, false);
         LockTiles(_upgrade1Tiles, !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant1));
@@ -96,6 +99,11 @@ public class SetupManager : Singleton<SetupManager>
         LockTiles(_allTiles, true);
         CustomerLineManager.Instance.SetTime(TimeOfDay.End);
         CustomerLineManager.Instance.Advance();
+    }
+
+    public void SetAllStationsPlaced()
+    {
+        _startSign.Lock(false);
     }
 
     public void FinishDay()

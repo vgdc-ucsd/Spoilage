@@ -8,8 +8,10 @@ public class Customer : MonoBehaviour
 
     public GameObject customerObject;
     public CustomerMovement Movement => _movement;
+    public CustomerDialogue Dialogue => _dialogue;
 
     private PlayerData Player => SaveManager.Instance.Player;
+    private CustomerDialogue _dialogue;
     [SerializeField] private CustomerMovement _movement;
 
     private const string SK_PROPHET = "Prophet";
@@ -196,6 +198,11 @@ public class Customer : MonoBehaviour
         if (rectTransform == null) return;
 
         rectTransform.anchoredPosition = new Vector2(position.x, position.y);
+    }
+
+    public void SetDialogue(CustomerDialogue dialogue)
+    {
+        _dialogue = dialogue;
     }
 
     private void OnDestroy()

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlatingTile : ITemporalTile
 {
+    public Food Food => _food;
+
     private Food _food;
     private PlatingTileUI _ui;
 
