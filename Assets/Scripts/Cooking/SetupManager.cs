@@ -15,6 +15,7 @@ public class SetupManager : Singleton<SetupManager>
 
     [SerializeField] private CallBell _callBell;
     [SerializeField] private StartSign _startSign;
+    [SerializeField] private DayTimer _dayTimer;
     [SerializeField] private StationUnlockPopup _stationUnlockPopup;
     [SerializeField] private StationData _grill;
     [SerializeField] private PlatingTileUI _platingTile;
@@ -85,6 +86,7 @@ public class SetupManager : Singleton<SetupManager>
     public void StartCookingPhase()
     {
         CurrentPhase = GamePhase.Cooking;
+        _dayTimer.StartTimer();
         _callBell.Lock(false);
         _platingTile.Lock(false);
         LockTiles(_spawnerTiles, false);
@@ -95,6 +97,7 @@ public class SetupManager : Singleton<SetupManager>
 
     public void EndCookingPhase()
     {
+        _dayTimer.StopTimer();
         _callBell.Lock(true);
         LockTiles(_allTiles, true);
         CustomerLineManager.Instance.SetTime(TimeOfDay.End);

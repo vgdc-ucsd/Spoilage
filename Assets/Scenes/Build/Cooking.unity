@@ -2340,6 +2340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SetupManager
   _callBell: {fileID: 7599570200517149446}
   _startSign: {fileID: 630898002}
+  _dayTimer: {fileID: 1881872924}
   _stationUnlockPopup: {fileID: 1851016489}
   _grill: {fileID: 11400000, guid: 592fbf0f7e1be994c864b2b3e0f1ef53, type: 2}
   _platingTile: {fileID: 238892908}
@@ -3725,11 +3726,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1033181505}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -696, y: 495}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 42.059998, y: -19.2}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1881872924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3742,9 +3743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69f8e6cb62ea364c8476ac37d88c66d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayTimer
-  _startUITime: 9
-  _endUITime: 17
-  _realWorldMinutes: 1
+  _tmp: {fileID: 1881872925}
 --- !u!114 &1881872925
 MonoBehaviour:
   m_ObjectHideFlags: 0
