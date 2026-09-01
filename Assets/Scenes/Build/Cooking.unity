@@ -600,8 +600,9 @@ GameObject:
   - component: {fileID: 238892905}
   - component: {fileID: 238892907}
   - component: {fileID: 238892906}
+  - component: {fileID: 238892908}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Plating Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -664,6 +665,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238892904}
   m_CullTransparentMesh: 1
+--- !u!114 &238892908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238892904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87fa36879c3e4e54bb87244f7fafe7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlatingTileUI
 --- !u!1001 &241211640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1699,7 +1712,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 476093761}
-  - component: {fileID: 476093762}
   m_Layer: 5
   m_Name: Serving Station
   m_TagString: Untagged
@@ -1727,18 +1739,6 @@ RectTransform:
   m_AnchoredPosition: {x: 36, y: 3}
   m_SizeDelta: {x: 310, y: 235}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &476093762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 476093760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87fa36879c3e4e54bb87244f7fafe7a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlatingTileUI
 --- !u!1001 &528340241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1852,7 +1852,15 @@ PrefabInstance:
     - target: {fileID: 3597609167374308899, guid: e34615260d6da24409cbe80edb324adc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 901461948}
+      objectReference: {fileID: 630898002}
+    - target: {fileID: 3597609167374308899, guid: e34615260d6da24409cbe80edb324adc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Flip
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597609167374308899, guid: e34615260d6da24409cbe80edb324adc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StartSign, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6778527654248863686, guid: e34615260d6da24409cbe80edb324adc, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -2334,6 +2342,7 @@ MonoBehaviour:
   _startSign: {fileID: 630898002}
   _stationUnlockPopup: {fileID: 1851016489}
   _grill: {fileID: 11400000, guid: 592fbf0f7e1be994c864b2b3e0f1ef53, type: 2}
+  _platingTile: {fileID: 238892908}
   _spawnerTiles:
   - {fileID: 972039167}
   - {fileID: 1787502207}

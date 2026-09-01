@@ -20,6 +20,7 @@ public class CallBell : MonoBehaviour
     public void Press()
     {
         if (_locked) return;
+        CookingManager.Instance.SubmitOrder();
         _callBellAction.Invoke();
     }
 

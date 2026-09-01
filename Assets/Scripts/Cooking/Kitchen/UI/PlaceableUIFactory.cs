@@ -11,8 +11,8 @@ public class PlaceableUIFactory : Singleton<PlaceableUIFactory>
         ui.SetSprite(ingredient.NormalSprite);
         ui.SetBurnt(false);
         ui.ShowTimer(false);
+        ui.SetPlated(false);
         ui.transform.localPosition = Vector3.zero;
-        if (ingredient.IsSmallIngredient) ui.transform.localScale = Vector3.one * 0.5f;
         return ui;
     }
 

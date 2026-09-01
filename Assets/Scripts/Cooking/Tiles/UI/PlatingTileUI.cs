@@ -1,34 +1,20 @@
-using UnityEngine.EventSystems;
+using UnityEngine;
 
 public class PlatingTileUI : TileUI
 {
-    public override void OnBeginDrag(PointerEventData eventData)
-    {
-        
-    }
-    
-    public override void OnDrag(PointerEventData eventData) 
-    {
+    private PlatingTile _tile;
+    public PlatingTile PlatingTile => _tile;
 
-    }
-
-    public override void OnEndDrag(PointerEventData eventData) 
+    public void Init()
     {
-
+        _tile = new PlatingTile(this);
+        Tile = _tile;
     }
 
-    public override void OnPointerDown(PointerEventData eventData) 
+    public void Place(PlaceableUI ui)
     {
-
-    }
-
-    public override void OnPointerEnter(PointerEventData eventData) 
-    {
-
-    }
-
-    public override void OnPointerExit(PointerEventData eventData) 
-    {
-
+        ui.gameObject.SetActive(true);
+        ui.transform.SetParent(transform);
+        ui.transform.localPosition = Vector3.zero;
     }
 }

@@ -9,22 +9,20 @@ using System;
 
 public class CustomerMovement : MonoBehaviour
 {
-    //How many times the coroutine plays
-    private float _walkDuration = 6f;
     //how many times the customer should go up and down
     private float _bobs = 3;
     //how high the character should bob
-    private float _bobHeight = 15f;
+    private float _bobHeight = 10f;
 
-    public void WalkTo(Vector3 pos, Action callback)
+    public void WalkTo(Vector3 pos, float duration, Action callback)
     {
         StopAllCoroutines();
-        StartCoroutine(Walk(pos, callback));
+        StartCoroutine(Walk(pos, duration, callback));
     }
 
     //How I make it wait in between every frame
     //No I do not understand IEnumerator I'm just trying things out praying it works
-    private IEnumerator Walk(Vector3 targetPos, Action callback)
+    private IEnumerator Walk(Vector3 targetPos, float duration, Action callback)
     {
         Vector3 startPos = transform.position;
         yield return BasicAnimations.Interpolate(
@@ -38,7 +36,7 @@ public class CustomerMovement : MonoBehaviour
                 transform.position = new Vector3(targetPos.x, startPos.y, startPos.z);
                 callback?.Invoke();
             },
-            _walkDuration
+            duration
         );
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class PlaceableUI : MonoBehaviour
 {
     private const float DRAG_TRANSPARENCY = 0.75f;
-    [SerializeField] private Image _image;
+    [SerializeField] protected Image _image;
 
     public void SetSprite(Sprite sprite)
     {

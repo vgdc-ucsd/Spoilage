@@ -15,6 +15,7 @@ public class Food : Placeable
 
     public bool IsSeasoned => SeasoningBonus.HasValue;
     public override PlaceableUI UI => _ui;
+    public FoodUI FoodUI => _ui;
 
     private FoodUI _ui;
     private float _timer = 0f;

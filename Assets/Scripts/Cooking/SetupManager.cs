@@ -17,6 +17,7 @@ public class SetupManager : Singleton<SetupManager>
     [SerializeField] private StartSign _startSign;
     [SerializeField] private StationUnlockPopup _stationUnlockPopup;
     [SerializeField] private StationData _grill;
+    [SerializeField] private PlatingTileUI _platingTile;
     [SerializeField] private List<SpawnerTileUI> _spawnerTiles;
     [SerializeField] private List<KitchenTileUI> _defaultTiles;
     [SerializeField] private List<KitchenTileUI> _upgrade1Tiles;
@@ -37,12 +38,15 @@ public class SetupManager : Singleton<SetupManager>
         kitchenTileUIs.AddRange(_upgrade2Tiles);
         kitchenTileUIs.AddRange(_upgrade3Tiles);
         
+        _allTiles.Add(_platingTile);
         _allTiles.AddRange(kitchenTileUIs);
         _allTiles.AddRange(_spawnerTiles);
 
         _callBell.Lock(true);
         _startSign.Lock(true);
         LockTiles(_allTiles, true);
+
+        _platingTile.Init();
 
         foreach (KitchenTileUI ui in kitchenTileUIs)
         {
@@ -55,10 +59,9 @@ public class SetupManager : Singleton<SetupManager>
         }
 
         List<ITemporalTile> temporalTiles = kitchenTileUIs.Select(ui => ui.Tile as ITemporalTile).ToList();
-        
-        // TODO add plating tile
-        CookingManager.Instance.SetTiles(temporalTiles);
-        
+        temporalTiles.Add(_platingTile.PlatingTile);
+        CookingManager.Instance.SetTiles(temporalTiles, _platingTile.PlatingTile);        
+
         CustomerLineManager.Instance.GenerateQueues();
         CustomerLineManager.Instance.SetTime(TimeOfDay.Beginning);
         CustomerLineManager.Instance.Advance();
@@ -79,8 +82,8 @@ public class SetupManager : Singleton<SetupManager>
     public void StartCookingPhase()
     {
         CurrentPhase = GamePhase.Cooking;
-        _startSign.Flip();
         _callBell.Lock(false);
+        _platingTile.Lock(false);
         LockTiles(_spawnerTiles, false);
         AudioManager.Instance.PlayMusicEntry("Cozy");
         CustomerLineManager.Instance.SetTime(TimeOfDay.Middle);
