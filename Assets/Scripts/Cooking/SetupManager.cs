@@ -12,6 +12,7 @@ public enum GamePhase
 public class SetupManager : Singleton<SetupManager>
 {
     public GamePhase CurrentPhase { get; private set; } = GamePhase.Setup;
+    public bool TimeLimitReached => _timeLimitReached;
 
     [SerializeField] private CallBell _callBell;
     [SerializeField] private StartSign _startSign;
@@ -25,11 +26,13 @@ public class SetupManager : Singleton<SetupManager>
     [SerializeField] private List<KitchenTileUI> _upgrade2Tiles;
     [SerializeField] private List<KitchenTileUI> _upgrade3Tiles;
     private List<TileUI> _allTiles;
+    private bool _timeLimitReached;
 
     private void Start()
     {
         AudioManager.Instance.PlayMusicEntry("KitchenLayout");
         _stationUnlockPopup.gameObject.SetActive(false);
+        _timeLimitReached = false;
 
         _allTiles = new List<TileUI>();
         List<KitchenTileUI> kitchenTileUIs = new List<KitchenTileUI>();
@@ -109,9 +112,14 @@ public class SetupManager : Singleton<SetupManager>
         _startSign.Lock(false);
     }
 
+    public void SetTimeLimitReached()
+    {
+        _timeLimitReached = true;
+    }
+
     public void FinishDay()
     {
-        
+        GameManager.Instance.Load(GameScene.SUMMARY);
     }
 
     private void LockTiles(IEnumerable<TileUI> tiles, bool locked)

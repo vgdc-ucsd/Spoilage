@@ -61,6 +61,12 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
         }
         else if (_timeOfDay == TimeOfDay.Middle)
         {
+            if (SetupManager.Instance.TimeLimitReached)
+            {
+                SetupManager.Instance.EndCookingPhase();
+                return;
+            }
+
             if (_middleCustomers.Count == 0)
             {
                 customerData = CustomerManager.Instance.GenerateCustomerData();

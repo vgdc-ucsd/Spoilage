@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -61,7 +60,7 @@ public class DayTimer : MonoBehaviour
     {
         _minutes = 0;
         _dayOver = true;
-        // SetupManager.Instance.
+        SetupManager.Instance.SetTimeLimitReached();
     }
 
     void Update()

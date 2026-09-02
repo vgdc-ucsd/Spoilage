@@ -29,7 +29,7 @@ public class GameManager : Singleton<GameManager>
                 SceneLoader.Instance.ChangeScene("Cooking");
                 break;
             case GameScene.SUMMARY:
-                SceneLoader.Instance.ChangeScene("Summary");
+                SceneLoader.Instance.ChangeScene("Summary Screen");
                 break;
             case GameScene.MAIN_MENU:
                 SceneLoader.Instance.ChangeScene("MainMenu");
