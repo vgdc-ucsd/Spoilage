@@ -1,0 +1,18 @@
+{
+  "Intro": [
+    "...Hey, there's no one else in here right now, right?",
+    "Can you keep a secret?",
+    "And I'm not gonna hurt you or anything, okay? At least, for as long as I can keep it under control.",
+    "I'm spoiled. Normally that's a taboo, but... being spoiled, I need something rancid, something foul...something that'll make this pain go away...",
+    "And I'm starting to get really, really hungry, so... if you've got spoiled ingredients to make a [DISH]..."
+  ],
+  "Success": [
+    "Oh, finally... Thanks a bunch. But most spoiled folk aren't so transparent. It'd be smart to keep an eye out for anything unusual."
+  ],
+  "Fail": [
+    "A-Aagh! It's like poison! Didn't you hear me?! ...Just try to treat others like me better."
+  ],
+  "Reject": [
+    "Wait! Please! Don't tell anyone! I'll leave! See, this is why we don't tell people these things!"
+  ]
+}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfe6fc0e27893340b42794b4efc18fa, type: 3}
+  m_Name: KeyDay16R
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionsNode
+  _day: 16
+  _data:
+    _beginInteraction:
+    - _customer: {fileID: 11400000, guid: 6718c23bdfc35664b87f3678d4e47a27, type: 2}
+      _conversationJson: {fileID: 4900000, guid: d3c29b675204faf4ea36952b2a526a03, type: 3}
+    _middleInteraction: []
+    _endInteraction: []
+    _ending: {fileID: 0}
+  _noBranch: {fileID: 11400000, guid: 14e27e3824a14414690d6fe35aa633aa, type: 2}
+  _branch: {fileID: 0}

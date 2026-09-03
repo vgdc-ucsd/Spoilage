@@ -19,8 +19,10 @@ public class Interactions
     [SerializeField] private List<Conversation> _beginInteraction;
     [SerializeField] private List<Conversation> _middleInteraction;
     [SerializeField] private List<Conversation> _endInteraction;
+    [SerializeField] private Ending _ending;
 
     public List<Conversation> BeginInteraction => _beginInteraction;
     public List<Conversation> MiddleInteraction => _middleInteraction;
     public List<Conversation> EndInteraction => _endInteraction;
+    public Ending Ending => _ending;
 }

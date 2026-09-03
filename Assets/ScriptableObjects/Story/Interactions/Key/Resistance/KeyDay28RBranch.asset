@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726c1ab0b1bbed44f8eeb01074e41411, type: 3}
+  m_Name: KeyDay28RBranch
+  m_EditorClassIdentifier: Assembly-CSharp::ResistanceBranch
+  _threshold: 7
+  _belowThreshold: {fileID: 11400000, guid: 8844744882f085f46b134cf197de0b03, type: 2}
+  _aboveThreshold: {fileID: 11400000, guid: 9fb671afcad59f741bb0851c28d3efdf, type: 2}

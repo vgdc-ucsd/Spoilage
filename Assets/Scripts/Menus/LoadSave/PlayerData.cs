@@ -81,19 +81,10 @@ public class PlayerData
         {
             "Kitchen Tile",
             "Grill",
-            "Cutting Board",
-            "Pot",
-            "Blender",
-            "Oven"
         };
         IngredientsUnlocked = new()
         {
             "Dough",
-            "Meat",
-            "Potatoes",
-            "Root Vegetables",
-            "Cheese",
-            "Sauce"
         };
     }
 }

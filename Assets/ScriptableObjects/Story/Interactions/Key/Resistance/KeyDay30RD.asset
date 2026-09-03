@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdfe6fc0e27893340b42794b4efc18fa, type: 3}
-  m_Name: KeyDay2
+  m_Name: KeyDay30RD
   m_EditorClassIdentifier: Assembly-CSharp::InteractionsNode
-  _day: 2
+  _day: 30
   _data:
-    _beginInteraction: []
+    _beginInteraction:
+    - _customer: {fileID: 11400000, guid: c1e58d0cd3e07014eb3261527cc3c7fb, type: 2}
+      _conversationJson: {fileID: 4900000, guid: 81759cfa641fc8b4ca99446247cd4b6a, type: 3}
     _middleInteraction: []
     _endInteraction:
     - _customer: {fileID: 11400000, guid: c1e58d0cd3e07014eb3261527cc3c7fb, type: 2}
-      _conversationJson: {fileID: 4900000, guid: 8093e899fb90ebe4b8b358f1d41507a4, type: 3}
+      _conversationJson: {fileID: 4900000, guid: b34a4684a009a3e44bb3db46c84eb968, type: 3}
+    _ending: {fileID: 0}
   _noBranch: {fileID: 0}
   _branch: {fileID: 0}

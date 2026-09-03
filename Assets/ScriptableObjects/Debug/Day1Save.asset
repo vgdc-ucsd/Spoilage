@@ -18,14 +18,34 @@ MonoBehaviour:
     Day: 1
     Wealth: 0
     Reputation: 0
-    RecipesUnlocked: []
+    RecipesUnlocked:
+    - id: 12
+      name: Noodles
+      complexity: 2
+      reward: 14
+      rarityWeight: 0
+      appliance: Pot
+      servable: 1
+      spoiled: 0
+      requiredIngredients:
+      - name: Sliced Dough
+        id: 6
+      requiresAllSpoiled: 0
+    - id: 22
+      name: Flatbread
+      complexity: 1
+      reward: 10
+      rarityWeight: 5
+      appliance: Grill
+      servable: 1
+      spoiled: 0
+      requiredIngredients:
+      - name: Dough
+        id: 0
+      requiresAllSpoiled: 0
     StationsUnlocked:
     - Kitchen Tile
     - Grill
-    - Cutting Board
-    - Pot
-    - Blender
-    - Oven
     IngredientsUnlocked:
     - Dough
     resistanceScore: 7

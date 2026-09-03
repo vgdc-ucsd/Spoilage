@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918e1c96f9fc68cc18ac2ae3792387ab, type: 3}
+  m_Name: Tutorial Spoiled
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerData
+  sprites: []
+  faceOffset: {x: 0, y: 0, z: 0}
+  spoilage: 1
+  spoilageSymptom: {fileID: 0}
+  patience: 0
+  orders: []
+  id: TutorialSpoiled
+  tier: 1
+  keyMusicEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
