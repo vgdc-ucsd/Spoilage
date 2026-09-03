@@ -24,3 +24,4 @@ MonoBehaviour:
     _ending: {fileID: 0}
   _noBranch: {fileID: 11400000, guid: c5abc2a19b7a80f4abf3bbeb7c7e976e, type: 2}
   _branch: {fileID: 0}
+  _id: 24
