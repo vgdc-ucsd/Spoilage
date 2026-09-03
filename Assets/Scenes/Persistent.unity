@@ -482,6 +482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DebugManager
   _debugPlayerSave: {fileID: 11400000, guid: aa66fde026573c542a9fd4be36cb6470, type: 2}
+  _allowSkipDialogue: 1
 --- !u!1 &885122280
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DialoguePlayer : MonoBehaviour
 {
@@ -15,12 +16,23 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private RectTransform _dialogueSpawnpoint;
     [SerializeField] private DialogueBubble _bubblePrefab;    
     private LinkedList<DialogueBubble> _bubbles = new LinkedList<DialogueBubble>();
+    private Action _callback;
 
     public void PlayDialogue(List<string> dialogue, Action callback)
     {
         StopAllCoroutines();
         ClearDialogue();
-        StartCoroutine(BubbleDialogue(dialogue, callback));
+        _callback = callback;
+        StartCoroutine(BubbleDialogue(dialogue));
+    }
+
+    void Update()
+    {
+        if (DebugManager.Instance.AllowSkipDialogue && Keyboard.current.sKey.wasPressedThisFrame)
+        {
+            StopAllCoroutines();
+            ClearDialogue();
+        }
     }
 
     private void ClearDialogue()
@@ -30,6 +42,8 @@ public class DialoguePlayer : MonoBehaviour
             Destroy(child.gameObject);
         }
         _bubbles.Clear();
+        _callback?.Invoke();
+        _callback = null;
     }
 
     // Ranges from half to full max wait time depending on the length of the line
@@ -41,7 +55,7 @@ public class DialoguePlayer : MonoBehaviour
         return halfTime + additionalWaitSeconds;
     }
 
-    private IEnumerator BubbleDialogue(List<string> dialogue, Action callback)
+    private IEnumerator BubbleDialogue(List<string> dialogue)
     {
         foreach (string line in dialogue)
         {
@@ -118,6 +132,5 @@ public class DialoguePlayer : MonoBehaviour
         }
 
         ClearDialogue();
-        callback?.Invoke();
     }
 }
