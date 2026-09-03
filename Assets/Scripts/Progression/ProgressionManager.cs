@@ -57,4 +57,16 @@ public class ProgressionManager : Singleton<ProgressionManager>
     {
         return new InteractionSet(_interactionTimelines, SaveManager.Instance.Player.Day);
     }
+
+    public void AdvanceDay()
+    {
+        int day = SaveManager.Instance.Player.Day; 
+        for (int i = 0; i < _interactionTimelines.Count; i++)
+        {
+            _interactionTimelines[i] = (InteractionsNode) _interactionTimelines[i].Advance(day);
+        }
+
+        SaveManager.Instance.Player.Day = day + 1;
+        // TODO save
+    }
 }

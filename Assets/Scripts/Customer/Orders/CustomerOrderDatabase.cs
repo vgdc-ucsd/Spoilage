@@ -142,6 +142,7 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
                 result = false;
             }
         }
+
         return result;
     }
 

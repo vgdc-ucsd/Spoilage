@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b48961614aacb74d94a3bbb45cd0623, type: 3}
+  m_Name: Streak 1
+  m_EditorClassIdentifier: Assembly-CSharp::Upgrade
+  _upgradeID: 9
+  _upgradeType: 0
+  _name: Streak 1
+  _description: 'Unlock a streak system. Every 6 perfect dishes complete rewards
+    a 1.5x monetary increase. '
+  _defaultShopUpgrade: 1
+  _temporary: 0
+  _unlocks:
+  - {fileID: 11400000, guid: ea39ce7f17ff5864aa09b86332985dbd, type: 2}
+  _cost: 100

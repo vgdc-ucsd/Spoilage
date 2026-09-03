@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e56303726e68f4588b58081702488e, type: 3}
+  m_Name: Day15Upgrades
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeNode
+  _day: 15
+  _data:
+  - {fileID: 11400000, guid: f66ca8ae76e52da40ba5597c7e2b4c0a, type: 2}
+  _noBranch: {fileID: 11400000, guid: 8af69acc3c5c34f4e81f999e20a2c567, type: 2}
+  _branch: {fileID: 0}
+  _id: 11
