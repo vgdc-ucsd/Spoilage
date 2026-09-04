@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeNode
   _day: 1
   _data:
-  - {fileID: 11400000, guid: 616d0f679f70c59459e7686d4040528d, type: 2}
   - {fileID: 11400000, guid: d29636dacd9583c418d81d3810639016, type: 2}
   _noBranch: {fileID: 11400000, guid: a7a5319ada0b5e343b8578a2aacde251, type: 2}
   _branch: {fileID: 0}

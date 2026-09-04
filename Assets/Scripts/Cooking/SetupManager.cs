@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public enum GamePhase
 {
@@ -18,7 +17,6 @@ public class SetupManager : Singleton<SetupManager>
     [SerializeField] private StartSign _startSign;
     [SerializeField] private DayTimer _dayTimer;
     [SerializeField] private StationUnlockPopup _stationUnlockPopup;
-    [SerializeField] private StationData _grill;
     [SerializeField] private PlatingTileUI _platingTile;
     [SerializeField] private List<SpawnerTileUI> _spawnerTiles;
     [SerializeField] private List<KitchenTileUI> _defaultTiles;
@@ -92,17 +90,28 @@ public class SetupManager : Singleton<SetupManager>
 
     public void StartSetupPhase()
     {
-        CurrentPhase = GamePhase.Setup;
-        
-        // TODO unlocks stations with progression
-        _startSign.Lock(true);
-        _stationUnlockPopup.Show(_grill);
-        
+        CurrentPhase = GamePhase.Setup;        
+        ShowStationPopup();
         LockTiles(_spawnerTiles, true);
         LockTiles(_defaultTiles, false);
         LockTiles(_upgrade1Tiles, !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant1));
         LockTiles(_upgrade2Tiles, !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant2));
         LockTiles(_upgrade3Tiles, !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant3));   
+    }
+
+    private void ShowStationPopup()
+    {
+        string pendingStation = SaveManager.Instance.Player.PendingStation;
+        if (!string.IsNullOrEmpty(pendingStation)) 
+        {
+            _startSign.Lock(true);
+            _stationUnlockPopup.Show(StationLookup.Instance.NameToData(pendingStation));
+            SaveManager.Instance.Player.PendingStation = "";
+        }
+        else
+        {
+            _startSign.Lock(false);
+        }
     }
 
     public void StartCookingPhase()

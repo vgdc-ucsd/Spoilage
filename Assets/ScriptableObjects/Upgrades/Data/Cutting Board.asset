@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   _upgradeID: 29
   _upgradeType: 1
-  _name: 
+  _name: Cutting Board
   _description: 
   _defaultShopUpgrade: 0
   _temporary: 0

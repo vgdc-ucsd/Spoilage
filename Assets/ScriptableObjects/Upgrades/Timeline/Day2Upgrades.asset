@@ -15,6 +15,7 @@ MonoBehaviour:
   _day: 2
   _data:
   - {fileID: 11400000, guid: b00ca4c775fa37243b0417c6a4d00587, type: 2}
+  - {fileID: 11400000, guid: 616d0f679f70c59459e7686d4040528d, type: 2}
   _noBranch: {fileID: 11400000, guid: cd1ae99ecbf33ec4cbb6747f7b4563f6, type: 2}
   _branch: {fileID: 0}
   _id: 1

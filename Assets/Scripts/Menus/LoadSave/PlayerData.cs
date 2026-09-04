@@ -35,6 +35,7 @@ public class PlayerData
     
     public List<string> KitchenStations;
     public List<string> KitchenItems;
+    public string PendingStation;
 
     /// <summary>
     /// Player resistance. Below 7 leans warlord, above 7 leans
@@ -78,6 +79,7 @@ public class PlayerData
         RecipesUnlocked = new();
         KitchenStations = new List<string>();
         KitchenItems = new List<string>();
+        PendingStation = "Grill";
 
         // Initialize StationsUnlocked and IngredientsUnlocked with the day 1 status
         StationsUnlocked = new()

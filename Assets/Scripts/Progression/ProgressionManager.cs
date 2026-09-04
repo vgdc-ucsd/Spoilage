@@ -71,6 +71,7 @@ public class ProgressionManager : Singleton<ProgressionManager>
             case UpgradeType.Effect:
                 break;
             case UpgradeType.Station:
+                SaveManager.Instance.Player.PendingStation = upgrade.Name;
                 break;
             case UpgradeType.Ingredient:
                 break;
