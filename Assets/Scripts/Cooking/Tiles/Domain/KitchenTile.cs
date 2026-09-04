@@ -4,12 +4,15 @@ using UnityEngine;
 public class KitchenTile : ITemporalTile
 {
     public StationUI StationUI => (_current as Station)?.UI as StationUI;
+    public Placeable Placeable => _current;
+
     private Placeable _current;
     private KitchenTileUI _ui;
 
-    public KitchenTile(KitchenTileUI ui)
+    public KitchenTile(KitchenTileUI ui, Station station, Item item)
     {
         _ui = ui;
+        if (station != null) Place(station);
     }
 
     public void Process(float dt)

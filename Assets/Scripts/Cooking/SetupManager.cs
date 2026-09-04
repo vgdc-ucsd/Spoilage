@@ -26,9 +26,15 @@ public class SetupManager : Singleton<SetupManager>
     [SerializeField] private List<KitchenTileUI> _upgrade2Tiles;
     [SerializeField] private List<KitchenTileUI> _upgrade3Tiles;
     private List<TileUI> _allTiles;
+    private List<KitchenTile> _kitchenTiles;
     private bool _timeLimitReached;
 
-    private void Start()
+    void Start()
+    {
+        SaveManager.OnPlayerLoad(() => Init());
+    }
+
+    private void Init()
     {
         AudioManager.Instance.PlayMusicEntry("KitchenLayout");
         _stationUnlockPopup.gameObject.SetActive(false);
@@ -52,9 +58,20 @@ public class SetupManager : Singleton<SetupManager>
 
         _platingTile.Init();
 
-        foreach (KitchenTileUI ui in kitchenTileUIs)
+        PlayerData player = SaveManager.Instance.Player; 
+        bool emptySave = player.KitchenStations.Count == 0 || player.KitchenItems.Count == 0;
+        for (int i = 0; i < kitchenTileUIs.Count; i++)
         {
-            ui.Init();
+            KitchenTileUI ui = kitchenTileUIs[i];
+            if (emptySave) ui.Init(null, null);
+            else
+            {
+                StationData stationData = StationLookup.Instance.NameToData(player.KitchenStations[i]);
+                Station station = stationData == null ? null : StationFactory.Instance.CreateStation(stationData, ui.transform);
+                // TODO
+                // Item item;
+                ui.Init(station, null);
+            }
         }
 
         foreach (SpawnerTileUI ui in _spawnerTiles)
@@ -62,7 +79,9 @@ public class SetupManager : Singleton<SetupManager>
             ui.Init();
         }
 
-        List<ITemporalTile> temporalTiles = kitchenTileUIs.Select(ui => ui.Tile as ITemporalTile).ToList();
+        _kitchenTiles = kitchenTileUIs.Select(ui => ui.KitchenTile).ToList();
+        List<ITemporalTile> temporalTiles = new List<ITemporalTile>();
+        temporalTiles.AddRange(_kitchenTiles);
         temporalTiles.Add(_platingTile.PlatingTile);
         CookingManager.Instance.SetTiles(temporalTiles, _platingTile.PlatingTile);        
 
@@ -119,7 +138,36 @@ public class SetupManager : Singleton<SetupManager>
 
     public void FinishDay()
     {
+        SaveLayout();
         GameManager.Instance.Load(GameScene.SUMMARY);
+    }
+
+    private void SaveLayout()
+    {
+        List<string> kitchenStations = new List<string>();
+        List<string> kitchenItems = new List<string>();
+
+        for (int i = 0; i < _kitchenTiles.Count; i++)
+        {
+            Placeable placeable = _kitchenTiles[i].Placeable;
+            string stationStr = "";
+            string itemStr = "";
+
+            if (placeable is Station station)
+            {
+                stationStr = station.Data.Name;
+            }
+            else if (placeable is Item item)
+            {
+                // TODO
+            }
+
+            kitchenStations.Add(stationStr);
+            kitchenItems.Add(itemStr);
+        }
+
+        SaveManager.Instance.Player.KitchenStations = kitchenStations;
+        SaveManager.Instance.Player.KitchenItems = kitchenItems;
     }
 
     private void LockTiles(IEnumerable<TileUI> tiles, bool locked)

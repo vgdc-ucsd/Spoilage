@@ -35,7 +35,7 @@ public class SaveManager : Singleton<SaveManager>
     {
         _saveFolderPath = Path.Combine(Application.persistentDataPath, SAVE_FOLDER);
         _settingsSavePath = Path.Combine(Application.persistentDataPath, "/settings.json");
-        Player = DebugManager.Instance.DebugPlayerSave;
+        Player = DebugManager.Instance.DebugPlayerSave?.Clone();
         LoadSettings();
     }
 

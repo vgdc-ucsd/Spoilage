@@ -19,18 +19,6 @@ MonoBehaviour:
     Wealth: 0
     Reputation: 0
     RecipesUnlocked:
-    - id: 12
-      name: Noodles
-      complexity: 2
-      reward: 14
-      rarityWeight: 0
-      appliance: Pot
-      servable: 1
-      spoiled: 0
-      requiredIngredients:
-      - name: Sliced Dough
-        id: 6
-      requiresAllSpoiled: 0
     - id: 22
       name: Flatbread
       complexity: 1
@@ -48,6 +36,8 @@ MonoBehaviour:
     - Grill
     IngredientsUnlocked:
     - Dough
+    KitchenStations: []
+    KitchenItems: []
     resistanceScore: 7
     activeSetId: 
     activeAdditionalId: 

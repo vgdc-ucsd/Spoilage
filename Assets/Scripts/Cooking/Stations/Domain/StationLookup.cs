@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum StationCategory
@@ -10,8 +11,15 @@ public enum StationCategory
     SeasoningStation,
 }
 
-public static class StationLookup
+public class StationLookup : Singleton<StationLookup>
 {
+    [SerializeField] private List<StationData> _stations;
+
+    public StationData NameToData(string name)
+    {
+        return _stations.Find(station => station.Name == name);
+    }
+
     public static string CategoryName(StationCategory stationType)
     {
         switch (stationType)

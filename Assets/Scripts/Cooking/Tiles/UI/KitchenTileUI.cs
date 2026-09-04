@@ -4,14 +4,16 @@ using UnityEngine.UI;
 
 public class KitchenTileUI : TileUI
 {
+    public KitchenTile KitchenTile => _tile; 
+
     [SerializeField] private Image _tileImage;
     private KitchenTile _tile;
     private const float HOVER_DARKNESS = 0.2f;
     private const float LOCKED_DARKNESS = 0.5f;
 
-    public void Init()
+    public void Init(Station station, Item item)
     {
-        _tile = new KitchenTile(this);
+        _tile = new KitchenTile(this, station, item);
         Tile = _tile;
     }
 
