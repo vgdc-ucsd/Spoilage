@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CookingManager : Singleton<CookingManager>
 {
@@ -91,6 +92,11 @@ public class CookingManager : Singleton<CookingManager>
 
     public void Update()
     {
+        if (DebugManager.Instance.AllowSkipDay && Keyboard.current.dKey.wasPressedThisFrame)
+        {
+            SetupManager.Instance.FinishDay();
+        }
+
         foreach (ITemporalTile tile in _tiles)
         {
             tile.Process(Time.deltaTime);

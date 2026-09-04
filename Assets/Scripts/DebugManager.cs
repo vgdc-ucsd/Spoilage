@@ -16,7 +16,9 @@ public class DebugManager : Singleton<DebugManager>
 #endif
     [SerializeField] private DebugPlayerData _debugPlayerSave;
     [SerializeField] private bool _allowSkipDialogue;
+    [SerializeField] private bool _allowSkipDay;
 
     public PlayerData DebugPlayerSave => DEBUG ? _debugPlayerSave?.PlayerData : null;
     public bool AllowSkipDialogue => DEBUG ? _allowSkipDialogue : false;
+    public bool AllowSkipDay => DEBUG ? _allowSkipDay : false;
 }

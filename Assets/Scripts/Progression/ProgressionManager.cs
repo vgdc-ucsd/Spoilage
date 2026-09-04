@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class ProgressionManager : Singleton<ProgressionManager>
 {
+    [SerializeField] private UpgradeNode _upgradeRoot;
     [SerializeField] private List<Upgrade> _upgrades;
     
     private List<InteractionsNode> _interactionTimelines;
+    private UpgradeNode _upgradeTimeline;
 
     public HashSet<UpgradeID> Unlocked = new HashSet<UpgradeID>();
     public List<UpgradeID> ShopPool { get; private set; }
@@ -24,6 +26,7 @@ public class ProgressionManager : Singleton<ProgressionManager>
         // TODO load ShopPool and StationQueue from save
         bool saveData = false;
 
+        _upgradeTimeline = _upgradeRoot;
         _interactionTimelines = StoryManager.Instance.InitRunTimelineGraphs();
 
         ShopPool = new List<UpgradeID>();
@@ -39,18 +42,41 @@ public class ProgressionManager : Singleton<ProgressionManager>
                 ShopPool.Add(upgrade.UpgradeID);
             }
         }
+
+        // Unlock day 1 upgrades
+        if (saveData == false)
+        {    
+            foreach (Upgrade upgrade in _upgradeTimeline.Data)
+            {
+                Unlock(upgrade.UpgradeID);
+            }
+        }
     }
 
-    public void Unlock(UpgradeID upgrade)
+    public void Unlock(UpgradeID id)
     {
-        if (Unlocked.Contains(upgrade)) return;
+        if (Unlocked.Contains(id)) return;
         
-        foreach (Upgrade unlocked in Upgrades[upgrade].Unlocks)
+        Upgrade upgrade = Upgrades[id];
+        foreach (Upgrade unlocked in upgrade.Unlocks)
         {
             ShopPool.Add(unlocked.UpgradeID);    
         }
 
-        Unlocked.Add(upgrade);
+        Unlocked.Add(id);
+
+        // TODO
+        switch (upgrade.UpgradeType)
+        {
+            case UpgradeType.Effect:
+                break;
+            case UpgradeType.Station:
+                break;
+            case UpgradeType.Ingredient:
+                break;
+            case UpgradeType.Restaurant:
+                break;
+        }
     }
 
     public InteractionSet GetInteractions()
@@ -63,7 +89,16 @@ public class ProgressionManager : Singleton<ProgressionManager>
         int day = SaveManager.Instance.Player.Day; 
         for (int i = 0; i < _interactionTimelines.Count; i++)
         {
-            _interactionTimelines[i] = (InteractionsNode) _interactionTimelines[i].Advance(day);
+            _interactionTimelines[i] = (InteractionsNode) _interactionTimelines[i]?.Advance(day);
+        }
+        
+        _upgradeTimeline = (UpgradeNode) _upgradeTimeline?.Advance(day);
+        if (_upgradeTimeline?.Day == day + 1)
+        {    
+            foreach (Upgrade upgrade in _upgradeTimeline.Data)
+            {
+                Unlock(upgrade.UpgradeID);
+            }
         }
 
         SaveManager.Instance.Player.Day = day + 1;
