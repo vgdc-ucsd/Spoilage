@@ -20,11 +20,6 @@ public class FoodUI : PlaceableUI
         }
         else
         {
-            if (_food.Spoiling) 
-            {
-                _timerUI.Show(true);
-            }
-
             if (_plated) 
             {
                 SetPlated(true);
@@ -47,6 +42,10 @@ public class FoodUI : PlaceableUI
     public void SetSpoilage(float progress)
     {
         _timerUI.SetProgress(progress);
+        if (_food.Spoiling) 
+        {
+            ShowTimer(true);
+        }
     }
 
     public void Spoil()

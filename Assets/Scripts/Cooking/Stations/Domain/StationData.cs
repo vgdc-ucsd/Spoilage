@@ -13,6 +13,7 @@ public class StationData : ScriptableObject
     [SerializeField] private StationCategory _stationCategory;
     [SerializeField] private StationType _stationType;
     [SerializeField] private bool _overcook;
+    [SerializeField] private bool _stack;
     [SerializeField] private Sprite _spriteOff;
     [SerializeField] private Sprite _spriteOn;
 
@@ -21,6 +22,7 @@ public class StationData : ScriptableObject
     public StationType StationType => _stationType;
     public string Name => _name;
     public bool Overcook => _overcook;
+    public bool Stack => _stack;
     public Sprite SpriteOff => _spriteOff;
     public Sprite SpriteOn => _spriteOn;
 }

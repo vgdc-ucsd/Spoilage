@@ -6,6 +6,7 @@ public class SeasoningStation : Station
     private int _counter;
 
     public override PlaceableUI UI => throw new System.NotImplementedException();
+    public override StationUI StationUI => throw new System.NotImplementedException();
 
     public override void Place(Placeable placeable) => throw new System.NotImplementedException();
     public override void Process(float dt) => throw new System.NotImplementedException();

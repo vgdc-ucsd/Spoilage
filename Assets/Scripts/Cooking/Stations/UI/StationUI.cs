@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class StationUI : PlaceableUI
@@ -13,22 +14,48 @@ public class StationUI : PlaceableUI
 
     public void BeginDrag()
     {
-        _station.Produces()?.UI.gameObject.SetActive(true);
+        if (SetupManager.Instance.CurrentPhase == GamePhase.Cooking)
+        {
+            _station.Produces()?.UI.gameObject.SetActive(true);
+        }
     }
 
     public void EndDrag()
     {
-        _station.Produces()?.UI.gameObject.SetActive(false);
+        if (SetupManager.Instance.CurrentPhase == GamePhase.Cooking)
+        {
+            _station.Produces()?.UI.gameObject.SetActive(_station.Data.Stack);
+        }
     }
 
     public void AddIngredient(Placeable placeable)
     {
-        placeable.UI.gameObject.SetActive(false);
         SetSprite(_station.Data.SpriteOn);
+
+        if (_station.Data.Stack)
+        {
+            placeable.UI.transform.SetParent(transform);
+            placeable.UI.transform.localPosition = Vector3.zero;
+            if (placeable.UI is FoodUI foodUI) foodUI.ShowTimer(false);
+        }
+        else
+        {
+            placeable.UI.gameObject.SetActive(false);
+        }
     }
 
     public void Empty()
     {
         SetSprite(_station.Data.SpriteOff);
+    }
+
+    public void Cook(List<Food> ingredients, Food result)
+    {
+        foreach(Food ingredient in ingredients)
+        {
+            ingredient.UI.gameObject.SetActive(false);
+        }
+
+        result.UI.gameObject.SetActive(_station.Data.Stack);
     }
 }

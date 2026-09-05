@@ -16,5 +16,6 @@ MonoBehaviour:
   _stationCategory: 0
   _stationType: 1
   _overcook: 0
+  _stack: 1
   _spriteOff: {fileID: 21300000, guid: 643cebbca9ff0c5489727d467358ea77, type: 3}
   _spriteOn: {fileID: 21300000, guid: 643cebbca9ff0c5489727d467358ea77, type: 3}

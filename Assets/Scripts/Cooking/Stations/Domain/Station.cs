@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public enum FoodState
 {
@@ -8,6 +9,7 @@ public enum FoodState
 
 public abstract class Station : Placeable, ITemporalTile
 {
+    public abstract StationUI StationUI { get; }
     public StationData Data { get; protected set; }
     public FoodState FoodState { get; protected set; }
 
@@ -17,8 +19,8 @@ public abstract class Station : Placeable, ITemporalTile
     protected bool _justSlop => _ingredients.Count == 1 && CookingManager.Instance.IsSlop(_ingredients[0]);
 
     public bool Accepts(Placeable placeable) { return placeable is Food; }
-    public abstract void Place(Placeable placeable);
     public abstract void Process(float dt);
+    public abstract void Place(Placeable placeable);
     
     public Placeable Produces()
     {
@@ -57,7 +59,7 @@ public abstract class Station : Placeable, ITemporalTile
         if (_cookedFood != null) _cookedFood.Destroy();
         _cookedFood = CookingManager.Instance.Process(_ingredients, this);
         _cookedFood.SetUI(PlaceableUIFactory.Instance.Generate(_cookedFood.Data, UI.transform));
-        _cookedFood.UI.gameObject.SetActive(false);
+        StationUI.Cook(_ingredients, _cookedFood);
     }
 
     public virtual void MakeSlop()

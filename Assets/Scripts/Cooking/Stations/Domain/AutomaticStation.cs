@@ -3,6 +3,7 @@ using UnityEngine;
 public class AutomaticStation : Station
 {
     public override PlaceableUI UI => _ui;
+    public override StationUI StationUI => _ui;
     private float _timer = 0f;
     private AutomaticStationUI _ui;
     private const float COOK_TIME = 5f;
