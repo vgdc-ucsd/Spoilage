@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286f3a8cbede88a4fb8a81156cc5ae0d, type: 3}
+  m_Name: Day1SaveCuttingBoard
+  m_EditorClassIdentifier: Assembly-CSharp::DebugPlayerData
+  _playerData:
+    SaveID: 2
+    SaveName: Day 1 Save Cutting Board
+    Day: 1
+    Wealth: 0
+    Reputation: 0
+    RecipesUnlocked:
+    - id: 22
+      name: Flatbread
+      complexity: 1
+      reward: 10
+      rarityWeight: 5
+      appliance: Grill
+      servable: 1
+      spoiled: 0
+      requiredIngredients:
+      - name: Dough
+        id: 0
+      requiresAllSpoiled: 0
+    StationsUnlocked:
+    - Kitchen Tile
+    - Cutting Board
+    - Grill
+    IngredientsUnlocked:
+    - Dough
+    KitchenStations:
+    - Grill
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    KitchenItems:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    PendingStation: Cutting Board
+    resistanceScore: 7
+    activeSetId: 
+    activeAdditionalId: 
+    refusedCharacterIds: []
+    servedCharacterIds: []
+    semiKeyRefusedToday: 0
+    semiKeyRefusedLifetime: 0
+    semiImportantDishesFailedToday: 0
+    semiImportantDishesFailedLifetime: 0
+    itemExchanges: []
+    pendingReactionaryIds: []

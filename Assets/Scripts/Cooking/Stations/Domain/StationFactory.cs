@@ -14,7 +14,8 @@ public class StationFactory : Singleton<StationFactory>
                 station = new AutomaticStation(data, asui);
                 break;
             case StationType.Manual:
-                station = new ManualStation();
+                ManualStationUI msui = pui as ManualStationUI;
+                station = new ManualStation(data, msui);
                 break;
         }
 

@@ -278,7 +278,6 @@ MonoBehaviour:
   _startSign: {fileID: 0}
   _dayTimer: {fileID: 0}
   _stationUnlockPopup: {fileID: 0}
-  _grill: {fileID: 11400000, guid: 592fbf0f7e1be994c864b2b3e0f1ef53, type: 2}
   _platingTile: {fileID: 0}
   _spawnerTiles:
   - {fileID: 0}
@@ -479,3 +478,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlaceableUIFactory
   _foodUITemplate: {fileID: 154970377145826796, guid: f6d25c36a7e4749488eb1aaa00c79c6b, type: 3}
   _automaticStationUITemplate: {fileID: 1610876166936842780, guid: af774649e82776d478360b800769b888, type: 3}
+  _manualStationUITemplate: {fileID: 504522311085142264, guid: 0ae8d9607ad92564e846094c3b52a0e4, type: 3}

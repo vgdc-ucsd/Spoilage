@@ -1,99 +1,33 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public abstract class ManualStationUI : StationUI
+public class ManualStationUI : StationUI
 {
-    [Header("Manual Settings")]
-    [SerializeField] protected int _clicksPerState = 3;
+    [SerializeField] private TimerUI _timerUI;
+    private ManualStation _manualStation;
 
-    [Header("Manual UI")]
-    [SerializeField] protected GameObject _timerObject;
-    [SerializeField] protected Image _timerFill;
-    [SerializeField] protected GameObject _actionButtonObject;
-
-    protected int _currentClicks;
-    protected bool _isActionComplete;
-/* 
-    public override void Start()
+    public override void SetStation(Station station)
     {
-        base.Start();
-        HideManualUI();
-    }
-    
-    public override bool OnPlaceFood(FoodGrab food)
-    {
-        bool placed = base.OnPlaceFood(food);
-
-        _currentClicks = 0;
-        _isActionComplete = false;
-
-        ShowManualUI();
-        UpdateTimer();
-
-        return placed;
+        base.SetStation(station);
+        _manualStation = station as ManualStation;
     }
 
-    public override void OnRemoveFood()
+    void Start()
     {
-        _currentClicks = 0;
-        _isActionComplete = false;
-
-        HideManualUI();
-
-        base.OnRemoveFood();
+        _timerUI.SetColor(s_normalColor);
     }
 
-    public virtual void OnAction()
+    public void SetClicks(float amount)
     {
-        if (_currentFood == null || _isActionComplete)
-            return;
-
-        if (this is CuttingBoard || this is Blender)
-        {
-            SpoilageTriggerManager.Trigger(SpoilageCategory.DISTRESS);
-        }
-
-        _currentClicks++;
-        UpdateTimer();
-
-        if (_currentClicks >= _clicksPerState)
-        {
-            _isActionComplete = true;
-            FillTimer();
-            CompleteManualAction();
-        }
+        _timerUI.SetProgress(amount);
     }
 
-    protected abstract void CompleteManualAction();
-
-    protected void UpdateTimer()
+    public void ShowClicks(bool show)
     {
-        if (_timerFill == null || _clicksPerState <= 0) return;
-        _timerFill.fillAmount = Mathf.Clamp01((float)_currentClicks / _clicksPerState);
+        _timerUI.Show(show);
     }
 
-    protected void FillTimer()
+    public void Click()
     {
-        if (_timerFill != null)
-            _timerFill.fillAmount = 1f;
+        _manualStation.Click();
     }
-
-    protected void ResetTimer()
-    {
-        _currentClicks = 0;
-        _isActionComplete = false;
-        UpdateTimer();
-    }
-
-    protected void ShowManualUI()
-    {
-        if (_timerObject != null) _timerObject.SetActive(true);
-        if (_actionButtonObject != null) _actionButtonObject.SetActive(true);
-    }
-
-    protected void HideManualUI()
-    {
-        if (_timerObject != null) _timerObject.SetActive(false);
-        if (_actionButtonObject != null) _actionButtonObject.SetActive(false);
-    } */
 }

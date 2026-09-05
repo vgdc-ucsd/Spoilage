@@ -753,6 +753,9 @@ MonoBehaviour:
     - Root Vegetables
     - Cheese
     - Sauce
+    KitchenStations: []
+    KitchenItems: []
+    PendingStation: Grill
     resistanceScore: 7
     activeSetId: 
     activeAdditionalId: 
@@ -1135,6 +1138,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 960963375}
     m_Modifications:
+    - target: {fileID: 1911131217323276095, guid: 9911b8bb4d60e2a4ba4fb2f1496f95e5, type: 3}
+      propertyPath: _debugPlayerSave
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a95580abec841a458590d4d63c4f971, type: 2}
     - target: {fileID: 7082361233152579849, guid: 9911b8bb4d60e2a4ba4fb2f1496f95e5, type: 3}
       propertyPath: m_Name
       value: Debug Manager
