@@ -26,11 +26,15 @@ public class ManualStation : Station
         if (_justSlop)
         {
             FoodState = FoodState.Prepared;
+            _ingredients.Clear();
             _cookedFood = food;
+            _ui.ShowClicks(false);
         }
         else
         {
             _ui.ShowClicks(true);
+            if (_cookedFood != null) _ingredients.Add(_cookedFood);
+            _cookedFood = null;
             FoodState = FoodState.Preparing;
         }
 
@@ -40,6 +44,12 @@ public class ManualStation : Station
     public override void Remove()
     {
         base.Remove();
+        _ui.ShowClicks(false);
+    }
+
+    public override void Cook()
+    {
+        base.Cook();
         _ui.ShowClicks(false);
     }
 

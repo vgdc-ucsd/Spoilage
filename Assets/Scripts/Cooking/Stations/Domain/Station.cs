@@ -53,7 +53,7 @@ public abstract class Station : Placeable, ITemporalTile
         FoodState = FoodState.Preparing;
     }
 
-    public void Cook()
+    public virtual void Cook()
     {
         FoodState = FoodState.Prepared;
         if (_cookedFood != null) _cookedFood.Destroy();
@@ -66,7 +66,12 @@ public abstract class Station : Placeable, ITemporalTile
     {
         Food slop = CookingManager.Instance.CreateSlop(UI.transform);
         _cookedFood = slop;
+
+        foreach (Food food in _ingredients)
+        {
+            food.Destroy();
+        }
+        
         _ingredients.Clear();
-        _ingredients.Add(slop);
     }
 }
