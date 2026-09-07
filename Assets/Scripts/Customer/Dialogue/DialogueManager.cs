@@ -9,9 +9,9 @@ public class DialogueManager : Singleton<DialogueManager>
     [SerializeField] private DialoguePlayer _dialoguePlayer;
     [SerializeField] private DialogueRegistry _dialogueFiles;
 
-    public void PlayDialogue(List<string> dialogue, Action callback)
+    public void PlayDialogue(List<string> dialogue, CustomerData data, Action callback)
     {
-        _dialoguePlayer.PlayDialogue(dialogue, callback);
+        _dialoguePlayer.PlayDialogue(InsertDishName(dialogue, data), callback);
     }
 
     public CustomerDialogue LoadCustomerDialogue(string filePath)
@@ -55,13 +55,14 @@ public class DialogueManager : Singleton<DialogueManager>
 
         DialogueEntry entry = entries[UnityEngine.Random.Range(0, entries.Count)];
         CustomerDialogue dialogue = JsonUtility.FromJson<CustomerDialogue>(entry.DialogueFile.text);
-        InsertDishName(dialogue, data);
 
         return dialogue;
     }
 
     private List<string> InsertDishName(List<string> lines, CustomerData data)
     {
+        if (data.orders.Count == 0) return lines;
+
         return lines.Select(
             line => Regex.Replace(line, @"\[DISH\]", data.orders[0].name)
         ).ToList();

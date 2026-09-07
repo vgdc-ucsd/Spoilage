@@ -104,7 +104,8 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
             _counter.position,
             2f,
             () => DialogueManager.Instance.PlayDialogue(
-                dialogue.Intro, 
+                dialogue.Intro,
+                _customer.customerData, 
                 () => {
                     if (_timeOfDay != TimeOfDay.Middle) Advance();
                 }

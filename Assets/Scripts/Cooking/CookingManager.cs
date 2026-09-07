@@ -70,7 +70,8 @@ public class CookingManager : Singleton<CookingManager>
                 // orderStreak++;
                 // StoryManager.Instance.OnCustomerServed(customerData, success);
                 DialogueManager.Instance.PlayDialogue(
-                    customer.Dialogue.Success, 
+                    customer.Dialogue.Success,
+                    customer.customerData, 
                     () => CustomerLineManager.Instance.Advance()
                 );
             }
@@ -81,7 +82,8 @@ public class CookingManager : Singleton<CookingManager>
             // _resourceManager.Reputation -= ;
             //StoryManager.Instance.OnCustomerServed(customerData, success);
             DialogueManager.Instance.PlayDialogue(
-                customer.Dialogue.Fail, 
+                customer.Dialogue.Fail,
+                customer.customerData, 
                 () => CustomerLineManager.Instance.Advance()
             );
         }
