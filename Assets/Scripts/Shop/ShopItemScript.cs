@@ -1,60 +1,75 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class ShopItemScript : MonoBehaviour
+public class ShopItemScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
+    [Header("References")]
     public Texture2D hoverCursor;
     public ShopItem item;
-
-    public TextMeshPro priceField;
-    public TextMeshPro nameField;
-    public TextMeshPro typeField;
-
-    public SpriteRenderer imageField;
+    [SerializeField] private TextMeshProUGUI _nameField;
+    [SerializeField] private TextMeshProUGUI _typeField;
+    [SerializeField] private TextMeshProUGUI _priceField;
+    [SerializeField] private Image _cardImage;
+    [SerializeField] private Image _itemImage;    
 
     private bool _bought = false;
+    private Vector3 _origScale;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _origScale = transform.localScale;
         UpdateGUI();
     }
 
-    bool canBuy()
+    bool CanBuy()
     {
         return !_bought && SaveManager.Instance.Player.Wealth >= item.price;
     }
 
-    void OnMouseDown()
+    public void UpdateGUI()
     {
-        if (canBuy())
+        _priceField.text = "$" + item.price;
+        _nameField.text = item.name;
+        _typeField.text = $"- {item.itemType} -";
+        _itemImage.sprite = item.icon;
+        _cardImage.color = item.color;
+        
+        if (_bought)
         {
-            SaveManager.Instance.Player.Wealth -= item.price;
-            _bought = true;
-            GetComponent<SpriteRenderer>().color *= Color.gray;
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+            _cardImage.color *= Color.gray;
+            _itemImage.color *= Color.gray;
+            _priceField.color *= Color.gray;
         }
     }
 
-    void OnMouseEnter()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        if (canBuy())
-            Cursor.SetCursor(hoverCursor, new Vector2(hoverCursor.width, hoverCursor.height) / 2, CursorMode.Auto);
+        if (!_bought)
+            transform.localScale *= 1.1f;
+    
+        // if (CanBuy())
+            // Cursor.SetCursor(hoverCursor, new Vector2(hoverCursor.width, hoverCursor.height) / 2, CursorMode.Auto);
     }
 
-    void OnMouseExit()
+    public void OnPointerExit(PointerEventData eventData) 
     {
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        transform.localScale = _origScale;
+        
+        // Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
-    public void UpdateGUI()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        priceField.text = "$" + item.price;
-        nameField.text = item.name;
-        typeField.text = "- " + item.itemType + " -";
-        imageField.sprite = item.icon;
-        GetComponent<SpriteRenderer>().color = item.color;
-        if (_bought)
-            GetComponent<SpriteRenderer>().color *= Color.gray;
+        if (CanBuy())
+        {
+            ShopManager.Instance.BuyItem(item);
+            _bought = true;
+
+            UpdateGUI();
+            transform.localScale = _origScale;
+            // Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
     }
 }

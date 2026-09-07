@@ -3,26 +3,30 @@ using UnityEngine;
 
 public class ItemGeneratorScript : MonoBehaviour
 {
-    public GameObject shopItemPrefab;
+    [Header("References")]
+    [SerializeField] private ShopItemScript _shopItemPrefab;
+    [SerializeField] private List<ShopItem> _generalItemPool;
+    [SerializeField] private List<ShopItem> _ingredientItemPool;
+    [SerializeField] private Transform _itemsParent;
 
-    public List<ShopItem> itemPool;
+    [Header("Config")]
+    [SerializeField] private int _generalUpgradeCount;
+    [SerializeField] private int _ingredientUpgradeCount;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // pick from itemPool
-        ShopItem item = itemPool[Random.Range(0, itemPool.Count)];
-
-        // create shop item
-        GameObject shopItem = Instantiate(shopItemPrefab);
-        shopItem.GetComponent<ShopItemScript>().item = item;
-        shopItem.GetComponent<ShopItemScript>().UpdateGUI();
-        shopItem.transform.position = transform.position;
+        GenerateShopItems(_ingredientItemPool, _ingredientUpgradeCount);
+        GenerateShopItems(_generalItemPool, _generalUpgradeCount);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void GenerateShopItems(List<ShopItem> itemPool, int count)
     {
+        for (int i = 0; i < count; i++)
+        {
+            ShopItem upgrade = itemPool[Random.Range(0, itemPool.Count)];
 
+            ShopItemScript shopItem = Instantiate(_shopItemPrefab, _itemsParent);
+            shopItem.item = upgrade;
+        }
     }
 }
