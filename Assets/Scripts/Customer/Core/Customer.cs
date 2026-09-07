@@ -34,23 +34,6 @@ public class Customer : MonoBehaviour
         {
             customerData = CustomerManager.Instance.GenerateCustomerData();
         }
-/*
-        if (customerData.spoilage >= CustomerData.Spoilage.STAGE_I
-            && customerData.spoilageSymptom == null)
-        {
-            customerData.spoilageSymptom = CustomerManager.GenerateSymptom();
-        }
-
-        if (customerData.spoilageSymptom != null)
-        {
-            customerData.spoilageSymptom.AssignCustomer(gameObject);
-            customerData.spoilageSymptom.Register();
-
-            // DEBUG
-            //customerData.spoilageSymptom.ApplySpoilage();
-        }
-*/
-
         for (int i = 0; i < customerData.sprites.Length; i++)
         {
             Transform currTransform;
@@ -71,15 +54,11 @@ public class Customer : MonoBehaviour
                     currTransform = transform.Find("Sprites/" + ((CustomerData.Indexes)i).ToString());
                     break;
             }
-            if (currTransform != null)
+            if (currTransform != null && currTransform.TryGetComponent(out Image image))
             {
-                Image image = currTransform.GetComponent<Image>();
-                if (image != null)
-                {
-                    image.sprite = customerData.sprites[i];
-                    image.enabled = image.sprite != null;
-                    image.SetNativeSize();
-                }
+                image.sprite = customerData.sprites[i];
+                image.enabled = image.sprite != null;
+                image.SetNativeSize();
             }
         }
 
@@ -197,7 +176,7 @@ public class Customer : MonoBehaviour
         RectTransform rectTransform = transform.Find(path) as RectTransform;
         if (rectTransform == null) return;
 
-        rectTransform.anchoredPosition = new Vector2(position.x, position.y);
+        rectTransform.anchoredPosition = (Vector2)position;
     }
 
     public void SetDialogue(CustomerDialogue dialogue)

@@ -1,4 +1,4 @@
-public class ManualStation : Station
+﻿public class ManualStation : Station
 {
     public override PlaceableUI UI => _ui;
     public override StationUI StationUI => _ui;
@@ -68,6 +68,11 @@ public class ManualStation : Station
 
     public void Click()
     {
+        if (Data.StationCategory == StationCategory.CuttingBoard)
+        {
+            SpoilageTriggerManager.Trigger(SpoilageCategory.DISTRESS);
+        }
+
         if (FoodState == FoodState.Preparing)
         {    
             _clickCountdown--;
