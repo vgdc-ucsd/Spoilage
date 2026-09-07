@@ -18,5 +18,6 @@ MonoBehaviour:
   _description: Station becomes automated
   _defaultShopUpgrade: 0
   _temporary: 0
-  _unlocks: []
+  _unlocks:
+  - {fileID: 11400000, guid: 0f00813dc60fbc247bd71c3cfaee5ca4, type: 2}
   _cost: 100

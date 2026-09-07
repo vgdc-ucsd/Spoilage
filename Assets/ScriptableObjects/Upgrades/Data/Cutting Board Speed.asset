@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   _upgradeID: 19
   _upgradeType: 0
-  _name: Cutting Board Speed
+  _name: Slicer Speed
   _description: Gain a stacking 10% speed bonus each time the same recipe is repeated.
     Reset on recipe change.
   _defaultShopUpgrade: 0
