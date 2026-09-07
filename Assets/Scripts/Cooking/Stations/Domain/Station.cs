@@ -16,9 +16,9 @@ public abstract class Station : Placeable, ITemporalTile
     protected List<Food> _ingredients = new List<Food>();
     protected Food _cookedFood;
     protected bool _overcook = false;
-    protected bool _justSlop => _ingredients.Count == 1 && CookingManager.Instance.IsSlop(_ingredients[0]);
+    protected bool _slop => _cookedFood != null && CookingManager.Instance.IsSlop(_cookedFood);
 
-    public bool Accepts(Placeable placeable) { return placeable is Food; }
+    public bool Accepts(Placeable placeable) { return placeable is Food food && food != _cookedFood; }
     public abstract void Process(float dt);
     public abstract void Place(Placeable placeable);
     
@@ -38,13 +38,10 @@ public abstract class Station : Placeable, ITemporalTile
     }
 
     public virtual void Remove()
-    {
-        if (!_justSlop)
-        {    
-            foreach (Food food in _ingredients)
-            {
-                food.Destroy();
-            }
+    {    
+        foreach (Food food in _ingredients)
+        {
+            food.Destroy();
         }
 
         _cookedFood = null;
@@ -60,18 +57,5 @@ public abstract class Station : Placeable, ITemporalTile
         _cookedFood = CookingManager.Instance.Process(_ingredients, this);
         _cookedFood.SetUI(PlaceableUIFactory.Instance.Generate(_cookedFood.Data, UI.transform));
         StationUI.Cook(_ingredients, _cookedFood);
-    }
-
-    public virtual void MakeSlop()
-    {
-        Food slop = CookingManager.Instance.CreateSlop(UI.transform);
-        _cookedFood = slop;
-
-        foreach (Food food in _ingredients)
-        {
-            food.Destroy();
-        }
-        
-        _ingredients.Clear();
     }
 }

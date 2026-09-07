@@ -19,26 +19,30 @@ public class ManualStation : Station
         if (placeable is not Food food) return;
 
         ResetClicks();
+        _ui.AddIngredient(food);
+        _overcook = false;
 
-        _ingredients.Add(food);
-        _ui.AddIngredient(placeable);
-        
-        if (_justSlop)
+        if (_ingredients.Count == 0 && Data.Overcook)
         {
+            SpoilageTriggerManager.Trigger(SpoilageCategory.TEMPERATURE);
+        }
+
+        if (_ingredients.Count == 0 
+            && _cookedFood == null 
+            && CookingManager.Instance.IsSlop(food)
+        ) {
             FoodState = FoodState.Prepared;
-            _ingredients.Clear();
             _cookedFood = food;
             _ui.ShowClicks(false);
         }
         else
         {
+            _ingredients.Add(food);
             _ui.ShowClicks(true);
             if (_cookedFood != null) _ingredients.Add(_cookedFood);
             _cookedFood = null;
             FoodState = FoodState.Preparing;
-        }
-
-        if (_overcook) Cook();
+        }    
     }
 
     public override void Remove()

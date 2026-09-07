@@ -17,7 +17,7 @@ public class AutomaticStation : Station
 
     public override void Process(float dt)
     {
-        if (_ingredients.Count == 0 || _justSlop) return;
+        if (_ingredients.Count == 0 || _slop) return;
 
         _timer += dt;
         
@@ -31,7 +31,7 @@ public class AutomaticStation : Station
             }
             else
             {
-                MakeSlop();
+                // Overcook TODO
             }
         }
 
@@ -43,27 +43,31 @@ public class AutomaticStation : Station
     {
         if (placeable is not Food food) return;
 
+        _ui.AddIngredient(food);
+        _timer = 0f;
+        _overcook = false;
+
         if (_ingredients.Count == 0 && Data.Overcook)
         {
             SpoilageTriggerManager.Trigger(SpoilageCategory.TEMPERATURE);
         }
 
-        _ingredients.Add(food);
-        _ui.AddIngredient(placeable);
-        _timer = 0f;
-        
-        if (_justSlop)
-        {
+        if (_ingredients.Count == 0 
+            && _cookedFood == null 
+            && CookingManager.Instance.IsSlop(food)
+        ) {
             FoodState = FoodState.Prepared;
             _cookedFood = food;
+            _ui.ShowTimer(false);
         }
         else
         {
+            _ingredients.Add(food);
             _ui.ShowTimer(true);
+            if (_cookedFood != null) _ingredients.Add(_cookedFood);
+            _cookedFood = null;
             FoodState = FoodState.Preparing;
-        }
-
-        if (_overcook) Cook();
+        }    
     }
 
     public override void Remove()
@@ -74,9 +78,9 @@ public class AutomaticStation : Station
         _ui.ShowTimer(false);
     }
 
-    public override void MakeSlop()
+    public override void Cook()
     {
-        base.MakeSlop();
-        _ui.ShowTimer(false);
+        base.Cook();
+        if (_slop) _ui.ShowTimer(false);
     }
 }
