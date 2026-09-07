@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AutomaticStation : Station
 {
@@ -47,9 +47,13 @@ public class AutomaticStation : Station
         _timer = 0f;
         _overcook = false;
 
-        if (_ingredients.Count == 0 && Data.Overcook)
+        if (Data.StationCategory == StationCategory.Grill || Data.StationCategory == StationCategory.Pot)
         {
             SpoilageTriggerManager.Trigger(SpoilageCategory.TEMPERATURE);
+        }
+        if (Data.StationCategory == StationCategory.Blender)
+        {
+            SpoilageTriggerManager.Trigger(SpoilageCategory.DISTRESS);
         }
 
         if (_ingredients.Count == 0 
@@ -67,7 +71,7 @@ public class AutomaticStation : Station
             if (_cookedFood != null) _ingredients.Add(_cookedFood);
             _cookedFood = null;
             FoodState = FoodState.Preparing;
-        }    
+        }
     }
 
     public override void Remove()

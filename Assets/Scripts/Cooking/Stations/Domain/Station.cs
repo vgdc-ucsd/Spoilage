@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public enum FoodState
@@ -57,5 +57,14 @@ public abstract class Station : Placeable, ITemporalTile
         _cookedFood = CookingManager.Instance.Process(_ingredients, this);
         _cookedFood.SetUI(PlaceableUIFactory.Instance.Generate(_cookedFood.Data, UI.transform));
         StationUI.Cook(_ingredients, _cookedFood);
+
+        if (_slop)
+        {
+            SpoilageTriggerManager.Trigger(SpoilageCategory.HUNGER);
+        }
+        else
+        {
+            SpoilageTriggerManager.Trigger(SpoilageCategory.DISGUST);
+        }
     }
 }

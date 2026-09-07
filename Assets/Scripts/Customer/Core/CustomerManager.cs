@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -100,16 +100,16 @@ public class CustomerManager : Singleton<CustomerManager>
     {
         CustomerData newData = ScriptableObject.CreateInstance<CustomerData>();
 
-        // Curves? Static distribution? I made the current numbers up randomly
         int day = 0;
-        float spoilageSeed = UnityEngine.Random.Range(0f, 1f);
-        float stage1Threshold;
-        float stage2Threshold;
-
-        if (SaveManager.Instance?.Player != null)
+        if (SaveManager.Instance != null && SaveManager.Instance.Player != null)
         {
             day = SaveManager.Instance.Player.Day;
         }
+
+        // Curves? Static distribution? I made the current numbers up randomly
+        float spoilageSeed = UnityEngine.Random.Range(0f, 1f);
+        float stage1Threshold;
+        float stage2Threshold;
 
         if (day < 2) 
         {
@@ -140,11 +140,8 @@ public class CustomerManager : Singleton<CustomerManager>
             newData.spoilage = CustomerData.Spoilage.STAGE_II;
         }
 
-        //newData.spoilage = (CustomerData.Spoilage)UnityEngine.Random.Range(0, 2);
-
         newData.sprites = new Sprite[CustomerData.NUM_SPRITES];
         newData.patience = UnityEngine.Random.Range(0f, 1f); // TODO, talk to design
-
 
         // Spoilage-dependent choices (sprites and symptom)
         switch (newData.spoilage)
