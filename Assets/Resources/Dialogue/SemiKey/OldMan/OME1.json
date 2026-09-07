@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Are you the new owner of this restaurant? I'm surprised anyone's still thinking of opening a store in a time like this.",
+    "Fear scares everyone out of pursuing their passions. War and disease has killed the dreams of too many in this city.",
+    "I remember thinking that the end of the war would bring peace…what a fool I was. Things have only gotten worse.",
+    "Sorry to be the downer, it's hard not to be regretful in this day of age."
+  ],
+  "Success": [
+    "Ah, Sheila would have loved this. Thank you."
+  ],
+  "Fail": [
+    "Well…it was nice that you tried. Thank you."
+  ],
+  "Reject": [
+    "Has fear grown enough for even an old man like me to be doubted?"
+  ]
+}

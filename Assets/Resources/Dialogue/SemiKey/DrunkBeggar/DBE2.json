@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "Hey, Chef. I was wondering if you are willing to spare some more food.",
+    "I'm trying to scrape by through honest means, but no place is willing to hire a beggar like me. I have to resort to pleading like this to fill my stomach.",
+    "Rather be pathetic than dead. Anything will work, Chef, just something with nutrition."
+  ],
+  "Success": [
+    "You really put the effort into this craft, huh? I'm impressed. Thank you."
+  ],
+  "Fail": [
+    "Thanks for the food."
+  ],
+  "Reject": [
+    "Ah, well it was worth a try."
+  ]
+}

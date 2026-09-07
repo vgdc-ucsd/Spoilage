@@ -1,0 +1,18 @@
+{
+  "Intro": [
+    "I saw the strangest thing yesterday. I saw a young couple on the street arguing, and the wife was chastising her husband, publicly.",
+    "She was being so shameful but no one else looked at her like I. What of tradition? Why couldn't I have that woman's freedom when I was younger?",
+    "I do not mean to say that Casmir was a bad husband, but I've always wondered what my life could have been if he had just listened to me.",
+    "Maybe then he would not have spoiled. If I had not acted sooner, he might have...I am truly thankful for the Svetka's soldiers, and their haste.",
+    "...that is enough of that. I would like another one of your dishes, kind Chef."
+  ],
+  "Success": [
+    "Thank you, kind Chef. I appreciate our time together."
+  ],
+  "Fail": [
+    "I'm sorry, kind chef, but today's dish seems off from usual. It is not to my liking."
+  ],
+  "Reject": [
+    "Was there something wrong with what I said? I did not mean to badmouth my husband, I swear. Could you give me another chance, please?"
+  ]
+}

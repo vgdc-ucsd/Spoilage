@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "(Rain pours on the lonely drunk. His heart corrupted, his liver failing.)",
+    "(Lying motionlessly amongst bottles and junk. He meets his end regrettably bawling.)",
+    "(Unaware, a girl seeks to overcome. Following, a boy fearing destined death.)",
+    "(It watches in the murky slum. Eager to force their final breath.)"
+  ],
+  "Success": [
+    "..."
+  ],
+  "Fail": [
+    "..."
+  ],
+  "Reject": [
+    "..."
+  ]
+}

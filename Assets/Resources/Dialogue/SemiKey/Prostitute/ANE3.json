@@ -1,0 +1,21 @@
+{
+  "Intro": [
+    "Hello dear, I'm looking for something easy to bring back for the girls. I thought I'd treat them for today's hard work.",
+    "Life's not easy in the brothel. If we are not perfect for the customer, Svetka's soldiers will be the next ones at our door.",
+    "But nothing's worse than the streets. At Repose, at least people have to pay to touch, hm~?",
+    "Oh, before I go, can you hold onto this vase of roses for me? It was gifted to me by a customer, but I don't have the hands for this and the food."
+  ],
+  "Success": [
+    "Thank you, Dear. I will return soon. All I ask is that you don't mess with the vase! Need to show my customers I care!"
+  ],
+  "Fail": [
+    "Ah…well, I guess this works. I will return soon. All I ask is that you don't mess with the vase! Need to show my customers I care."
+  ],
+  "Reject": [
+    "Point taken. No need to worry about the vase then. I'll be heading out."
+  ],
+  "Item": {
+    "Stage": "success",
+    "ID": "VaseOfFlowers"
+  }
+}

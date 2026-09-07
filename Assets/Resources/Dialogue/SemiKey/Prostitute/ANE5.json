@@ -1,0 +1,21 @@
+{
+  "Intro": [
+    "Hello dear. Time is short, so I'm going to be honest with you; I have been testing you, to see whether you were someone I could trust.",
+    "Lovro Square has a secret. In the past, we were once docile to Svetka, never daring to rebel. But one day…",
+    "Dusan had done something unforgivable to one of my girls. This street decided enough was enough, and plotted a lie. One that he had spoiled.",
+    "We learned defiance that day. But, it seems Svetka has caught on. Repose is under watch, so I need you to hold onto this for me, Dear."
+  ],
+  "Success": [
+    "Thank you…and I'm sorry. I don't mean this to sound threatening, but there are too many of us riding on this. I would do anything to protect my girls."
+  ],
+  "Fail": [
+    "Thank you…and I'm sorry. I don't mean this to sound threatening, but there are too many of us riding on this. I would do anything to protect my girls."
+  ],
+  "Reject": [
+    "No…you can't! If I'm gone, who will protect Repose!? I thought I could trust you!"
+  ],
+  "Item": {
+    "Stage": "success",
+    "ID": "CodedMessage"
+  }
+}

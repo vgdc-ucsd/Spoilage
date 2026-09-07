@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Hello Dear, I was wondering if I could get that vase back. I've been so busy lately, it's been hard to keep track of everything.",
+    "The twins, especially, have been worrying me lately. They seem to be in a world of their own right now, it's been difficult to talk lately.",
+    "I know those two have been visiting this store, so could you keep an eye on them for me?",
+    "This city is getting more dangerous every day, I'm afraid something will happen to them."
+  ],
+  "Success": [
+    "Thank you, Dear. I appreciate you keeping this safe for me. You seem to be quite a trustworthy friend. I like that."
+  ],
+  "Fail": [
+    "Thank you, Dear, for keeping this safe. You seem to be quite a trustworthy friend. Let's just work a bit on your food, okay?"
+  ],
+  "Reject": [
+    "Point taken. No need to worry about the vase then. I'll be heading out."
+  ]
+}

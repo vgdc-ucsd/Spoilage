@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Good day, Chef, hoping for a nice dish today to cheer me up. It's been a long day.",
+    "There's something terribly wrong with this city. The more I search each day, the more I hate what it's become.",
+    "Ha…my life is just one pathetic old man's attempt to avenge things.",
+    "But alas, the past cannot be changed. Don't end up like me, kid. It will lead to an early death. Stick to this passion."
+  ],
+  "Success": [
+    "Thank you, you are a very kind person."
+  ],
+  "Fail": [
+    "Oh…thank you."
+  ],
+  "Reject": [
+    "I understand. It seems the past is all I can think about. It haunts me wherever I go. Thank you for at least listening."
+  ]
+}

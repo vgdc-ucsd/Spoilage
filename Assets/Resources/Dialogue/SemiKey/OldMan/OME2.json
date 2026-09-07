@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "I usually would avoid going outside too often, but I just could not help but return to your store. Rations taste horrible now compared to your work.",
+    "Ah… how my wife would have loved to come here. She always believed food was the key to happiness. I used to think it was power and security.",
+    "Only when it was too late did I realize that she was my key. It's never enough, you know? The time we have with our loved ones.",
+    "You must've heard similar stories to mine. Tell me, what would you do to the monster who cut short that time?"
+  ],
+  "Success": [
+    "...sorry, it seems the past is all I can think about. It haunts me wherever I go. Thank you for the meal."
+  ],
+  "Fail": [
+    "...sorry, it seems the past is all I can think about. It haunts me wherever I go. I apologize if it impedes on your cooking."
+  ],
+  "Reject": [
+    "I understand. It seems the past is all I can think about. It haunts me wherever I go. Thank you for at least listening."
+  ]
+}

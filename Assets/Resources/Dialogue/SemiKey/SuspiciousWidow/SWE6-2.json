@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Kind chef, were you the one who convinced the ratcatcher to speak to me that day? When I was on the verge of losing all sense of control?",
+    "I…thank you, kind chef. If not for him finding me, I fear I would have entered a dark place in my mind that day. There were whispers…horrible whispers.",
+    "They wanted me to join them, promising freedom. I was about to be trapped once more in chains…and yet I did not even realize it.",
+    "It seems…I have already spoiled. But you knew that already, didn't you? You still chose to save me, regardless of that fact. Why?"
+  ],
+  "Success": [
+    "I…I see. Thank you, kind Chef. You are a dear friend to me. If you are ever in trouble, feel free to seek me out. I will welcome you anyday."
+  ],
+  "Fail": [
+    "I don't understand…but thank you anyways, kind Chef. You are a dear friend to me. If you are ever in trouble, feel free to seek me out."
+  ],
+  "Reject": [
+    "Kind Chef…?"
+  ]
+}

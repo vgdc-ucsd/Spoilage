@@ -1,0 +1,21 @@
+{
+  "Intro": [
+    "Today, dear rival, I am not here for our feud. My fifty-fourth dish, Le Rat Bourguignon, is going well, but I cannot say the same for our friends.",
+    "There's an evil lurking in our streets, foreign from these lands. It's looking for something. Something with you.",
+    "You've seen it before, no? The pale one? No one cares more for your safety than I, your rival. I've been monitoring the situation here.",
+    "We must be vigilant, rival. That pale demon is looking for something. Take this rat of mine. If someone is in trouble, have Pockets come find me."
+  ],
+  "Success": [
+    "Splendid as always, I cannot wait to settle our feud. Keep those who you care about safe. I shall endeavor the same! Us chefs must stick together."
+  ],
+  "Fail": [
+    "Do not worry, rival. Us chefs will stick together. I just hope this dilemma will not impact our eventual feud. Keep those who you care about safe."
+  ],
+  "Reject": [
+    "This is how you repay my kindness? What of our feud!?"
+  ],
+  "Item": {
+    "Stage": "success",
+    "ID": "PocketsTheRat"
+  }
+}

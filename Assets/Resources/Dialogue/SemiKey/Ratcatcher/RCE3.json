@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "My only rival. We meet again. My fifty-fourth dish, Le Rat Bourguignon, is so close to completion, but lately there's been a problem.",
+    "Something wrong with these streets. It's like the rats can sense it. More spoiled folk walking amongst us. A war brewing with hope of revolution.",
+    "And those monsters. The one's far too gone with Spoilage. They are growing, and they are getting braver.",
+    "The rats don't want to come out, and I can see why. I advise you stay safe, rival. Our feud must be settled."
+  ],
+  "Success": [
+    "You do not disappoint. You would not be my rival for anything less. Till we meet again, dear rival."
+  ],
+  "Fail": [
+    "Now don't get all scared from my stories. We still have a feud to settle. No spoiled ones can stop that."
+  ],
+  "Reject": [
+    "You rotten rival. You think having Svetka handle your competition makes you a good chef? One day, justice will come, and you will see those shackles yourself!"
+  ]
+}

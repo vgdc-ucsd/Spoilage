@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "(Again an unwanted friend will visit.)",
+    "(Fond of your late night sessions.)",
+    "(Unable to give future warnings explicit.)",
+    "(He has grown tired of transgressions.)"
+  ],
+  "Success": [
+    "..."
+  ],
+  "Fail": [
+    "..."
+  ],
+  "Reject": [
+    "..."
+  ]
+}

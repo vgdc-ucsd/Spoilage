@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "That rat…was it to warn our local Ratcatcher? I have seen the man before…but yet never once spoke with him. I am ashamed of that fact.",
+    "His love…was surprising for this community. He intervened before I could make an irreversible decision. I knew I would not be…successful.",
+    "But this hatred…oh, this hatred. It beckons me to an unachievable revenge. I hear it calling still, but…",
+    "The Ratcatcher was right…there are still things I can do to help this city. My revenge, he promised, will be done. But next time, not alone."
+  ],
+  "Success": [
+    "Thank you, Chef. You have saved me more than you have realized. I will be here whenever you need me."
+  ],
+  "Fail": [
+    "Thank you, Chef. You have saved me more than you have realized. I will be here whenever you need me."
+  ],
+  "Reject": [
+    "Chef?"
+  ]
+}

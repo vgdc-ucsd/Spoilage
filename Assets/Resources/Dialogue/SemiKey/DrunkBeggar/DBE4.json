@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "I'm sorry, <i>*hic*</i> Chef…I'm a mess. I don't…I don't know how to fix myself. I keep making these excuses…",
+    "I just can't…handle this. Ever since I lost my family, I just can't find a reason to keep going. These days, I just wish I could spoil and get it over with.",
+    "They always seem so happy. I had a friend…who lived on the <i>*hic*</i> streets with me. Never smiled when he was normal, always bitter. But that day…",
+    "The day he broke…he smiled. Something so bright and free. I wanted to be like him. Not this pathetic mess that I am today."
+  ],
+  "Success": [
+    "I don't deserve your kindness, I'm sorry."
+  ],
+  "Fail": [
+    "Thank you, Chef. This is enough."
+  ],
+  "Reject": [
+    "I deserve this…I'm sorry, Chef."
+  ]
+}

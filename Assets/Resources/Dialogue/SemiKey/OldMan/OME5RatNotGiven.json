@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Hello, Chef. I'm afraid today may be the last time we will be seeing each other. There is something I must do.",
+    "When I was but an ignorant underling of Svetka, a pale visitor arrived at my home. Sheila was the one who answered the door.",
+    "He forced me to watch as he ripped her apart. It found joy in my unraveling. And yet, it kept me alive. Now my purpose is laid with iron rails.",
+    "My search has come to an end. Tonight, I will end this false imitator of death. I WILL RIDDLE HIS SKIN WITH BULLETS, WITH EVERY LAST DROP OF MY BEING!\""
+  ],
+  "Success": [
+    "I thank you for your work, Chef. Do not try to stop me. This wrath has been boiling for years. Now, I can finally wreak that hate back upon him."
+  ],
+  "Fail": [
+    "I will take my leave now, Chef. Do not try to stop me. This wrath has been boiling for years. Now, I can finally wreak that hate back upon him."
+  ],
+  "Reject": [
+    "\"No, you cannot! I need to avenge Sheila! Do not deny me this!"
+  ]
+}

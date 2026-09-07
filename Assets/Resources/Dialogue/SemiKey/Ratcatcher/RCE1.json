@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Ho ho, a fellow chef of these mistreated streets. How do you procure your produce? I, for one, like to catch my rats fresh from the sewers.",
+    "Those pesky little rodents are hard to snatch, but they are both plentiful and nutritious. I have mastered this trade to become the best chef in the city.",
+    "I know how to make all kinds of dishes with my rats. Fifty-two exactly. I'm curious if my competition is any better.",
+    "The previous owner of this store was nothing but a sham. Do you have the skill to match my passion?"
+  ],
+  "Success": [
+    "...hmph. Seems you know your stuff. From here on out, we are rivals, me and you. Let's see who emerges as the greatest chef."
+  ],
+  "Fail": [
+    "Looks like I have nothing to fear. This is somehow worse than even sewage stew!"
+  ],
+  "Reject": [
+    "You rotten rival. You think having Svetka handle your competition makes you a good chef? One day, justice will come, and you will see those shackles yourself!"
+  ]
+}

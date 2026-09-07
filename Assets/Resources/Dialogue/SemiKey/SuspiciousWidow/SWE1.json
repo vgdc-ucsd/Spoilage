@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Good day. I'm afraid we've not been acquainted. Are you the proprietor of this establishment?",
+    "I am Lady Romirski. My husband would typically introduce us, but sadly he is no longer with us anymore.",
+    "I do hope my dreadful attire does not displease you. I am still mourning his passing.",
+    "I never had the chance to order food myself, so have patience, kind Chef. How does it go….?"
+  ],
+  "Success": [
+    "Thank you, this looks to be quite the delicious dish."
+  ],
+  "Fail": [
+    "Has society fallen so far that <i>this</i> is what is deemed a delicacy?"
+  ],
+  "Reject": [
+    "Did I say something improper? I'm sorry, my late husband never let me leave the house by myself. Could you give me another chance, please?"
+  ]
+}

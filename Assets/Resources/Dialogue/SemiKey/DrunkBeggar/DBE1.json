@@ -1,0 +1,16 @@
+{
+  "Intro": [
+    "You got any spare food you could give? I know it's shameless, but life is hard living on the streets.",
+    "Nowhere is safe. The cold, the people who angrily curse your existence, but worse of all is the feeling of not knowing if you are going to be the next victim of some spoiled's attack.",
+    "I've seen too many lost to that disease, whether as infected or innocent bystanders. Point is…you willing to spare some free food to a beggar like me?"
+  ],
+  "Success": [
+    "...you didn't need to put in this effort, you know? Hell, I was planning on eating your trash. Thank you."
+  ],
+  "Fail": [
+    "Thanks for the food."
+  ],
+  "Reject": [
+    "Ah, well it was worth a try."
+  ]
+}

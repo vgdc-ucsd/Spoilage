@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "A pleasure to see you again, kind Chef. I had a wonderful time dining at your establishment. It's been so long since I've done something for myself.",
+    "It made me feel like a girl again. Quite foolish for an old woman, but can't a widow enjoy herself a little?",
+    "Not like there are any more men to appease in my life. My job as a woman ended with Casmir's death.",
+    "This topic has turned quite dreary, my apologies. I'll take my order now."
+  ],
+  "Success": [
+    "Thank you, kind Chef. I truly enjoy your work."
+  ],
+  "Fail": [
+    "I'm sorry, kind Chef, but today's dish seems off. It is not to my liking."
+  ],
+  "Reject": [
+    "Was there something wrong with what I said? I'm sorry, my late husband never let me out the house by myself. Could you give me another chance, please?"
+  ]
+}

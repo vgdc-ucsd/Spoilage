@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Psh it's me, dear. Let's not act suspicious, alright? Svetka is tightening her control of these streets. Leaving Repose was difficult enough for this.",
+    "That recent bombing has got them all paranoid. The soldiers are even questioning prostitutes like us about the revolution movement.",
+    "Just keeping the brothel safe is difficult enough. I haven't been able to watch over Ivan and Eve lately. I hope they are okay.",
+    "I can't wait for this to all be over. We have suffered long enough under tyrants. Soon, we can take our revenge. Do you have the message, dear?"
+  ],
+  "Success": [
+    "Dear…what have you done with the message? Where is it? Do you know what you have done, you bastard!? My girls…I must warn them!"
+  ],
+  "Fail": [
+    "Dear…what have you done with the message? Where is it? Do you know what you have done, you bastard!? My girls…I must warn them!"
+  ],
+  "Reject": [
+    "No…you can't! If I'm gone, who will protect Repose!? I thought I could trust you!"
+  ]
+}

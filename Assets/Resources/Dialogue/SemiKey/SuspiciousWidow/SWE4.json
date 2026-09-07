@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "You are quite the confidant, kind Chef. I look forward to the days I get to talk to you. It's been so long since I had someone I could call a friend.",
+    "My husband always insisted he speak for both of us. Casmir forbade me from interacting with anyone without permission.",
+    "He said it was the least I could do for failing to produce him a child. I obeyed, convinced I had committed some sin for God to punish me like this.",
+    "I took every hit, like what my mother taught me, and what her mother taught her. War and Spoilage tore everything I knew to shreds. Yet, I am happy."
+  ],
+  "Success": [
+    "Thank you, kind Chef. I look forward to our next meeting."
+  ],
+  "Fail": [
+    "I'm sorry, kind Chef, but today's dish seems off from usual. It is not to my liking."
+  ],
+  "Reject": [
+    "Was there something wrong with what I said? I did not mean to badmouth my husband, I swear. Could you give me another chance, please?"
+  ]
+}

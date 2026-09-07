@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "I spoke with the old man. He was close to madness, haunted by that monster. But he is not alone, we can help him. I thank you for calling upon me.",
+    "We have done all that we could. Now…no more distractions, no more worries. Today is the day, dear rival. The day our feud will be settled.",
+    "My fifty-fourth dish, Le Rat Bourguignon, is completed. Now we can finally compete to see who really is the best chef of Verehn.",
+    "Let us begin, dearest rival! Prepare your best!"
+  ],
+  "Success": [
+    "This…you truly are the greatest chef I have ever seen. It is no longer right to call you my rival. Instead, can I call you my friend?"
+  ],
+  "Fail": [
+    "It seems our feud has ended in my victory. Thank you for being my rival. You helped me reach new heights as a chef. Till we meet again, dear friend."
+  ],
+  "Reject": [
+    "...you…but why? Did our…did our feud mean anything to you!? I saw you as a friend, yet you treat me like a vermin!?"
+  ]
+}

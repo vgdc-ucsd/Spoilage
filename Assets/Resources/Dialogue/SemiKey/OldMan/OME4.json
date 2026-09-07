@@ -1,0 +1,17 @@
+{
+  "Intro": [
+    "Hello, Chef. I hope I'm not a nuisance. I've been busy searching all day, and could really use some of your food.",
+    "There is no need to worry about my history with Svetka. You won't get in trouble serving me. We didn't part on bad terms.",
+    "I left for personal reasons, when vengeance consumed my thoughts. It was only after I had left did I realize the harm we had done.",
+    "My work for a cure, I found, was tainted in a history of blood. I was unaware of the… other experiments."
+  ],
+  "Success": [
+    "Thank you, you are a very kind person, Chef. I wish I could say my leave as her scientist was for a greater cause, but I'm afraid it is not."
+  ],
+  "Fail": [
+    "Oh…thank you. I will take my leave now, it seems something is wrong with my stomach."
+  ],
+  "Reject": [
+    "I understand, I will take my leave. My sins should not be easily forgiven."
+  ]
+}

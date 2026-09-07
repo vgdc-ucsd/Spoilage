@@ -1,0 +1,18 @@
+{
+  "Intro": [
+    "Good day, Chef. Hm? What's this? You want me to read it?",
+    "This…yes, this is me. Are you curious why I used to work with Lady Svetka? It's not a glamorous tale.",
+    "I was one of her scientists, way before the war. She got us rich, leading our research in medicine to sell to those nobles. Svetka treated us well.",
+    "We believed in her dream of a better future. When she rose to power, we followed. It took me too long to realize our work wasn't for a greater good.",
+    "That pamphlet, may I have it? I am curious what Svetka is putting around these days with my face. It is worrying…"
+  ],
+  "Success": [
+    "It seems Svetka still holds me in high regard…I'm surprised you still served me with such a level of care despite seeing this. Thank you, Chef."
+  ],
+  "Fail": [
+    "It seems Svetka still holds me in high regard…I'm sorry if my background upsets you. I understand why you would feel that way."
+  ],
+  "Reject": [
+    "I understand, I will take my leave. My sins should not be forgiven."
+  ]
+}
