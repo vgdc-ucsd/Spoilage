@@ -12,12 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918e1c96f9fc68cc18ac2ae3792387ab, type: 3}
   m_Name: Tutorial Spoiled
   m_EditorClassIdentifier: Assembly-CSharp::CustomerData
-  sprites: []
-  faceOffset: {x: 0, y: 0, z: 0}
+  sprites:
+  - {fileID: 21300000, guid: fcba00201cd27ce459f46087f1bb25ef, type: 3}
+  - {fileID: 21300000, guid: 2c9b4dcc28fa43148827e3c51ec31fdd, type: 3}
+  - {fileID: 6749307805030818989, guid: 903966436e2719b4a86784fe8aae9d37, type: 3}
+  - {fileID: 21300000, guid: 5a035e9a0f5e4a04ab7d4003c795d177, type: 3}
+  - {fileID: -1430853503766625828, guid: 8404416ec0d86f444958822cddf41649, type: 3}
+  - {fileID: 6357216775648713224, guid: 2c2cecc6199346445b78e5fc65973931, type: 3}
+  - {fileID: 21300000, guid: b8387097da210ee46b7fdd64fd2998fd, type: 3}
+  - {fileID: 3230693044132638687, guid: 46a4d775bb135fe42afaaf408cf135a9, type: 3}
+  - {fileID: 0}
+  - {fileID: -7473694123596398164, guid: 7d616224be690f345a5b39992ddda6cc, type: 3}
+  - {fileID: -2710560184108365340, guid: 395a8c862399abf41a3dd110fd264f11, type: 3}
+  - {fileID: 21300000, guid: 04b2e9dd31660a749bd58d3029c7ec4a, type: 3}
+  - {fileID: 21300000, guid: a95081b304672c448b3142f149ce2b0e, type: 3}
+  - {fileID: 21300000, guid: 20d25d69d9a792a498ff098dd271dd1d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  faceOffset: {x: 1, y: -7, z: 0}
   spoilage: 1
   spoilageSymptom: {fileID: 0}
   patience: 0
-  orders: []
+  orders:
+  - id: 22
+    name: Flatbread
+    complexity: 1
+    reward: 10
+    rarityWeight: 5
+    appliance: Grill
+    servable: 1
+    spoiled: 0
+    requiredIngredients:
+    - name: Dough
+      id: 0
+    requiresAllSpoiled: 0
   id: TutorialSpoiled
   tier: 1
   keyMusicEvent:

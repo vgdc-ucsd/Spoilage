@@ -77,6 +77,14 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
                 Conversation conversation = _middleCustomers.Dequeue();
                 customerData = conversation.Customer;
                 dialogue = DialogueManager.Instance.LoadCustomerDialogue(conversation.ConversationJson);
+
+                if (customerData.id == "TutorialSpoiled")
+                {
+                    CustomerData random = CustomerManager.Instance.GenerateCustomerData();
+                    customerData.sprites = random.sprites;
+                    customerData.faceOffset = random.faceOffset;
+                    CustomerOrderDatabase.Instance.GenerateCustomerOrder(customerData);
+                }
             }
         }
         else

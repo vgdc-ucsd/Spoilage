@@ -67,12 +67,4 @@ public class DialogueManager : Singleton<DialogueManager>
             line => Regex.Replace(line, @"\[DISH\]", data.orders[0].name)
         ).ToList();
     }
-
-    private void InsertDishName(CustomerDialogue dialogue, CustomerData data)
-    {
-        dialogue.Intro = InsertDishName(dialogue.Intro, data);
-        dialogue.Success = InsertDishName(dialogue.Success, data);
-        dialogue.Fail = InsertDishName(dialogue.Fail, data);
-        dialogue.Reject = InsertDishName(dialogue.Reject, data);
-    }
 }
