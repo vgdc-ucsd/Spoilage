@@ -65,10 +65,10 @@ public class CookingManager : Singleton<CookingManager>
             orders.Remove(match);
             if (orders.Count == 0)
             {
-                // _resourceManager.Reputation += orderStreak;
-                // _resourceManager.Wealth += (int)(match.reward * dish.QualityPercent);
-                // orderStreak++;
-                // StoryManager.Instance.OnCustomerServed(customerData, success);
+                SaveManager.Instance.Player.Reputation += 1;
+                SaveManager.Instance.Player.DayData.Profits += Mathf.FloorToInt(match.reward * food.QualityPercent);
+                SaveManager.Instance.Player.DayData.CustomersServed++;
+                SaveManager.Instance.Player.DayData.Streak++;
                 DialogueManager.Instance.PlayDialogue(
                     customer.Dialogue.Success,
                     customer.customerData, 
@@ -78,9 +78,8 @@ public class CookingManager : Singleton<CookingManager>
         }
         else
         {
-            // orderStreak = 0;
-            // _resourceManager.Reputation -= ;
-            //StoryManager.Instance.OnCustomerServed(customerData, success);
+            SaveManager.Instance.Player.Reputation -= 1;
+            SaveManager.Instance.Player.DayData.Streak = 0;
             DialogueManager.Instance.PlayDialogue(
                 customer.Dialogue.Fail,
                 customer.customerData, 

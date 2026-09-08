@@ -103,6 +103,8 @@ public class ProgressionManager : Singleton<ProgressionManager>
         }
 
         SaveManager.Instance.Player.Day = day + 1;
+        SaveManager.Instance.Player.DayData = new DayData();
+     
         // TODO save
     }
 }

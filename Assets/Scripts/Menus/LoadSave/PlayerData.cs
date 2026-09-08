@@ -23,6 +23,7 @@ public class PlayerData
     public int Day;
     public int Wealth;
     public int Reputation;
+    public DayData DayData;
 
     // TODO: Handle saving other key information
     // hi :) Currently the stations and ingredients are just string lists, this

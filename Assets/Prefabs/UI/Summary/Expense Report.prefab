@@ -672,9 +672,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1822552389227267256}
+  - {fileID: 4688859229945789162}
   - {fileID: 6477760385904851071}
   - {fileID: 6991983133989988823}
-  - {fileID: 4688859229945789162}
   - {fileID: 4032818161065312755}
   - {fileID: 1328565478898555356}
   m_Father: {fileID: 3601307371598653089}
@@ -1144,7 +1144,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4191288499084768576, guid: c5da689103010924286f7d89b1ae4fdb, type: 3}
       propertyPath: m_text
-      value: Expenses
+      value: Tax
       objectReference: {fileID: 0}
     - target: {fileID: 6116858076883908774, guid: c5da689103010924286f7d89b1ae4fdb, type: 3}
       propertyPath: m_Pivot.x
@@ -1228,7 +1228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6299151662706715067, guid: c5da689103010924286f7d89b1ae4fdb, type: 3}
       propertyPath: m_Name
-      value: Expense (1)
+      value: Tax
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1250,7 +1250,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4191288499084768576, guid: c5da689103010924286f7d89b1ae4fdb, type: 3}
       propertyPath: m_text
-      value: Spent
+      value: Bank
       objectReference: {fileID: 0}
     - target: {fileID: 6116858076883908774, guid: c5da689103010924286f7d89b1ae4fdb, type: 3}
       propertyPath: m_Pivot.x
@@ -1334,7 +1334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6299151662706715067, guid: c5da689103010924286f7d89b1ae4fdb, type: 3}
       propertyPath: m_Name
-      value: Expense (3)
+      value: Bank
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1440,7 +1440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6299151662706715067, guid: c5da689103010924286f7d89b1ae4fdb, type: 3}
       propertyPath: m_Name
-      value: Expense (2)
+      value: Rent
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1648,7 +1648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6299151662706715067, guid: c5da689103010924286f7d89b1ae4fdb, type: 3}
       propertyPath: m_Name
-      value: Expense
+      value: Profits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
