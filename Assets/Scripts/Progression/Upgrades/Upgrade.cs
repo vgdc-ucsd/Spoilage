@@ -71,6 +71,8 @@ public class Upgrade : ScriptableObject
     [SerializeField] private bool _temporary;
     [SerializeField] private List<Upgrade> _unlocks;
     [SerializeField] private int _cost;
+    [SerializeField] private Sprite _icon;
+    [SerializeField] private Color _color = Color.white;
 
     public UpgradeID UpgradeID => _upgradeID;
     public UpgradeType UpgradeType => _upgradeType;
@@ -80,4 +82,6 @@ public class Upgrade : ScriptableObject
     public bool Temporary => _temporary;
     public List<Upgrade> Unlocks => _unlocks;
     public int Cost => _cost;
+    public Sprite Icon => _icon;
+    public Color Color => _color;
 }

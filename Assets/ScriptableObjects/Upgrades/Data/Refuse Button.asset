@@ -21,3 +21,5 @@ MonoBehaviour:
   _unlocks:
   - {fileID: 11400000, guid: 4587d48655c069a4fbfd8e48b79763ec, type: 2}
   _cost: 0
+  _icon: {fileID: 0}
+  _color: {r: 1, g: 1, b: 1, a: 1}

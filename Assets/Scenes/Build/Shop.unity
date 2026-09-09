@@ -314,14 +314,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemGeneratorScript
   _shopItemPrefab: {fileID: 5565976415274450059, guid: a07c6ffbb40024e46823f4f9bc8f7cd5, type: 3}
-  _generalItemPool:
-  - {fileID: 11400000, guid: a58d6891c3a8b44b68a4db13fe6bbad4, type: 2}
-  - {fileID: 11400000, guid: 095041b7462e7241a8920843b6192430, type: 2}
-  _ingredientItemPool:
-  - {fileID: 11400000, guid: 0beb2c197ba5960919eeda6d11a887a2, type: 2}
+  _generalItemPool: []
+  _ingredientItemPool: []
   _itemsParent: {fileID: 689476071}
   _generalUpgradeCount: 3
   _ingredientUpgradeCount: 1
+  _refresh: 0
 --- !u!1 &582756300
 GameObject:
   m_ObjectHideFlags: 0

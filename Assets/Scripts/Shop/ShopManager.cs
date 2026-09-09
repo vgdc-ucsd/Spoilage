@@ -2,39 +2,10 @@ using UnityEngine;
 
 public class ShopManager : Singleton<ShopManager>
 {
-    // private int _wealth;
-    // public int Wealth
-    // {
-    //     get => _wealth;
-    //     set
-    //     {
-    //         ShopUI.Instance.SetWealth(value);
-    //         _wealth = value;
-    //     }
-    // }
-
-    void Start()
+    public void BuyItem(Upgrade upgrade)
     {
-        // TODO: REMOVE THIS (THIS IS JUST FOR TESTING)
-        SaveManager.Instance.Player.Wealth += 100;
-
-        // SaveManager.OnPlayerLoad(() => InitializeShop());
+        // TODO: REMOVE ITEM FROM SHOP POOL IF IT'S A ONE-TIME PURCHASE
+        SaveManager.Instance.Player.Wealth -= upgrade.Cost;
+        ProgressionManager.Instance.Purchased.Add(upgrade.UpgradeID);
     }
-
-    // private void InitializeShop()
-    // {
-    //     Wealth = SaveManager.Instance.Player.Wealth;
-
-    //     Wealth += 100;
-    // }
-
-    public void BuyItem(ShopItem item)
-    {
-        SaveManager.Instance.Player.Wealth -= item.price;
-    }
-
-    // public void LeaveShop()
-    // {
-    //     SaveManager.Instance.Player.Wealth = _wealth;
-    // }
 }

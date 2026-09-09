@@ -10,6 +10,7 @@ public class ProgressionManager : Singleton<ProgressionManager>
     private UpgradeNode _upgradeTimeline;
 
     public HashSet<UpgradeID> Unlocked = new HashSet<UpgradeID>();
+    public HashSet<UpgradeID> Purchased = new HashSet<UpgradeID>();
     public List<UpgradeID> ShopPool { get; private set; }
     public List<UpgradeID> StationQueue { get; private set; }
     public Dictionary<UpgradeID, Upgrade> Upgrades { get; private set; }
@@ -74,6 +75,7 @@ public class ProgressionManager : Singleton<ProgressionManager>
                 SaveManager.Instance.Player.PendingStation = upgrade.Name;
                 break;
             case UpgradeType.Ingredient:
+                ShopPool.Add(id);
                 break;
             case UpgradeType.Restaurant:
                 break;

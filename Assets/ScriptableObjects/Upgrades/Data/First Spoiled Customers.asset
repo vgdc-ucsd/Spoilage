@@ -20,3 +20,5 @@ MonoBehaviour:
   _temporary: 0
   _unlocks: []
   _cost: 0
+  _icon: {fileID: 0}
+  _color: {r: 1, g: 1, b: 1, a: 1}
