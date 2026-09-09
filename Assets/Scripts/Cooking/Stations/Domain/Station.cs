@@ -50,11 +50,11 @@ public abstract class Station : Placeable, ITemporalTile
         FoodState = FoodState.Preparing;
     }
 
-    public virtual void Cook()
+    public virtual void Cook(float bonusQuality)
     {
         FoodState = FoodState.Prepared;
         if (_cookedFood != null) _cookedFood.Destroy();
-        _cookedFood = CookingManager.Instance.Process(_ingredients, this);
+        _cookedFood = CookingManager.Instance.Process(_ingredients, this, bonusQuality);
         _cookedFood.SetUI(PlaceableUIFactory.Instance.Generate(_cookedFood.Data, UI.transform));
         StationUI.Cook(_ingredients, _cookedFood);
 

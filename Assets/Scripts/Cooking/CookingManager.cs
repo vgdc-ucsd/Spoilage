@@ -8,12 +8,12 @@ public class CookingManager : Singleton<CookingManager>
     private PlatingTile _platingTile;
     private List<ITemporalTile> _tiles = new List<ITemporalTile>();
 
-    public Food Process(List<Food> ingredients, Station station)
+    public Food Process(List<Food> ingredients, Station station, float bonusQuality = 0f)
     {
         IngredientData data = RecipeManager.Instance.LookupResult(ingredients, station);
         if (data == _slopData) return new Food(_slopData, 0f, 1f);
 
-        float quality = 0f;
+        float quality = bonusQuality;
         float spoilage = 0f;
         // Seasoning?
 

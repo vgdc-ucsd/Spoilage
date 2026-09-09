@@ -6,7 +6,9 @@ public class AutomaticStation : Station
     public override StationUI StationUI => _ui;
     private float _timer = 0f;
     private AutomaticStationUI _ui;
-    private const float COOK_TIME = 5f;
+    private const float BASE_COOK_TIME = 5f;
+    private Food _lastCookedFood;
+    private float _currQualityBonus = 0f;
 
     public AutomaticStation(StationData data, AutomaticStationUI ui)
     {
@@ -21,11 +23,15 @@ public class AutomaticStation : Station
 
         _timer += dt;
         
-        if (_timer >= COOK_TIME)
+        float cookTime = HandleCookingSpeedUpgrades();
+        _currQualityBonus += HandleQualityUpgrades();
+
+        if (_timer >= cookTime)
         {
             if (!_overcook)
             {    
-                Cook();
+                Cook(_currQualityBonus);
+                _lastCookedFood = _cookedFood;
                 _overcook = true;
                 _timer = 0f;
             }
@@ -35,7 +41,7 @@ public class AutomaticStation : Station
             }
         }
 
-        float progress = Mathf.Clamp01(_timer / COOK_TIME);
+        float progress = Mathf.Clamp01(_timer / cookTime);
         _ui.SetTimer(progress, _overcook);
     }
 
@@ -82,9 +88,50 @@ public class AutomaticStation : Station
         _ui.ShowTimer(false);
     }
 
-    public override void Cook()
+    public override void Cook(float bonusQuality)
     {
-        base.Cook();
+        base.Cook(bonusQuality);
         if (_slop) _ui.ShowTimer(false);
+    }
+
+    private float HandleCookingSpeedUpgrades()
+    {
+        switch (Data.StationCategory)
+        {
+            case StationCategory.Grill:
+                if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.GrillSpeed))
+                    return BASE_COOK_TIME * 0.75f;
+                break;
+            case StationCategory.Pot:
+                if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.PotSpeed))
+                    return BASE_COOK_TIME * 0.75f;
+                break;
+            case StationCategory.Oven:
+                if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.OvenSpeed))
+                    return BASE_COOK_TIME * 0.75f;
+                break;
+            default:
+                break;
+        }
+
+        return BASE_COOK_TIME;
+    }
+
+    private float HandleQualityUpgrades()
+    {
+        switch (Data.StationCategory)
+        {
+            case StationCategory.Grill:
+                if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.GrillQuality))
+                {
+                    if (CookingManager.Instance.Process(_ingredients, this, 0f) == _lastCookedFood) // if currently cooking food is same as last cooked food
+                        return 5f;
+                }
+                break;
+            default:
+                break;
+        }
+
+        return 0f;
     }
 }

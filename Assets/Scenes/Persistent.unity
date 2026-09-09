@@ -738,6 +738,11 @@ MonoBehaviour:
     Day: 0
     Wealth: 0
     Reputation: 0
+    DayData:
+      CustomersServed: 0
+      CustomersRefused: 0
+      Streak: 0
+      Profits: 0
     RecipesUnlocked: []
     StationsUnlocked:
     - Kitchen Tile

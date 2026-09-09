@@ -23,3 +23,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 28e066f0c4c16f04eabae09363cfa6c4, type: 2}
   - {fileID: 11400000, guid: 886256dfb41d6774888180b153162dd0, type: 2}
   _cost: 0
+  _icon: {fileID: 0}
+  _color: {r: 1, g: 1, b: 1, a: 1}

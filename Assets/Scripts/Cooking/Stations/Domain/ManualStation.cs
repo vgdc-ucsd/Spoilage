@@ -51,9 +51,9 @@
         _ui.ShowClicks(false);
     }
 
-    public override void Cook()
+    public override void Cook(float bonusQuality)
     {
-        base.Cook();
+        base.Cook(bonusQuality);
         _ui.ShowClicks(false);
     }
 
@@ -78,7 +78,7 @@
             _clickCountdown--;
             float progress = (NUM_CLICKS - _clickCountdown) / (float)NUM_CLICKS;
             _ui.SetClicks(progress);
-            if (_clickCountdown == 0) Cook();
+            if (_clickCountdown == 0) Cook(0f);
         }
     }
 }
