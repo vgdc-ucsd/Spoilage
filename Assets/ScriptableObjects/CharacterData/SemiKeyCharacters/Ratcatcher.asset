@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918e1c96f9fc68cc18ac2ae3792387ab, type: 3}
+  m_Name: Ratcatcher
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerData
+  sprites:
+  - {fileID: 21300000, guid: e292c4fbc6b963c4c91d96a36880e0d7, type: 3}
+  - {fileID: 21300000, guid: ed43803e4c9434b45a84c8f393feff3c, type: 3}
+  - {fileID: -552531943, guid: ca41487c38fe1e24487dcc6a21dbd04e, type: 3}
+  - {fileID: 918811656, guid: ca41487c38fe1e24487dcc6a21dbd04e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: d10fad5b1e2d0424b82f7756ab929006, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 0325b6017ad68b1439f9519a509d3376, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: afae19fababab994195f6c22e28cd46d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  faceOffset: {x: 0, y: 0, z: 0}
+  spoilage: 0
+  spoilageSymptom: {fileID: 0}
+  patience: 0
+  orders: []
+  id: Ratcatcher
+  tier: 2
+  keyMusicEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
