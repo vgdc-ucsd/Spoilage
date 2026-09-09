@@ -8,8 +8,6 @@ using UnityEngine;
 public class StoryDatabase : ScriptableObject
 {
     public CharacterRoster roster;
-    // public DayTimeline timeline;
-    public RadioBroadcasts radio;
     public ReactionaryRules reactionary;
     public Endings endings;
     public StoryItems items;

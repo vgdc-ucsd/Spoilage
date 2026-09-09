@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.68, y: 226}
-  m_SizeDelta: {x: 453, y: 299}
+  m_AnchoredPosition: {x: 58.256, y: 206.551}
+  m_SizeDelta: {x: 655.363, y: 432.569}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4985897427397858969
 CanvasRenderer:
@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 648296878837418935}
   - component: {fileID: 6064609249886693795}
   - component: {fileID: 6355012002731734525}
+  - component: {fileID: 1198538967849938866}
   m_Layer: 0
   m_Name: Radio
   m_TagString: Untagged
@@ -152,6 +153,54 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1198538967849938866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7995508609137405232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0354fd2b5ab93459fcd9fbf1975fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Radio
+  _tmp: {fileID: 6893299670983551826}
+  _warlordFiller:
+  - {fileID: 4900000, guid: 8349ac743d43a454387b6860df7d4c06, type: 3}
+  - {fileID: 4900000, guid: c52083108f905284c9b06c20bc17aeae, type: 3}
+  - {fileID: 4900000, guid: 426a6918d0fd78b4c9c6f76ca92b6586, type: 3}
+  - {fileID: 4900000, guid: 09963307e7d99b244a76c19ed18f71e3, type: 3}
+  - {fileID: 4900000, guid: d282889612791ca498dabf450d9204b0, type: 3}
+  - {fileID: 4900000, guid: 4a198b7c9ed2bc34db9fff58a6a30f69, type: 3}
+  - {fileID: 4900000, guid: dfbb9735039ec10488fb0fc16e0898c8, type: 3}
+  - {fileID: 4900000, guid: 9985a8691eadc7b4099716f87b96d324, type: 3}
+  - {fileID: 4900000, guid: 06c1c9a96462c4541a29a3b8b03e5226, type: 3}
+  - {fileID: 4900000, guid: c471d852ef7ac914584b5124695333c1, type: 3}
+  _resistanceFiller:
+  - {fileID: 4900000, guid: 1ee88b399b595c743a880e5908030654, type: 3}
+  - {fileID: 4900000, guid: 7285b289da36587458f821d3da8824a2, type: 3}
+  - {fileID: 4900000, guid: 9d6d31cb28668e9419798ac38ca6e137, type: 3}
+  - {fileID: 4900000, guid: b33a18bea2f79c24e90a792c65c8e788, type: 3}
+  - {fileID: 4900000, guid: 77ca687cdb2e4a2498816b1835e2d7fb, type: 3}
+  - {fileID: 4900000, guid: 3f47a855732e72847a37ec90b2727acc, type: 3}
+  - {fileID: 4900000, guid: 8743fa5867c6cc2498573283683a4a10, type: 3}
+  - {fileID: 4900000, guid: 7c97c2cbe6fc1d24b9d49bd95d411580, type: 3}
+  - {fileID: 4900000, guid: 224b42bb26f551848895bf7f617cd540, type: 3}
+  - {fileID: 4900000, guid: 89bf8ca44fe728347aa676299152170b, type: 3}
+  - {fileID: 4900000, guid: 8a8b9f956bb55214580d3b3052653328, type: 3}
+  - {fileID: 4900000, guid: 107d27684320d0442957f93fa31b37fb, type: 3}
+  - {fileID: 4900000, guid: 5503c3e89a329d2489958662df481166, type: 3}
+  _generalFiller:
+  - {fileID: 4900000, guid: cd5cf75d4337a0d48a024959ee551654, type: 3}
+  - {fileID: 4900000, guid: a6149b0c384c7514987dde76312d06fc, type: 3}
+  - {fileID: 4900000, guid: dd5b6f3f05e52d44dba4ca34eddeec5b, type: 3}
+  - {fileID: 4900000, guid: 25617152cd173304ab888df0f171ad94, type: 3}
+  - {fileID: 4900000, guid: 138ee9df0758f484ebd136b42e78062b, type: 3}
+  - {fileID: 4900000, guid: 9b8e0307ecae29142a082130d1fcf50a, type: 3}
+  - {fileID: 4900000, guid: a7e770353e9c77841a97845a55f15620, type: 3}
+  - {fileID: 4900000, guid: 29629bfe805dfdf40ae4c37782336701, type: 3}
+  - {fileID: 4900000, guid: 113b50a7f0b8bef4aa769662e1a2cd6a, type: 3}
 --- !u!1 &9078437020610635494
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,14 +212,13 @@ GameObject:
   - component: {fileID: 6411737814028209164}
   - component: {fileID: 4309347217474197119}
   - component: {fileID: 6893299670983551826}
-  - component: {fileID: 2256369509370834022}
   m_Layer: 0
   m_Name: Dialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6411737814028209164
 RectTransform:
   m_ObjectHideFlags: 0
@@ -185,10 +233,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4182628616297832689}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4309347217474197119
 CanvasRenderer:
@@ -222,15 +270,15 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ef3e3a56566734c5b835e9b9bc05ce1c, type: 2}
+  m_sharedMaterial: {fileID: -7875928042949327691, guid: ef3e3a56566734c5b835e9b9bc05ce1c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -286,37 +334,9 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -62.286255, z: 49.82898, w: -116.267715}
+  m_margin: {x: 100.3074, y: 77.158936, z: 95.010864, w: 176.07806}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2256369509370834022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9078437020610635494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85d3a3c132045064f90bce2b442406f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  dialogueLines:
-  - breaking news the warload is coming oh shit!!!! oh my goodness gracious the warlord
-    is coming to town to kill us all this is so bad!!
-  - 'weather update: 100% chance of acid rain. stay in doors! unless you want your
-    face 2 melt off'
-  - 'breaking news the economy is still in shambles and inflation is very high!!!! '
-  - breaking news our glorious leader just posted an ai image of himself with big
-    muscles and lots of money this is not actually breaking news or noteworthy in
-    anyway this happens all the time here in spoiltopia.
-  - massive inequality between spoiled and non spoiled citizens! survey results say
-    50% of mothers would not let their children date a spoiled citizen.
-  - spoilistan is at war with spoilsberg over territorial disputes in the spoilsville
-    mountain range
-  - rates of spoiled children rising dramatically. not like children with rich parents
-    like you know like their bodies are rotting. Sad!
-  timeBetweenLines: 5

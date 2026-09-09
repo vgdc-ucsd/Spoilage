@@ -429,6 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6237190545d8d4c59bcd687d431da4f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryManager
+  _radioRoot: {fileID: 11400000, guid: 2149cf6add5dc6d4e818389d7165ffa4, type: 2}
   _keyRoot: {fileID: 11400000, guid: 887b49ddf68222641ab04a9e3dccbb0f, type: 2}
   _set1Root: {fileID: 0}
   _set2Root: {fileID: 0}

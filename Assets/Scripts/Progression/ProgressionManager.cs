@@ -7,6 +7,7 @@ public class ProgressionManager : Singleton<ProgressionManager>
     [SerializeField] private List<Upgrade> _upgrades;
     
     private List<InteractionsNode> _interactionTimelines;
+    private RadioNode _radioTimeline;
     private UpgradeNode _upgradeTimeline;
 
     public HashSet<UpgradeID> Unlocked = new HashSet<UpgradeID>();
@@ -14,6 +15,7 @@ public class ProgressionManager : Singleton<ProgressionManager>
     public List<UpgradeID> ShopPool { get; private set; }
     public List<UpgradeID> StationQueue { get; private set; }
     public Dictionary<UpgradeID, Upgrade> Upgrades { get; private set; }
+    public RadioNode RadioNode => _radioTimeline;
 
     public override void Awake()
     {
@@ -29,6 +31,7 @@ public class ProgressionManager : Singleton<ProgressionManager>
 
         _upgradeTimeline = _upgradeRoot;
         _interactionTimelines = StoryManager.Instance.InitRunTimelineGraphs();
+        _radioTimeline = StoryManager.Instance.RadioRoot;
 
         ShopPool = new List<UpgradeID>();
         StationQueue = new List<UpgradeID>();
@@ -103,6 +106,8 @@ public class ProgressionManager : Singleton<ProgressionManager>
                 Unlock(upgrade.UpgradeID);
             }
         }
+
+        _radioTimeline = (RadioNode) _radioTimeline?.Advance(day);
 
         SaveManager.Instance.Player.Day = day + 1;
         SaveManager.Instance.Player.DayData = new DayData();

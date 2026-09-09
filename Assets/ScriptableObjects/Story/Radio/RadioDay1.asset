@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa3389407b11a94cb1006de8f9a0cfd, type: 3}
+  m_Name: RadioDay1
+  m_EditorClassIdentifier: Assembly-CSharp::RadioNode
+  _day: 1
+  _data: {fileID: 4900000, guid: 707911c8b0282c341a8151a5da3a031a, type: 3}
+  _noBranch: {fileID: 0}
+  _branch: {fileID: 0}
+  _id: 0

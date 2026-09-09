@@ -12,6 +12,7 @@ public class StoryManager : Singleton<StoryManager>
     private const float REFUSE_SPOILED_DELTA = 1f;
     private const float SERVE_SPOILED_DELTA = -1f;
 
+    [SerializeField] private RadioNode _radioRoot;
     [SerializeField] private InteractionsNode _keyRoot;
     [SerializeField] private InteractionsNode _set1Root;
     [SerializeField] private InteractionsNode _set2Root;
@@ -27,6 +28,7 @@ public class StoryManager : Singleton<StoryManager>
 
     public StoryDatabase Database => _database;
     public IReadOnlyList<CustomerData> LastCustomerQueue => _lastCustomerQueue;
+    public RadioNode RadioRoot => _radioRoot;
     public int QueuedSlots => _customerQueue.Count;
 
     private bool _debug_firstCharacter = true;
