@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdfe6fc0e27893340b42794b4efc18fa, type: 3}
-  m_Name: Set3Day22RN
+  m_Name: Set3Day26RNU
   m_EditorClassIdentifier: Assembly-CSharp::InteractionsNode
-  _day: 22
+  _day: 26
   _data:
     _beginInteraction: []
-    _middleInteraction:
+    _middleInteraction: []
+    _endInteraction:
     - _customer: {fileID: 11400000, guid: c134af513fa4db1499ea4d525f820ac1, type: 2}
-      _conversationJson: {fileID: 4900000, guid: 12efd133aa347d640a9bfd69fad1f6f7, type: 3}
-    _endInteraction: []
+      _conversationJson: {fileID: 4900000, guid: 364d7d9b2c957fe4ea736412c96c2911, type: 3}
     _ending: {fileID: 0}
   _noBranch: {fileID: 0}
   _branch: {fileID: 0}

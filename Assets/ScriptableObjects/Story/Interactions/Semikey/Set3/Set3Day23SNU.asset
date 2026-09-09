@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdfe6fc0e27893340b42794b4efc18fa, type: 3}
-  m_Name: Set3Day23SN
+  m_Name: Set3Day23SNU
   m_EditorClassIdentifier: Assembly-CSharp::InteractionsNode
   _day: 23
   _data:
