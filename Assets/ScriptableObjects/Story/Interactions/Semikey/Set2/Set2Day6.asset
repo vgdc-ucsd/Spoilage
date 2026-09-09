@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdfe6fc0e27893340b42794b4efc18fa, type: 3}
   m_Name: Set2Day6
   m_EditorClassIdentifier: Assembly-CSharp::InteractionsNode
-  _day: 4
+  _day: 6
   _data:
     _beginInteraction: []
     _middleInteraction:
     - _customer: {fileID: 11400000, guid: a50728feb6e500341a226a03c38977a9, type: 2}
       _conversationJson: {fileID: 4900000, guid: 91ec32484421c98468efdaafe75405e0, type: 3}
-    - _customer: {fileID: 11400000, guid: 6a6cec3d6941b7a4abd44f2083b65df6, type: 2}
+    - _customer: {fileID: 11400000, guid: 9deb269d9d5497847886745412b8baae, type: 2}
       _conversationJson: {fileID: 4900000, guid: f285a9279176a8446b6e3d6d47ca83e9, type: 3}
     _endInteraction: []
     _ending: {fileID: 0}
-  _noBranch: {fileID: 0}
+  _noBranch: {fileID: 11400000, guid: 100d976b3d9f97a43a9761b8755e4f50, type: 2}
   _branch: {fileID: 0}
   _id: 0

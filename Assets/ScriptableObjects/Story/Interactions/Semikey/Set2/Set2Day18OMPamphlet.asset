@@ -10,16 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdfe6fc0e27893340b42794b4efc18fa, type: 3}
-  m_Name: Set2Day4
+  m_Name: Set2Day18OMPamphlet
   m_EditorClassIdentifier: Assembly-CSharp::InteractionsNode
-  _day: 4
+  _day: 18
   _data:
     _beginInteraction: []
     _middleInteraction:
     - _customer: {fileID: 11400000, guid: 2165239d94106c14b94578d194b02dcc, type: 2}
-      _conversationJson: {fileID: 4900000, guid: 6595e3c711c75cb4cac8b1ca49c73186, type: 3}
+      _conversationJson: {fileID: 4900000, guid: 1373ccb1c96280945b104fba1d4c1b90, type: 3}
+    - _customer: {fileID: 11400000, guid: 9deb269d9d5497847886745412b8baae, type: 2}
+      _conversationJson: {fileID: 4900000, guid: abd34d27477535a4baf7012019fa0102, type: 3}
     _endInteraction: []
     _ending: {fileID: 0}
-  _noBranch: {fileID: 11400000, guid: 55bb4ec1807c83e4eae4366645896271, type: 2}
+  _noBranch: {fileID: 0}
   _branch: {fileID: 0}
   _id: 0
