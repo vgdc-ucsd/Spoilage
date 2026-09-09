@@ -11,7 +11,6 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
     private RecipeManager _recipeManager;
     private SaveManager _saveManager;
     private CustomerLineManager _lineManager;
-    private ResourceManager _resourceManager;
 
     [Header("Chance curves based on game progress from 0 to 1")]
     [SerializeField]
@@ -37,7 +36,6 @@ public class CustomerOrderDatabase : Singleton<CustomerOrderDatabase>
     {
         _recipeManager = RecipeManager.Instance;
         _lineManager = CustomerLineManager.Instance;
-        _resourceManager = ResourceManager.Instance;
 
         SaveManager.OnPlayerLoad(() =>
         {

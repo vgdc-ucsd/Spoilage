@@ -35,6 +35,7 @@ public class SetupManager : Singleton<SetupManager>
     private void Init()
     {
         AudioManager.Instance.PlayMusicEntry("KitchenLayout");
+        GuardManager.Instance.Init();
         _stationUnlockPopup.gameObject.SetActive(false);
         _timeLimitReached = false;
 
@@ -50,6 +51,7 @@ public class SetupManager : Singleton<SetupManager>
         _allTiles.AddRange(kitchenTileUIs);
         _allTiles.AddRange(_spawnerTiles);
 
+        GuardManager.Instance.Lock(true);
         _callBell.Lock(true);
         _startSign.Lock(true);
         LockTiles(_allTiles, true);
@@ -121,6 +123,7 @@ public class SetupManager : Singleton<SetupManager>
         _callBell.Lock(false);
         _platingTile.Lock(false);
         LockTiles(_spawnerTiles, false);
+        GuardManager.Instance.Lock(false);
         AudioManager.Instance.PlayMusicEntry("Cozy");
         CustomerLineManager.Instance.SetTime(TimeOfDay.Middle);
         CustomerLineManager.Instance.Advance();
@@ -131,6 +134,7 @@ public class SetupManager : Singleton<SetupManager>
         _dayTimer.StopTimer();
         _callBell.Lock(true);
         LockTiles(_allTiles, true);
+        GuardManager.Instance.Lock(true);
         CustomerLineManager.Instance.SetTime(TimeOfDay.End);
         CustomerLineManager.Instance.Advance();
     }

@@ -36,12 +36,13 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
         _timeOfDay = time;
     }
 
-    public void Advance()
+    public void Advance(bool refused = false)
     {
         if (_customer != null)
         {
             GameObject customerGameObject = _customer.gameObject;
-            _customer.Movement.WalkTo(_exit.position, 6f, () => Destroy(customerGameObject));
+            if (refused) Destroy(customerGameObject);
+            else _customer.Movement.WalkTo(_exit.position, 6f, () => Destroy(customerGameObject));
         }
 
         CustomerData customerData;
