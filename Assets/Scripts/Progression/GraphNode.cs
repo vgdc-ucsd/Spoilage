@@ -23,7 +23,7 @@ public class GraphNode<T> : ScriptableObject
     {
         if (day < _day) return this;
         if (_noBranch != null) return _noBranch;
-        return _branch.Next();
+        return _branch?.Next();
     }
 }
     

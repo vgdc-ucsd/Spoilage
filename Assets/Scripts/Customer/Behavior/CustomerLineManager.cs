@@ -117,6 +117,7 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
                 _customer.customerData, 
                 () => {
                     if (_timeOfDay != TimeOfDay.Middle) Advance();
+                    else _customer.EnablePatienceTimer(true);
                 }
             )
         );

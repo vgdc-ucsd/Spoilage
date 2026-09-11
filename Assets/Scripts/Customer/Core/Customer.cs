@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Customer : MonoBehaviour
@@ -12,7 +11,10 @@ public class Customer : MonoBehaviour
 
     private PlayerData Player => SaveManager.Instance.Player;
     private CustomerDialogue _dialogue;
+    private float _patience;
+    private bool _timerActive;
     [SerializeField] private CustomerMovement _movement;
+    [SerializeField] private TimerUI _patienceTimer;
 
     private const string SK_PROPHET = "Prophet";
     private const string SK_BILLMAN = "Billman";
@@ -26,9 +28,12 @@ public class Customer : MonoBehaviour
     private const string SK_FAMISHED = "Famished Spoiled";
     private const string SK_EXECUTOR = "Executor";
 
+    private const float MAX_PATIENCE = 30f;
+
     [ContextMenu("Initialize Customer")]
     public void InitializeCustomer()
     {
+        EnablePatienceTimer(false);
 
         if (customerData == null)
         {
@@ -179,9 +184,23 @@ public class Customer : MonoBehaviour
         rectTransform.anchoredPosition = (Vector2)position;
     }
 
+    private void DecreasePatience(float dt)
+    {
+        _patience -= dt;
+        _patienceTimer.SetProgress(_patience / MAX_PATIENCE);
+        if (_patience <= 0) CookingManager.Instance.OrderFailed();
+    }
+
     public void SetDialogue(CustomerDialogue dialogue)
     {
         _dialogue = dialogue;
+    }
+
+    public void EnablePatienceTimer(bool active)
+    {
+        if (active) _patience = MAX_PATIENCE;
+        _timerActive = active;
+        _patienceTimer.Show(active);
     }
 
     private void OnDestroy()
@@ -191,5 +210,12 @@ public class Customer : MonoBehaviour
             customerData.spoilageSymptom.Unregister();
         }
     }
-    
+
+    void Update()
+    {
+        if (_timerActive)
+        {
+            DecreasePatience(Time.deltaTime);
+        }
+    }
 }

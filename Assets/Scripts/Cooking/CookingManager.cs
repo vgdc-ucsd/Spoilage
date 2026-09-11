@@ -65,6 +65,7 @@ public class CookingManager : Singleton<CookingManager>
             orders.Remove(match);
             if (orders.Count == 0)
             {
+                customer.EnablePatienceTimer(false);
                 SaveManager.Instance.Player.Reputation += 1;
                 SaveManager.Instance.Player.DayData.Profits += Mathf.FloorToInt(match.reward * food.QualityPercent);
                 SaveManager.Instance.Player.DayData.CustomersServed++;
@@ -76,19 +77,23 @@ public class CookingManager : Singleton<CookingManager>
                 );
             }
         }
-        else
-        {
-            SaveManager.Instance.Player.Reputation -= 1;
-            SaveManager.Instance.Player.DayData.Streak = 0;
-            DialogueManager.Instance.PlayDialogue(
-                customer.Dialogue.Fail,
-                customer.customerData, 
-                () => CustomerLineManager.Instance.Advance()
-            );
-        }
+        else OrderFailed();
 
         _platingTile.Remove();
         food.Destroy();
+    }
+
+    public void OrderFailed()
+    {
+        Customer customer = CustomerLineManager.Instance.CurrentCustomer;
+        customer.EnablePatienceTimer(false);
+        SaveManager.Instance.Player.Reputation -= 1;
+        SaveManager.Instance.Player.DayData.Streak = 0;
+        DialogueManager.Instance.PlayDialogue(
+            customer.Dialogue.Fail,
+            customer.customerData, 
+            () => CustomerLineManager.Instance.Advance()
+        );
     }
 
     public void Update()
