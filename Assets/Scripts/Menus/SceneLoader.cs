@@ -58,6 +58,8 @@ public class SceneLoader : Singleton<SceneLoader>
                 return GameScene.SHOP;
             case "IntroCutscene":
                 return GameScene.INTRO_CUTSCENE;
+            case "GameOver":
+                return GameScene.GAME_OVER;
             default:
                 return GameScene.PERSISTENT;
         }
@@ -79,6 +81,8 @@ public class SceneLoader : Singleton<SceneLoader>
                 return "Shop";
             case GameScene.INTRO_CUTSCENE:
                 return "IntroCutscene";
+            case GameScene.GAME_OVER:
+                return "GameOver";
             default:
                 Debug.LogError($"Scene {scene} not recognized or configured");
                 return null;

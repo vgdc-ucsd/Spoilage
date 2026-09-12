@@ -92,7 +92,20 @@ public class ProgressionManager : Singleton<ProgressionManager>
 
     public void AdvanceDay()
     {
-        int day = SaveManager.Instance.Player.Day; 
+        PlayerData player = SaveManager.Instance.Player;
+        
+        if (player.Wealth <= 0)
+        {
+            GameManager.Instance.GameOver(GameOverCondition.Bankruptcy);
+            return;
+        }
+        if (player.Reputation <= 0)
+        {
+            GameManager.Instance.GameOver(GameOverCondition.Reputation);
+            return;
+        }
+
+        int day = player.Day; 
         for (int i = 0; i < _interactionTimelines.Count; i++)
         {
             _interactionTimelines[i] = (InteractionsNode) _interactionTimelines[i]?.Advance(day);
@@ -109,9 +122,11 @@ public class ProgressionManager : Singleton<ProgressionManager>
 
         _radioTimeline = (RadioNode) _radioTimeline?.Advance(day);
 
-        SaveManager.Instance.Player.Day = day + 1;
-        SaveManager.Instance.Player.DayData = new DayData();
+        player.Day = day + 1;
+        player.DayData = new DayData();
      
         // TODO save
+
+        GameManager.Instance.Load(GameScene.SHOP);
     }
 }

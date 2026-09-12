@@ -37,6 +37,7 @@ public class PlayerData
     public List<string> KitchenStations;
     public List<string> KitchenItems;
     public string PendingStation;
+    public GameOverCondition GameOverCondition;
 
     /// <summary>
     /// Player resistance. Below 7 leans warlord, above 7 leans
