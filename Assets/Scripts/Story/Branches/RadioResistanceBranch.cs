@@ -9,7 +9,6 @@ public class RadioResistanceBranch : Branch<TextAsset>
 
     public override GraphNode<TextAsset> Next()
     {
-        // TODO
-        return _belowThreshold;
+        return SaveManager.Instance.Player.resistanceScore > _threshold ? _aboveThreshold : _belowThreshold;
     }
 }

@@ -9,7 +9,6 @@ public class ResistanceBranch : Branch<Interactions>
 
     public override GraphNode<Interactions> Next()
     {
-        // TODO
-        return _belowThreshold;
+        return SaveManager.Instance.Player.resistanceScore > _threshold ? _aboveThreshold : _belowThreshold;
     }
 }

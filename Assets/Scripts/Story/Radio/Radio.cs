@@ -38,13 +38,13 @@ public class Radio : MonoBehaviour
 
         if (resistance > 10)
         {
-            warlordChance = 0.0f;
-            resistanceChance = 0.7f;
+            warlordChance = 0.7f;
+            resistanceChance = 0.0f;
         }
         else if (resistance < 4)
         {
-            warlordChance = 0.7f;
-            resistanceChance = 0.0f;
+            warlordChance = 0.0f;
+            resistanceChance = 0.7f;
         }
         else
         {
