@@ -36,6 +36,12 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
         _timeOfDay = time;
     }
 
+    public void ItemTaken()
+    {
+        if (_timeOfDay != TimeOfDay.Middle) Advance();
+        else _customer.EnablePatienceTimer(true);
+    }
+
     public void Advance(bool refused = false)
     {
         if (_customer != null)
@@ -116,8 +122,12 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
                 dialogue.Intro,
                 _customer.customerData, 
                 () => {
-                    if (_timeOfDay != TimeOfDay.Middle) Advance();
-                    else _customer.EnablePatienceTimer(true);
+                    if (!string.IsNullOrEmpty(dialogue.Item?.ID)) ItemManager.Instance.GiveItem(dialogue.Item);
+                    else
+                    {    
+                        if (_timeOfDay != TimeOfDay.Middle) Advance();
+                        else _customer.EnablePatienceTimer(true);
+                    }
                 }
             )
         );

@@ -5,7 +5,8 @@ using UnityEngine;
 public enum GamePhase
 {
     Setup,
-    Cooking
+    Cooking,
+    Discussion
 }
 
 public class SetupManager : Singleton<SetupManager>
@@ -34,6 +35,7 @@ public class SetupManager : Singleton<SetupManager>
 
     private void Init()
     {
+        CurrentPhase = GamePhase.Discussion;
         AudioManager.Instance.PlayMusicEntry("KitchenLayout");
         GuardManager.Instance.Init();
         _stationUnlockPopup.gameObject.SetActive(false);
@@ -95,10 +97,7 @@ public class SetupManager : Singleton<SetupManager>
         CurrentPhase = GamePhase.Setup;        
         ShowStationPopup();
         LockTiles(_spawnerTiles, true);
-        LockTiles(_defaultTiles, false);
-        LockTiles(_upgrade1Tiles, !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant1));
-        LockTiles(_upgrade2Tiles, !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant2));
-        LockTiles(_upgrade3Tiles, !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant3));   
+        LockKitchenTiles(false); 
     }
 
     private void ShowStationPopup()
@@ -131,6 +130,7 @@ public class SetupManager : Singleton<SetupManager>
 
     public void EndCookingPhase()
     {
+        CurrentPhase = GamePhase.Discussion;    
         _dayTimer.StopTimer();
         _callBell.Lock(true);
         LockTiles(_allTiles, true);
@@ -181,6 +181,14 @@ public class SetupManager : Singleton<SetupManager>
 
         SaveManager.Instance.Player.KitchenStations = kitchenStations;
         SaveManager.Instance.Player.KitchenItems = kitchenItems;
+    }
+
+    public void LockKitchenTiles(bool locked)
+    {
+        LockTiles(_defaultTiles, locked);
+        LockTiles(_upgrade1Tiles, locked || !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant1));
+        LockTiles(_upgrade2Tiles, locked || !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant2));
+        LockTiles(_upgrade3Tiles, locked || !ProgressionManager.Instance.Unlocked.Contains(UpgradeID.Restaurant3));  
     }
 
     private void LockTiles(IEnumerable<TileUI> tiles, bool locked)

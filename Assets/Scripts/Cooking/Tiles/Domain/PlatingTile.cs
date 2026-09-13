@@ -15,7 +15,7 @@ public class PlatingTile : ITemporalTile
 
     public bool Accepts(Placeable placeable)
     {
-        return placeable is Food;
+        return placeable is Food && SetupManager.Instance.CurrentPhase == GamePhase.Cooking;
     }
     
     public void Place(Placeable placeable)

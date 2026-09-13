@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class StationUnlockTileUI : TileUI
 {
     private StationUnlockPopup _popup;

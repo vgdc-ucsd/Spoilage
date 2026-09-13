@@ -37,8 +37,61 @@ Transform:
   - {fileID: 4146805474882979062}
   - {fileID: 7326461050864100485}
   - {fileID: 791355746462234001}
+  - {fileID: 6865660145376847161}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2424570352135665885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6865660145376847161}
+  - component: {fileID: 5691250547013763242}
+  m_Layer: 0
+  m_Name: Item Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6865660145376847161
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2424570352135665885}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8231236070498046719}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5691250547013763242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2424570352135665885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5205ff5ba9f93c49aecf6aa684a5905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemManager
+  _giveItemUI: {fileID: 0}
+  _items:
+  - {fileID: 11400000, guid: 3761a98cd45f54a43b8b764999e2ea6b, type: 2}
+  - {fileID: 11400000, guid: 1e96aaa8141cf374abc8ba7181d77bdc, type: 2}
+  - {fileID: 11400000, guid: 206dc08c4487ae044b13934101cde774, type: 2}
+  - {fileID: 11400000, guid: 89082de26e627d148a19f498c7816147, type: 2}
+  - {fileID: 11400000, guid: 86565121ed595ca4699f40b508dc334f, type: 2}
+  - {fileID: 11400000, guid: 76167b5b8a98b2c479d9fd67d3cabc0a, type: 2}
 --- !u!1 &2747231261260716239
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,3 +583,4 @@ MonoBehaviour:
   _foodUITemplate: {fileID: 154970377145826796, guid: f6d25c36a7e4749488eb1aaa00c79c6b, type: 3}
   _automaticStationUITemplate: {fileID: 1610876166936842780, guid: af774649e82776d478360b800769b888, type: 3}
   _manualStationUITemplate: {fileID: 504522311085142264, guid: 0ae8d9607ad92564e846094c3b52a0e4, type: 3}
+  _itemUITemplate: {fileID: 919032353356539771, guid: 34c96dbd507c53c4387f2582667eff45, type: 3}

@@ -29,6 +29,11 @@ public class KitchenTile : ITemporalTile
 
     public bool Accepts(Placeable placeable)
     {
+        if (SetupManager.Instance.CurrentPhase == GamePhase.Discussion)
+        {
+            return placeable is Item;    
+        }
+
         return _current == null || (_current is Food or Station && placeable is Food && placeable != _current);
     }
     

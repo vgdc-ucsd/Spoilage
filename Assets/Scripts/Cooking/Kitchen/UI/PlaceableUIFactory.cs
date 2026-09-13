@@ -5,6 +5,7 @@ public class PlaceableUIFactory : Singleton<PlaceableUIFactory>
     [SerializeField] private FoodUI _foodUITemplate;
     [SerializeField] private AutomaticStationUI _automaticStationUITemplate;
     [SerializeField] private ManualStationUI _manualStationUITemplate;
+    [SerializeField] private PlaceableUI _itemUITemplate;
 
     public FoodUI Generate(IngredientData ingredient, Transform parent)
     {
@@ -13,6 +14,14 @@ public class PlaceableUIFactory : Singleton<PlaceableUIFactory>
         ui.SetBurnt(false);
         ui.ShowTimer(false);
         ui.SetPlated(false);
+        ui.transform.localPosition = Vector3.zero;
+        return ui;
+    }
+
+    public PlaceableUI Generate(ItemData item, Transform parent)
+    {
+        PlaceableUI ui = Instantiate(_itemUITemplate, parent);
+        ui.SetSprite(item.ItemSprite);
         ui.transform.localPosition = Vector3.zero;
         return ui;
     }
