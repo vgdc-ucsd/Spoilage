@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 
 public class DragAndDropManager : Singleton<DragAndDropManager>
 {
+    [SerializeField] private TrashCan _trashCan;
     [SerializeField] private Transform _dragLayer;
     private Stack<TileUI> _hoveredTiles = new Stack<TileUI>();
     private TileUI _selectedTile;
@@ -62,9 +63,12 @@ public class DragAndDropManager : Singleton<DragAndDropManager>
         }
     }
 
-    public void Click()
+    public void Click(TileUI tileUI)
     {
-        
+        if (_trashCan.Active)
+        {
+            _trashCan.Trash(tileUI.Tile);
+        }
     }
 
     private void Unselect()

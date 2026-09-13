@@ -51,6 +51,6 @@ public abstract class TileUI :
     public virtual void OnPointerDown(PointerEventData _)
     {
         if (_locked) return;
-        DragAndDropManager.Instance.Click();
+        DragAndDropManager.Instance.Click(this);
     }
 }
