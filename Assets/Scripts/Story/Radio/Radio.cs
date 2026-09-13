@@ -11,7 +11,7 @@ public class Radio : MonoBehaviour
     [SerializeField] private List<TextAsset> _generalFiller;
 
     private const float TYPEWRITER_SPEED = 0.05f;
-    private const float PAUSE_DURATION = 1f;
+    private const float PAUSE_DURATION = 1.5f;
 
     private class RadioLines
     {
