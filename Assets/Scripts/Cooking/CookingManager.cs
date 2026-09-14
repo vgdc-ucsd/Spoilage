@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -67,7 +67,7 @@ public class CookingManager : Singleton<CookingManager>
             {
                 customer.EnablePatienceTimer(false);
                 SaveManager.Instance.Player.Reputation += 1;
-                SaveManager.Instance.Player.DayData.Profits += Mathf.FloorToInt(match.reward * food.QualityPercent);
+                SaveManager.Instance.Player.DayData.Profits += Mathf.FloorToInt(match.reward * (1 + food.QualityPercent));
                 SaveManager.Instance.Player.DayData.CustomersServed++;
                 SaveManager.Instance.Player.DayData.Streak++;
                 DialogueManager.Instance.PlayDialogue(
