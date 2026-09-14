@@ -107,6 +107,13 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
             dialogue = DialogueManager.Instance.LoadCustomerDialogue(conversation.ConversationJson);
         }
 
+        // Rejected semikey characters should not return
+        if (customerData.tier == CustomerData.Tier.SemiKey && StoryManager.Instance.IsRejectedSemikey(customerData))
+        {
+            Advance();
+            return;
+        }
+
         _customer = CustomerManager.Instance.GenerateCustomer(customerData);
         _customer.SetDialogue(dialogue);
         _customer.transform.position = new Vector3(
@@ -131,7 +138,5 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
                 }
             )
         );
-
-        // TODO check if the customer is a rejected semikey character that needs to be replaced
     }
 }

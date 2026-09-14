@@ -8,7 +8,6 @@ using UnityEngine;
 public class StoryDatabase : ScriptableObject
 {
     public CharacterRoster roster;
-    public ReactionaryRules reactionary;
     public Endings endings;
     public StoryItems items;
     public RandomDialoguePools randomDialogue;

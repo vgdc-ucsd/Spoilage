@@ -45,6 +45,11 @@ public class GuardManager : Singleton<GuardManager>
         _guardsStaminaBar.SetStamina(_remainingGuardCalls/(float)_totalGuardCalls);
         _refusalButton.Lock(true);
 
+        if (currentCustomer.customerData.tier == CustomerData.Tier.SemiKey && !StoryManager.Instance.IsRejectedSemikey(currentCustomer.customerData))
+        {
+            SaveManager.Instance.Player.RejectedSemikeyCharacters.Add(currentCustomer.customerData.id);
+        }
+
         Vector3 heightOffset = Vector3.up * GUARD_HEIGHT_OFFSET;
         CustomerMovement rightGuard = Instantiate(_guardPrefab, _guardParent);
         CustomerMovement leftGuard = Instantiate(_guardPrefab, _guardParent);
