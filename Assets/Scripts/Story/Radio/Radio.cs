@@ -26,7 +26,7 @@ public class Radio : MonoBehaviour
     private void PlayRadio()
     {
         RadioNode radio = ProgressionManager.Instance.RadioNode;
-        if (radio.Day != SaveManager.Instance.Player.Day) PlayFiller();
+        if (radio.Day != SaveManager.Instance.Player.Day || radio.Data == null) PlayFiller();
         else ShowText(radio.Data);
     }
 

@@ -53,6 +53,11 @@ public class StoryManager : Singleton<StoryManager>
 
         return _graphRoots;
     }
+
+    public bool IsRejectedSemikey(CustomerData data)
+    {
+        return SaveManager.Instance.Player.RejectedSemikeyCharacters.Find(id => id == data.id) != null;
+    }
 }
     /* /// <summary>
     /// Rebuilds the queue used to guarantee story customers during cooking.
