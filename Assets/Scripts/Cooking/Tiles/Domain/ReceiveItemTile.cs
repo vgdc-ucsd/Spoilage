@@ -1,16 +1,15 @@
-using UnityEngine;
-
-public class ReceiveItemTile : MonoBehaviour
+public class ReceiveItemTile : ITile
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+    public bool Accepts(Placeable placeable) 
+    { 
+        return placeable is Item;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Place(Placeable placeable)
     {
         
     }
+    
+    public void Remove() { }
+    public Placeable Produces() { return null; }
 }
