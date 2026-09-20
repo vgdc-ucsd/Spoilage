@@ -623,6 +623,7 @@ Transform:
   - {fileID: 408894037}
   - {fileID: 660603542}
   - {fileID: 862931061}
+  - {fileID: 1959971577}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1106200419
@@ -762,17 +763,9 @@ MonoBehaviour:
     KitchenStations: []
     KitchenItems: []
     PendingStation: Grill
+    GameOverCondition: 0
+    RejectedSemikeyCharacters: []
     resistanceScore: 7
-    activeSetId: 
-    activeAdditionalId: 
-    refusedCharacterIds: []
-    servedCharacterIds: []
-    semiKeyRefusedToday: 0
-    semiKeyRefusedLifetime: 0
-    semiImportantDishesFailedToday: 0
-    semiImportantDishesFailedLifetime: 0
-    itemExchanges: []
-    pendingReactionaryIds: []
   Settings:
     Volume: 0.75
     Fullscreen: 0
@@ -1051,6 +1044,50 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ed1aa44aed6d67847b6f1dbe081687c4, type: 2}
   - {fileID: 11400000, guid: 862da7d00920060419d429e2b6a2adc3, type: 2}
   - {fileID: 11400000, guid: 630692fe6b2d99b439b503a072912579, type: 2}
+--- !u!1 &1959971576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1959971577}
+  - component: {fileID: 1959971578}
+  m_Layer: 0
+  m_Name: Discord Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1959971577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959971576}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 960963375}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1959971578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959971576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c78470fc3599b34c930fbe44880f5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DiscordManager
 --- !u!1 &1990410399
 GameObject:
   m_ObjectHideFlags: 0
