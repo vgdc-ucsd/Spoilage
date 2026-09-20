@@ -39,6 +39,7 @@ public class PlayerData
     public string PendingStation;
     public GameOverCondition GameOverCondition;
 
+    public List<string> SeenSemikeyCharacters;
     public List<string> RejectedSemikeyCharacters;
 
     /// <summary>
@@ -59,6 +60,7 @@ public class PlayerData
         KitchenItems = new List<string>();
         PendingStation = "Grill";
         RejectedSemikeyCharacters = new List<string>();
+        SeenSemikeyCharacters = new List<string>();
 
         // Initialize StationsUnlocked and IngredientsUnlocked with the day 1 status
         StationsUnlocked = new()

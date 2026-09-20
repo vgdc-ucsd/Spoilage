@@ -58,6 +58,14 @@ public class StoryManager : Singleton<StoryManager>
     {
         return SaveManager.Instance.Player.RejectedSemikeyCharacters.Find(id => id == data.id) != null;
     }
+
+    public void SeeSemikey(CustomerData data)
+    {
+        if (!SaveManager.Instance.Player.SeenSemikeyCharacters.Contains(data.id))
+        {
+            SaveManager.Instance.Player.SeenSemikeyCharacters.Add(data.id);
+        }   
+    }
 }
     /* /// <summary>
     /// Rebuilds the queue used to guarantee story customers during cooking.
