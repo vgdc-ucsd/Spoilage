@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aaa3389407b11a94cb1006de8f9a0cfd, type: 3}
-  m_Name: RadioDay11R
+  m_Name: RadioDay19R
   m_EditorClassIdentifier: Assembly-CSharp::RadioNode
-  _day: 11
-  _data: {fileID: 4900000, guid: 89a55d4270c9a15449aba28d735bd1f7, type: 3}
-  _noBranch: {fileID: 11400000, guid: c12c36a29499ccb4683969eb5f9499d7, type: 2}
+  _day: 19
+  _data: {fileID: 4900000, guid: 801f9cc5fe1ee824599719d37835de78, type: 3}
+  _noBranch: {fileID: 11400000, guid: a6b0a36c69499aa4b868fc30a2c1df04, type: 2}
   _branch: {fileID: 0}
   _id: 0

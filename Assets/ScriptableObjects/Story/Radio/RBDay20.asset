@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b2ef0fe8f348145bf35b8a7997b29e, type: 3}
+  m_Name: RBDay20
+  m_EditorClassIdentifier: Assembly-CSharp::RadioThreeWayResistanceBranch
+  _upperThreshold: 7
+  _lowerThreshold: 3
+  _belowLowerThreshold: {fileID: 11400000, guid: f4ff57dc43ab0994fba0f1a859ff851c, type: 2}
+  _middleThreshold: {fileID: 11400000, guid: bb36a1f5c97862f43a700ad6872001a8, type: 2}
+  _aboveUpperThreshold: {fileID: 11400000, guid: f67a9e0185a9efa43970a50712d6f926, type: 2}
