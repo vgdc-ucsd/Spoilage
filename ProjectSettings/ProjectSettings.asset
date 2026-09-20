@@ -584,7 +584,8 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   webEnableSubmoduleStrippingCompatibility: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Standalone: DISCORD_SDK_ENABLED
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

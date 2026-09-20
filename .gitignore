@@ -105,3 +105,5 @@ fmod_editor.log
 ### SYSTEM-SPECIFIC FILES
 # Ignore MacOS directory indexing.
 .DS_Store
+
+/Discord
