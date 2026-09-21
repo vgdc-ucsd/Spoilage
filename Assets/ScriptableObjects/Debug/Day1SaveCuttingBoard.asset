@@ -16,8 +16,13 @@ MonoBehaviour:
     SaveID: 2
     SaveName: Day 1 Save Cutting Board
     Day: 1
-    Wealth: 0
-    Reputation: 0
+    Wealth: 200
+    Reputation: 3
+    DayData:
+      CustomersServed: 0
+      CustomersRefused: 0
+      Streak: 0
+      Profits: 0
     RecipesUnlocked:
     - id: 22
       name: Flatbread
@@ -64,14 +69,7 @@ MonoBehaviour:
     - 
     - 
     PendingStation: Cutting Board
+    GameOverCondition: 0
+    SeenSemikeyCharacters: []
+    RejectedSemikeyCharacters: []
     resistanceScore: 7
-    activeSetId: 
-    activeAdditionalId: 
-    refusedCharacterIds: []
-    servedCharacterIds: []
-    semiKeyRefusedToday: 0
-    semiKeyRefusedLifetime: 0
-    semiImportantDishesFailedToday: 0
-    semiImportantDishesFailedLifetime: 0
-    itemExchanges: []
-    pendingReactionaryIds: []

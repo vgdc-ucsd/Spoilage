@@ -125,8 +125,7 @@ public class ProgressionManager : Singleton<ProgressionManager>
         player.Day = day + 1;
         player.DayData = new DayData();
      
-        // TODO save
-        
+        SaveManager.Instance.SaveToNew();
         DiscordManager.Instance.SetStatus(player.Day);
         GameManager.Instance.Load(GameScene.SHOP);
     }

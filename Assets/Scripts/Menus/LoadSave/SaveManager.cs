@@ -10,11 +10,14 @@ public class SaveManager : Singleton<SaveManager>
 
     private string _saveFolderPath;
     private string _settingsSavePath;
+    private string _saveOverviewPath;
+    private SaveOverviewCollection _overviews;
 
     private static Queue<Action> s_loadQueue = new Queue<Action>();
 
-    private const int SAVE_SLOT_COUNT = 128;
+    private const int SAVE_SLOT_COUNT = 1024;
     private const string SAVE_FOLDER = "saves";
+    private const string SAVE_OVERVIEW_FILE = "overview.json";
 
     private string GetSlotPath(int saveId)
     {
@@ -31,10 +34,17 @@ public class SaveManager : Singleton<SaveManager>
         return IsValidSaveId(saveId) && File.Exists(GetSlotPath(saveId));
     }
 
-    public void Start()
+    public override void Awake()
     {
         _saveFolderPath = Path.Combine(Application.persistentDataPath, SAVE_FOLDER);
         _settingsSavePath = Path.Combine(Application.persistentDataPath, "/settings.json");
+        _saveOverviewPath = Path.Combine(Application.persistentDataPath, SAVE_FOLDER, SAVE_OVERVIEW_FILE);
+
+        base.Awake();
+    }
+
+    public void Start()
+    {
         Player = DebugManager.Instance.DebugPlayerSave?.Clone();
         LoadSettings();
     }
@@ -58,7 +68,14 @@ public class SaveManager : Singleton<SaveManager>
 
         string json = JsonUtility.ToJson(Player, true);
 
+        if(_overviews == null) LoadSaveOverviews();
+        _overviews.SaveOverviews.Add(new SaveOverview(
+            saveId,
+            Player.Day
+        ));
+
         File.WriteAllText(GetSlotPath(saveId), json);
+        File.WriteAllText(_saveOverviewPath, JsonUtility.ToJson(_overviews));
     }
 
     public void SaveSettings()
@@ -125,7 +142,7 @@ public class SaveManager : Singleton<SaveManager>
         if (saveId == -1)
         {
             Debug.LogError("No empty save slots available.");
-            return;
+            saveId = SAVE_SLOT_COUNT - 1;
         }
 
         Player = new PlayerData
@@ -163,5 +180,20 @@ public class SaveManager : Singleton<SaveManager>
         }
 
         File.Delete(GetSlotPath(saveId));
+    }
+
+    public SaveOverviewCollection LoadSaveOverviews()
+    {
+        if (File.Exists(_saveOverviewPath))
+        {
+            string json = File.ReadAllText(_saveOverviewPath);
+            _overviews = JsonUtility.FromJson<SaveOverviewCollection>(json);    
+        }
+        else
+        {
+            _overviews = new SaveOverviewCollection(new List<SaveOverview>());
+        }
+        
+        return _overviews;
     }
 }

@@ -10,6 +10,7 @@ public enum GameScene
     INTRO_CUTSCENE,
     PERSISTENT,
     GAME_OVER,
+    LOAD_SAVE,
 }
 
 public class GameManager : Singleton<GameManager>

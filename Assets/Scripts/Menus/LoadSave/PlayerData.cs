@@ -54,7 +54,7 @@ public class PlayerData
         // Reputation = 50;
         
         Day = 1;
-        Wealth = 100;
+        Wealth = 200;
         RecipesUnlocked = new();
         KitchenStations = new List<string>();
         KitchenItems = new List<string>();
