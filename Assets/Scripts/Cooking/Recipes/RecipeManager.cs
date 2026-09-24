@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [System.Serializable]
 public class RecipeRequirement
@@ -159,5 +160,10 @@ public class RecipeManager : Singleton<RecipeManager>
         }
 
         return remainingRequirements.Count == 0;
+    }
+
+    public Recipe FindRecipe(string name)
+    {
+        return allRecipes.allRecipes.First(recipe => recipe.name == name);
     }
 }

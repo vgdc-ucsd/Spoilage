@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9270acc71c4c28f4a9e0900dc3da2aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragAndDropManager
+  _trashCan: {fileID: 0}
   _dragLayer: {fileID: 0}
 --- !u!1 &2885633312407237733
 GameObject:
@@ -378,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab9480d4fe6c486bb1eb0705e9c5db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SetupManager
+  _recipeBook: {fileID: 0}
   _callBell: {fileID: 0}
   _startSign: {fileID: 0}
   _dayTimer: {fileID: 0}

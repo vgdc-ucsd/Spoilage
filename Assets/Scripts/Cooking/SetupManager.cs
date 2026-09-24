@@ -14,6 +14,7 @@ public class SetupManager : Singleton<SetupManager>
     public GamePhase CurrentPhase { get; private set; } = GamePhase.Setup;
     public bool TimeLimitReached => _timeLimitReached;
 
+    [SerializeField] private RecipeBook _recipeBook;
     [SerializeField] private CallBell _callBell;
     [SerializeField] private StartSign _startSign;
     [SerializeField] private DayTimer _dayTimer;
@@ -38,6 +39,7 @@ public class SetupManager : Singleton<SetupManager>
         CurrentPhase = GamePhase.Discussion;
         AudioManager.Instance.PlayMusicEntry("KitchenLayout");
         GuardManager.Instance.Init();
+        _recipeBook.Init(SaveManager.Instance.Player.RecipesUnlocked);
         _stationUnlockPopup.gameObject.SetActive(false);
         _timeLimitReached = false;
 
