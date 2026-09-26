@@ -17,3 +17,17 @@ MonoBehaviour:
   _normalSprite: {fileID: 21300000, guid: 08324979b0c5d4642a18ef6b73c42175, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: 187f0d51b282da34fadbab8ed98ca459, type: 3}
   _plateSprite: {fileID: 21300000, guid: e2c6526b30d0a324fb25509ed0c1296f, type: 3}
+  _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: "A common fable told in bars speaks of a lion,
+    king of old Aija. The Lion desired meat but also wanted potatoes. Not knowing
+    what he wanted, he ordered his chefs to make something truly regal. The chefs
+    all raced to the kitchen, eager to impress the Lion. The Cat baked the finest
+    black bread. The Bull mashed the best taters. The Hawk too, assured the most
+    tender loin. And then the Aphid, who did nay but mashed his peers\u2019 work
+    together and presented the bapka to the Lion. Only three pikes were shown outside
+    the castle that day, the Aphid not among them."
+  _recipeBookDescriptionSpoiled: There is nothing better in life than to make a meal
+    with great pride. Bapka are great examples, being works of art by themselves.
+    But passion can take its toll on even the finest artist, dulling their colors,
+    their might. What love is there when the bread is filled with a void as black
+    as the Aijinkovan soil? <i>All twenty thousand kilometers left to toil.</i>

@@ -18,3 +18,14 @@ MonoBehaviour:
   _spoiledSprite: {fileID: 21300000, guid: 425691c5f4c5843ebbe4cf9af55cca59, type: 3}
   _plateSprite: {fileID: 21300000, guid: 3c2272805a4fd4a0280587fe8c7234cc, type: 3}
   _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: 
+  _recipeBookDescriptionSpoiled: "A gastronomist once wrote an article about how
+    certain sauces could soften various salad ingredients, which revolutionized the
+    dishes and palates of Verehnian nobles at the time. Should the gastronomist still
+    be here, somehow avoiding his execution during the revolution, one can imagine
+    that he would be amazed at how a parallel innovation is happening in the ramshackled
+    kitchens of today. The bitter sauce and acidic, sharp cheese act in tandem to
+    make the hard root vegetables turn to mush. The specific food chemistry that
+    makes this possible escapes the dish\u2019s staunch fans; this does not stop
+    them, though occasionally one must wonder if the viscous mixture could break
+    down the vegetables, what it could do to one\u2019s stomach lining..."

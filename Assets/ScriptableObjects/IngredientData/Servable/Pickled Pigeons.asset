@@ -17,3 +17,13 @@ MonoBehaviour:
   _normalSprite: {fileID: 21300000, guid: 3a900afc6b29746da83ac5d50e234ad8, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: 9655c4f798d95418a8433a87851ec0c4, type: 3}
   _plateSprite: {fileID: 21300000, guid: f3738649fc206466bbc691a0fc1b163c, type: 3}
+  _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: Pigeon meat has always been popular with the lower
+    class citizens of Verehn. It's cheap, available, and reminds fallen nobility
+    of stuffed partridge and baked peacock. Many chefs oversalt the sauce to cover
+    up the gameyness of the meat. Sometimes it feels like even the vermin cannot
+    stomach it.
+  _recipeBookDescriptionSpoiled: If Verehn's golden palace could fall, even this
+    mighty nigh-impenetrable bastion of salt and meat can be spoiled. The once protective
+    sauce has broken down the meat, turning everything into one homogenous sludge,
+    which could probably preserve this dish in this state until the end of time.

@@ -17,3 +17,16 @@ MonoBehaviour:
   _normalSprite: {fileID: 21300000, guid: 0a61b919e483847d5952f3b8df0f574e, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: 0a61b919e483847d5952f3b8df0f574e, type: 3}
   _plateSprite: {fileID: 21300000, guid: 0ec8112dca08c4870827869b2d63fe79, type: 3}
+  _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: 
+  _recipeBookDescriptionSpoiled: "A traveller from far, far south saw a chef serving
+    this to a customer, mistaking it for a dish from his culture. He exclaimed that
+    he was proud to see 'pilaf' so far from home, and wanted to see the chef cook
+    it to compare it to his family's recipe. \"It\u2019s amazing how many of those
+    small things crawl out when you are grilling the meat. They writhe and squirm,
+    and if you listen carefully, you can hear the hundreds of white worms screaming
+    in pain,\" the chef said, a proud smile splitting his face in half as the sound
+    of the huge cleaver coming down on the vegetables shook the travellers soul.
+    \"Or\u2026.. that might be the sizzling oil,\" he continued as he threw the vegetables
+    into the pan. The traveller turned around and ran. He ran and ran and kept on
+    running, and did not stop until he was miles outside of Aijinkova."

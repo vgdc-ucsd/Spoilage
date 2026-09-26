@@ -17,3 +17,13 @@ MonoBehaviour:
   _normalSprite: {fileID: 21300000, guid: eb666fee0db2dc64c9516ef3b3a72d45, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: eb666fee0db2dc64c9516ef3b3a72d45, type: 3}
   _plateSprite: {fileID: 21300000, guid: 280b6928756483b41a32e8f38afe6871, type: 3}
+  _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: 
+  _recipeBookDescriptionSpoiled: "This is a madman's ingenious dish, specially designed
+    to obliterate one's culinary desire to smithereens, yet it is simply a chunk
+    of bread with cured fatty meat on top of it. So what is the secret ingredient?
+    When asking the supplier on the meat's origins, he would only suggest that it
+    is \"worth chewing with friends over\". It is also worth mentioning that the
+    supplier\u2019s headquarters are strategically located next to an abandoned morgue,
+    once active during the war. Dinner guests better watch out, lest they reunite
+    with their loved ones again at the most inconvenient of times. "

@@ -17,3 +17,12 @@ MonoBehaviour:
   _normalSprite: {fileID: 21300000, guid: 70cdf7afeb4dc6741b9be350b5d3fc17, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: 70cdf7afeb4dc6741b9be350b5d3fc17, type: 3}
   _plateSprite: {fileID: 21300000, guid: 16e679f7304119848bc99bc035449ed0, type: 3}
+  _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: 
+  _recipeBookDescriptionSpoiled: The still water of Verehn's reservoirs has marine
+    life like no other. Resistant to all kinds of chemical waste, these organisms
+    manage to thrive in small populations despite the myriad diseases they accrue
+    just from existing. Fishermen who are without work due to the quarantine have
+    begun moving in droves to these reservoirs. But what of the quality of these
+    fish? That's a question fishermen don't want to answer. They just enjoy having
+    work.

@@ -17,3 +17,32 @@ MonoBehaviour:
   _normalSprite: {fileID: 21300000, guid: 668a264a6ce95d24e969eec737f87ad6, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: 8d895d7cf5f85da46bec09c5d1cf53ea, type: 3}
   _plateSprite: {fileID: 21300000, guid: 427cc329f07795841825c0878a64a6a0, type: 3}
+  _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: "<i>A Doctor\u2019s Journal: Day 45</i>\r\n\r\n<i>11:46
+    AM: One of my patients recently introduced me to this dumpling from the Island
+    Confederacy. The use of baked potatoes and white cattle\u2019s cheese makes it
+    evident it has used the Western style of grilling. The whole world is taking
+    inspiration from Verehn. What a curious loop of teachers and students. Anyways.
+    I have my beliefs on this hand food being a lead into this \u201CSpoilage\u201D
+    epidemic. The western nation recently experienced a social revolution a few years
+    back before our own. The breakdown of fodder logistics starved the nation\u2019s
+    cattle and the people of its cheese. I have my hypothesis that expired foodstuffs
+    correlate with the black Spoilage our own people are suffering from. I will conduct
+    single-blind studies with some of my subjects for the next few days.</i>\r\n"
+  _recipeBookDescriptionSpoiled: "<i>A Doctor\u2019s Journal: Day 49</i>\n<i>3:14
+    AM: I have done it! I have found a correlation between feeding fresh cheese in
+    pierogi and a heightened aggression from my double-headed subject. I left some
+    white cheese out the fridge for a few moments and almost immediately began releasing
+    black goo. I added this cheese to some pierogi, western-grilled, became almost
+    pitch black in color, and fed it to one of my subject\u2019s heads. I recorded
+    no substantial change in behavior, except a statement from the head which stated
+    to be \u201Cchewy, yet not regretful\u201D. In fact, I am surprised to see that
+    upon feeding the other head some fresh white cheese, the head began to scream
+    erratically. Truly fascinating!\r\n\rThe mass of fresh cheese can directly aggravate
+    one of the heads of my subject. Is it from the cheese\u2019s contents, or from
+    mental stress from its taste?  I am certain this will lead me toward a cure sooner
+    than later.\r\n\r\n7:23 AM: I must report that my subject has escaped my facility,
+    noted by the Y-shaped hole in its tent. I must also state that I woke up with
+    the taste of cheese in my mouth. The case is under investigation. I am currently
+    in an agitated state as of writing this. This is an opportunity I shall not pass
+    and will write down my progress as the days follow.</i>"

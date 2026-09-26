@@ -17,3 +17,13 @@ MonoBehaviour:
   _normalSprite: {fileID: 21300000, guid: 98685674abb266645b741eb5789d35eb, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: 794becc612c413b418325ea33eee1d02, type: 3}
   _plateSprite: {fileID: 21300000, guid: 5ada400bfdc16674685d3ad53fe58ee8, type: 3}
+  _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: "This dish is probably too good to be true. The
+    smell of roasted fat intertwined with what is probably half the spice cabinet
+    wafts through the air. The sauce on top makes it beautiful and glistening. It\u2019s
+    hard to say what poor animal this delectable dish is made of...\n\nBetter not
+    to think about it for too long. Just dig in! "
+  _recipeBookDescriptionSpoiled: 'The juices squidging out of this thing oozes thickly
+    down the ridges of cooked flesh. When you eat this, you can''t tell if it''s
+    you or the wriggling meat that''s shuddering. Ignore the goosebumps, and it tastes
+    great. Too great. '
