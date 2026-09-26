@@ -26,6 +26,15 @@ public class AutomaticStation : Station
         float cookTime = HandleCookingSpeedUpgrades();
         _currQualityBonus += HandleQualityUpgrades();
 
+        if (_timer < cookTime)
+        {
+            if (SaveManager.Instance.Player.DayData.RemainingInstantStationUses > 0)
+            {
+                SaveManager.Instance.Player.DayData.RemainingInstantStationUses--;
+                _timer = cookTime;
+            }
+        }
+
         if (_timer >= cookTime)
         {
             if (!_overcook)
