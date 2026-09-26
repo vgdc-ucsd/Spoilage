@@ -22,6 +22,14 @@ public class GuardManager : Singleton<GuardManager>
         if (resistance < 4) _totalGuardCalls = 7;
         else if (resistance < 9) _totalGuardCalls = 5;
         else _totalGuardCalls = 3;
+
+        if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.GuardAllocation1))
+            _totalGuardCalls += 1;
+        else if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.GuardAllocation2))
+            _totalGuardCalls += 2;
+        else if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.GuardAllocation3))
+            _totalGuardCalls += 3;
+
         _remainingGuardCalls = _totalGuardCalls;
         _guardsStaminaBar.SetStamina(1.0f);
     }
