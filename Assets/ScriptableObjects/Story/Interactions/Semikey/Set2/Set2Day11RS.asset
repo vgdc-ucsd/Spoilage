@@ -22,6 +22,6 @@ MonoBehaviour:
     - _customer: {fileID: 11400000, guid: fdb57fd3215c9cc4b84117dab74b50df, type: 2}
       _conversationJson: {fileID: 4900000, guid: e785f7fcaddf1f241a531ebc25b3b769, type: 3}
     _ending: {fileID: 0}
-  _noBranch: {fileID: 0}
+  _noBranch: {fileID: 11400000, guid: fe995a640df6cb740989da877aac3da4, type: 2}
   _branch: {fileID: 0}
   _id: 0

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa3389407b11a94cb1006de8f9a0cfd, type: 3}
   m_Name: RadioDay29W
   m_EditorClassIdentifier: Assembly-CSharp::RadioNode
-  _day: 26
-  _data: {fileID: 0}
+  _day: 29
+  _data: {fileID: 4900000, guid: 094a8fca06bee7448b4ed2cbb871f7a2, type: 3}
   _noBranch: {fileID: 0}
   _branch: {fileID: 0}
   _id: 0
