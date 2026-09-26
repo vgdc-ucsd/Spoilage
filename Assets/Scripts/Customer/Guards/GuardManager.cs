@@ -11,17 +11,27 @@ public class GuardManager : Singleton<GuardManager>
 
     private int _remainingGuardCalls;
     private int _totalGuardCalls;
+
     private const float GUARD_DISTANCE = 250f;
     private const float GUARD_WALK_DURATION = 1.5f;
     private const float GUARD_SCALE = 0.594f;
     private const float GUARD_HEIGHT_OFFSET = 100f;
+    private Vector3 GuardOffset(float x, float y = 0f)
+    {
+        return _guardParent.TransformVector(new Vector3(x, y, 0f));
+    }
 
     public void Init()
     {
         float resistance = SaveManager.Instance.Player.resistanceScore;
-        if (resistance < 4) _totalGuardCalls = 7;
-        else if (resistance < 9) _totalGuardCalls = 5;
-        else _totalGuardCalls = 3;
+
+        if (resistance < 4)
+            _totalGuardCalls = 7;
+        else if (resistance < 9)
+            _totalGuardCalls = 5;
+        else
+            _totalGuardCalls = 3;
+
         _remainingGuardCalls = _totalGuardCalls;
         _guardsStaminaBar.SetStamina(1.0f);
     }
@@ -39,39 +49,61 @@ public class GuardManager : Singleton<GuardManager>
             return;
         }
 
-        Customer currentCustomer = CustomerLineManager.Instance.CurrentCustomer;
+        Customer currentCustomer =
+            CustomerLineManager.Instance.CurrentCustomer;
+
         SaveManager.Instance.Player.DayData.CustomersRefused++;
         _remainingGuardCalls--;
-        _guardsStaminaBar.SetStamina(_remainingGuardCalls/(float)_totalGuardCalls);
+
+        _guardsStaminaBar.SetStamina(
+            _remainingGuardCalls / (float)_totalGuardCalls
+        );
+
         _refusalButton.Lock(true);
 
-        if (currentCustomer.customerData.tier == CustomerData.Tier.SemiKey && !StoryManager.Instance.IsRejectedSemikey(currentCustomer.customerData))
+        if (currentCustomer.customerData.tier == CustomerData.Tier.SemiKey
+            && !StoryManager.Instance.IsRejectedSemikey(
+                currentCustomer.customerData))
         {
-            SaveManager.Instance.Player.RejectedSemikeyCharacters.Add(currentCustomer.customerData.id);
+            SaveManager.Instance.Player.RejectedSemikeyCharacters.Add(
+                currentCustomer.customerData.id
+            );
         }
 
-        Vector3 heightOffset = Vector3.up * GUARD_HEIGHT_OFFSET;
-        CustomerMovement rightGuard = Instantiate(_guardPrefab, _guardParent);
-        CustomerMovement leftGuard = Instantiate(_guardPrefab, _guardParent);
-        rightGuard.transform.position = _customerSpawnpoint.position + heightOffset;
-        leftGuard.transform.position = _customerSpawnpoint.position + (Vector3.left * GUARD_DISTANCE) + heightOffset;
+        CustomerMovement rightGuard =
+            Instantiate(_guardPrefab, _guardParent);
+
+        CustomerMovement leftGuard =
+            Instantiate(_guardPrefab, _guardParent);
+
         rightGuard.transform.localScale = Vector3.one * GUARD_SCALE;
         leftGuard.transform.localScale = Vector3.one * GUARD_SCALE;
 
+        rightGuard.transform.position =
+            _customerSpawnpoint.position
+            + GuardOffset(0f, GUARD_HEIGHT_OFFSET);
+
+        leftGuard.transform.position =
+            _customerSpawnpoint.position
+            + GuardOffset(-GUARD_DISTANCE, GUARD_HEIGHT_OFFSET);
+
         leftGuard.WalkTo(
-            _customerOrderPoint.transform.position + (Vector3.left * (GUARD_DISTANCE / 2f)),
+            _customerOrderPoint.position + GuardOffset(-GUARD_DISTANCE),
             GUARD_WALK_DURATION,
             null
         );
-
+        
         rightGuard.WalkTo(
-            _customerOrderPoint.transform.position + (Vector3.right * (GUARD_DISTANCE / 2f)),
+            _customerOrderPoint.position + GuardOffset(GUARD_DISTANCE),
             GUARD_WALK_DURATION,
             () => InteractCustomer(currentCustomer, leftGuard, rightGuard)
         );
     }
 
-    private void InteractCustomer(Customer customer, CustomerMovement leftGuard, CustomerMovement rightGuard)
+    private void InteractCustomer(
+        Customer customer,
+        CustomerMovement leftGuard,
+        CustomerMovement rightGuard)
     {
         DialogueManager.Instance.PlayDialogue(
             customer.Dialogue.Reject,
@@ -80,16 +112,21 @@ public class GuardManager : Singleton<GuardManager>
         );
     }
 
-    private void TakeCustomer(Customer customer, CustomerMovement leftGuard, CustomerMovement rightGuard)
+    private void TakeCustomer(
+        Customer customer,
+        CustomerMovement leftGuard,
+        CustomerMovement rightGuard)
     {
         leftGuard.WalkTo(
-            _customerSpawnpoint.transform.position + (Vector3.left * GUARD_DISTANCE),
+            _customerSpawnpoint.position
+                + GuardOffset(-GUARD_DISTANCE * 2f),
             GUARD_WALK_DURATION,
             () => Destroy(leftGuard.gameObject)
         );
 
         customer.Movement.WalkTo(
-            _customerSpawnpoint.transform.position + (Vector3.left * (GUARD_DISTANCE / 2f)),
+            _customerSpawnpoint.position
+                + GuardOffset(-GUARD_DISTANCE / 2f),
             GUARD_WALK_DURATION,
             () =>
             {
@@ -99,7 +136,7 @@ public class GuardManager : Singleton<GuardManager>
         );
 
         rightGuard.WalkTo(
-            _customerSpawnpoint.transform.position,
+            _customerSpawnpoint.position,
             GUARD_WALK_DURATION,
             () => Destroy(rightGuard.gameObject)
         );
