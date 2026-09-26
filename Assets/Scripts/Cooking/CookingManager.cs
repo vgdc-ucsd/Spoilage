@@ -67,9 +67,10 @@ public class CookingManager : Singleton<CookingManager>
             {
                 customer.EnablePatienceTimer(false);
                 SaveManager.Instance.Player.Reputation += 1;
-                SaveManager.Instance.Player.DayData.Profits += Mathf.FloorToInt(match.reward * (1 + food.QualityPercent));
-                SaveManager.Instance.Player.DayData.CustomersServed++;
                 SaveManager.Instance.Player.DayData.Streak++;
+                float streakRewardMult = HandleStreakRewardMult();
+                SaveManager.Instance.Player.DayData.Profits += Mathf.FloorToInt(match.reward * (1 + food.QualityPercent) * streakRewardMult);
+                SaveManager.Instance.Player.DayData.CustomersServed++;
                 DialogueManager.Instance.PlayDialogue(
                     customer.Dialogue.Success,
                     customer.customerData, 
@@ -107,5 +108,23 @@ public class CookingManager : Singleton<CookingManager>
         {
             tile.Process(Time.deltaTime);
         }
+    }
+
+    private float HandleStreakRewardMult()
+    {
+        if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.Streak3))
+        {
+            return 1.5f;
+        } else if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.Streak2))
+        {
+            if (SaveManager.Instance.Player.DayData.Streak % 3 == 0)
+                return 1.5f;
+        } else if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.Streak1))
+        {
+            if (SaveManager.Instance.Player.DayData.Streak % 6 == 0)
+                return 1.5f;
+        }
+
+        return 1f; // no mult
     }
 }

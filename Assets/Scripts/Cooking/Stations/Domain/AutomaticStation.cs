@@ -8,6 +8,7 @@ public class AutomaticStation : Station
     private AutomaticStationUI _ui;
     private const float BASE_COOK_TIME = 5f;
     private Food _lastCookedFood;
+    private float _lastUsedTime; // Holds the time which the station was last used. This is important for the 'HotterGrill' upgrade
     private float _currQualityBonus = 0f;
 
     public AutomaticStation(StationData data, AutomaticStationUI ui)
@@ -41,6 +42,7 @@ public class AutomaticStation : Station
             {    
                 Cook(_currQualityBonus);
                 _lastCookedFood = _cookedFood;
+                _lastUsedTime = Time.time;
                 _overcook = true;
                 _timer = 0f;
             }
@@ -108,9 +110,14 @@ public class AutomaticStation : Station
         switch (Data.StationCategory)
         {
             case StationCategory.Grill:
+                float cookTime = BASE_COOK_TIME;
                 if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.GrillSpeed))
-                    return BASE_COOK_TIME * 0.75f;
-                break;
+                    cookTime *= 0.75f;
+                
+                if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.HotterGrill) && Time.time > 10f && Time.time - _lastUsedTime <= 10f)
+                    cookTime *= 0.75f;
+                
+                return cookTime;
             case StationCategory.Pot:
                 if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.PotSpeed))
                     return BASE_COOK_TIME * 0.75f;
