@@ -22,7 +22,7 @@ public class Food : Placeable
 
     private const float CONSTANT_QUALITY_SEASONING_BONUS = 10f;
     private const float CONSTANT_QUALITY_OVERCOOKED_DEDUCTION = 20f;
-    private const float SPOIL_TIME = 15f;
+    private const float BASE_SPOIL_TIME = 15f;
 
     public Food(IngredientData data)
     {
@@ -38,7 +38,16 @@ public class Food : Placeable
         SpoilagePercent = spoilage;
         QualityPercent = quality;
         SeasoningBonus = null;
-        _timer = spoilage * SPOIL_TIME;
+
+        float spoilTime = BASE_SPOIL_TIME;
+        if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.Spoiler)) {
+            spoilTime /= 2f;
+        }
+        if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.Unspoiler))
+        {
+            spoilTime *= 2f;
+        }
+        _timer = spoilage * spoilTime;
     }
 
     public void SetUI(FoodUI ui)
@@ -83,7 +92,16 @@ public class Food : Placeable
         bool becomeSpoiled = IsSpoiled;
         bool becomeSpoiling = Spoiling;
 
-        SpoilagePercent = Mathf.Clamp01(_timer / SPOIL_TIME);
+        float spoilTime = BASE_SPOIL_TIME;
+        if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.Spoiler)) {
+            spoilTime /= 2f;
+        }
+        if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.Unspoiler))
+        {
+            spoilTime *= 2f;
+        }
+
+        SpoilagePercent = Mathf.Clamp01(_timer / spoilTime);
         
         if (!IsSpoiled) _ui.SetSpoilage(SpoilagePercent);
         

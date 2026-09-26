@@ -187,7 +187,8 @@ public class Customer : MonoBehaviour
     private void DecreasePatience(float dt)
     {
         _patience -= dt;
-        _patienceTimer.SetProgress(_patience / MAX_PATIENCE);
+        float maxPatience = HandleMaxPatienceUpgrade();
+        _patienceTimer.SetProgress(_patience / maxPatience);
         if (_patience <= 0) CookingManager.Instance.OrderFailed();
     }
 
@@ -198,7 +199,8 @@ public class Customer : MonoBehaviour
 
     public void EnablePatienceTimer(bool active)
     {
-        if (active) _patience = MAX_PATIENCE;
+        float maxPatience = HandleMaxPatienceUpgrade();
+        if (active) _patience = maxPatience;
         _timerActive = active;
         _patienceTimer.Show(active);
     }
@@ -217,5 +219,12 @@ public class Customer : MonoBehaviour
         {
             DecreasePatience(Time.deltaTime);
         }
+    }
+
+    private float HandleMaxPatienceUpgrade()
+    {
+        return ProgressionManager.Instance.Purchased.Contains(UpgradeID.Distraction)
+                ? MAX_PATIENCE * 1.25f
+                : MAX_PATIENCE;
     }
 }

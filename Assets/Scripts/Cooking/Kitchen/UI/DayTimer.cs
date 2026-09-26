@@ -46,9 +46,13 @@ public class DayTimer : MonoBehaviour
         string amPm = _hours >= 12 ? "PM" : "AM";
         _tmp.text = $"{hoursAmPm}:{_minutes:D2} {amPm}";
 
+        int endHour = ProgressionManager.Instance.Purchased.Contains(UpgradeID.Overtime)
+                        ? (int)(END_HOUR + ((END_HOUR - START_HOUR) * 0.25f))
+                        : END_HOUR;
+
         if (_dayOver)
         {
-            float t = Mathf.Cos((_timer - ((END_HOUR - START_HOUR) * REAL_SECONDS_PER_GAME_HOUR)) * TIMER_BLINK_SPEED); // range (-1, 1) starting at 1
+            float t = Mathf.Cos((_timer - ((endHour - START_HOUR) * REAL_SECONDS_PER_GAME_HOUR)) * TIMER_BLINK_SPEED); // range (-1, 1) starting at 1
             t *= -1f; // range (-1, 1) starting at -1
             t = (t + 1.0f) / 2.0f; // range (0, 1) starting at 0
             t *= TIMER_BLINK_INTENSITY; // range (0, blink) starting at 0
@@ -67,14 +71,18 @@ public class DayTimer : MonoBehaviour
     {  
         if (!_counting) return; 
 
+        int endHour = ProgressionManager.Instance.Purchased.Contains(UpgradeID.Overtime)
+                        ? (int)(END_HOUR + ((END_HOUR - START_HOUR) * 0.25f))
+                        : END_HOUR;
+
         _timer += Time.deltaTime;
         _hours = Mathf.Clamp(
             START_HOUR + Mathf.FloorToInt(_timer / REAL_SECONDS_PER_GAME_HOUR),
             START_HOUR,
-            END_HOUR 
+            endHour
         );
 
-        if (_hours == END_HOUR)
+        if (_hours == endHour)
         {
             if (!_dayOver) EndDay();
         }
