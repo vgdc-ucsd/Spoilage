@@ -13,9 +13,11 @@ public class ItemGeneratorScript : MonoBehaviour
     [SerializeField] private int _generalUpgradeCount;
     [SerializeField] private int _ingredientUpgradeCount;
 
-
     [Header("Debug")]
     [SerializeField] private bool _refresh;
+
+    [Header("Generated Items")]
+    private List<Upgrade> _generatedUpgrades = new();
 
     void Start()
     {
@@ -44,6 +46,7 @@ public class ItemGeneratorScript : MonoBehaviour
                 Destroy(_itemsParent.GetChild(i).gameObject);
             }
 
+            _generatedUpgrades.Clear();
             GenerateShopItems(_ingredientItemPool, _ingredientUpgradeCount);
             GenerateShopItems(_generalItemPool, _generalUpgradeCount);   
         }
@@ -59,11 +62,17 @@ public class ItemGeneratorScript : MonoBehaviour
         
         for (int i = 0; i < count; i++)
         {
-            // TODO: FIX THIS -- SHOULD NOT BE PURELY RANDOM BECAUSE THIS CAN CAUSE DUPLICATE UPGRADES
-            Upgrade upgrade = itemPool[Random.Range(0, itemPool.Count)];
+            Upgrade upgrade;
+            int maxAttempts = 0; // This is necessary to stop infinite looping in case itemPool.Count < count
+            do
+            {
+                upgrade = itemPool[Random.Range(0, itemPool.Count)];
+                maxAttempts++;
+            } while (_generatedUpgrades.Contains(upgrade) && maxAttempts < 10);
 
             ShopItemScript shopItem = Instantiate(_shopItemPrefab, _itemsParent);
             shopItem.upgrade = upgrade;
+            _generatedUpgrades.Add(upgrade);
         }
     }
 }
