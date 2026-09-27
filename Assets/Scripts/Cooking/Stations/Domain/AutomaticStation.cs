@@ -8,6 +8,8 @@ public class AutomaticStation : Station
     private AutomaticStationUI _ui;
     private const float BASE_COOK_TIME = 5f;
     private Food _lastCookedFood;
+    private int _repeatRecipeStreak;
+    private int _differentRecipeStreak;
     private float _lastUsedTime; // Holds the time which the station was last used. This is important for the 'HotterGrill' upgrade
     private float _currQualityBonus = 0f;
 
@@ -41,6 +43,18 @@ public class AutomaticStation : Station
             if (!_overcook)
             {    
                 Cook(_currQualityBonus);
+                
+                if (_cookedFood == _lastCookedFood)
+                {
+                    _repeatRecipeStreak++;
+                    _differentRecipeStreak = 0;                    
+                }
+                else
+                {
+                    _repeatRecipeStreak = 0;
+                    _differentRecipeStreak = Mathf.Clamp(_differentRecipeStreak + 1, 0, 4);
+                }
+
                 _lastCookedFood = _cookedFood;
                 _lastUsedTime = Time.time;
                 _overcook = true;
@@ -123,8 +137,20 @@ public class AutomaticStation : Station
                     return BASE_COOK_TIME * 0.75f;
                 break;
             case StationCategory.Oven:
+                cookTime = BASE_COOK_TIME;
                 if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.OvenSpeed))
-                    return BASE_COOK_TIME * 0.75f;
+                    cookTime *= 0.75f;
+
+                if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.Preheat))
+                    cookTime *= 0.75f;
+
+                return cookTime;
+            case StationCategory.CuttingBoard:
+                if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.CuttingBoardSpeed))
+                {
+                    if (CookingManager.Instance.Process(_ingredients, this, 0f) == _lastCookedFood)
+                        return BASE_COOK_TIME * (1f - (_repeatRecipeStreak * 0.1f));
+                }
                 break;
             default:
                 break;
@@ -141,7 +167,21 @@ public class AutomaticStation : Station
                 if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.GrillQuality))
                 {
                     if (CookingManager.Instance.Process(_ingredients, this, 0f) == _lastCookedFood) // if currently cooking food is same as last cooked food
-                        return 5f;
+                        return 5f * _repeatRecipeStreak;
+                }
+                break;
+            case StationCategory.Pot:
+                if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.PotQuality))
+                {
+                    return 10f * (_differentRecipeStreak / 4f);
+                }
+
+                if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.PotQuality2))
+                {
+                    foreach (Food ingredient in _ingredients)
+                    {
+                        ingredient.QualityPercent += 0.5f;
+                    }
                 }
                 break;
             default:

@@ -1,4 +1,6 @@
-﻿public class ManualStation : Station
+﻿using UnityEngine;
+
+public class ManualStation : Station
 {
     public override PlaceableUI UI => _ui;
     public override StationUI StationUI => _ui;
@@ -78,7 +80,34 @@
             _clickCountdown--;
             float progress = (NUM_CLICKS - _clickCountdown) / (float)NUM_CLICKS;
             _ui.SetClicks(progress);
-            if (_clickCountdown == 0) Cook(0f);
+
+            float maxBonusQuality = HandleQualityUpgrades();
+            float averageFreshness = GetAverageIngredientFreshness();
+
+            Debug.Log(maxBonusQuality * averageFreshness);
+
+            if (_clickCountdown == 0) Cook(maxBonusQuality * averageFreshness);
         }
+    }
+
+    private float HandleQualityUpgrades()
+    {
+        if (Data.Name == "Cutting Board" && ProgressionManager.Instance.Purchased.Contains(UpgradeID.CuttingBoardQuality))
+        {
+            return 10f;
+        }
+
+        return 0f;
+    }
+
+    private float GetAverageIngredientFreshness()
+    {
+        float totalSpoilage = 0f;
+        foreach (Food ingredient in _ingredients)
+        {
+            totalSpoilage += ingredient.SpoilagePercent;
+        }
+
+        return 1f - (totalSpoilage / _ingredients.Count);
     }
 }

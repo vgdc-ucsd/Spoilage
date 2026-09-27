@@ -68,8 +68,11 @@ public class CookingManager : Singleton<CookingManager>
                 customer.EnablePatienceTimer(false);
                 SaveManager.Instance.Player.Reputation += 1;
                 SaveManager.Instance.Player.DayData.Streak++;
+                
                 float streakRewardMult = HandleStreakRewardMult();
+                float customerTip = HandleTipReward(customer.customerData.patience);
                 SaveManager.Instance.Player.DayData.Profits += Mathf.FloorToInt(match.reward * (1 + food.QualityPercent) * streakRewardMult);
+                
                 SaveManager.Instance.Player.DayData.CustomersServed++;
                 DialogueManager.Instance.PlayDialogue(
                     customer.Dialogue.Success,
@@ -126,5 +129,15 @@ public class CookingManager : Singleton<CookingManager>
         }
 
         return 1f; // no mult
+    }
+
+    private float HandleTipReward(float patience)
+    {
+        if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.TipYouWaiter))
+        {
+            return patience * 10f; // 10f is temporary. We could [SerializeField] _maxCustomerTipAmount to adjust the tip amount
+        }
+
+        return 0f;
     }
 }
