@@ -17,7 +17,7 @@ MonoBehaviour:
     _beginInteraction: []
     _middleInteraction:
     - _customer: {fileID: 11400000, guid: eb86bdc83fff60e4895e1cdc1c42f280, type: 2}
-      _conversationJson: {fileID: 0}
+      _conversationJson: {fileID: 4900000, guid: 58726a20de8334b4fb46bedf0c8b95f0, type: 3}
     _endInteraction: []
     _ending: {fileID: 0}
   _noBranch: {fileID: 0}

@@ -15,9 +15,11 @@ MonoBehaviour:
   _day: 1
   _data:
     _beginInteraction:
-    - _customer: {fileID: 11400000, guid: 20a46b1148ffb434f9ce8abc80d70d71, type: 2}
-      _conversationJson: {fileID: 4900000, guid: 11370bba55e5f784e82c7d7a0117aac0, type: 3}
-    _middleInteraction: []
+    - _customer: {fileID: 11400000, guid: eb86bdc83fff60e4895e1cdc1c42f280, type: 2}
+      _conversationJson: {fileID: 4900000, guid: 9b5cba42801c3c4499cbd7c86288800a, type: 3}
+    _middleInteraction:
+    - _customer: {fileID: 11400000, guid: eb86bdc83fff60e4895e1cdc1c42f280, type: 2}
+      _conversationJson: {fileID: 4900000, guid: 58726a20de8334b4fb46bedf0c8b95f0, type: 3}
     _endInteraction: []
     _ending: {fileID: 0}
   _noBranch: {fileID: 11400000, guid: c234ce96345abe443acc110818761d99, type: 2}
