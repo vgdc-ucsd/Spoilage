@@ -3,12 +3,15 @@ using UnityEngine;
 
 public class ItemManager : Singleton<ItemManager>
 {
-    [SerializeField] private GiveItemTileUI _giveItemUI;
+    [SerializeField] private List<GiveItemTileUI> _giveItemUis;
     [SerializeField] private List<ItemData> _items;
 
     void Start()
     {
-        _giveItemUI.Hide();
+        foreach (GiveItemTileUI giveItemUI in _giveItemUis)
+        {
+            giveItemUI.Hide();
+        }
     }
 
     private ItemData FindItem(string id)
@@ -16,9 +19,13 @@ public class ItemManager : Singleton<ItemManager>
         return _items.Find(item => item.ID == id);
     }
 
-    public void GiveItem(DialogueItemData itemData)
+    public void GiveItems(List<DialogueItemData> itemData)
     {
-        _giveItemUI.Show(FindItem(itemData.ID));
+        for (int i = 0; i < _giveItemUis.Count; i++)
+        {
+            if (i < itemData.Count) _giveItemUis[i].Show(FindItem(itemData[i].ID));
+            else _giveItemUis[i].Hide();
+        }
         SetupManager.Instance.LockKitchenTiles(false);
     }
 }

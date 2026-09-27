@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class Customer : MonoBehaviour
 {
@@ -226,5 +227,19 @@ public class Customer : MonoBehaviour
         return ProgressionManager.Instance.Purchased.Contains(UpgradeID.Distraction)
                 ? MAX_PATIENCE * 1.25f
                 : MAX_PATIENCE;
+    }
+
+    // returns the list of all DialogueItemData marked as "gives".
+    public List<DialogueItemData> GivesItem()
+    {
+        if (_dialogue == null) return null;
+        return _dialogue.Items?.FindAll(item => item.Stage == "gives");
+    }
+
+    // returns the corresponding DialogueItemData if the customer wants the item, or null if they don't.
+    public DialogueItemData WantsItem(string itemID)
+    {
+        if (_dialogue == null) return null;
+        return _dialogue.Items?.Find(item => item.ID == itemID && item.Stage == "wants");
     }
 }

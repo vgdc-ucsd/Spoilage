@@ -21,8 +21,18 @@
   "Success": [],
   "Fail": [],
   "Reject": [],
-  "Item": {
-    "Stage": "intro",
-    "ID": "Baklava"
-  }
+  "Items": [
+    {
+      "ID": "ChildhoodDishPoisoned",
+      "Stage": "wants",
+      "Success": [],
+      "Fail": []
+    },
+    {
+      "ID": "ChildhoodDishUnpoisoned",
+      "Stage": "wants",
+      "Success": [],
+      "Fail": []
+    }
+  ]
 }

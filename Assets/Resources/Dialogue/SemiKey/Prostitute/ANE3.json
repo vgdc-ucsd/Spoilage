@@ -14,8 +14,12 @@
   "Reject": [
     "Point taken. No need to worry about the vase then. I'll be heading out."
   ],
-  "Item": {
-    "Stage": "success",
-    "ID": "VaseOfFlowers"
-  }
+  "Items": [
+    {
+      "ID": "VaseOfFlowers",
+      "Stage": "gives",
+      "Success": [],
+      "Fail": []
+    }
+  ]
 }

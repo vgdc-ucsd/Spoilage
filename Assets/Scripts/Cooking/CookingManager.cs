@@ -54,31 +54,87 @@ public class CookingManager : Singleton<CookingManager>
 
         Customer customer = CustomerLineManager.Instance.CurrentCustomer;
         Food food = _platingTile.Food;
+        Item item = _platingTile.Item;
 
         List<Recipe> orders = customer.customerData.orders;
-        Recipe match = orders.Find(order => order.name == food.Data.Name);
+        Debug.Log($"Customer {customer.customerData.name} has orders: {string.Join(", ", orders.ConvertAll(o => o.name))}");
+        Recipe foodMatch = orders.Find(order => order.name == food.Data.Name);
+        Debug.Log($"Food on plating tile: {food.Data.Name}, Match found: {(foodMatch != null ? foodMatch.name : "None")}");
+        DialogueItemData itemMatch = item != null ? customer.WantsItem(item.Data.ID) : null;
 
-        if (match != null)
+        if (foodMatch != null)
         {
             // TODO
             // customer.customerData.patience = (customerData.patience + 0.5 > 1) ? 1 : customerData.patience += 0.5f;
-            orders.Remove(match);
+            orders.Remove(foodMatch);
             if (orders.Count == 0)
             {
                 customer.EnablePatienceTimer(false);
                 SaveManager.Instance.Player.Reputation += 1;
                 SaveManager.Instance.Player.DayData.Streak++;
                 float streakRewardMult = HandleStreakRewardMult();
-                SaveManager.Instance.Player.DayData.Profits += Mathf.FloorToInt(match.reward * (1 + food.QualityPercent) * streakRewardMult);
+                SaveManager.Instance.Player.DayData.Profits += Mathf.FloorToInt(foodMatch.reward * (1 + food.QualityPercent) * streakRewardMult);
                 SaveManager.Instance.Player.DayData.CustomersServed++;
+
+                if (itemMatch != null)
+                {
+                    // right food, right item
+                    DialogueManager.Instance.PlayDialogue(
+                        itemMatch.Success,
+                        customer.customerData, 
+                        () => CustomerLineManager.Instance.Advance()
+                    );
+
+                    // item is removed from plating tile
+                    // technically this just pops the top of the stack, but the second Remove() call at 
+                    // the end of the function guarantees both the food and item are removed
+                    _platingTile.Remove();
+                    item.Destroy();
+                }
+                else
+                {
+                    // right food, wrong item
+                    DialogueManager.Instance.PlayDialogue(
+                        customer.Dialogue.Success,
+                        customer.customerData, 
+                        () => CustomerLineManager.Instance.Advance()
+                    );
+                    // item stays on counter
+                }
+            }
+        }
+        else
+        {
+            customer.EnablePatienceTimer(false);
+            SaveManager.Instance.Player.Reputation -= 1;
+            SaveManager.Instance.Player.DayData.Streak = 0;
+
+            if (itemMatch != null)
+            {
+                // wrong food, right item
                 DialogueManager.Instance.PlayDialogue(
-                    customer.Dialogue.Success,
+                    itemMatch.Fail,
                     customer.customerData, 
                     () => CustomerLineManager.Instance.Advance()
                 );
+
+                // item is removed from plating tile
+                // technically this just pops the top of the stack, but the second Remove() call at 
+                // the end of the function guarantees both the food and item are removed
+                _platingTile.Remove();
+                item.Destroy();
+            }
+            else
+            {
+                // wrong food, wrong item
+                DialogueManager.Instance.PlayDialogue(
+                    customer.Dialogue.Fail,
+                    customer.customerData, 
+                    () => CustomerLineManager.Instance.Advance()
+                );
+                // item stays on plating tile
             }
         }
-        else OrderFailed();
 
         _platingTile.Remove();
         food.Destroy();
