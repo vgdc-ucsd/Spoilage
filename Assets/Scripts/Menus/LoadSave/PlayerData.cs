@@ -48,6 +48,15 @@ public class PlayerData
     /// </summary>
     public float resistanceScore = 7f;
 
+    // Graphs & Timelines
+    public List<int?> InteractionNodes;
+    public int? RadioNode;
+    public int? UpgradeNode;
+
+    // Shop, upgrades, and unlocks
+    public List<UpgradeID> ShopPool;
+    public List<UpgradeID> StationQueue;
+
     public PlayerData()
     {
         // TODO: Initialize lists, setup other basic start of game configs
@@ -61,6 +70,9 @@ public class PlayerData
         PendingStation = "Grill";
         RejectedSemikeyCharacters = new List<string>();
         SeenSemikeyCharacters = new List<string>();
+        ShopPool = new List<UpgradeID>();
+        StationQueue = new List<UpgradeID>();
+        DayData = new DayData();
 
         // Initialize StationsUnlocked and IngredientsUnlocked with the day 1 status
         StationsUnlocked = new()
