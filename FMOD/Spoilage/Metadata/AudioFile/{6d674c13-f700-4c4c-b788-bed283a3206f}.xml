@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{6d674c13-f700-4c4c-b788-bed283a3206f}">
 		<property name="assetPath">
-			<value>GameplayMusic_Elijah - Intro.wav</value>
+			<value>Music/GameplayMusic_Elijah - Intro.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

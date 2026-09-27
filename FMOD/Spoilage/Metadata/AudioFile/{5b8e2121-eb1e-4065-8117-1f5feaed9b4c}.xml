@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{5b8e2121-eb1e-4065-8117-1f5feaed9b4c}">
 		<property name="assetPath">
-			<value>I-C-U(RebelTheme)_London.wav</value>
+			<value>Music/I-C-U(RebelTheme)_London.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

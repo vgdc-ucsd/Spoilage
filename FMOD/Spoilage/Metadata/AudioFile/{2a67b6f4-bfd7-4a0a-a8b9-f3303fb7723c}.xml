@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{2a67b6f4-bfd7-4a0a-a8b9-f3303fb7723c}">
 		<property name="assetPath">
-			<value>WarlordTheme_Looping_Elijah.wav</value>
+			<value>Music/WarlordTheme_Looping_Elijah.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{f6a26c77-20f8-4342-89be-30c0462f6cdb}">
 		<property name="assetPath">
-			<value>In-Between Cozy Gameplay SofiaNguyen.wav</value>
+			<value>Music/In-Between Cozy Gameplay SofiaNguyen.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
