@@ -202,6 +202,8 @@
 	<object class="MixerBusEffectChain" id="{20bb605b-2820-40f9-b5cb-d990d6167f52}">
 		<relationship name="effects">
 			<destination>{bb024253-093d-4994-9f24-4f416d02ff97}</destination>
+			<destination>{bc4759b2-fdb5-4fff-ac51-2fa81a6039e8}</destination>
+			<destination>{293191fa-1c03-4130-921b-b935129870f9}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{4d6693e3-e688-4a18-92cf-dc681153ec5d}" />
@@ -271,4 +273,23 @@
 	</object>
 	<object class="MixerBusFader" id="{ef6ccea7-cd00-48ac-983d-f4ab94e0f3ba}" />
 	<object class="MixerBusFader" id="{bb024253-093d-4994-9f24-4f416d02ff97}" />
+	<object class="CompressorEffect" id="{bc4759b2-fdb5-4fff-ac51-2fa81a6039e8}">
+		<property name="threshold">
+			<value>-12</value>
+		</property>
+	</object>
+	<object class="CompressorEffect" id="{293191fa-1c03-4130-921b-b935129870f9}">
+		<property name="threshold">
+			<value>-8</value>
+		</property>
+		<property name="ratio">
+			<value>10</value>
+		</property>
+		<property name="attackTime">
+			<value>0.100000001</value>
+		</property>
+		<property name="releaseTime">
+			<value>10</value>
+		</property>
+	</object>
 </objects>

@@ -67,6 +67,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{a9307d36-9ace-41d6-8de1-b76596968189}">
+		<property name="volume">
+			<value>-9</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{ebf605ba-0391-4e49-873b-401c4437b0f5}</destination>
 		</relationship>
@@ -108,9 +111,83 @@
 	<object class="MixerBusEffectChain" id="{ebf605ba-0391-4e49-873b-401c4437b0f5}">
 		<relationship name="effects">
 			<destination>{d7398ca5-29c2-414b-a4d8-ec9b9c5b9e00}</destination>
+			<destination>{0edc31c2-f6b9-4507-8b3b-331c15d645c5}</destination>
+			<destination>{8b5f9fb6-f913-4975-abb2-e02cf81bf87e}</destination>
+			<destination>{9feaad6d-88de-40cb-9c5c-dd686d8116ba}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{016b4b35-f596-4bad-aafd-9dfd66a4e234}" />
 	<object class="MixerBusFader" id="{3dfd7192-a691-4cf3-a55e-22587c8027ba}" />
 	<object class="MixerBusFader" id="{d7398ca5-29c2-414b-a4d8-ec9b9c5b9e00}" />
+	<object class="MultibandEqEffect" id="{0edc31c2-f6b9-4507-8b3b-331c15d645c5}">
+		<property name="filterTypeA">
+			<value>6</value>
+		</property>
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="filterTypeC">
+			<value>9</value>
+		</property>
+		<property name="filterTypeD">
+			<value>9</value>
+		</property>
+		<property name="filterTypeE">
+			<value>8</value>
+		</property>
+		<property name="frequencyA">
+			<value>107.123421</value>
+		</property>
+		<property name="frequencyB">
+			<value>168.983734</value>
+		</property>
+		<property name="frequencyC">
+			<value>240.333511</value>
+		</property>
+		<property name="frequencyD">
+			<value>1314.21655</value>
+		</property>
+		<property name="frequencyE">
+			<value>10653.3301</value>
+		</property>
+		<property name="qualityA">
+			<value>0.381178379</value>
+		</property>
+		<property name="qualityB">
+			<value>1.70000005</value>
+		</property>
+		<property name="qualityC">
+			<value>1.55000007</value>
+		</property>
+		<property name="qualityD">
+			<value>2.10000014</value>
+		</property>
+		<property name="gainB">
+			<value>-7.4481926</value>
+		</property>
+		<property name="gainC">
+			<value>2.95408487</value>
+		</property>
+		<property name="gainD">
+			<value>4.51442623</value>
+		</property>
+		<property name="gainE">
+			<value>-28.7728558</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{8b5f9fb6-f913-4975-abb2-e02cf81bf87e}">
+		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>225.849808</value>
+		</property>
+		<property name="qualityA">
+			<value>2.9000001</value>
+		</property>
+		<property name="gainA">
+			<value>8.15522099</value>
+		</property>
+	</object>
+	<object class="SpectrumAnalyzer" id="{9feaad6d-88de-40cb-9c5c-dd686d8116ba}" />
 </objects>

@@ -25,11 +25,6 @@ public class AudioManager : Singleton<AudioManager>
 {
     [SerializeField] private List<SFXEntry> SFXEntries;
     private Dictionary<string, EventReference> sfxMap;
-
-    /// <summary>
-    /// Map of existing SFX, in case you want to stop them early
-    /// </summary>
-    private Dictionary<string, EventInstance> currentPlayingSFX;
     
     /// <summary>
     /// References to FMOD events with multi-instruments, which randomly shuffle and play a list of songs
@@ -54,7 +49,6 @@ public class AudioManager : Singleton<AudioManager>
 
         sfxMap = new Dictionary<string, EventReference>();
         musicMap = new Dictionary<string, MusicEntry>();
-        currentPlayingSFX = new Dictionary<string, EventInstance>();
         foreach (SFXEntry entry in SFXEntries)
         {
             if (!sfxMap.ContainsKey(entry.id))
@@ -96,7 +90,6 @@ public class AudioManager : Singleton<AudioManager>
             instance.set3DAttributes(RuntimeUtils.To3DAttributes(Vector3.zero));
             instance.start();
             instance.release();
-            currentPlayingSFX.Add(id, instance);
             Debug.Log("Played audio: " + id);
         }
         else
@@ -105,19 +98,6 @@ public class AudioManager : Singleton<AudioManager>
         }
     }
     
-
-    public void StopSFX(string id)
-    {
-        if (currentPlayingSFX.ContainsKey(id))
-        {
-            currentPlayingSFX[id].stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            Debug.Log("Stopped playing audio: " + id);
-        }
-        else 
-        {
-            Debug.LogWarning($"SFX id not found or not in currentPlayingSFX: {id}");
-        }
-    }
     public void IncreaseVolume(float v = 0.1f)
     {
         float newVolume = currentVolume + v;
@@ -151,11 +131,6 @@ public class AudioManager : Singleton<AudioManager>
         musicMap[id].eventInstance.start();
         currentMusicInstance = musicMap[id].eventInstance;
     }
-
-    
-
-    
-
 
 
     // https://qa.fmod.com/t/get-a-bus-list-from-a-bank/19434

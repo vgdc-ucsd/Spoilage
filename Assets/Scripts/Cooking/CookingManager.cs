@@ -63,6 +63,7 @@ public class CookingManager : Singleton<CookingManager>
             // TODO
             // customer.customerData.patience = (customerData.patience + 0.5 > 1) ? 1 : customerData.patience += 0.5f;
             orders.Remove(match);
+            AudioManager.Instance.PlaySFX("OrderBellComplete");
             if (orders.Count == 0)
             {
                 customer.EnablePatienceTimer(false);
@@ -86,6 +87,7 @@ public class CookingManager : Singleton<CookingManager>
 
     public void OrderFailed()
     {
+        AudioManager.Instance.PlaySFX("RefuseButton");
         Customer customer = CustomerLineManager.Instance.CurrentCustomer;
         customer.EnablePatienceTimer(false);
         SaveManager.Instance.Player.Reputation -= 1;

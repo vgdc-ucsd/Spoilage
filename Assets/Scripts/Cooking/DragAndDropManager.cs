@@ -21,8 +21,10 @@ public class DragAndDropManager : Singleton<DragAndDropManager>
 
     public void BeginDrag(TileUI tileUI)
     {
+
         if (tileUI.Tile.Produces() != null) 
         {
+            AudioManager.Instance.PlaySFX("Pickup");
             PlaceableUI ui = tileUI.Tile.Produces().UI; 
             ui.SetDrag(true);
             ui.transform.SetParent(_dragLayer);
@@ -40,6 +42,7 @@ public class DragAndDropManager : Singleton<DragAndDropManager>
 
     public void EndDrag()
     {
+        AudioManager.Instance.PlaySFX("Place");
         if (_selectedTile == null) return;
         
         if (_hoveredTiles.Count == 0) 

@@ -126,6 +126,7 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
             _customer.transform.position.y, 
             _customer.transform.position.z
         );
+        AudioManager.Instance.PlaySFX("OrderBellNew");
 
         _customer.Movement.WalkTo(
             _counter.position,
@@ -136,7 +137,7 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
                 () => {
                     if (!string.IsNullOrEmpty(dialogue.Item?.ID)) ItemManager.Instance.GiveItem(dialogue.Item);
                     else
-                    {    
+                    {   
                         if (_timeOfDay != TimeOfDay.Middle) Advance();
                         else _customer.EnablePatienceTimer(true);
                     }
