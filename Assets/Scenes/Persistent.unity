@@ -764,6 +764,7 @@ MonoBehaviour:
     KitchenItems: []
     PendingStation: Grill
     GameOverCondition: 0
+    SeenSemikeyCharacters: []
     RejectedSemikeyCharacters: []
     resistanceScore: 7
   Settings:

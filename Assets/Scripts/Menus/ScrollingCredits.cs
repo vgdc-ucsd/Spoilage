@@ -12,6 +12,7 @@ public class ScrollingCredits : MonoBehaviour
     {
         _rectTransform = GetComponent<RectTransform>();
         _scrollHeight = _rectTransform.rect.height;
+        AudioManager.Instance.PlayMusicEntry("Credits");
     }
 
     void Update()
