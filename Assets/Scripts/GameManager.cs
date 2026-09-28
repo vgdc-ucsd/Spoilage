@@ -11,6 +11,7 @@ public enum GameScene
     PERSISTENT,
     GAME_OVER,
     LOAD_SAVE,
+    CREDITS,
 }
 
 public class GameManager : Singleton<GameManager>
