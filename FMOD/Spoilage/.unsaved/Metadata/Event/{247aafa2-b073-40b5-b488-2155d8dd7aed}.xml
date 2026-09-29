@@ -78,7 +78,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{58146c94-d234-48f0-bd9a-aba9d91c6a52}">
 		<property name="volume">
-			<value>6</value>
+			<value>5.5</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{1a0a69f4-95fa-4c88-8e56-3f7a714c21db}</destination>
@@ -182,13 +182,13 @@
 			<value>9</value>
 		</property>
 		<property name="frequencyA">
-			<value>47.7479286</value>
+			<value>34.9930267</value>
 		</property>
 		<property name="frequencyB">
-			<value>58.7403564</value>
+			<value>67.9084778</value>
 		</property>
 		<property name="frequencyC">
-			<value>134.544098</value>
+			<value>111.655685</value>
 		</property>
 		<property name="frequencyD">
 			<value>314.623352</value>
@@ -197,7 +197,7 @@
 			<value>943.399658</value>
 		</property>
 		<property name="qualityA">
-			<value>0.654792964</value>
+			<value>0.775126398</value>
 		</property>
 		<property name="qualityB">
 			<value>1.60000002</value>
@@ -215,16 +215,13 @@
 			<value>10.2356777</value>
 		</property>
 		<property name="gainB">
-			<value>13.8764725</value>
+			<value>11.2759027</value>
 		</property>
 		<property name="gainC">
-			<value>-1.5</value>
+			<value>-18.8906956</value>
 		</property>
 		<property name="gainD">
 			<value>-8.48841858</value>
-		</property>
-		<property name="gainE">
-			<value>4.51442623</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{1efa3583-3604-480d-8b6e-4413b69d5acb}">
@@ -240,23 +237,29 @@
 		<property name="filterTypeD">
 			<value>9</value>
 		</property>
+		<property name="filterTypeE">
+			<value>9</value>
+		</property>
 		<property name="frequencyA">
 			<value>221.218552</value>
 		</property>
 		<property name="frequencyB">
-			<value>11336.5264</value>
+			<value>12837.168</value>
 		</property>
 		<property name="frequencyC">
 			<value>1908.24695</value>
 		</property>
 		<property name="frequencyD">
-			<value>203.623886</value>
+			<value>162.124435</value>
+		</property>
+		<property name="frequencyE">
+			<value>187.428619</value>
 		</property>
 		<property name="qualityA">
 			<value>1.22346449</value>
 		</property>
 		<property name="qualityB">
-			<value>0.199999988</value>
+			<value>0.319999993</value>
 		</property>
 		<property name="qualityC">
 			<value>3.60000014</value>
@@ -268,13 +271,16 @@
 			<value>7.11499214</value>
 		</property>
 		<property name="gainB">
-			<value>3.9943099</value>
+			<value>2.5</value>
 		</property>
 		<property name="gainC">
 			<value>-9.00853348</value>
 		</property>
 		<property name="gainD">
-			<value>-5.88785172</value>
+			<value>-11</value>
+		</property>
+		<property name="gainE">
+			<value>-5.36773682</value>
 		</property>
 	</object>
 	<object class="SpectrumAnalyzer" id="{068b56f2-45ff-47c5-8c9c-12ed7bd1a561}" />

@@ -79,7 +79,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{5e9a3525-c371-4e8f-b004-c025ae262a32}">
 		<property name="volume">
-			<value>-4</value>
+			<value>-2.5</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{01e7e4a0-12ba-4406-80dd-ea1deefa6b3a}</destination>
@@ -181,7 +181,7 @@
 			<value>121.303589</value>
 		</property>
 		<property name="frequencyE">
-			<value>380</value>
+			<value>411.877075</value>
 		</property>
 		<property name="qualityA">
 			<value>1.80000007</value>
@@ -211,7 +211,7 @@
 			<value>6.07476711</value>
 		</property>
 		<property name="gainE">
-			<value>-10.5</value>
+			<value>-16.8102398</value>
 		</property>
 		<relationship name="automators">
 			<destination>{ddc01d52-3731-499f-acdb-978266895ed7}</destination>
@@ -221,11 +221,23 @@
 		<property name="filterTypeA">
 			<value>6</value>
 		</property>
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
 		<property name="frequencyA">
 			<value>39.6251335</value>
 		</property>
+		<property name="frequencyB">
+			<value>212.238968</value>
+		</property>
 		<property name="qualityA">
 			<value>0.233847499</value>
+		</property>
+		<property name="qualityB">
+			<value>1.45000005</value>
+		</property>
+		<property name="gainB">
+			<value>-7.4481926</value>
 		</property>
 	</object>
 	<object class="SpectrumAnalyzer" id="{3c721775-f7f9-4104-81a3-f3b1fcaa62d6}" />
