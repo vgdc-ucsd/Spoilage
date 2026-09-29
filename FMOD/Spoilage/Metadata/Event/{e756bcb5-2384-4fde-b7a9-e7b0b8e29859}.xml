@@ -169,7 +169,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{70b2ec14-67b0-4ab1-a247-1cb05b728e75}">
 		<property name="volume">
-			<value>2.5</value>
+			<value>-9.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 2</value>
@@ -208,7 +208,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{c2965181-f035-4d1a-8db2-84525cba2f98}">
 		<property name="volume">
-			<value>-26</value>
+			<value>-35</value>
 		</property>
 		<property name="name">
 			<value>Audio 3</value>
@@ -252,6 +252,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{d70ab68d-6c01-4f36-970e-4b6829cc4e53}">
+		<property name="volume">
+			<value>-16.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 4</value>
 		</property>
@@ -427,26 +430,38 @@
 		<property name="filterTypeB">
 			<value>9</value>
 		</property>
+		<property name="filterTypeC">
+			<value>9</value>
+		</property>
 		<property name="frequencyA">
 			<value>3703.19922</value>
 		</property>
 		<property name="frequencyB">
 			<value>623.349548</value>
 		</property>
+		<property name="frequencyC">
+			<value>539.192993</value>
+		</property>
 		<property name="qualityA">
 			<value>0.909627795</value>
 		</property>
+		<property name="qualityC">
+			<value>1.75</value>
+		</property>
 		<property name="gainB">
 			<value>-0.686714172</value>
+		</property>
+		<property name="gainC">
+			<value>-13</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{00e1909b-7fc0-4a0b-afc3-719c4a39b633}" />
 	<object class="CompressorEffect" id="{639df468-1fcf-443b-893b-a9820998adb5}">
 		<property name="threshold">
-			<value>-10.5</value>
+			<value>-15</value>
 		</property>
 		<property name="ratio">
-			<value>2.79999995</value>
+			<value>3.60000014</value>
 		</property>
 		<property name="gain">
 			<value>12</value>

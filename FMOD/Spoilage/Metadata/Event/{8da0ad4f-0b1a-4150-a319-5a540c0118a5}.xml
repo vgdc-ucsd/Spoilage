@@ -67,6 +67,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{75b1cee5-b964-4bde-a501-de9ee25d3d94}">
+		<property name="volume">
+			<value>-17</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{660aa525-6dfc-47ee-865d-f8321a01b229}</destination>
 		</relationship>
@@ -79,7 +82,7 @@
 	</object>
 	<object class="SingleSound" id="{b3c8aa8d-bede-4b6f-8aca-c72f1436999f}">
 		<property name="length">
-			<value>20.5</value>
+			<value>20</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{aa44efac-950a-4626-b4a2-4ef958abda12}</destination>
@@ -96,7 +99,7 @@
 			<value>0</value>
 		</property>
 		<property name="length">
-			<value>20.5</value>
+			<value>20</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{72baed15-e184-4ba6-83fd-c9d2aed7917f}</destination>
@@ -108,9 +111,38 @@
 	<object class="MixerBusEffectChain" id="{660aa525-6dfc-47ee-865d-f8321a01b229}">
 		<relationship name="effects">
 			<destination>{cc177fe9-f825-4a74-90c2-1cb0e33e1b4b}</destination>
+			<destination>{bc42d38a-aa8c-419f-9906-dd40e7cef4f1}</destination>
+			<destination>{1ace6e51-7281-4907-a495-e16150d5a824}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{6d4a9929-bc46-49e0-87f4-2ae2d4042616}" />
 	<object class="MixerBusFader" id="{b76e3938-e283-4fee-9993-98fa3b55096a}" />
 	<object class="MixerBusFader" id="{cc177fe9-f825-4a74-90c2-1cb0e33e1b4b}" />
+	<object class="SpectrumAnalyzer" id="{bc42d38a-aa8c-419f-9906-dd40e7cef4f1}" />
+	<object class="MultibandEqEffect" id="{1ace6e51-7281-4907-a495-e16150d5a824}">
+		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>90</value>
+		</property>
+		<property name="frequencyB">
+			<value>207.88681</value>
+		</property>
+		<property name="qualityA">
+			<value>1.30000007</value>
+		</property>
+		<property name="qualityB">
+			<value>2.9000001</value>
+		</property>
+		<property name="gainA">
+			<value>4.5</value>
+		</property>
+		<property name="gainB">
+			<value>-6.5</value>
+		</property>
+	</object>
 </objects>

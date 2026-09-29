@@ -67,6 +67,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{114f7a30-c87e-40ec-8b08-74fe3b51df3c}">
+		<property name="volume">
+			<value>-5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{22c9370a-40d9-4874-9530-13a56a8ee89c}</destination>
 		</relationship>
@@ -108,9 +111,56 @@
 	<object class="MixerBusEffectChain" id="{22c9370a-40d9-4874-9530-13a56a8ee89c}">
 		<relationship name="effects">
 			<destination>{772385d4-e1b4-4e5a-a32e-9bc9782a4fc1}</destination>
+			<destination>{1a64bb0b-1668-433f-9127-94d1a8ceb084}</destination>
+			<destination>{403a8455-02a5-423b-8524-f9f937586776}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{cab15c00-a844-4afb-af86-d6be17c7bec7}" />
 	<object class="MixerBusFader" id="{d9a9f5df-54af-4109-a31f-57969715364d}" />
 	<object class="MixerBusFader" id="{772385d4-e1b4-4e5a-a32e-9bc9782a4fc1}" />
+	<object class="SpectrumAnalyzer" id="{1a64bb0b-1668-433f-9127-94d1a8ceb084}" />
+	<object class="MultibandEqEffect" id="{403a8455-02a5-423b-8524-f9f937586776}">
+		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="filterTypeC">
+			<value>6</value>
+		</property>
+		<property name="filterTypeD">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>496.308167</value>
+		</property>
+		<property name="frequencyB">
+			<value>172.521454</value>
+		</property>
+		<property name="frequencyC">
+			<value>52.9597054</value>
+		</property>
+		<property name="frequencyD">
+			<value>102.775131</value>
+		</property>
+		<property name="qualityA">
+			<value>2.4000001</value>
+		</property>
+		<property name="qualityB">
+			<value>2.79999995</value>
+		</property>
+		<property name="qualityC">
+			<value>0.318036556</value>
+		</property>
+		<property name="gainA">
+			<value>-6</value>
+		</property>
+		<property name="gainB">
+			<value>-14.5</value>
+		</property>
+		<property name="gainD">
+			<value>-5.88785172</value>
+		</property>
+	</object>
 </objects>

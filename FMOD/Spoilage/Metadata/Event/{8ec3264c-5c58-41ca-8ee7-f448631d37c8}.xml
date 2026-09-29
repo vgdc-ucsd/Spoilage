@@ -72,6 +72,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{03c9ceba-dbc8-466c-9969-c672c14c7901}">
+		<property name="volume">
+			<value>-5.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{7bb4ea54-d59b-42e7-bd30-8dde270c1a30}</destination>
 		</relationship>
@@ -96,6 +99,8 @@
 	<object class="MixerBusEffectChain" id="{7bb4ea54-d59b-42e7-bd30-8dde270c1a30}">
 		<relationship name="effects">
 			<destination>{21dc6a46-7680-45af-89b3-e96425a542de}</destination>
+			<destination>{7b5e962b-e0cf-4200-9aca-b5e1e0a85ee8}</destination>
+			<destination>{ab401984-3010-4b7d-bfe4-37d265d347a9}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b8f7ab59-78fa-47e8-8d56-87e735183501}" />
@@ -106,4 +111,50 @@
 	</object>
 	<object class="MixerBusFader" id="{e4163d72-4beb-4eca-a66f-4b36092b0538}" />
 	<object class="MixerBusFader" id="{21dc6a46-7680-45af-89b3-e96425a542de}" />
+	<object class="SFXReverbEffect" id="{7b5e962b-e0cf-4200-9aca-b5e1e0a85ee8}">
+		<property name="decayTime">
+			<value>1600</value>
+		</property>
+		<property name="earlyDelay">
+			<value>14.5</value>
+		</property>
+		<property name="lateDelay">
+			<value>27.5</value>
+		</property>
+		<property name="highCut">
+			<value>18400</value>
+		</property>
+		<property name="wetLevel">
+			<value>-16</value>
+		</property>
+		<property name="dryLevel">
+			<value>-4.5</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{ab401984-3010-4b7d-bfe4-37d265d347a9}">
+		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>2658.31128</value>
+		</property>
+		<property name="frequencyB">
+			<value>176.133224</value>
+		</property>
+		<property name="qualityA">
+			<value>1.35000002</value>
+		</property>
+		<property name="qualityB">
+			<value>1.55000007</value>
+		</property>
+		<property name="gainA">
+			<value>6.07476711</value>
+		</property>
+		<property name="gainB">
+			<value>-7.96830559</value>
+		</property>
+	</object>
 </objects>
