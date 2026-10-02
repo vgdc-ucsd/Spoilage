@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using FMODUnity;
-using Microsoft.VisualBasic;
 using FMOD.Studio;
 using System.Linq;
 
@@ -45,7 +45,8 @@ public class AudioManager : Singleton<AudioManager>
     {
         base.Awake();
 
-      
+        // a duplicate singleton is being destroyed, don't set it up
+        if (Instance != this) return;
 
         sfxMap = new Dictionary<string, EventReference>();
         musicMap = new Dictionary<string, MusicEntry>();
@@ -63,23 +64,35 @@ public class AudioManager : Singleton<AudioManager>
 
         foreach (MusicEntry musicEntry in musicEntries)
         {
-            musicEntry.eventInstance = RuntimeManager.CreateInstance(musicEntry.eventReference);
-            musicMap.Add(musicEntry.id, musicEntry);
+            // event instances are created lazily in PlayMusicEntry, once FMOD has loaded its banks
+            if (!musicMap.TryAdd(musicEntry.id, musicEntry))
+            {
+                UnityEngine.Debug.LogWarning($"Duplicate music id found: {musicEntry.id}");
+            }
         }
-
-        PlayMusicEntry("Title"); // play title screen music
     }
-    
-    public void Start()
+
+    public IEnumerator Start()
     {
         // fmod is cringe idk man but this works
-        var system = RuntimeManager.CoreSystem;
-        //Debug.Log($"FMOD Is Initialized: {RuntimeManager.IsInitialized}");
-        var masterBus = RuntimeManager.GetBus("bus:/");
-        //Debug.Log($"Master Bus valid: {masterBus.isValid()}");    
+        yield return new WaitUntil(() => RuntimeManager.IsInitialized && RuntimeManager.HaveAllBanksLoaded);
         masterBus = RuntimeManager.GetBus("bus:/");
         SetVolume(currentVolume);
         //printBusList();
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance != this || musicEntries == null) return;
+
+        foreach (MusicEntry musicEntry in musicEntries)
+        {
+            if (musicEntry.eventInstance.isValid())
+            {
+                musicEntry.eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                musicEntry.eventInstance.release();
+            }
+        }
     }
 
     public void PlaySFX(string id)
@@ -127,9 +140,18 @@ public class AudioManager : Singleton<AudioManager>
             Debug.LogError($"Key {id} is not a valid music entry");
             return;
         }
-        currentMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        musicMap[id].eventInstance.start();
-        currentMusicInstance = musicMap[id].eventInstance;
+        MusicEntry entry = musicMap[id];
+        if (!entry.eventInstance.isValid())
+        {
+            entry.eventInstance = RuntimeManager.CreateInstance(entry.eventReference);
+        }
+        if (currentMusicInstance.isValid())
+        {
+            currentMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+        entry.eventInstance.start();
+        currentMusicInstance = entry.eventInstance;
+        Debug.Log("Played music: " + id);
     }
 
 

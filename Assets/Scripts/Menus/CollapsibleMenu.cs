@@ -10,6 +10,7 @@ public class CollapsibleMenu : MonoBehaviour
 
     public void ToggleMenu()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         isExpanded = !isExpanded;
         menuContent.SetActive(isExpanded);
         Debug.Log("ToggleMenu called, isExpanded: " + isExpanded);

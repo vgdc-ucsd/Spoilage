@@ -36,6 +36,13 @@ public class PauseMenu : Singleton<PauseMenu>
         if (MainMenuButton != null)
             MainMenuButton.GetComponent<Button>().onClick.AddListener(ReturnToMenu);
 
+        // play the click on the buttons themselves so Resume (also called by Escape) and ReturnToMenu don't double up
+        foreach (GameObject button in new[] { ResumeButton, LoadButton, SettingsButton, MainMenuButton })
+        {
+            if (button != null)
+                button.GetComponent<Button>().onClick.AddListener(PlayClick);
+        }
+
         _masterVolumeSlider.value = AudioManager.Instance.currentVolume;
     }
 
@@ -63,6 +70,7 @@ public class PauseMenu : Singleton<PauseMenu>
     
     public void Resume()
     {
+        AudioManager.Instance.PlaySFX("Unpause");
         GameIsPaused = false;
         Time.timeScale = 1f;
         Background.SetActive(false);
@@ -86,13 +94,20 @@ public class PauseMenu : Singleton<PauseMenu>
         //SavesUI.SetActive(true);
     }
 
+    private void PlayClick()
+    {
+        AudioManager.Instance.PlaySFX("ButtonClick");
+    }
+
     public void QuitButton()
     {
+        PlayClick();
         GameManager.Instance.Load(GameScene.MAIN_MENU);
     }
 
     void Pause()
     {
+        AudioManager.Instance.PlaySFX("Pause");
         Background.SetActive(true);
         PauseUI.SetActive(true);
         PauseBar.SetActive(true);

@@ -25,6 +25,7 @@ public class Radio : MonoBehaviour
 
     private void PlayRadio()
     {
+        AudioManager.Instance.PlayMusicEntry("GenericRadio");
         RadioNode radio = ProgressionManager.Instance.RadioNode;
         if (radio.Day != SaveManager.Instance.Player.Day || radio.Data == null) PlayFiller();
         else ShowText(radio.Data);
@@ -54,9 +55,22 @@ public class Radio : MonoBehaviour
 
         List<TextAsset> radioEntries;
         float random = Random.Range(0.0f, 1.0f);
-        if (random < warlordChance) radioEntries = _warlordFiller;
-        else if (random < warlordChance + resistanceChance) radioEntries = _resistanceFiller;
-        else radioEntries = _generalFiller;
+        if (random < warlordChance)
+        {
+            radioEntries = _warlordFiller;
+            AudioManager.Instance.PlayMusicEntry("WarlordRadio");
+        }
+        else if (random < warlordChance + resistanceChance) 
+        {
+            radioEntries = _resistanceFiller;
+            AudioManager.Instance.PlayMusicEntry("ResistanceRadio");
+        }
+        else 
+        {
+            radioEntries = _generalFiller;
+            AudioManager.Instance.PlayMusicEntry("GenericRadio");
+        }
+
 
         int randomIndex = Random.Range(0, radioEntries.Count);
         TextAsset textFile = radioEntries[randomIndex]; 

@@ -15,6 +15,7 @@ public class SaveCard : MonoBehaviour
 
     public void Click()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         LoadSaveManager.Instance.Load(_id);
     }
 }

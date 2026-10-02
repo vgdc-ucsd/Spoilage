@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
     private Queue<Conversation> _middleCustomers;
     private Queue<Conversation> _endCustomers;
     private Customer _customer;
+    private Boolean _firstCustomer = true;
 
     [SerializeField] private Transform _entrance;
     [SerializeField] private Transform _counter;
@@ -126,7 +128,16 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
             _customer.transform.position.y, 
             _customer.transform.position.z
         );
-        AudioManager.Instance.PlaySFX("OrderBellNew");
+
+        if (_firstCustomer == false)
+        {
+            AudioManager.Instance.PlaySFX("OrderBellNew");            
+        } 
+        else
+        {
+            _firstCustomer = false;
+        }
+
 
         _customer.Movement.WalkTo(
             _counter.position,
