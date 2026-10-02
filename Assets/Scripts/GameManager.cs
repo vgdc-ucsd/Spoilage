@@ -12,6 +12,7 @@ public enum GameScene
     GAME_OVER,
     LOAD_SAVE,
     GAME_END,
+    CREDITS,
 }
 
 public class GameManager : Singleton<GameManager>

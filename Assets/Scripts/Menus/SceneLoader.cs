@@ -64,6 +64,8 @@ public class SceneLoader : Singleton<SceneLoader>
                 return GameScene.LOAD_SAVE;
             case "GameEnd":
                 return GameScene.GAME_END;
+            case "Credits":
+                return GameScene.CREDITS;
             default:
                 return GameScene.PERSISTENT;
         }
@@ -91,6 +93,8 @@ public class SceneLoader : Singleton<SceneLoader>
                 return "LoadSave";
             case GameScene.GAME_END:
                 return "GameEnd";
+            case GameScene.CREDITS:
+                return "Credits";
             default:
                 Debug.LogError($"Scene {scene} not recognized or configured");
                 return null;

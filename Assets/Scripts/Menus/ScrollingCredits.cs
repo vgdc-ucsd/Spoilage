@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScrollingCredits : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ScrollingCredits : MonoBehaviour
     {
         _rectTransform = GetComponent<RectTransform>();
         _scrollHeight = _rectTransform.rect.height;
+        AudioManager.Instance.PlayMusicEntry("Credits");
     }
 
     void Update()
@@ -32,5 +34,6 @@ public class ScrollingCredits : MonoBehaviour
     private void OnFinishScroll()
     {
         Debug.Log("Finished scrolling credits.");
+        GameManager.Instance.Load(GameScene.MAIN_MENU);
     }
 }
