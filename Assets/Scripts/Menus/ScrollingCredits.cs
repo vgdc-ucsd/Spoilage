@@ -33,7 +33,6 @@ public class ScrollingCredits : MonoBehaviour
 
     private void OnFinishScroll()
     {
-        Debug.Log("Finished scrolling credits.");
         GameManager.Instance.Load(GameScene.MAIN_MENU);
     }
 }

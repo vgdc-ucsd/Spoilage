@@ -34,8 +34,6 @@ public class GameEnd : MonoBehaviour
         GameEndScenario scenario = SaveManager.Instance.Player.GameEndScenario;
         GameEndItemServed item = SaveManager.Instance.Player.GameEndItemServed;
 
-        Debug.Log($"GameEnd: scenario={scenario}, item={item}");
-
         _svetkaDiesScreen.SetActive(false);
         _shutDownScreen.SetActive(false);
         _childhoodDishScreen.SetActive(false);
@@ -60,6 +58,6 @@ public class GameEnd : MonoBehaviour
     private IEnumerator LoadCreditsTimer()
     {
         yield return new WaitForSeconds(_creditsTimer);
-        // GameManager.Instance.Load(GameScene.CREDITS);
+        GameManager.Instance.Load(GameScene.CREDITS);
     }
 }
