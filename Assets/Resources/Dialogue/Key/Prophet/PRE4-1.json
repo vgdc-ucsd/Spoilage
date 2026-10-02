@@ -1,5 +1,5 @@
 {
-  "Monologue": [
+  "Intro": [
     "So tell me, world child; what are you? A soldier, in a line of ants? A deviant ripple in a still bog?",
     "You call it <i>Spoilage</i>. Like piercing your thumbs into the soured, pus-filled fruit. But to eat is to love.",
     "Let me offer you a choice. You can choose to serve her come morning, as if I had never come to darken your door.",
@@ -12,8 +12,18 @@
   "Success": [],
   "Fail": [],
   "Reject": [],
-  "Item": {
-    "Stage": "intro",
-    "ID": "Poison Dish & Childhood Dish"
-  }
+  "Items": [
+    {
+      "ID": "ChildhoodDishPoisoned",
+      "Stage": "gives",
+      "Success": [],
+      "Fail": []
+    },
+    {
+      "ID": "ChildhoodDishUnpoisoned",
+      "Stage": "gives",
+      "Success": [],
+      "Fail": []
+    }
+  ]
 }

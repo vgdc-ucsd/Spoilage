@@ -11,6 +11,7 @@ public enum GameScene
     PERSISTENT,
     GAME_OVER,
     LOAD_SAVE,
+    GAME_END,
     CREDITS,
 }
 
@@ -26,6 +27,13 @@ public class GameManager : Singleton<GameManager>
     {
         SaveManager.Instance.Player.GameOverCondition = condition;
         Load(GameScene.GAME_OVER);
+    }
+
+    public void GameEnd(GameEndScenario scenario, GameEndItemServed itemServed)
+    {
+        SaveManager.Instance.Player.GameEndScenario = scenario;
+        SaveManager.Instance.Player.GameEndItemServed = itemServed;
+        Load(GameScene.GAME_END);
     }
 
     public void Load(GameScene scene)

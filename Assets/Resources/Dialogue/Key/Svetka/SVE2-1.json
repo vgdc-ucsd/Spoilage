@@ -1,0 +1,103 @@
+{
+  "Intro": [
+    "How interesting.",
+    "Well, don't look at me like that. Of course, I've kept watch over you.",
+    "My subordinates are fond of visiting, if only to waste breath on your silence.",
+    "How droll is the common man, to spend his days prostrating in servitude or fruitlessly shouting in the streets.",
+    "If you want real change, then don't close your eyes when you fire the gun. Watch as the blood sputters from a mouth agape.",
+    "The rebellion can't decide who lives and who dies, so they fire indiscriminately into the crowd, calling it revolution.",
+    "I saved Verehn once. I have had enough of watching bull-headed fools drive themselves mad with delusion, dragging us all down with them.",
+    "Go on. I'd like to see what you can do, chef.",
+    "This won't save you, of course.",
+    "But you may share this last meal with me on death row.",
+    "Side-by-side, with your executioner."
+  ],
+  "Success": [
+    "Hm. Startlingly mediocre.",
+    "I watched the old royalty glut themselves, salivating over the untrimmed fat, rolling oil glistening down their chins.",
+    "But just beyond the doors of their gilded palaces, I watched street children grow into their skin with no muscles; just tendon, sinew, and bone.",
+    "The wealth within their walls could've pulled every single one of those children out of poverty, fed every hungry mouth.",
+    "But as small, emaciated bodies outside crawled into each other's arms for heat, the nauseating sound of chewing and slurping persisted.",
+    "How could they still <i>want</i>? After they ate their fill, they hoarded the leftovers and forced themselves to swallow just so someone else could not eat.",
+    "This city was too weak-willed to free itself. Someone had to step in and save them.",
+    "And now you stand in my way again, fraternizing with rebels who don't know what it means to be free.",
+    "It was a good attempt. I admire your blind faith in foolish resolve.",
+    "This is the end of the line for you."
+  ],
+  "Fail": [
+    "Hm. Startlingly mediocre.",
+    "I watched the old royalty glut themselves, salivating over the untrimmed fat, rolling oil glistening down their chins.",
+    "But just beyond the doors of their gilded palaces, I watched street children grow into their skin with no muscles; just tendon, sinew, and bone.",
+    "The wealth within their walls could've pulled every single one of those children out of poverty, fed every hungry mouth.",
+    "But as small, emaciated bodies outside crawled into each other's arms for heat, the nauseating sound of chewing and slurping persisted.",
+    "How could they still <i>want</i>? After they ate their fill, they hoarded the leftovers and forced themselves to swallow just so someone else could not eat.",
+    "This city was too weak-willed to free itself. Someone had to step in and save them.",
+    "And now you stand in my way again, fraternizing with rebels who don't know what it means to be free.",
+    "It was a good attempt. I admire your blind faith in foolish resolve.",
+    "This is the end of the line for you."
+  ],
+  "Reject": [],
+  "Items": [
+    {
+      "ID": "ChildhoodDishPoisoned",
+      "Stage": "wants",
+      "Success": [
+        "Surely you don't believe I'd fall for such a shallow ploy. I have seen you allow the rebels to flit around your establishment as they please.",
+        "And yet it is tempting. It reminds me of someone.",
+        "It was a good attempt. I admire your blind faith in foolish resolve.",
+        "Perhaps I'll let you die from this dish.",
+        "A fitting end, don't you think?"
+      ],
+      "Fail": [
+        "Surely you don't believe I'd fall for such a shallow ploy. I have seen you allow the rebels to flit around your establishment as they please.",
+        "And yet it is tempting. It reminds me of someone.",
+        "It was a good attempt. I admire your blind faith in foolish resolve.",
+        "Perhaps I'll let you die from this dish.",
+        "A fitting end, don't you think?"
+      ]
+    },
+    {
+      "ID": "ChildhoodDishUnpoisoned",
+      "Stage": "wants",
+      "Success": [
+        "Not bad for what you've got.",
+        "I respect your resourcefulness. You make do with what you have, and it's almost quality.",
+        "Restaurants like yours are expendable. We will no longer need your service.",
+        "This establishment will be closed, and you will be—",
+        "What's this?",
+        "…Baklava? You should not have given me this.",
+        "…",
+        "Baklava… it is indulgent. In a way, an antithesis of everything I've built. Sticky, sweet, messy—encased in a fragile shell built to be broken.",
+        "I spent decades in pharmacology. I executed every procedure and experiment with pinpoint accuracy.",
+        "My work is, and always has been, of logic and precision. That is how I rule Verehn.",
+        "I do not cave to pleasure, that sweet, oily sheen that coats your tongue.",
+        "The <i>Moshchny</i>—they fed themselves and their people on frivolous indulgence and sugar, making them fat and lazy with content.",
+        "This was made to be flaky, dripping. It's supposed to coat your fingers in a sticky sweet film, to be licked off with a smile.",
+        "Like an opium for the masses. Obsessive, addictive, and <i>easy</i>. Reminds those who eat of it of a softer, kinder time.",
+        "<i>Sustenance</i> is the cornerstone of our civilization, and indulgence of it, our culture. This baklava…",
+        "I forget myself.",
+        "…"
+      ],
+      "Fail": [
+        "Not bad for what you've got.",
+        "I respect your resourcefulness. You make do with what you have, and it's almost quality.",
+        "Restaurants like yours are expendable. We will no longer need your service.",
+        "This establishment will be closed, and you will be—",
+        "What's this?",
+        "…Baklava? You should not have given me this.",
+        "…",
+        "Baklava… it is indulgent. In a way, an antithesis of everything I've built. Sticky, sweet, messy—encased in a fragile shell built to be broken.",
+        "I spent decades in pharmacology. I executed every procedure and experiment with pinpoint accuracy.",
+        "My work is, and always has been, of logic and precision. That is how I rule Verehn.",
+        "I do not cave to pleasure, that sweet, oily sheen that coats your tongue.",
+        "The <i>Moshchny</i>—they fed themselves and their people on frivolous indulgence and sugar, making them fat and lazy with content.",
+        "This was made to be flaky, dripping. It's supposed to coat your fingers in a sticky sweet film, to be licked off with a smile.",
+        "Like an opium for the masses. Obsessive, addictive, and <i>easy</i>. Reminds those who eat of it of a softer, kinder time.",
+        "<i>Sustenance</i> is the cornerstone of our civilization, and indulgence of it, our culture. This baklava…",
+        "I forget myself.",
+        "…"
+      ]
+    }
+  ],
+  "ID": "SVE2-1"
+}
