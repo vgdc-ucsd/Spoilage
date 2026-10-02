@@ -96,8 +96,11 @@
 	<object class="MixerBusEffectChain" id="{3f4203ba-edd0-4acc-877e-6b873625f430}">
 		<relationship name="effects">
 			<destination>{0682acf6-406a-4aea-9450-0d55018ca7d3}</destination>
+			<destination>{72836c6f-da96-4b21-9ade-ae6c2f9f51b4}</destination>
 			<destination>{29355900-708c-488f-ba89-32c6a574b346}</destination>
+			<destination>{9179e51a-a2f7-4e18-a3c0-88de3ab600e6}</destination>
 			<destination>{029d9932-357b-4d62-b1e9-0109676dba88}</destination>
+			<destination>{2c9ed072-bb20-44dc-bb81-6cec13da1a88}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{5fe64d80-584a-428b-b6a2-ab975e2d8f86}" />
@@ -108,25 +111,48 @@
 	</object>
 	<object class="MixerBusFader" id="{06466987-b31f-48e8-8511-1ab4e5e74ff1}" />
 	<object class="MixerBusFader" id="{0682acf6-406a-4aea-9450-0d55018ca7d3}" />
-	<object class="MultibandEqEffect" id="{29355900-708c-488f-ba89-32c6a574b346}">
-		<property name="filterTypeA">
-			<value>2</value>
+	<object class="CompressorEffect" id="{72836c6f-da96-4b21-9ade-ae6c2f9f51b4}">
+		<property name="threshold">
+			<value>-28</value>
 		</property>
+		<property name="ratio">
+			<value>4.30000019</value>
+		</property>
+		<property name="attackTime">
+			<value>96</value>
+		</property>
+		<property name="gain">
+			<value>9.5</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{29355900-708c-488f-ba89-32c6a574b346}">
 		<property name="filterTypeB">
 			<value>6</value>
 		</property>
 		<property name="frequencyA">
-			<value>1113.47717</value>
+			<value>2603.80005</value>
 		</property>
 		<property name="frequencyB">
-			<value>96.5813828</value>
+			<value>104.926758</value>
 		</property>
 		<property name="qualityA">
-			<value>0.528509259</value>
+			<value>0.549556553</value>
 		</property>
 		<property name="qualityB">
-			<value>0.63374567</value>
+			<value>0.570603848</value>
+		</property>
+	</object>
+	<object class="SFXReverbEffect" id="{9179e51a-a2f7-4e18-a3c0-88de3ab600e6}">
+		<property name="decayTime">
+			<value>400</value>
+		</property>
+		<property name="highCut">
+			<value>560</value>
+		</property>
+		<property name="wetLevel">
+			<value>-14</value>
 		</property>
 	</object>
 	<object class="SpectrumAnalyzer" id="{029d9932-357b-4d62-b1e9-0109676dba88}" />
+	<object class="LoudnessMeter" id="{2c9ed072-bb20-44dc-bb81-6cec13da1a88}" />
 </objects>

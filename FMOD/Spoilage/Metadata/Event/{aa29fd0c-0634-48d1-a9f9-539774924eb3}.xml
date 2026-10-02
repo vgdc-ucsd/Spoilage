@@ -143,7 +143,7 @@
 			<destination>{d47f192b-5299-4af2-ba61-9cd5dc34f841}</destination>
 			<destination>{44680caa-2752-468b-b63a-0ddd8d5213a1}</destination>
 			<destination>{f44dd32b-1df6-4024-be35-d870e68a206b}</destination>
-			<destination>{3c721775-f7f9-4104-81a3-f3b1fcaa62d6}</destination>
+			<destination>{25bddfbc-d462-4295-b445-4898df69721f}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{4f467177-7db7-4032-b41a-3308df9ef384}" />
@@ -240,7 +240,7 @@
 			<value>-7.4481926</value>
 		</property>
 	</object>
-	<object class="SpectrumAnalyzer" id="{3c721775-f7f9-4104-81a3-f3b1fcaa62d6}" />
+	<object class="LoudnessMeter" id="{25bddfbc-d462-4295-b445-4898df69721f}" />
 	<object class="MixerBusFader" id="{058e5434-a81e-44a0-b6bb-28bb92291d06}" />
 	<object class="Automator" id="{ddc01d52-3731-499f-acdb-978266895ed7}">
 		<property name="nameOfPropertyBeingAutomated">

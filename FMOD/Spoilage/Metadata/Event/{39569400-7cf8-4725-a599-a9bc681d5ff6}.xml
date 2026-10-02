@@ -111,14 +111,26 @@
 	<object class="MixerBusEffectChain" id="{ebf605ba-0391-4e49-873b-401c4437b0f5}">
 		<relationship name="effects">
 			<destination>{d7398ca5-29c2-414b-a4d8-ec9b9c5b9e00}</destination>
+			<destination>{80ad60b4-adc1-421b-b34d-f3aa058d7668}</destination>
 			<destination>{0edc31c2-f6b9-4507-8b3b-331c15d645c5}</destination>
 			<destination>{8b5f9fb6-f913-4975-abb2-e02cf81bf87e}</destination>
-			<destination>{9feaad6d-88de-40cb-9c5c-dd686d8116ba}</destination>
+			<destination>{250825f8-4d79-49ba-b2db-c4e2e3eef6ad}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{016b4b35-f596-4bad-aafd-9dfd66a4e234}" />
 	<object class="MixerBusFader" id="{3dfd7192-a691-4cf3-a55e-22587c8027ba}" />
 	<object class="MixerBusFader" id="{d7398ca5-29c2-414b-a4d8-ec9b9c5b9e00}" />
+	<object class="MixerSend" id="{80ad60b4-adc1-421b-b34d-f3aa058d7668}">
+		<property name="level">
+			<value>-10.5</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{b7339cd9-81ae-4c35-b106-06dec5388965}</destination>
+		</relationship>
+	</object>
 	<object class="MultibandEqEffect" id="{0edc31c2-f6b9-4507-8b3b-331c15d645c5}">
 		<property name="filterTypeA">
 			<value>6</value>
@@ -189,5 +201,5 @@
 			<value>8.15522099</value>
 		</property>
 	</object>
-	<object class="SpectrumAnalyzer" id="{9feaad6d-88de-40cb-9c5c-dd686d8116ba}" />
+	<object class="LoudnessMeter" id="{250825f8-4d79-49ba-b2db-c4e2e3eef6ad}" />
 </objects>

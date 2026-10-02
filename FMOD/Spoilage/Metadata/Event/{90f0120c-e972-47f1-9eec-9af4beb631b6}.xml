@@ -96,7 +96,9 @@
 	<object class="MixerBusEffectChain" id="{9a1c16ff-6f66-4077-b063-8c83feaf8879}">
 		<relationship name="effects">
 			<destination>{b1727db8-96dc-4d24-b759-876ee57c6517}</destination>
+			<destination>{b70f816a-5981-4fe5-9754-75fa6c16946e}</destination>
 			<destination>{78b2d70a-21b7-4936-99d1-f83f48312f01}</destination>
+			<destination>{5119b90a-e82c-4bf2-9aeb-35136fd8b8c6}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{9e128d49-504c-4811-9fa4-7fda310f0039}" />
@@ -107,15 +109,48 @@
 	</object>
 	<object class="MixerBusFader" id="{f9792f17-88e9-4a96-9ec4-6574eb2f782d}" />
 	<object class="MixerBusFader" id="{b1727db8-96dc-4d24-b759-876ee57c6517}" />
+	<object class="SFXReverbEffect" id="{b70f816a-5981-4fe5-9754-75fa6c16946e}">
+		<property name="decayTime">
+			<value>400</value>
+		</property>
+		<property name="earlyDelay">
+			<value>2</value>
+		</property>
+		<property name="lateDelay">
+			<value>3</value>
+		</property>
+		<property name="HFDecayRatio">
+			<value>83</value>
+		</property>
+		<property name="highCut">
+			<value>6050</value>
+		</property>
+		<property name="earlyLateMix">
+			<value>88</value>
+		</property>
+		<property name="wetLevel">
+			<value>-13</value>
+		</property>
+	</object>
 	<object class="MultibandEqEffect" id="{78b2d70a-21b7-4936-99d1-f83f48312f01}">
 		<property name="filterTypeA">
 			<value>5</value>
 		</property>
+		<property name="filterTypeB">
+			<value>1</value>
+		</property>
 		<property name="frequencyA">
-			<value>179.820633</value>
+			<value>225.849808</value>
+		</property>
+		<property name="frequencyB">
+			<value>1720.45605</value>
 		</property>
 		<property name="qualityA">
-			<value>0.675840199</value>
+			<value>0.612698376</value>
+		</property>
+		<property name="qualityB">
+			<value>0.402225643</value>
 		</property>
 	</object>
+	<object class="LoudnessMeter" id="{5119b90a-e82c-4bf2-9aeb-35136fd8b8c6}" />
 </objects>

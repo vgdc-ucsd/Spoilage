@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{4f80b81a-6b5d-475b-97f0-82739b2025fe}">
 		<property name="name">
-			<value>CozyMusic1</value>
+			<value>HorrorMusic4</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{084217ae-a015-4555-ad99-2a66e17077fe}</destination>
+			<destination>{488fa188-2b25-439c-936a-5c9e6409eb83}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{018ca146-490b-43d1-ab17-6d71b9d9f124}</destination>
@@ -131,6 +131,7 @@
 		<relationship name="effects">
 			<destination>{3e53f384-3c0c-4c1e-a066-0da9c83333f1}</destination>
 			<destination>{82c1d6c7-c47f-4c50-84bf-a02e6ccccb7e}</destination>
+			<destination>{eb66a458-0d53-4b6d-9f4a-bf99d842b89a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{e969ba4f-2135-4ca4-bdc1-f94e2ca097b1}" />
@@ -189,5 +190,6 @@
 			<value>10.2356777</value>
 		</property>
 	</object>
+	<object class="LoudnessMeter" id="{eb66a458-0d53-4b6d-9f4a-bf99d842b89a}" />
 	<object class="MixerBusFader" id="{b1ed1be5-1f48-4cdc-ac3b-4d60a3d14770}" />
 </objects>

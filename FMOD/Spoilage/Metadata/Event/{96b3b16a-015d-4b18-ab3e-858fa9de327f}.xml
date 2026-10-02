@@ -113,6 +113,8 @@
 			<destination>{772385d4-e1b4-4e5a-a32e-9bc9782a4fc1}</destination>
 			<destination>{1a64bb0b-1668-433f-9127-94d1a8ceb084}</destination>
 			<destination>{403a8455-02a5-423b-8524-f9f937586776}</destination>
+			<destination>{0d3fe57a-fd9b-40a9-a5ec-6de806d80f4f}</destination>
+			<destination>{2c8c5fc9-3de6-4f80-b456-50292a20a5c0}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{cab15c00-a844-4afb-af86-d6be17c7bec7}" />
@@ -163,4 +165,10 @@
 			<value>-5.88785172</value>
 		</property>
 	</object>
+	<object class="CompressorEffect" id="{0d3fe57a-fd9b-40a9-a5ec-6de806d80f4f}">
+		<property name="threshold">
+			<value>-18</value>
+		</property>
+	</object>
+	<object class="LoudnessMeter" id="{2c8c5fc9-3de6-4f80-b456-50292a20a5c0}" />
 </objects>

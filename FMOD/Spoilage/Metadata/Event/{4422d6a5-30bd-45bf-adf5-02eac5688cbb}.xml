@@ -72,6 +72,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{b2ec126f-38d4-47ef-a040-ac2498361e25}">
+		<property name="volume">
+			<value>3</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{7e24e37e-e5d1-468f-995b-b90e12f2a1ba}</destination>
 		</relationship>
@@ -127,15 +130,15 @@
 			<value>6500</value>
 		</property>
 		<property name="wetLevel">
-			<value>-22.5</value>
+			<value>-17.5</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{6b8f89f8-e0aa-4041-805f-743edf47ef76}">
 		<property name="filterTypeA">
-			<value>9</value>
+			<value>3</value>
 		</property>
 		<property name="frequencyA">
-			<value>6346.44238</value>
+			<value>3552.8811</value>
 		</property>
 		<property name="qualityA">
 			<value>0.864793897</value>

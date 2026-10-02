@@ -70,7 +70,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{a1ac3be7-010f-468c-b1a1-f49c4516c1f9}">
 		<property name="volume">
-			<value>-6.5</value>
+			<value>-1</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{64e44c8f-a1a6-4a83-8d8b-49e0d0f1ed7e}</destination>
@@ -135,6 +135,7 @@
 			<destination>{df6408bf-84b0-4e80-a827-5b3ef6a5febd}</destination>
 			<destination>{a85bcd49-7518-4c07-bae5-0d48e1ee1eee}</destination>
 			<destination>{0ccf3a8b-7030-4784-97a8-5ef5c562e33b}</destination>
+			<destination>{953a8cea-5aba-4ba7-b20c-19f2a50a47e4}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{24e40787-1dcc-42bf-9860-408d1d656398}" />
@@ -173,6 +174,9 @@
 		<property name="filterTypeC">
 			<value>9</value>
 		</property>
+		<property name="filterTypeD">
+			<value>9</value>
+		</property>
 		<property name="frequencyA">
 			<value>73.7762909</value>
 		</property>
@@ -182,11 +186,17 @@
 		<property name="frequencyC">
 			<value>573.771301</value>
 		</property>
+		<property name="frequencyD">
+			<value>1090.64429</value>
+		</property>
 		<property name="qualityA">
 			<value>1.04412913</value>
 		</property>
 		<property name="qualityC">
 			<value>2.9000001</value>
+		</property>
+		<property name="qualityD">
+			<value>1</value>
 		</property>
 		<property name="gainB">
 			<value>-11.6091003</value>
@@ -194,7 +204,11 @@
 		<property name="gainC">
 			<value>-12.6493301</value>
 		</property>
+		<property name="gainD">
+			<value>8.15522099</value>
+		</property>
 	</object>
+	<object class="LoudnessMeter" id="{953a8cea-5aba-4ba7-b20c-19f2a50a47e4}" />
 	<object class="AutomationPoint" id="{04d8b622-ac81-4425-9879-ed39b8fc9ba1}">
 		<property name="position">
 			<value>19.585351473922898</value>

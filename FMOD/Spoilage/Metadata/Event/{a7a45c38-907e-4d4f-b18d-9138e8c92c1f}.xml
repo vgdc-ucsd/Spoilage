@@ -70,7 +70,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{fd24e1c8-f9db-49f2-ba65-bce8da589f7e}">
 		<property name="volume">
-			<value>6</value>
+			<value>10</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{e1e62a32-707a-426a-800b-05e30f0b393f}</destination>
@@ -124,46 +124,56 @@
 	<object class="MixerBusEffectChain" id="{e1e62a32-707a-426a-800b-05e30f0b393f}">
 		<relationship name="effects">
 			<destination>{65e144f1-0552-4aac-aef9-62f5d9e1b926}</destination>
-			<destination>{d54c3e16-032d-47bd-a763-461334c13a5f}</destination>
+			<destination>{4ba46826-8c73-4071-bb4b-60878979b767}</destination>
 			<destination>{3e1de109-8c70-47b8-bc0d-e3d51cb85c5c}</destination>
-			<destination>{9e1758cf-ebf2-4b0d-8731-3753bb99c489}</destination>
-			<destination>{11e9320f-7da2-4140-8e56-afb393a9db57}</destination>
+			<destination>{f9534ae7-d423-46b8-ab43-8df3c3e3a08b}</destination>
+			<destination>{ed12e1a0-a332-453c-821b-2ceabc2ac13a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{9a79f0e9-7407-4815-8759-664fb0d346ae}" />
 	<object class="MixerBusFader" id="{e4f4f008-fb62-43a3-9059-a50fa9b9d680}" />
 	<object class="MixerBusFader" id="{65e144f1-0552-4aac-aef9-62f5d9e1b926}" />
-	<object class="SpectrumAnalyzer" id="{d54c3e16-032d-47bd-a763-461334c13a5f}" />
+	<object class="MixerSend" id="{4ba46826-8c73-4071-bb4b-60878979b767}">
+		<property name="level">
+			<value>-16</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{b7339cd9-81ae-4c35-b106-06dec5388965}</destination>
+		</relationship>
+	</object>
 	<object class="MultibandEqEffect" id="{3e1de109-8c70-47b8-bc0d-e3d51cb85c5c}">
 		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="filterTypeB">
 			<value>9</value>
 		</property>
 		<property name="frequencyA">
 			<value>240.333511</value>
 		</property>
+		<property name="frequencyB">
+			<value>109.366081</value>
+		</property>
 		<property name="qualityA">
-			<value>1.75</value>
+			<value>2.20000005</value>
+		</property>
+		<property name="qualityB">
+			<value>0.299999982</value>
 		</property>
 		<property name="gainA">
-			<value>-5.88785172</value>
+			<value>-7.5</value>
+		</property>
+		<property name="gainB">
+			<value>3</value>
 		</property>
 	</object>
-	<object class="SFXReverbEffect" id="{9e1758cf-ebf2-4b0d-8731-3753bb99c489}">
-		<property name="decayTime">
-			<value>3500</value>
-		</property>
-		<property name="lowShelfFrequency">
-			<value>170</value>
-		</property>
-		<property name="lowShelfGain">
-			<value>2</value>
-		</property>
-		<property name="highCut">
-			<value>200</value>
-		</property>
-		<property name="wetLevel">
-			<value>-3</value>
+	<object class="GainEffect" id="{f9534ae7-d423-46b8-ab43-8df3c3e3a08b}">
+		<property name="gain">
+			<value>8</value>
 		</property>
 	</object>
-	<object class="SpectrumAnalyzer" id="{11e9320f-7da2-4140-8e56-afb393a9db57}" />
+	<object class="LoudnessMeter" id="{ed12e1a0-a332-453c-821b-2ceabc2ac13a}" />
 </objects>
