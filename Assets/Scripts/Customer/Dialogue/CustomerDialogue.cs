@@ -18,4 +18,5 @@ public class CustomerDialogue
     public List<string> Fail;
     public List<string> Reject;
     public List<DialogueItemData> Items;
+    public string ID;
 }
