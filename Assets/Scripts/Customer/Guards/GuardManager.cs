@@ -44,16 +44,21 @@ public class GuardManager : Singleton<GuardManager>
         _refusalButton.Lock(locked);
     }
 
-    public void RemoveCustomer()
+    public bool RemoveCustomer()
     {
         if (_remainingGuardCalls == 0)
         {
-            // TODO
-            return;
+            return false;
         }
 
         Customer currentCustomer =
             CustomerLineManager.Instance.CurrentCustomer;
+        if (currentCustomer == null
+            || currentCustomer.customerData == null
+            || currentCustomer.customerData.spoilage == CustomerData.Spoilage.STAGE_II)
+        {
+            return false;
+        }
 
         SaveManager.Instance.Player.DayData.CustomersRefused++;
         _remainingGuardCalls--;
@@ -101,6 +106,8 @@ public class GuardManager : Singleton<GuardManager>
             GUARD_WALK_DURATION,
             () => InteractCustomer(currentCustomer, leftGuard, rightGuard)
         );
+
+        return true;
     }
 
     private void InteractCustomer(
