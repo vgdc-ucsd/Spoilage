@@ -90,9 +90,7 @@ public class CookingManager : Singleton<CookingManager>
                     );
 
                     // item is removed from plating tile
-                    // technically this just pops the top of the stack, but the second Remove() call at 
-                    // the end of the function guarantees both the food and item are removed
-                    _platingTile.Remove();
+                    _platingTile.Remove(item);
                     item.Destroy();
                 }
                 else
@@ -123,9 +121,7 @@ public class CookingManager : Singleton<CookingManager>
                 );
 
                 // item is removed from plating tile
-                // technically this just pops the top of the stack, but the second Remove() call at 
-                // the end of the function guarantees both the food and item are removed
-                _platingTile.Remove();
+                _platingTile.Remove(item);
                 item.Destroy();
             }
             else
@@ -140,7 +136,7 @@ public class CookingManager : Singleton<CookingManager>
             }
         }
 
-        _platingTile.Remove();
+        _platingTile.Remove(food);
         food.Destroy();
     }
 
@@ -228,9 +224,7 @@ public class CookingManager : Singleton<CookingManager>
                 );
 
                 // item is removed from plating tile
-                // technically this just pops the top of the stack, but the second Remove() call at 
-                // the end of the function guarantees both the food and item are removed
-                _platingTile.Remove();
+                _platingTile.Remove(item);
                 item.Destroy();
             }
             else
@@ -260,9 +254,7 @@ public class CookingManager : Singleton<CookingManager>
                 );
 
                 // item is removed from plating tile
-                // technically this just pops the top of the stack, but the second Remove() call at 
-                // the end of the function guarantees both the food and item are removed
-                _platingTile.Remove();
+                _platingTile.Remove(item);
                 item.Destroy();
             }
             else
@@ -277,7 +269,7 @@ public class CookingManager : Singleton<CookingManager>
             }
         }
 
-        _platingTile.Remove();
+        _platingTile.Remove(food);
         food.Destroy();
     }
 }

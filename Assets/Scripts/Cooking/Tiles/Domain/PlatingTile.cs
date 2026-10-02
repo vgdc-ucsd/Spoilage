@@ -85,6 +85,25 @@ public class PlatingTile : ITemporalTile
         _placeables.Remove(removed);
     }
 
+    public void Remove(Food food)
+    {
+        if (_food == food)
+        {
+            _food.FoodUI.SetPlated(false);
+            _food = null;
+            _placeables.Remove(food);
+        }
+    }
+
+    public void Remove(Item item)
+    {
+        if (_item == item)
+        {
+            _item = null;
+            _placeables.Remove(item);
+        }
+    }
+
     public void Process(float dt)
     {
         _food?.Spoil(dt);
