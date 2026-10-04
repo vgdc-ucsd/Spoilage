@@ -1,10 +1,14 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ProgressionManager : Singleton<ProgressionManager>
 {
     [SerializeField] private UpgradeNode _upgradeRoot;
     [SerializeField] private List<Upgrade> _upgrades;
+    [SerializeField] private UpgradeDatabase _upgradeDatabase;
+    [SerializeField] private InteractionsDatabase _interactionsDatabase;
+    [SerializeField] private RadioDatabase _radioDatabase;
     
     private List<InteractionsNode> _interactionTimelines;
     private RadioNode _radioTimeline;
@@ -16,39 +20,46 @@ public class ProgressionManager : Singleton<ProgressionManager>
     public List<UpgradeID> StationQueue { get; private set; }
     public Dictionary<UpgradeID, Upgrade> Upgrades { get; private set; }
     public RadioNode RadioNode => _radioTimeline;
+    public UpgradeNode UpgradeNode => _upgradeTimeline;
+    public List<InteractionsNode> Interactions => _interactionTimelines;
 
-    public override void Awake()
+    public void Init(PlayerData player, bool newPlayer)
     {
-        // TODO init from save script instead of awake and pass loaded data
-        base.Awake();
-        Init();
-    }
+        if (newPlayer)
+        {
+            ShopPool = new List<UpgradeID>();
+            StationQueue = new List<UpgradeID>();
+            _upgradeTimeline = _upgradeRoot;
+            _interactionTimelines = StoryManager.Instance.InitRunTimelineGraphs();
+            _radioTimeline = StoryManager.Instance.RadioRoot;    
+            Unlocked = new HashSet<UpgradeID>();        
+            Purchased = new HashSet<UpgradeID>();        
+        }
+        else
+        {
+            _upgradeTimeline = (UpgradeNode) _upgradeDatabase.LoadFromID(player.UpgradeNode);
+            _radioTimeline = (RadioNode) _radioDatabase.LoadFromID(player.UpgradeNode);
+            _interactionTimelines = player.InteractionNodes.Select(id => (InteractionsNode) _interactionsDatabase.LoadFromID(id)).ToList();
+            Unlocked = new HashSet<UpgradeID>(player.Unlocked);
+            Purchased = new HashSet<UpgradeID>(player.Purchased);
+            ShopPool = player.ShopPool;
+            StationQueue = player.StationQueue;
+        }
 
-    public void Init()
-    {
-        // TODO load ShopPool and StationQueue from save
-        bool saveData = false;
-
-        _upgradeTimeline = _upgradeRoot;
-        _interactionTimelines = StoryManager.Instance.InitRunTimelineGraphs();
-        _radioTimeline = StoryManager.Instance.RadioRoot;
-
-        ShopPool = new List<UpgradeID>();
-        StationQueue = new List<UpgradeID>();
         Upgrades = new Dictionary<UpgradeID, Upgrade>();
 
         foreach (Upgrade upgrade in _upgrades)
         {
             Upgrades.Add(upgrade.UpgradeID, upgrade);
 
-            if (!saveData && upgrade.DefaultShopUpgrade)
+            if (newPlayer && upgrade.DefaultShopUpgrade)
             {
                 ShopPool.Add(upgrade.UpgradeID);
             }
         }
 
         // Unlock day 1 upgrades
-        if (saveData == false)
+        if (newPlayer)
         {    
             foreach (Upgrade upgrade in _upgradeTimeline.Data)
             {

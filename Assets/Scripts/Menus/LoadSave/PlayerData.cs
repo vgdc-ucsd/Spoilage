@@ -38,6 +38,8 @@ public class PlayerData
     public List<string> KitchenItems;
     public string PendingStation;
     public GameOverCondition GameOverCondition;
+    public GameEndScenario GameEndScenario;
+    public GameEndItemServed GameEndItemServed;
 
     public List<string> SeenSemikeyCharacters;
     public List<string> RejectedSemikeyCharacters;
@@ -48,11 +50,19 @@ public class PlayerData
     /// </summary>
     public float resistanceScore = 7f;
 
+    // Graphs & Timelines
+    public List<int?> InteractionNodes;
+    public int? RadioNode;
+    public int? UpgradeNode;
+
+    // Shop, upgrades, and unlocks
+    public List<UpgradeID> ShopPool;
+    public List<UpgradeID> StationQueue;
+    public List<UpgradeID> Unlocked;
+    public List<UpgradeID> Purchased;
+
     public PlayerData()
-    {
-        // TODO: Initialize lists, setup other basic start of game configs
-        // Reputation = 50;
-        
+    {   
         Day = 1;
         Wealth = 200;
         RecipesUnlocked = new();
@@ -61,6 +71,11 @@ public class PlayerData
         PendingStation = "Grill";
         RejectedSemikeyCharacters = new List<string>();
         SeenSemikeyCharacters = new List<string>();
+        ShopPool = new List<UpgradeID>();
+        StationQueue = new List<UpgradeID>();
+        Unlocked = new List<UpgradeID>();
+        Purchased = new List<UpgradeID>();
+        DayData = new DayData();
 
         // Initialize StationsUnlocked and IngredientsUnlocked with the day 1 status
         StationsUnlocked = new()

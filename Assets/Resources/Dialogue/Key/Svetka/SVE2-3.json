@@ -1,0 +1,72 @@
+{
+  "Intro": [
+    "At ease.",
+    "Your establishment has been remarkably compliant with new safety protocols regarding Spoilage.",
+    "My officers have been singing your praises. I've come to see for myself, and to try some of your cooking.",
+    "Your identification of those who are Spoiled has been so accurate, I half-considered offering you a position in my ranks.",
+    "Though I'm sure your adoring customers would submit complaints if I whisked their beloved chef away to the military.",
+    "Your adherence to the rules is truly remarkable. People like you will never stray from the status quo.",
+    "Never mind that.",
+    "I congratulate you on your success, and wish you many more years of happiness."
+  ],
+  "Success": [
+    "I can see why your patrons return. This meal is satisfactory.",
+    "You're awfully quiet, aren't you? Complacent and docile, happy to follow the rules, and never stray.",
+    "Hah. If I were like you, perhaps this world would be a lot different. But I should be grateful you don't make my job difficult.",
+    "Good work, chef.",
+    "I'll be sure to have the soldiers come by to eat sometime.",
+    "You've done a great service to the people of Verehn."
+  ],
+  "Fail": [
+    "Hm. Neither sweet, nor salty, nor bitter.",
+    "Tasteless. Like it's nothing at all, and cannot decide whether it wants to be something.",
+    "Oh, there's nothing wrong. It is just how people are. It is rather difficult to pick sides in a war where no one wins, now isn't it?",
+    "My thanks for indulging me in this. But I'll have to shut this establishment down. It's not compliant with our Spoilage policy.",
+    "You may join the queue of others looking for work in this city at the Capitol.",
+    "Best of luck, chef."
+  ],
+  "Reject": [],
+  "Items": [
+    {
+      "ID": "ChildhoodDishPoisoned",
+      "Stage": "wants",
+      "Success": [
+        "There is no need for bribery. Proffering dessert after already being heaped with praise is excessive.",
+        "You've already passed inspection.",
+        "Though, this is a beautifully crafted dessert. It almost…reminds me of something.",
+        "Well.",
+        "I suppose I shouldn't turn down your generosity.",
+        "…",
+        "…",
+        "…",
+        "…it tastes of a memory that I cannot quite remember. But—something is different. There is something…bitter.",
+        "…!",
+        "You—<i>wretch</i>—!",
+        "Hah—<i>hah—</i>! I admire the—<i>guts</i>.",
+        "I was—<i>wrong</i> about you. You <i>writhing</i>, helpless thing.",
+        "I tried to <i>save</i> you.",
+        "No—matter. Watch this world fall apart without me—let them parade my corpse down the street.",
+        "You will—not survive."
+      ],
+      "Fail": [
+        "There is no need for bribery. Proffering dessert after already being heaped with praise is excessive.",
+        "You've already passed inspection.",
+        "Though, this is a beautifully crafted dessert. It almost…reminds me of something.",
+        "Well.",
+        "I suppose I shouldn't turn down your generosity.",
+        "…",
+        "…",
+        "…",
+        "…it tastes of a memory that I cannot quite remember. But—something is different. There is something…bitter.",
+        "…!",
+        "You—<i>wretch</i>—!",
+        "Hah—<i>hah—</i>! I admire the—<i>guts</i>.",
+        "I was—<i>wrong</i> about you. You <i>writhing</i>, helpless thing.",
+        "I tried to <i>save</i> you.",
+        "No—matter. Watch this world fall apart without me—let them parade my corpse down the street.",
+        "You will—not survive."
+      ]
+    }
+  ],
+  "ID": "SVE2-3"
+}

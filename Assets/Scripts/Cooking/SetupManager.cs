@@ -25,6 +25,11 @@ public class SetupManager : Singleton<SetupManager>
     [SerializeField] private List<KitchenTileUI> _upgrade1Tiles;
     [SerializeField] private List<KitchenTileUI> _upgrade2Tiles;
     [SerializeField] private List<KitchenTileUI> _upgrade3Tiles;
+    [SerializeField] private GameObject _cheeseSpawner;
+    [SerializeField] private GameObject _meatSpawner;
+    [SerializeField] private GameObject _veggieSpawner;
+    [SerializeField] private GameObject _sauceSpawner;
+    [SerializeField] private GameObject _potatoSpawner;
     private List<TileUI> _allTiles;
     private List<KitchenTile> _kitchenTiles;
     private bool _timeLimitReached;
@@ -42,6 +47,12 @@ public class SetupManager : Singleton<SetupManager>
         _recipeBook.Init(SaveManager.Instance.Player.RecipesUnlocked);
         _stationUnlockPopup.gameObject.SetActive(false);
         _timeLimitReached = false;
+
+        _potatoSpawner.SetActive(ProgressionManager.Instance.Purchased.Contains(UpgradeID.Potatoes));
+        _cheeseSpawner.SetActive(ProgressionManager.Instance.Purchased.Contains(UpgradeID.Cheese));
+        _meatSpawner.SetActive(ProgressionManager.Instance.Purchased.Contains(UpgradeID.Meat));
+        _sauceSpawner.SetActive(ProgressionManager.Instance.Purchased.Contains(UpgradeID.Sauce));
+        _veggieSpawner.SetActive(ProgressionManager.Instance.Purchased.Contains(UpgradeID.RootVeggies));
 
         _allTiles = new List<TileUI>();
         List<KitchenTileUI> kitchenTileUIs = new List<KitchenTileUI>();

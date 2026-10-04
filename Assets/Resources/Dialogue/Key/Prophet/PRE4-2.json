@@ -1,5 +1,5 @@
 {
-  "Monologue": [
+  "Intro": [
     "Are you a weasel, its little fangs sunk into the skull of an eagle, never to let go? Or are you a beetle underneath <i>her</i> heel, shiny and squashed?",
     "You live in the ruins of <i>Verehn</i>. A culinary goliath on a tarnished stage. Your taste is just as sharp and lethal as any bayonet.",
     "You have lived your life in fear and compliance. Following the rules and recipes to the very last drop of ink. Clever little lamb.",
@@ -10,8 +10,12 @@
   "Success": [],
   "Fail": [],
   "Reject": [],
-  "Item": {
-    "Stage": "intro",
-    "ID": "Poison Dish"
-  }
+  "Items": [
+    {
+      "ID": "ChildhoodDishPoisoned",
+      "Stage": "gives",
+      "Success": [],
+      "Fail": []
+    }
+  ]
 }

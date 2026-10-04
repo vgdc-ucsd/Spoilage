@@ -15,7 +15,7 @@ public class SaveOverviewCollection
 [Serializable]
 public class SaveOverview
 {
-    public SaveOverview(int id, int day)
+    public SaveOverview(int id, int day, int Wealth, int ingredients, int stations)
     {
         ID = id;
         Day = day;
@@ -23,4 +23,7 @@ public class SaveOverview
 
     public int ID;
     public int Day; 
+    public int Wealth;
+    public int IngredientsUnlocked;
+    public int StationsUnlocked;
 }

@@ -146,7 +146,8 @@ public class CustomerLineManager : Singleton<CustomerLineManager>
                 dialogue.Intro,
                 _customer.customerData, 
                 () => {
-                    if (!string.IsNullOrEmpty(dialogue.Item?.ID)) ItemManager.Instance.GiveItem(dialogue.Item);
+                    List<DialogueItemData> items = _customer.GivesItem();
+                    if (items != null && items.Count > 0) ItemManager.Instance.GiveItems(items);
                     else
                     {   
                         if (_timeOfDay != TimeOfDay.Middle) Advance();

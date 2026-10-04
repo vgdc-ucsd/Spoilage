@@ -2,6 +2,7 @@
 using System.IO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class SaveManager : Singleton<SaveManager>
 {
@@ -47,6 +48,7 @@ public class SaveManager : Singleton<SaveManager>
     {
         Player = DebugManager.Instance.DebugPlayerSave?.Clone();
         LoadSettings();
+        LoadNewPlayer();
     }
 
     public void SaveGame(int saveId)
@@ -65,13 +67,23 @@ public class SaveManager : Singleton<SaveManager>
         Directory.CreateDirectory(_saveFolderPath);
 
         Player.SaveID = saveId;
+        Player.InteractionNodes = ProgressionManager.Instance.Interactions.Select(node => node?.ID).ToList();
+        Player.UpgradeNode = ProgressionManager.Instance.UpgradeNode?.ID;
+        Player.RadioNode = ProgressionManager.Instance.RadioNode?.ID;
+        Player.ShopPool = ProgressionManager.Instance.ShopPool;
+        Player.StationQueue = ProgressionManager.Instance.StationQueue;
+        Player.Purchased = new List<UpgradeID>(ProgressionManager.Instance.Purchased);
+        Player.Unlocked = new List<UpgradeID>(ProgressionManager.Instance.Unlocked);
 
         string json = JsonUtility.ToJson(Player, true);
 
         if(_overviews == null) LoadSaveOverviews();
         _overviews.SaveOverviews.Add(new SaveOverview(
             saveId,
-            Player.Day
+            Player.Day,
+            Player.Wealth,
+            Player.IngredientsUnlocked.Count,
+            Player.StationsUnlocked.Count
         ));
 
         File.WriteAllText(GetSlotPath(saveId), json);
@@ -102,10 +114,30 @@ public class SaveManager : Singleton<SaveManager>
             };
         }
 
+        LoadCommon(false);
+    }
+
+    public void LoadNewPlayer()
+    {
+        int saveId = GetNextAvailableSaveId();
+
+        Player = new PlayerData
+        {
+            SaveID = saveId,
+            SaveName = $"Save {saveId}"
+        };
+
+        LoadCommon(true);
+    }
+
+    private void LoadCommon(bool newPlayer)
+    {
         while (s_loadQueue.Count > 0)
         {
             s_loadQueue.Dequeue()?.Invoke();
         }
+
+        ProgressionManager.Instance.Init(Player, newPlayer);
     }
 
     public void LoadSettings()
