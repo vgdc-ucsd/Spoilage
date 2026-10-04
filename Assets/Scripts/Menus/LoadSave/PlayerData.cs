@@ -38,6 +38,8 @@ public class PlayerData
     public List<string> KitchenItems;
     public string PendingStation;
     public GameOverCondition GameOverCondition;
+    public GameEndScenario GameEndScenario;
+    public GameEndItemServed GameEndItemServed;
 
     public List<string> SeenSemikeyCharacters;
     public List<string> RejectedSemikeyCharacters;

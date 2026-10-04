@@ -17,9 +17,9 @@ public class RefusalButton : MonoBehaviour
     public void Press()
     {
         if (_locked) return;
+        if (!GuardManager.Instance.RemoveCustomer()) return;
         StopAllCoroutines();
         StartCoroutine(PressButtonAnim());
-        GuardManager.Instance.RemoveCustomer();
     }
 
     public void Lock(bool locked)

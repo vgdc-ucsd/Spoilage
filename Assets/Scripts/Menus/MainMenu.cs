@@ -1,7 +1,12 @@
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour
-{
+{   
+    public void Start()
+    {
+        AudioManager.Instance.PlayMusicEntry("Title");
+    }
+
     public void ClickStartGame()
     {
         GameManager.Instance.Load(GameScene.INTRO_CUTSCENE);
