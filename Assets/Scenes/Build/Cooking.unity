@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &24427399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3287886171193822335, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
+  m_PrefabInstance: {fileID: 1739176964}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &35040940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,6 +1162,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44db7a1177fe36445b86b1843ebac132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenTileUI
+--- !u!1 &329501314 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3287886171193822335, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
+  m_PrefabInstance: {fileID: 129488615}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &338658142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1218,6 +1228,11 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7785602734603421657, guid: 389f60bc07ffae34789a2215868f083a, type: 3}
   m_PrefabInstance: {fileID: 338658142}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &344461658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3287886171193822335, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
+  m_PrefabInstance: {fileID: 1559103543}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &395268790
 GameObject:
@@ -1906,6 +1921,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cheese Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 3287886171193822335, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6527733726289834011, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
       propertyPath: _ingredient
       value: 
@@ -2290,7 +2309,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6527733726289834011, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
   m_PrefabInstance: {fileID: 733269014}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1904447750}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfa7d19ab8b8aff43815d6f604069ae6, type: 3}
@@ -2494,7 +2513,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6527733726289834011, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
   m_PrefabInstance: {fileID: 1514519662}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1556927698}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfa7d19ab8b8aff43815d6f604069ae6, type: 3}
@@ -2510,7 +2529,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6527733726289834011, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
   m_PrefabInstance: {fileID: 1559103543}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 344461658}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfa7d19ab8b8aff43815d6f604069ae6, type: 3}
@@ -2847,6 +2866,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
+--- !u!1 &1556927698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3287886171193822335, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
+  m_PrefabInstance: {fileID: 1514519662}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1559103543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3314,7 +3338,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6527733726289834011, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
   m_PrefabInstance: {fileID: 129488615}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 329501314}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfa7d19ab8b8aff43815d6f604069ae6, type: 3}
@@ -3618,7 +3642,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6527733726289834011, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
   m_PrefabInstance: {fileID: 1739176964}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 24427399}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfa7d19ab8b8aff43815d6f604069ae6, type: 3}
@@ -3861,6 +3885,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897038822}
   m_CullTransparentMesh: 1
+--- !u!1 &1904447750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3287886171193822335, guid: e097138a9e836f845a571a7b82a3d42a, type: 3}
+  m_PrefabInstance: {fileID: 733269014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1930326574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4083,9 +4112,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6873308689889172509}
     - target: {fileID: 8424510654417549175, guid: fb07c669ca1dd4d4dbcd0cec39444337, type: 3}
+      propertyPath: _meatSpawner
+      value: 
+      objectReference: {fileID: 1556927698}
+    - target: {fileID: 8424510654417549175, guid: fb07c669ca1dd4d4dbcd0cec39444337, type: 3}
       propertyPath: _platingTile
       value: 
       objectReference: {fileID: 238892908}
+    - target: {fileID: 8424510654417549175, guid: fb07c669ca1dd4d4dbcd0cec39444337, type: 3}
+      propertyPath: _sauceSpawner
+      value: 
+      objectReference: {fileID: 344461658}
+    - target: {fileID: 8424510654417549175, guid: fb07c669ca1dd4d4dbcd0cec39444337, type: 3}
+      propertyPath: _cheeseSpawner
+      value: 
+      objectReference: {fileID: 1904447750}
+    - target: {fileID: 8424510654417549175, guid: fb07c669ca1dd4d4dbcd0cec39444337, type: 3}
+      propertyPath: _potatoSpawner
+      value: 
+      objectReference: {fileID: 24427399}
+    - target: {fileID: 8424510654417549175, guid: fb07c669ca1dd4d4dbcd0cec39444337, type: 3}
+      propertyPath: _veggieSpawner
+      value: 
+      objectReference: {fileID: 329501314}
     - target: {fileID: 8424510654417549175, guid: fb07c669ca1dd4d4dbcd0cec39444337, type: 3}
       propertyPath: _stationUnlockPopup
       value: 
