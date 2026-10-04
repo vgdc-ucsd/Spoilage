@@ -103,7 +103,7 @@ public class AudioManager : Singleton<AudioManager>
             instance.set3DAttributes(RuntimeUtils.To3DAttributes(Vector3.zero));
             instance.start();
             instance.release();
-            Debug.Log("Played audio: " + id);
+            // Debug.Log("Played audio: " + id);
         }
         else
         {
@@ -151,7 +151,7 @@ public class AudioManager : Singleton<AudioManager>
         }
         entry.eventInstance.start();
         currentMusicInstance = entry.eventInstance;
-        Debug.Log("Played music: " + id);
+        // Debug.Log("Played music: " + id);
     }
 
 
