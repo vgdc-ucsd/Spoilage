@@ -58,12 +58,11 @@ public class PlayerData
     // Shop, upgrades, and unlocks
     public List<UpgradeID> ShopPool;
     public List<UpgradeID> StationQueue;
+    public List<UpgradeID> Unlocked;
+    public List<UpgradeID> Purchased;
 
     public PlayerData()
-    {
-        // TODO: Initialize lists, setup other basic start of game configs
-        // Reputation = 50;
-        
+    {   
         Day = 1;
         Wealth = 200;
         RecipesUnlocked = new();
@@ -74,6 +73,8 @@ public class PlayerData
         SeenSemikeyCharacters = new List<string>();
         ShopPool = new List<UpgradeID>();
         StationQueue = new List<UpgradeID>();
+        Unlocked = new List<UpgradeID>();
+        Purchased = new List<UpgradeID>();
         DayData = new DayData();
 
         // Initialize StationsUnlocked and IngredientsUnlocked with the day 1 status

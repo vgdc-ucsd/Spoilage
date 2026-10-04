@@ -25,28 +25,23 @@ public class ProgressionManager : Singleton<ProgressionManager>
 
     public void Init(PlayerData player, bool newPlayer)
     {
-        // TODO load ShopPool and StationQueue from save
-
         if (newPlayer)
         {
+            ShopPool = new List<UpgradeID>();
+            StationQueue = new List<UpgradeID>();
             _upgradeTimeline = _upgradeRoot;
             _interactionTimelines = StoryManager.Instance.InitRunTimelineGraphs();
-            _radioTimeline = StoryManager.Instance.RadioRoot;            
+            _radioTimeline = StoryManager.Instance.RadioRoot;    
+            Unlocked = new HashSet<UpgradeID>();        
+            Purchased = new HashSet<UpgradeID>();        
         }
         else
         {
             _upgradeTimeline = (UpgradeNode) _upgradeDatabase.LoadFromID(player.UpgradeNode);
             _radioTimeline = (RadioNode) _radioDatabase.LoadFromID(player.UpgradeNode);
             _interactionTimelines = player.InteractionNodes.Select(id => (InteractionsNode) _interactionsDatabase.LoadFromID(id)).ToList();
-        }
-
-        if (newPlayer)
-        {
-            ShopPool = new List<UpgradeID>();
-            StationQueue = new List<UpgradeID>();
-        }
-        else
-        {
+            Unlocked = new HashSet<UpgradeID>(player.Unlocked);
+            Purchased = new HashSet<UpgradeID>(player.Purchased);
             ShopPool = player.ShopPool;
             StationQueue = player.StationQueue;
         }

@@ -70,13 +70,20 @@ public class SaveManager : Singleton<SaveManager>
         Player.InteractionNodes = ProgressionManager.Instance.Interactions.Select(node => node?.ID).ToList();
         Player.UpgradeNode = ProgressionManager.Instance.UpgradeNode?.ID;
         Player.RadioNode = ProgressionManager.Instance.RadioNode?.ID;
+        Player.ShopPool = ProgressionManager.Instance.ShopPool;
+        Player.StationQueue = ProgressionManager.Instance.StationQueue;
+        Player.Purchased = new List<UpgradeID>(ProgressionManager.Instance.Purchased);
+        Player.Unlocked = new List<UpgradeID>(ProgressionManager.Instance.Unlocked);
 
         string json = JsonUtility.ToJson(Player, true);
 
         if(_overviews == null) LoadSaveOverviews();
         _overviews.SaveOverviews.Add(new SaveOverview(
             saveId,
-            Player.Day
+            Player.Day,
+            Player.Wealth,
+            Player.IngredientsUnlocked.Count,
+            Player.StationsUnlocked.Count
         ));
 
         File.WriteAllText(GetSlotPath(saveId), json);
