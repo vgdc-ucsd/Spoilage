@@ -21,6 +21,7 @@ public class SettingsButtons : MonoBehaviour
     }
     void Back()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         Scene settings = SceneManager.GetSceneByName("Settings");
         if (settings.isLoaded)
         {

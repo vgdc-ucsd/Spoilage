@@ -51,6 +51,7 @@ public class ShopItemScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         if (!_bought)
         {
+            AudioManager.Instance.PlaySFX("ShopHover");
             transform.localScale *= 1.1f;
             FlipCard();
         }

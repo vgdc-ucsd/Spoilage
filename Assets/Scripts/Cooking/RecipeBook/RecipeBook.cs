@@ -23,11 +23,13 @@ public class RecipeBook : MonoBehaviour
 
     public void Show()
     {
+        AudioManager.Instance.PlaySFX("PageTurn");
         gameObject.SetActive(true);
     }
 
     public void Hide()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         gameObject.SetActive(false);
     }
 
@@ -95,6 +97,7 @@ public class RecipeBook : MonoBehaviour
 
     public void ToggleSpoiled()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         if (_spoiled)
         {
             _recipeDescriptionText.text = _ingredient.RecipeBookDescriptionUnspoiled;

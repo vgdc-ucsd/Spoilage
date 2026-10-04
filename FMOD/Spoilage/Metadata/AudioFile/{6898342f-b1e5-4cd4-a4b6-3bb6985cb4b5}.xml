@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{6898342f-b1e5-4cd4-a4b6-3bb6985cb4b5}">
 		<property name="assetPath">
-			<value>DinerAtTheEndOfTheWorld_London.wav</value>
+			<value>Music/DinerAtTheEndOfTheWorld_London.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

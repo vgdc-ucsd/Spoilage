@@ -21,6 +21,7 @@ public class GameOver : MonoBehaviour
 
     public void SetGameOverScreen()
     {
+        AudioManager.Instance.PlayMusicEntry("Lose");
         int day = SaveManager.Instance.Player.Day;
         _reputationScreen.SetActive(false);
         _bankruptcyScreen.SetActive(false);

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{e1c4a60a-f1de-4521-9e3b-a2d9d92693c5}">
 		<property name="assetPath">
-			<value>Very Cozy Gameplay Track(Loop)_ Fabrizzio .mp3</value>
+			<value>Music/Very Cozy Gameplay Track(Loop)_ Fabrizzio .mp3</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
