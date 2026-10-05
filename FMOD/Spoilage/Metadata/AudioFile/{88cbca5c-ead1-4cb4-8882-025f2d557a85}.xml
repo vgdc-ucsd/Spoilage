@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{88cbca5c-ead1-4cb4-8882-025f2d557a85}">
 		<property name="assetPath">
-			<value>kinda cozy gameplay BGM (loop).mp3</value>
+			<value>Music/kinda cozy gameplay BGM (loop).mp3</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

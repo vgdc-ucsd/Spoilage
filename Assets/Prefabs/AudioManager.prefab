@@ -328,10 +328,10 @@ MonoBehaviour:
   - id: Trash
     eventReference:
       Guid:
-        Data1: 956210160
-        Data2: 1205801943
-        Data3: -56629110
-        Data4: 695509854
+        Data1: 1074491466
+        Data2: 1177386169
+        Data3: 1082175930
+        Data4: -237335524
       Path: event:/SFX/Trash
   musicEntries:
   - id: Title
@@ -406,5 +406,29 @@ MonoBehaviour:
         Data3: 142294961
         Data4: 1416530668
       Path: event:/IntroCutsceneMusic
+  - id: ResistanceRadio
+    eventReference:
+      Guid:
+        Data1: 1523976470
+        Data2: 1199075166
+        Data3: -1718543972
+        Data4: -738757151
+      Path: event:/RadioMusic/ResistanceRadio
+  - id: WarlordRadio
+    eventReference:
+      Guid:
+        Data1: -413745995
+        Data2: 1339958148
+        Data3: -1326995017
+        Data4: 1503191736
+      Path: event:/RadioMusic/WarlordRadio
+  - id: GenericRadio
+    eventReference:
+      Guid:
+        Data1: 1562089499
+        Data2: 1191964976
+        Data3: 2145184654
+        Data4: -958535904
+      Path: event:/RadioMusic/GenericRadio
   busListOk: 0
   sysemIsOk: 0

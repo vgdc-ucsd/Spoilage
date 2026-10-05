@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{609945f5-a482-402c-9dc2-1534ba02caaf}">
 		<property name="assetPath">
-			<value>GameplayMusic_Elijah - Looped.wav</value>
+			<value>Music/GameplayMusic_Elijah - Looped.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

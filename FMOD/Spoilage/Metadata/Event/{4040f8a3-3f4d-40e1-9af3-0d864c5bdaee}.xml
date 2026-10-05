@@ -32,7 +32,7 @@
 			<destination>{fff01306-6e8c-49bc-b041-4dde9cf564e6}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{2a7e9874-fbcd-4368-a410-1de829e37db2}</destination>
+			<destination>{910dab5d-82c6-4ff9-9e35-c64f66bcc891}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{462b728c-d228-49a8-ae29-0e4b59bd64cf}">
@@ -72,6 +72,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{c2368270-cda4-48b0-ac42-129f64b97b92}">
+		<relationship name="modulators">
+			<destination>{33956d67-bbd5-46b3-b7a6-35cf69f23500}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{afcaf817-2058-4a8c-a96b-0f0f730b5f5a}</destination>
 		</relationship>
@@ -93,9 +96,37 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{6e2ee7d9-d7df-4f20-a0ab-93302b9eff34}" />
+	<object class="ADSRModulator" id="{33956d67-bbd5-46b3-b7a6-35cf69f23500}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>100</value>
+		</property>
+		<property name="holdTime">
+			<value>480</value>
+		</property>
+		<property name="decayTime">
+			<value>4000</value>
+		</property>
+		<property name="sustainValue">
+			<value>-80</value>
+		</property>
+		<property name="releaseTime">
+			<value>920</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{afcaf817-2058-4a8c-a96b-0f0f730b5f5a}">
 		<relationship name="effects">
 			<destination>{03cc1b9b-abfc-4ebe-9eb6-c0b28f71e655}</destination>
+			<destination>{8f9396a9-f3b2-4fc8-b064-286ec8f67590}</destination>
+			<destination>{f2ea8129-23c9-4fe2-b26e-e9f28c210eaa}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{ca63842f-4cbf-40d7-bd9b-65449a7a05ff}" />
@@ -106,4 +137,35 @@
 	</object>
 	<object class="MixerBusFader" id="{0f82c3b9-bfc9-4d2d-a792-6c9335cd9bfa}" />
 	<object class="MixerBusFader" id="{03cc1b9b-abfc-4ebe-9eb6-c0b28f71e655}" />
+	<object class="SFXReverbEffect" id="{8f9396a9-f3b2-4fc8-b064-286ec8f67590}">
+		<property name="decayTime">
+			<value>650</value>
+		</property>
+		<property name="earlyDelay">
+			<value>27.5</value>
+		</property>
+		<property name="lateDelay">
+			<value>26</value>
+		</property>
+		<property name="HFDecayRatio">
+			<value>53</value>
+		</property>
+		<property name="highCut">
+			<value>6500</value>
+		</property>
+		<property name="wetLevel">
+			<value>-22.5</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{f2ea8129-23c9-4fe2-b26e-e9f28c210eaa}">
+		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>225.849808</value>
+		</property>
+		<property name="gainA">
+			<value>-6.9280777</value>
+		</property>
+	</object>
 </objects>

@@ -7,6 +7,15 @@ public enum FoodState
     Prepared
 }
 
+public enum StationSound
+{
+    Start,
+    Done,
+    Remove,
+    Click,
+    Close
+}
+
 public abstract class Station : Placeable, ITemporalTile
 {
     public abstract StationUI StationUI { get; }
@@ -37,8 +46,28 @@ public abstract class Station : Placeable, ITemporalTile
         return _cookedFood;
     }
 
+    protected void PlayStationSFX(StationSound sound)
+    {
+        string id = (Data.StationCategory, sound) switch
+        {
+            (StationCategory.Grill,            StationSound.Start)  => "Grill",
+            (StationCategory.Pot,              StationSound.Start)  => "BoilingPot",
+            (StationCategory.Pot,              StationSound.Done)   => "BoilingPotDone",
+            (StationCategory.Blender,          StationSound.Start)  => "Blender",
+            (StationCategory.Oven,             StationSound.Start)  => "ToasterOvenTurnOn",
+            (StationCategory.Oven,             StationSound.Done)   => "ToasterOvenDone",
+            (StationCategory.Oven,             StationSound.Remove) => "ToasterOvenOpen",
+            (StationCategory.Oven,             StationSound.Close)  => "ToasterOvenClose",
+            (StationCategory.CuttingBoard,     StationSound.Click)  => "CuttingBoard",
+            (StationCategory.SeasoningStation, StationSound.Click)  => "Seasoning",
+            _ => null
+        };
+
+        if (id != null) AudioManager.Instance.PlaySFX(id);
+    }
+
     public virtual void Remove()
-    {    
+    {
         foreach (Food food in _ingredients)
         {
             food.Destroy();

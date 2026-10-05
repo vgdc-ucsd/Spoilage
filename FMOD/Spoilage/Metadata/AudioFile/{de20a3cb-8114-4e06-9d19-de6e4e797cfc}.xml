@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{de20a3cb-8114-4e06-9d19-de6e4e797cfc}">
 		<property name="assetPath">
-			<value>TitleTrack(Loop)_Fabrizzio .mp3</value>
+			<value>Music/TitleTrack(Loop)_Fabrizzio .mp3</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

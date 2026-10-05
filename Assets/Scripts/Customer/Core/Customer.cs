@@ -14,6 +14,9 @@ public class Customer : MonoBehaviour
     private CustomerDialogue _dialogue;
     private float _patience;
     private bool _timerActive;
+    private bool _playedPatienceHalf;
+    private bool _playedPatienceAlmostDone;
+    private bool _playedPatienceEnd;
     [SerializeField] private CustomerMovement _movement;
     [SerializeField] private TimerUI _patienceTimer;
 
@@ -30,6 +33,8 @@ public class Customer : MonoBehaviour
     private const string SK_EXECUTOR = "Executor";
 
     private const float MAX_PATIENCE = 30f;
+    private const float PATIENCE_HALF = 0.5f;
+    private const float PATIENCE_ALMOST_DONE = 0.2f;
 
     [ContextMenu("Initialize Customer")]
     public void InitializeCustomer()
@@ -189,8 +194,29 @@ public class Customer : MonoBehaviour
     {
         _patience -= dt;
         float maxPatience = HandleMaxPatienceUpgrade();
-        _patienceTimer.SetProgress(_patience / maxPatience);
-        if (_patience <= 0) CookingManager.Instance.OrderFailed();
+        float progress = _patience / maxPatience;
+        _patienceTimer.SetProgress(progress);
+
+        if (!_playedPatienceHalf && progress <= PATIENCE_HALF)
+        {
+            _playedPatienceHalf = true;
+            AudioManager.Instance.PlaySFX("PatienceHalf");
+        }
+        if (!_playedPatienceAlmostDone && progress <= PATIENCE_ALMOST_DONE)
+        {
+            _playedPatienceAlmostDone = true;
+            AudioManager.Instance.PlaySFX("PatienceAlmostDone");
+        }
+
+        if (_patience <= 0)
+        {
+            if (!_playedPatienceEnd)
+            {
+                _playedPatienceEnd = true;
+                AudioManager.Instance.PlaySFX("PatienceEnd");
+            }
+            CookingManager.Instance.OrderFailed();
+        }
     }
 
     public void SetDialogue(CustomerDialogue dialogue)
@@ -201,7 +227,14 @@ public class Customer : MonoBehaviour
     public void EnablePatienceTimer(bool active)
     {
         float maxPatience = HandleMaxPatienceUpgrade();
-        if (active) _patience = maxPatience;
+        if (active)
+        {
+            _patience = maxPatience;
+            _playedPatienceHalf = false;
+            _playedPatienceAlmostDone = false;
+            _playedPatienceEnd = false;
+            AudioManager.Instance.PlaySFX("PatienceStart");
+        }
         _timerActive = active;
         _patienceTimer.Show(active);
     }

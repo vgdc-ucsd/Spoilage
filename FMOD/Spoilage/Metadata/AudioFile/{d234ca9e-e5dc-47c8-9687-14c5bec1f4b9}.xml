@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{d234ca9e-e5dc-47c8-9687-14c5bec1f4b9}">
 		<property name="assetPath">
-			<value>TitleTrack(FullTrack)_Fabrizzio .mp3</value>
+			<value>Music/TitleTrack(FullTrack)_Fabrizzio .mp3</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

@@ -16,6 +16,7 @@ public class RecipeTab : MonoBehaviour
 
     public void Click()
     {
+        AudioManager.Instance.PlaySFX("PageTurn");
         _recipeBook.SelectRecipe(_index);
     }
 }
