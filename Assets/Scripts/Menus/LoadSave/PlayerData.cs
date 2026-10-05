@@ -23,6 +23,7 @@ public class PlayerData
     public int Day;
     public int Wealth;
     public int Reputation;
+    public int ReputationMax;
     public DayData DayData;
 
     // TODO: Handle saving other key information
@@ -64,6 +65,8 @@ public class PlayerData
     {   
         Day = 1;
         Wealth = 200;
+        Reputation = 25;
+        ReputationMax = 50;
         KitchenStations = new List<string>();
         KitchenItems = new List<string>();
         PendingStation = "Grill";
@@ -74,6 +77,7 @@ public class PlayerData
         Unlocked = new List<UpgradeID>();
         Purchased = new List<UpgradeID>();
         DayData = new DayData();
+        InteractionNodes = new List<int?>();
 
         // Initialize StationsUnlocked and IngredientsUnlocked with the day 1 status
         StationsUnlocked = new()

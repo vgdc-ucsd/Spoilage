@@ -34,7 +34,7 @@ public class RecipeStep : MonoBehaviour
 
         if (step.requiredIngredients.Length >= 3)
         {
-            _ingredientC.sprite = IngredientLookup.Get(step.requiredIngredients[1].name).NormalSprite;
+            _ingredientC.sprite = IngredientLookup.Get(step.requiredIngredients[2].name).NormalSprite;
             _ingredientC.gameObject.SetActive(true);
             _operationC.SetActive(true);
         }
@@ -44,7 +44,7 @@ public class RecipeStep : MonoBehaviour
             _operationC.SetActive(false);
         }
 
-        if (!string.IsNullOrEmpty(step.appliance) && step.appliance != "Kitchen Counter")
+        if (!string.IsNullOrEmpty(step.appliance) && step.appliance != "Kitchen Tile")
         {
             _station.sprite = StationLookup.Instance.NameToData(step.appliance).SpriteOff;
             _station.gameObject.SetActive(true);

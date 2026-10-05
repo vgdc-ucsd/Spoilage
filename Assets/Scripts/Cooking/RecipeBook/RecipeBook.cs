@@ -81,7 +81,7 @@ public class RecipeBook : MonoBehaviour
 
     private List<Recipe> FindSteps(Recipe root)
     {
-        List<Recipe> steps = new List<Recipe>{ root };
+        List<Recipe> steps = new List<Recipe>();
         
         foreach (RecipeRequirement requirement in root.requiredIngredients)
         {
@@ -92,6 +92,7 @@ public class RecipeBook : MonoBehaviour
             }
         }
 
+        steps.Add(root);
         return steps;
     }
 

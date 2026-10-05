@@ -15,10 +15,13 @@ public class SaveOverviewCollection
 [Serializable]
 public class SaveOverview
 {
-    public SaveOverview(int id, int day, int Wealth, int ingredients, int stations)
+    public SaveOverview(int id, int day, int wealth, int ingredients, int stations)
     {
         ID = id;
         Day = day;
+        Wealth = wealth;
+        IngredientsUnlocked = ingredients;
+        StationsUnlocked = stations;
     }
 
     public int ID;

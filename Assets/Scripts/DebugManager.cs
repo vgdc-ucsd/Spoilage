@@ -10,8 +10,10 @@ public class DebugManager : Singleton<DebugManager>
     [SerializeField] private DebugPlayerData _debugPlayerSave;
     [SerializeField] private bool _allowSkipDialogue;
     [SerializeField] private bool _allowSkipDay;
+    [SerializeField] private bool _rich;
 
     public PlayerData DebugPlayerSave => DEBUG ? _debugPlayerSave?.PlayerData : null;
     public bool AllowSkipDialogue => DEBUG ? _allowSkipDialogue : false;
     public bool AllowSkipDay => DEBUG ? _allowSkipDay : false;
+    public bool Rich => DEBUG ? _rich : false;
 }

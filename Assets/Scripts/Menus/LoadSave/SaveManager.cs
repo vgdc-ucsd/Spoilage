@@ -138,6 +138,7 @@ public class SaveManager : Singleton<SaveManager>
         }
 
         ProgressionManager.Instance.Init(Player, newPlayer);
+        if (DebugManager.Instance.Rich) Player.Wealth = 9999;
     }
 
     public void LoadSettings()
@@ -177,11 +178,8 @@ public class SaveManager : Singleton<SaveManager>
             saveId = SAVE_SLOT_COUNT - 1;
         }
 
-        Player = new PlayerData
-        {
-            SaveID = saveId,
-            SaveName = $"Save {saveId}"
-        };
+        Player.SaveID = saveId;
+        Player.SaveName = $"Save {saveId}";
 
         SaveGame(saveId);
     }

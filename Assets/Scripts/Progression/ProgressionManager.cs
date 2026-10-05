@@ -90,6 +90,8 @@ public class ProgressionManager : Singleton<ProgressionManager>
                 break;
             case UpgradeType.Station:
                 SaveManager.Instance.Player.PendingStation = upgrade.Name;
+                SaveManager.Instance.Player.StationsUnlocked.Add(upgrade.Name);
+                RecipeManager.Instance.DiscoverRecipes();
                 break;
             case UpgradeType.Ingredient:
                 ShopPool.Add(id);
@@ -150,15 +152,6 @@ public class ProgressionManager : Singleton<ProgressionManager>
         if (upgrade.UpgradeType is UpgradeType.Ingredient)
         {
             SaveManager.Instance.Player.IngredientsUnlocked.Add(upgrade.name);
-        }
-        
-        if (upgrade.UpgradeType is UpgradeType.Station)
-        {
-            SaveManager.Instance.Player.StationsUnlocked.Add(upgrade.Name);
-        }
-        
-        if (upgrade.UpgradeType is UpgradeType.Ingredient or UpgradeType.Station)
-        {   
             _recipesUnlocked = RecipeManager.Instance.DiscoverRecipes();
         }
     }

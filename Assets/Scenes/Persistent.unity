@@ -787,6 +787,7 @@ MonoBehaviour:
     Day: 0
     Wealth: 0
     Reputation: 0
+    ReputationMax: 50
     DayData:
       CustomersServed: 0
       CustomersRefused: 0
@@ -1238,6 +1239,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 960963375}
     m_Modifications:
+    - target: {fileID: 1911131217323276095, guid: 9911b8bb4d60e2a4ba4fb2f1496f95e5, type: 3}
+      propertyPath: _rich
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1911131217323276095, guid: 9911b8bb4d60e2a4ba4fb2f1496f95e5, type: 3}
       propertyPath: _debugPlayerSave
       value: 
