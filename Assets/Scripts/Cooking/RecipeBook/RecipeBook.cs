@@ -58,7 +58,9 @@ public class RecipeBook : MonoBehaviour
         _ingredient = IngredientLookup.Get(recipe.name);
 
         _recipeNameText.text = _ingredient.Name;
-        _recipeDescriptionText.text = _ingredient.RecipeBookDescriptionUnspoiled;
+        _recipeDescriptionText.text = recipe.spoiled 
+            ? _ingredient.RecipeBookDescriptionSpoiled 
+            : _ingredient.RecipeBookDescriptionUnspoiled;
         _recipeImage.sprite = _ingredient.NormalSprite;
         _recipePlate.sprite = _ingredient.PlateSprite;
         _toggleSpoiledButton.gameObject.SetActive(!recipe.spoiled);

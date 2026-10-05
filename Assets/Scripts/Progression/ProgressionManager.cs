@@ -151,7 +151,7 @@ public class ProgressionManager : Singleton<ProgressionManager>
         
         if (upgrade.UpgradeType is UpgradeType.Ingredient)
         {
-            SaveManager.Instance.Player.IngredientsUnlocked.Add(upgrade.name);
+            SaveManager.Instance.Player.IngredientsUnlocked.Add(upgrade.Name);
             _recipesUnlocked = RecipeManager.Instance.DiscoverRecipes();
         }
     }
