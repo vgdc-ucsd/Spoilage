@@ -119,6 +119,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &74640886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 74640887}
+  - component: {fileID: 74640888}
+  m_Layer: 0
+  m_Name: Recipe Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &74640887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74640886}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 960963375}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &74640888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74640886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f0c5e33ed1d9344f904eb1474af1b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RecipeManager
+  recipeJsonFile: {fileID: 4900000, guid: 7ea483cde0a4c6746ac64dadfe731a7c, type: 3}
+  allRecipes:
+    allRecipes: []
 --- !u!1001 &408894036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -437,7 +484,6 @@ MonoBehaviour:
   _billmanRoot: {fileID: 0}
   _propagandistRoot: {fileID: 0}
   _database: {fileID: 0}
-  _debug_warlordData: {fileID: 0}
 --- !u!4 &862931061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8823376124235126431, guid: 9911b8bb4d60e2a4ba4fb2f1496f95e5, type: 3}
@@ -624,6 +670,7 @@ Transform:
   - {fileID: 660603542}
   - {fileID: 862931061}
   - {fileID: 1959971577}
+  - {fileID: 74640887}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1106200419
@@ -746,7 +793,6 @@ MonoBehaviour:
       Streak: 0
       RemainingInstantStationUses: 0
       Profits: 0
-    RecipesUnlocked: []
     StationsUnlocked:
     - Kitchen Tile
     - Grill
@@ -765,11 +811,15 @@ MonoBehaviour:
     KitchenItems: []
     PendingStation: Grill
     GameOverCondition: 0
+    GameEndScenario: 0
+    GameEndItemServed: 0
     SeenSemikeyCharacters: []
     RejectedSemikeyCharacters: []
     resistanceScore: 7
     ShopPool: 
     StationQueue: 
+    Unlocked: 
+    Purchased: 
   Settings:
     Volume: 0.75
     Fullscreen: 0

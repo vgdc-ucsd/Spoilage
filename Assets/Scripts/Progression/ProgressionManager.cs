@@ -13,6 +13,7 @@ public class ProgressionManager : Singleton<ProgressionManager>
     private List<InteractionsNode> _interactionTimelines;
     private RadioNode _radioTimeline;
     private UpgradeNode _upgradeTimeline;
+    private List<Recipe> _recipesUnlocked;
 
     public HashSet<UpgradeID> Unlocked = new HashSet<UpgradeID>();
     public HashSet<UpgradeID> Purchased = new HashSet<UpgradeID>();
@@ -22,6 +23,7 @@ public class ProgressionManager : Singleton<ProgressionManager>
     public RadioNode RadioNode => _radioTimeline;
     public UpgradeNode UpgradeNode => _upgradeTimeline;
     public List<InteractionsNode> Interactions => _interactionTimelines;
+    public List<Recipe> RecipesUnlocked => _recipesUnlocked;
 
     public void Init(PlayerData player, bool newPlayer)
     {
@@ -33,7 +35,7 @@ public class ProgressionManager : Singleton<ProgressionManager>
             _interactionTimelines = StoryManager.Instance.InitRunTimelineGraphs();
             _radioTimeline = StoryManager.Instance.RadioRoot;    
             Unlocked = new HashSet<UpgradeID>();        
-            Purchased = new HashSet<UpgradeID>();        
+            Purchased = new HashSet<UpgradeID>();
         }
         else
         {
@@ -46,6 +48,7 @@ public class ProgressionManager : Singleton<ProgressionManager>
             StationQueue = player.StationQueue;
         }
 
+        _recipesUnlocked = RecipeManager.Instance.DiscoverRecipes();
         Upgrades = new Dictionary<UpgradeID, Upgrade>();
 
         foreach (Upgrade upgrade in _upgrades)
@@ -138,5 +141,25 @@ public class ProgressionManager : Singleton<ProgressionManager>
      
         DiscordManager.Instance.SetStatus(player.Day);
         GameManager.Instance.Load(GameScene.SHOP);
+    }
+
+    public void Purchase(Upgrade upgrade)
+    {
+        Purchased.Add(upgrade.UpgradeID);
+        
+        if (upgrade.UpgradeType is UpgradeType.Ingredient)
+        {
+            SaveManager.Instance.Player.IngredientsUnlocked.Add(upgrade.name);
+        }
+        
+        if (upgrade.UpgradeType is UpgradeType.Station)
+        {
+            SaveManager.Instance.Player.StationsUnlocked.Add(upgrade.Name);
+        }
+        
+        if (upgrade.UpgradeType is UpgradeType.Ingredient or UpgradeType.Station)
+        {   
+            _recipesUnlocked = RecipeManager.Instance.DiscoverRecipes();
+        }
     }
 }

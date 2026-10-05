@@ -30,7 +30,6 @@ public class PlayerData
     // is just a temporary solution for the purposes of order generation. Feel free 
     // to change it to whatever format you want as long as the name can still be
     // easily accessed - Samantha M
-    public List<Recipe> RecipesUnlocked;
     public List<string> StationsUnlocked;
     public List<string> IngredientsUnlocked;
     
@@ -65,7 +64,6 @@ public class PlayerData
     {   
         Day = 1;
         Wealth = 200;
-        RecipesUnlocked = new();
         KitchenStations = new List<string>();
         KitchenItems = new List<string>();
         PendingStation = "Grill";

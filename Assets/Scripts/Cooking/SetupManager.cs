@@ -44,7 +44,7 @@ public class SetupManager : Singleton<SetupManager>
         CurrentPhase = GamePhase.Discussion;
         AudioManager.Instance.PlayMusicEntry("KitchenLayout");
         GuardManager.Instance.Init();
-        _recipeBook.Init(SaveManager.Instance.Player.RecipesUnlocked);
+        _recipeBook.Init(ProgressionManager.Instance.RecipesUnlocked);
         _stationUnlockPopup.gameObject.SetActive(false);
         _timeLimitReached = false;
 

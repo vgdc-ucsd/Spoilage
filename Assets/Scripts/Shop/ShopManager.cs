@@ -6,6 +6,6 @@ public class ShopManager : Singleton<ShopManager>
     {
         // TODO: REMOVE ITEM FROM SHOP POOL IF IT'S A ONE-TIME PURCHASE
         SaveManager.Instance.Player.Wealth -= upgrade.Cost;
-        ProgressionManager.Instance.Purchased.Add(upgrade.UpgradeID);
+        ProgressionManager.Instance.Purchase(upgrade);
     }
 }
