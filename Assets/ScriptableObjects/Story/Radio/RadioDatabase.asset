@@ -12,6 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e5a7b561fffc640852d4cceeef0d17, type: 3}
   m_Name: RadioDatabase
   m_EditorClassIdentifier: Assembly-CSharp::RadioDatabase
-  _searchFolder: 
-  _nodeTypeName: 
-  _nodes: []
+  _searchFolder: Assets/ScriptableObjects/Story/Radio
+  _nodeTypeName: RadioNode
+  _nodes:
+  - {fileID: 11400000, guid: 2149cf6add5dc6d4e818389d7165ffa4, type: 2}
+  - {fileID: 11400000, guid: a4cfda311514db447af558e701ab3f2a, type: 2}
+  - {fileID: 11400000, guid: da6b677523b32ff4480cc9c1f721ee30, type: 2}
+  - {fileID: 11400000, guid: 01748a9c81ac3a646945b39a2b60171a, type: 2}
+  - {fileID: 11400000, guid: a27e00fbf13fbf14d96bbf2ae6f8ae17, type: 2}
+  - {fileID: 11400000, guid: d5c864f14034a774fa9768d3e0282812, type: 2}
+  - {fileID: 11400000, guid: cf143aa55c096c140a2c79159e782113, type: 2}
+  - {fileID: 11400000, guid: 31f94d8bb0a54f64da5c455c6e8e1c9f, type: 2}
+  - {fileID: 11400000, guid: 426f40639cd69744d9d0a44f7bff11f6, type: 2}
+  - {fileID: 11400000, guid: 785a94ea6dfbb664fb921537e8e8cb18, type: 2}
+  - {fileID: 11400000, guid: ab9771700f4f8bd4a9ca73c683e31272, type: 2}
+  - {fileID: 11400000, guid: c12c36a29499ccb4683969eb5f9499d7, type: 2}
+  - {fileID: 11400000, guid: 97b45121677cb1e4ea4289cafdbd4f83, type: 2}
+  - {fileID: 11400000, guid: 5c7cc7928decd9a4489779335df74370, type: 2}
+  - {fileID: 11400000, guid: 60b1f49338166dc49914284fe3ba9b56, type: 2}
+  - {fileID: 11400000, guid: ded51ba5f6279bd4ca91d5cf6c589e80, type: 2}
+  - {fileID: 11400000, guid: 18d99d143ff133b49aef233a7b160c1a, type: 2}
+  - {fileID: 11400000, guid: 4ad12f795a8b17d4dbfbb69c08fcf0e7, type: 2}
+  - {fileID: 11400000, guid: a6b0a36c69499aa4b868fc30a2c1df04, type: 2}
+  - {fileID: 11400000, guid: 715714ef905264f40b3d4cc727d34e5e, type: 2}
+  - {fileID: 11400000, guid: f67a9e0185a9efa43970a50712d6f926, type: 2}
+  - {fileID: 11400000, guid: f4ff57dc43ab0994fba0f1a859ff851c, type: 2}
+  - {fileID: 11400000, guid: bb36a1f5c97862f43a700ad6872001a8, type: 2}
+  - {fileID: 11400000, guid: 24150e35394fd13418e1785e56563742, type: 2}
+  - {fileID: 11400000, guid: 71f5962b1b5114845baa7dec08db6ec9, type: 2}
+  - {fileID: 11400000, guid: 08d8e859668695b4381f963c8b1a9322, type: 2}
+  - {fileID: 11400000, guid: c740e353362ecbe41bffbcb985889eaf, type: 2}
+  - {fileID: 11400000, guid: e9f56fcf689f11046a00b7ab7b8441df, type: 2}
+  - {fileID: 11400000, guid: fc5a69e8cf3174d40b51da1023840012, type: 2}
+  - {fileID: 11400000, guid: 5453c7aba963ec74087a47caeeae3e45, type: 2}
+  - {fileID: 11400000, guid: 1a2fe2b99a84c994386f11094bea5bc2, type: 2}
+  - {fileID: 11400000, guid: 3b87314feacbab94aa688aa91f3e3383, type: 2}
