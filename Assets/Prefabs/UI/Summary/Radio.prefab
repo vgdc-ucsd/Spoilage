@@ -177,6 +177,8 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 9985a8691eadc7b4099716f87b96d324, type: 3}
   - {fileID: 4900000, guid: 06c1c9a96462c4541a29a3b8b03e5226, type: 3}
   - {fileID: 4900000, guid: c471d852ef7ac914584b5124695333c1, type: 3}
+  - {fileID: 4900000, guid: 8728deb1fe81d3149b6f480dfcb299e4, type: 3}
+  - {fileID: 4900000, guid: db632f759f1d1b04baead040db4dadbf, type: 3}
   _resistanceFiller:
   - {fileID: 4900000, guid: 1ee88b399b595c743a880e5908030654, type: 3}
   - {fileID: 4900000, guid: 7285b289da36587458f821d3da8824a2, type: 3}

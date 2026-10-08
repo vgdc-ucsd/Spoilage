@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RadioNode
   _day: 11
   _data: {fileID: 0}
-  _noBranch: {fileID: 0}
+  _noBranch: {fileID: 11400000, guid: 97b45121677cb1e4ea4289cafdbd4f83, type: 2}
   _branch: {fileID: 0}
   _id: 0

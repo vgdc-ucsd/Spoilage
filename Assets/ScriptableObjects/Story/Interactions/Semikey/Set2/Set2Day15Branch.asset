@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d94ca276da19b9f48a8b794866e53e70, type: 3}
+  m_Name: Set2Day15Branch
+  m_EditorClassIdentifier: Assembly-CSharp::ItemGivenToSemikeyBranch
+  _itemId: PropagandaPamphlet
+  _recipientId: Old Man
+  _itemGiven: {fileID: 11400000, guid: aaa8d9bfa8a78eb47a90ddb1bc2365c3, type: 2}
+  _itemNotGiven: {fileID: 11400000, guid: 6a179e69b9221fb4c9982dec03aaa335, type: 2}

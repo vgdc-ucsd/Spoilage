@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4587f211978db244fa954ca917d83a67, type: 3}
+  m_Name: Set3Day16BranchRDN
+  m_EditorClassIdentifier: Assembly-CSharp::RejectedSemikeysWithSpecificBranch
+  _specificSemikeyId: Merchant
+  _onlySpecificRejected: {fileID: 11400000, guid: 9f7eae4896a576546918f244be664687, type: 2}
+  _allRejected: {fileID: 11400000, guid: 3ba9c8b4465844848ae8b6af8ac86245, type: 2}
+  _anyServed: {fileID: 11400000, guid: 25d06b8572cc6e54a86a39572b457396, type: 2}

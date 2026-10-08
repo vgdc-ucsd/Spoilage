@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RadioDay23W
   m_EditorClassIdentifier: Assembly-CSharp::RadioNode
   _day: 23
-  _data: {fileID: 4900000, guid: fdcf025620bb070488d3168c20d22da9, type: 3}
-  _noBranch: {fileID: 0}
+  _data: {fileID: 4900000, guid: 86d2aa82da04cfa45971372be685b658, type: 3}
+  _noBranch: {fileID: 11400000, guid: fc5a69e8cf3174d40b51da1023840012, type: 2}
   _branch: {fileID: 0}
   _id: 0

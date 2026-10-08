@@ -431,11 +431,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StoryManager
   _radioRoot: {fileID: 11400000, guid: 2149cf6add5dc6d4e818389d7165ffa4, type: 2}
   _keyRoot: {fileID: 11400000, guid: 887b49ddf68222641ab04a9e3dccbb0f, type: 2}
-  _set1Root: {fileID: 0}
-  _set2Root: {fileID: 0}
-  _set3Root: {fileID: 0}
-  _billmanRoot: {fileID: 0}
-  _propagandistRoot: {fileID: 0}
+  _set1Root: {fileID: 11400000, guid: f8a0da67c774a6846ad5d95998052c59, type: 2}
+  _set2Root: {fileID: 11400000, guid: 0c65afaec1e95564cbf98e9e701517a8, type: 2}
+  _set3Root: {fileID: 11400000, guid: b816ff7bee61e444a9c3ae8dea1e9620, type: 2}
+  _billmanRoot: {fileID: 11400000, guid: f44d9cd261b62744c81564eee2480c2e, type: 2}
+  _propagandistRoot: {fileID: 11400000, guid: 08e7dc2e5e2fd294094d343b9febc827, type: 2}
   _database: {fileID: 0}
   _debug_warlordData: {fileID: 0}
 --- !u!4 &862931061 stripped
@@ -744,6 +744,7 @@ MonoBehaviour:
       CustomersServed: 0
       CustomersRefused: 0
       Streak: 0
+      RemainingInstantStationUses: 0
       Profits: 0
     RecipesUnlocked: []
     StationsUnlocked:
@@ -764,6 +765,8 @@ MonoBehaviour:
     KitchenItems: []
     PendingStation: Grill
     GameOverCondition: 0
+    GameEndScenario: 0
+    GameEndItemServed: 0
     SeenSemikeyCharacters: []
     RejectedSemikeyCharacters: []
     resistanceScore: 7
