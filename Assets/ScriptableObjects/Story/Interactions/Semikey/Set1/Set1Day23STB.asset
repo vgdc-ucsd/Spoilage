@@ -24,6 +24,6 @@ MonoBehaviour:
       _conversationJson: {fileID: 4900000, guid: 3f651320792404244af67c8c85da4557, type: 3}
     _endInteraction: []
     _ending: {fileID: 0}
-  _noBranch: {fileID: 0}
+  _noBranch: {fileID: 11400000, guid: 312fb8d0f2a363343903fca087346f25, type: 2}
   _branch: {fileID: 0}
   _id: 58

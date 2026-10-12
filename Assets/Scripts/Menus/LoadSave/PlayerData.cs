@@ -43,6 +43,15 @@ public class PlayerData
 
     public List<string> SeenSemikeyCharacters;
     public List<string> RejectedSemikeyCharacters;
+    public Dictionary<string, string> ItemsGivenTo = new Dictionary<string, string>()
+    {
+        ["ChildhoodDishPoisoned"] = "",
+        ["ChildhoodDishUnpoisoned"] = "",
+        ["CodedMessage"] = "",
+        ["PocketsTheRat"] = "",
+        ["PropagandaPamphlet"] = "",
+        ["VaseOfFlowers"] = ""
+    };
 
     /// <summary>
     /// Player resistance. Below 7 leans warlord, above 7 leans

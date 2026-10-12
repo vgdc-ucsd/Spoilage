@@ -93,6 +93,7 @@ public class CookingManager : Singleton<CookingManager>
                     // item is removed from plating tile
                     _platingTile.Remove(item);
                     item.Destroy();
+                    SaveManager.Instance.Player.ItemsGivenTo[item.Data.ID] = customer.customerData.id;
                 }
                 else
                 {
@@ -124,6 +125,7 @@ public class CookingManager : Singleton<CookingManager>
                 // item is removed from plating tile
                 _platingTile.Remove(item);
                 item.Destroy();
+                SaveManager.Instance.Player.ItemsGivenTo[item.Data.ID] = customer.customerData.id;
             }
             else
             {
@@ -228,6 +230,7 @@ public class CookingManager : Singleton<CookingManager>
                 // item is removed from plating tile
                 _platingTile.Remove(item);
                 item.Destroy();
+                SaveManager.Instance.Player.ItemsGivenTo[item.Data.ID] = customer.customerData.id;
             }
             else
             {
@@ -258,6 +261,7 @@ public class CookingManager : Singleton<CookingManager>
                 // item is removed from plating tile
                 _platingTile.Remove(item);
                 item.Destroy();
+                SaveManager.Instance.Player.ItemsGivenTo[item.Data.ID] = customer.customerData.id;
             }
             else
             {

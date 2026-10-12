@@ -16,6 +16,10 @@ public class GuardManager : Singleton<GuardManager>
     private const float GUARD_WALK_DURATION = 1.5f;
     private const float GUARD_SCALE = 0.594f;
     private const float GUARD_HEIGHT_OFFSET = 100f;
+
+    private const string UNLUCKY_TWIN_BOY_ID = "Unlucky Twin Boy";
+    private const string UNLUCKY_TWIN_GIRL_ID = "Unlucky Twin Girl";
+
     private Vector3 GuardOffset(float x, float y = 0f)
     {
         return _guardParent.TransformVector(new Vector3(x, y, 0f));
@@ -55,7 +59,8 @@ public class GuardManager : Singleton<GuardManager>
             CustomerLineManager.Instance.CurrentCustomer;
         if (currentCustomer == null
             || currentCustomer.customerData == null
-            || currentCustomer.customerData.spoilage == CustomerData.Spoilage.STAGE_II)
+            || currentCustomer.customerData.spoilage == CustomerData.Spoilage.STAGE_II
+            || currentCustomer.customerData.tier == CustomerData.Tier.Key)
         {
             return false;
         }
@@ -76,6 +81,20 @@ public class GuardManager : Singleton<GuardManager>
             SaveManager.Instance.Player.RejectedSemikeyCharacters.Add(
                 currentCustomer.customerData.id
             );
+
+            // rejecting one twin automatically rejects the other twin
+            if (currentCustomer.customerData.id == UNLUCKY_TWIN_BOY_ID)
+            {
+                SaveManager.Instance.Player.RejectedSemikeyCharacters.Add(
+                    UNLUCKY_TWIN_GIRL_ID
+                );
+            }
+            else if (currentCustomer.customerData.id == UNLUCKY_TWIN_GIRL_ID)
+            {
+                SaveManager.Instance.Player.RejectedSemikeyCharacters.Add(
+                    UNLUCKY_TWIN_BOY_ID
+                );
+            }
         }
 
         CustomerMovement rightGuard =

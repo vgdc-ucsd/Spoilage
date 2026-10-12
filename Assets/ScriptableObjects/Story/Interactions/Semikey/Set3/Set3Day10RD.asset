@@ -23,5 +23,5 @@ MonoBehaviour:
     _endInteraction: []
     _ending: {fileID: 0}
   _noBranch: {fileID: 0}
-  _branch: {fileID: 0}
+  _branch: {fileID: 11400000, guid: 3ca5baa652927e7469e8879feeee826b, type: 2}
   _id: 94
