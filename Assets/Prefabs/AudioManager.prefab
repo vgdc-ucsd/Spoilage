@@ -401,10 +401,10 @@ MonoBehaviour:
   - id: IntroCutscene
     eventReference:
       Guid:
-        Data1: 974229388
-        Data2: 1139655568
-        Data3: 142294961
-        Data4: 1416530668
+        Data1: -184510560
+        Data2: 1153482638
+        Data3: -715273085
+        Data4: -847719460
       Path: event:/IntroCutsceneMusic
   - id: ResistanceRadio
     eventReference:
