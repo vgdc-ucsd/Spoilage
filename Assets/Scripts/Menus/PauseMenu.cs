@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,6 +19,7 @@ public class PauseMenu : Singleton<PauseMenu>
     public GameObject MainMenuButton;
 
     [SerializeField] private Slider _masterVolumeSlider;
+    [SerializeField] private TextMeshProUGUI _dayText;
 
     void Start()
     {
@@ -28,13 +30,13 @@ public class PauseMenu : Singleton<PauseMenu>
             ResumeButton.GetComponent<Button>().onClick.AddListener(Resume);
 
         if (LoadButton != null)
-            MainMenuButton.GetComponent<Button>().onClick.AddListener(LoadSaves);
+            LoadButton.GetComponent<Button>().onClick.AddListener(LoadSaves);
 
         if (SettingsButton != null)
             SettingsButton.GetComponent<Button>().onClick.AddListener(LoadSettings);
 
         if (MainMenuButton != null)
-            MainMenuButton.GetComponent<Button>().onClick.AddListener(ReturnToMenu);
+            MainMenuButton.GetComponent<Button>().onClick.AddListener(QuitButton);
 
         // play the click on the buttons themselves so Resume (also called by Escape) and ReturnToMenu don't double up
         foreach (GameObject button in new[] { ResumeButton, LoadButton, SettingsButton, MainMenuButton })
@@ -43,7 +45,7 @@ public class PauseMenu : Singleton<PauseMenu>
                 button.GetComponent<Button>().onClick.AddListener(PlayClick);
         }
 
-        _masterVolumeSlider.value = AudioManager.Instance.currentVolume;
+        _masterVolumeSlider.onValueChanged.AddListener(UpdateMasterVolume);
     }
 
     void Update()
@@ -89,9 +91,8 @@ public class PauseMenu : Singleton<PauseMenu>
 
     public void LoadSaves()
     {
-        PauseUI.SetActive(false);
-        SettingsUI.SetActive(false);
-        //SavesUI.SetActive(true);
+        Resume();
+        GameManager.Instance.Load(GameScene.LOAD_SAVE);
     }
 
     private void PlayClick()
@@ -101,7 +102,7 @@ public class PauseMenu : Singleton<PauseMenu>
 
     public void QuitButton()
     {
-        PlayClick();
+        Resume();
         GameManager.Instance.Load(GameScene.MAIN_MENU);
     }
 
@@ -113,31 +114,14 @@ public class PauseMenu : Singleton<PauseMenu>
         PauseBar.SetActive(true);
 
         GameIsPaused = true;
+        _dayText.text = $"Day {SaveManager.Instance.Player.Day}";
+        _masterVolumeSlider.value = AudioManager.Instance.currentVolume;
         Time.timeScale = 0f;
     }
 
-    public void ReturnToMenu()
+    public void UpdateMasterVolume(float volume)
     {
-        GameManager.Instance.Load(GameScene.MAIN_MENU);
-
-        Scene Cooking = SceneManager.GetSceneByName("Cooking");
-        if (Cooking.isLoaded)
-        {
-            SceneManager.UnloadSceneAsync("Cooking");
-        }
-
-        Scene Customer = SceneManager.GetSceneByName("Customer");
-        if (Customer.isLoaded)
-        {
-            SceneManager.UnloadSceneAsync("Customer");
-        }
-
-        Resume();
-    }
-
-    public void UpdateMasterVolume()
-    {
-        AudioManager.Instance.SetVolume(_masterVolumeSlider.value);
+        AudioManager.Instance.SetVolume(volume);
     }
 }
 

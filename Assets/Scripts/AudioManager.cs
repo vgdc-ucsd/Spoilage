@@ -126,6 +126,7 @@ public class AudioManager : Singleton<AudioManager>
     {
         FMOD.Studio.Bus bus = RuntimeManager.GetBus(busString);
         bus.setVolume(volume);
+        currentVolume = volume;
     }
 
     /// <summary>

@@ -178,11 +178,6 @@ public class RecipeManager : Singleton<RecipeManager>
         {
             if (recipe.servable)
             {
-                if (recipe.id == 23)
-                {
-                    Debug.Log(CheckPlayerCanMakeRecipe(recipe));
-                }
-
                 if (CheckPlayerCanMakeRecipe(recipe))
                 {
                     results.Add(recipe);
@@ -215,7 +210,6 @@ public class RecipeManager : Singleton<RecipeManager>
             if (!SaveManager.Instance.Player.StationsUnlocked.Contains(recipe.appliance))
             {
                 result = false;
-                if (recipe.id == 23) Debug.Log("appliance");
             }
         }
 
@@ -225,7 +219,6 @@ public class RecipeManager : Singleton<RecipeManager>
             if (!CheckPlayerCanMakeRecipe(allRecipes.allRecipes[ingredient.id]))
             {
                 result = false;
-                if (recipe.id == 23) Debug.Log("ingredient");
             }
         }
 
