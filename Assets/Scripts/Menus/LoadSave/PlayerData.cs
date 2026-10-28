@@ -43,6 +43,7 @@ public class PlayerData
 
     public List<string> SeenSemikeyCharacters;
     public List<string> RejectedSemikeyCharacters;
+    public List<ItemExchange> ItemExchangeSerializableRecord;
     public Dictionary<string, string> ItemsGivenTo = new Dictionary<string, string>()
     {
         ["ChildhoodDishPoisoned"] = "",
@@ -60,9 +61,10 @@ public class PlayerData
     public float resistanceScore = 7f;
 
     // Graphs & Timelines
-    public List<int?> InteractionNodes;
-    public int? RadioNode;
-    public int? UpgradeNode;
+    // -1 is used to represent a null value
+    public List<int> InteractionNodes;
+    public int RadioNode;
+    public int UpgradeNode;
 
     // Shop, upgrades, and unlocks
     public List<UpgradeID> ShopPool;
@@ -81,12 +83,15 @@ public class PlayerData
         PendingStation = "Grill";
         RejectedSemikeyCharacters = new List<string>();
         SeenSemikeyCharacters = new List<string>();
+        ItemExchangeSerializableRecord = new List<ItemExchange>();
         ShopPool = new List<UpgradeID>();
         StationQueue = new List<UpgradeID>();
         Unlocked = new List<UpgradeID>();
         Purchased = new List<UpgradeID>();
         DayData = new DayData();
-        InteractionNodes = new List<int?>();
+        InteractionNodes = new List<int>();
+        RadioNode = -1;
+        UpgradeNode = -1;
 
         // Initialize StationsUnlocked and IngredientsUnlocked with the day 1 status
         StationsUnlocked = new()

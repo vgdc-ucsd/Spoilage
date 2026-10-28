@@ -18,7 +18,7 @@ public class GraphDatabase<T> : ScriptableObject
 
     public GraphNode<T> LoadFromID(int? id)
     {
-        if (id == null) return null;
+        if (id == null || id == -1) return null;
         return _nodes.Find(node => node.ID == id);
     }
 }

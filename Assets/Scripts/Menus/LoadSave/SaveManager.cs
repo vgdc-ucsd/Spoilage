@@ -67,13 +67,14 @@ public class SaveManager : Singleton<SaveManager>
         Directory.CreateDirectory(_saveFolderPath);
 
         Player.SaveID = saveId;
-        Player.InteractionNodes = ProgressionManager.Instance.Interactions.Select(node => node?.ID).ToList();
-        Player.UpgradeNode = ProgressionManager.Instance.UpgradeNode?.ID;
-        Player.RadioNode = ProgressionManager.Instance.RadioNode?.ID;
+        Player.InteractionNodes = ProgressionManager.Instance.Interactions.Select(node => node?.ID ?? -1).ToList();
+        Player.UpgradeNode = ProgressionManager.Instance.UpgradeNode?.ID ?? -1;
+        Player.RadioNode = ProgressionManager.Instance.RadioNode?.ID ?? -1;
         Player.ShopPool = ProgressionManager.Instance.ShopPool;
         Player.StationQueue = ProgressionManager.Instance.StationQueue;
         Player.Purchased = new List<UpgradeID>(ProgressionManager.Instance.Purchased);
         Player.Unlocked = new List<UpgradeID>(ProgressionManager.Instance.Unlocked);
+        Player.ItemExchangeSerializableRecord = ToItemExchange(Player.ItemsGivenTo);
 
         string json = JsonUtility.ToJson(Player, true);
 
@@ -104,6 +105,7 @@ public class SaveManager : Singleton<SaveManager>
         {
             string json = File.ReadAllText(path);
             Player = JsonUtility.FromJson<PlayerData>(json);
+            Player.ItemsGivenTo = ToDictionary(Player.ItemExchangeSerializableRecord);
         }
         else
         {
@@ -225,5 +227,15 @@ public class SaveManager : Singleton<SaveManager>
         }
         
         return _overviews;
+    }
+
+    private List<ItemExchange> ToItemExchange(Dictionary<string, string> itemsGiven)
+    {
+        return itemsGiven.Select(entry => new ItemExchange{ itemId = entry.Key, recipientId = entry.Value }).ToList();
+    }
+
+    private Dictionary<string, string> ToDictionary(List<ItemExchange> itemExchanges)
+    {
+        return itemExchanges.ToDictionary(exchange => exchange.itemId, exchange => exchange.recipientId);
     }
 }
