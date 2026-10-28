@@ -20,9 +20,12 @@ public class PauseMenu : Singleton<PauseMenu>
 
     [SerializeField] private Slider _masterVolumeSlider;
     [SerializeField] private TextMeshProUGUI _dayText;
+    [SerializeField] private TextMeshProUGUI _versionText;
 
     void Start()
     {
+        _versionText.text = "v" + Application.version;
+
         if (SettingsUI != null)
             SettingsUI.SetActive(false);
 

@@ -652,7 +652,11 @@ MonoBehaviour:
     GameEndItemServed: 0
     SeenSemikeyCharacters: []
     RejectedSemikeyCharacters: []
+    ItemExchangeSerializableRecord: []
     resistanceScore: 7
+    InteractionNodes: 
+    RadioNode: -1
+    UpgradeNode: -1
     ShopPool: 
     StationQueue: 
     Unlocked: 
