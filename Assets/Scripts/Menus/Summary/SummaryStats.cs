@@ -15,7 +15,7 @@ public class SummaryStats : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _customersServed;
     [SerializeField] private TextMeshProUGUI _customersRefused;
 
-    private const int RENT = -100;
+    private const int RENT = -50;
     private const string MONTH = "NOV";
 
     public void Start()
