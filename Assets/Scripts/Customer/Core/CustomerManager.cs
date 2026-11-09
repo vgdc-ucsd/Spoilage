@@ -59,7 +59,7 @@ public class CustomerManager : Singleton<CustomerManager>
 
     private static readonly Dictionary<string, Vector3> s_faceOffsets = new()
     {
-        { "Art/Customers/Bases/Character Base #167", new Vector3(-12f, 10f, 0)},
+        { "Art/Customers/Bases/Character Base #167", new Vector3(-6f, -4f, 0)},
         { "Art/Customers/Bases/Character Base #255", new Vector3(-2f, 116f, 0)},
         { "Art/Customers/Bases/Character Base #256", new Vector3(1f, -7f, 0)},
         { "Art/Customers/Bases/Character Base #257", new Vector3(-1f, -74f, 0)},
@@ -74,6 +74,52 @@ public class CustomerManager : Singleton<CustomerManager>
         { "Art/Customers/Bases/Character Base #292", new Vector3(5f, 55f, 0)},
         { "Art/Customers/Bases/Character Base #307", new Vector3(-25f, -65f, 0)},
         { "Art/Customers/Bases/Character Base #332", new Vector3(16f, -11f, 0)},
+    };
+
+    private static readonly Dictionary<string, Vector3> s_eyesOffsets = new()
+    {
+        { "Art/Customers/Eyes/eyes_eyebrows100", new Vector3(-8f, -2f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows101", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows102", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows103", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows104", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows167", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows248", new Vector3(0f, 54f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows255", new Vector3(-3f, -104f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows257", new Vector3(0f, 69f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows258", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows259", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows260", new Vector3(-8f, -12f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows261", new Vector3(0f, 16f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows277", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows283", new Vector3(-4f, 117f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows286", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows288", new Vector3(0f, 14f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows292", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/Eyes/eyes_eyebrows332", new Vector3(-19f, 0f, 0)},
+    };
+
+    private static readonly Dictionary<string, Vector3> s_mouthOffsets = new()
+    {
+        { "Art/Customers/NoseMouths/nose_mouth100", new Vector3(7f, 0f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth101", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth102", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth103", new Vector3(5f, 0f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth104", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth167", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth248", new Vector3(-7f, 37f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth255", new Vector3(0f, -99f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth257", new Vector3(0f, 104f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth258", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth259", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth260", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth261", new Vector3(-8f, 10f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth277", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth283", new Vector3(-11f, 113f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth286", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth288", new Vector3(-13f, 35f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth292", new Vector3(0f, 0f, 0)},
+        { "Art/Customers/NoseMouths/nose_mouth332", new Vector3(-18f, 4f, 0)},
     };
 
     public Customer GenerateCustomer()
@@ -172,6 +218,18 @@ public class CustomerManager : Singleton<CustomerManager>
         return newData;
     }
 
+    public CustomerData GenerateDebugCustomerData(int baseIdx, int eyesIdx, int mouthIdx)
+    {
+        CustomerData newData = ScriptableObject.CreateInstance<CustomerData>();
+
+        newData.sprites = new Sprite[CustomerData.NUM_SPRITES];
+        newData.patience = UnityEngine.Random.Range(0f, 1f); // TODO, talk to design
+
+        AssignDebugNormalSprites(newData, baseIdx, eyesIdx, mouthIdx);
+
+        return newData;
+    }
+
     private void AssignNormalSprites(CustomerData newData)
     {
         string eyesDirPath = EYES_PATH + "/" + getRandomElement(s_eyesDirs);
@@ -225,6 +283,110 @@ public class CustomerManager : Singleton<CustomerManager>
         {
             Debug.LogWarning("Face offset not found for body " + baseDirPath);
             newData.faceOffset = new Vector3(0f, 175f, 0);
+        }
+
+        if (s_eyesOffsets.ContainsKey(eyesDirPath))
+        {
+            // newData.eyesOffset = newData.faceOffset + s_eyesOffsets[eyesDirPath];
+            newData.eyesOffset = s_eyesOffsets[eyesDirPath];
+        }
+        else
+        {
+            Debug.LogWarning("Eyes offset not found for eyes " + eyesDirPath);
+            // newData.eyesOffset = newData.faceOffset;
+            newData.eyesOffset = Vector3.zero;
+        }
+
+        if (s_mouthOffsets.ContainsKey(mouthDirPath))
+        {
+            // newData.mouthOffset = newData.faceOffset + s_mouthOffsets[mouthDirPath];
+            newData.mouthOffset = s_mouthOffsets[mouthDirPath];
+        }
+        else
+        {
+            Debug.LogWarning("Mouth offset not found for mouth " + mouthDirPath);
+            // newData.mouthOffset = newData.faceOffset;
+            newData.eyesOffset = Vector3.zero;
+        }
+    }
+
+    private void AssignDebugNormalSprites(CustomerData newData, int baseIdx, int eyesIdx, int mouthIdx)
+    {
+        string eyesDirPath = EYES_PATH + "/" + s_eyesDirs[eyesIdx];
+        Sprite[] eyeSprites = Resources.LoadAll<Sprite>(eyesDirPath);
+        newData.sprites[(int)CustomerData.Indexes.EYES_OPEN]     = getRandomSprite(eyeSprites, REGEX_NOT_META + REGEX_STATIC);
+        newData.sprites[(int)CustomerData.Indexes.EYES_CLOSED]   = getSheetFrame1(eyeSprites, REGEX_NOT_META + REGEX_BLINKING);
+        newData.sprites[(int)CustomerData.Indexes.EYES_ANGER]    = getSheetFrame1(eyeSprites, REGEX_NOT_META + REGEX_ANGER);
+        newData.sprites[(int)CustomerData.Indexes.EYES_DISGUST]  = getSheetFrame1(eyeSprites, REGEX_NOT_META + REGEX_DISGUST);
+        newData.sprites[(int)CustomerData.Indexes.EYES_WIDENING] = getSheetFrame1(eyeSprites, REGEX_NOT_META + REGEX_WIDENING);
+
+        string mouthDirPath = MOUTH_PATH + "/" + s_mouthDirs[mouthIdx];
+        Sprite[] mouthSprites = Resources.LoadAll<Sprite>(mouthDirPath);
+        newData.sprites[(int)CustomerData.Indexes.MOUTH_OPEN]    = getSheetFrame1(mouthSprites, REGEX_NOT_META + REGEX_TALKING);
+        newData.sprites[(int)CustomerData.Indexes.MOUTH_CLOSED]  = getRandomSprite(mouthSprites, REGEX_NOT_META + REGEX_STATIC);
+        newData.sprites[(int)CustomerData.Indexes.MOUTH_ANGER]   = getSheetFrame1(mouthSprites, REGEX_NOT_META + REGEX_ANGER);
+        newData.sprites[(int)CustomerData.Indexes.MOUTH_DISGUST] = getSheetFrame1(mouthSprites, REGEX_NOT_META + REGEX_DISGUST);
+
+        string baseDirPath = BASES_PATH + "/" + s_baseDirs[baseIdx];
+
+        // Body: load recursively but filter to only body sprites (excludes clothes, hair, reference images)
+        Sprite[] allBaseSprites = Resources.LoadAll<Sprite>(baseDirPath);
+        newData.sprites[(int)CustomerData.Indexes.BODY] = getRandomSprite(allBaseSprites, REGEX_NOT_META + REGEX_SPOILAGE_BASE);
+
+        Sprite[] clothesSprites = Resources.LoadAll<Sprite>(baseDirPath + CLOTHES_FOLDER);
+        newData.sprites[(int)CustomerData.Indexes.CLOTHES] = getRandomSprite(clothesSprites, REGEX_NOT_META);
+
+        // Hair: pick a random style group (A/B/C/D) then load the matching set
+        Sprite[] allHairSprites = Resources.LoadAll<Sprite>(baseDirPath + HAIR_FOLDER);
+        HashSet<string> hairGroupSet = new();
+        foreach (Sprite s in allHairSprites)
+        {
+            Match m = Regex.Match(s.name, @"hair(?:Top|Bottom|Shadow)_([A-Z])");
+            if (m.Success) hairGroupSet.Add(m.Groups[1].Value);
+        }
+        string selectedHairGroup = getRandomElement(hairGroupSet.ToArray());
+        if (selectedHairGroup != null)
+        {
+            newData.sprites[(int)CustomerData.Indexes.HAIR_FRONT] = getRandomSprite(allHairSprites,
+                $@"^(?!.*reference).*hairTop_{selectedHairGroup}($|_)");
+            newData.sprites[(int)CustomerData.Indexes.HAIR_BACK] = getRandomSprite(allHairSprites,
+                $@"^(?!.*reference).*hairBottom_{selectedHairGroup}($|_)");
+            newData.sprites[(int)CustomerData.Indexes.HAIR_SHADOW] = getRandomSprite(allHairSprites,
+                $@"^(?!.*reference).*hairShadow_{selectedHairGroup}($|_)");
+        }
+
+        if (s_faceOffsets.ContainsKey(baseDirPath))
+        {
+            newData.faceOffset = s_faceOffsets[baseDirPath];
+        }
+        else
+        {
+            Debug.LogWarning("Face offset not found for body " + baseDirPath);
+            newData.faceOffset = new Vector3(0f, 175f, 0);
+        }
+
+        if (s_eyesOffsets.ContainsKey(eyesDirPath))
+        {
+            // newData.eyesOffset = newData.faceOffset + s_eyesOffsets[eyesDirPath];
+            newData.eyesOffset = s_eyesOffsets[eyesDirPath];
+        }
+        else
+        {
+            Debug.LogWarning("Eyes offset not found for eyes " + eyesDirPath);
+            // newData.eyesOffset = newData.faceOffset;
+            newData.eyesOffset = Vector3.zero;
+        }
+
+        if (s_mouthOffsets.ContainsKey(mouthDirPath))
+        {
+            // newData.mouthOffset = newData.faceOffset + s_mouthOffsets[mouthDirPath];
+            newData.mouthOffset = s_mouthOffsets[mouthDirPath];
+        }
+        else
+        {
+            Debug.LogWarning("Mouth offset not found for mouth " + mouthDirPath);
+            // newData.mouthOffset = newData.faceOffset;
+            newData.eyesOffset = Vector3.zero;
         }
     }
 

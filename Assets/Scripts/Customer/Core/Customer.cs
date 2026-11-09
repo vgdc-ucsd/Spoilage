@@ -151,6 +151,15 @@ public class Customer : MonoBehaviour
         }
 
         SetAnchoredPosition("Sprites/FACIAL_FEATURES", customerData.faceOffset);
+        SetAnchoredPosition("Sprites/FACIAL_FEATURES/MOUTH_OPEN", customerData.mouthOffset);
+        SetAnchoredPosition("Sprites/FACIAL_FEATURES/MOUTH_CLOSED", customerData.mouthOffset);
+        SetAnchoredPosition("Sprites/FACIAL_FEATURES/MOUTH_DISGUST", customerData.mouthOffset);
+        SetAnchoredPosition("Sprites/FACIAL_FEATURES/MOUTH_ANGER", customerData.mouthOffset);
+        SetAnchoredPosition("Sprites/FACIAL_FEATURES/EYES_OPEN", customerData.eyesOffset);
+        SetAnchoredPosition("Sprites/FACIAL_FEATURES/EYES_CLOSED", customerData.eyesOffset);
+        SetAnchoredPosition("Sprites/FACIAL_FEATURES/EYES_DISGUST", customerData.eyesOffset);
+        SetAnchoredPosition("Sprites/FACIAL_FEATURES/EYES_ANGER", customerData.eyesOffset);
+        SetAnchoredPosition("Sprites/FACIAL_FEATURES/EYES_WIDENING", customerData.eyesOffset);
         SetAnchoredPosition("Sprites/SPOILAGE", customerData.faceOffset);
     }
 

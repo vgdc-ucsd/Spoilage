@@ -193,7 +193,7 @@ public class CustomerAnimation : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("Attempted to use eyes with missing sprite! Defaulting to neutral eyes.");
+                Debug.LogWarning($"Attempted to use eyes with missing sprite! Defaulting to neutral eyes {eyesOpenRenderer.sprite.name}");
                 eyesOpenRenderer.color = Color.white;
             }
         }
@@ -205,7 +205,7 @@ public class CustomerAnimation : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("Attempted to use closed eyes with missing sprite! Defaulting to open eyes.");
+                Debug.LogWarning($"Attempted to use closed eyes with missing sprite! Defaulting to open eyes {eyesOpenRenderer.sprite.name}");
                 eyesOpenRenderer.color = Color.white;
             }
         }
@@ -292,7 +292,7 @@ public class CustomerAnimation : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("Attempted to use open mouth with missing sprite! Defaulting to closed mouth.");
+                Debug.LogWarning($"Attempted to use open mouth with missing sprite! Defaulting to closed mouth {mouthClosedRenderer.sprite.name}");
                 mouthClosedRenderer.color = Color.white;
             }
         }
@@ -304,7 +304,7 @@ public class CustomerAnimation : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("Attempted to use mouth with missing sprite! Defaulting to neutral mouth.");
+                Debug.LogWarning($"Attempted to use mouth with missing sprite! Defaulting to neutral mouth {mouthClosedRenderer.sprite.name}");
                 mouthClosedRenderer.color = Color.white;
             }
         }

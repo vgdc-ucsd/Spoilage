@@ -49,6 +49,8 @@ public class CustomerData : ScriptableObject
 
     public Sprite[] sprites;
     public Vector3 faceOffset;
+    public Vector3 eyesOffset;
+    public Vector3 mouthOffset;
     public Spoilage spoilage;
     public AbstractSpoilageSymptom spoilageSymptom;
     public float patience;
