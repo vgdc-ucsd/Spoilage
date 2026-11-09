@@ -1,61 +1,46 @@
 fileFormatVersion: 2
-guid: df52c5b62cf633742b38bb82cf5d5608
+guid: 0249f8ad9529fca45b0e8340e493c5e6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5464779111590219346
-    second: eyes_eyebrows#167angry_spritesheet_0
+      213: 6855846786037580096
+    second: eyes_eyebrows#260angry_spritesheet_0
   - first:
-      213: -1572393208968276661
-    second: eyes_eyebrows#167angry_spritesheet_1
+      213: -7585757240755007144
+    second: eyes_eyebrows#260angry_spritesheet_1
   - first:
-      213: -1851966661074690809
-    second: eyes_eyebrows#167angry_spritesheet_2
+      213: 1856838002983991829
+    second: eyes_eyebrows#260angry_spritesheet_2
   - first:
-      213: 1564082411490479335
-    second: eyes_eyebrows#167angry_spritesheet_3
+      213: 5588463101302187214
+    second: eyes_eyebrows#260angry_spritesheet_3
   - first:
-      213: -3906004315673076491
-    second: eyes_eyebrows#167angry_spritesheet_4
+      213: 3972030379540442364
+    second: eyes_eyebrows#260angry_spritesheet_4
   - first:
-      213: 8587416056261784179
-    second: eyes_eyebrows#167angry_spritesheet_5
+      213: 6158557357991235054
+    second: eyes_eyebrows#260angry_spritesheet_5
   - first:
-      213: -8424838319465317294
-    second: eyes_eyebrows#167angry_spritesheet_6
+      213: 5040325543559035578
+    second: eyes_eyebrows#260angry_spritesheet_6
   - first:
-      213: -7589362620483909808
-    second: eyes_eyebrows#167angry_spritesheet_7
+      213: 5687268141620477710
+    second: eyes_eyebrows#260angry_spritesheet_7
   - first:
-      213: 8764545114219739670
-    second: eyes_eyebrows#167angry_spritesheet_8
+      213: -4133714264396191532
+    second: eyes_eyebrows#260angry_spritesheet_8
   - first:
-      213: 9108394432245987873
-    second: eyes_eyebrows#167angry_spritesheet_9
+      213: -4927451343617123511
+    second: eyes_eyebrows#260angry_spritesheet_9
   - first:
-      213: -1925776359410387779
-    second: eyes_eyebrows#167angry_spritesheet_10
+      213: 6888352015684479014
+    second: eyes_eyebrows#260angry_spritesheet_10
   - first:
-      213: -2458294574970473010
-    second: eyes_eyebrows#167angry_spritesheet_11
+      213: -2146064281016105002
+    second: eyes_eyebrows#260angry_spritesheet_11
   - first:
-      213: 5755075714627584851
-    second: eyes_eyebrows#167angry_spritesheet_12
-  - first:
-      213: 2942138780253612265
-    second: eyes_eyebrows#167angry_spritesheet_13
-  - first:
-      213: -6359424432580042197
-    second: eyes_eyebrows#167angry_spritesheet_14
-  - first:
-      213: -6911600705988264289
-    second: eyes_eyebrows#167angry_spritesheet_15
-  - first:
-      213: -3064382727683525266
-    second: eyes_eyebrows#167angry_spritesheet_16
-  - first:
-      213: 2258818039350300584
-    second: eyes_eyebrows#167angry_spritesheet_17
+      213: -571793037883831395
+    second: eyes_eyebrows#260angry_spritesheet_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -177,7 +162,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: eyes_eyebrows#167angry_spritesheet_0
+      name: eyes_eyebrows#260anger_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -192,14 +177,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25e4f4af5abc6db40800000000000000
-      internalID: 5464779111590219346
+      spriteID: 041064cf35cd42f50800000000000000
+      internalID: 6855846786037580096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: eyes_eyebrows#167angry_spritesheet_1
+      name: eyes_eyebrows#260anger_spritesheet_1
       rect:
         serializedVersion: 2
         x: 920
@@ -214,8 +199,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b45953415bcbd2ae0800000000000000
-      internalID: -1572393208968276661
+      spriteID: 85153780bf9f9b690800000000000000
+      internalID: -7585757240755007144
       vertices: []
       indices: 
       edges: []
@@ -224,7 +209,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3ba2535271a3c5d44ba5e1e5896b98fe
+    spriteID: 0eed70d8701fa3349bd4e66c8d78bec1
     internalID: 0
     vertices: []
     indices: 
@@ -236,8 +221,8 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      eyes_eyebrows#167angry_spritesheet_0: 5464779111590219346
-      eyes_eyebrows#167angry_spritesheet_1: -1572393208968276661
+      eyes_eyebrows#260anger_spritesheet_0: 6855846786037580096
+      eyes_eyebrows#260anger_spritesheet_1: -7585757240755007144
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

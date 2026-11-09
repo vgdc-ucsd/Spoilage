@@ -219,7 +219,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: nose_mouth#167angry_spritesheet_0
+      name: nose_mouth#167anger_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -241,7 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nose_mouth#167angry_spritesheet_1
+      name: nose_mouth#167anger_spritesheet_1
       rect:
         serializedVersion: 2
         x: 920
@@ -278,8 +278,8 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      nose_mouth#167angry_spritesheet_0: -3383787064813726056
-      nose_mouth#167angry_spritesheet_1: -8809161864075344504
+      nose_mouth#167anger_spritesheet_0: -3383787064813726056
+      nose_mouth#167anger_spritesheet_1: -8809161864075344504
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

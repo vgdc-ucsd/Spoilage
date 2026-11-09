@@ -1,103 +1,82 @@
 fileFormatVersion: 2
-guid: 8fe1c106f126cca4294d57a3039c9892
+guid: 8321e8e22306e574794bf381de6fc0c7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5069112546680788981
-    second: eyes_eyebrows286_widened_spritesheet_0
+      213: 2169589918645642064
+    second: eyes_eyebrows286_blink_spritesheet_0
   - first:
-      213: -4270602559110141117
-    second: eyes_eyebrows286_widened_spritesheet_1
+      213: -8095881397231395539
+    second: eyes_eyebrows286_blink_spritesheet_1
   - first:
-      213: -3214389615775857591
-    second: eyes_eyebrows286_widened_spritesheet_2
+      213: 2342696017125029129
+    second: eyes_eyebrows286_blink_spritesheet_2
   - first:
-      213: -6940546585906498748
-    second: eyes_eyebrows286_widened_spritesheet_3
+      213: -4544666221707634690
+    second: eyes_eyebrows286_blink_spritesheet_3
   - first:
-      213: 4305460175535710571
-    second: eyes_eyebrows286_widened_spritesheet_4
+      213: -6329748740923567067
+    second: eyes_eyebrows286_blink_spritesheet_4
   - first:
-      213: -1860403519616989257
-    second: eyes_eyebrows286_widened_spritesheet_5
+      213: -3191589076584326998
+    second: eyes_eyebrows286_blink_spritesheet_5
   - first:
-      213: 5069723821868582752
-    second: eyes_eyebrows286_widened_spritesheet_6
+      213: 6913924909285595612
+    second: eyes_eyebrows286_blink_spritesheet_6
   - first:
-      213: -808399964884567095
-    second: eyes_eyebrows286_widened_spritesheet_7
+      213: 6424335846153916180
+    second: eyes_eyebrows286_blink_spritesheet_7
   - first:
-      213: 8286336935442948891
-    second: eyes_eyebrows286_widened_spritesheet_8
+      213: -4628853694478801631
+    second: eyes_eyebrows286_blink_spritesheet_8
   - first:
-      213: 3742842364382859337
-    second: eyes_eyebrows286_widened_spritesheet_9
+      213: 9193950582584804006
+    second: eyes_eyebrows286_blink_spritesheet_9
   - first:
-      213: -3325542628027241934
-    second: eyes_eyebrows286_widened_spritesheet_10
+      213: -7448623376499143106
+    second: eyes_eyebrows286_blink_spritesheet_10
   - first:
-      213: 3430432812291092533
-    second: eyes_eyebrows286_widened_spritesheet_11
+      213: -6079978887839120219
+    second: eyes_eyebrows286_blink_spritesheet_11
   - first:
-      213: -8140172363432397827
-    second: eyes_eyebrows286_widened_spritesheet_12
+      213: -10793756566066147
+    second: eyes_eyebrows286_blink_spritesheet_12
   - first:
-      213: -2522831678227971091
-    second: eyes_eyebrows286_widened_spritesheet_13
+      213: 4922177834132071549
+    second: eyes_eyebrows286_blink_spritesheet_13
   - first:
-      213: -2560015527413875028
-    second: eyes_eyebrows286_widened_spritesheet_14
+      213: -8630710916640031057
+    second: eyes_eyebrows286_blink_spritesheet_14
   - first:
-      213: -7210352049001252713
-    second: eyes_eyebrows286_widened_spritesheet_15
+      213: 6866064294622655715
+    second: eyes_eyebrows286_blink_spritesheet_15
   - first:
-      213: -7755608859355342367
-    second: eyes_eyebrows286_widened_spritesheet_16
+      213: 6982063495073895047
+    second: eyes_eyebrows286_blink_spritesheet_16
   - first:
-      213: -914080528264025691
-    second: eyes_eyebrows286_widened_spritesheet_17
+      213: 2920570566847413523
+    second: eyes_eyebrows286_blink_spritesheet_17
   - first:
-      213: 7819366680701025982
-    second: eyes_eyebrows286_widened_spritesheet_18
+      213: -5926037351547001388
+    second: eyes_eyebrows286_blink_spritesheet_18
   - first:
-      213: 2023037284913224287
-    second: eyes_eyebrows286_widened_spritesheet_19
+      213: -1951705943131747667
+    second: eyes_eyebrows286_blink_spritesheet_19
   - first:
-      213: -8155103283076459769
-    second: eyes_eyebrows286_widened_spritesheet_20
+      213: 4998418156566585368
+    second: eyes_eyebrows286_blink_spritesheet_20
   - first:
-      213: 205389020452242893
-    second: eyes_eyebrows286_widened_spritesheet_21
+      213: -4243630662392608565
+    second: eyes_eyebrows286_blink_spritesheet_21
   - first:
-      213: 2984920302133652151
-    second: eyes_eyebrows286_widened_spritesheet_22
+      213: -2790069753436731710
+    second: eyes_eyebrows286_blink_spritesheet_22
   - first:
-      213: 9172741570811123977
-    second: eyes_eyebrows286_widened_spritesheet_23
+      213: 1065369013741234087
+    second: eyes_eyebrows286_blink_spritesheet_23
   - first:
-      213: -7243107941751111894
-    second: eyes_eyebrows286_widened_spritesheet_24
-  - first:
-      213: 8508890266997239508
-    second: eyes_eyebrows286_widened_spritesheet_25
-  - first:
-      213: -920518003917552953
-    second: eyes_eyebrows286_widened_spritesheet_26
-  - first:
-      213: 6690669329837696679
-    second: eyes_eyebrows286_widened_spritesheet_27
-  - first:
-      213: -6697006690540369833
-    second: eyes_eyebrows286_widened_spritesheet_28
-  - first:
-      213: -3769495337383425836
-    second: eyes_eyebrows286_widened_spritesheet_29
-  - first:
-      213: 6719419686008925063
-    second: eyes_eyebrows286_widened_spritesheet_30
-  - first:
-      213: -1762894223736026940
-    second: eyes_eyebrows286_widened_spritesheet_31
+      213: 1126572399384376614
+    second: eyes_eyebrows286_blink_spritesheet_24
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -219,7 +198,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: eyes_eyebrows286_widened_spritesheet_0
+      name: eyes_eyebrows286_blinking_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -234,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5f7526ff00b195640800000000000000
-      internalID: 5069112546680788981
+      spriteID: 0536429398eeb1e10800000000000000
+      internalID: 2169589918645642064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: eyes_eyebrows286_widened_spritesheet_1
+      name: eyes_eyebrows286_blinking_spritesheet_1
       rect:
         serializedVersion: 2
         x: 920
@@ -256,8 +235,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34bad5f5995cbb4c0800000000000000
-      internalID: -4270602559110141117
+      spriteID: d2d545653c6a5af80800000000000000
+      internalID: -8095881397231395539
       vertices: []
       indices: 
       edges: []
@@ -266,7 +245,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7df763b86bed6a44bba486cfa4f2cea0
+    spriteID: 138fafde2d25af349abd1ef3e0a3465e
     internalID: 0
     vertices: []
     indices: 
@@ -278,8 +257,8 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":920.0,"y":1240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      eyes_eyebrows286_widened_spritesheet_0: 5069112546680788981
-      eyes_eyebrows286_widened_spritesheet_1: -4270602559110141117
+      eyes_eyebrows286_blinking_spritesheet_0: 2169589918645642064
+      eyes_eyebrows286_blinking_spritesheet_1: -8095881397231395539
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
