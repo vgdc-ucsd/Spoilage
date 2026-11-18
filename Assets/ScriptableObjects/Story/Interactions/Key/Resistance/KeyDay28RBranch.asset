@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: KeyDay28RBranch
   m_EditorClassIdentifier: Assembly-CSharp::ResistanceBranch
   _threshold: 7
-  _belowThreshold: {fileID: 11400000, guid: 8844744882f085f46b134cf197de0b03, type: 2}
-  _aboveThreshold: {fileID: 11400000, guid: 9fb671afcad59f741bb0851c28d3efdf, type: 2}
+  _belowThreshold: {fileID: 11400000, guid: 9fb671afcad59f741bb0851c28d3efdf, type: 2}
+  _aboveThreshold: {fileID: 11400000, guid: 8844744882f085f46b134cf197de0b03, type: 2}

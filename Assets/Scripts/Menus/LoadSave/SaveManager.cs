@@ -2,6 +2,7 @@
 using System.IO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class SaveManager : Singleton<SaveManager>
 {
@@ -47,6 +48,7 @@ public class SaveManager : Singleton<SaveManager>
     {
         Player = DebugManager.Instance.DebugPlayerSave?.Clone();
         LoadSettings();
+        LoadNewPlayer();
     }
 
     public void SaveGame(int saveId)
@@ -65,13 +67,24 @@ public class SaveManager : Singleton<SaveManager>
         Directory.CreateDirectory(_saveFolderPath);
 
         Player.SaveID = saveId;
+        Player.InteractionNodes = ProgressionManager.Instance.Interactions.Select(node => node?.ID ?? -1).ToList();
+        Player.UpgradeNode = ProgressionManager.Instance.UpgradeNode?.ID ?? -1;
+        Player.RadioNode = ProgressionManager.Instance.RadioNode?.ID ?? -1;
+        Player.ShopPool = ProgressionManager.Instance.ShopPool;
+        Player.StationQueue = ProgressionManager.Instance.StationQueue;
+        Player.Purchased = new List<UpgradeID>(ProgressionManager.Instance.Purchased);
+        Player.Unlocked = new List<UpgradeID>(ProgressionManager.Instance.Unlocked);
+        Player.ItemExchangeSerializableRecord = ToItemExchange(Player.ItemsGivenTo);
 
         string json = JsonUtility.ToJson(Player, true);
 
         if(_overviews == null) LoadSaveOverviews();
         _overviews.SaveOverviews.Add(new SaveOverview(
             saveId,
-            Player.Day
+            Player.Day,
+            Player.Wealth,
+            Player.IngredientsUnlocked.Count,
+            Player.StationsUnlocked.Count
         ));
 
         File.WriteAllText(GetSlotPath(saveId), json);
@@ -92,6 +105,7 @@ public class SaveManager : Singleton<SaveManager>
         {
             string json = File.ReadAllText(path);
             Player = JsonUtility.FromJson<PlayerData>(json);
+            Player.ItemsGivenTo = ToDictionary(Player.ItemExchangeSerializableRecord);
         }
         else
         {
@@ -102,10 +116,31 @@ public class SaveManager : Singleton<SaveManager>
             };
         }
 
+        LoadCommon(false);
+    }
+
+    public void LoadNewPlayer()
+    {
+        int saveId = GetNextAvailableSaveId();
+
+        Player = new PlayerData
+        {
+            SaveID = saveId,
+            SaveName = $"Save {saveId}"
+        };
+
+        LoadCommon(true);
+    }
+
+    private void LoadCommon(bool newPlayer)
+    {
         while (s_loadQueue.Count > 0)
         {
             s_loadQueue.Dequeue()?.Invoke();
         }
+
+        ProgressionManager.Instance.Init(Player, newPlayer);
+        if (DebugManager.Instance.Rich) Player.Wealth = 9999;
     }
 
     public void LoadSettings()
@@ -145,11 +180,8 @@ public class SaveManager : Singleton<SaveManager>
             saveId = SAVE_SLOT_COUNT - 1;
         }
 
-        Player = new PlayerData
-        {
-            SaveID = saveId,
-            SaveName = $"Save {saveId}"
-        };
+        Player.SaveID = saveId;
+        Player.SaveName = $"Save {saveId}";
 
         SaveGame(saveId);
     }
@@ -195,5 +227,15 @@ public class SaveManager : Singleton<SaveManager>
         }
         
         return _overviews;
+    }
+
+    private List<ItemExchange> ToItemExchange(Dictionary<string, string> itemsGiven)
+    {
+        return itemsGiven.Select(entry => new ItemExchange{ itemId = entry.Key, recipientId = entry.Value }).ToList();
+    }
+
+    private Dictionary<string, string> ToDictionary(List<ItemExchange> itemExchanges)
+    {
+        return itemExchanges.ToDictionary(exchange => exchange.itemId, exchange => exchange.recipientId);
     }
 }

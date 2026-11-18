@@ -8,8 +8,12 @@
   "Success": [],
   "Fail": [],
   "Reject": [],
-  "Item": {
-    "Stage": "intro",
-    "ID": "Example Item"
-  }
+  "Items": [
+    {
+      "ID": "ExampleItem",
+      "Stage": "gives",
+      "Success": [],
+      "Fail": []
+    }
+  ]
 }

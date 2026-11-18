@@ -32,7 +32,7 @@
 			<destination>{32126e0b-cab5-477c-a61c-266902d3aa32}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{2a7e9874-fbcd-4368-a410-1de829e37db2}</destination>
+			<destination>{910dab5d-82c6-4ff9-9e35-c64f66bcc891}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{3ff388f4-9192-48fd-a755-7f2d55b34073}">
@@ -96,6 +96,9 @@
 	<object class="MixerBusEffectChain" id="{b60efbad-5676-429d-b5c8-ac0bb44cb6fa}">
 		<relationship name="effects">
 			<destination>{076f5584-3646-4285-a9ba-b035b2bdc795}</destination>
+			<destination>{a9c4ab00-43ee-43ad-a8ff-8806ee858a1d}</destination>
+			<destination>{0940eac5-4c5b-49e1-a343-eb5b0fd355fd}</destination>
+			<destination>{b11502a9-b977-4774-a126-1683dec76eaa}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d3bf915c-3178-426e-8f99-2f1064f0bd30}" />
@@ -108,6 +111,50 @@
 	</object>
 	<object class="MixerBusFader" id="{555a0fd9-4845-4eba-b023-beb6cb7252aa}" />
 	<object class="MixerBusFader" id="{076f5584-3646-4285-a9ba-b035b2bdc795}" />
+	<object class="MultibandEqEffect" id="{a9c4ab00-43ee-43ad-a8ff-8806ee858a1d}">
+		<property name="filterTypeA">
+			<value>2</value>
+		</property>
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>4555.7417</value>
+		</property>
+		<property name="frequencyB">
+			<value>94.6008911</value>
+		</property>
+		<property name="qualityA">
+			<value>1.17863059</value>
+		</property>
+		<property name="gainB">
+			<value>-12.6493301</value>
+		</property>
+	</object>
+	<object class="SFXReverbEffect" id="{0940eac5-4c5b-49e1-a343-eb5b0fd355fd}">
+		<property name="decayTime">
+			<value>400</value>
+		</property>
+		<property name="earlyDelay">
+			<value>2</value>
+		</property>
+		<property name="lateDelay">
+			<value>3</value>
+		</property>
+		<property name="HFDecayRatio">
+			<value>83</value>
+		</property>
+		<property name="highCut">
+			<value>6050</value>
+		</property>
+		<property name="earlyLateMix">
+			<value>88</value>
+		</property>
+		<property name="wetLevel">
+			<value>-24</value>
+		</property>
+	</object>
+	<object class="LoudnessMeter" id="{b11502a9-b977-4774-a126-1683dec76eaa}" />
 	<object class="SingleSound" id="{c6864c3f-c021-437c-a1b4-8612be0d7882}">
 		<relationship name="audioFile">
 			<destination>{f91aecb7-dc8a-4efe-93cf-d23cc44325a4}</destination>

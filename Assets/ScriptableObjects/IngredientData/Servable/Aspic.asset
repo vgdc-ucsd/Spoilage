@@ -17,3 +17,13 @@ MonoBehaviour:
   _normalSprite: {fileID: 21300000, guid: fa72a9e27081e46e9838008184772245, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: fa72a9e27081e46e9838008184772245, type: 3}
   _plateSprite: {fileID: 21300000, guid: 4c6368fdadc17488c8917fc60e554952, type: 3}
+  _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: 
+  _recipeBookDescriptionSpoiled: 'This dish is made from the leftover cuts of blubber
+    and fat trimmings from various types of meat. Most cooks put all of these into
+    a huge pot, melt it down and reuse it. Irresponsible or lazy cooks might forget
+    it and let the fat go rancid. An entrepreneurial cook, however, can still salvage
+    this: melt and clarify the fat, pour it into a mold, and let it set before pouring
+    the sauce over. Very few could fight off the impulse to spit out this glob of
+    fat and salt, but ones that do would find that this shining mass bounces merrily
+    all the way down their gullet. '

@@ -43,6 +43,7 @@ public class AutomaticStation : Station
             if (!_overcook)
             {    
                 Cook(_currQualityBonus);
+                PlayStationSFX(StationSound.Done);
                 
                 if (_cookedFood == _lastCookedFood)
                 {
@@ -98,6 +99,8 @@ public class AutomaticStation : Station
         else
         {
             _ingredients.Add(food);
+            PlayStationSFX(StationSound.Close);
+            PlayStationSFX(StationSound.Start);
             _ui.ShowTimer(true);
             if (_cookedFood != null) _ingredients.Add(_cookedFood);
             _cookedFood = null;
@@ -108,6 +111,7 @@ public class AutomaticStation : Station
     public override void Remove()
     {
         base.Remove();
+        PlayStationSFX(StationSound.Remove);
         _timer = 0;
         _ui.Empty();
         _ui.ShowTimer(false);

@@ -23,6 +23,7 @@ public class PlayerData
     public int Day;
     public int Wealth;
     public int Reputation;
+    public int ReputationMax;
     public DayData DayData;
 
     // TODO: Handle saving other key information
@@ -30,7 +31,6 @@ public class PlayerData
     // is just a temporary solution for the purposes of order generation. Feel free 
     // to change it to whatever format you want as long as the name can still be
     // easily accessed - Samantha M
-    public List<Recipe> RecipesUnlocked;
     public List<string> StationsUnlocked;
     public List<string> IngredientsUnlocked;
     
@@ -38,9 +38,21 @@ public class PlayerData
     public List<string> KitchenItems;
     public string PendingStation;
     public GameOverCondition GameOverCondition;
+    public GameEndScenario GameEndScenario;
+    public GameEndItemServed GameEndItemServed;
 
     public List<string> SeenSemikeyCharacters;
     public List<string> RejectedSemikeyCharacters;
+    public List<ItemExchange> ItemExchangeSerializableRecord;
+    public Dictionary<string, string> ItemsGivenTo = new Dictionary<string, string>()
+    {
+        ["ChildhoodDishPoisoned"] = "",
+        ["ChildhoodDishUnpoisoned"] = "",
+        ["CodedMessage"] = "",
+        ["PocketsTheRat"] = "",
+        ["PropagandaPamphlet"] = "",
+        ["VaseOfFlowers"] = ""
+    };
 
     /// <summary>
     /// Player resistance. Below 7 leans warlord, above 7 leans
@@ -48,19 +60,38 @@ public class PlayerData
     /// </summary>
     public float resistanceScore = 7f;
 
+    // Graphs & Timelines
+    // -1 is used to represent a null value
+    public List<int> InteractionNodes;
+    public int RadioNode;
+    public int UpgradeNode;
+
+    // Shop, upgrades, and unlocks
+    public List<UpgradeID> ShopPool;
+    public List<UpgradeID> StationQueue;
+    public List<UpgradeID> Unlocked;
+    public List<UpgradeID> Purchased;
+
     public PlayerData()
-    {
-        // TODO: Initialize lists, setup other basic start of game configs
-        // Reputation = 50;
-        
+    {   
         Day = 1;
         Wealth = 200;
-        RecipesUnlocked = new();
+        Reputation = 25;
+        ReputationMax = 50;
         KitchenStations = new List<string>();
         KitchenItems = new List<string>();
         PendingStation = "Grill";
         RejectedSemikeyCharacters = new List<string>();
         SeenSemikeyCharacters = new List<string>();
+        ItemExchangeSerializableRecord = new List<ItemExchange>();
+        ShopPool = new List<UpgradeID>();
+        StationQueue = new List<UpgradeID>();
+        Unlocked = new List<UpgradeID>();
+        Purchased = new List<UpgradeID>();
+        DayData = new DayData();
+        InteractionNodes = new List<int>();
+        RadioNode = -1;
+        UpgradeNode = -1;
 
         // Initialize StationsUnlocked and IngredientsUnlocked with the day 1 status
         StationsUnlocked = new()

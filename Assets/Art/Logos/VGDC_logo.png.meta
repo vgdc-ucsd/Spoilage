@@ -1,0 +1,1144 @@
+fileFormatVersion: 2
+guid: 0333081e6d63a49e485362284c375ef0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4465726337835086817
+    second: VGDC_logo_0
+  - first:
+      213: -8826386188607362923
+    second: VGDC_logo_1
+  - first:
+      213: -7782128829960231686
+    second: VGDC_logo_2
+  - first:
+      213: -8990954970003585341
+    second: VGDC_logo_3
+  - first:
+      213: 7802697743206548874
+    second: VGDC_logo_4
+  - first:
+      213: 6776474540317180018
+    second: VGDC_logo_5
+  - first:
+      213: 928463150344204524
+    second: VGDC_logo_6
+  - first:
+      213: 8284396773778645837
+    second: VGDC_logo_7
+  - first:
+      213: 5355173682429001774
+    second: VGDC_logo_8
+  - first:
+      213: -4754351468049082898
+    second: VGDC_logo_9
+  - first:
+      213: 6040926364034537552
+    second: VGDC_logo_10
+  - first:
+      213: 2404360857067283478
+    second: VGDC_logo_11
+  - first:
+      213: 4238326932867940867
+    second: VGDC_logo_12
+  - first:
+      213: -7993734760587400741
+    second: VGDC_logo_13
+  - first:
+      213: -828972522520788640
+    second: VGDC_logo_14
+  - first:
+      213: -2482321221540335728
+    second: VGDC_logo_15
+  - first:
+      213: 7623355254197741384
+    second: VGDC_logo_16
+  - first:
+      213: -2802293134721528509
+    second: VGDC_logo_17
+  - first:
+      213: -3697551486036693084
+    second: VGDC_logo_18
+  - first:
+      213: 8248099154149990472
+    second: VGDC_logo_19
+  - first:
+      213: 3963189818667007005
+    second: VGDC_logo_20
+  - first:
+      213: -1315154313917458623
+    second: VGDC_logo_21
+  - first:
+      213: -431343157187523631
+    second: VGDC_logo_22
+  - first:
+      213: 6366735869418800590
+    second: VGDC_logo_23
+  - first:
+      213: -6435723483091625492
+    second: VGDC_logo_24
+  - first:
+      213: 2054987689621118405
+    second: VGDC_logo_25
+  - first:
+      213: 2712873184247357193
+    second: VGDC_logo_26
+  - first:
+      213: 4140204995085244723
+    second: VGDC_logo_27
+  - first:
+      213: -6792198567717905601
+    second: VGDC_logo_28
+  - first:
+      213: -5616776786331592942
+    second: VGDC_logo_29
+  - first:
+      213: 5868244729377526446
+    second: VGDC_logo_30
+  - first:
+      213: -650881226245624848
+    second: VGDC_logo_31
+  - first:
+      213: -5569658963211403877
+    second: VGDC_logo_32
+  - first:
+      213: -8365745995878643213
+    second: VGDC_logo_33
+  - first:
+      213: -8470812927976614262
+    second: VGDC_logo_34
+  - first:
+      213: 7572420640812897264
+    second: VGDC_logo_35
+  - first:
+      213: -1948238688450394452
+    second: VGDC_logo_36
+  - first:
+      213: -2022246965305295007
+    second: VGDC_logo_37
+  - first:
+      213: -3421971232496517951
+    second: VGDC_logo_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VGDC_logo_0
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 317
+        width: 1002
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e334ce917279fd30800000000000000
+      internalID: 4465726337835086817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_1
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 575
+        width: 132
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 598e4a19680628580800000000000000
+      internalID: -8826386188607362923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_2
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 235
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af4e4e58f03500490800000000000000
+      internalID: -7782128829960231686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_3
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 266
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c647654716b93380800000000000000
+      internalID: -8990954970003585341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_4
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 235
+        width: 28
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a858199c140c84c60800000000000000
+      internalID: 7802697743206548874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_5
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 235
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 270851de0bfda0e50800000000000000
+      internalID: 6776474540317180018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_6
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 235
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce07e47e05092ec00800000000000000
+      internalID: 928463150344204524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_7
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 235
+        width: 6
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d43e77f19f618f270800000000000000
+      internalID: 8284396773778645837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_8
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 235
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2083bb5716615a40800000000000000
+      internalID: 5355173682429001774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_9
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 235
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee5d3998786250eb0800000000000000
+      internalID: -4754351468049082898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_10
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 235
+        width: 6
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 058129a958ea5d350800000000000000
+      internalID: 6040926364034537552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_11
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 235
+        width: 29
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 614695de5710e5120800000000000000
+      internalID: 2404360857067283478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_12
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 226
+        width: 48
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 302809bc3ef81da30800000000000000
+      internalID: 4238326932867940867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_13
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 235
+        width: 30
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd9ee7e769c801190800000000000000
+      internalID: -7993734760587400741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_14
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 235
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061c69202e5ee74f0800000000000000
+      internalID: -828972522520788640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_15
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 235
+        width: 28
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09facab30060d8dd0800000000000000
+      internalID: -2482321221540335728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_16
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 235
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8476013a6399bc960800000000000000
+      internalID: 7623355254197741384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_17
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 266
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34d486cbd314c19d0800000000000000
+      internalID: -2802293134721528509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_18
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 235
+        width: 6
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4afa0109388afacc0800000000000000
+      internalID: -3697551486036693084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_19
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 235
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8406f4bfa72277270800000000000000
+      internalID: 8248099154149990472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_20
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 235
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1c77176424100730800000000000000
+      internalID: 3963189818667007005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_21
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 235
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14790269e12afbde0800000000000000
+      internalID: -1315154313917458623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_22
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 235
+        width: 45
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dbca831faf830af0800000000000000
+      internalID: -431343157187523631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_23
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 235
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec502737a803b5850800000000000000
+      internalID: 6366735869418800590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_24
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 235
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce91fad0797bfa6a0800000000000000
+      internalID: -6435723483091625492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_25
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 235
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cddaa97a68c48c10800000000000000
+      internalID: 2054987689621118405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_26
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 235
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90f1fb3a9cf06a520800000000000000
+      internalID: 2712873184247357193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_27
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 235
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3399a5dd186f47930800000000000000
+      internalID: 4140204995085244723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_28
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 226
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3bd147a3634db1a0800000000000000
+      internalID: -6792198567717905601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_29
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 235
+        width: 44
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2179b0495433d02b0800000000000000
+      internalID: -5616776786331592942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_30
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 235
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea21b957d71307150800000000000000
+      internalID: 5868244729377526446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_31
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 235
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fba8a629fa97f6f0800000000000000
+      internalID: -650881226245624848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_32
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 235
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9db6b9aea894b2b0800000000000000
+      internalID: -5569658963211403877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_33
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 235
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f9c1822756e6eb80800000000000000
+      internalID: -8365745995878643213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_34
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 235
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a86da25b580a17a80800000000000000
+      internalID: -8470812927976614262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_35
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 235
+        width: 6
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f31d71d374a61960800000000000000
+      internalID: 7572420640812897264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_36
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 235
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca6cd3d2c3776f4e0800000000000000
+      internalID: -1948238688450394452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_37
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 226
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16fbdd079198fe3e0800000000000000
+      internalID: -2022246965305295007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VGDC_logo_38
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 235
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cc707f5b47b280d0800000000000000
+      internalID: -3421971232496517951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VGDC_logo_0: 4465726337835086817
+      VGDC_logo_1: -8826386188607362923
+      VGDC_logo_10: 6040926364034537552
+      VGDC_logo_11: 2404360857067283478
+      VGDC_logo_12: 4238326932867940867
+      VGDC_logo_13: -7993734760587400741
+      VGDC_logo_14: -828972522520788640
+      VGDC_logo_15: -2482321221540335728
+      VGDC_logo_16: 7623355254197741384
+      VGDC_logo_17: -2802293134721528509
+      VGDC_logo_18: -3697551486036693084
+      VGDC_logo_19: 8248099154149990472
+      VGDC_logo_2: -7782128829960231686
+      VGDC_logo_20: 3963189818667007005
+      VGDC_logo_21: -1315154313917458623
+      VGDC_logo_22: -431343157187523631
+      VGDC_logo_23: 6366735869418800590
+      VGDC_logo_24: -6435723483091625492
+      VGDC_logo_25: 2054987689621118405
+      VGDC_logo_26: 2712873184247357193
+      VGDC_logo_27: 4140204995085244723
+      VGDC_logo_28: -6792198567717905601
+      VGDC_logo_29: -5616776786331592942
+      VGDC_logo_3: -8990954970003585341
+      VGDC_logo_30: 5868244729377526446
+      VGDC_logo_31: -650881226245624848
+      VGDC_logo_32: -5569658963211403877
+      VGDC_logo_33: -8365745995878643213
+      VGDC_logo_34: -8470812927976614262
+      VGDC_logo_35: 7572420640812897264
+      VGDC_logo_36: -1948238688450394452
+      VGDC_logo_37: -2022246965305295007
+      VGDC_logo_38: -3421971232496517951
+      VGDC_logo_4: 7802697743206548874
+      VGDC_logo_5: 6776474540317180018
+      VGDC_logo_6: 928463150344204524
+      VGDC_logo_7: 8284396773778645837
+      VGDC_logo_8: 5355173682429001774
+      VGDC_logo_9: -4754351468049082898
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

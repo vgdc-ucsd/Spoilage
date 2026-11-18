@@ -17,3 +17,17 @@ MonoBehaviour:
   _normalSprite: {fileID: 21300000, guid: 6c5c45284371446c0a91941e03889837, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: c5802340f0e974d119717483b62a27e8, type: 3}
   _plateSprite: {fileID: 21300000, guid: 2748ed2f667a24574804e779085476e4, type: 3}
+  _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: The pairing of the salty cheese and the filling
+    bread has a history as ancient as the sun and the moon. Some people lauded it
+    as the perfect dish to encapsulate old Verehn, the rich cheese complementing
+    the baked, tasteless bread and the latter stretching the supply of the other.
+    These people were probably the nobles, who had the spare time to muse about their
+    meal instead of struggling to find their next one.
+  _recipeBookDescriptionSpoiled: Haughty nobles used to put stinky cheese on sour
+    bread, which was alien to everyone but them. This might either be an attempt
+    to emulate that, or just a happy coincidence. Nevertheless, the sharp and tangy
+    cheese could only be dampened by the texture of stale bread, which somehow makes
+    the dish the more popular option for people who salivate for the more decadent
+    or decayed things in life. Whoever they are, the government will be watching
+    them.

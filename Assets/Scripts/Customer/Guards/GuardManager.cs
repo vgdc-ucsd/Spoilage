@@ -11,10 +11,19 @@ public class GuardManager : Singleton<GuardManager>
 
     private int _remainingGuardCalls;
     private int _totalGuardCalls;
+
     private const float GUARD_DISTANCE = 250f;
     private const float GUARD_WALK_DURATION = 1.5f;
     private const float GUARD_SCALE = 0.594f;
     private const float GUARD_HEIGHT_OFFSET = 100f;
+
+    private const string UNLUCKY_TWIN_BOY_ID = "Unlucky Twin Boy";
+    private const string UNLUCKY_TWIN_GIRL_ID = "Unlucky Twin Girl";
+
+    private Vector3 GuardOffset(float x, float y = 0f)
+    {
+        return _guardParent.TransformVector(new Vector3(x, y, 0f));
+    }
 
     public void Init()
     {
@@ -39,47 +48,91 @@ public class GuardManager : Singleton<GuardManager>
         _refusalButton.Lock(locked);
     }
 
-    public void RemoveCustomer()
+    public bool RemoveCustomer()
     {
         if (_remainingGuardCalls == 0)
         {
-            // TODO
-            return;
+            return false;
         }
 
-        Customer currentCustomer = CustomerLineManager.Instance.CurrentCustomer;
+        Customer currentCustomer =
+            CustomerLineManager.Instance.CurrentCustomer;
+        if (currentCustomer == null
+            || currentCustomer.customerData == null
+            || currentCustomer.customerData.spoilage == CustomerData.Spoilage.STAGE_II
+            || currentCustomer.customerData.tier == CustomerData.Tier.Key)
+        {
+            return false;
+        }
+
         SaveManager.Instance.Player.DayData.CustomersRefused++;
         _remainingGuardCalls--;
-        _guardsStaminaBar.SetStamina(_remainingGuardCalls/(float)_totalGuardCalls);
+
+        _guardsStaminaBar.SetStamina(
+            _remainingGuardCalls / (float)_totalGuardCalls
+        );
+
         _refusalButton.Lock(true);
 
-        if (currentCustomer.customerData.tier == CustomerData.Tier.SemiKey && !StoryManager.Instance.IsRejectedSemikey(currentCustomer.customerData))
+        if (currentCustomer.customerData.tier == CustomerData.Tier.SemiKey
+            && !StoryManager.Instance.IsRejectedSemikey(
+                currentCustomer.customerData))
         {
-            SaveManager.Instance.Player.RejectedSemikeyCharacters.Add(currentCustomer.customerData.id);
+            SaveManager.Instance.Player.RejectedSemikeyCharacters.Add(
+                currentCustomer.customerData.id
+            );
+
+            // rejecting one twin automatically rejects the other twin
+            if (currentCustomer.customerData.id == UNLUCKY_TWIN_BOY_ID)
+            {
+                SaveManager.Instance.Player.RejectedSemikeyCharacters.Add(
+                    UNLUCKY_TWIN_GIRL_ID
+                );
+            }
+            else if (currentCustomer.customerData.id == UNLUCKY_TWIN_GIRL_ID)
+            {
+                SaveManager.Instance.Player.RejectedSemikeyCharacters.Add(
+                    UNLUCKY_TWIN_BOY_ID
+                );
+            }
         }
 
-        Vector3 heightOffset = Vector3.up * GUARD_HEIGHT_OFFSET;
-        CustomerMovement rightGuard = Instantiate(_guardPrefab, _guardParent);
-        CustomerMovement leftGuard = Instantiate(_guardPrefab, _guardParent);
-        rightGuard.transform.position = _customerSpawnpoint.position + heightOffset;
-        leftGuard.transform.position = _customerSpawnpoint.position + (Vector3.left * GUARD_DISTANCE) + heightOffset;
+        CustomerMovement rightGuard =
+            Instantiate(_guardPrefab, _guardParent);
+
+        CustomerMovement leftGuard =
+            Instantiate(_guardPrefab, _guardParent);
+
         rightGuard.transform.localScale = Vector3.one * GUARD_SCALE;
         leftGuard.transform.localScale = Vector3.one * GUARD_SCALE;
 
+        rightGuard.transform.position =
+            _customerSpawnpoint.position
+            + GuardOffset(0f, GUARD_HEIGHT_OFFSET);
+
+        leftGuard.transform.position =
+            _customerSpawnpoint.position
+            + GuardOffset(-GUARD_DISTANCE, GUARD_HEIGHT_OFFSET);
+
         leftGuard.WalkTo(
-            _customerOrderPoint.transform.position + (Vector3.left * (GUARD_DISTANCE / 2f)),
+            _customerOrderPoint.position + GuardOffset(-GUARD_DISTANCE),
             GUARD_WALK_DURATION,
             null
         );
-
+        
         rightGuard.WalkTo(
-            _customerOrderPoint.transform.position + (Vector3.right * (GUARD_DISTANCE / 2f)),
+            _customerOrderPoint.position + GuardOffset(GUARD_DISTANCE),
             GUARD_WALK_DURATION,
             () => InteractCustomer(currentCustomer, leftGuard, rightGuard)
         );
+
+        return true;
     }
 
-    private void InteractCustomer(Customer customer, CustomerMovement leftGuard, CustomerMovement rightGuard)
+    private void InteractCustomer(
+        Customer customer,
+        CustomerMovement leftGuard,
+        CustomerMovement rightGuard)
     {
         DialogueManager.Instance.PlayDialogue(
             customer.Dialogue.Reject,
@@ -88,16 +141,21 @@ public class GuardManager : Singleton<GuardManager>
         );
     }
 
-    private void TakeCustomer(Customer customer, CustomerMovement leftGuard, CustomerMovement rightGuard)
+    private void TakeCustomer(
+        Customer customer,
+        CustomerMovement leftGuard,
+        CustomerMovement rightGuard)
     {
         leftGuard.WalkTo(
-            _customerSpawnpoint.transform.position + (Vector3.left * GUARD_DISTANCE),
+            _customerSpawnpoint.position
+                + GuardOffset(-GUARD_DISTANCE * 2f),
             GUARD_WALK_DURATION,
             () => Destroy(leftGuard.gameObject)
         );
 
         customer.Movement.WalkTo(
-            _customerSpawnpoint.transform.position + (Vector3.left * (GUARD_DISTANCE / 2f)),
+            _customerSpawnpoint.position
+                + GuardOffset(-GUARD_DISTANCE / 2f),
             GUARD_WALK_DURATION,
             () =>
             {
@@ -107,7 +165,7 @@ public class GuardManager : Singleton<GuardManager>
         );
 
         rightGuard.WalkTo(
-            _customerSpawnpoint.transform.position,
+            _customerSpawnpoint.position,
             GUARD_WALK_DURATION,
             () => Destroy(rightGuard.gameObject)
         );

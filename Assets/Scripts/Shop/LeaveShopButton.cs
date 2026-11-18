@@ -4,6 +4,7 @@ public class LeaveShopButton : MonoBehaviour
 {
     public void Click()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         SaveManager.Instance.SaveToNew();
         
         if (ProgressionManager.Instance.Purchased.Contains(UpgradeID.CookingInstant))

@@ -14,8 +14,12 @@
   "Reject": [
     "This is how you repay my kindness? What of our feud!?"
   ],
-  "Item": {
-    "Stage": "success",
-    "ID": "PocketsTheRat"
-  }
+  "Items": [
+    {
+      "ID": "PocketsTheRat",
+      "Stage": "gives",
+      "Success": [],
+      "Fail": []
+    }
+  ]
 }

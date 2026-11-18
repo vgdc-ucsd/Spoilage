@@ -76,7 +76,8 @@ public class ManualStation : Station
         }
 
         if (FoodState == FoodState.Preparing)
-        {    
+        {
+            PlayStationSFX(StationSound.Click);
             _clickCountdown--;
             float progress = (NUM_CLICKS - _clickCountdown) / (float)NUM_CLICKS;
             _ui.SetClicks(progress);

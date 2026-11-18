@@ -15,4 +15,10 @@ public class GraphDatabase<T> : ScriptableObject
     {
         _nodes = nodes;
     }
+
+    public GraphNode<T> LoadFromID(int? id)
+    {
+        if (id == null || id == -1) return null;
+        return _nodes.Find(node => node.ID == id);
+    }
 }

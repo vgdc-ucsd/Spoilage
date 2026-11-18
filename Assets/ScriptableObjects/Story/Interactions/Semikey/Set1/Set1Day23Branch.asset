@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 061237bbe6279f94fb563a7eacd90afb, type: 3}
+  m_Name: Set1Day23Branch
+  m_EditorClassIdentifier: Assembly-CSharp::SemikeysServedRejectedBranch
+  _servedSemikeyIds:
+  - Drunk
+  - Unlucky Twin Boy
+  - Unlucky Twin Girl
+  _rejectedSemikeyIds: []
+  _meetsCondition: {fileID: 11400000, guid: e8b8300afd100b94b933829203a06b7b, type: 2}
+  _doesNotMeetCondition: {fileID: 11400000, guid: 0a009ba21ae85d54c9631085084242ee, type: 2}

@@ -18,30 +18,36 @@ public class StationUnlockPopup : MonoBehaviour
     public void Show(StationData station)
     {
         gameObject.SetActive(true);
-        
+
         switch (station.StationCategory)
         {
             case StationCategory.CuttingBoard:
                 _popupBG.sprite = _cuttingBoardUnlock;
                 break;
+
             case StationCategory.Pot:
                 _popupBG.sprite = _potUnlock;
                 break;
+
             case StationCategory.Grill:
                 _popupBG.sprite = _grillUnlock;
                 break;
+
             case StationCategory.Oven:
                 _popupBG.sprite = _ovenUnlock;
                 break;
+
             case StationCategory.Blender:
                 _popupBG.sprite = _blenderUnlock;
                 break;
+
             case StationCategory.SeasoningStation:
                 _popupBG.sprite = _seasoningStationUnlock;
                 break;
+
             default:
                 Debug.LogError("Unrecognized Station");
-                break;    
+                break;
         }
 
         _tile.Init(station, this);
@@ -54,18 +60,38 @@ public class StationUnlockPopup : MonoBehaviour
 
     public IEnumerator HideNewStationPopup()
     {
-        Vector3 _initPopupPos = _rt.position;
-        Vector3 _targetPopupPos = new(_rt.position.x - _rt.sizeDelta.x, _rt.position.y);
+        Canvas.ForceUpdateCanvases();
+
+        Canvas canvas = _rt.GetComponentInParent<Canvas>().rootCanvas;
+        RectTransform canvasRect = (RectTransform)canvas.transform;
+        Transform parent = _rt.parent;
+        Vector3 initPopupPos = _rt.localPosition;
+        Vector3[] corners = new Vector3[4];
+        _rt.GetWorldCorners(corners);
+
+        float popupRight = float.NegativeInfinity;
+        foreach (Vector3 corner in corners)
+        {
+            float cornerX = canvasRect.InverseTransformPoint(corner).x;
+            popupRight = Mathf.Max(popupRight, cornerX);
+        }
+
+        const float padding = 20f;
+        float moveX = Mathf.Min(0f, canvasRect.rect.xMin - popupRight - padding);
+        Vector3 worldOffset = canvasRect.TransformVector(new Vector3(moveX, 0f, 0f));
+        Vector3 targetPopupPos = initPopupPos + parent.InverseTransformVector(worldOffset);
 
         yield return BasicAnimations.Interpolate(
             null,
             (t) =>
             {
                 float curve = BasicAnimations.EaseInBack(t);
-                _rt.position = Vector3.Lerp(_initPopupPos, _targetPopupPos, curve);
+                _rt.localPosition = Vector3.LerpUnclamped(initPopupPos, targetPopupPos, curve);
             },
             null,
             _closePopupAnimTime
         );
+
+        _rt.localPosition = targetPopupPos;
     }
 }

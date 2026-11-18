@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5205ff5ba9f93c49aecf6aa684a5905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemManager
-  _giveItemUI: {fileID: 0}
+  _giveItemUis: []
   _items:
   - {fileID: 11400000, guid: 3761a98cd45f54a43b8b764999e2ea6b, type: 2}
   - {fileID: 11400000, guid: 1e96aaa8141cf374abc8ba7181d77bdc, type: 2}
@@ -342,7 +342,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5032500100283804589}
   - component: {fileID: 8424510654417549175}
-  - component: {fileID: 6838370081307613417}
   - component: {fileID: 2905510979006516773}
   - component: {fileID: 723552552001354254}
   m_Layer: 0
@@ -408,21 +407,11 @@ MonoBehaviour:
   _upgrade3Tiles:
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &6838370081307613417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6058785343092346337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f0c5e33ed1d9344f904eb1474af1b4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RecipeManager
-  recipeJsonFile: {fileID: 4900000, guid: 7ea483cde0a4c6746ac64dadfe731a7c, type: 3}
-  allRecipes:
-    allRecipes: []
+  _cheeseSpawner: {fileID: 0}
+  _meatSpawner: {fileID: 0}
+  _veggieSpawner: {fileID: 0}
+  _sauceSpawner: {fileID: 0}
+  _potatoSpawner: {fileID: 0}
 --- !u!114 &2905510979006516773
 MonoBehaviour:
   m_ObjectHideFlags: 0

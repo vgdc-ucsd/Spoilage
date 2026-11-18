@@ -18,3 +18,11 @@ MonoBehaviour:
   _spoiledSprite: {fileID: 21300000, guid: 8585365e4f8654cf99a7cc5b82b01397, type: 3}
   _plateSprite: {fileID: 21300000, guid: 92fd3d1dd6e8b7643887753dc6adc18e, type: 3}
   _isSmallIngredient: 1
+  _recipeBookDescriptionUnspoiled: 'Once a recipe only found in the diaspora enclaves
+    in the eastern clusters of Verehn, the "long dough boil" as it is literally translated
+    into Aijin tongue has been integrated into many dishes for all to enjoy in the
+    gastronomy capital of the world. '
+  _recipeBookDescriptionSpoiled: Verehn absorbed so many culinary traditions and
+    techniques, it can make anybody feel bloated from the inside out. The hastily-made
+    noodles contract and expand, releasing pitch-black oil at its ends. This "omentum"
+    reportedly tastes like chicken, and is extracted for use in other recipes.

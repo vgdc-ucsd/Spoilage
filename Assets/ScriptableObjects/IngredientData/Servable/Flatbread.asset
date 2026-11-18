@@ -18,3 +18,16 @@ MonoBehaviour:
   _spoiledSprite: {fileID: 21300000, guid: be4b2c9711e2f524bb2ef25ae1305aec, type: 3}
   _plateSprite: {fileID: 21300000, guid: 9fb9950b2b45c3b488176cb97cbf21de, type: 3}
   _isSmallIngredient: 1
+  _recipeBookDescriptionUnspoiled: 'It does not get simpler than a piece of stretched
+    out dough, grilled until the taste of raw flour does not immediately assault
+    the mouth. This dish has been cooked, consumed and enjoyed for so long, one can
+    only wonder how many civilizations, regimes, and nations that the concept of
+    flatbread has witnessed. One thing shall hold true: a flatbread shall stand vigil
+    as Verehn falls. Who knows, it might be the one on the grill right now...'
+  _recipeBookDescriptionSpoiled: 'Alas, even the flatbread cannot stand for so long
+    against the current of time. Its short vigil ends with a slow deterioration,
+    peppered with fungal colonies spreading throughout its doughy body. However,
+    a small slice of society enjoys the sharp bristles of these mold spots brushing
+    against their palate, so it is a popular dish among these circles. If a society
+    enjoys this variation: is it a twisted sign of their slow decay, or will they
+    inherit the stalwart history of the flatbread in all of its forms?'

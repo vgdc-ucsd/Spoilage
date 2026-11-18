@@ -31,9 +31,6 @@ public class StoryManager : Singleton<StoryManager>
     public RadioNode RadioRoot => _radioRoot;
     public int QueuedSlots => _customerQueue.Count;
 
-    private bool _debug_firstCharacter = true;
-    [SerializeField] CustomerData _debug_warlordData;
-
     public List<InteractionsNode> InitRunTimelineGraphs()
     {
         List<InteractionsNode> _graphRoots = new List<InteractionsNode>

@@ -14,8 +14,12 @@
   "Reject": [
     "No…you can't! If I'm gone, who will protect Repose!? I thought I could trust you!"
   ],
-  "Item": {
-    "Stage": "success",
-    "ID": "CodedMessage"
-  }
+  "Items": [
+    {
+      "ID": "CodedMessage",
+      "Stage": "gives",
+      "Success": [],
+      "Fail": []
+    }
+  ]
 }

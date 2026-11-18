@@ -13,5 +13,17 @@
   ],
   "Reject": [
     "I do not regret killing him, kind Chef. I truly enjoy the time we spent together. Thank you for listening to me."
+  ],
+  "Items": [
+    {
+      "ID": "PocketsTheRat",
+      "Stage": "wants",
+      "Success": [
+        "Kind Chef….if only you were there when I was but a naive girl, with goodness still in me. But you came too late. I have found happiness my own way."
+      ],
+      "Fail": [
+        "Kind Chef….if only you were there when I was but a naive girl, with goodness still in me. But you came too late. I have found happiness my own way."
+      ]
+    }
   ]
 }

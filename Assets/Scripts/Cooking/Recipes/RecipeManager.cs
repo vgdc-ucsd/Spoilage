@@ -51,6 +51,8 @@ public class RecipeManager : Singleton<RecipeManager>
     /// </summary>
     void LoadRecipes()
     {
+        if (allRecipes.allRecipes.Length != 0) return;
+
         if (recipeJsonFile != null)
         {
             // THIS is what fills the "brain" of the manager
@@ -165,5 +167,61 @@ public class RecipeManager : Singleton<RecipeManager>
     public Recipe FindRecipe(string name)
     {
         return allRecipes.allRecipes.First(recipe => recipe.name == name);
+    }
+
+    public List<Recipe> DiscoverRecipes()
+    {
+        LoadRecipes();
+        List<Recipe> results = new List<Recipe>();
+
+        foreach (Recipe recipe in allRecipes.allRecipes)
+        {
+            if (recipe.servable)
+            {
+                if (CheckPlayerCanMakeRecipe(recipe))
+                {
+                    results.Add(recipe);
+                }
+            }
+        }
+
+        return results;
+    }
+
+    /// <summary>
+    /// Recursive function that goes through every required ingredient for a 
+    /// recipe until it reaches the base ingredients, then checks to see if 
+    /// that ingredient is unlocked.
+    /// </summary>
+    private bool CheckPlayerCanMakeRecipe(Recipe recipe)
+    {
+        // BASE CASE: Base ingredient, check if unlocked if not return false
+        if (recipe.requiredIngredients == null || recipe.requiredIngredients.Length == 0)
+        {
+            return SaveManager.Instance.Player.IngredientsUnlocked.Contains(recipe.name);
+        }
+
+        bool result = true;
+
+        // APPLIANCE CHECK: If an appliance is required check to make sure its 
+        // unlocked
+        if (recipe.appliance != "None" && recipe.appliance != "Spoil")
+        {
+            if (!SaveManager.Instance.Player.StationsUnlocked.Contains(recipe.appliance))
+            {
+                result = false;
+            }
+        }
+
+        // INGREDIENT CHECK: Go through each ingredient until reaching base case
+        foreach (RecipeRequirement ingredient in recipe.requiredIngredients)
+        {
+            if (!CheckPlayerCanMakeRecipe(allRecipes.allRecipes[ingredient.id]))
+            {
+                result = false;
+            }
+        }
+
+        return result;
     }
 }

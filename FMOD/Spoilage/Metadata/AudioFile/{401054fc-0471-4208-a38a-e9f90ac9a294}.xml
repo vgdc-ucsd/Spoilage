@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{401054fc-0471-4208-a38a-e9f90ac9a294}">
 		<property name="assetPath">
-			<value>WarlordTheme_WithIntro_Elijah (2).wav</value>
+			<value>Music/WarlordTheme_WithIntro_Elijah (2).wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

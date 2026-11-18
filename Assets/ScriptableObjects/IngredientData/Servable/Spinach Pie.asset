@@ -18,3 +18,13 @@ MonoBehaviour:
   _spoiledSprite: {fileID: 21300000, guid: 268a6bca3119b453f9fba7fbb0bfe33c, type: 3}
   _plateSprite: {fileID: 21300000, guid: 2d7ab3d8ca1fc453e9c1098b52d43df9, type: 3}
   _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: 
+  _recipeBookDescriptionSpoiled: A warm spinach pie was a common treat accompanied
+    by a grandmother's glowing smile and a cup of warm milk, as she regaled folk
+    stories next to the hearth. However, with spinach and other fresh greens now
+    a luxury, since fresh produce despise the little patches of toxic dirt left in
+    Verehn, the creamy and savory spinach pie seems as distant as Babushka's resting
+    place. Nevertheless, the people now must make do with what they have. If you
+    squint hard enough, the green streaks of mold in the half-melted cheese do look
+    like spinach, no? Just think back to that simpler time, beside your beloved grandmother,
+    then sully that memory with this 'spinach' pie.

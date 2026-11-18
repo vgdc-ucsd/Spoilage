@@ -14,8 +14,12 @@
   "Reject": [
     "What, you too scared to rebel? Didn't realize you were a goddamn coward, Chef."
   ],
-  "Item": {
-    "Stage": "success",
-    "ID": "PropagandaPamphlet"
-  }
+  "Items": [
+    {
+      "ID": "PropagandaPamphlet",
+      "Stage": "gives",
+      "Success": [],
+      "Fail": []
+    }
+  ]
 }

@@ -10,6 +10,7 @@ public class StarRatingSystem : MonoBehaviour
 
     public void UpdateStarRating(float rating)
     {
+        rating *= 5;
         int fullStarCount = Mathf.FloorToInt(rating);
         bool hasHalfStar = (rating - fullStarCount) >= 0.5f;
         for(int i = 0; i < _starImages.Length; i++)

@@ -54,6 +54,7 @@ public class Food : Placeable
     {
         _ui = ui;
         _ui.SetFood(this);
+        if (IsSpoiled) _ui.Spoil();
     }
 
     public void ChangeData(IngredientData newData)

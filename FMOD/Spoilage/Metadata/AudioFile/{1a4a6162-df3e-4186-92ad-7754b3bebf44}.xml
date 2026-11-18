@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{1a4a6162-df3e-4186-92ad-7754b3bebf44}">
 		<property name="assetPath">
-			<value>Shop_Theme_SofiaNguyen_ElijahGarcia_FMODver.wav</value>
+			<value>Music/Shop_Theme_SofiaNguyen_ElijahGarcia_FMODver.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

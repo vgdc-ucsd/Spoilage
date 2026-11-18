@@ -18,3 +18,13 @@ MonoBehaviour:
   _spoiledSprite: {fileID: 21300000, guid: 453083e8463504c4abfcb5f9741d21d7, type: 3}
   _plateSprite: {fileID: 21300000, guid: 98a260e95dadac34dbe701ff6163e68a, type: 3}
   _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: A chef that was thrown out of the royal kitchens
+    tried to replicate noble cuisine with what they had on hand. Among the many dishes,
+    most of them were scrapped, usually due to the extortionate price of ingredients.
+    But this dish survived the metaphysical chopping block and made its way onto
+    a real one. Since then, it has been a staple in eateries ever since. The lotus
+    root is soaked in acidic fruit juice to mimic the look and taste of grilled beef.
+  _recipeBookDescriptionSpoiled: Lotus roots usually need a lot of water and care
+    to sprout, but this sliced lotus piece defies natural order, blooming into a
+    bed of little flowers all on its own. Seems like even spoiled food can manifest
+    a desire to live.

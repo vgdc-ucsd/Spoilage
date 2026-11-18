@@ -17,3 +17,13 @@ MonoBehaviour:
   _normalSprite: {fileID: 21300000, guid: 256f0d015837048dc9dd967a6ccefbfb, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: 41874d5b1c7a64458aed084e87212f9b, type: 3}
   _plateSprite: {fileID: 21300000, guid: ec0d27520ca1d4e1393875af5ddb6d0b, type: 3}
+  _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: 'A hearty bowl of grilled ratenudel is the perfect
+    meal to give you enough energy to rebuild the country! The doughy and bouncy
+    texture is so close to its ''inspiration'' that some stores add the real thing,
+    a popular regional variation. '
+  _recipeBookDescriptionSpoiled: "\"A miracle! The blend of meat and cheese has somehow
+    rearranged itself back to actual rat tails!\" an apothecary exclaimed as he peered
+    into the bowl, watching the writhing mass lurch.  \r\n\r\n\u201CThe meat now
+    acts like muscle fibers and the cheese as sinew. Now, it\u2019s easy to pick
+    off the real rat tails since those are the only ones not moving!\u201D\r\n"

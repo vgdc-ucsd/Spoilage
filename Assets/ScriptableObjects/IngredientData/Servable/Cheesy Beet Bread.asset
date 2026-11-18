@@ -17,3 +17,20 @@ MonoBehaviour:
   _normalSprite: {fileID: 21300000, guid: 439333845acf64be7b41fe2f26ea6bc2, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: 56ad321ab177641f9a0feb9ce63558ef, type: 3}
   _plateSprite: {fileID: 21300000, guid: 92e1392c763c0417ca4a9d8f32ac89c1, type: 3}
+  _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: "Some time ago, when the heavens thundered and
+    the skies wept, a trader from the West came and asked for cheesy bread and a
+    red soup in broken Aijin. A tired and overworked chef had the unfortunate opportunity
+    to serve this strange man and his even stranger demands.  Spurred on by the man\u2019s
+    patterings in childish Aijin, the chef threw together this recipe from what he
+    had on hand. The trader cried out \"soup good!\" and \"feel best I!\"in between
+    big chomps of hot bread drenched in thick soup, and left into the stormy night
+    to who knows where. This recipe became a hit amongst the chef\u2019s customers
+    after she recreated it for days to come, especially the children waiting out
+    the stinging smog rains on their way home from a shift."
+  _recipeBookDescriptionSpoiled: Once a comforting dish for young children, this
+    spoiled soup now has a sour tang that runs alongside a reminiscent sweetness,
+    featuring an intoxicating bite only comparable to strong vodka. The majority
+    of kids despise this variation, but some cannot afford to pass on it. Others
+    prefer it, though, as nothing comparable can make you forget the sight of your
+    friends who end up on the wrong end of heavy machinery.

@@ -15,7 +15,7 @@ public class SummaryStats : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _customersServed;
     [SerializeField] private TextMeshProUGUI _customersRefused;
 
-    private const int RENT = -100;
+    private const int RENT = -50;
     private const string MONTH = "NOV";
 
     public void Start()
@@ -28,9 +28,8 @@ public class SummaryStats : MonoBehaviour
         PlayerData player = SaveManager.Instance.Player;
         int tax = CalculateTax();
 
-        // TODO
-        // float starRating = player.Reputation;
-        // _stars.UpdateStarRating();
+        float starRating = Mathf.Clamp01(player.Reputation / (float)player.ReputationMax);
+        _stars.UpdateStarRating(starRating);
 
         _calendarMonth.text = MONTH;
         _calendarDay.text = $"{player.Day}";

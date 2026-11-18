@@ -29,7 +29,7 @@
 			<destination>{610b1053-d300-464e-94cc-84e676d5cd7d}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{dad94fd8-30de-4409-bfa1-419fda5237ed}</destination>
+			<destination>{910dab5d-82c6-4ff9-9e35-c64f66bcc891}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{da1077d5-73f8-452c-b201-59b20aea1e25}">
@@ -69,6 +69,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{2c7a778e-3891-403c-89b2-ca8b9b36e79e}">
+		<property name="volume">
+			<value>3</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{5557faff-88f0-4348-8d62-2ecffa87fd45}</destination>
 		</relationship>
@@ -121,9 +124,61 @@
 	<object class="MixerBusEffectChain" id="{5557faff-88f0-4348-8d62-2ecffa87fd45}">
 		<relationship name="effects">
 			<destination>{6d55d757-ce02-4eed-8cb4-36966ddaa90f}</destination>
+			<destination>{ae034c87-1c26-40da-8c31-9eeae422aeae}</destination>
+			<destination>{ee6aab2e-17c5-4555-bdb4-a12dd30e5294}</destination>
+			<destination>{6dc786b4-ad61-4d42-9cdd-b809e4bd2243}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{c2d48575-c3a3-4a09-8751-b7f66aa60ae7}" />
 	<object class="MixerBusFader" id="{9904616e-a5e1-4224-b66c-469e77c95ff5}" />
 	<object class="MixerBusFader" id="{6d55d757-ce02-4eed-8cb4-36966ddaa90f}" />
+	<object class="SpectrumAnalyzer" id="{ae034c87-1c26-40da-8c31-9eeae422aeae}" />
+	<object class="MultibandEqEffect" id="{ee6aab2e-17c5-4555-bdb4-a12dd30e5294}">
+		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="filterTypeC">
+			<value>9</value>
+		</property>
+		<property name="filterTypeD">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>165.518555</value>
+		</property>
+		<property name="frequencyB">
+			<value>92.6610107</value>
+		</property>
+		<property name="frequencyC">
+			<value>9806.01563</value>
+		</property>
+		<property name="frequencyD">
+			<value>4370.81787</value>
+		</property>
+		<property name="qualityA">
+			<value>1.80000007</value>
+		</property>
+		<property name="qualityB">
+			<value>4.5999999</value>
+		</property>
+		<property name="qualityC">
+			<value>3.10000014</value>
+		</property>
+		<property name="gainA">
+			<value>-13.5</value>
+		</property>
+		<property name="gainB">
+			<value>7.63510799</value>
+		</property>
+		<property name="gainC">
+			<value>9.19544983</value>
+		</property>
+		<property name="gainD">
+			<value>0.873627663</value>
+		</property>
+	</object>
+	<object class="SpectrumAnalyzer" id="{6dc786b4-ad61-4d42-9cdd-b809e4bd2243}" />
 </objects>

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   _upgradeID: 30
   _upgradeType: 3
-  _name: Root Veggies
+  _name: Root Vegetables
   _description: 
   _defaultShopUpgrade: 0
   _temporary: 0

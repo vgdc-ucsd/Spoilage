@@ -17,3 +17,12 @@ MonoBehaviour:
   _normalSprite: {fileID: 21300000, guid: d1fbac8e85dbb468e87b2d8c7ec91084, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: d1fbac8e85dbb468e87b2d8c7ec91084, type: 3}
   _plateSprite: {fileID: 21300000, guid: 67cb2df357f834cd988ae3c88aa5421a, type: 3}
+  _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: 
+  _recipeBookDescriptionSpoiled: One of the few 'soups' that you can eat without
+    a spoon. Well-mannered patrons might use bread to push this thick sludge into
+    their maw, but these kinds of patrons would probably not order this dish in the
+    first place. A more common sight would be sickly pale people fishing for the
+    chunks of grey meat from the bowl with their fingers, and scooping out thick
+    paste alongside it. Some would even go so far as burying their ghastly face into
+    the bowl, only surfacing for air once nothing is left.

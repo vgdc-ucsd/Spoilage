@@ -17,3 +17,22 @@ MonoBehaviour:
   _normalSprite: {fileID: 21300000, guid: eb3fef37117263d4e8cced09b72459f7, type: 3}
   _spoiledSprite: {fileID: 21300000, guid: 6216fde1f1c152a4dbf36e1269ab255d, type: 3}
   _plateSprite: {fileID: 21300000, guid: bb99e8c488f81b242858fc9cb5d1367e, type: 3}
+  _isSmallIngredient: 0
+  _recipeBookDescriptionUnspoiled: A breakfast staple for all ages, beloved due to
+    its portability and versatility. Anything in season can be used as fillings to
+    make this sweet and light pastry. When apples flood the market tables, apple
+    kolaches would be seen in the hands of teenagers strutting up the streets. During
+    the hot summer months, apricot kolaches would decorate the bakeries in the City
+    Center. Pear was a popular variant during the cold winter months. Nowadays, only
+    hardy, borderline unspoilable cheese can be found in enough abundance for a lowly
+    cook like you to put into your kolaches.
+  _recipeBookDescriptionSpoiled: There's not exactly a conventional word to describe
+    this dish, but it tastes like a kolache's death. It tastes like the dough remembers
+    the feeling of its body being crushed, milled, beaten and burnt. It tastes like
+    the cheese was made from milk that squeezed out the last life essence of the
+    poor, poor cow, groaning in agony as its soul empties out into a bucket. It tastes
+    like the oven was angry about being beaten against its will into a machine of
+    flame, its rage searing into every molecule of the pastry. It tastes like the
+    pain, the disgust, the hate from the cook was distilled and each and every bite
+    of this pastry was given the sole purpose of inflicting all of this to another
+    person.

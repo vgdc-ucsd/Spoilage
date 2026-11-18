@@ -61,6 +61,7 @@ public class DialoguePlayer : MonoBehaviour
         {
             float startTime = Time.time;
 
+            AudioManager.Instance.PlaySFX("DialoguePopup");
             DialogueBubble bubble = Instantiate(_bubblePrefab);
             bubble.transform.SetParent(_dialogueSpawnpoint);
             bubble.transform.localScale = Vector3.one;

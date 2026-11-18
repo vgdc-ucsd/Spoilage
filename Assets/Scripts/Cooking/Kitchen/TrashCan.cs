@@ -36,6 +36,7 @@ public class TrashCan : MonoBehaviour
         Placeable placeable = tile.Produces();
         if (placeable == null || placeable is Station) return;
 
+        AudioManager.Instance.PlaySFX("Trash");
         tile.Remove();
         placeable.Destroy();
         Toggle();

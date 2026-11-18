@@ -29,7 +29,7 @@
 			<destination>{b524800d-07c5-4a4c-9d1e-915465b3d916}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{dad94fd8-30de-4409-bfa1-419fda5237ed}</destination>
+			<destination>{910dab5d-82c6-4ff9-9e35-c64f66bcc891}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{1aa033a8-828a-4949-899c-56635244fb8f}">
@@ -67,6 +67,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{0a966736-3548-4d7e-ba0c-7388deded57a}">
+		<property name="volume">
+			<value>-12.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{0a9f4e89-2727-47c6-979e-6ef2467f055b}</destination>
 		</relationship>
@@ -108,9 +111,29 @@
 	<object class="MixerBusEffectChain" id="{0a9f4e89-2727-47c6-979e-6ef2467f055b}">
 		<relationship name="effects">
 			<destination>{59d10fb5-c62b-421b-b85d-67b40c5c5108}</destination>
+			<destination>{956030e2-0be2-4a07-9965-6d25a8e671ab}</destination>
+			<destination>{237b1714-1407-4cf1-8ed2-607b28047012}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{471628fb-6697-41e9-af4e-a2a7c5293cab}" />
 	<object class="MixerBusFader" id="{1e282b8c-0bc4-4a9f-83da-bdb4f244a520}" />
 	<object class="MixerBusFader" id="{59d10fb5-c62b-421b-b85d-67b40c5c5108}" />
+	<object class="SpectrumAnalyzer" id="{956030e2-0be2-4a07-9965-6d25a8e671ab}" />
+	<object class="MultibandEqEffect" id="{237b1714-1407-4cf1-8ed2-607b28047012}">
+		<property name="filterTypeA">
+			<value>0</value>
+		</property>
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="frequencyB">
+			<value>240.333511</value>
+		</property>
+		<property name="qualityB">
+			<value>1.75</value>
+		</property>
+		<property name="gainB">
+			<value>-6</value>
+		</property>
+	</object>
 </objects>
