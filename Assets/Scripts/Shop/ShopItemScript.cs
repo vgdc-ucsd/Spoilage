@@ -21,7 +21,6 @@ public class ShopItemScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     void Start()
     {
         _origScale = transform.localScale;
-        _descriptionField.gameObject.SetActive(false);
         UpdateGUI();
     }
 
@@ -53,7 +52,8 @@ public class ShopItemScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         {
             AudioManager.Instance.PlaySFX("ShopHover");
             transform.localScale *= 1.1f;
-            FlipCard();
+            // FlipCard();
+            ShowTooltip();
         }
 
         // if (CanBuy())
@@ -65,7 +65,8 @@ public class ShopItemScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         transform.localScale = _origScale;
         
         if (!_bought) 
-            FlipCard();
+            HideTooltip();
+            // FlipCard();
 
         // Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
@@ -79,18 +80,31 @@ public class ShopItemScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
             UpdateGUI();
             transform.localScale = _origScale;
-            FlipCard();
+            HideTooltip();
+            // FlipCard();
             // Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
 
-    private void FlipCard()
+    // private void FlipCard()
+    // {
+    //     // don't show the description if it's an ingredient upgrade because there are no descriptions for ingredients
+    //     if (upgrade.UpgradeType == UpgradeType.Ingredient) return;
+
+    //     _descriptionField.gameObject.SetActive(!_descriptionField.gameObject.activeSelf);
+    //     _typeField.gameObject.SetActive(!_typeField.gameObject.activeSelf);
+    //     _itemImage.gameObject.SetActive(!_itemImage.gameObject.activeSelf);
+    // }
+
+    private void ShowTooltip()
     {
-        // don't show the description if it's an ingredient upgrade because there are no descriptions for ingredients
         if (upgrade.UpgradeType == UpgradeType.Ingredient) return;
 
-        _descriptionField.gameObject.SetActive(!_descriptionField.gameObject.activeSelf);
-        _typeField.gameObject.SetActive(!_typeField.gameObject.activeSelf);
-        _itemImage.gameObject.SetActive(!_itemImage.gameObject.activeSelf);
+        ShopTooltip.Instance.Show(upgrade.Description);
+    }
+
+    private void HideTooltip()
+    {
+        ShopTooltip.Instance.Hide();
     }
 }

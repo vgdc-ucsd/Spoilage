@@ -21,5 +21,5 @@ MonoBehaviour:
   _temporary: 1
   _unlocks: []
   _cost: 50
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 9e073adba9db80442a70c06e566f1df3, type: 3}
   _color: {r: 1, g: 1, b: 1, a: 1}
