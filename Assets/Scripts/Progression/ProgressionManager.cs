@@ -21,6 +21,9 @@ public class ProgressionManager : Singleton<ProgressionManager>
     public List<UpgradeID> StationQueue { get; private set; }
     public Dictionary<UpgradeID, Upgrade> Upgrades { get; private set; }
     public RadioNode RadioNode => _radioTimeline;
+    public UpgradeNode UpgradeNode => _upgradeTimeline;
+    public List<InteractionsNode> Interactions => _interactionTimelines;
+    public List<Recipe> RecipesUnlocked => _recipesUnlocked;
 
     [SerializeField] private Upgrade _debugUpgrade;
     [SerializeField] private bool _debugAdd;
@@ -39,9 +42,6 @@ public class ProgressionManager : Singleton<ProgressionManager>
             DebugAddToPurchasedUpgrades();
         }
     }
-    public UpgradeNode UpgradeNode => _upgradeTimeline;
-    public List<InteractionsNode> Interactions => _interactionTimelines;
-    public List<Recipe> RecipesUnlocked => _recipesUnlocked;
 
     public void Init(PlayerData player, bool newPlayer)
     {

@@ -80,7 +80,7 @@ public class CookingManager : Singleton<CookingManager>
                 
                 float streakRewardMult = HandleStreakRewardMult();
                 float customerTip = HandleTipReward(customer.customerData.patience);
-                SaveManager.Instance.Player.DayData.Profits += Mathf.FloorToInt(match.reward * (1 + food.QualityPercent) * streakRewardMult);
+                SaveManager.Instance.Player.DayData.Profits += Mathf.FloorToInt(foodMatch.reward * (1 + food.QualityPercent) * streakRewardMult);
                 
                 SaveManager.Instance.Player.DayData.CustomersServed++;
 
