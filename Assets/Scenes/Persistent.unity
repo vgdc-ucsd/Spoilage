@@ -744,6 +744,7 @@ MonoBehaviour:
       CustomersServed: 0
       CustomersRefused: 0
       Streak: 0
+      RemainingInstantStationUses: 0
       Profits: 0
     RecipesUnlocked: []
     StationsUnlocked:
@@ -764,6 +765,7 @@ MonoBehaviour:
     KitchenItems: []
     PendingStation: Grill
     GameOverCondition: 0
+    SeenSemikeyCharacters: []
     RejectedSemikeyCharacters: []
     resistanceScore: 7
   Settings:
@@ -1044,6 +1046,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ed1aa44aed6d67847b6f1dbe081687c4, type: 2}
   - {fileID: 11400000, guid: 862da7d00920060419d429e2b6a2adc3, type: 2}
   - {fileID: 11400000, guid: 630692fe6b2d99b439b503a072912579, type: 2}
+  _debugUpgrade: {fileID: 11400000, guid: 07c958658e6290946be72d48bef07601, type: 2}
+  _debugAdd: 0
 --- !u!1 &1959971576
 GameObject:
   m_ObjectHideFlags: 0

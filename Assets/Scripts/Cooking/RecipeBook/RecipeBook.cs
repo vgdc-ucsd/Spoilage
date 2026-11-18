@@ -46,14 +46,14 @@ public class RecipeBook : MonoBehaviour
 
     public void SelectRecipe(int index)
     {
-        Recipe recipe = _recipes[index];
-        IngredientData ingredient = IngredientLookup.Get(recipe.name);
+        // Recipe recipe = _recipes[index];
+        // IngredientData ingredient = IngredientLookup.Get(recipe.name);
 
-        _recipeNameText.text = ingredient.Name;
-        _recipeImage.sprite = ingredient.NormalSprite;
-        _recipePlate.sprite = ingredient.PlateSprite;
+        // _recipeNameText.text = ingredient.Name;
+        // _recipeImage.sprite = ingredient.NormalSprite;
+        // _recipePlate.sprite = ingredient.PlateSprite;
 
-        _steps = FindSteps(recipe);
+        // _steps = FindSteps(recipe);
     }
 
     private List<Recipe> FindSteps(Recipe root)

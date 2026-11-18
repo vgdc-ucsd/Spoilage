@@ -17,6 +17,24 @@ public class ProgressionManager : Singleton<ProgressionManager>
     public Dictionary<UpgradeID, Upgrade> Upgrades { get; private set; }
     public RadioNode RadioNode => _radioTimeline;
 
+    [SerializeField] private Upgrade _debugUpgrade;
+    [SerializeField] private bool _debugAdd;
+
+    public void DebugAddToPurchasedUpgrades()
+    {
+        if (_debugUpgrade != null)
+            Purchased.Add(_debugUpgrade.UpgradeID);
+    }
+
+    void Update()
+    {
+        if (_debugAdd)
+        {
+            _debugAdd = false;
+            DebugAddToPurchasedUpgrades();
+        }
+    }
+
     public override void Awake()
     {
         // TODO init from save script instead of awake and pass loaded data
@@ -118,6 +136,13 @@ public class ProgressionManager : Singleton<ProgressionManager>
             {
                 Unlock(upgrade.UpgradeID);
             }
+        }
+
+        // Handle temporary upgrades (ensure they don't persists between days)
+        foreach (var upgrade in Purchased)
+        {
+            if (Upgrades[upgrade].Temporary)
+                Purchased.Remove(upgrade);
         }
 
         _radioTimeline = (RadioNode) _radioTimeline?.Advance(day);
